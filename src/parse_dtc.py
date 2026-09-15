@@ -34,14 +34,23 @@ BOILERPLATE = [
     re.compile(r"^Date:\s*\d{2}/\d{2}/\d{4}"),
     re.compile(r"^Author:\s*ERC"),
     re.compile(r"^Page\s*\d*\s*(of)?\s*\d*$"),
-    re.compile(r"^\d+\s*$"),                       # orphaned "545" from a wrapped footer
+    # The footer "Page N of 545" often wraps, orphaning a bare "545" on its own
+    # line. Match ONLY that token - a generic ^\d+$ rule would also delete the
+    # wrapped continuation of a Sr.No cell (a lone "10" under "Step").
+    re.compile(r"^545$"),
     re.compile(r"^Copyright by TATA MOTORS"),
     re.compile(r"^This document must not be used"),
 ]
 
-DTC_HEADER = re.compile(r"^(P[0-9A-F]{4})-([0-9A-F]{2})\s*:\s*(.+)$", re.I)
+# Families: P (powertrain) and U (network/CAN). The manual carries 3 U-codes
+# (U0102-00, U011A-00, U011A-89); matching only P silently folds them into the
+# preceding record. B/C are included defensively.
+DTC_HEADER = re.compile(r"^([PUBC][0-9A-F]{4})-([0-9A-F]{2})\s*:\s*(.+)$", re.I)
 SR_NO = re.compile(r"^Step\s*\.?\s*(\d+)\s*$", re.I)
-GOTO = re.compile(r"go\s*to\s*step\s*(?:no\.?\s*)?(\d+)", re.I)
+# "go to Step 9 & 11" / "go to Step 8 & 10" branch to BOTH targets, so the
+# trailing "& N" list is captured too, not just the first number.
+GOTO = re.compile(
+    r"go\s*to\s*step\s*(?:no\.?\s*)?(\d+(?:\s*(?:&|and|,)\s*\d+)*)", re.I)
 
 SECTIONS = {
     "overview":            re.compile(r"^Overview\s*:", re.I),
@@ -55,18 +64,39 @@ SECTIONS = {
 NUMBERED = re.compile(r"^(\d+)\s*[.)]\s*(.*)$")
 
 # system tagging drives component/system queries (Phase 5 metadata filter)
+BRANCH_CATALOGUE = {}   # signature -> {count, example, example_dtc, ...}
+
 SYSTEM_RULES = [
-    ("rail_pressure", r"rail\s*pressure|fuel\s*rail"),
-    ("injector",      r"injector"),
-    ("egr",           r"\begr\b|exhaust\s*gas\s*recirc"),
-    ("turbo_boost",   r"turbo|boost|charge\s*air|waste\s*gate|wastegate"),
-    ("coolant",       r"coolant|engine\s*temp"),
-    ("intake_air",    r"intake\s*air|\biat\b|air\s*temp|maf|mass\s*air"),
-    ("fuel_supply",   r"fuel\s*(pump|supply|metering|temperature)|\bmprop\b"),
-    ("o2_exhaust",    r"oxygen|lambda|\bo2\b|exhaust\s*temp|\bdpf\b|\bscr\b|urea|nox"),
-    ("electrical",    r"battery|voltage|ground|short\s*circuit|open\s*circuit|relay"),
-    ("sensor_generic", r"sensor"),
-    ("ecu_internal",  r"\becu\b|\bems\b|fccu|internal|checksum|watchdog"),
+    # Ordered most-specific-first; the first match wins. Hardware/subsystem rules
+    # precede the broad level-2 monitoring rule, so "plausibility check of the
+    # exhaust-gas temperature sensor" tags as exhaust, not as monitoring.
+    ("scr_def",          r"reductant|\bdef\b|urea|adblue|\bscr\b|tank level|"
+                         r"fluid property|concentration stuck|dosing"),
+    ("dpf_regen",        r"particulate filter|\bdpf\b|soot|ash load|regeneration|"
+                         r"\bdoc\b|diesel oxidation"),
+    ("exhaust_throttle", r"exhaust throttle|\betv\b"),
+    ("egr",              r"\begr\b|exhaust\s*gas\s*recirc"),
+    ("turbo_boost",      r"turbo|boost|charge\s*air|waste\s*gate|wastegate"),
+    ("rail_pressure",    r"rail\s*pressure|fuel\s*rail"),
+    ("injector",         r"injector"),
+    ("fuel_supply",      r"metering unit|pressure relief valve|fuel pressure regulator|"
+                         r"water in fuel|fuel filter|hose line|fuel\s*(pump|supply|"
+                         r"metering|temperature)|\bmprop\b|fuel cut off|fuel system"),
+    ("engine_position",  r"crankshaft|camshaft"),
+    ("pedal_clutch_brake", r"pedal|clutch|brake|accelerator"),
+    ("vehicle_speed",    r"vehicle speed"),
+    ("coolant",          r"coolant|engine\s*temp"),
+    ("intake_air",       r"intake\s*air|\biat\b|air\s*temp|maf|mass\s*air|air mass|"
+                         r"governor deviation|ambient temperature"),
+    ("can_network",      r"can bus|can internal|\bcan\b"),
+    ("o2_exhaust",       r"oxygen|lambda|\bo2\b|exhaust|\bnox\b"),
+    ("level2_monitoring", r"energizing time|level 1|level 2|torque monitoring|"
+                          r"engine speed|injection cut off|\bqwc\b|\bpoi\d|"
+                          r"operating mode|remote app|post.build|plausibility|"
+                          r"monitoring"),
+    ("electrical",       r"battery|voltage|ground|short\s*circuit|open\s*circuit|relay"),
+    ("sensor_generic",   r"sensor"),
+    ("ecu_internal",     r"\becu\b|\bems\b|fccu|internal|checksum|watchdog"),
 ]
 
 
@@ -99,7 +129,7 @@ def is_boilerplate(text):
     return any(p.match(t) for p in BOILERPLATE)
 
 
-def column_bounds(page, y0, y1, cluster_tol=8.0, min_support=3):
+def column_bounds(page, y0, y1, cluster_tol=8.0, min_support=2):
     """
     Column x-boundaries for the table occupying [y0, y1].
 
@@ -108,7 +138,10 @@ def column_bounds(page, y0, y1, cluster_tol=8.0, min_support=3):
     (the left cell's right border, its inner padding edge, the right cell's
     padding edge, its left border). Clustering tightly would invent phantom
     columns, so nearby edges are merged with a wider tolerance and a boundary is
-    kept only when many rows support it. Returns interior boundaries only.
+    kept only when several edges support it. `min_support` is deliberately low:
+    a steps table continuing onto a new page can have a SINGLE row, and each
+    boundary then draws only ~2 edges. The wide cluster tolerance is what
+    suppresses phantom columns, not the support count.
     """
     xs = []
     for e in list(page.edges) + list(page.lines):
@@ -164,11 +197,39 @@ def step_rows(page, y0, y1, bounds):
     # NB: boilerplate is a LINE-level concept - never filter individual words here.
     # The footer rule `^\d+$` would otherwise eat the bare numeral in "Step 1".
     words = [w for w in page.extract_words() if y0 - 1 <= w["top"] <= y1 + 1]
-    rows = []
+    # Build per-line column splits first, so a Sr.No cell that WRAPS across two
+    # lines can be stitched before rows are assembled. In a narrow Sr.No column
+    # "Step 10" can render as "Step" on one line and "10" on the next (seen on
+    # p.37, p.40, p.43, p.203); without this the final row is invisible and its
+    # text is swallowed by the previous step.
+    split = []
     for ln in group_lines(words):
         if is_boilerplate(line_text(ln)):
             continue
-        cols = assign_columns(ln, bounds)
+        split.append(assign_columns(ln, bounds))
+
+    merged, skip = [], False
+    for i, cols in enumerate(split):
+        if skip:
+            skip = False
+            continue
+        nxt = split[i + 1] if i + 1 < len(split) else None
+        # A bare integer alone in the Sr.No column can only be the tail of a
+        # wrapped "Step NN" cell - a real row always carries "Step" and its
+        # number together. The number usually shares a line with the SECOND line
+        # of that row's step text, so that text is folded in as a continuation.
+        if (re.fullmatch(r"Step\s*\.?", cols[0].strip(), re.I) and nxt
+                and re.fullmatch(r"\d+", nxt[0].strip())):
+            cols = list(cols)
+            cols[0] = f"Step {nxt[0].strip()}"
+            for c in range(1, min(len(cols), len(nxt))):
+                if nxt[c].strip():
+                    cols[c] = (cols[c] + " " + nxt[c]).strip()
+            skip = True
+        merged.append(cols)
+
+    rows = []
+    for cols in merged:
         sr = cols[0].strip()
         if SR_NO.match(sr) or re.match(r"^Sr\.?\s*No", sr, re.I):
             rows.append([sr, cols[1] if len(cols) > 1 else "",
@@ -184,9 +245,51 @@ def step_rows(page, y0, y1, bounds):
     return [r for r in rows if not re.match(r"^Sr\.?\s*No", r[0], re.I)]
 
 
+# --- branching-phrase instrumentation ---------------------------------------
+# Phase 6 will need to model branch POLARITY (which target is the pass case and
+# which the fail case). Rather than guess the schema from one example, the full
+# parse catalogues every distinct branching phrase shape with counts + examples,
+# so the model can be designed from corpus evidence. Raw step text is never
+# altered - this only derives a signature alongside it.
+BRANCH_MARKERS = re.compile(
+    r"(go\s*to\s*step\s*(?:no\.?\s*)?\d+"
+    r"|if\s+not\b|if\s+yes\b|if\s+no\b|if\s+ok\b|if\s+true\b"
+    r"|\bif\b|\bthen\b|\belse\b|\botherwise\b|\brepeat\b)", re.I)
+
+
+def branch_signature(text):
+    """
+    Collapse a step into a structural skeleton, e.g.
+      "If continuity is OK in Step 9 then go to Step 12 else go to Step 11"
+        -> "IF X THEN GOTO ELSE GOTO"
+    Returns None when the step contains no branching language at all.
+    """
+    hits = list(BRANCH_MARKERS.finditer(text))
+    if not hits:
+        return None
+    parts, prev_end = [], 0
+    for m in hits:
+        gap = text[prev_end:m.start()].strip()
+        if len(gap) > 2:
+            parts.append("X")
+        tok = re.sub(r"\s+", " ", m.group(0).strip().lower())
+        if tok.startswith("go to"):
+            tok = "GOTO"
+        else:
+            tok = tok.upper().replace(" ", "_")
+        parts.append(tok)
+        prev_end = m.end()
+    if len(text[prev_end:].strip()) > 2:
+        parts.append("X")
+    return " ".join(parts)
+
+
 def parse_goto(text):
     """Extract branch targets from 'go to Step N' / 'go to Step No. N'."""
-    return sorted({int(m) for m in GOTO.findall(text)})
+    out = set()
+    for grp in GOTO.findall(text):
+        out.update(int(n) for n in re.findall(r"\d+", grp))
+    return sorted(out)
 
 
 # ---------------------------------------------------------------------------
@@ -200,6 +303,9 @@ class PageData:
     markers: dict                 # section name -> top
     steps: list                   # [[sr, steps, spec]] with tops
     images: list                  # [{bbox, page}]
+
+
+HDR_BAND, FTR_BAND = 72.0, 712.0   # repeated page header / footer bands
 
 
 def extract_page(page, page_no):
@@ -226,7 +332,10 @@ def extract_page(page, page_no):
     if "steps" in markers:
         sy0 = markers["steps"]
     else:
-        sy0 = 60.0     # continuation page: table resumes right under the header band
+        # Continuation page: the table resumes just below the repeated header.
+        # Starting any higher pulls the header table's own rules into the column
+        # clustering and destroys the boundaries.
+        sy0 = HDR_BAND + 2.0
     later = [t for n, t in markers.items() if n != "steps" and t > sy0 + 2]
     sy1 = min(later) - 2 if later else page_bottom
 
@@ -235,7 +344,6 @@ def extract_page(page, page_no):
 
     # The TATA logo sits in the repeated header band on all 545 pages - it is
     # boilerplate imagery, not a schematic, so drop anything in the header/footer.
-    HDR_BAND, FTR_BAND = 72.0, 712.0
     images = [{"page": page_no, "bbox": [round(v, 1) for v in
               (im["x0"], im["top"], im["x1"], im["bottom"])]}
               for im in page.images
@@ -354,8 +462,21 @@ def build_record(block, pdf):
             if not m:
                 continue
             txt = re.sub(r"\s+", " ", txt).strip()
+            sig = branch_signature(txt)
             rec["steps"].append({"n": int(m.group(1)), "text": txt,
-                                 "goto": parse_goto(txt)})
+                                 "goto": parse_goto(txt), "branch_sig": sig})
+            if sig is not None:
+                slot = BRANCH_CATALOGUE.setdefault(
+                    sig, {"count": 0, "example": None, "example_dtc": None,
+                          "with_goto": 0, "n_targets": {}})
+                slot["count"] += 1
+                g = parse_goto(txt)
+                if g:
+                    slot["with_goto"] += 1
+                slot["n_targets"][str(len(g))] = slot["n_targets"].get(str(len(g)), 0) + 1
+                if slot["example"] is None:
+                    slot["example"] = txt
+                    slot["example_dtc"] = f"{code_full} step {m.group(1)}"
             if spec.strip():
                 rec["specifications"].append(
                     {"n": int(m.group(1)), "spec": re.sub(r"\s+", " ", spec).strip()})
@@ -441,13 +562,20 @@ def main():
     ap.add_argument("--last", type=int, default=None)
     ap.add_argument("--limit", type=int, default=None, help="stop after N DTCs (POC)")
     ap.add_argument("--out", default="data/dtc_raw.jsonl")
+    ap.add_argument("--patterns", default="data/branch_patterns.json")
     args = ap.parse_args()
 
     recs = parse(first=args.first, last=args.last, limit_dtcs=args.limit)
     with open(args.out, "w") as f:
         for r in recs:
             f.write(json.dumps(r, ensure_ascii=False) + "\n")
+    with open(args.patterns, "w") as f:
+        json.dump({"total_signatures": len(BRANCH_CATALOGUE),
+                   "patterns": dict(sorted(BRANCH_CATALOGUE.items(),
+                                           key=lambda kv: -kv[1]["count"]))},
+                  f, indent=2, ensure_ascii=False)
     print(f"wrote {len(recs)} records -> {args.out}")
+    print(f"wrote {len(BRANCH_CATALOGUE)} branching patterns -> {args.patterns}")
     for r in recs:
         print(f"  {r['code_full']:12s} p{r['page']:<4d} steps={len(r['steps']):3d} "
               f"cause={len(r['cause'])} chk={len(r['checkpoints'])} "

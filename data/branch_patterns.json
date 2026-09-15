@@ -1,0 +1,294 @@
+{
+  "total_signatures": 32,
+  "patterns": {
+    "IF X": {
+      "count": 419,
+      "example": "If the error is present check the connector pins from both side i.e. sensor side & wire harness side",
+      "example_dtc": "P0192-00 step 4",
+      "with_goto": 0,
+      "n_targets": {
+        "0": 419
+      }
+    },
+    "IF X GOTO": {
+      "count": 256,
+      "example": "If error still present go to Step 7",
+      "example_dtc": "P0192-00 step 6",
+      "with_goto": 256,
+      "n_targets": {
+        "1": 256
+      }
+    },
+    "X GOTO": {
+      "count": 134,
+      "example": "Fix the back-out cables in proper positions in connector & go to Step 13",
+      "example_dtc": "P0192-00 step 8",
+      "with_goto": 134,
+      "n_targets": {
+        "1": 134
+      }
+    },
+    "IF X THEN X GOTO": {
+      "count": 101,
+      "example": "If connector found lose in step 2 then fix is properly & go to Step 13",
+      "example_dtc": "P0192-00 step 3",
+      "with_goto": 101,
+      "n_targets": {
+        "1": 101
+      }
+    },
+    "X IF_YES GOTO": {
+      "count": 63,
+      "example": "Check the wire harness for any pin / wire back-out from connector, if yes go to Step 8",
+      "example_dtc": "P0192-00 step 7",
+      "with_goto": 63,
+      "n_targets": {
+        "1": 63
+      }
+    },
+    "IF X THEN X": {
+      "count": 36,
+      "example": "If Step 4 & Step 5 fails then check signal (A97) short circuit to ground (A31)",
+      "example_dtc": "P0107-00 step 6",
+      "with_goto": 0,
+      "n_targets": {
+        "0": 36
+      }
+    },
+    "X IF X GOTO": {
+      "count": 32,
+      "example": "Check if Pin 2( A39) is shorted to supply(A34) or open circuit, go to step 9",
+      "example_dtc": "P0103-00 step 7",
+      "with_goto": 32,
+      "n_targets": {
+        "1": 32
+      }
+    },
+    "X IF X": {
+      "count": 24,
+      "example": "Check connector if rail pressure sensor is connected properly to the wire harness connector",
+      "example_dtc": "P0192-00 step 2",
+      "with_goto": 0,
+      "n_targets": {
+        "0": 24
+      }
+    },
+    "X GOTO X": {
+      "count": 22,
+      "example": "Remove the pump and get it checked from the authorized dealer, go to step 9 after rectification",
+      "example_dtc": "P0087-00 step 7",
+      "with_goto": 22,
+      "n_targets": {
+        "1": 22
+      }
+    },
+    "X IF X IF_YES X GOTO": {
+      "count": 15,
+      "example": "Check if DPF brick is damaged , if Yes, replace DPF & go to step 11",
+      "example_dtc": "P244A-00 step 10",
+      "with_goto": 15,
+      "n_targets": {
+        "1": 15
+      }
+    },
+    "X IF X IF_NOT X GOTO": {
+      "count": 12,
+      "example": "Check if the wiring harness connector connected properly to 1st cylinder injector, if not fix it and go to step 10",
+      "example_dtc": "P0201-00 step 2",
+      "with_goto": 12,
+      "n_targets": {
+        "1": 12
+      }
+    },
+    "X IF X THEN GOTO": {
+      "count": 11,
+      "example": "Check the proper mounting of the sensor & for mechanical damage. If Step 9 is true then go to Step 11",
+      "example_dtc": "P0117-00 step 9",
+      "with_goto": 11,
+      "n_targets": {
+        "1": 11
+      }
+    },
+    "X IF_YES X": {
+      "count": 11,
+      "example": "Check for back out terminals of wiring harness, If yes fix the connections",
+      "example_dtc": "P006E-00 step 3",
+      "with_goto": 0,
+      "n_targets": {
+        "0": 11
+      }
+    },
+    "IF X THEN X IF X": {
+      "count": 10,
+      "example": "If Step 4 & Step5 is true then check if sensor input (A53) is shorted to ground(A31)",
+      "example_dtc": "P006E-00 step 6",
+      "with_goto": 0,
+      "n_targets": {
+        "0": 10
+      }
+    },
+    "IF X THEN X GOTO X": {
+      "count": 8,
+      "example": "If continuity is unavailable from Step 4 then check the signal line short to ground & go to Step 8 after arresting any issue",
+      "example_dtc": "P0072-00 step 5",
+      "with_goto": 8,
+      "n_targets": {
+        "1": 8
+      }
+    },
+    "IF X IF X GOTO": {
+      "count": 7,
+      "example": "If error persists check the fitment of the connector on the sensor for any loose connections, if loose retain proper fitment & go to step 8",
+      "example_dtc": "P2049-00 step 4",
+      "with_goto": 7,
+      "n_targets": {
+        "1": 7
+      }
+    },
+    "IF X IF_NOT X GOTO": {
+      "count": 6,
+      "example": "If error still present check the mounting of the Pedal sensor is proper or not, if not make it right & go to Step 11",
+      "example_dtc": "P0120-11 step 9",
+      "with_goto": 6,
+      "n_targets": {
+        "1": 6
+      }
+    },
+    "IF X THEN GOTO": {
+      "count": 5,
+      "example": "If pins are damaged then go to Step No. 12",
+      "example_dtc": "P0192-00 step 5",
+      "with_goto": 5,
+      "n_targets": {
+        "1": 5
+      }
+    },
+    "X IF_YES X GOTO": {
+      "count": 5,
+      "example": "Check the signal line for short to ground i.e. continuity between Pin2 of rail pressure sensor to A83. If yes, change the cable with new one & go to Step 13.",
+      "example_dtc": "P0192-00 step 11",
+      "with_goto": 5,
+      "n_targets": {
+        "1": 5
+      }
+    },
+    "IF X IF_YES X": {
+      "count": 5,
+      "example": "If error persists, check the continuity between Pin 1 & Pin2, if yes, motor winding could be damaged.",
+      "example_dtc": "P20A0-00 step 6",
+      "with_goto": 0,
+      "n_targets": {
+        "0": 5
+      }
+    },
+    "IF X IF X IF X": {
+      "count": 4,
+      "example": "If any Issues, check for battery connection, if loose connect & check if battery is charging in running condition.",
+      "example_dtc": "P0562-00 step 2",
+      "with_goto": 0,
+      "n_targets": {
+        "0": 4
+      }
+    },
+    "IF X THEN GOTO X ELSE GOTO": {
+      "count": 3,
+      "example": "If continuity in Step 7 is unavailable then go to Step 9 & 11 else go to Step 9",
+      "example_dtc": "P0627-11 step 8",
+      "with_goto": 3,
+      "n_targets": {
+        "2": 2,
+        "3": 1
+      }
+    },
+    "X IF_YES THEN GOTO X": {
+      "count": 3,
+      "example": "Check the line from A_B1 for short circuit to ground. If yes then go to Step 10 & 11",
+      "example_dtc": "P0627-11 step 9",
+      "with_goto": 3,
+      "n_targets": {
+        "2": 3
+      }
+    },
+    "IF X IF X IF_YES X GOTO": {
+      "count": 3,
+      "example": "If error persists, check if Input signal is shorted to battery, if yes arrest issue & go to step 8",
+      "example_dtc": "P2049-00 step 5",
+      "with_goto": 3,
+      "n_targets": {
+        "1": 3
+      }
+    },
+    "IF X THEN GOTO ELSE GOTO": {
+      "count": 2,
+      "example": "If continuity is OK in Step 9 then go to Step 12 else go to Step 11",
+      "example_dtc": "P0192-00 step 10",
+      "with_goto": 2,
+      "n_targets": {
+        "2": 2
+      }
+    },
+    "X THEN X": {
+      "count": 2,
+      "example": "Perform pressure preparation checks through diagnostic tool (ignition off and then pressure buildup)",
+      "example_dtc": "P20F5-7A step 7",
+      "with_goto": 0,
+      "n_targets": {
+        "0": 2
+      }
+    },
+    "X IF_YES": {
+      "count": 1,
+      "example": "Check the wire connector, if yes",
+      "example_dtc": "P0117-00 step 4",
+      "with_goto": 0,
+      "n_targets": {
+        "0": 1
+      }
+    },
+    "IF X IF X GOTO X": {
+      "count": 1,
+      "example": "If error still present, check if sensor itself is exposed to high temperature source, go to step 10 after rectification",
+      "example_dtc": "P0116-00 step 8",
+      "with_goto": 1,
+      "n_targets": {
+        "1": 1
+      }
+    },
+    "X IF_YES X GOTO X": {
+      "count": 1,
+      "example": "Check for fuel leakage from rail return line in running condition, if yes get it checked from the authorized dealer, go to step 9 after rectification",
+      "example_dtc": "P0087-00 step 6",
+      "with_goto": 1,
+      "n_targets": {
+        "1": 1
+      }
+    },
+    "X IF X IF_YES X": {
+      "count": 1,
+      "example": "Check if Pressure relief valve counter or timer is exceeding the design limit, if yes change fuel rail",
+      "example_dtc": "P018F-00 step 4",
+      "with_goto": 0,
+      "n_targets": {
+        "0": 1
+      }
+    },
+    "IF X THEN X IF_YES GOTO": {
+      "count": 1,
+      "example": "If error still present then Check the wire harness for any pin / wire back-out from connector, if yes go to step 5",
+      "example_dtc": "P0627-12 step 4",
+      "with_goto": 1,
+      "n_targets": {
+        "1": 1
+      }
+    },
+    "IF_YES X GOTO": {
+      "count": 1,
+      "example": "If yes , arrest all leakages & go to step 6",
+      "example_dtc": "P026A-00 step 3",
+      "with_goto": 1,
+      "n_targets": {
+        "1": 1
+      }
+    }
+  }
+}

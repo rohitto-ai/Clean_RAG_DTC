@@ -5,3 +5,4 @@ index/
 images/
 models/
 data/*.jsonl
+!data/validation_report.md
