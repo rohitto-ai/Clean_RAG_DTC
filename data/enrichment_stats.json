@@ -1,0 +1,104 @@
+{
+  "image_instances": 342,
+  "unique_images": 64,
+  "dedup_pct": 81.3,
+  "records_with_pins": 158,
+  "records": 314,
+  "variants": {
+    "full_7_section": 113,
+    "partial": 28,
+    "reduced_4_section": 173
+  },
+  "pin_count_histogram": {
+    "0": 156,
+    "1": 17,
+    "2": 72,
+    "3": 35,
+    "4": 22,
+    "5": 3,
+    "6": 5,
+    "7": 4
+  },
+  "top_reused_images": [
+    {
+      "hash": "08501a8a522db6c1",
+      "uses": 26,
+      "px": [
+        1438,
+        474
+      ]
+    },
+    {
+      "hash": "ef88ae4938e9e1ac",
+      "uses": 16,
+      "px": [
+        1647,
+        1164
+      ]
+    },
+    {
+      "hash": "7ea85ab57c094a29",
+      "uses": 12,
+      "px": [
+        1654,
+        1169
+      ]
+    },
+    {
+      "hash": "4cd506e4be9b7fb1",
+      "uses": 12,
+      "px": [
+        1081,
+        923
+      ]
+    },
+    {
+      "hash": "652d79014015e11c",
+      "uses": 12,
+      "px": [
+        237,
+        464
+      ]
+    },
+    {
+      "hash": "37bd868e9e2b8807",
+      "uses": 11,
+      "px": [
+        1253,
+        866
+      ]
+    },
+    {
+      "hash": "b5c965aadb25df0b",
+      "uses": 11,
+      "px": [
+        308,
+        309
+      ]
+    },
+    {
+      "hash": "3671a012f10fe230",
+      "uses": 11,
+      "px": [
+        839,
+        587
+      ]
+    },
+    {
+      "hash": "af88485d78d89dc2",
+      "uses": 10,
+      "px": [
+        684,
+        581
+      ]
+    },
+    {
+      "hash": "d9e2351b28278d14",
+      "uses": 9,
+      "px": [
+        1647,
+        1164
+      ]
+    }
+  ]
+}
