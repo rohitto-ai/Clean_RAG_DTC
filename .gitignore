@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+*.pyc
+index/
+images/
+models/
+data/*.jsonl

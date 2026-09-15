@@ -1,0 +1,25 @@
+# Clean RAG for 3.3L DTC Manual — CPU-only, fully local. No cloud, no API keys.
+# Python 3.12 (NOT 3.14 — several of these lack 3.14 wheels).
+
+# --- Phase 1: extraction & structuring ---
+pdfplumber==0.11.4          # word-level bboxes -> coordinate-based table repair
+pymupdf==1.24.14            # fast page streaming + image extraction
+
+# --- Phase 2: multimodal enrichment (local OCR) ---
+pytesseract==0.3.13         # needs system tesseract-ocr (apt)
+Pillow==11.0.0
+ImageHash==4.3.1            # dedup reused schematics before OCR
+
+# --- Phase 4: indexing ---
+sentence-transformers==3.3.1  # all-MiniLM-L6-v2, 384-dim, ~90MB
+chromadb==0.5.23              # persistent on-disk vector store
+rank-bm25==0.2.2              # lexical half of hybrid retrieval
+
+# --- Phase 6: local generation ---
+llama-cpp-python==0.3.2     # Qwen2.5-0.5B-Instruct GGUF on CPU
+huggingface-hub==0.26.5     # one-time model download only
+
+# --- Serving ---
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+pydantic==2.10.4
