@@ -6,3 +6,16 @@ images/
 models/
 data/*.jsonl
 !data/validation_report.md
+
+# model weights - never push these
+*.gguf
+*.bin
+*.safetensors
+*.pt
+*.onnx
+
+# HuggingFace / torch / sentence-transformers caches, if ever placed in-repo
+.cache/
+**/.cache/
+hf_cache/
+.huggingface/
