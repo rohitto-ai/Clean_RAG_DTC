@@ -1,0 +1,4546 @@
+{
+ "C0 baseline (no lexicon)": {
+  "rows": [
+   {
+    "id": "d001",
+    "query": "what does P0192-00 mean",
+    "mode": "exact_code",
+    "expected": [
+     "P0192-00"
+    ],
+    "got": [
+     "P0192-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d002",
+    "query": "P0340",
+    "mode": "exact_code",
+    "expected": [
+     "P0340-00"
+    ],
+    "got": [
+     "P0340-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d003",
+    "query": "P0180-11",
+    "mode": "exact_code",
+    "expected": [
+     "P0180-11"
+    ],
+    "got": [
+     "P0180-11",
+     "P0180-11"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d004",
+    "query": "P0100",
+    "mode": "exact_code",
+    "expected": [
+     "P0100-00",
+     "P0100-9B",
+     "P0100-9C"
+    ],
+    "got": [
+     "P0100-00",
+     "P0100-9B",
+     "P0100-9C"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d005",
+    "query": "details for U0102-00",
+    "mode": "exact_code",
+    "expected": [
+     "U0102-00"
+    ],
+    "got": [
+     "U0102-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d006",
+    "query": "fault code P2264",
+    "mode": "exact_code",
+    "expected": [
+     "P2264-00",
+     "P2264-11",
+     "P2264-12"
+    ],
+    "got": [
+     "P2264-12",
+     "P2264-11",
+     "P2264-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d007",
+    "query": "the cam sensor gives no output whatsoever",
+    "mode": "near_duplicate",
+    "expected": [
+     "P0340-00"
+    ],
+    "got": [
+     "P0341-00",
+     "P0340-00",
+     "P0180-11",
+     "P0180-12",
+     "P0335-00"
+    ],
+    "rank": 2
+   },
+   {
+    "id": "d008",
+    "query": "cam position reading is erratic and noisy",
+    "mode": "near_duplicate",
+    "expected": [
+     "P0341-00"
+    ],
+    "got": [
+     "P0341-00",
+     "P0340-00",
+     "P0336-00",
+     "P0335-00",
+     "P04A0-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d009",
+    "query": "fuel rail sender pulled down to earth",
+    "mode": "near_duplicate",
+    "expected": [
+     "P0192-00"
+    ],
+    "got": [
+     "P0192-00",
+     "P0087-00",
+     "P0088-00",
+     "P0194-00",
+     "P0193-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d010",
+    "query": "fuel rail sender reading has drifted off calibration",
+    "mode": "near_duplicate",
+    "expected": [
+     "P0194-00"
+    ],
+    "got": [
+     "P0088-00",
+     "P0087-00",
+     "P0192-00",
+     "P0194-00",
+     "P0193-00"
+    ],
+    "rank": 4
+   },
+   {
+    "id": "d011",
+    "query": "number three injector has a broken winding",
+    "mode": "near_duplicate",
+    "expected": [
+     "P0203-00"
+    ],
+    "got": [
+     "P0203-00",
+     "P0201-00",
+     "P0204-00",
+     "P0202-00",
+     "P1201-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d012",
+    "query": "cylinder one injector is shorted to the main feed",
+    "mode": "near_duplicate",
+    "expected": [
+     "P2147-00"
+    ],
+    "got": [
+     "P2147-00",
+     "P2150-00",
+     "P0201-00",
+     "P2153-00",
+     "P1201-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d013",
+    "query": "crank position reading is noisy and unstable",
+    "mode": "near_duplicate",
+    "expected": [
+     "P0336-00"
+    ],
+    "got": [
+     "P0336-00",
+     "P0335-00",
+     "P0341-00",
+     "P048B-11",
+     "P0340-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d014",
+    "query": "exhaust recirculation flap is seized shut",
+    "mode": "symptom",
+    "expected": [
+     "P042F-00"
+    ],
+    "got": [
+     "P206A-F2",
+     "P206A-F1",
+     "P206A-F3",
+     "P242F-00",
+     "P0401-00"
+    ],
+    "rank": null
+   },
+   {
+    "id": "d015",
+    "query": "the recirculation flap on the egr pipe has seized and refuses to shut",
+    "mode": "symptom",
+    "expected": [
+     "P042E-00"
+    ],
+    "got": [
+     "P042F-00",
+     "P042E-00",
+     "P0405-00",
+     "P0406-00",
+     "P0489-00"
+    ],
+    "rank": 2
+   },
+   {
+    "id": "d016",
+    "query": "soot trap is completely blocked up",
+    "mode": "symptom",
+    "expected": [
+     "P244B-00"
+    ],
+    "got": [
+     "P2463-85",
+     "P243F-F0",
+     "P04A5-00",
+     "P042F-00",
+     "P04A4-00"
+    ],
+    "rank": null
+   },
+   {
+    "id": "d017",
+    "query": "the adblue reservoir is nearly empty and low warning is showing",
+    "mode": "symptom",
+    "expected": [
+     "P203F-00",
+     "P203F-7B"
+    ],
+    "got": [
+     "P204F-7C",
+     "P0087-00",
+     "P20A0-00",
+     "P0425-84",
+     "P20A2-00"
+    ],
+    "rank": null
+   },
+   {
+    "id": "d018",
+    "query": "water temp gauge pegged cold, the reading line looks shorted",
+    "mode": "symptom",
+    "expected": [
+     "P0117-00"
+    ],
+    "got": [
+     "P2264-11",
+     "P2264-12",
+     "P0427-00",
+     "P242C-00",
+     "P2264-00"
+    ],
+    "rank": null
+   },
+   {
+    "id": "d019",
+    "query": "the water temp sensor lead has come adrift and gauge is dead",
+    "mode": "symptom",
+    "expected": [
+     "P0118-00"
+    ],
+    "got": [
+     "P2264-11",
+     "P0427-00",
+     "P2264-12",
+     "P0116-00",
+     "P0428-00"
+    ],
+    "rank": null
+   },
+   {
+    "id": "d020",
+    "query": "the go pedal's two throttle tracks disagree and power is cut",
+    "mode": "symptom",
+    "expected": [
+     "P2135-00"
+    ],
+    "got": [
+     "P0120-11",
+     "P0220-12",
+     "P0220-11",
+     "P0504-00",
+     "P0120-12"
+    ],
+    "rank": null
+   },
+   {
+    "id": "d021",
+    "query": "alternator is overcharging and the battery sees far too many volts",
+    "mode": "symptom",
+    "expected": [
+     "P0562-00"
+    ],
+    "got": [
+     "P0562-00",
+     "P0563-00",
+     "P208D-00",
+     "P20F4-00",
+     "P20F5-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d022",
+    "query": "charge pressure from the turbo is under target",
+    "mode": "symptom",
+    "expected": [
+     "P0047-00",
+     "P004C-00",
+     "P006E-00"
+    ],
+    "got": [
+     "P006E-00",
+     "P259E-00",
+     "P006F-00",
+     "P0048-00",
+     "P0045-13"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d023",
+    "query": "turns over but never fires, no signal coming from the cam pickup",
+    "mode": "symptom",
+    "expected": [
+     "P0340-00"
+    ],
+    "got": [
+     "P0341-00",
+     "P0340-00",
+     "P0336-00",
+     "P0335-00",
+     "P2229-00"
+    ],
+    "rank": 2
+   },
+   {
+    "id": "d024",
+    "query": "loss of pulling power with the dash warning light on",
+    "mode": "symptom",
+    "expected": [
+     "P0192-00",
+     "P0193-00",
+     "P0194-00",
+     "P0087-00",
+     "P0088-00"
+    ],
+    "got": [
+     "P0004-00",
+     "P0003-00",
+     "P0192-00",
+     "P0193-00",
+     "P0087-00"
+    ],
+    "rank": 3
+   },
+   {
+    "id": "d025",
+    "query": "system voltage keeps sagging and the ecu drops out on cold starts",
+    "mode": "symptom",
+    "expected": [
+     "P0563-00"
+    ],
+    "got": [
+     "P20F5-00",
+     "P166B-00",
+     "P259F-00",
+     "P1114-00",
+     "P259E-00"
+    ],
+    "rank": null
+   }
+  ],
+  "honesty": [
+   {
+    "id": "d001",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d002",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d003",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d004",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d005",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d006",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d007",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d008",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d009",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d010",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d011",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d012",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d013",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d014",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d015",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d016",
+    "in_scope": true,
+    "passed": false
+   },
+   {
+    "id": "d017",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d018",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d019",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d020",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d021",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d022",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d023",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d024",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d025",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d026",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d027",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d028",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d029",
+    "in_scope": false,
+    "passed": false
+   },
+   {
+    "id": "d030",
+    "in_scope": false,
+    "passed": true
+   },
+   {
+    "id": "d031",
+    "in_scope": false,
+    "passed": false
+   },
+   {
+    "id": "d032",
+    "in_scope": false,
+    "passed": false
+   },
+   {
+    "id": "d033",
+    "in_scope": false,
+    "passed": true
+   },
+   {
+    "id": "d034",
+    "in_scope": false,
+    "passed": false
+   }
+  ]
+ },
+ "C1 aliases->BM25": {
+  "rows": [
+   {
+    "id": "d001",
+    "query": "what does P0192-00 mean",
+    "mode": "exact_code",
+    "expected": [
+     "P0192-00"
+    ],
+    "got": [
+     "P0192-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d002",
+    "query": "P0340",
+    "mode": "exact_code",
+    "expected": [
+     "P0340-00"
+    ],
+    "got": [
+     "P0340-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d003",
+    "query": "P0180-11",
+    "mode": "exact_code",
+    "expected": [
+     "P0180-11"
+    ],
+    "got": [
+     "P0180-11",
+     "P0180-11"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d004",
+    "query": "P0100",
+    "mode": "exact_code",
+    "expected": [
+     "P0100-00",
+     "P0100-9B",
+     "P0100-9C"
+    ],
+    "got": [
+     "P0100-00",
+     "P0100-9B",
+     "P0100-9C"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d005",
+    "query": "details for U0102-00",
+    "mode": "exact_code",
+    "expected": [
+     "U0102-00"
+    ],
+    "got": [
+     "U0102-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d006",
+    "query": "fault code P2264",
+    "mode": "exact_code",
+    "expected": [
+     "P2264-00",
+     "P2264-11",
+     "P2264-12"
+    ],
+    "got": [
+     "P2264-12",
+     "P2264-11",
+     "P2264-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d007",
+    "query": "the cam sensor gives no output whatsoever",
+    "mode": "near_duplicate",
+    "expected": [
+     "P0340-00"
+    ],
+    "got": [
+     "P0340-00",
+     "P0341-00",
+     "P0180-11",
+     "P0180-12",
+     "P0335-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d008",
+    "query": "cam position reading is erratic and noisy",
+    "mode": "near_duplicate",
+    "expected": [
+     "P0341-00"
+    ],
+    "got": [
+     "P0341-00",
+     "P0340-00",
+     "P0336-00",
+     "P0335-00",
+     "P04A0-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d009",
+    "query": "fuel rail sender pulled down to earth",
+    "mode": "near_duplicate",
+    "expected": [
+     "P0192-00"
+    ],
+    "got": [
+     "P0192-00",
+     "P0087-00",
+     "P0088-00",
+     "P0193-00",
+     "P0194-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d010",
+    "query": "fuel rail sender reading has drifted off calibration",
+    "mode": "near_duplicate",
+    "expected": [
+     "P0194-00"
+    ],
+    "got": [
+     "P0088-00",
+     "P0087-00",
+     "P0194-00",
+     "P0192-00",
+     "P0193-00"
+    ],
+    "rank": 3
+   },
+   {
+    "id": "d011",
+    "query": "number three injector has a broken winding",
+    "mode": "near_duplicate",
+    "expected": [
+     "P0203-00"
+    ],
+    "got": [
+     "P0203-00",
+     "P0201-00",
+     "P0204-00",
+     "P0202-00",
+     "P1201-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d012",
+    "query": "cylinder one injector is shorted to the main feed",
+    "mode": "near_duplicate",
+    "expected": [
+     "P2147-00"
+    ],
+    "got": [
+     "P2147-00",
+     "P2150-00",
+     "P0201-00",
+     "P2153-00",
+     "P1201-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d013",
+    "query": "crank position reading is noisy and unstable",
+    "mode": "near_duplicate",
+    "expected": [
+     "P0336-00"
+    ],
+    "got": [
+     "P0336-00",
+     "P0335-00",
+     "P0341-00",
+     "P048B-11",
+     "P0340-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d014",
+    "query": "exhaust recirculation flap is seized shut",
+    "mode": "symptom",
+    "expected": [
+     "P042F-00"
+    ],
+    "got": [
+     "P04A5-00",
+     "P04A4-00",
+     "P206A-F3",
+     "P22CF-73",
+     "P206A-F2"
+    ],
+    "rank": null
+   },
+   {
+    "id": "d015",
+    "query": "the recirculation flap on the egr pipe has seized and refuses to shut",
+    "mode": "symptom",
+    "expected": [
+     "P042E-00"
+    ],
+    "got": [
+     "P042F-00",
+     "P042E-00",
+     "P0406-00",
+     "P0403-00",
+     "P0489-00"
+    ],
+    "rank": 2
+   },
+   {
+    "id": "d016",
+    "query": "soot trap is completely blocked up",
+    "mode": "symptom",
+    "expected": [
+     "P244B-00"
+    ],
+    "got": [
+     "P2463-85",
+     "P243F-F0",
+     "P206A-F3",
+     "P04A5-00",
+     "P244B-00"
+    ],
+    "rank": 5
+   },
+   {
+    "id": "d017",
+    "query": "the adblue reservoir is nearly empty and low warning is showing",
+    "mode": "symptom",
+    "expected": [
+     "P203F-00",
+     "P203F-7B"
+    ],
+    "got": [
+     "P204F-7C",
+     "P0087-00",
+     "P20A0-00",
+     "P203F-00",
+     "P20A2-00"
+    ],
+    "rank": 4
+   },
+   {
+    "id": "d018",
+    "query": "water temp gauge pegged cold, the reading line looks shorted",
+    "mode": "symptom",
+    "expected": [
+     "P0117-00"
+    ],
+    "got": [
+     "P0118-00",
+     "P0117-00",
+     "P0116-00",
+     "P0427-00",
+     "P0119-00"
+    ],
+    "rank": 2
+   },
+   {
+    "id": "d019",
+    "query": "the water temp sensor lead has come adrift and gauge is dead",
+    "mode": "symptom",
+    "expected": [
+     "P0118-00"
+    ],
+    "got": [
+     "P0118-00",
+     "P0116-00",
+     "P0117-00",
+     "P2264-12",
+     "P2264-11"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d020",
+    "query": "the go pedal's two throttle tracks disagree and power is cut",
+    "mode": "symptom",
+    "expected": [
+     "P2135-00"
+    ],
+    "got": [
+     "P0220-12",
+     "P0220-11",
+     "P0504-00",
+     "P2135-00",
+     "P0120-12"
+    ],
+    "rank": 4
+   },
+   {
+    "id": "d021",
+    "query": "alternator is overcharging and the battery sees far too many volts",
+    "mode": "symptom",
+    "expected": [
+     "P0562-00"
+    ],
+    "got": [
+     "P0562-00",
+     "P0563-00",
+     "P208D-00",
+     "P20F4-00",
+     "P20F5-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d022",
+    "query": "charge pressure from the turbo is under target",
+    "mode": "symptom",
+    "expected": [
+     "P0047-00",
+     "P004C-00",
+     "P006E-00"
+    ],
+    "got": [
+     "P006E-00",
+     "P0048-00",
+     "P006F-00",
+     "P0045-13",
+     "P259E-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d023",
+    "query": "turns over but never fires, no signal coming from the cam pickup",
+    "mode": "symptom",
+    "expected": [
+     "P0340-00"
+    ],
+    "got": [
+     "P0340-00",
+     "P0341-00",
+     "P0336-00",
+     "P0335-00",
+     "P2229-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d024",
+    "query": "loss of pulling power with the dash warning light on",
+    "mode": "symptom",
+    "expected": [
+     "P0192-00",
+     "P0193-00",
+     "P0194-00",
+     "P0087-00",
+     "P0088-00"
+    ],
+    "got": [
+     "P0192-00",
+     "P0193-00",
+     "P0087-00",
+     "P0003-00",
+     "P20A3-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d025",
+    "query": "system voltage keeps sagging and the ecu drops out on cold starts",
+    "mode": "symptom",
+    "expected": [
+     "P0563-00"
+    ],
+    "got": [
+     "P0562-00",
+     "P0563-00",
+     "P20F5-00",
+     "P259F-00",
+     "P1114-00"
+    ],
+    "rank": 2
+   }
+  ],
+  "honesty": [
+   {
+    "id": "d001",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d002",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d003",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d004",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d005",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d006",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d007",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d008",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d009",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d010",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d011",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d012",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d013",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d014",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d015",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d016",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d017",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d018",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d019",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d020",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d021",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d022",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d023",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d024",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d025",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d026",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d027",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d028",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d029",
+    "in_scope": false,
+    "passed": false
+   },
+   {
+    "id": "d030",
+    "in_scope": false,
+    "passed": true
+   },
+   {
+    "id": "d031",
+    "in_scope": false,
+    "passed": false
+   },
+   {
+    "id": "d032",
+    "in_scope": false,
+    "passed": false
+   },
+   {
+    "id": "d033",
+    "in_scope": false,
+    "passed": true
+   },
+   {
+    "id": "d034",
+    "in_scope": false,
+    "passed": false
+   }
+  ]
+ },
+ "C2 expansion->BM25": {
+  "rows": [
+   {
+    "id": "d001",
+    "query": "what does P0192-00 mean",
+    "mode": "exact_code",
+    "expected": [
+     "P0192-00"
+    ],
+    "got": [
+     "P0192-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d002",
+    "query": "P0340",
+    "mode": "exact_code",
+    "expected": [
+     "P0340-00"
+    ],
+    "got": [
+     "P0340-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d003",
+    "query": "P0180-11",
+    "mode": "exact_code",
+    "expected": [
+     "P0180-11"
+    ],
+    "got": [
+     "P0180-11",
+     "P0180-11"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d004",
+    "query": "P0100",
+    "mode": "exact_code",
+    "expected": [
+     "P0100-00",
+     "P0100-9B",
+     "P0100-9C"
+    ],
+    "got": [
+     "P0100-00",
+     "P0100-9B",
+     "P0100-9C"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d005",
+    "query": "details for U0102-00",
+    "mode": "exact_code",
+    "expected": [
+     "U0102-00"
+    ],
+    "got": [
+     "U0102-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d006",
+    "query": "fault code P2264",
+    "mode": "exact_code",
+    "expected": [
+     "P2264-00",
+     "P2264-11",
+     "P2264-12"
+    ],
+    "got": [
+     "P2264-12",
+     "P2264-11",
+     "P2264-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d007",
+    "query": "the cam sensor gives no output whatsoever",
+    "mode": "near_duplicate",
+    "expected": [
+     "P0340-00"
+    ],
+    "got": [
+     "P0340-00",
+     "P0341-00",
+     "P0180-11",
+     "P0180-12",
+     "P0335-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d008",
+    "query": "cam position reading is erratic and noisy",
+    "mode": "near_duplicate",
+    "expected": [
+     "P0341-00"
+    ],
+    "got": [
+     "P0341-00",
+     "P0340-00",
+     "P0336-00",
+     "P0335-00",
+     "P048B-12"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d009",
+    "query": "fuel rail sender pulled down to earth",
+    "mode": "near_duplicate",
+    "expected": [
+     "P0192-00"
+    ],
+    "got": [
+     "P0192-00",
+     "P0087-00",
+     "P0088-00",
+     "P0194-00",
+     "P0193-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d010",
+    "query": "fuel rail sender reading has drifted off calibration",
+    "mode": "near_duplicate",
+    "expected": [
+     "P0194-00"
+    ],
+    "got": [
+     "P0087-00",
+     "P0088-00",
+     "P0192-00",
+     "P0194-00",
+     "P0193-00"
+    ],
+    "rank": 4
+   },
+   {
+    "id": "d011",
+    "query": "number three injector has a broken winding",
+    "mode": "near_duplicate",
+    "expected": [
+     "P0203-00"
+    ],
+    "got": [
+     "P0203-00",
+     "P0201-00",
+     "P0204-00",
+     "P0202-00",
+     "P1201-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d012",
+    "query": "cylinder one injector is shorted to the main feed",
+    "mode": "near_duplicate",
+    "expected": [
+     "P2147-00"
+    ],
+    "got": [
+     "P2147-00",
+     "P2150-00",
+     "P0201-00",
+     "P2153-00",
+     "P1201-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d013",
+    "query": "crank position reading is noisy and unstable",
+    "mode": "near_duplicate",
+    "expected": [
+     "P0336-00"
+    ],
+    "got": [
+     "P0336-00",
+     "P0335-00",
+     "P0341-00",
+     "P048B-11",
+     "P0340-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d014",
+    "query": "exhaust recirculation flap is seized shut",
+    "mode": "symptom",
+    "expected": [
+     "P042F-00"
+    ],
+    "got": [
+     "P04A5-00",
+     "P04A4-00",
+     "P206A-F3",
+     "P2458-09",
+     "P042F-00"
+    ],
+    "rank": 5
+   },
+   {
+    "id": "d015",
+    "query": "the recirculation flap on the egr pipe has seized and refuses to shut",
+    "mode": "symptom",
+    "expected": [
+     "P042E-00"
+    ],
+    "got": [
+     "P042F-00",
+     "P042E-00",
+     "P04A5-00",
+     "P0405-00",
+     "P0489-00"
+    ],
+    "rank": 2
+   },
+   {
+    "id": "d016",
+    "query": "soot trap is completely blocked up",
+    "mode": "symptom",
+    "expected": [
+     "P244B-00"
+    ],
+    "got": [
+     "P2463-85",
+     "P243F-F0",
+     "P242F-00",
+     "P04A5-00",
+     "P2458-00"
+    ],
+    "rank": null
+   },
+   {
+    "id": "d017",
+    "query": "the adblue reservoir is nearly empty and low warning is showing",
+    "mode": "symptom",
+    "expected": [
+     "P203F-00",
+     "P203F-7B"
+    ],
+    "got": [
+     "P206A-F1",
+     "P206A-F2",
+     "P203F-84",
+     "P204F-7C",
+     "P0425-84"
+    ],
+    "rank": null
+   },
+   {
+    "id": "d018",
+    "query": "water temp gauge pegged cold, the reading line looks shorted",
+    "mode": "symptom",
+    "expected": [
+     "P0117-00"
+    ],
+    "got": [
+     "P0116-00",
+     "P0118-00",
+     "P0117-00",
+     "P0427-00",
+     "P0119-00"
+    ],
+    "rank": 3
+   },
+   {
+    "id": "d019",
+    "query": "the water temp sensor lead has come adrift and gauge is dead",
+    "mode": "symptom",
+    "expected": [
+     "P0118-00"
+    ],
+    "got": [
+     "P0118-00",
+     "P0116-00",
+     "P0117-00",
+     "P0428-00",
+     "P2264-11"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d020",
+    "query": "the go pedal's two throttle tracks disagree and power is cut",
+    "mode": "symptom",
+    "expected": [
+     "P2135-00"
+    ],
+    "got": [
+     "P2135-00",
+     "P0120-11",
+     "P0220-11",
+     "P0220-12",
+     "P0504-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d021",
+    "query": "alternator is overcharging and the battery sees far too many volts",
+    "mode": "symptom",
+    "expected": [
+     "P0562-00"
+    ],
+    "got": [
+     "P0562-00",
+     "P0563-00",
+     "P20F5-00",
+     "P20F5-7A",
+     "P208D-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d022",
+    "query": "charge pressure from the turbo is under target",
+    "mode": "symptom",
+    "expected": [
+     "P0047-00",
+     "P004C-00",
+     "P006E-00"
+    ],
+    "got": [
+     "P006E-00",
+     "P0045-13",
+     "P0048-00",
+     "P006F-00",
+     "P259E-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d023",
+    "query": "turns over but never fires, no signal coming from the cam pickup",
+    "mode": "symptom",
+    "expected": [
+     "P0340-00"
+    ],
+    "got": [
+     "P0340-00",
+     "P0341-00",
+     "P0336-00",
+     "P0335-00",
+     "P0180-12"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d024",
+    "query": "loss of pulling power with the dash warning light on",
+    "mode": "symptom",
+    "expected": [
+     "P0192-00",
+     "P0193-00",
+     "P0194-00",
+     "P0087-00",
+     "P0088-00"
+    ],
+    "got": [
+     "P0004-00",
+     "P0003-00",
+     "P0192-00",
+     "P0193-00",
+     "P0087-00"
+    ],
+    "rank": 3
+   },
+   {
+    "id": "d025",
+    "query": "system voltage keeps sagging and the ecu drops out on cold starts",
+    "mode": "symptom",
+    "expected": [
+     "P0563-00"
+    ],
+    "got": [
+     "P20F5-00",
+     "P259F-00",
+     "P1114-00",
+     "P259E-00",
+     "P2228-00"
+    ],
+    "rank": null
+   }
+  ],
+  "honesty": [
+   {
+    "id": "d001",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d002",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d003",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d004",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d005",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d006",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d007",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d008",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d009",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d010",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d011",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d012",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d013",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d014",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d015",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d016",
+    "in_scope": true,
+    "passed": false
+   },
+   {
+    "id": "d017",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d018",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d019",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d020",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d021",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d022",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d023",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d024",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d025",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d026",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d027",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d028",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d029",
+    "in_scope": false,
+    "passed": false
+   },
+   {
+    "id": "d030",
+    "in_scope": false,
+    "passed": true
+   },
+   {
+    "id": "d031",
+    "in_scope": false,
+    "passed": false
+   },
+   {
+    "id": "d032",
+    "in_scope": false,
+    "passed": false
+   },
+   {
+    "id": "d033",
+    "in_scope": false,
+    "passed": true
+   },
+   {
+    "id": "d034",
+    "in_scope": false,
+    "passed": false
+   }
+  ]
+ },
+ "C3 expansion->BM25+dense": {
+  "rows": [
+   {
+    "id": "d001",
+    "query": "what does P0192-00 mean",
+    "mode": "exact_code",
+    "expected": [
+     "P0192-00"
+    ],
+    "got": [
+     "P0192-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d002",
+    "query": "P0340",
+    "mode": "exact_code",
+    "expected": [
+     "P0340-00"
+    ],
+    "got": [
+     "P0340-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d003",
+    "query": "P0180-11",
+    "mode": "exact_code",
+    "expected": [
+     "P0180-11"
+    ],
+    "got": [
+     "P0180-11",
+     "P0180-11"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d004",
+    "query": "P0100",
+    "mode": "exact_code",
+    "expected": [
+     "P0100-00",
+     "P0100-9B",
+     "P0100-9C"
+    ],
+    "got": [
+     "P0100-00",
+     "P0100-9B",
+     "P0100-9C"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d005",
+    "query": "details for U0102-00",
+    "mode": "exact_code",
+    "expected": [
+     "U0102-00"
+    ],
+    "got": [
+     "U0102-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d006",
+    "query": "fault code P2264",
+    "mode": "exact_code",
+    "expected": [
+     "P2264-00",
+     "P2264-11",
+     "P2264-12"
+    ],
+    "got": [
+     "P2264-12",
+     "P2264-11",
+     "P2264-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d007",
+    "query": "the cam sensor gives no output whatsoever",
+    "mode": "near_duplicate",
+    "expected": [
+     "P0340-00"
+    ],
+    "got": [
+     "P0340-00",
+     "P0341-00",
+     "P0335-00",
+     "P0336-00",
+     "P0180-12"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d008",
+    "query": "cam position reading is erratic and noisy",
+    "mode": "near_duplicate",
+    "expected": [
+     "P0341-00"
+    ],
+    "got": [
+     "P0341-00",
+     "P0340-00",
+     "P0336-00",
+     "P0335-00",
+     "P048B-11"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d009",
+    "query": "fuel rail sender pulled down to earth",
+    "mode": "near_duplicate",
+    "expected": [
+     "P0192-00"
+    ],
+    "got": [
+     "P0192-00",
+     "P0193-00",
+     "P0180-11",
+     "P0088-00",
+     "P0180-11"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d010",
+    "query": "fuel rail sender reading has drifted off calibration",
+    "mode": "near_duplicate",
+    "expected": [
+     "P0194-00"
+    ],
+    "got": [
+     "P0087-00",
+     "P0192-00",
+     "P0194-00",
+     "P0088-00",
+     "P0193-00"
+    ],
+    "rank": 3
+   },
+   {
+    "id": "d011",
+    "query": "number three injector has a broken winding",
+    "mode": "near_duplicate",
+    "expected": [
+     "P0203-00"
+    ],
+    "got": [
+     "P0203-00",
+     "P0201-00",
+     "P0204-00",
+     "P0202-00",
+     "P1201-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d012",
+    "query": "cylinder one injector is shorted to the main feed",
+    "mode": "near_duplicate",
+    "expected": [
+     "P2147-00"
+    ],
+    "got": [
+     "P2147-00",
+     "P2150-00",
+     "P0201-00",
+     "P2153-00",
+     "P1201-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d013",
+    "query": "crank position reading is noisy and unstable",
+    "mode": "near_duplicate",
+    "expected": [
+     "P0336-00"
+    ],
+    "got": [
+     "P0336-00",
+     "P0341-00",
+     "P0335-00",
+     "P0340-00",
+     "P048B-11"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d014",
+    "query": "exhaust recirculation flap is seized shut",
+    "mode": "symptom",
+    "expected": [
+     "P042F-00"
+    ],
+    "got": [
+     "P042F-00",
+     "P042E-00",
+     "P04A5-00",
+     "P04A4-00",
+     "P0405-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d015",
+    "query": "the recirculation flap on the egr pipe has seized and refuses to shut",
+    "mode": "symptom",
+    "expected": [
+     "P042E-00"
+    ],
+    "got": [
+     "P042F-00",
+     "P042E-00",
+     "P04A5-00",
+     "P04A4-00",
+     "P0405-00"
+    ],
+    "rank": 2
+   },
+   {
+    "id": "d016",
+    "query": "soot trap is completely blocked up",
+    "mode": "symptom",
+    "expected": [
+     "P244B-00"
+    ],
+    "got": [
+     "P2463-85",
+     "P243F-F0",
+     "P243C-00",
+     "P244B-00",
+     "P242F-00"
+    ],
+    "rank": 4
+   },
+   {
+    "id": "d017",
+    "query": "the adblue reservoir is nearly empty and low warning is showing",
+    "mode": "symptom",
+    "expected": [
+     "P203F-00",
+     "P203F-7B"
+    ],
+    "got": [
+     "P2BA9-00",
+     "P206A-F1",
+     "P206A-F2",
+     "P206A-86",
+     "P206A-F3"
+    ],
+    "rank": null
+   },
+   {
+    "id": "d018",
+    "query": "water temp gauge pegged cold, the reading line looks shorted",
+    "mode": "symptom",
+    "expected": [
+     "P0117-00"
+    ],
+    "got": [
+     "P0116-00",
+     "P0117-00",
+     "P0118-00",
+     "P0119-00",
+     "P0427-00"
+    ],
+    "rank": 2
+   },
+   {
+    "id": "d019",
+    "query": "the water temp sensor lead has come adrift and gauge is dead",
+    "mode": "symptom",
+    "expected": [
+     "P0118-00"
+    ],
+    "got": [
+     "P0118-00",
+     "P0117-00",
+     "P0116-00",
+     "P0119-00",
+     "P0073-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d020",
+    "query": "the go pedal's two throttle tracks disagree and power is cut",
+    "mode": "symptom",
+    "expected": [
+     "P2135-00"
+    ],
+    "got": [
+     "P2135-00",
+     "P0120-11",
+     "P0220-11",
+     "P0220-12",
+     "P0504-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d021",
+    "query": "alternator is overcharging and the battery sees far too many volts",
+    "mode": "symptom",
+    "expected": [
+     "P0562-00"
+    ],
+    "got": [
+     "P0562-00",
+     "P0563-00",
+     "P20F5-00",
+     "P20F5-7A",
+     "P208D-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d022",
+    "query": "charge pressure from the turbo is under target",
+    "mode": "symptom",
+    "expected": [
+     "P0047-00",
+     "P004C-00",
+     "P006E-00"
+    ],
+    "got": [
+     "P0048-00",
+     "P006F-00",
+     "P006E-00",
+     "P0045-13",
+     "P003A-00"
+    ],
+    "rank": 3
+   },
+   {
+    "id": "d023",
+    "query": "turns over but never fires, no signal coming from the cam pickup",
+    "mode": "symptom",
+    "expected": [
+     "P0340-00"
+    ],
+    "got": [
+     "P0340-00",
+     "P0341-00",
+     "P0336-00",
+     "P0335-00",
+     "P0180-12"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d024",
+    "query": "loss of pulling power with the dash warning light on",
+    "mode": "symptom",
+    "expected": [
+     "P0192-00",
+     "P0193-00",
+     "P0194-00",
+     "P0087-00",
+     "P0088-00"
+    ],
+    "got": [
+     "P0004-00",
+     "P0003-00",
+     "P0192-00",
+     "P0193-00",
+     "P0087-00"
+    ],
+    "rank": 3
+   },
+   {
+    "id": "d025",
+    "query": "system voltage keeps sagging and the ecu drops out on cold starts",
+    "mode": "symptom",
+    "expected": [
+     "P0563-00"
+    ],
+    "got": [
+     "P20F5-00",
+     "P20F5-7A",
+     "P0108-00",
+     "P0627-12",
+     "P0110-12"
+    ],
+    "rank": null
+   }
+  ],
+  "honesty": [
+   {
+    "id": "d001",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d002",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d003",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d004",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d005",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d006",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d007",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d008",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d009",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d010",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d011",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d012",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d013",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d014",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d015",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d016",
+    "in_scope": true,
+    "passed": false
+   },
+   {
+    "id": "d017",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d018",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d019",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d020",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d021",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d022",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d023",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d024",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d025",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d026",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d027",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d028",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d029",
+    "in_scope": false,
+    "passed": false
+   },
+   {
+    "id": "d030",
+    "in_scope": false,
+    "passed": true
+   },
+   {
+    "id": "d031",
+    "in_scope": false,
+    "passed": false
+   },
+   {
+    "id": "d032",
+    "in_scope": false,
+    "passed": false
+   },
+   {
+    "id": "d033",
+    "in_scope": false,
+    "passed": true
+   },
+   {
+    "id": "d034",
+    "in_scope": false,
+    "passed": false
+   }
+  ]
+ },
+ "C4 aliases->BM25 + expansion->BM25": {
+  "rows": [
+   {
+    "id": "d001",
+    "query": "what does P0192-00 mean",
+    "mode": "exact_code",
+    "expected": [
+     "P0192-00"
+    ],
+    "got": [
+     "P0192-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d002",
+    "query": "P0340",
+    "mode": "exact_code",
+    "expected": [
+     "P0340-00"
+    ],
+    "got": [
+     "P0340-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d003",
+    "query": "P0180-11",
+    "mode": "exact_code",
+    "expected": [
+     "P0180-11"
+    ],
+    "got": [
+     "P0180-11",
+     "P0180-11"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d004",
+    "query": "P0100",
+    "mode": "exact_code",
+    "expected": [
+     "P0100-00",
+     "P0100-9B",
+     "P0100-9C"
+    ],
+    "got": [
+     "P0100-00",
+     "P0100-9B",
+     "P0100-9C"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d005",
+    "query": "details for U0102-00",
+    "mode": "exact_code",
+    "expected": [
+     "U0102-00"
+    ],
+    "got": [
+     "U0102-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d006",
+    "query": "fault code P2264",
+    "mode": "exact_code",
+    "expected": [
+     "P2264-00",
+     "P2264-11",
+     "P2264-12"
+    ],
+    "got": [
+     "P2264-12",
+     "P2264-11",
+     "P2264-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d007",
+    "query": "the cam sensor gives no output whatsoever",
+    "mode": "near_duplicate",
+    "expected": [
+     "P0340-00"
+    ],
+    "got": [
+     "P0340-00",
+     "P0341-00",
+     "P0180-11",
+     "P0180-12",
+     "P0335-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d008",
+    "query": "cam position reading is erratic and noisy",
+    "mode": "near_duplicate",
+    "expected": [
+     "P0341-00"
+    ],
+    "got": [
+     "P0341-00",
+     "P0340-00",
+     "P0336-00",
+     "P0335-00",
+     "P048B-12"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d009",
+    "query": "fuel rail sender pulled down to earth",
+    "mode": "near_duplicate",
+    "expected": [
+     "P0192-00"
+    ],
+    "got": [
+     "P0192-00",
+     "P0180-11",
+     "P0087-00",
+     "P0003-00",
+     "P0194-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d010",
+    "query": "fuel rail sender reading has drifted off calibration",
+    "mode": "near_duplicate",
+    "expected": [
+     "P0194-00"
+    ],
+    "got": [
+     "P0194-00",
+     "P0088-00",
+     "P0192-00",
+     "P0087-00",
+     "P0193-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d011",
+    "query": "number three injector has a broken winding",
+    "mode": "near_duplicate",
+    "expected": [
+     "P0203-00"
+    ],
+    "got": [
+     "P0203-00",
+     "P0201-00",
+     "P0204-00",
+     "P0202-00",
+     "P1201-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d012",
+    "query": "cylinder one injector is shorted to the main feed",
+    "mode": "near_duplicate",
+    "expected": [
+     "P2147-00"
+    ],
+    "got": [
+     "P2147-00",
+     "P2150-00",
+     "P0201-00",
+     "P2153-00",
+     "P1201-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d013",
+    "query": "crank position reading is noisy and unstable",
+    "mode": "near_duplicate",
+    "expected": [
+     "P0336-00"
+    ],
+    "got": [
+     "P0336-00",
+     "P0335-00",
+     "P0341-00",
+     "P048B-11",
+     "P0340-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d014",
+    "query": "exhaust recirculation flap is seized shut",
+    "mode": "symptom",
+    "expected": [
+     "P042F-00"
+    ],
+    "got": [
+     "P04A5-00",
+     "P04A4-00",
+     "P042F-00",
+     "P206A-F3",
+     "P22CF-73"
+    ],
+    "rank": 3
+   },
+   {
+    "id": "d015",
+    "query": "the recirculation flap on the egr pipe has seized and refuses to shut",
+    "mode": "symptom",
+    "expected": [
+     "P042E-00"
+    ],
+    "got": [
+     "P042F-00",
+     "P042E-00",
+     "P04A5-00",
+     "P0406-00",
+     "P0489-00"
+    ],
+    "rank": 2
+   },
+   {
+    "id": "d016",
+    "query": "soot trap is completely blocked up",
+    "mode": "symptom",
+    "expected": [
+     "P244B-00"
+    ],
+    "got": [
+     "P2463-85",
+     "P243F-F0",
+     "P242F-00",
+     "P243C-00",
+     "P04A5-00"
+    ],
+    "rank": null
+   },
+   {
+    "id": "d017",
+    "query": "the adblue reservoir is nearly empty and low warning is showing",
+    "mode": "symptom",
+    "expected": [
+     "P203F-00",
+     "P203F-7B"
+    ],
+    "got": [
+     "P206A-F1",
+     "P206A-F2",
+     "P204F-7C",
+     "P203F-00",
+     "P20F4-00"
+    ],
+    "rank": 4
+   },
+   {
+    "id": "d018",
+    "query": "water temp gauge pegged cold, the reading line looks shorted",
+    "mode": "symptom",
+    "expected": [
+     "P0117-00"
+    ],
+    "got": [
+     "P0118-00",
+     "P0117-00",
+     "P0116-00",
+     "P040C-00",
+     "P0427-00"
+    ],
+    "rank": 2
+   },
+   {
+    "id": "d019",
+    "query": "the water temp sensor lead has come adrift and gauge is dead",
+    "mode": "symptom",
+    "expected": [
+     "P0118-00"
+    ],
+    "got": [
+     "P0118-00",
+     "P0116-00",
+     "P0117-00",
+     "P0428-00",
+     "P0180-12"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d020",
+    "query": "the go pedal's two throttle tracks disagree and power is cut",
+    "mode": "symptom",
+    "expected": [
+     "P2135-00"
+    ],
+    "got": [
+     "P2135-00",
+     "P0220-12",
+     "P0220-11",
+     "P0120-12",
+     "P0504-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d021",
+    "query": "alternator is overcharging and the battery sees far too many volts",
+    "mode": "symptom",
+    "expected": [
+     "P0562-00"
+    ],
+    "got": [
+     "P0562-00",
+     "P0563-00",
+     "P20F5-00",
+     "P20F5-7A",
+     "P208D-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d022",
+    "query": "charge pressure from the turbo is under target",
+    "mode": "symptom",
+    "expected": [
+     "P0047-00",
+     "P004C-00",
+     "P006E-00"
+    ],
+    "got": [
+     "P006E-00",
+     "P006F-00",
+     "P0045-13",
+     "P0048-00",
+     "P259E-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d023",
+    "query": "turns over but never fires, no signal coming from the cam pickup",
+    "mode": "symptom",
+    "expected": [
+     "P0340-00"
+    ],
+    "got": [
+     "P0340-00",
+     "P0341-00",
+     "P0336-00",
+     "P0335-00",
+     "P2200-13"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d024",
+    "query": "loss of pulling power with the dash warning light on",
+    "mode": "symptom",
+    "expected": [
+     "P0192-00",
+     "P0193-00",
+     "P0194-00",
+     "P0087-00",
+     "P0088-00"
+    ],
+    "got": [
+     "P0192-00",
+     "P0193-00",
+     "P0087-00",
+     "P0003-00",
+     "P20A3-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d025",
+    "query": "system voltage keeps sagging and the ecu drops out on cold starts",
+    "mode": "symptom",
+    "expected": [
+     "P0563-00"
+    ],
+    "got": [
+     "P0563-00",
+     "P0562-00",
+     "P20F5-00",
+     "P259F-00",
+     "P1114-00"
+    ],
+    "rank": 1
+   }
+  ],
+  "honesty": [
+   {
+    "id": "d001",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d002",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d003",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d004",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d005",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d006",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d007",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d008",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d009",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d010",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d011",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d012",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d013",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d014",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d015",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d016",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d017",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d018",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d019",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d020",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d021",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d022",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d023",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d024",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d025",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d026",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d027",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d028",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d029",
+    "in_scope": false,
+    "passed": false
+   },
+   {
+    "id": "d030",
+    "in_scope": false,
+    "passed": true
+   },
+   {
+    "id": "d031",
+    "in_scope": false,
+    "passed": false
+   },
+   {
+    "id": "d032",
+    "in_scope": false,
+    "passed": false
+   },
+   {
+    "id": "d033",
+    "in_scope": false,
+    "passed": true
+   },
+   {
+    "id": "d034",
+    "in_scope": false,
+    "passed": false
+   }
+  ]
+ },
+ "C5 aliases->BM25+dense + expansion->BM25": {
+  "rows": [
+   {
+    "id": "d001",
+    "query": "what does P0192-00 mean",
+    "mode": "exact_code",
+    "expected": [
+     "P0192-00"
+    ],
+    "got": [
+     "P0192-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d002",
+    "query": "P0340",
+    "mode": "exact_code",
+    "expected": [
+     "P0340-00"
+    ],
+    "got": [
+     "P0340-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d003",
+    "query": "P0180-11",
+    "mode": "exact_code",
+    "expected": [
+     "P0180-11"
+    ],
+    "got": [
+     "P0180-11",
+     "P0180-11"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d004",
+    "query": "P0100",
+    "mode": "exact_code",
+    "expected": [
+     "P0100-00",
+     "P0100-9B",
+     "P0100-9C"
+    ],
+    "got": [
+     "P0100-00",
+     "P0100-9B",
+     "P0100-9C"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d005",
+    "query": "details for U0102-00",
+    "mode": "exact_code",
+    "expected": [
+     "U0102-00"
+    ],
+    "got": [
+     "U0102-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d006",
+    "query": "fault code P2264",
+    "mode": "exact_code",
+    "expected": [
+     "P2264-00",
+     "P2264-11",
+     "P2264-12"
+    ],
+    "got": [
+     "P2264-12",
+     "P2264-11",
+     "P2264-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d007",
+    "query": "the cam sensor gives no output whatsoever",
+    "mode": "near_duplicate",
+    "expected": [
+     "P0340-00"
+    ],
+    "got": [
+     "P0340-00",
+     "P0341-00",
+     "P0180-12",
+     "P0180-11",
+     "P0335-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d008",
+    "query": "cam position reading is erratic and noisy",
+    "mode": "near_duplicate",
+    "expected": [
+     "P0341-00"
+    ],
+    "got": [
+     "P0341-00",
+     "P0340-00",
+     "P0336-00",
+     "P0335-00",
+     "P04A0-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d009",
+    "query": "fuel rail sender pulled down to earth",
+    "mode": "near_duplicate",
+    "expected": [
+     "P0192-00"
+    ],
+    "got": [
+     "P0192-00",
+     "P0180-11",
+     "P0180-11",
+     "P2264-11",
+     "P0003-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d010",
+    "query": "fuel rail sender reading has drifted off calibration",
+    "mode": "near_duplicate",
+    "expected": [
+     "P0194-00"
+    ],
+    "got": [
+     "P0194-00",
+     "P0087-00",
+     "P0192-00",
+     "P0088-00",
+     "P0193-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d011",
+    "query": "number three injector has a broken winding",
+    "mode": "near_duplicate",
+    "expected": [
+     "P0203-00"
+    ],
+    "got": [
+     "P0203-00",
+     "P0201-00",
+     "P0202-00",
+     "P0204-00",
+     "P1203-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d012",
+    "query": "cylinder one injector is shorted to the main feed",
+    "mode": "near_duplicate",
+    "expected": [
+     "P2147-00"
+    ],
+    "got": [
+     "P2147-00",
+     "P0201-00",
+     "P2150-00",
+     "P2153-00",
+     "P1201-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d013",
+    "query": "crank position reading is noisy and unstable",
+    "mode": "near_duplicate",
+    "expected": [
+     "P0336-00"
+    ],
+    "got": [
+     "P0336-00",
+     "P0335-00",
+     "P0341-00",
+     "P048B-11",
+     "P048B-12"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d014",
+    "query": "exhaust recirculation flap is seized shut",
+    "mode": "symptom",
+    "expected": [
+     "P042F-00"
+    ],
+    "got": [
+     "P04A5-00",
+     "P042F-00",
+     "P042E-00",
+     "P04A4-00",
+     "P206A-F3"
+    ],
+    "rank": 2
+   },
+   {
+    "id": "d015",
+    "query": "the recirculation flap on the egr pipe has seized and refuses to shut",
+    "mode": "symptom",
+    "expected": [
+     "P042E-00"
+    ],
+    "got": [
+     "P042F-00",
+     "P042E-00",
+     "P0406-00",
+     "P04A5-00",
+     "P0405-00"
+    ],
+    "rank": 2
+   },
+   {
+    "id": "d016",
+    "query": "soot trap is completely blocked up",
+    "mode": "symptom",
+    "expected": [
+     "P244B-00"
+    ],
+    "got": [
+     "P2463-85",
+     "P243F-F0",
+     "P244B-00",
+     "P226D-00",
+     "P243C-00"
+    ],
+    "rank": 3
+   },
+   {
+    "id": "d017",
+    "query": "the adblue reservoir is nearly empty and low warning is showing",
+    "mode": "symptom",
+    "expected": [
+     "P203F-00",
+     "P203F-7B"
+    ],
+    "got": [
+     "P206A-F2",
+     "P2BA9-00",
+     "P203F-00",
+     "P20F4-00",
+     "P208A-00"
+    ],
+    "rank": 3
+   },
+   {
+    "id": "d018",
+    "query": "water temp gauge pegged cold, the reading line looks shorted",
+    "mode": "symptom",
+    "expected": [
+     "P0117-00"
+    ],
+    "got": [
+     "P0119-00",
+     "P0117-00",
+     "P0116-00",
+     "P0118-00",
+     "P0427-00"
+    ],
+    "rank": 2
+   },
+   {
+    "id": "d019",
+    "query": "the water temp sensor lead has come adrift and gauge is dead",
+    "mode": "symptom",
+    "expected": [
+     "P0118-00"
+    ],
+    "got": [
+     "P0118-00",
+     "P0116-00",
+     "P0117-00",
+     "P0119-00",
+     "P0073-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d020",
+    "query": "the go pedal's two throttle tracks disagree and power is cut",
+    "mode": "symptom",
+    "expected": [
+     "P2135-00"
+    ],
+    "got": [
+     "P2135-00",
+     "P0220-12",
+     "P0220-11",
+     "P0504-00",
+     "P0120-11"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d021",
+    "query": "alternator is overcharging and the battery sees far too many volts",
+    "mode": "symptom",
+    "expected": [
+     "P0562-00"
+    ],
+    "got": [
+     "P0562-00",
+     "P0563-00",
+     "P20F5-00",
+     "P20F5-7A",
+     "P208D-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d022",
+    "query": "charge pressure from the turbo is under target",
+    "mode": "symptom",
+    "expected": [
+     "P0047-00",
+     "P004C-00",
+     "P006E-00"
+    ],
+    "got": [
+     "P259E-00",
+     "P006E-00",
+     "P0048-00",
+     "P259F-00",
+     "P0045-13"
+    ],
+    "rank": 2
+   },
+   {
+    "id": "d023",
+    "query": "turns over but never fires, no signal coming from the cam pickup",
+    "mode": "symptom",
+    "expected": [
+     "P0340-00"
+    ],
+    "got": [
+     "P0340-00",
+     "P0341-00",
+     "P0335-00",
+     "P0336-00",
+     "P0180-11"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d024",
+    "query": "loss of pulling power with the dash warning light on",
+    "mode": "symptom",
+    "expected": [
+     "P0192-00",
+     "P0193-00",
+     "P0194-00",
+     "P0087-00",
+     "P0088-00"
+    ],
+    "got": [
+     "P0192-00",
+     "P0193-00",
+     "P0003-00",
+     "P20A3-00",
+     "P0627-11"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d025",
+    "query": "system voltage keeps sagging and the ecu drops out on cold starts",
+    "mode": "symptom",
+    "expected": [
+     "P0563-00"
+    ],
+    "got": [
+     "P0563-00",
+     "P0562-00",
+     "P204F-7C",
+     "P259F-00",
+     "P1114-00"
+    ],
+    "rank": 1
+   }
+  ],
+  "honesty": [
+   {
+    "id": "d001",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d002",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d003",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d004",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d005",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d006",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d007",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d008",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d009",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d010",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d011",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d012",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d013",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d014",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d015",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d016",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d017",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d018",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d019",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d020",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d021",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d022",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d023",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d024",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d025",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d026",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d027",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d028",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d029",
+    "in_scope": false,
+    "passed": false
+   },
+   {
+    "id": "d030",
+    "in_scope": false,
+    "passed": true
+   },
+   {
+    "id": "d031",
+    "in_scope": false,
+    "passed": false
+   },
+   {
+    "id": "d032",
+    "in_scope": false,
+    "passed": false
+   },
+   {
+    "id": "d033",
+    "in_scope": false,
+    "passed": true
+   },
+   {
+    "id": "d034",
+    "in_scope": false,
+    "passed": false
+   }
+  ]
+ },
+ "C6 aliases->BM25+dense + expansion->BM25+dense": {
+  "rows": [
+   {
+    "id": "d001",
+    "query": "what does P0192-00 mean",
+    "mode": "exact_code",
+    "expected": [
+     "P0192-00"
+    ],
+    "got": [
+     "P0192-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d002",
+    "query": "P0340",
+    "mode": "exact_code",
+    "expected": [
+     "P0340-00"
+    ],
+    "got": [
+     "P0340-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d003",
+    "query": "P0180-11",
+    "mode": "exact_code",
+    "expected": [
+     "P0180-11"
+    ],
+    "got": [
+     "P0180-11",
+     "P0180-11"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d004",
+    "query": "P0100",
+    "mode": "exact_code",
+    "expected": [
+     "P0100-00",
+     "P0100-9B",
+     "P0100-9C"
+    ],
+    "got": [
+     "P0100-00",
+     "P0100-9B",
+     "P0100-9C"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d005",
+    "query": "details for U0102-00",
+    "mode": "exact_code",
+    "expected": [
+     "U0102-00"
+    ],
+    "got": [
+     "U0102-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d006",
+    "query": "fault code P2264",
+    "mode": "exact_code",
+    "expected": [
+     "P2264-00",
+     "P2264-11",
+     "P2264-12"
+    ],
+    "got": [
+     "P2264-12",
+     "P2264-11",
+     "P2264-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d007",
+    "query": "the cam sensor gives no output whatsoever",
+    "mode": "near_duplicate",
+    "expected": [
+     "P0340-00"
+    ],
+    "got": [
+     "P0340-00",
+     "P0341-00",
+     "P0335-00",
+     "P0180-12",
+     "P0336-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d008",
+    "query": "cam position reading is erratic and noisy",
+    "mode": "near_duplicate",
+    "expected": [
+     "P0341-00"
+    ],
+    "got": [
+     "P0341-00",
+     "P0340-00",
+     "P0336-00",
+     "P0335-00",
+     "P048B-12"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d009",
+    "query": "fuel rail sender pulled down to earth",
+    "mode": "near_duplicate",
+    "expected": [
+     "P0192-00"
+    ],
+    "got": [
+     "P0192-00",
+     "P0180-11",
+     "P0180-11",
+     "P0072-00",
+     "P2264-11"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d010",
+    "query": "fuel rail sender reading has drifted off calibration",
+    "mode": "near_duplicate",
+    "expected": [
+     "P0194-00"
+    ],
+    "got": [
+     "P0194-00",
+     "P0192-00",
+     "P0087-00",
+     "P0088-00",
+     "P0193-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d011",
+    "query": "number three injector has a broken winding",
+    "mode": "near_duplicate",
+    "expected": [
+     "P0203-00"
+    ],
+    "got": [
+     "P0203-00",
+     "P0201-00",
+     "P0202-00",
+     "P0204-00",
+     "P1203-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d012",
+    "query": "cylinder one injector is shorted to the main feed",
+    "mode": "near_duplicate",
+    "expected": [
+     "P2147-00"
+    ],
+    "got": [
+     "P2147-00",
+     "P0201-00",
+     "P2150-00",
+     "P2153-00",
+     "P1201-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d013",
+    "query": "crank position reading is noisy and unstable",
+    "mode": "near_duplicate",
+    "expected": [
+     "P0336-00"
+    ],
+    "got": [
+     "P0336-00",
+     "P0341-00",
+     "P0335-00",
+     "P0340-00",
+     "P048B-11"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d014",
+    "query": "exhaust recirculation flap is seized shut",
+    "mode": "symptom",
+    "expected": [
+     "P042F-00"
+    ],
+    "got": [
+     "P042F-00",
+     "P042E-00",
+     "P04A5-00",
+     "P04A4-00",
+     "P0406-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d015",
+    "query": "the recirculation flap on the egr pipe has seized and refuses to shut",
+    "mode": "symptom",
+    "expected": [
+     "P042E-00"
+    ],
+    "got": [
+     "P042F-00",
+     "P042E-00",
+     "P04A5-00",
+     "P0406-00",
+     "P04A4-00"
+    ],
+    "rank": 2
+   },
+   {
+    "id": "d016",
+    "query": "soot trap is completely blocked up",
+    "mode": "symptom",
+    "expected": [
+     "P244B-00"
+    ],
+    "got": [
+     "P2463-85",
+     "P244B-00",
+     "P243F-F0",
+     "P243C-00",
+     "P226D-00"
+    ],
+    "rank": 2
+   },
+   {
+    "id": "d017",
+    "query": "the adblue reservoir is nearly empty and low warning is showing",
+    "mode": "symptom",
+    "expected": [
+     "P203F-00",
+     "P203F-7B"
+    ],
+    "got": [
+     "P2BA9-00",
+     "P203F-00",
+     "P206A-F2",
+     "P20F4-9B",
+     "P206A-86"
+    ],
+    "rank": 2
+   },
+   {
+    "id": "d018",
+    "query": "water temp gauge pegged cold, the reading line looks shorted",
+    "mode": "symptom",
+    "expected": [
+     "P0117-00"
+    ],
+    "got": [
+     "P0119-00",
+     "P0117-00",
+     "P0116-00",
+     "P0118-00",
+     "P242C-00"
+    ],
+    "rank": 2
+   },
+   {
+    "id": "d019",
+    "query": "the water temp sensor lead has come adrift and gauge is dead",
+    "mode": "symptom",
+    "expected": [
+     "P0118-00"
+    ],
+    "got": [
+     "P0118-00",
+     "P0117-00",
+     "P0116-00",
+     "P0119-00",
+     "P0073-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d020",
+    "query": "the go pedal's two throttle tracks disagree and power is cut",
+    "mode": "symptom",
+    "expected": [
+     "P2135-00"
+    ],
+    "got": [
+     "P2135-00",
+     "P0504-00",
+     "P0220-11",
+     "P0120-11",
+     "P0120-12"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d021",
+    "query": "alternator is overcharging and the battery sees far too many volts",
+    "mode": "symptom",
+    "expected": [
+     "P0562-00"
+    ],
+    "got": [
+     "P0562-00",
+     "P0563-00",
+     "P20F5-00",
+     "P20F5-7A",
+     "P208D-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d022",
+    "query": "charge pressure from the turbo is under target",
+    "mode": "symptom",
+    "expected": [
+     "P0047-00",
+     "P004C-00",
+     "P006E-00"
+    ],
+    "got": [
+     "P006F-00",
+     "P0048-00",
+     "P006E-00",
+     "P003A-00",
+     "P259E-00"
+    ],
+    "rank": 3
+   },
+   {
+    "id": "d023",
+    "query": "turns over but never fires, no signal coming from the cam pickup",
+    "mode": "symptom",
+    "expected": [
+     "P0340-00"
+    ],
+    "got": [
+     "P0340-00",
+     "P0341-00",
+     "P0335-00",
+     "P0336-00",
+     "P0180-11"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d024",
+    "query": "loss of pulling power with the dash warning light on",
+    "mode": "symptom",
+    "expected": [
+     "P0192-00",
+     "P0193-00",
+     "P0194-00",
+     "P0087-00",
+     "P0088-00"
+    ],
+    "got": [
+     "P0192-00",
+     "P0193-00",
+     "P0003-00",
+     "P20A3-00",
+     "P0627-11"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d025",
+    "query": "system voltage keeps sagging and the ecu drops out on cold starts",
+    "mode": "symptom",
+    "expected": [
+     "P0563-00"
+    ],
+    "got": [
+     "P0563-00",
+     "P0562-00",
+     "P20F5-00",
+     "P0110-12",
+     "P259F-00"
+    ],
+    "rank": 1
+   }
+  ],
+  "honesty": [
+   {
+    "id": "d001",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d002",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d003",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d004",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d005",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d006",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d007",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d008",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d009",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d010",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d011",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d012",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d013",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d014",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d015",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d016",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d017",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d018",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d019",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d020",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d021",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d022",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d023",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d024",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d025",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d026",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d027",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d028",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d029",
+    "in_scope": false,
+    "passed": false
+   },
+   {
+    "id": "d030",
+    "in_scope": false,
+    "passed": true
+   },
+   {
+    "id": "d031",
+    "in_scope": false,
+    "passed": false
+   },
+   {
+    "id": "d032",
+    "in_scope": false,
+    "passed": false
+   },
+   {
+    "id": "d033",
+    "in_scope": false,
+    "passed": true
+   },
+   {
+    "id": "d034",
+    "in_scope": false,
+    "passed": false
+   }
+  ]
+ },
+ "C7 gte-small: aliases->BM25 + expansion->BM25": {
+  "rows": [
+   {
+    "id": "d001",
+    "query": "what does P0192-00 mean",
+    "mode": "exact_code",
+    "expected": [
+     "P0192-00"
+    ],
+    "got": [
+     "P0192-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d002",
+    "query": "P0340",
+    "mode": "exact_code",
+    "expected": [
+     "P0340-00"
+    ],
+    "got": [
+     "P0340-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d003",
+    "query": "P0180-11",
+    "mode": "exact_code",
+    "expected": [
+     "P0180-11"
+    ],
+    "got": [
+     "P0180-11",
+     "P0180-11"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d004",
+    "query": "P0100",
+    "mode": "exact_code",
+    "expected": [
+     "P0100-00",
+     "P0100-9B",
+     "P0100-9C"
+    ],
+    "got": [
+     "P0100-00",
+     "P0100-9B",
+     "P0100-9C"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d005",
+    "query": "details for U0102-00",
+    "mode": "exact_code",
+    "expected": [
+     "U0102-00"
+    ],
+    "got": [
+     "U0102-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d006",
+    "query": "fault code P2264",
+    "mode": "exact_code",
+    "expected": [
+     "P2264-00",
+     "P2264-11",
+     "P2264-12"
+    ],
+    "got": [
+     "P2264-12",
+     "P2264-11",
+     "P2264-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d007",
+    "query": "the cam sensor gives no output whatsoever",
+    "mode": "near_duplicate",
+    "expected": [
+     "P0340-00"
+    ],
+    "got": [
+     "P0340-00",
+     "P0341-00",
+     "P203A-29",
+     "P2200-13",
+     "P0180-11"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d008",
+    "query": "cam position reading is erratic and noisy",
+    "mode": "near_duplicate",
+    "expected": [
+     "P0341-00"
+    ],
+    "got": [
+     "P0341-00",
+     "P0340-00",
+     "P0336-00",
+     "P0335-00",
+     "P003A-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d009",
+    "query": "fuel rail sender pulled down to earth",
+    "mode": "near_duplicate",
+    "expected": [
+     "P0192-00"
+    ],
+    "got": [
+     "P0192-00",
+     "P0180-11",
+     "P0087-00",
+     "P0088-00",
+     "P00C6-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d010",
+    "query": "fuel rail sender reading has drifted off calibration",
+    "mode": "near_duplicate",
+    "expected": [
+     "P0194-00"
+    ],
+    "got": [
+     "P0194-00",
+     "P0088-00",
+     "P0087-00",
+     "P0192-00",
+     "P0193-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d011",
+    "query": "number three injector has a broken winding",
+    "mode": "near_duplicate",
+    "expected": [
+     "P0203-00"
+    ],
+    "got": [
+     "P0203-00",
+     "P0201-00",
+     "P0204-00",
+     "P1201-00",
+     "P1203-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d012",
+    "query": "cylinder one injector is shorted to the main feed",
+    "mode": "near_duplicate",
+    "expected": [
+     "P2147-00"
+    ],
+    "got": [
+     "P2147-00",
+     "P2150-00",
+     "P2156-00",
+     "P2153-00",
+     "P0201-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d013",
+    "query": "crank position reading is noisy and unstable",
+    "mode": "near_duplicate",
+    "expected": [
+     "P0336-00"
+    ],
+    "got": [
+     "P0336-00",
+     "P0335-00",
+     "P0340-00",
+     "P0341-00",
+     "P22CF-72"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d014",
+    "query": "exhaust recirculation flap is seized shut",
+    "mode": "symptom",
+    "expected": [
+     "P042F-00"
+    ],
+    "got": [
+     "P04A5-00",
+     "P04A4-00",
+     "P2458-09",
+     "P206A-F3",
+     "P226D-00"
+    ],
+    "rank": null
+   },
+   {
+    "id": "d015",
+    "query": "the recirculation flap on the egr pipe has seized and refuses to shut",
+    "mode": "symptom",
+    "expected": [
+     "P042E-00"
+    ],
+    "got": [
+     "P042F-00",
+     "P042E-00",
+     "P04A5-00",
+     "P048A-00",
+     "P0489-00"
+    ],
+    "rank": 2
+   },
+   {
+    "id": "d016",
+    "query": "soot trap is completely blocked up",
+    "mode": "symptom",
+    "expected": [
+     "P244B-00"
+    ],
+    "got": [
+     "P2463-85",
+     "P243F-F0",
+     "P244B-00",
+     "P243C-00",
+     "P226D-00"
+    ],
+    "rank": 3
+   },
+   {
+    "id": "d017",
+    "query": "the adblue reservoir is nearly empty and low warning is showing",
+    "mode": "symptom",
+    "expected": [
+     "P203F-00",
+     "P203F-7B"
+    ],
+    "got": [
+     "P20F4-9B",
+     "P2BA9-00",
+     "P204F-7C",
+     "P20F4-00",
+     "P20F5-7A"
+    ],
+    "rank": null
+   },
+   {
+    "id": "d018",
+    "query": "water temp gauge pegged cold, the reading line looks shorted",
+    "mode": "symptom",
+    "expected": [
+     "P0117-00"
+    ],
+    "got": [
+     "P0117-00",
+     "P2264-11",
+     "P0118-00",
+     "P2264-12",
+     "P0119-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d019",
+    "query": "the water temp sensor lead has come adrift and gauge is dead",
+    "mode": "symptom",
+    "expected": [
+     "P0118-00"
+    ],
+    "got": [
+     "P2264-12",
+     "P0073-00",
+     "P040D-00",
+     "P2264-11",
+     "P0119-00"
+    ],
+    "rank": null
+   },
+   {
+    "id": "d020",
+    "query": "the go pedal's two throttle tracks disagree and power is cut",
+    "mode": "symptom",
+    "expected": [
+     "P2135-00"
+    ],
+    "got": [
+     "P2135-00",
+     "P0220-12",
+     "P0120-12",
+     "P0220-11",
+     "P0504-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d021",
+    "query": "alternator is overcharging and the battery sees far too many volts",
+    "mode": "symptom",
+    "expected": [
+     "P0562-00"
+    ],
+    "got": [
+     "P0562-00",
+     "P0563-00",
+     "P20F5-00",
+     "P229E-0A",
+     "P2200-0A"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d022",
+    "query": "charge pressure from the turbo is under target",
+    "mode": "symptom",
+    "expected": [
+     "P0047-00",
+     "P004C-00",
+     "P006E-00"
+    ],
+    "got": [
+     "P0045-13",
+     "P006E-00",
+     "P006F-00",
+     "P259F-00",
+     "P259E-00"
+    ],
+    "rank": 2
+   },
+   {
+    "id": "d023",
+    "query": "turns over but never fires, no signal coming from the cam pickup",
+    "mode": "symptom",
+    "expected": [
+     "P0340-00"
+    ],
+    "got": [
+     "P0340-00",
+     "P0341-00",
+     "P2229-00",
+     "P0335-00",
+     "P0336-00"
+    ],
+    "rank": 1
+   },
+   {
+    "id": "d024",
+    "query": "loss of pulling power with the dash warning light on",
+    "mode": "symptom",
+    "expected": [
+     "P0192-00",
+     "P0193-00",
+     "P0194-00",
+     "P0087-00",
+     "P0088-00"
+    ],
+    "got": [
+     "P20A3-00",
+     "P006E-00",
+     "P20A3-12",
+     "P0A1B-13",
+     "P2049-00"
+    ],
+    "rank": null
+   },
+   {
+    "id": "d025",
+    "query": "system voltage keeps sagging and the ecu drops out on cold starts",
+    "mode": "symptom",
+    "expected": [
+     "P0563-00"
+    ],
+    "got": [
+     "P0563-00",
+     "P0562-00",
+     "P259F-00",
+     "P2228-00",
+     "P259E-00"
+    ],
+    "rank": 1
+   }
+  ],
+  "honesty": [
+   {
+    "id": "d001",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d002",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d003",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d004",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d005",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d006",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d007",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d008",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d009",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d010",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d011",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d012",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d013",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d014",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d015",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d016",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d017",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d018",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d019",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d020",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d021",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d022",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d023",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d024",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d025",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d026",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d027",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d028",
+    "in_scope": true,
+    "passed": true
+   },
+   {
+    "id": "d029",
+    "in_scope": false,
+    "passed": true
+   },
+   {
+    "id": "d030",
+    "in_scope": false,
+    "passed": true
+   },
+   {
+    "id": "d031",
+    "in_scope": false,
+    "passed": true
+   },
+   {
+    "id": "d032",
+    "in_scope": false,
+    "passed": true
+   },
+   {
+    "id": "d033",
+    "in_scope": false,
+    "passed": true
+   },
+   {
+    "id": "d034",
+    "in_scope": false,
+    "passed": true
+   }
+  ]
+ }
+}

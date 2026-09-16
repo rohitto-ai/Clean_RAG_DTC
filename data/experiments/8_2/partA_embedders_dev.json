@@ -1,0 +1,332 @@
+[
+  {
+    "name": "all-MiniLM-L6-v2 (baseline)",
+    "index_dir": "index",
+    "query_prefix": "",
+    "model": "sentence-transformers/all-MiniLM-L6-v2",
+    "expand": "none",
+    "index_aliases": "none",
+    "by_mode": {
+      "exact_code": {
+        "n": 6,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0,
+        "MRR": 1.0
+      },
+      "near_duplicate": {
+        "n": 7,
+        "hit@1": 0.7142857142857143,
+        "hit@3": 0.8571428571428571,
+        "hit@5": 1.0,
+        "MRR": 0.8214285714285714
+      },
+      "symptom": {
+        "n": 12,
+        "hit@1": 0.16666666666666666,
+        "hit@3": 0.4166666666666667,
+        "hit@5": 0.4166666666666667,
+        "MRR": 0.2777777777777778
+      }
+    },
+    "overall": {
+      "n": 25,
+      "hit@1": 0.52,
+      "hit@3": 0.68,
+      "hit@5": 0.72,
+      "MRR": 0.6033333333333334
+    },
+    "system_group": {
+      "complete": 3,
+      "n": 3
+    },
+    "honesty": {
+      "oos_gated": 4,
+      "oos_n": 6,
+      "in_scope_passed": 27,
+      "in_scope_n": 28
+    },
+    "dense_only_symptom": {
+      "n": 12,
+      "hit@1": 0.08333333333333333,
+      "hit@3": 0.5833333333333334,
+      "hit@5": 0.6666666666666666,
+      "MRR": 0.32222222222222224
+    }
+  },
+  {
+    "name": "bge-small-en-v1.5 (no instruction)",
+    "index_dir": "index_exp/bge",
+    "query_prefix": "",
+    "model": "BAAI/bge-small-en-v1.5",
+    "expand": "none",
+    "index_aliases": "none",
+    "by_mode": {
+      "exact_code": {
+        "n": 6,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0,
+        "MRR": 1.0
+      },
+      "near_duplicate": {
+        "n": 7,
+        "hit@1": 0.5714285714285714,
+        "hit@3": 1.0,
+        "hit@5": 1.0,
+        "MRR": 0.7380952380952381
+      },
+      "symptom": {
+        "n": 12,
+        "hit@1": 0.16666666666666666,
+        "hit@3": 0.25,
+        "hit@5": 0.3333333333333333,
+        "MRR": 0.22916666666666666
+      }
+    },
+    "overall": {
+      "n": 25,
+      "hit@1": 0.48,
+      "hit@3": 0.64,
+      "hit@5": 0.68,
+      "MRR": 0.5566666666666666
+    },
+    "system_group": {
+      "complete": 3,
+      "n": 3
+    },
+    "honesty": {
+      "oos_gated": 0,
+      "oos_n": 6,
+      "in_scope_passed": 28,
+      "in_scope_n": 28
+    },
+    "dense_only_symptom": {
+      "n": 12,
+      "hit@1": 0.16666666666666666,
+      "hit@3": 0.4166666666666667,
+      "hit@5": 0.5833333333333334,
+      "MRR": 0.31527777777777777
+    }
+  },
+  {
+    "name": "bge-small-en-v1.5 (+instruction)",
+    "index_dir": "index_exp/bge",
+    "query_prefix": "Represent this sentence for searching relevant passages: ",
+    "model": "BAAI/bge-small-en-v1.5",
+    "expand": "none",
+    "index_aliases": "none",
+    "by_mode": {
+      "exact_code": {
+        "n": 6,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0,
+        "MRR": 1.0
+      },
+      "near_duplicate": {
+        "n": 7,
+        "hit@1": 0.7142857142857143,
+        "hit@3": 1.0,
+        "hit@5": 1.0,
+        "MRR": 0.8095238095238095
+      },
+      "symptom": {
+        "n": 12,
+        "hit@1": 0.16666666666666666,
+        "hit@3": 0.25,
+        "hit@5": 0.25,
+        "MRR": 0.20833333333333334
+      }
+    },
+    "overall": {
+      "n": 25,
+      "hit@1": 0.52,
+      "hit@3": 0.64,
+      "hit@5": 0.64,
+      "MRR": 0.5666666666666667
+    },
+    "system_group": {
+      "complete": 3,
+      "n": 3
+    },
+    "honesty": {
+      "oos_gated": 0,
+      "oos_n": 6,
+      "in_scope_passed": 28,
+      "in_scope_n": 28
+    },
+    "dense_only_symptom": {
+      "n": 12,
+      "hit@1": 0.08333333333333333,
+      "hit@3": 0.4166666666666667,
+      "hit@5": 0.5833333333333334,
+      "MRR": 0.25555555555555554
+    }
+  },
+  {
+    "name": "gte-small",
+    "index_dir": "index_exp/gte",
+    "query_prefix": "",
+    "model": "thenlper/gte-small",
+    "expand": "none",
+    "index_aliases": "none",
+    "by_mode": {
+      "exact_code": {
+        "n": 6,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0,
+        "MRR": 1.0
+      },
+      "near_duplicate": {
+        "n": 7,
+        "hit@1": 0.7142857142857143,
+        "hit@3": 0.8571428571428571,
+        "hit@5": 1.0,
+        "MRR": 0.8214285714285714
+      },
+      "symptom": {
+        "n": 12,
+        "hit@1": 0.16666666666666666,
+        "hit@3": 0.3333333333333333,
+        "hit@5": 0.3333333333333333,
+        "MRR": 0.25
+      }
+    },
+    "overall": {
+      "n": 25,
+      "hit@1": 0.52,
+      "hit@3": 0.64,
+      "hit@5": 0.68,
+      "MRR": 0.59
+    },
+    "system_group": {
+      "complete": 3,
+      "n": 3
+    },
+    "honesty": {
+      "oos_gated": 0,
+      "oos_n": 6,
+      "in_scope_passed": 28,
+      "in_scope_n": 28
+    },
+    "dense_only_symptom": {
+      "n": 12,
+      "hit@1": 0.16666666666666666,
+      "hit@3": 0.4166666666666667,
+      "hit@5": 0.5,
+      "MRR": 0.29444444444444445
+    }
+  },
+  {
+    "name": "e5-small-v2 (query:/passage:)",
+    "index_dir": "index_exp/e5_prefix",
+    "query_prefix": "query: ",
+    "model": "intfloat/e5-small-v2",
+    "expand": "none",
+    "index_aliases": "none",
+    "by_mode": {
+      "exact_code": {
+        "n": 6,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0,
+        "MRR": 1.0
+      },
+      "near_duplicate": {
+        "n": 7,
+        "hit@1": 0.7142857142857143,
+        "hit@3": 0.7142857142857143,
+        "hit@5": 0.8571428571428571,
+        "MRR": 0.75
+      },
+      "symptom": {
+        "n": 12,
+        "hit@1": 0.08333333333333333,
+        "hit@3": 0.16666666666666666,
+        "hit@5": 0.25,
+        "MRR": 0.14583333333333334
+      }
+    },
+    "overall": {
+      "n": 25,
+      "hit@1": 0.48,
+      "hit@3": 0.52,
+      "hit@5": 0.6,
+      "MRR": 0.52
+    },
+    "system_group": {
+      "complete": 3,
+      "n": 3
+    },
+    "honesty": {
+      "oos_gated": 0,
+      "oos_n": 6,
+      "in_scope_passed": 28,
+      "in_scope_n": 28
+    },
+    "dense_only_symptom": {
+      "n": 12,
+      "hit@1": 0.08333333333333333,
+      "hit@3": 0.16666666666666666,
+      "hit@5": 0.25,
+      "MRR": 0.12777777777777777
+    }
+  },
+  {
+    "name": "e5-small-v2 (no prefixes)",
+    "index_dir": "index_exp/e5_noprefix",
+    "query_prefix": "",
+    "model": "intfloat/e5-small-v2",
+    "expand": "none",
+    "index_aliases": "none",
+    "by_mode": {
+      "exact_code": {
+        "n": 6,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0,
+        "MRR": 1.0
+      },
+      "near_duplicate": {
+        "n": 7,
+        "hit@1": 0.7142857142857143,
+        "hit@3": 0.7142857142857143,
+        "hit@5": 0.8571428571428571,
+        "MRR": 0.75
+      },
+      "symptom": {
+        "n": 12,
+        "hit@1": 0.0,
+        "hit@3": 0.08333333333333333,
+        "hit@5": 0.16666666666666666,
+        "MRR": 0.0625
+      }
+    },
+    "overall": {
+      "n": 25,
+      "hit@1": 0.44,
+      "hit@3": 0.48,
+      "hit@5": 0.56,
+      "MRR": 0.48
+    },
+    "system_group": {
+      "complete": 3,
+      "n": 3
+    },
+    "honesty": {
+      "oos_gated": 0,
+      "oos_n": 6,
+      "in_scope_passed": 28,
+      "in_scope_n": 28
+    },
+    "dense_only_symptom": {
+      "n": 12,
+      "hit@1": 0.0,
+      "hit@3": 0.16666666666666666,
+      "hit@5": 0.16666666666666666,
+      "MRR": 0.06944444444444443
+    }
+  }
+]

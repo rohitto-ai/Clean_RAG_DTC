@@ -137,29 +137,47 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--records", default=RECORDS)
     ap.add_argument("--rebuild", action="store_true",
-                    help="delete ./index/ first for a clean build")
+                    help="delete the index dir first for a clean build")
+    # Phase 8.2 experiment knobs. DEFAULTS reproduce the production index exactly
+    # (MiniLM, no prefix, no aliases, ./index/), so v1 stays reproducible.
+    ap.add_argument("--index-dir", default=INDEX_DIR)
+    ap.add_argument("--model", default=MODEL_NAME)
+    ap.add_argument("--passage-prefix", default="",
+                    help='e.g. "passage: " for e5 models')
+    ap.add_argument("--aliases", choices=["none", "bm25", "both"], default="none",
+                    help="append lexicon aliases to BM25 text, or BM25 + dense text")
+    ap.add_argument("--lexicon", default="data/domain_lexicon.json")
     args = ap.parse_args()
+    index_dir, model_name = args.index_dir, args.model
+    chroma_dir = f"{index_dir}/chroma"
+    lex = None
+    if args.aliases != "none":
+        from lexicon import Lexicon
+        lex = Lexicon(args.lexicon)
 
     recs = [json.loads(l) for l in open(args.records)]
     print(f"loaded {len(recs)} records")
 
-    if args.rebuild and os.path.isdir(INDEX_DIR):
-        shutil.rmtree(INDEX_DIR)
-    os.makedirs(INDEX_DIR, exist_ok=True)
+    if args.rebuild and os.path.isdir(index_dir):
+        shutil.rmtree(index_dir)
+    os.makedirs(index_dir, exist_ok=True)
 
     ids = [record_id(r) for r in recs]
     assert len(set(ids)) == len(ids), "record ids are not unique"
 
     # ---------------- 1. DENSE -------------------------------------------
-    dense_texts = [embedding_text(r) for r in recs]
+    def alias_str(r):
+        return ("\nAlso known as: " + "; ".join(lex.record_aliases(r))) if lex else ""
+    dense_texts = [embedding_text(r) + (alias_str(r) if args.aliases == "both" else "")
+                   for r in recs]
     print(f"dense corpus: {len(dense_texts)} docs, "
           f"avg {sum(len(t) for t in dense_texts)//len(dense_texts)} chars")
 
     from sentence_transformers import SentenceTransformer
-    print(f"loading {MODEL_NAME} ...")
-    model = SentenceTransformer(MODEL_NAME, device="cpu")
+    print(f"loading {model_name} ...")
+    model = SentenceTransformer(model_name, device="cpu")
     dim = model.get_sentence_embedding_dimension()
-    vecs = model.encode(dense_texts, batch_size=BATCH_SIZE,
+    vecs = model.encode([args.passage_prefix + t for t in dense_texts], batch_size=BATCH_SIZE,
                         normalize_embeddings=True,          # L2 -> cosine
                         convert_to_numpy=True,
                         show_progress_bar=False)
@@ -171,7 +189,7 @@ def main():
     print(f"model released | RSS now {rss_mb():.0f} MB (peak)")
 
     import chromadb
-    client = chromadb.PersistentClient(path=CHROMA_DIR)
+    client = chromadb.PersistentClient(path=chroma_dir)
     try:
         client.delete_collection(COLLECTION)
     except Exception:
@@ -195,7 +213,7 @@ def main():
         by_full[r["code_full"]].append(ref)
         by_base[r["dtc_code"]].append(ref)
     exact = {"by_code_full": dict(by_full), "by_dtc_code": dict(by_base)}
-    with open(f"{INDEX_DIR}/code_index.json", "w") as f:
+    with open(f"{index_dir}/code_index.json", "w") as f:
         json.dump(exact, f, indent=1)
     dup_full = {k: len(v) for k, v in by_full.items() if len(v) > 1}
     multi_base = {k: len(v) for k, v in by_base.items() if len(v) > 1}
@@ -207,8 +225,9 @@ def main():
     # The tokenised corpus IS the index: BM25Okapi's statistics are a
     # deterministic function of it, so rebuilding at load is exact and avoids
     # pickling a library object across versions. 314 docs rebuild instantly.
-    corpus = [tokenize(bm25_text(r)) for r in recs]
-    with open(f"{INDEX_DIR}/bm25_corpus.json", "w") as f:
+    corpus = [tokenize(bm25_text(r) + (alias_str(r) if args.aliases in ("bm25", "both") else ""))
+              for r in recs]
+    with open(f"{index_dir}/bm25_corpus.json", "w") as f:
         json.dump({"ids": ids, "corpus": corpus,
                    "tokenizer": {"pattern": TOKEN_RE.pattern,
                                  "lowercase": True,
@@ -224,7 +243,8 @@ def main():
         "built_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "records": len(recs),
         "dense": {
-            "model": MODEL_NAME,
+            "model": model_name,
+            "passage_prefix": args.passage_prefix,
             "embedding_dim": int(dim),
             "normalization": "L2 (unit norm); Chroma space=cosine",
             "batch_size": BATCH_SIZE,
@@ -238,7 +258,10 @@ def main():
                 "step text is near-identical across DTCs and dilutes "
                 "discrimination between near-duplicate families",
         },
-        "chroma": {"version": _c.__version__, "path": CHROMA_DIR,
+        "aliases": {"mode": args.aliases,
+                    "lexicon": args.lexicon if lex else None,
+                    "lexicon_version": lex.version if lex else None},
+        "chroma": {"version": _c.__version__, "path": chroma_dir,
                    "collection": COLLECTION, "space": "cosine"},
         "sentence_transformers_version": _st.__version__,
         "bm25": {"library": "rank-bm25 (BM25Okapi)",
@@ -250,10 +273,10 @@ def main():
                   "duplicate_code_full": dup_full},
         "peak_rss_mb": round(rss_mb()),
     }
-    with open(f"{INDEX_DIR}/meta.json", "w") as f:
+    with open(f"{index_dir}/meta.json", "w") as f:
         json.dump(meta, f, indent=2)
 
-    print(f"\nwrote {INDEX_DIR}/meta.json | PEAK RSS {rss_mb():.0f} MB")
+    print(f"\nwrote {index_dir}/meta.json | PEAK RSS {rss_mb():.0f} MB")
     print(f"systems histogram: {dict(Counter(r['system'] for r in recs).most_common())}")
 
 

@@ -1,5 +1,5 @@
 {
-  "version": "v2.1",
+  "version": "v2.2",
   "test_split_frozen": true,
   "authoring_rules": [
     "Expected answers derived from the manual records (ground truth), never from system output; every expected code asserted to exist.",
@@ -7,7 +7,7 @@
     "Concepts already inspected against system output in Phase 7 are placed in DEV only.",
     "TEST contains only DTCs never inspected; retrieval was NOT run on any TEST query while authoring it, including the v2.1 rewrites.",
     "TEST is FROZEN: never tune against it; evaluate_v2.py reports TEST as aggregates only.",
-    "DEV symptom queries were authored before the ceiling existed; 8 of 12 exceed it and are grandfathered (reported, not enforced) - DEV is unchanged by decision."
+    "The 0.15 word-overlap ceiling applies uniformly to DEV and TEST symptom queries (v2.2)."
   ],
   "queries": [
     {
@@ -156,13 +156,13 @@
     },
     {
       "id": "d015",
-      "query": "exhaust recirculation flap is seized wide open",
+      "query": "the recirculation flap on the egr pipe has seized and refuses to shut",
       "mode": "symptom",
       "expected": [
         "P042E-00"
       ],
       "split": "DEV",
-      "notes": "jammed open"
+      "notes": "jammed open; flap/seized/won't shut"
     },
     {
       "id": "d016",
@@ -176,54 +176,54 @@
     },
     {
       "id": "d017",
-      "query": "adblue tank has almost run dry",
+      "query": "the adblue reservoir is nearly empty and low warning is showing",
       "mode": "symptom",
       "expected": [
         "P203F-00",
         "P203F-7B"
       ],
       "split": "DEV",
-      "notes": "urea level low"
+      "notes": "urea level low; adblue reservoir"
     },
     {
       "id": "d018",
-      "query": "coolant gauge stuck reading at the bottom of the scale",
+      "query": "water temp gauge pegged cold, the reading line looks shorted",
       "mode": "symptom",
       "expected": [
         "P0117-00"
       ],
       "split": "DEV",
-      "notes": "short to ground"
+      "notes": "coolant short to ground; temp gauge pegged cold"
     },
     {
       "id": "d019",
-      "query": "the wire to the engine temperature sender has gone open",
+      "query": "the water temp sensor lead has come adrift and gauge is dead",
       "mode": "symptom",
       "expected": [
         "P0118-00"
       ],
       "split": "DEV",
-      "notes": "open circuit"
+      "notes": "coolant open circuit; sender lead adrift"
     },
     {
       "id": "d020",
-      "query": "throttle pedal sensors do not agree with each other",
+      "query": "the go pedal's two throttle tracks disagree and power is cut",
       "mode": "symptom",
       "expected": [
         "P2135-00"
       ],
       "split": "DEV",
-      "notes": "pedal plausibility"
+      "notes": "pedal position incompatible; throttle tracks disagree"
     },
     {
       "id": "d021",
-      "query": "supply voltage is reading above the permitted ceiling",
+      "query": "alternator is overcharging and the battery sees far too many volts",
       "mode": "symptom",
       "expected": [
         "P0562-00"
       ],
       "split": "DEV",
-      "notes": "battery max"
+      "notes": "battery voltage max; overcharging"
     },
     {
       "id": "d022",
@@ -239,13 +239,13 @@
     },
     {
       "id": "d023",
-      "query": "engine will not crank up and there is no signal from the cam",
+      "query": "turns over but never fires, no signal coming from the cam pickup",
       "mode": "symptom",
       "expected": [
         "P0340-00"
       ],
       "split": "DEV",
-      "notes": "no-start effect"
+      "notes": "camshaft no signal; won't fire"
     },
     {
       "id": "d024",
@@ -263,13 +263,13 @@
     },
     {
       "id": "d025",
-      "query": "battery voltage keeps dipping under what the ECU will accept",
+      "query": "system voltage keeps sagging and the ecu drops out on cold starts",
       "mode": "symptom",
       "expected": [
         "P0563-00"
       ],
       "split": "DEV",
-      "notes": "battery min; new"
+      "notes": "battery voltage min; voltage sagging"
     },
     {
       "id": "d026",
@@ -886,6 +886,78 @@
           "new_query": "cranking solenoid trigger wire from the ECU to the starter has snapped",
           "expected": [
             "P0A1B-13"
+          ]
+        }
+      ]
+    },
+    {
+      "version": "v2.2",
+      "date": "2026-09-16",
+      "reason": "Made the overlap ceiling uniform: rewrote the 8 grandfathered DEV symptom queries over 0.15, same expected DTCs, scored by src/gold_overlap.py only; retrieval not run while authoring.",
+      "queries": [
+        {
+          "id": "d015",
+          "old_query": "exhaust recirculation flap is seized wide open",
+          "new_query": "the recirculation flap on the egr pipe has seized and refuses to shut",
+          "expected": [
+            "P042E-00"
+          ]
+        },
+        {
+          "id": "d017",
+          "old_query": "adblue tank has almost run dry",
+          "new_query": "the adblue reservoir is nearly empty and low warning is showing",
+          "expected": [
+            "P203F-00",
+            "P203F-7B"
+          ]
+        },
+        {
+          "id": "d018",
+          "old_query": "coolant gauge stuck reading at the bottom of the scale",
+          "new_query": "water temp gauge pegged cold, the reading line looks shorted",
+          "expected": [
+            "P0117-00"
+          ]
+        },
+        {
+          "id": "d019",
+          "old_query": "the wire to the engine temperature sender has gone open",
+          "new_query": "the water temp sensor lead has come adrift and gauge is dead",
+          "expected": [
+            "P0118-00"
+          ]
+        },
+        {
+          "id": "d020",
+          "old_query": "throttle pedal sensors do not agree with each other",
+          "new_query": "the go pedal's two throttle tracks disagree and power is cut",
+          "expected": [
+            "P2135-00"
+          ]
+        },
+        {
+          "id": "d021",
+          "old_query": "supply voltage is reading above the permitted ceiling",
+          "new_query": "alternator is overcharging and the battery sees far too many volts",
+          "expected": [
+            "P0562-00"
+          ]
+        },
+        {
+          "id": "d023",
+          "old_query": "engine will not crank up and there is no signal from the cam",
+          "new_query": "turns over but never fires, no signal coming from the cam pickup",
+          "expected": [
+            "P0340-00"
+          ]
+        },
+        {
+          "id": "d025",
+          "old_query": "battery voltage keeps dipping under what the ECU will accept",
+          "new_query": "system voltage keeps sagging and the ecu drops out on cold starts",
+          "expected": [
+            "P0563-00"
           ]
         }
       ]

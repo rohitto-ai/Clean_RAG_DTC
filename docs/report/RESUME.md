@@ -1,9 +1,9 @@
 # RESUME — Clean RAG for the 3.3L DTC Manual
 
 **State: Phases 0–7 complete and tagged `v1-phase7`. Phase 8 (limitations iteration)
-in progress on branch `phase8-limitations`: 8.0 (evaluation foundation) and 8.1 (L2
-skip-branch fixes) DONE, and the TEST split corrected to gold **v2.1**. STOPPED FOR
-REVIEW — no retrieval tuning has started.**
+in progress on branch `phase8-limitations`: 8.0, 8.1 and 8.2 DONE. STOPPED FOR REVIEW
+after 8.2. Production retrieval is still exactly v1-phase7; TEST has NOT been run since
+8.0 and is frozen until 8.5.**
 
 _Recover the evaluated v1 system at any time:_ `git checkout v1-phase7`
 
@@ -32,49 +32,38 @@ _Last updated: 2026-09-16_
 | 0 · Snapshot | ✅ tag `v1-phase7` → `dbf944b`, pushed; branch `phase8-limitations` |
 | 8.0 · Evaluation foundation | ✅ `data/gold_v2.json` **v2.1** (70 q, DEV 34 / TEST 36), overlap ceiling rule, baselines re-recorded |
 | 8.1 · L2 skip-branch fixes | ✅ 5 fixed via `MANUAL_CORRECTIONS`; suite 37 pass / 1 xfail / 0 fail |
-| **8.2 · Retrieval tuning (L1/L3)** | ⏸ **NOT STARTED — awaiting review** |
+| 8.2 · Symptom vocabulary gap (L1) | ✅ DEV only. Embedder: keep MiniLM. Lexicon config **C4** selected: DEV symptom MRR 0.278 → 0.715 |
+| **8.3 · Relevance gate (L3)** | ⏸ next, on go-ahead |
+| 8.5 · Final TEST evaluation | ⏸ frozen until then |
 
-### Baselines on gold_v2.1 (unchanged v1-phase7 retrieval) — the honest before-picture
+### DEV results (gold v2.2) — 8.2
 
-| | DEV hit@1 | DEV MRR | TEST hit@1 | TEST MRR |
+| DEV | symptom hit@1 | symptom MRR | overall MRR | gate OOS / in-scope |
 |---|---|---|---|---|
-| exact_code | 100.0% | 1.000 | 100.0% | 1.000 |
-| near_duplicate | 71.4% | 0.821 | 42.9% | 0.690 |
-| **symptom** | **25.0%** | 0.396 | **23.1%** | 0.291 |
-| **overall** | 56.0% | 0.660 | 46.2% | 0.562 |
-| gate: out-of-scope gated | 4/6 | | 3/6 | |
-| gate: in-scope passed | 26/28 | | 29/30 | |
+| before (production retriever) | 16.7% | 0.278 | 0.603 | 4/6 · 27/28 |
+| **C4: aliases→BM25 + expansion→BM25** | **58.3%** | **0.715** | **0.863** | 4/6 · 28/28 |
 
-Symptom word overlap with the expected description (ceiling 0.15): DEV mean 0.168,
-4/12 zero, **8 over ceiling (grandfathered)**; TEST v2.1 mean 0.098, 4/13 zero, 0 over.
+Gold v2.2: the overlap ceiling is now uniform (DEV 0.090 / TEST 0.098 mean overlap).
+TEST figures from 8.0 (v2.1) remain the frozen before-picture; not re-run.
 
 ## Exact next action
 
-**8.2, on go-ahead.** The TEST split is settled (v2.1) and frozen. 8.2 is the **query-side synonym/expansion layer** (flap→valve,
-seized→jammed, soot trap→DPF, adblue→urea/DEF, sender→sensor, earth→ground,
-feed→supply), tuned on **DEV only**, then measured once on TEST.
+**8.3 — the relevance gate, on go-ahead.** Known facts going in:
+- Out-of-scope refused is still **4/6 on DEV** (warranty and parts-availability leak).
+- The dense threshold (0.30) is MiniLM-calibrated; every alternative embedder tested in 8.2
+  refused **0/6**. Another reason MiniLM stays.
+- The soot-trap over-block (d016) already disappears under C4, as a side effect of BM25
+  aliases raising `bm25_max`. So calibrate the gate **against the C4 index**, not production.
 
-**TEST discipline:** `src/evaluate_v2.py` prints per-query misses for DEV only and
-aggregates for TEST. Never add a synonym, threshold or rule because of a TEST result.
+**C4 is selected, not adopted.** Reproduce it with
+`--index-dir index_exp/minilm_alias_bm25 --lexicon data/domain_lexicon.json --expand bm25`.
+Make it the production default only after 8.3 and 8.5.
 
-## Running it
+**8.5 must report TEST twice:** with the full lexicon, and with the 19 TEST-matching lexicon
+entries ablated (`Lexicon(exclude_test_matching=True)`) — the uncontaminated lower bound.
 
-```bash
-.venv/bin/python src/parse_dtc.py --first 8 --last 545   # ~68 s,   72 MB peak
-.venv/bin/python src/enrich_images.py                     # seconds, 241 MB peak
-.venv/bin/python src/schema.py                            # seconds,  17 MB peak
-.venv/bin/python src/build_index.py --rebuild             # ~21 s,  680 MB peak
-.venv/bin/python src/validate.py                          # parse/schema report
-PYTHONPATH=src .venv/bin/python src/evaluate.py           # v1 gold set (Phase 7)
-PYTHONPATH=src .venv/bin/python src/check_gold.py         # gold-set authoring rules
-PYTHONPATH=src .venv/bin/python src/evaluate_v2.py        # gold_v2.1, DEV/TEST split
-PYTHONPATH=src .venv/bin/python src/smoke_index.py        # 38 tests, ~1.1 GB peak
-.venv/bin/uvicorn app:app --host 127.0.0.1 --port 8000    # demo service
-```
-
-`data/*.jsonl`, `index/` and `models/` are gitignored build artifacts. Regenerate
-them with the commands above **in that order**. The GGUF re-download command is in
-`docs/report/phase6_answer_diagnose.md`.
+**TEST discipline:** `src/evaluate_v2.py` defaults to `--split DEV`. Never pass
+`--split TEST` before 8.5.
 
 ## Open decisions for you
 
@@ -95,7 +84,18 @@ them with the commands above **in that order**. The GGUF re-download command is 
    step** — a consumer that follows `on_true` blindly will dereference a
    non-existent step. Recommendation unchanged: clamp in Phase 6, log in Phase 7.
 
-1. ~~**TEST split authoring bias.**~~ **RESOLVED (v2.1):** the 13 TEST symptom queries were
+1. **Lexicon/TEST contamination (for 8.5).** 19 of 42 lexicon entries match TEST query
+   wording — including brief-specified ones (speedo, intercooler, redline, earthed, adblue,
+   soot trap), which are words from the TEST v2.1 rewrites. Kept; mitigated by the 8.5
+   ablation run. Say if you would rather drop them now instead.
+
+2. **Pre-existing injector short-circuit confusion (not from the lexicon).** The unchanged
+   baseline fails 3/14 guardrails, all ranking P1203-00 first; 2 remain under C4 (cyl 2, 4).
+   Cause: the cylinder digit is the only discriminating token and digits are pervasive
+   pin/step-number noise in BM25. Likely fix: compound tokens (`cylinder_2`). Out of 8.2's
+   scope; decide whether it joins a later step.
+
+3. ~~**TEST split authoring bias.**~~ **RESOLVED (v2.1):** the 13 TEST symptom queries were
    rewritten under a 0.15 word-overlap ceiling (TEST mean 0.412 → 0.098); TEST symptom
    hit@1 fell 76.9% → 23.1%, level with DEV. **Still open:** DEV has **8 grandfathered
    queries over the ceiling** (d015 d017 d018 d019 d020 d021 d023 d025), making DEV
@@ -151,6 +151,14 @@ them with the commands above **in that order**. The GGUF re-download command is 
   positionally. `goto[]` is the verbatim audit trail, not the routing.
 - **`on_true` can point outside the step list** (37 steps). Always check membership;
   `src/diagnose.py` clamps to the terminal step and logs it.
+- **Never append lexicon aliases to the DENSE text.** It gives near-duplicate families
+  (injectors 1–4) identical alias strings, pulls their embeddings together, and broke a
+  baseline-passing guardrail (config C6). Aliases go to BM25 only.
+- **A "better" embedder breaks the relevance gate.** bge/gte/e5 all refused 0/6
+  out-of-scope queries with the MiniLM-calibrated threshold. Recalibrate before swapping.
+- **Subsystem-level aliases must be right for every record in the subsystem.** Mixed
+  subsystems (engine_position = crank + cam) need description-level aliases, or a cam DTC
+  gets crank aliases.
 - **Never tune against TEST in `data/gold_v2.json`**, and never look at TEST
   per-query misses. `src/evaluate_v2.py` withholds them on purpose.
 - **An anti-copy substring check is not enough to keep a gold set honest.** It passed
@@ -202,3 +210,4 @@ them with the commands above **in that order**. The GGUF re-download command is 
 - [phase6_answer_diagnose.md](phase6_answer_diagnose.md)
 - [phase7_evaluation.md](phase7_evaluation.md) — the v1 results chapter
 - [phase8_0_eval_foundation.md](phase8_0_eval_foundation.md) — gold v2.1, overlap rule, split correction, baselines, L2 fixes
+- [phase8_2_symptom_retrieval.md](phase8_2_symptom_retrieval.md) — gold v2.2, embedder benchmark, lexicon, C4 selection, guardrails

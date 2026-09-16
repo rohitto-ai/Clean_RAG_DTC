@@ -121,7 +121,22 @@ def rrf_fuse(dense_ids, bm25_ids, norm_scores, k=RRF_K):
 
 
 class Retriever:
-    def __init__(self, index_dir=INDEX_DIR, records=RECORDS, verbose=False):
+    def __init__(self, index_dir=INDEX_DIR, records=RECORDS, verbose=False,
+                 query_prefix="", lexicon=None, expand="none"):
+        """
+        Phase 8.2 knobs (defaults reproduce the production retriever exactly):
+          query_prefix - model-required query prefix, e.g. "query: " for e5
+          lexicon      - a lexicon.Lexicon, or None
+          expand       - query-side expansion: "none" | "bm25" | "both"
+        The embedding model is read from the index's own meta.json, so the query
+        encoder can never silently differ from the model that built the index.
+        """
+        self.query_prefix, self.lexicon, self.expand = query_prefix, lexicon, expand
+        if expand != "none" and lexicon is None:
+            raise ValueError("expand requires a lexicon")
+        meta_path = os.path.join(index_dir, "meta.json")
+        self.meta = json.load(open(meta_path)) if os.path.exists(meta_path) else {}
+        self.model_name = self.meta.get("dense", {}).get("model", MODEL_NAME)
         self.records = {}
         for line in open(records):
             r = json.loads(line)
@@ -151,14 +166,15 @@ class Retriever:
 
         # One model, loaded once and kept resident for the service lifetime.
         from sentence_transformers import SentenceTransformer
-        self.model = SentenceTransformer(MODEL_NAME, device="cpu")
+        self.model = SentenceTransformer(self.model_name, device="cpu")
         if verbose:
             print(f"Retriever ready: {len(self.records)} records, "
                   f"{self.coll.count()} vectors")
 
     # ---------------- helpers -------------------------------------------
     def _embed(self, query):
-        return self.model.encode([query], normalize_embeddings=True).tolist()
+        return self.model.encode([self.query_prefix + query],
+                                 normalize_embeddings=True).tolist()
 
     def exact_max_sim(self, query):
         """Exact (brute-force) max cosine similarity over all records."""
@@ -208,14 +224,20 @@ class Retriever:
         return out, trace
 
     def _hybrid(self, query, k, soft_system):
+        expanded, matched = query, []
+        if self.lexicon is not None and self.expand != "none":
+            expanded, matched = self.lexicon.expand_query(query)
+        dense_q = expanded if self.expand == "both" else query
+        bm25_q = expanded if self.expand in ("bm25", "both") else query
+
         # dense pool
-        res = self.coll.query(query_embeddings=self._embed(query),
+        res = self.coll.query(query_embeddings=self._embed(dense_q),
                               n_results=min(POOL_SIZE, self.coll.count()))
         dense_ids = res["ids"][0]
         dense_sims = [1.0 - d for d in res["distances"][0]]
 
         # bm25 pool
-        scores = self.bm25.get_scores(self._tokenize(query))
+        scores = self.bm25.get_scores(self._tokenize(bm25_q))
         order = sorted(range(len(scores)), key=lambda i: -scores[i])[:POOL_SIZE]
         order = [i for i in order if scores[i] > 0]
         bm25_ids = [self.bm25_ids[i] for i in order]
@@ -236,6 +258,8 @@ class Retriever:
             "bm25_pool": len(bm25_ids),
             "union_pool": len(fused),
             "rrf_k": RRF_K,
+            "expansion": {"mode": self.expand, "matched": matched,
+                          "expanded_query": expanded if matched else None},
             "soft_system_signal": soft_system,
             "fused_top": [
                 {"code": self._rec(d)["code_full"], "rrf": round(s, 6),

@@ -19,3 +19,4 @@ data/*.jsonl
 **/.cache/
 hf_cache/
 .huggingface/
+index_exp/

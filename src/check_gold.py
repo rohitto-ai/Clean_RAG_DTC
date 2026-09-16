@@ -21,7 +21,7 @@ import sys
 
 from gold_overlap import CEILING, load_descriptions, overlap, symptom_stats
 
-ENFORCED_SPLITS = {"TEST"}
+ENFORCED_SPLITS = {"DEV", "TEST"}   # uniform since gold v2.2
 
 
 def main(path="data/gold_v2.json"):

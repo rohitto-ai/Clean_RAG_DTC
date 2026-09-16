@@ -86,13 +86,26 @@ def main():
     ap.add_argument("--gold", default="data/gold_v2.json")
     ap.add_argument("--out", default="data/baseline_v2.json")
     ap.add_argument("--label", default="baseline")
+    # TEST is FROZEN and evaluated once, at the end (Phase 8.5). DEV is the default;
+    # TEST must be requested explicitly and deliberately.
+    ap.add_argument("--split", choices=["DEV", "TEST", "both"], default="DEV")
+    ap.add_argument("--index-dir", default="index")
+    ap.add_argument("--query-prefix", default="")
+    ap.add_argument("--lexicon", default=None)
+    ap.add_argument("--expand", choices=["none", "bm25", "both"], default="none")
+    ap.add_argument("--quiet", action="store_true", help="suppress per-query DEV misses")
     args = ap.parse_args()
 
     gold = json.load(open(args.gold))
     records = [json.loads(l) for l in open("data/dtc_records.jsonl")]
     from retrieve import Retriever
     import answer as A
-    R = Retriever()
+    lex = None
+    if args.lexicon:
+        from lexicon import Lexicon
+        lex = Lexicon(args.lexicon)
+    R = Retriever(index_dir=args.index_dir, query_prefix=args.query_prefix,
+                  lexicon=lex, expand=args.expand)
 
     dev = [q for q in gold["queries"] if q["split"] == "DEV"]
     test = [q for q in gold["queries"] if q["split"] == "TEST"]
@@ -110,32 +123,46 @@ def main():
         print(f"{name:4s} n={st['n']:2d} mean={st['mean']:.3f} "
               f"zero-overlap={st['zero_overlap']}/{st['n']} max={st['max']:.3f} "
               f"over-ceiling={st['over_ceiling']}")
-    rd, rt = run(R, dev, records, A), run(R, test, records, A)
+    rd = run(R, dev, records, A) if args.split in ("DEV", "both") else None
+    rt = run(R, test, records, A) if args.split in ("TEST", "both") else None
+    if rd:
+        table(rd, f"DEV ({len(dev)} queries) — {args.label}")
+    if rt:
+        table(rt, f"TEST ({len(test)} queries, FROZEN, aggregates only) — {args.label}")
+    else:
+        print("\n(TEST not evaluated — frozen until Phase 8.5.)")
 
-    table(rd, f"DEV ({len(dev)} queries) — {args.label}")
-    table(rt, f"TEST ({len(test)} queries, FROZEN, aggregates only) — {args.label}")
-
+    if rd is None or args.quiet:
+        rd_rows, rd_groups, rd_hon = [], [], []
+    else:
+        rd_rows, rd_groups, rd_hon = rd["_rows"], rd["_groups"], rd["_honesty"]
     print("\n----- DEV per-query misses (rank != 1) -----")
-    for r in rd["_rows"]:
+    for r in rd_rows:
         if r["rank"] != 1:
             print(f"  {r['id']} [{r['mode']}] {r['query']!r}")
             print(f"       expected={r['expected'][:3]} rank={r['rank']} got={r['got'][:3]}")
-    for g in rd["_groups"]:
+    for g in rd_groups:
         if not g["complete"]:
             print(f"  {g['id']} [system_group] {g['query']!r} router={g['router_mode']} "
                   f"detected={g['detected_system']} returned={g['returned']}/{g['expected_n']}")
-    for h in rd["_honesty"]:
+    for h in rd_hon:
         if h["passed"] == (not h["in_scope"]):
             kind = "LEAKED" if not h["in_scope"] else "WRONGLY GATED"
             q = next(x for x in dev if x["id"] == h["id"])
             print(f"  {h['id']} [gate {kind}] {q['query']!r}")
-    print("\n(TEST per-query output intentionally withheld — frozen split.)")
+    if rt:
+        print("\n(TEST per-query output intentionally withheld — frozen split.)")
 
     strip = lambda r: {k: v for k, v in r.items() if not k.startswith("_")}
     json.dump({"label": args.label, "gold": args.gold,
                "gold_version": gold.get("version"),
+               "config": {"index_dir": args.index_dir, "model": R.model_name,
+                          "query_prefix": args.query_prefix,
+                          "lexicon": args.lexicon, "expand": args.expand,
+                          "index_aliases": R.meta.get("aliases", {}).get("mode", "none")},
                "symptom_overlap": overlap_stats,
-               "DEV": strip(rd), "TEST": strip(rt)},
+               "DEV": strip(rd) if rd else None,
+               "TEST": strip(rt) if rt else None},
               open(args.out, "w"), indent=2)
     print(f"\nwrote {args.out}")
 
