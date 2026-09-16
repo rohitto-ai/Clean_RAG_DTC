@@ -1,7 +1,7 @@
 # RESUME — Clean RAG for the 3.3L DTC Manual
 
-**State: Phases 0–5 complete and committed. Next action is Phase 6 (answering +
-conversational diagnosis). Nothing is mid-flight or half-applied.**
+**State: Phases 0–6 complete and committed. Next action is Phase 7 (evaluation &
+robustness harness). Nothing is mid-flight or half-applied.**
 
 _Last updated: 2026-09-16_
 
@@ -17,56 +17,46 @@ _Last updated: 2026-09-16_
 | 2 · Image enrichment (OCR-fallback) | ✅ done | `data/dtc_enriched.jsonl`, `images/` (64 unique) |
 | 3 · Canonical schema | ✅ done | `data/dtc_records.jsonl` — **314/314 schema-valid** |
 | 4 · Indexing | ✅ done | `index/` — 314 vectors + BM25 + code dict |
-| 5 · Retrieval | ✅ done | `src/retrieve.py` — router + RRF, **20 pass / 1 xfail / 0 fail** |
-| **6 · Answering & diagnosis** | ⬜ **next** | `src/answer.py`, `src/diagnose.py` |
-| 7 · Evaluation harness | ⬜ | extend `src/validate.py` |
+| 5 · Retrieval | ✅ done | `src/retrieve.py` — router + RRF |
+| 6 · Answering & diagnosis | ✅ done | `src/answer.py`, `src/diagnose.py` — **30 pass / 1 xfail / 0 fail** |
+| **7 · Evaluation harness** | ⬜ **next** | extend `src/validate.py` + gold query set |
 
 ## Exact next action
 
-Write **`src/answer.py`** and **`src/diagnose.py`** (Phase 6), on top of
-`Retriever.retrieve()`. Two paths:
+Build the **Phase 7 evaluation & robustness harness** (extend `src/validate.py`, or
+add `src/evaluate.py` and call it from there). The build plan asks for:
 
-1. **Fast path (exact DTC) — no LLM.** For `mode="exact_code"`, render a
-   deterministic templated answer straight from the structured fields: cause[],
-   effect, checkpoints[], ordered steps[], referenced pins from pin_map[], and
-   "see schematic, page N" via `schematic_pointer`. Instant on CPU, and it cannot
-   hallucinate. Prefer this wherever the mode allows it.
+1. **Retrieval quality** — hand-build a **~30-query gold set** spanning the four
+   modes (exact DTC, symptom/effect, component/system, conversational), then report
+   **hit@k and MRR**. This is the one metric the project still has no number for;
+   everything so far is spot-checked.
+2. **Coverage / step integrity / boilerplate** — already implemented in
+   `src/validate.py` §§1–3. Keep them.
+3. **New, from Phase 6** — report how often the state machine fires a **clamp**
+   (37 out-of-range targets exist) and a **`skip_true_branch` inference** (256
+   conditional steps are shaped for it) across an automated walk of all 314 records.
+   Both are logged in the diagnosis trace already.
+4. **Grounding check** — assert out-of-scope queries return `NOT_COVERED` via the
+   deterministic gate and never reach the model.
 
-2. **LLM path (symptom / conversational).** Qwen2.5-0.5B-Instruct GGUF Q4 via
-   llama-cpp-python, CPU-only, to phrase answers over retrieved records. Keep
-   prompts tight — CPU generation is the main latency cost. The model is NOT yet
-   downloaded; fetch the GGUF into `models/` (gitignored). If quality is short and
-   RAM allows, Qwen2.5-1.5B Q4 is a drop-in upgrade — the box is 16 GiB now.
-
-3. **Conversational diagnosis state machine** (`diagnose.py`) walks `steps[]`
-   following the technician's yes/no at each step.
-
-**Two things the state machine MUST handle** (both already measured, do not
-rediscover them):
-
-- **`on_true` can point outside the step list — 37 steps do.** These are source
-  defects; in 20/20 affected records the final step is a terminal "Check DTC".
-  **Clamp an out-of-range target to the terminal step** and log the clamp for the
-  Phase 7 harness. Never dereference blindly.
-- **Only 5 steps in the whole manual state an explicit `else`.** `on_false=null`
-  means *fall through to n+1* — the document's own default. Do not treat null as
-  "unknown" or dead-end; it is the overwhelmingly common case (see the
-  `polarity_confidence` distribution in `docs/report/phase3_schema.md`).
+Then wire the **FastAPI `/ingest` and `/query` service** (`app.py`), which the build
+plan lists but nothing has built yet.
 
 Run everything with the venv interpreter: `.venv/bin/python`.
 
 ```bash
-.venv/bin/python src/parse_dtc.py --first 8 --last 545   # ~68 s,  72 MB peak
+.venv/bin/python src/parse_dtc.py --first 8 --last 545   # ~68 s,   72 MB peak
 .venv/bin/python src/enrich_images.py                     # seconds, 241 MB peak
 .venv/bin/python src/schema.py                            # seconds,  17 MB peak
 .venv/bin/python src/build_index.py --rebuild             # ~21 s,  680 MB peak
 .venv/bin/python src/validate.py                          # regenerates the report
-PYTHONPATH=src .venv/bin/python src/smoke_index.py        # 21 index+retrieval tests
+PYTHONPATH=src .venv/bin/python src/smoke_index.py        # 31 tests, ~1.1 GB peak
 PYTHONPATH=src .venv/bin/python src/retrieve.py <query>   # ad-hoc retrieval CLI
 ```
 
-`data/*.jsonl` and `index/` are gitignored build artifacts. If they are missing,
-regenerate them with the commands above **in that order** before doing anything else.
+`data/*.jsonl`, `index/` and `models/` are gitignored build artifacts. Regenerate
+them with the commands above **in that order**. The GGUF re-download command is in
+`docs/report/phase6_answer_diagnose.md`.
 
 ## Open decisions for you
 
@@ -87,7 +77,14 @@ regenerate them with the commands above **in that order** before doing anything 
    step** — a consumer that follows `on_true` blindly will dereference a
    non-existent step. Recommendation unchanged: clamp in Phase 6, log in Phase 7.
 
-3. **Image-derived pins.** OCR scored **0%** and was skipped for a structural
+3. **Is Qwen2.5-1.5B worth it?** 0.5B phrasing is serviceable but weak — it cites
+   correctly and stays in context, but rambles ("the effect on the vehicle is NA").
+   1.5B would cost ~3x latency (~30 s/answer vs 9 s) on these 4 vCPUs; RAM is no
+   longer a constraint. My read: **not clearly worth it** — the fast path handles the
+   primary exact-DTC workflow with no generation at all, and the *relevance gate*,
+   not the model, is what prevents fabrication. **Do not switch unless you say so.**
+
+4. **Image-derived pins.** OCR scored **0%** and was skipped for a structural
    reason, not a quality one: the text cites `A71`, but the schematic draws
    connector `C016-A` with a bare pin `71` — the literal token is never rendered.
    `pin_map[]` is text-derived instead (383 high-confidence pins). If you want
@@ -116,7 +113,17 @@ regenerate them with the commands above **in that order** before doing anything 
   "…then go to Step 12 else go to Step 11" the sorted `goto` is `[11, 12]` but the
   routing is `on_true=12, on_false=11`. Use `on_true`/`on_false`, which were derived
   positionally. `goto[]` is the verbatim audit trail, not the routing.
-- **`on_true` can point outside the step list** (37 steps). Always check membership.
+- **`on_true` can point outside the step list** (37 steps). Always check membership;
+  `src/diagnose.py` clamps to the terminal step and logs it.
+- **Never let the LLM decide whether a question is in scope.** Qwen2.5-0.5B failed
+  this both ways — it fabricated tyre-change instructions with an invented psi
+  figure, and separately refused a valid query. `answer.is_relevant()` gates
+  deterministically on the retrieval signal before the model is consulted.
+- **24% of conditional steps have `on_true == n+1`**, which makes plain fall-through
+  send "yes" and "no" to the same place and leaves whole step ranges unreachable
+  (P0192-00 steps 9-12). `diagnose.py` skips the true-branch step and logs a
+  `skip_true_branch` inference. Do not remove it without re-reading
+  `docs/report/phase6_answer_diagnose.md`.
 - **Equal-weight RRF cannot break a symmetric rank swap.** If two docs exchange ranks
   1 and 2 between the rankers, their RRF scores are identical *for every k* — it is
   structural, not a tuning problem. `src/retrieve.py` breaks such ties by summed
@@ -142,3 +149,4 @@ regenerate them with the commands above **in that order** before doing anything 
 - [phase3_schema.md](phase3_schema.md)
 - [phase4_indexing.md](phase4_indexing.md)
 - [phase5_retrieval.md](phase5_retrieval.md)
+- [phase6_answer_diagnose.md](phase6_answer_diagnose.md)

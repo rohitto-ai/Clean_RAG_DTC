@@ -245,6 +245,15 @@ class Retriever:
         if code_full or base:
             results, t = self._exact(code_full, base, k)
             mode = "exact_code"
+            if not results:
+                # The code regex can match a non-code token of the same shape -
+                # a connector id like C001, say. Returning nothing would be a
+                # dead end, so fall back to hybrid rather than fail closed.
+                hyb, ht = self._hybrid(query, k, system)
+                results, mode = hyb, "hybrid"
+                t = {**t, **ht,
+                     "fallback": f"exact_code found 0 records for "
+                                 f"{code_full or base!r}; fell back to hybrid"}
         elif grouping and system:
             results, t = self._system_group(system, query, k)
             mode = "system_group"

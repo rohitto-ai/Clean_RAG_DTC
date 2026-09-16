@@ -157,6 +157,13 @@ def main():
           out["mode"] == "exact_code" and len(c) == 3,
           f"{c}")
 
+    # (b2) code-shaped token that is not a real DTC -> fall back to hybrid
+    out = R.retrieve("what does connector C001 do")
+    check("C001-shaped token -> falls back to hybrid, non-empty",
+          out["mode"] == "hybrid" and len(out["results"]) > 0,
+          f"mode={out['mode']} n={len(out['results'])} "
+          f"fallback={out['trace'].get('fallback')}")
+
     # (c) grouping vs specific-fault - the discrimination that matters
     out = R.retrieve("list all EGR faults")
     check("'list all EGR faults' -> mode=system_group, 14 records",
@@ -188,6 +195,99 @@ def main():
               f"dense_rank={item.get('dense_rank')} bm25_rank={item.get('bm25_rank')}")
     check("symptom query returns 5 sane results", len(out["results"]) == 5,
           f"n={len(out['results'])}")
+
+    # ================= 7. PHASE 6 — answer + diagnose ======================
+    print("\n== 7. Phase 6 answering + deterministic diagnosis ==")
+    import answer as A
+    from diagnose import walk, Diagnoser
+    by_code = {}
+    for r in recs.values():
+        by_code.setdefault(r["code_full"], []).append(r)
+
+    # (a) deterministic answer, no LLM
+    p0192 = by_code["P0192-00"][0]
+    txt = A.render_record(p0192)
+    needed = ["P0192-00", "Rail pressure Sensor Short circuit to ground",
+              "Torque reduction", "Likely causes", "Checkpoints",
+              "Troubleshooting steps", "Step 13", "A71", "A83",
+              "circuit schematic, page 9", "manual page 8"]
+    missing = [n for n in needed if n not in txt]
+    check("P0192-00 deterministic answer renders all sections, cites page 8",
+          not missing, f"missing={missing}" if missing else f"{len(txt)} chars")
+    out = A.answer("how do I fix P0192-00", R, phraser=None)
+    check("exact_code answer uses the fast path (no LLM called)",
+          out["path"] == "deterministic" and ("P0192-00", 8) in out["citations"],
+          f"path={out['path']} citations={out['citations']}")
+
+    # (b) simulated walk, both branches at step 10
+    t_yes = walk(p0192, ["no", "no", "no", "no", "yes", "no", "no", "yes"])
+    t_no = walk(p0192, ["no", "no", "no", "no", "yes", "no", "no", "no"])
+    step10 = lambda t: next((x["to"] for x in t["transitions"] if x["from"] == 10), None)
+    check("P0192-00 walk: continuity OK at step 10 -> step 12",
+          step10(t_yes) == 12 and t_yes["visited"][-1] == 13,
+          f"visited={t_yes['visited']}")
+    check("P0192-00 walk: continuity NOT ok at step 10 -> step 11",
+          step10(t_no) == 11 and t_no["visited"][-1] == 13,
+          f"visited={t_no['visited']}")
+    check("both branches reach the terminal 'Check DTC'",
+          t_yes["visited"][-1] == t_no["visited"][-1] == 13
+          and p0192["steps"][-1]["kind"] == "terminal",
+          f"terminal step {p0192['steps'][-1]['n']}")
+
+    # (c) out-of-range target is clamped to the terminal step, and logged
+    oor = None
+    for r in recs.values():
+        valid = {x["n"] for x in r["steps"]}
+        if any(x["on_true"] is not None and x["on_true"] not in valid
+               for x in r["steps"]):
+            oor = r
+            break
+    d = Diagnoser(oor)
+    st = d.start()
+    bad = next(x for x in oor["steps"]
+               if x["on_true"] is not None and x["on_true"] not in {y["n"] for y in oor["steps"]})
+    st.current = bad["n"]
+    st = d.advance(st, "yes")
+    check(f"out-of-range target in {oor['code_full']} clamps to terminal + logs",
+          st.clamps and st.clamps[0]["clamped_to"] == d.terminal,
+          f"step {bad['n']} requested {bad['on_true']} -> clamped to {d.terminal}; "
+          f"{len(st.clamps)} clamp(s) logged")
+
+    # (d) synthetic cycle must terminate
+    cyc = {"code_full": "TEST-00", "page": 0, "occurrence": 1,
+           "specifications": [], "image_refs": [], "pin_map": [],
+           "steps": [
+               {"n": 1, "text": "A", "kind": "branch", "condition": "If x",
+                "on_true": 2, "on_false": None, "goto": [2],
+                "polarity_confidence": "high"},
+               {"n": 2, "text": "B", "kind": "branch", "condition": "If y",
+                "on_true": 1, "on_false": None, "goto": [1],
+                "polarity_confidence": "high"},
+               {"n": 3, "text": "Check DTC", "kind": "terminal", "condition": None,
+                "on_true": None, "on_false": None, "goto": [],
+                "polarity_confidence": "high"}]}
+    tc = walk(cyc, ["yes"] * 50)
+    check("synthetic cycle terminates via loop guard",
+          tc["finished"] and len(tc["visited"]) < 10,
+          f"visited={tc['visited']} outcome={tc['outcome']!r}")
+
+    # (e) LLM grounding, both directions
+    ph = A.Phraser()
+    ph.load()
+    a_in = A.answer("my truck has torque reduction and the MIL is on with "
+                    "low rail pressure", R, ph)
+    cited = [c for c, _ in a_in["citations"]]
+    check("symptom query -> LLM answer citing a correct DTC",
+          a_in["path"] == "llm" and any(c in a_in["text"] for c in cited),
+          f"cited={cited} tok/s={a_in['llm_stats']['tokens_per_sec']}")
+    a_out = A.answer("how do I change a tyre", R, ph)
+    check("out-of-scope query -> honest 'not covered', NOT a fabricated DTC",
+          a_out["text"] == A.NOT_COVERED and a_out["path"] == "deterministic_gate",
+          f"path={a_out['path']} rel={a_out['relevance']}")
+    print(f"\n  LLM benchmark: load {ph.load_seconds:.2f}s | "
+          f"{a_in['llm_stats']['tokens_per_sec']} tok/s | "
+          f"{a_in['llm_stats']['completion_tokens']} tokens in "
+          f"{a_in['llm_stats']['seconds']}s on 4 vCPU")
 
     npass = sum(1 for _, ok in results if ok is True)
     nxfail = sum(1 for _, ok in results if ok is None)
