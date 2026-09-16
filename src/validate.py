@@ -379,6 +379,139 @@ def main():
         p(f"| {i} | `{sig}` | {v['count']} | {tg} | {ex} |")
     p()
 
+    # ---------------- 5. PHASE 3 SCHEMA CONFORMANCE ------------------------
+    p("## 5. Phase 3 — canonical schema conformance")
+    p()
+    try:
+        canon = [json.loads(l) for l in open("data/dtc_records.jsonl")]
+    except FileNotFoundError:
+        canon = None
+        p("_data/dtc_records.jsonl not built yet — run `src/schema.py`._")
+        p()
+
+    if canon is not None:
+        import jsonschema
+        schema = json.load(open("data/dtc_record.schema.json"))
+        validator = jsonschema.Draft202012Validator(schema)
+
+        failures = []
+        for r in canon:
+            errs = sorted(validator.iter_errors(r), key=lambda e: e.path)
+            if errs:
+                failures.append((r.get("code_full", "?"), r.get("page"),
+                                 [f"{'/'.join(str(x) for x in e.path)}: {e.message}"
+                                  for e in errs[:3]]))
+        n_ok = len(canon) - len(failures)
+        p(f"- Records validated against `data/dtc_record.schema.json`: **{len(canon)}**")
+        p(f"- **Passing: {n_ok} / {len(canon)}**")
+        p(f"- Failing: **{len(failures)}**")
+        p()
+        if failures:
+            p("### Schema failures")
+            p()
+            for code, pg, msgs in failures[:20]:
+                p(f"- `{code}`@p{pg}")
+                for m in msgs:
+                    p(f"  - {m}")
+            p()
+
+        # goto[] must be byte-identical to the Phase 1 parse
+        raw_by_key = {f"{r['code_full']}@p{r['page']}": r for r in recs}
+        drift = []
+        for r in canon:
+            k = f"{r['code_full']}@p{r['page']}"
+            src_steps = raw_by_key[k]["steps"]
+            if len(src_steps) != len(r["steps"]):
+                drift.append((k, "step count", len(src_steps), len(r["steps"])))
+                continue
+            for a, c in zip(src_steps, r["steps"]):
+                if a["goto"] != c["goto"] or a["n"] != c["n"] or a["text"] != c["text"]:
+                    drift.append((k, f"step {a['n']}", a["goto"], c["goto"]))
+        p(f"- **`goto[]` identical to the Phase 1 parse: "
+          f"{'YES — no edges altered' if not drift else f'NO — {len(drift)} deviations'}**")
+        if drift:
+            for d in drift[:15]:
+                p(f"  - `{d[0]}` {d[1]}: {d[2]} -> {d[3]}")
+        p()
+
+        # distributions
+        kinds = Counter(s["kind"] for r in canon for s in r["steps"])
+        allsteps = sum(len(r["steps"]) for r in canon)
+        p("### Step `kind` distribution")
+        p()
+        p("| kind | steps | % |")
+        p("|---|---|---|")
+        for k in ("action", "check", "branch", "terminal"):
+            p(f"| `{k}` | {kinds.get(k,0)} | {100*kinds.get(k,0)/allsteps:.1f}% |")
+        p(f"| **total** | **{allsteps}** | |")
+        p()
+
+        conf = Counter(s["polarity_confidence"] for r in canon for s in r["steps"])
+        branchy = [s for r in canon for s in r["steps"]
+                   if s["goto"] or s["condition"] is not None]
+        bconf = Counter(s["polarity_confidence"] for s in branchy)
+        p("### `polarity_confidence` distribution")
+        p()
+        p("| scope | high | low | total |")
+        p("|---|---|---|---|")
+        p(f"| all steps | {conf.get('high',0)} | {conf.get('low',0)} | {allsteps} |")
+        p(f"| steps with a condition or a goto | {bconf.get('high',0)} | "
+          f"{bconf.get('low',0)} | {len(branchy)} |")
+        p()
+        p("_A step with neither a condition nor a jump is trivially `high`: there is "
+          "no route to get wrong. The second row is the meaningful measure._")
+        p()
+
+        on_t = sum(1 for r in canon for s in r["steps"] if s["on_true"] is not None)
+        on_f = sum(1 for r in canon for s in r["steps"] if s["on_false"] is not None)
+        both = sum(1 for r in canon for s in r["steps"]
+                   if s["on_true"] is not None and s["on_false"] is not None)
+        withgoto = sum(1 for r in canon for s in r["steps"] if s["goto"])
+        unrouted = sum(1 for r in canon for s in r["steps"]
+                       if s["goto"] and s["on_true"] is None)
+        conds = sum(1 for r in canon for s in r["steps"] if s["condition"] is not None)
+        p("### Routing")
+        p()
+        p(f"- Steps with `on_true` set: **{on_t}**")
+        p(f"- Steps with `on_false` set: **{on_f}** (explicit two-way branches)")
+        p(f"- Steps with both: **{both}**")
+        p(f"- Steps carrying a `goto` edge: **{withgoto}**")
+        p(f"- Steps with a `goto` but deliberately **no** route derived: **{unrouted}** "
+          f"(multi-target \"go to Step 9 & 11\" — not expressible as a two-way route, "
+          f"so left null rather than guessed)")
+        p(f"- Steps with a verbatim `condition` captured: **{conds}**")
+        p()
+
+        # out-of-range on_true kept verbatim
+        oor = []
+        for r in canon:
+            valid = {s["n"] for s in r["steps"]}
+            for s in r["steps"]:
+                if s["on_true"] is not None and s["on_true"] not in valid:
+                    oor.append((f"{r['code_full']}@p{r['page']}", s["n"], s["on_true"],
+                                s["polarity_confidence"]))
+        p(f"- `on_true` targets pointing outside the step list: **{len(oor)}** "
+          f"(kept verbatim, all marked "
+          f"`{sorted({x[3] for x in oor}) if oor else 'n/a'}` — Phase 6 clamps them)")
+        p()
+
+        # carried-through fields
+        tv = Counter(r["template_variant"] for r in canon)
+        missing_tv = [r["code_full"] for r in canon if not r.get("template_variant")]
+        pins = [pm for r in canon for pm in r["pin_map"]]
+        bad_pin = [pm for pm in pins if pm.get("confidence") not in ("high", "low")]
+        p("### Carried-through fields")
+        p()
+        p(f"- `template_variant` present on **{len(canon)-len(missing_tv)}/{len(canon)}** "
+          f"records — {dict(tv)}")
+        p(f"- `pin_map` entries: **{len(pins)}**, all carrying a valid `confidence`: "
+          f"**{'YES' if not bad_pin else f'NO ({len(bad_pin)} bad)'}** — "
+          f"{dict(Counter(pm['confidence'] for pm in pins))}")
+        p(f"- `pin_map` entries with a `net` value: "
+          f"**{sum(1 for pm in pins if pm.get('net'))}** "
+          f"(OCR was skipped in Phase 2, so nets are unpopulated by design)")
+        p()
+
     report = "\n".join(out)
     with open("data/validation_report.md", "w") as f:
         f.write(report + "\n")

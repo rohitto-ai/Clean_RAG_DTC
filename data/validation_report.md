@@ -241,3 +241,47 @@ _`X` = free text, `GOTO` = a 'go to Step N' reference. `targets` shows how many 
 | 31 | `IF X THEN X IF_YES GOTO` | 1 | 1->1 | If error still present then Check the wire harness for any pin / wire back-out from connec |
 | 32 | `IF_YES X GOTO` | 1 | 1->1 | If yes , arrest all leakages & go to step 6 |
 
+## 5. Phase 3 — canonical schema conformance
+
+- Records validated against `data/dtc_record.schema.json`: **314**
+- **Passing: 314 / 314**
+- Failing: **0**
+
+- **`goto[]` identical to the Phase 1 parse: YES — no edges altered**
+
+### Step `kind` distribution
+
+| kind | steps | % |
+|---|---|---|
+| `action` | 144 | 6.5% |
+| `check` | 1068 | 48.5% |
+| `branch` | 692 | 31.4% |
+| `terminal` | 298 | 13.5% |
+| **total** | **2202** | |
+
+### `polarity_confidence` distribution
+
+| scope | high | low | total |
+|---|---|---|---|
+| all steps | 1648 | 554 | 2202 |
+| steps with a condition or a goto | 649 | 554 | 1203 |
+
+_A step with neither a condition nor a jump is trivially `high`: there is no route to get wrong. The second row is the meaningful measure._
+
+### Routing
+
+- Steps with `on_true` set: **686**
+- Steps with `on_false` set: **5** (explicit two-way branches)
+- Steps with both: **2**
+- Steps carrying a `goto` edge: **692**
+- Steps with a `goto` but deliberately **no** route derived: **6** (multi-target "go to Step 9 & 11" — not expressible as a two-way route, so left null rather than guessed)
+- Steps with a verbatim `condition` captured: **1047**
+
+- `on_true` targets pointing outside the step list: **37** (kept verbatim, all marked `['low']` — Phase 6 clamps them)
+
+### Carried-through fields
+
+- `template_variant` present on **314/314** records — {'full_7_section': 113, 'partial': 28, 'reduced_4_section': 173}
+- `pin_map` entries: **427**, all carrying a valid `confidence`: **YES** — {'high': 383, 'low': 44}
+- `pin_map` entries with a `net` value: **0** (OCR was skipped in Phase 2, so nets are unpopulated by design)
+

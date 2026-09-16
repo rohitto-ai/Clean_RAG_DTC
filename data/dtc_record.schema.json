@@ -1,0 +1,241 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DTC record (3.3L_NGE_BSVI MD1CS018)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "dtc_code",
+    "suffix",
+    "code_full",
+    "description",
+    "system",
+    "template_variant",
+    "fault_code",
+    "MIL",
+    "CEL",
+    "immo_lamp",
+    "ic_message",
+    "effect",
+    "cause",
+    "checkpoints",
+    "steps",
+    "specifications",
+    "circuit_description",
+    "pin_map",
+    "image_refs",
+    "page",
+    "occurrence"
+  ],
+  "properties": {
+    "dtc_code": {
+      "type": "string",
+      "pattern": "^[PUBC][0-9A-F]{4}$"
+    },
+    "suffix": {
+      "type": "string",
+      "pattern": "^[0-9A-F]{2}$"
+    },
+    "code_full": {
+      "type": "string",
+      "pattern": "^[PUBC][0-9A-F]{4}-[0-9A-F]{2}$"
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1
+    },
+    "system": {
+      "type": "string",
+      "minLength": 1
+    },
+    "template_variant": {
+      "enum": [
+        "full_7_section",
+        "reduced_4_section",
+        "partial"
+      ]
+    },
+    "fault_code": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "MIL": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "CEL": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "immo_lamp": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "ic_message": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "effect": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "cause": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "checkpoints": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "steps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "n",
+          "text",
+          "kind",
+          "condition",
+          "on_true",
+          "on_false",
+          "goto",
+          "polarity_confidence"
+        ],
+        "properties": {
+          "n": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "text": {
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "action",
+              "check",
+              "branch",
+              "terminal"
+            ]
+          },
+          "condition": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "on_true": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 1
+          },
+          "on_false": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 1
+          },
+          "goto": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "polarity_confidence": {
+            "enum": [
+              "high",
+              "low"
+            ]
+          }
+        }
+      }
+    },
+    "specifications": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "n",
+          "spec"
+        ],
+        "properties": {
+          "n": {
+            "type": "integer"
+          },
+          "spec": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "circuit_description": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "pin_map": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "pin",
+          "net",
+          "confidence"
+        ],
+        "properties": {
+          "pin": {
+            "type": "string"
+          },
+          "net": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "confidence": {
+            "enum": [
+              "high",
+              "low"
+            ]
+          }
+        }
+      }
+    },
+    "image_refs": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "page": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "occurrence": {
+      "type": "integer",
+      "minimum": 1
+    }
+  }
+}
