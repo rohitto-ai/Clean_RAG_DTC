@@ -1,7 +1,7 @@
 # RESUME — Clean RAG for the 3.3L DTC Manual
 
-**State: Phases 0–4 complete and committed. Next action is Phase 5 (retrieval router
-+ RRF fusion). Nothing is mid-flight or half-applied.**
+**State: Phases 0–5 complete and committed. Next action is Phase 6 (answering +
+conversational diagnosis). Nothing is mid-flight or half-applied.**
 
 _Last updated: 2026-09-16_
 
@@ -16,31 +16,42 @@ _Last updated: 2026-09-16_
 | 1b · Validation harness | ✅ done | `data/validation_report.md` |
 | 2 · Image enrichment (OCR-fallback) | ✅ done | `data/dtc_enriched.jsonl`, `images/` (64 unique) |
 | 3 · Canonical schema | ✅ done | `data/dtc_records.jsonl` — **314/314 schema-valid** |
-| 4 · Indexing | ✅ done | `index/` — 314 vectors + BM25 + code dict, **11 pass / 1 xfail** |
-| **5 · Retrieval** | ⬜ **next** | `src/retrieve.py` (router + RRF fusion) |
-| 6 · Answering & diagnosis | ⬜ | `src/answer.py`, `src/diagnose.py` |
+| 4 · Indexing | ✅ done | `index/` — 314 vectors + BM25 + code dict |
+| 5 · Retrieval | ✅ done | `src/retrieve.py` — router + RRF, **20 pass / 1 xfail / 0 fail** |
+| **6 · Answering & diagnosis** | ⬜ **next** | `src/answer.py`, `src/diagnose.py` |
 | 7 · Evaluation harness | ⬜ | extend `src/validate.py` |
 
 ## Exact next action
 
-Write **`src/retrieve.py`** (Phase 5) — the router and fusion layer over the three
-existing indexes. No new indexing.
+Write **`src/answer.py`** and **`src/diagnose.py`** (Phase 6), on top of
+`Retriever.retrieve()`. Two paths:
 
-1. **Router** inspects the query:
-   - Regex hit on a DTC code → **exact lookup** via `index/code_index.json`. Try
-     `by_code_full` first, then `by_dtc_code` for an unsuffixed query. Returns a
-     **list** — duplicates and suffix variants are normal, not an error.
-   - Component/system keyword → **metadata filter** on `system` (Chroma `where=`),
-     return the group. 19 systems; histogram in the Phase 4 report.
-   - Otherwise → **hybrid** dense + BM25, fused with **Reciprocal Rank Fusion**.
-2. **RRF** over the two ranked lists; return top-k **full DTC records**, not fragments.
-3. Load MiniLM once for query encoding and keep it resident for the service.
+1. **Fast path (exact DTC) — no LLM.** For `mode="exact_code"`, render a
+   deterministic templated answer straight from the structured fields: cause[],
+   effect, checkpoints[], ordered steps[], referenced pins from pin_map[], and
+   "see schematic, page N" via `schematic_pointer`. Instant on CPU, and it cannot
+   hallucinate. Prefer this wherever the mode allows it.
 
-**Validate against the known-hard case**: `"camshaft no signal"` must return
-**P0340-00**, not P0341-00. Dense alone gets this wrong (0.011 cosine apart, xfail in
-the Phase 4 smoke tests); BM25 gets it right by a 54% margin. This query is the
-single best check that fusion is actually working — if RRF does not fix it, the
-fusion is wrong.
+2. **LLM path (symptom / conversational).** Qwen2.5-0.5B-Instruct GGUF Q4 via
+   llama-cpp-python, CPU-only, to phrase answers over retrieved records. Keep
+   prompts tight — CPU generation is the main latency cost. The model is NOT yet
+   downloaded; fetch the GGUF into `models/` (gitignored). If quality is short and
+   RAM allows, Qwen2.5-1.5B Q4 is a drop-in upgrade — the box is 16 GiB now.
+
+3. **Conversational diagnosis state machine** (`diagnose.py`) walks `steps[]`
+   following the technician's yes/no at each step.
+
+**Two things the state machine MUST handle** (both already measured, do not
+rediscover them):
+
+- **`on_true` can point outside the step list — 37 steps do.** These are source
+  defects; in 20/20 affected records the final step is a terminal "Check DTC".
+  **Clamp an out-of-range target to the terminal step** and log the clamp for the
+  Phase 7 harness. Never dereference blindly.
+- **Only 5 steps in the whole manual state an explicit `else`.** `on_false=null`
+  means *fall through to n+1* — the document's own default. Do not treat null as
+  "unknown" or dead-end; it is the overwhelmingly common case (see the
+  `polarity_confidence` distribution in `docs/report/phase3_schema.md`).
 
 Run everything with the venv interpreter: `.venv/bin/python`.
 
@@ -50,7 +61,8 @@ Run everything with the venv interpreter: `.venv/bin/python`.
 .venv/bin/python src/schema.py                            # seconds,  17 MB peak
 .venv/bin/python src/build_index.py --rebuild             # ~21 s,  680 MB peak
 .venv/bin/python src/validate.py                          # regenerates the report
-PYTHONPATH=src .venv/bin/python src/smoke_index.py        # 12 index smoke tests
+PYTHONPATH=src .venv/bin/python src/smoke_index.py        # 21 index+retrieval tests
+PYTHONPATH=src .venv/bin/python src/retrieve.py <query>   # ad-hoc retrieval CLI
 ```
 
 `data/*.jsonl` and `index/` are gitignored build artifacts. If they are missing,
@@ -105,6 +117,13 @@ regenerate them with the commands above **in that order** before doing anything 
   routing is `on_true=12, on_false=11`. Use `on_true`/`on_false`, which were derived
   positionally. `goto[]` is the verbatim audit trail, not the routing.
 - **`on_true` can point outside the step list** (37 steps). Always check membership.
+- **Equal-weight RRF cannot break a symmetric rank swap.** If two docs exchange ranks
+  1 and 2 between the rankers, their RRF scores are identical *for every k* — it is
+  structural, not a tuning problem. `src/retrieve.py` breaks such ties by summed
+  min-max-normalised ranker scores. Do not "fix" it by changing `RRF_K`.
+- **A subsystem keyword is a soft signal, never a hard filter**, unless grouping
+  intent is also present. Filtering on it turns "EGR valve stuck closed" into a
+  14-record dump instead of returning P042F-00.
 - **The dense index deliberately excludes step text.** Steps are near-identical
   boilerplate across hundreds of DTCs; embedding them destroys discrimination between
   near-duplicate families. Do not "fix" this by adding them. See
@@ -122,3 +141,4 @@ regenerate them with the commands above **in that order** before doing anything 
 - [phase2_enrichment.md](phase2_enrichment.md)
 - [phase3_schema.md](phase3_schema.md)
 - [phase4_indexing.md](phase4_indexing.md)
+- [phase5_retrieval.md](phase5_retrieval.md)

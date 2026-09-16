@@ -117,6 +117,78 @@ def main():
     for s, n in hist.most_common():
         print(f"    {s:20s} {n}")
 
+    # ================= 6. PHASE 5 — router + RRF acceptance =================
+    print("\n== 6. Phase 5 router + RRF acceptance ==")
+    from retrieve import Retriever
+    R = Retriever()
+
+    def codes_of(out):
+        return [i["record"]["code_full"] for i in out["results"]]
+
+    # (a) the Phase-4 XFAIL must now PASS through fusion
+    out = R.retrieve("camshaft no signal")
+    c = codes_of(out)
+    ft = out["trace"]["fused_top"][:2]
+    check("[was XFAIL] 'camshaft no signal' -> P0340-00 rank 1",
+          c and c[0] == "P0340-00",
+          f"top3={c[:3]} | rrf tie {ft[0]['rrf']}=={ft[1]['rrf']} broken by "
+          f"tiebreak {ft[0]['tiebreak']} vs {ft[1]['tiebreak']}")
+
+    out = R.retrieve("camshaft disturbed signal")
+    c = codes_of(out)
+    check("'camshaft disturbed signal' -> P0341-00 rank 1",
+          c and c[0] == "P0341-00", f"top3={c[:3]}")
+
+    # (b) exact-code routing
+    out = R.retrieve("how do I fix P0192-00")
+    check("'how do I fix P0192-00' -> mode=exact_code, returns P0192-00",
+          out["mode"] == "exact_code" and "P0192-00" in codes_of(out),
+          f"mode={out['mode']} codes={codes_of(out)}")
+
+    out = R.retrieve("P0180-11")
+    pages = [i["record"]["page"] for i in out["results"]]
+    check("'P0180-11' -> BOTH duplicate records",
+          out["mode"] == "exact_code" and len(out["results"]) == 2,
+          f"n={len(out['results'])} pages={pages}")
+
+    out = R.retrieve("P0100")
+    c = sorted(codes_of(out))
+    check("'P0100' -> all 3 suffix variants",
+          out["mode"] == "exact_code" and len(c) == 3,
+          f"{c}")
+
+    # (c) grouping vs specific-fault - the discrimination that matters
+    out = R.retrieve("list all EGR faults")
+    check("'list all EGR faults' -> mode=system_group, 14 records",
+          out["mode"] == "system_group" and len(out["results"]) == 14,
+          f"mode={out['mode']} n={len(out['results'])}")
+
+    out = R.retrieve("EGR valve stuck closed")
+    c = codes_of(out)
+    check("'EGR valve stuck closed' -> mode=hybrid, P042F-00 in top-3 "
+          "(NOT the whole group)",
+          out["mode"] == "hybrid" and "P042F-00" in c[:3],
+          f"mode={out['mode']} top3={c[:3]} "
+          f"soft_system={out['trace'].get('soft_system_signal')}")
+
+    out = R.retrieve("rail pressure sensor short to ground")
+    c = codes_of(out)
+    check("'rail pressure sensor short to ground' -> P0192-00 rank 1",
+          c and c[0] == "P0192-00", f"top3={c[:3]}")
+
+    # (d) code-free symptom query - eyeball
+    q = "torque reduction, MIL on, low rail pressure"
+    out = R.retrieve(q, k=5)
+    print(f"\n  code-free symptom query: {q!r} -> mode={out['mode']}")
+    for i, item in enumerate(out["results"], 1):
+        r_ = item["record"]
+        print(f"    {i}. {r_['code_full']:10s} [{r_['system']:14s}] "
+              f"{r_['description'][:58]}")
+        print(f"       effect={str(r_['effect'])[:52]!r} "
+              f"dense_rank={item.get('dense_rank')} bm25_rank={item.get('bm25_rank')}")
+    check("symptom query returns 5 sane results", len(out["results"]) == 5,
+          f"n={len(out['results'])}")
+
     npass = sum(1 for _, ok in results if ok is True)
     nxfail = sum(1 for _, ok in results if ok is None)
     nfail = sum(1 for _, ok in results if ok is False)
