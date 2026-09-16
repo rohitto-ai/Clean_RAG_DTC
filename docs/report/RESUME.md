@@ -2,10 +2,8 @@
 
 **State: Phases 0–7 complete and tagged `v1-phase7`. Phase 8 (limitations iteration)
 in progress on branch `phase8-limitations`: 8.0 (evaluation foundation) and 8.1 (L2
-skip-branch fixes) DONE. STOPPED FOR REVIEW before any retrieval tuning.**
-
-**Blocking decision before 8.2:** the TEST split has an authoring bias — its symptom
-queries share 3.4x more vocabulary with the manual than DEV's. See "Open decisions".
+skip-branch fixes) DONE, and the TEST split corrected to gold **v2.1**. STOPPED FOR
+REVIEW — no retrieval tuning has started.**
 
 _Recover the evaluated v1 system at any time:_ `git checkout v1-phase7`
 
@@ -32,30 +30,27 @@ _Last updated: 2026-09-16_
 | step | status |
 |---|---|
 | 0 · Snapshot | ✅ tag `v1-phase7` → `dbf944b`, pushed; branch `phase8-limitations` |
-| 8.0 · Evaluation foundation | ✅ `data/gold_v2.json` (70 q, DEV 34 / TEST 36), baselines recorded |
+| 8.0 · Evaluation foundation | ✅ `data/gold_v2.json` **v2.1** (70 q, DEV 34 / TEST 36), overlap ceiling rule, baselines re-recorded |
 | 8.1 · L2 skip-branch fixes | ✅ 5 fixed via `MANUAL_CORRECTIONS`; suite 37 pass / 1 xfail / 0 fail |
 | **8.2 · Retrieval tuning (L1/L3)** | ⏸ **NOT STARTED — awaiting review** |
 
-### Baselines on gold_v2 (unchanged v1-phase7 system)
+### Baselines on gold_v2.1 (unchanged v1-phase7 retrieval) — the honest before-picture
 
 | | DEV hit@1 | DEV MRR | TEST hit@1 | TEST MRR |
 |---|---|---|---|---|
 | exact_code | 100.0% | 1.000 | 100.0% | 1.000 |
 | near_duplicate | 71.4% | 0.821 | 42.9% | 0.690 |
-| **symptom** | **25.0%** | 0.396 | **76.9%** | 0.821 |
-| **overall** | 56.0% | 0.660 | 73.1% | 0.827 |
+| **symptom** | **25.0%** | 0.396 | **23.1%** | 0.291 |
+| **overall** | 56.0% | 0.660 | 46.2% | 0.562 |
 | gate: out-of-scope gated | 4/6 | | 3/6 | |
-| gate: in-scope passed | 26/28 | | 30/30 | |
+| gate: in-scope passed | 26/28 | | 29/30 | |
 
-The DEV/TEST symptom gap is authoring bias, not system behaviour — see below.
+Symptom word overlap with the expected description (ceiling 0.15): DEV mean 0.168,
+4/12 zero, **8 over ceiling (grandfathered)**; TEST v2.1 mean 0.098, 4/13 zero, 0 over.
 
 ## Exact next action
 
-**Get a decision on the TEST split, then 8.2.** Do not tune retrieval until TEST is
-settled: tuning makes re-authoring TEST illegitimate, because decisions would then have
-been made with it in place.
-
-Once decided, 8.2 is the **query-side synonym/expansion layer** (flap→valve,
+**8.2, on go-ahead.** The TEST split is settled (v2.1) and frozen. 8.2 is the **query-side synonym/expansion layer** (flap→valve,
 seized→jammed, soot trap→DPF, adblue→urea/DEF, sender→sensor, earth→ground,
 feed→supply), tuned on **DEV only**, then measured once on TEST.
 
@@ -71,7 +66,8 @@ aggregates for TEST. Never add a synonym, threshold or rule because of a TEST re
 .venv/bin/python src/build_index.py --rebuild             # ~21 s,  680 MB peak
 .venv/bin/python src/validate.py                          # parse/schema report
 PYTHONPATH=src .venv/bin/python src/evaluate.py           # v1 gold set (Phase 7)
-PYTHONPATH=src .venv/bin/python src/evaluate_v2.py        # gold_v2, DEV/TEST split
+PYTHONPATH=src .venv/bin/python src/check_gold.py         # gold-set authoring rules
+PYTHONPATH=src .venv/bin/python src/evaluate_v2.py        # gold_v2.1, DEV/TEST split
 PYTHONPATH=src .venv/bin/python src/smoke_index.py        # 38 tests, ~1.1 GB peak
 .venv/bin/uvicorn app:app --host 127.0.0.1 --port 8000    # demo service
 ```
@@ -99,14 +95,12 @@ them with the commands above **in that order**. The GGUF re-download command is 
    step** — a consumer that follows `on_true` blindly will dereference a
    non-existent step. Recommendation unchanged: clamp in Phase 6, log in Phase 7.
 
-1. **⚠ TEST split authoring bias — DECIDE BEFORE 8.2.** TEST symptom queries have mean
-   word overlap **0.41** with their expected manual description vs DEV's **0.12**, and
-   **0/13** TEST queries share zero terms vs **5/12** in DEV. Measured from the gold set
-   and records alone — no TEST system output was inspected. Consequence: a synonym
-   layer would look weak on TEST because TEST barely needs synonyms. Options:
-   (a) re-author the 13 TEST symptom queries to DEV's overlap profile and re-freeze;
-   (b) add a hard overlap ceiling to the authoring check; (c) keep and stratify.
-   **Recommended (a)+(b), and only legitimate before tuning begins.**
+1. ~~**TEST split authoring bias.**~~ **RESOLVED (v2.1):** the 13 TEST symptom queries were
+   rewritten under a 0.15 word-overlap ceiling (TEST mean 0.412 → 0.098); TEST symptom
+   hit@1 fell 76.9% → 23.1%, level with DEV. **Still open:** DEV has **8 grandfathered
+   queries over the ceiling** (d015 d017 d018 d019 d020 d021 d023 d025), making DEV
+   slightly easier than TEST on mean overlap (0.168 vs 0.098). Rewriting them would
+   equalise difficulty but change the DEV baseline — your call, and best made before 8.2.
 
 2. **L2 corrected count: 5 mismatches, not 6.** P0194-00 s7 was a false positive from
    the Phase 7 fix-verb detector and is correctly NOT overridden (its skip reaches the
@@ -160,8 +154,10 @@ them with the commands above **in that order**. The GGUF re-download command is 
 - **Never tune against TEST in `data/gold_v2.json`**, and never look at TEST
   per-query misses. `src/evaluate_v2.py` withholds them on purpose.
 - **An anti-copy substring check is not enough to keep a gold set honest.** It passed
-  every TEST query while TEST still leaked 3.4x more manual vocabulary than DEV. Measure
-  per-query word overlap with the expected description.
+  every original TEST query while they reused ~2.5x more manual vocabulary than DEV.
+  Run `src/check_gold.py` (word-overlap ceiling, defined in `src/gold_overlap.py`)
+  before freezing any split. Domain nouns like "sensor" must COUNT as overlap — an
+  ad-hoc stoplist that dropped them understated DEV's overlap (0.12 vs true 0.168).
 - **Codes are not unique keys — this applies to overrides too.** `MANUAL_CORRECTIONS`
   asserts the page, so an override cannot attach to a same-coded record elsewhere.
 - **Never gate on Chroma's top-1 distance.** HNSW is approximate: three runs of the
@@ -205,4 +201,4 @@ them with the commands above **in that order**. The GGUF re-download command is 
 - [phase5_retrieval.md](phase5_retrieval.md)
 - [phase6_answer_diagnose.md](phase6_answer_diagnose.md)
 - [phase7_evaluation.md](phase7_evaluation.md) — the v1 results chapter
-- [phase8_0_eval_foundation.md](phase8_0_eval_foundation.md) — gold_v2, split, baselines, L2 fixes
+- [phase8_0_eval_foundation.md](phase8_0_eval_foundation.md) — gold v2.1, overlap rule, split correction, baselines, L2 fixes

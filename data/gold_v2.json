@@ -1,12 +1,13 @@
 {
-  "version": "v2",
+  "version": "v2.1",
   "test_split_frozen": true,
   "authoring_rules": [
-    "Symptom queries paraphrased in the author's own words; manual description text never copied (enforced by an automated substring check).",
-    "Expected answers derived from the manual records (ground truth), never from system output.",
+    "Expected answers derived from the manual records (ground truth), never from system output; every expected code asserted to exist.",
+    "WORD-OVERLAP CEILING (supersedes the whole-description substring check, which was too weak): a symptom query may share at most 0.15 content-word overlap with its expected DTC description, as defined in src/gold_overlap.py (English function words ignored; domain nouns such as sensor/circuit/signal COUNT). Prefer technician/colloquial vocabulary over manual nouns. Enforced by src/check_gold.py.",
     "Concepts already inspected against system output in Phase 7 are placed in DEV only.",
-    "TEST contains only DTCs never inspected; the retrieval system was not run on TEST items while authoring.",
-    "TEST is FROZEN: never tune against it."
+    "TEST contains only DTCs never inspected; retrieval was NOT run on any TEST query while authoring it, including the v2.1 rewrites.",
+    "TEST is FROZEN: never tune against it; evaluate_v2.py reports TEST as aggregates only.",
+    "DEV symptom queries were authored before the ceiling existed; 8 of 12 exceed it and are grandfathered (reported, not enforced) - DEV is unchanged by decision."
   ],
   "queries": [
     {
@@ -527,134 +528,134 @@
     },
     {
       "id": "t048",
-      "query": "there is water contamination in the diesel filter",
+      "query": "moisture got into the diesel and the separator warning keeps coming on",
       "mode": "symptom",
       "expected": [
         "P2264-00",
         "P2264-12"
       ],
       "split": "TEST",
-      "notes": "water in fuel"
+      "notes": "water in fuel; colloquial moisture/separator"
     },
     {
       "id": "t049",
-      "query": "truck refuses to fire up and the metering unit output is grounded",
+      "query": "truck won't fire, quantity valve output lead is earthed",
       "mode": "symptom",
       "expected": [
         "P0003-00"
       ],
       "split": "TEST",
-      "notes": "no-start"
+      "notes": "no-start; quantity valve = metering unit"
     },
     {
       "id": "t050",
-      "query": "the fuel pump relay coil has an open circuit",
+      "query": "fuel lift switching unit coil wire has snapped",
       "mode": "symptom",
       "expected": [
         "P0627-13"
       ],
       "split": "TEST",
-      "notes": "relay open"
+      "notes": "relay open; lift switching unit = pump relay"
     },
     {
       "id": "t051",
-      "query": "the diesel exhaust fluid has frozen solid",
+      "query": "the adblue has turned to solid ice after a freezing night",
       "mode": "symptom",
       "expected": [
         "P10FF-00"
       ],
       "split": "TEST",
-      "notes": "frozen DEF"
+      "notes": "frozen DEF; adblue/ice"
     },
     {
       "id": "t052",
-      "query": "the reduction catalyst has worn out and lost its efficiency",
+      "query": "scr nox cleaning brick has aged out and stopped working",
       "mode": "symptom",
       "expected": [
         "P20EE-00"
       ],
       "split": "TEST",
-      "notes": "deteriorated SCR"
+      "notes": "deteriorated SCR; nox cleaning brick"
     },
     {
       "id": "t053",
-      "query": "engine is spinning faster than its permitted maximum",
+      "query": "engine screaming past the redline, rev needle in the red",
       "mode": "symptom",
       "expected": [
         "P0219-00"
       ],
       "split": "TEST",
-      "notes": "overspeed"
+      "notes": "overspeed; redline/rev needle"
     },
     {
       "id": "t054",
-      "query": "too much ash has built up in the particulate filter",
+      "query": "burnt residue has packed the exhaust soot trap solid and it cannot be cleared by burning",
       "mode": "symptom",
       "expected": [
         "P242F-00"
       ],
       "split": "TEST",
-      "notes": "ash load"
+      "notes": "ash load; burnt residue/soot trap"
     },
     {
       "id": "t055",
-      "query": "the regeneration request switch on the dash is stuck down",
+      "query": "the dash burn-off switch the driver presses seems jammed in",
       "mode": "symptom",
       "expected": [
         "P2458-09"
       ],
       "split": "TEST",
-      "notes": "regen button stuck"
+      "notes": "regen button stuck; burn-off switch"
     },
     {
       "id": "t056",
-      "query": "intake charge cooler is not cooling effectively",
+      "query": "intercooler barely dropping intake air temps on climbs",
       "mode": "symptom",
       "expected": [
         "P026A-00"
       ],
       "split": "TEST",
-      "notes": "CAC efficiency"
+      "notes": "CAC efficiency; intercooler"
     },
     {
       "id": "t057",
-      "query": "road speed reading does not make sense",
+      "query": "speedo needle jumps about and does not match how fast we are really going",
       "mode": "symptom",
       "expected": [
         "P0500-1F"
       ],
       "split": "TEST",
-      "notes": "speed plausibility"
+      "notes": "speed plausibility; speedo needle"
     },
     {
       "id": "t058",
-      "query": "no fuel pressure builds up while cranking the engine",
+      "query": "cranks on the starter but the injection side never comes up to strength",
       "mode": "symptom",
       "expected": [
         "P00C6-00"
       ],
       "split": "TEST",
-      "notes": "no rail build-up"
+      "notes": "no rail build-up; injection side never comes up"
     },
     {
       "id": "t059",
-      "query": "clutch switch signal does not make sense",
+      "query": "the clutch pedal contact tells the ECU nonsense about whether it is pressed",
       "mode": "symptom",
       "expected": [
         "P0704-29"
       ],
       "split": "TEST",
-      "notes": "clutch plausibility"
+      "notes": "clutch plausibility; pedal contact"
     },
     {
       "id": "t060",
-      "query": "the starter motor control line is broken",
+      "query": "cranking solenoid trigger wire from the ECU to the starter has snapped",
       "mode": "symptom",
       "expected": [
         "P0A1B-13"
       ],
       "split": "TEST",
-      "notes": "starter open circuit"
+      "notes": "starter control open; solenoid trigger wire"
     },
     {
       "id": "t061",
@@ -774,6 +775,120 @@
       "expected": "none",
       "split": "TEST",
       "notes": "vehicle-adjacent, not engine DTC"
+    }
+  ],
+  "revisions": [
+    {
+      "version": "v2.1",
+      "date": "2026-09-16",
+      "reason": "TEST symptom queries were biased easy (mean overlap 0.412, 0/13 zero-overlap) vs DEV (0.168, 4/12). Rewrote only the 13 TEST symptom queries under the new 0.15 ceiling, same expected DTCs; no other TEST items touched.",
+      "queries": [
+        {
+          "id": "t048",
+          "old_query": "there is water contamination in the diesel filter",
+          "new_query": "moisture got into the diesel and the separator warning keeps coming on",
+          "expected": [
+            "P2264-00",
+            "P2264-12"
+          ]
+        },
+        {
+          "id": "t049",
+          "old_query": "truck refuses to fire up and the metering unit output is grounded",
+          "new_query": "truck won't fire, quantity valve output lead is earthed",
+          "expected": [
+            "P0003-00"
+          ]
+        },
+        {
+          "id": "t050",
+          "old_query": "the fuel pump relay coil has an open circuit",
+          "new_query": "fuel lift switching unit coil wire has snapped",
+          "expected": [
+            "P0627-13"
+          ]
+        },
+        {
+          "id": "t051",
+          "old_query": "the diesel exhaust fluid has frozen solid",
+          "new_query": "the adblue has turned to solid ice after a freezing night",
+          "expected": [
+            "P10FF-00"
+          ]
+        },
+        {
+          "id": "t052",
+          "old_query": "the reduction catalyst has worn out and lost its efficiency",
+          "new_query": "scr nox cleaning brick has aged out and stopped working",
+          "expected": [
+            "P20EE-00"
+          ]
+        },
+        {
+          "id": "t053",
+          "old_query": "engine is spinning faster than its permitted maximum",
+          "new_query": "engine screaming past the redline, rev needle in the red",
+          "expected": [
+            "P0219-00"
+          ]
+        },
+        {
+          "id": "t054",
+          "old_query": "too much ash has built up in the particulate filter",
+          "new_query": "burnt residue has packed the exhaust soot trap solid and it cannot be cleared by burning",
+          "expected": [
+            "P242F-00"
+          ]
+        },
+        {
+          "id": "t055",
+          "old_query": "the regeneration request switch on the dash is stuck down",
+          "new_query": "the dash burn-off switch the driver presses seems jammed in",
+          "expected": [
+            "P2458-09"
+          ]
+        },
+        {
+          "id": "t056",
+          "old_query": "intake charge cooler is not cooling effectively",
+          "new_query": "intercooler barely dropping intake air temps on climbs",
+          "expected": [
+            "P026A-00"
+          ]
+        },
+        {
+          "id": "t057",
+          "old_query": "road speed reading does not make sense",
+          "new_query": "speedo needle jumps about and does not match how fast we are really going",
+          "expected": [
+            "P0500-1F"
+          ]
+        },
+        {
+          "id": "t058",
+          "old_query": "no fuel pressure builds up while cranking the engine",
+          "new_query": "cranks on the starter but the injection side never comes up to strength",
+          "expected": [
+            "P00C6-00"
+          ]
+        },
+        {
+          "id": "t059",
+          "old_query": "clutch switch signal does not make sense",
+          "new_query": "the clutch pedal contact tells the ECU nonsense about whether it is pressed",
+          "expected": [
+            "P0704-29"
+          ]
+        },
+        {
+          "id": "t060",
+          "old_query": "the starter motor control line is broken",
+          "new_query": "cranking solenoid trigger wire from the ECU to the starter has snapped",
+          "expected": [
+            "P0A1B-13"
+          ]
+        }
+      ]
     }
   ]
 }

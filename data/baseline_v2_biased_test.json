@@ -1,0 +1,88 @@
+{
+  "label": "baseline (v1-phase7 system, unchanged)",
+  "gold": "data/gold_v2.json",
+  "DEV": {
+    "by_mode": {
+      "exact_code": {
+        "n": 6,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0,
+        "MRR": 1.0
+      },
+      "near_duplicate": {
+        "n": 7,
+        "hit@1": 0.7142857142857143,
+        "hit@3": 0.8571428571428571,
+        "hit@5": 1.0,
+        "MRR": 0.8214285714285714
+      },
+      "symptom": {
+        "n": 12,
+        "hit@1": 0.25,
+        "hit@3": 0.5833333333333334,
+        "hit@5": 0.6666666666666666,
+        "MRR": 0.3958333333333333
+      }
+    },
+    "overall": {
+      "n": 25,
+      "hit@1": 0.56,
+      "hit@3": 0.76,
+      "hit@5": 0.84,
+      "MRR": 0.66
+    },
+    "system_group": {
+      "complete": 3,
+      "n": 3
+    },
+    "honesty": {
+      "oos_gated": 4,
+      "oos_n": 6,
+      "in_scope_passed": 26,
+      "in_scope_n": 28
+    }
+  },
+  "TEST": {
+    "by_mode": {
+      "exact_code": {
+        "n": 6,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0,
+        "MRR": 1.0
+      },
+      "near_duplicate": {
+        "n": 7,
+        "hit@1": 0.42857142857142855,
+        "hit@3": 1.0,
+        "hit@5": 1.0,
+        "MRR": 0.6904761904761905
+      },
+      "symptom": {
+        "n": 13,
+        "hit@1": 0.7692307692307693,
+        "hit@3": 0.9230769230769231,
+        "hit@5": 0.9230769230769231,
+        "MRR": 0.8205128205128205
+      }
+    },
+    "overall": {
+      "n": 26,
+      "hit@1": 0.7307692307692307,
+      "hit@3": 0.9615384615384616,
+      "hit@5": 0.9615384615384616,
+      "MRR": 0.8269230769230769
+    },
+    "system_group": {
+      "complete": 4,
+      "n": 4
+    },
+    "honesty": {
+      "oos_gated": 3,
+      "oos_n": 6,
+      "in_scope_passed": 30,
+      "in_scope_n": 30
+    }
+  }
+}

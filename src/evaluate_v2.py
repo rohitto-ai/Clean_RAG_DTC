@@ -96,6 +96,20 @@ def main():
 
     dev = [q for q in gold["queries"] if q["split"] == "DEV"]
     test = [q for q in gold["queries"] if q["split"] == "TEST"]
+
+    # Query-difficulty audit: symptom word overlap with the expected description.
+    # Computed from the gold set + manual only - no system output involved.
+    from gold_overlap import CEILING, load_descriptions, symptom_stats
+    desc = load_descriptions()
+    overlap_stats = {}
+    print(f"\n===== symptom word-overlap audit (ceiling {CEILING}; gold "
+          f"{gold.get('version')}) =====")
+    for name, qs in (("DEV", dev), ("TEST", test)):
+        st, _ = symptom_stats(qs, desc)
+        overlap_stats[name] = st
+        print(f"{name:4s} n={st['n']:2d} mean={st['mean']:.3f} "
+              f"zero-overlap={st['zero_overlap']}/{st['n']} max={st['max']:.3f} "
+              f"over-ceiling={st['over_ceiling']}")
     rd, rt = run(R, dev, records, A), run(R, test, records, A)
 
     table(rd, f"DEV ({len(dev)} queries) — {args.label}")
@@ -119,6 +133,8 @@ def main():
 
     strip = lambda r: {k: v for k, v in r.items() if not k.startswith("_")}
     json.dump({"label": args.label, "gold": args.gold,
+               "gold_version": gold.get("version"),
+               "symptom_overlap": overlap_stats,
                "DEV": strip(rd), "TEST": strip(rt)},
               open(args.out, "w"), indent=2)
     print(f"\nwrote {args.out}")
