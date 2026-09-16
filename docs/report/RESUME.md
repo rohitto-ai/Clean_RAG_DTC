@@ -1,7 +1,7 @@
 # RESUME — Clean RAG for the 3.3L DTC Manual
 
-**State: Phases 0–3 complete and committed. Next action is Phase 4 (indexing).
-Nothing is mid-flight or half-applied.**
+**State: Phases 0–4 complete and committed. Next action is Phase 5 (retrieval router
++ RRF fusion). Nothing is mid-flight or half-applied.**
 
 _Last updated: 2026-09-16_
 
@@ -16,38 +16,45 @@ _Last updated: 2026-09-16_
 | 1b · Validation harness | ✅ done | `data/validation_report.md` |
 | 2 · Image enrichment (OCR-fallback) | ✅ done | `data/dtc_enriched.jsonl`, `images/` (64 unique) |
 | 3 · Canonical schema | ✅ done | `data/dtc_records.jsonl` — **314/314 schema-valid** |
-| **4 · Indexing** | ⬜ **next** | `src/build_index.py`, `index/` (Chroma + BM25 + code dict) |
-| 5 · Retrieval | ⬜ | `src/retrieve.py` |
+| 4 · Indexing | ✅ done | `index/` — 314 vectors + BM25 + code dict, **11 pass / 1 xfail** |
+| **5 · Retrieval** | ⬜ **next** | `src/retrieve.py` (router + RRF fusion) |
 | 6 · Answering & diagnosis | ⬜ | `src/answer.py`, `src/diagnose.py` |
 | 7 · Evaluation harness | ⬜ | extend `src/validate.py` |
 
 ## Exact next action
 
-Write **`src/build_index.py`** (Phase 4). Read `data/dtc_records.jsonl` (314 records)
-and build three indexes into `./index/`:
+Write **`src/retrieve.py`** (Phase 5) — the router and fusion layer over the three
+existing indexes. No new indexing.
 
-1. **Embeddings** — build the embedding text per record (description + cause + effect
-   + checkpoints + circuit_description + pin_map), encode with **all-MiniLM-L6-v2**
-   (384-dim, ~90 MB) at **batch size 32** to keep peak RAM flat, and store vectors +
-   full metadata in a **persistent on-disk ChromaDB**.
-2. **Exact-code dict** — `code_full` → record. Must be a *list* per code, not a single
-   value: `P0180-11`, `P0180-12` and `P061C-00` each appear twice. Key on
-   code + suffix + page/occurrence.
-3. **BM25** — `rank-bm25` over the same text, for the lexical half of RRF fusion.
+1. **Router** inspects the query:
+   - Regex hit on a DTC code → **exact lookup** via `index/code_index.json`. Try
+     `by_code_full` first, then `by_dtc_code` for an unsuffixed query. Returns a
+     **list** — duplicates and suffix variants are normal, not an error.
+   - Component/system keyword → **metadata filter** on `system` (Chroma `where=`),
+     return the group. 19 systems; histogram in the Phase 4 report.
+   - Otherwise → **hybrid** dense + BM25, fused with **Reciprocal Rank Fusion**.
+2. **RRF** over the two ranked lists; return top-k **full DTC records**, not fragments.
+3. Load MiniLM once for query encoding and keep it resident for the service.
 
-Load the embedding model, use it, release it. Do not hold it alongside anything else.
+**Validate against the known-hard case**: `"camshaft no signal"` must return
+**P0340-00**, not P0341-00. Dense alone gets this wrong (0.011 cosine apart, xfail in
+the Phase 4 smoke tests); BM25 gets it right by a 54% margin. This query is the
+single best check that fusion is actually working — if RRF does not fix it, the
+fusion is wrong.
 
 Run everything with the venv interpreter: `.venv/bin/python`.
 
 ```bash
-.venv/bin/python src/parse_dtc.py --first 8 --last 545   # ~68 s, 72 MB peak
-.venv/bin/python src/enrich_images.py                     # ~seconds, 241 MB peak
-.venv/bin/python src/schema.py                            # ~seconds, 17 MB peak
+.venv/bin/python src/parse_dtc.py --first 8 --last 545   # ~68 s,  72 MB peak
+.venv/bin/python src/enrich_images.py                     # seconds, 241 MB peak
+.venv/bin/python src/schema.py                            # seconds,  17 MB peak
+.venv/bin/python src/build_index.py --rebuild             # ~21 s,  680 MB peak
 .venv/bin/python src/validate.py                          # regenerates the report
+PYTHONPATH=src .venv/bin/python src/smoke_index.py        # 12 index smoke tests
 ```
 
-The `.jsonl` files are gitignored build artifacts. If they are missing, regenerate
-them with the three commands above, in that order, before doing anything else.
+`data/*.jsonl` and `index/` are gitignored build artifacts. If they are missing,
+regenerate them with the commands above **in that order** before doing anything else.
 
 ## Open decisions for you
 
@@ -78,8 +85,10 @@ them with the three commands above, in that order, before doing anything else.
 
 ## Things a newcomer will get wrong
 
-- **The box is 7.75 GiB, not 16 GB** (2-core Codespace, no swap). The plan budgets
-  against 16 GB. Everything fits, but the optional VLM pass does not.
+- **Re-measure RAM at the start of every session.** As of 2026-09-16 this box is
+  **16 GiB / 4 vCPU**, matching the build plan. On 2026-09-15 the same repo's
+  Codespace was the 2-core / 8 GiB type. The machine type has changed once already,
+  so trust `/proc/meminfo`, not the docs.
 - **Use `/usr/bin/python3.12`, never the 3.14 on `PATH`** — missing wheels.
 - **`llama-cpp-python` must be built from source**; the prebuilt CPU index serves a
   musl/Alpine wheel that will not load here.
@@ -96,6 +105,15 @@ them with the three commands above, in that order, before doing anything else.
   routing is `on_true=12, on_false=11`. Use `on_true`/`on_false`, which were derived
   positionally. `goto[]` is the verbatim audit trail, not the routing.
 - **`on_true` can point outside the step list** (37 steps). Always check membership.
+- **The dense index deliberately excludes step text.** Steps are near-identical
+  boilerplate across hundreds of DTCs; embedding them destroys discrimination between
+  near-duplicate families. Do not "fix" this by adding them. See
+  `docs/report/phase4_indexing.md`.
+- **Never key an index on `code_full` alone** — 3 codes appear twice, so ids must
+  include page + occurrence or you silently drop records (314 → 311).
+- **Do not use a default word-splitting tokenizer for BM25** — it shatters `P0192-00`
+  into `["p","0192","00"]` and `A71` into `["a","71"]`, destroying the highest-signal
+  identifiers. `src/build_index.py:tokenize` preserves them.
 
 ## Reports
 
@@ -103,3 +121,4 @@ them with the three commands above, in that order, before doing anything else.
 - [phase1_extraction.md](phase1_extraction.md)
 - [phase2_enrichment.md](phase2_enrichment.md)
 - [phase3_schema.md](phase3_schema.md)
+- [phase4_indexing.md](phase4_indexing.md)
