@@ -22,6 +22,40 @@ from dataclasses import dataclass, field
 
 MAX_STEPS = 64          # hard cap; the longest real DTC has 15 steps
 
+# ---------------------------------------------------------------------------
+# MANUAL CORRECTIONS to the skip_true_branch inference (Phase 8.1, limitation L2).
+#
+# The general rule - when a conditional step's true target is the next step, the
+# false branch skips it - is right in the common shape "check for a fault; if yes
+# go to <the fix>": no fault, so skip the fix. It is WRONG in one shape:
+#
+#     s6: "If error still present go to Step 7"      <- the step
+#     s7: "Check the wire harness for ... back-out"  <- true target is a CHECK
+#     s8: "Fix the back-out cables ..."              <- where the skip lands
+#
+# Answering "no" at s6 means the error is GONE, so the walk must terminate. The
+# inference instead skips to s8 and applies a fix for a check never performed.
+#
+# Keyed by (code_full, step) with the page recorded and ASSERTED: the DTC code is
+# not a unique key in this manual (P0180-11 etc. appear twice), so an override
+# must never silently attach to a same-coded record on a different page.
+#
+# Deliberately NOT here: P0194-00 step 7. Phase 7's detector flagged it, but its
+# true target s8 is the FIX, not a check, and its skip lands on s9 "Change the
+# rail pressure sensor" - which is reachable ONLY via "no back-out found", since
+# s8 jumps to s10. The inference is correct there; overriding it would end the
+# procedure before its actual remedy. Pinned by a regression test instead.
+# ---------------------------------------------------------------------------
+MANUAL_CORRECTIONS = {
+    ("P0192-00", 6): {"page": 8,   "on_false": "terminal"},
+    ("P0193-00", 6): {"page": 10,  "on_false": "terminal"},
+    ("P0194-00", 6): {"page": 12,  "on_false": "terminal"},
+    ("P0627-11", 4): {"page": 184, "on_false": "terminal"},
+    ("P0627-13", 4): {"page": 186, "on_false": "terminal"},
+}
+CORRECTION_REASON = ("true target is a CHECK, not a fix; 'no' means the error is "
+                     "gone, so terminate instead of skipping onto the fix")
+
 
 @dataclass
 class Transition:
@@ -40,6 +74,7 @@ class DiagnosisState:
     transitions: list = field(default_factory=list)
     clamps: list = field(default_factory=list)
     inferences: list = field(default_factory=list)
+    corrections: list = field(default_factory=list)
     finished: bool = False
     outcome: str | None = None
     pending: list = field(default_factory=list)   # queued multi-target steps
@@ -149,7 +184,18 @@ class Diagnoser:
                     " (CLAMPED to terminal)" if clamped else "")
         else:
             tgt, clamped = self._resolve(s["on_false"], state, s["n"])
-            if tgt is None:
+            corr = MANUAL_CORRECTIONS.get((self.rec["code_full"], s["n"]))
+            if (tgt is None and corr is not None
+                    and corr["page"] == self.rec["page"]):
+                tgt = self.terminal
+                state.corrections.append({
+                    "step": s["n"], "code_full": self.rec["code_full"],
+                    "page": self.rec["page"], "rule": "manual_correction",
+                    "routed_to": tgt, "detail": CORRECTION_REASON,
+                })
+                reason = (f"condition did not hold -> terminal {tgt} "
+                          f"[manual_correction]")
+            elif tgt is None:
                 tgt = self._fallthrough(s["n"])
                 reason = ("condition did not hold; on_false is null -> "
                           "fall through to next step")
@@ -216,6 +262,7 @@ class Diagnoser:
             "outcome": state.outcome,
             "clamps": state.clamps,
             "inferences": state.inferences,
+            "corrections": state.corrections,
             "transitions": [
                 {"from": t.frm, "to": t.to, "answer": t.answer,
                  "reason": t.reason, "clamped": t.clamped}

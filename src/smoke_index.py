@@ -289,6 +289,59 @@ def main():
           f"{a_in['llm_stats']['completion_tokens']} tokens in "
           f"{a_in['llm_stats']['seconds']}s on 4 vCPU")
 
+    # ================= 8. PHASE 8.1 — skip_true_branch corrections (L2) ======
+    print("\n== 8. Phase 8.1 skip_true_branch manual corrections ==")
+    from diagnose import MANUAL_CORRECTIONS
+
+    def step_no(rec, n):
+        """Advance from step n with answer 'no'; return (landed_on, state)."""
+        dg = Diagnoser(rec)
+        st = dg.start()
+        st.current = n
+        st = dg.advance(st, "no")
+        return st.current, st, dg
+
+    for (code, n), corr in sorted(MANUAL_CORRECTIONS.items()):
+        rec = next(r for r in by_code[code] if r["page"] == corr["page"])
+        order = [x["n"] for x in rec["steps"]]
+        skipped_fix = order[order.index(n) + 2]          # where the old rule landed
+        landed, st, dg = step_no(rec, n)
+        logged = [c for c in st.corrections if c["rule"] == "manual_correction"]
+        check(f"{code} s{n}: 'no' -> terminal, not the skipped fix",
+              landed == dg.terminal and landed != skipped_fix and len(logged) == 1
+              and not st.inferences,
+              f"landed={landed} terminal={dg.terminal} (old rule -> s{skipped_fix}); "
+              f"manual_correction logged={len(logged)}")
+
+    # P0194-00 s7 was flagged in Phase 7 but is CORRECT - pin it, do not override
+    rec = by_code["P0194-00"][0]
+    landed, st, dg = step_no(rec, 7)
+    s9 = next(x for x in rec["steps"] if x["n"] == 9)
+    check("P0194-00 s7 (not overridden): 'no back-out' -> s9 change sensor",
+          landed == 9 and not st.corrections
+          and any(i["rule"] == "skip_true_branch" for i in st.inferences),
+          f"landed={landed} {s9['text'][:40]!r}; corrections={len(st.corrections)}")
+
+    # the general rule must be untouched at EVERY other candidate step
+    fired_elsewhere, candidates = [], 0
+    for r in recs.values():
+        order = [x["n"] for x in r["steps"]]
+        for i, x in enumerate(r["steps"]):
+            nxt = order[i + 1] if i + 1 < len(order) else None
+            if not (x["condition"] and nxt and x["on_true"] == nxt
+                    and x["on_false"] is None):
+                continue
+            if (r["code_full"], x["n"]) in MANUAL_CORRECTIONS:
+                continue
+            candidates += 1
+            _, st2, _ = step_no(r, x["n"])
+            if st2.corrections:
+                fired_elsewhere.append(f"{r['code_full']}@p{r['page']} s{x['n']}")
+    check("manual_correction fires at NO other step (general rule unweakened)",
+          not fired_elsewhere,
+          f"{candidates} other skip_true_branch candidates checked; "
+          f"stray corrections={fired_elsewhere[:5]}")
+
     npass = sum(1 for _, ok in results if ok is True)
     nxfail = sum(1 for _, ok in results if ok is None)
     nfail = sum(1 for _, ok in results if ok is False)

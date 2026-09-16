@@ -1,10 +1,13 @@
 # RESUME — Clean RAG for the 3.3L DTC Manual
 
-**State: ALL PHASES 0–7 COMPLETE and committed. The pipeline runs end to end and
-is served over FastAPI. Nothing is mid-flight or half-applied.**
+**State: Phases 0–7 complete and tagged `v1-phase7`. Phase 8 (limitations iteration)
+in progress on branch `phase8-limitations`: 8.0 (evaluation foundation) and 8.1 (L2
+skip-branch fixes) DONE. STOPPED FOR REVIEW before any retrieval tuning.**
 
-The highest-value next work is **query-side synonym expansion** — symptom retrieval
-is the one weak number (27.3% hit@1). See "Open decisions" below.
+**Blocking decision before 8.2:** the TEST split has an authoring bias — its symptom
+queries share 3.4x more vocabulary with the manual than DEV's. See "Open decisions".
+
+_Recover the evaluated v1 system at any time:_ `git checkout v1-phase7`
 
 _Last updated: 2026-09-16_
 
@@ -24,42 +27,40 @@ _Last updated: 2026-09-16_
 | 6 · Answering & diagnosis | ✅ done | `src/answer.py`, `src/diagnose.py` |
 | 7 · Evaluation + service | ✅ done | `src/evaluate.py`, `app.py` — **30 pass / 1 xfail / 0 fail** |
 
-## Headline results (Phase 7)
+## Phase 8 status
 
-| | |
+| step | status |
 |---|---|
-| Records | **314** DTCs from 545 pages, 314/314 schema-valid |
-| Retrieval — exact code | **hit@1 100%, MRR 1.000** |
-| Retrieval — near-duplicate | hit@1 62.5%, **hit@5 100%** |
-| Retrieval — symptom | **hit@1 27.3%** ← the weak number |
-| Retrieval — overall | hit@1 59.3%, hit@5 85.2%, MRR 0.685 |
-| system_group | 4/4 exact |
-| Honesty | out-of-scope gated **6/7**; in-scope passed **29/31** |
-| Integrity walk | **0 dead ends** across all 314 step graphs |
-| Test suite | 30 passed, 1 xfail, 0 failed |
+| 0 · Snapshot | ✅ tag `v1-phase7` → `dbf944b`, pushed; branch `phase8-limitations` |
+| 8.0 · Evaluation foundation | ✅ `data/gold_v2.json` (70 q, DEV 34 / TEST 36), baselines recorded |
+| 8.1 · L2 skip-branch fixes | ✅ 5 fixed via `MANUAL_CORRECTIONS`; suite 37 pass / 1 xfail / 0 fail |
+| **8.2 · Retrieval tuning (L1/L3)** | ⏸ **NOT STARTED — awaiting review** |
 
-## Exact next action (recommended, not started)
+### Baselines on gold_v2 (unchanged v1-phase7 system)
 
-**Query-side synonym / expansion layer.** This single change addresses the two
-weakest numbers at once, and both share one root cause: the manual writes formal ECU
-terminology while technicians describe symptoms in workshop English.
+| | DEV hit@1 | DEV MRR | TEST hit@1 | TEST MRR |
+|---|---|---|---|---|
+| exact_code | 100.0% | 1.000 | 100.0% | 1.000 |
+| near_duplicate | 71.4% | 0.821 | 42.9% | 0.690 |
+| **symptom** | **25.0%** | 0.396 | **76.9%** | 0.821 |
+| **overall** | 56.0% | 0.660 | 73.1% | 0.827 |
+| gate: out-of-scope gated | 4/6 | | 3/6 | |
+| gate: in-scope passed | 26/28 | | 30/30 | |
 
-- `"exhaust recirculation flap is seized shut"` misses `P042F-00`
-  (*"EGR valve jammed at closed position"*) entirely.
-- `"soot trap is completely blocked up"` misses `P244B-00` (*"Diesel Particulate
-  Filter clogged"*) AND is wrongly refused by the relevance gate.
+The DEV/TEST symptom gap is authoring bias, not system behaviour — see below.
 
-Build a domain synonym map (flap→valve, seized→jammed/stuck, soot trap→DPF,
-adblue→urea/DEF/reductant, sender→sensor, earth→ground, feed→supply), expand the
-query before both rankers, and re-measure.
+## Exact next action
 
-**Measure on a HELD-OUT set.** Tuning against `data/gold_queries.json` — the set
-that produces the published numbers — would invalidate the metric. Write new queries
-first, or split the existing 38.
+**Get a decision on the TEST split, then 8.2.** Do not tune retrieval until TEST is
+settled: tuning makes re-authoring TEST illegitimate, because decisions would then have
+been made with it in place.
 
-Other candidates, smaller: hand-correct the 6 `skip_true_branch` mismatches listed
-in `docs/report/phase7_evaluation.md` §1; add a `/ingest` endpoint; harden
-`/diagnose` sessions beyond in-process memory.
+Once decided, 8.2 is the **query-side synonym/expansion layer** (flap→valve,
+seized→jammed, soot trap→DPF, adblue→urea/DEF, sender→sensor, earth→ground,
+feed→supply), tuned on **DEV only**, then measured once on TEST.
+
+**TEST discipline:** `src/evaluate_v2.py` prints per-query misses for DEV only and
+aggregates for TEST. Never add a synonym, threshold or rule because of a TEST result.
 
 ## Running it
 
@@ -69,8 +70,9 @@ in `docs/report/phase7_evaluation.md` §1; add a `/ingest` endpoint; harden
 .venv/bin/python src/schema.py                            # seconds,  17 MB peak
 .venv/bin/python src/build_index.py --rebuild             # ~21 s,  680 MB peak
 .venv/bin/python src/validate.py                          # parse/schema report
-PYTHONPATH=src .venv/bin/python src/evaluate.py           # hit@k, MRR, integrity walk
-PYTHONPATH=src .venv/bin/python src/smoke_index.py        # 31 tests, ~1.1 GB peak
+PYTHONPATH=src .venv/bin/python src/evaluate.py           # v1 gold set (Phase 7)
+PYTHONPATH=src .venv/bin/python src/evaluate_v2.py        # gold_v2, DEV/TEST split
+PYTHONPATH=src .venv/bin/python src/smoke_index.py        # 38 tests, ~1.1 GB peak
 .venv/bin/uvicorn app:app --host 127.0.0.1 --port 8000    # demo service
 ```
 
@@ -97,14 +99,25 @@ them with the commands above **in that order**. The GGUF re-download command is 
    step** — a consumer that follows `on_true` blindly will dereference a
    non-existent step. Recommendation unchanged: clamp in Phase 6, log in Phase 7.
 
-3. **Symptom retrieval is weak — 27.3% hit@1.** Vocabulary gap, not a ranking bug.
+1. **⚠ TEST split authoring bias — DECIDE BEFORE 8.2.** TEST symptom queries have mean
+   word overlap **0.41** with their expected manual description vs DEV's **0.12**, and
+   **0/13** TEST queries share zero terms vs **5/12** in DEV. Measured from the gold set
+   and records alone — no TEST system output was inspected. Consequence: a synonym
+   layer would look weak on TEST because TEST barely needs synonyms. Options:
+   (a) re-author the 13 TEST symptom queries to DEV's overlap profile and re-freeze;
+   (b) add a hard overlap ceiling to the authoring check; (c) keep and stratify.
+   **Recommended (a)+(b), and only legitimate before tuning begins.**
+
+2. **L2 corrected count: 5 mismatches, not 6.** P0194-00 s7 was a false positive from
+   the Phase 7 fix-verb detector and is correctly NOT overridden (its skip reaches the
+   real remedy, s9 "Change the rail pressure sensor"). Pinned by a regression test.
+
+3. **Symptom retrieval is weak** (Phase 7: 27.3% hit@1; gold_v2 DEV: 25.0%). Vocabulary gap, not a ranking bug.
    Fix is the synonym layer described above. Deliberately NOT tuned during Phase 7,
    because tuning against the measuring set would have invalidated the number.
 
-4. **`skip_true_branch` is 96% right (24/25 audited), with 6 known-wrong cases**
-   corpus-wide: P0192-00 s6, P0193-00 s6, P0194-00 s6, P0194-00 s7, P0627-11 s4,
-   P0627-13 s4. All are logged in the diagnosis trace when they fire. Worth
-   hand-correcting before this goes near a real workshop.
+4. ~~**`skip_true_branch` mismatches.**~~ **FIXED in 8.1** — 5 genuine cases corrected
+   via `MANUAL_CORRECTIONS` in `src/diagnose.py`, logged as `manual_correction`.
 
 5. **Is Qwen2.5-1.5B worth it?** 0.5B phrasing is serviceable but weak — it cites
    correctly and stays in context, but rambles ("the effect on the vehicle is NA").
@@ -144,6 +157,13 @@ them with the commands above **in that order**. The GGUF re-download command is 
   positionally. `goto[]` is the verbatim audit trail, not the routing.
 - **`on_true` can point outside the step list** (37 steps). Always check membership;
   `src/diagnose.py` clamps to the terminal step and logs it.
+- **Never tune against TEST in `data/gold_v2.json`**, and never look at TEST
+  per-query misses. `src/evaluate_v2.py` withholds them on purpose.
+- **An anti-copy substring check is not enough to keep a gold set honest.** It passed
+  every TEST query while TEST still leaked 3.4x more manual vocabulary than DEV. Measure
+  per-query word overlap with the expected description.
+- **Codes are not unique keys — this applies to overrides too.** `MANUAL_CORRECTIONS`
+  asserts the page, so an override cannot attach to a same-coded record elsewhere.
 - **Never gate on Chroma's top-1 distance.** HNSW is approximate: three runs of the
   same deterministic check gave 27/31, 28/31 and 29/31 while the embeddings were
   byte-identical across processes. `retrieve.exact_max_sim()` does brute force over
@@ -184,4 +204,5 @@ them with the commands above **in that order**. The GGUF re-download command is 
 - [phase4_indexing.md](phase4_indexing.md)
 - [phase5_retrieval.md](phase5_retrieval.md)
 - [phase6_answer_diagnose.md](phase6_answer_diagnose.md)
-- [phase7_evaluation.md](phase7_evaluation.md) — **the results chapter**
+- [phase7_evaluation.md](phase7_evaluation.md) — the v1 results chapter
+- [phase8_0_eval_foundation.md](phase8_0_eval_foundation.md) — gold_v2, split, baselines, L2 fixes

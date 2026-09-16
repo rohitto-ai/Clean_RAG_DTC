@@ -56,6 +56,14 @@ Corpus-wide this shape occurs **6 times**: `P0192-00 s6`, `P0193-00 s6`,
 256 applications**. Every use is logged as a `skip_true_branch` inference in the
 diagnosis trace, so any affected walk is identifiable after the fact.
 
+> **Correction (Phase 8.1, 2026-09-16):** verifying each case before fixing it showed
+> **5 genuine mismatches, not 6.** `P0194-00 s7` was a false positive from the
+> fix-verb detector: its true target is the *fix*, and its skip lands on s9 "Change the
+> rail pressure sensor", which is reachable only via "no back-out found" — the correct
+> flow. The corpus figure should read **5 cases (2.0%)**. The 24/25 audit match rate is
+> unaffected. The five are now fixed via `MANUAL_CORRECTIONS`; see
+> [phase8_0_eval_foundation.md](phase8_0_eval_foundation.md).
+
 **This is a measured limitation, not a solved problem.** The 6 cases are listed so
 they can be hand-corrected if this goes near a real workshop.
 

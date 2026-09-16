@@ -1,0 +1,779 @@
+{
+  "version": "v2",
+  "test_split_frozen": true,
+  "authoring_rules": [
+    "Symptom queries paraphrased in the author's own words; manual description text never copied (enforced by an automated substring check).",
+    "Expected answers derived from the manual records (ground truth), never from system output.",
+    "Concepts already inspected against system output in Phase 7 are placed in DEV only.",
+    "TEST contains only DTCs never inspected; the retrieval system was not run on TEST items while authoring.",
+    "TEST is FROZEN: never tune against it."
+  ],
+  "queries": [
+    {
+      "id": "d001",
+      "query": "what does P0192-00 mean",
+      "mode": "exact_code",
+      "expected": [
+        "P0192-00"
+      ],
+      "split": "DEV",
+      "notes": "full code; seen in v1"
+    },
+    {
+      "id": "d002",
+      "query": "P0340",
+      "mode": "exact_code",
+      "expected": [
+        "P0340-00"
+      ],
+      "split": "DEV",
+      "notes": "base code, no suffix"
+    },
+    {
+      "id": "d003",
+      "query": "P0180-11",
+      "mode": "exact_code",
+      "expected": [
+        "P0180-11"
+      ],
+      "split": "DEV",
+      "notes": "DUPLICATE: two records, pp.100 & 195"
+    },
+    {
+      "id": "d004",
+      "query": "P0100",
+      "mode": "exact_code",
+      "expected": [
+        "P0100-00",
+        "P0100-9B",
+        "P0100-9C"
+      ],
+      "split": "DEV",
+      "notes": "base code, 3 variants"
+    },
+    {
+      "id": "d005",
+      "query": "details for U0102-00",
+      "mode": "exact_code",
+      "expected": [
+        "U0102-00"
+      ],
+      "split": "DEV",
+      "notes": "U-family CAN code"
+    },
+    {
+      "id": "d006",
+      "query": "fault code P2264",
+      "mode": "exact_code",
+      "expected": [
+        "P2264-00",
+        "P2264-11",
+        "P2264-12"
+      ],
+      "split": "DEV",
+      "notes": "base code, 3 variants; new"
+    },
+    {
+      "id": "d007",
+      "query": "the cam sensor gives no output whatsoever",
+      "mode": "near_duplicate",
+      "expected": [
+        "P0340-00"
+      ],
+      "split": "DEV",
+      "notes": "vs P0341-00"
+    },
+    {
+      "id": "d008",
+      "query": "cam position reading is erratic and noisy",
+      "mode": "near_duplicate",
+      "expected": [
+        "P0341-00"
+      ],
+      "split": "DEV",
+      "notes": "vs P0340-00"
+    },
+    {
+      "id": "d009",
+      "query": "fuel rail sender pulled down to earth",
+      "mode": "near_duplicate",
+      "expected": [
+        "P0192-00"
+      ],
+      "split": "DEV",
+      "notes": "rail trio"
+    },
+    {
+      "id": "d010",
+      "query": "fuel rail sender reading has drifted off calibration",
+      "mode": "near_duplicate",
+      "expected": [
+        "P0194-00"
+      ],
+      "split": "DEV",
+      "notes": "rail trio"
+    },
+    {
+      "id": "d011",
+      "query": "number three injector has a broken winding",
+      "mode": "near_duplicate",
+      "expected": [
+        "P0203-00"
+      ],
+      "split": "DEV",
+      "notes": "cylinder 1-4"
+    },
+    {
+      "id": "d012",
+      "query": "cylinder one injector is shorted to the main feed",
+      "mode": "near_duplicate",
+      "expected": [
+        "P2147-00"
+      ],
+      "split": "DEV",
+      "notes": "vs P0201-00"
+    },
+    {
+      "id": "d013",
+      "query": "crank position reading is noisy and unstable",
+      "mode": "near_duplicate",
+      "expected": [
+        "P0336-00"
+      ],
+      "split": "DEV",
+      "notes": "crank vs cam"
+    },
+    {
+      "id": "d014",
+      "query": "exhaust recirculation flap is seized shut",
+      "mode": "symptom",
+      "expected": [
+        "P042F-00"
+      ],
+      "split": "DEV",
+      "notes": "flap/seized vs valve/jammed"
+    },
+    {
+      "id": "d015",
+      "query": "exhaust recirculation flap is seized wide open",
+      "mode": "symptom",
+      "expected": [
+        "P042E-00"
+      ],
+      "split": "DEV",
+      "notes": "jammed open"
+    },
+    {
+      "id": "d016",
+      "query": "soot trap is completely blocked up",
+      "mode": "symptom",
+      "expected": [
+        "P244B-00"
+      ],
+      "split": "DEV",
+      "notes": "soot trap vs DPF"
+    },
+    {
+      "id": "d017",
+      "query": "adblue tank has almost run dry",
+      "mode": "symptom",
+      "expected": [
+        "P203F-00",
+        "P203F-7B"
+      ],
+      "split": "DEV",
+      "notes": "urea level low"
+    },
+    {
+      "id": "d018",
+      "query": "coolant gauge stuck reading at the bottom of the scale",
+      "mode": "symptom",
+      "expected": [
+        "P0117-00"
+      ],
+      "split": "DEV",
+      "notes": "short to ground"
+    },
+    {
+      "id": "d019",
+      "query": "the wire to the engine temperature sender has gone open",
+      "mode": "symptom",
+      "expected": [
+        "P0118-00"
+      ],
+      "split": "DEV",
+      "notes": "open circuit"
+    },
+    {
+      "id": "d020",
+      "query": "throttle pedal sensors do not agree with each other",
+      "mode": "symptom",
+      "expected": [
+        "P2135-00"
+      ],
+      "split": "DEV",
+      "notes": "pedal plausibility"
+    },
+    {
+      "id": "d021",
+      "query": "supply voltage is reading above the permitted ceiling",
+      "mode": "symptom",
+      "expected": [
+        "P0562-00"
+      ],
+      "split": "DEV",
+      "notes": "battery max"
+    },
+    {
+      "id": "d022",
+      "query": "charge pressure from the turbo is under target",
+      "mode": "symptom",
+      "expected": [
+        "P0047-00",
+        "P004C-00",
+        "P006E-00"
+      ],
+      "split": "DEV",
+      "notes": "ambiguous; any boost-low code"
+    },
+    {
+      "id": "d023",
+      "query": "engine will not crank up and there is no signal from the cam",
+      "mode": "symptom",
+      "expected": [
+        "P0340-00"
+      ],
+      "split": "DEV",
+      "notes": "no-start effect"
+    },
+    {
+      "id": "d024",
+      "query": "loss of pulling power with the dash warning light on",
+      "mode": "symptom",
+      "expected": [
+        "P0192-00",
+        "P0193-00",
+        "P0194-00",
+        "P0087-00",
+        "P0088-00"
+      ],
+      "split": "DEV",
+      "notes": "torque loss + MIL; rail family"
+    },
+    {
+      "id": "d025",
+      "query": "battery voltage keeps dipping under what the ECU will accept",
+      "mode": "symptom",
+      "expected": [
+        "P0563-00"
+      ],
+      "split": "DEV",
+      "notes": "battery min; new"
+    },
+    {
+      "id": "d026",
+      "query": "list all EGR faults",
+      "mode": "system_group",
+      "expected": [
+        "P0403-00",
+        "P0405-00",
+        "P0406-00",
+        "P040B-00",
+        "P040C-00",
+        "P040D-00",
+        "P042E-00",
+        "P042F-00",
+        "P045C-00",
+        "P045D-00",
+        "P0489-00",
+        "P048A-00",
+        "P1003-00",
+        "P2457-00"
+      ],
+      "split": "DEV",
+      "notes": "grouping intent",
+      "expected_system": "egr"
+    },
+    {
+      "id": "d027",
+      "query": "show me every injector related fault code",
+      "mode": "system_group",
+      "expected": [
+        "P0201-00",
+        "P0202-00",
+        "P0203-00",
+        "P0204-00",
+        "P0611-F5",
+        "P0611-F8",
+        "P1201-00",
+        "P1202-00",
+        "P1203-00",
+        "P1204-00",
+        "P2147-00",
+        "P2150-00",
+        "P2153-00",
+        "P2156-00"
+      ],
+      "split": "DEV",
+      "notes": "grouping intent",
+      "expected_system": "injector"
+    },
+    {
+      "id": "d028",
+      "query": "what soot trap faults are there",
+      "mode": "system_group",
+      "expected": [
+        "P0421-00",
+        "P0425-84",
+        "P0425-85",
+        "P0427-00",
+        "P0428-00",
+        "P042A-84",
+        "P042A-85",
+        "P042C-00",
+        "P042D-00",
+        "P226D-00",
+        "P242F-00",
+        "P243C-00",
+        "P243F-F0",
+        "P244A-00",
+        "P244B-00",
+        "P2458-00",
+        "P2458-09",
+        "P2463-85"
+      ],
+      "split": "DEV",
+      "notes": "paraphrased subsystem word",
+      "expected_system": "dpf_regen"
+    },
+    {
+      "id": "d029",
+      "query": "how do I change a tyre",
+      "mode": "out_of_scope",
+      "expected": "none",
+      "split": "DEV",
+      "notes": "previously produced a FABRICATED tyre-pressure answer"
+    },
+    {
+      "id": "d030",
+      "query": "what is the warranty period on this engine",
+      "mode": "out_of_scope",
+      "expected": "none",
+      "split": "DEV",
+      "notes": "vehicle-adjacent commercial; leaked in Phase 7"
+    },
+    {
+      "id": "d031",
+      "query": "how much does this truck cost",
+      "mode": "out_of_scope",
+      "expected": "none",
+      "split": "DEV",
+      "notes": "price"
+    },
+    {
+      "id": "d032",
+      "query": "book me a service appointment",
+      "mode": "out_of_scope",
+      "expected": "none",
+      "split": "DEV",
+      "notes": "service booking"
+    },
+    {
+      "id": "d033",
+      "query": "are replacement injectors in stock at the dealer",
+      "mode": "out_of_scope",
+      "expected": "none",
+      "split": "DEV",
+      "notes": "parts availability; new"
+    },
+    {
+      "id": "d034",
+      "query": "what is the capital of France",
+      "mode": "out_of_scope",
+      "expected": "none",
+      "split": "DEV",
+      "notes": "general knowledge"
+    },
+    {
+      "id": "t035",
+      "query": "what is P0627-12",
+      "mode": "exact_code",
+      "expected": [
+        "P0627-12"
+      ],
+      "split": "TEST",
+      "notes": "full code"
+    },
+    {
+      "id": "t036",
+      "query": "P0401",
+      "mode": "exact_code",
+      "expected": [
+        "P0401-00"
+      ],
+      "split": "TEST",
+      "notes": "base code, single variant"
+    },
+    {
+      "id": "t037",
+      "query": "P0180-12",
+      "mode": "exact_code",
+      "expected": [
+        "P0180-12"
+      ],
+      "split": "TEST",
+      "notes": "DUPLICATE: two records, pp.102 & 197"
+    },
+    {
+      "id": "t038",
+      "query": "give me the procedure for P20EE-00",
+      "mode": "exact_code",
+      "expected": [
+        "P20EE-00"
+      ],
+      "split": "TEST",
+      "notes": "code inside a sentence"
+    },
+    {
+      "id": "t039",
+      "query": "P2458",
+      "mode": "exact_code",
+      "expected": [
+        "P2458-00",
+        "P2458-09"
+      ],
+      "split": "TEST",
+      "notes": "base code, 2 variants"
+    },
+    {
+      "id": "t040",
+      "query": "trouble code U011A-89",
+      "mode": "exact_code",
+      "expected": [
+        "U011A-89"
+      ],
+      "split": "TEST",
+      "notes": "U-family, suffixed"
+    },
+    {
+      "id": "t041",
+      "query": "EGR position feedback line reads too low or is broken",
+      "mode": "near_duplicate",
+      "expected": [
+        "P0405-00"
+      ],
+      "split": "TEST",
+      "notes": "vs P0406-00 high"
+    },
+    {
+      "id": "t042",
+      "query": "EGR position feedback voltage is stuck too high",
+      "mode": "near_duplicate",
+      "expected": [
+        "P0406-00"
+      ],
+      "split": "TEST",
+      "notes": "vs P0405-00 low"
+    },
+    {
+      "id": "t043",
+      "query": "the upstream NOx probe heater is not available",
+      "mode": "near_duplicate",
+      "expected": [
+        "P2205-00"
+      ],
+      "split": "TEST",
+      "notes": "vs P22A3-00 downstream"
+    },
+    {
+      "id": "t044",
+      "query": "the downstream NOx probe heater is not available",
+      "mode": "near_duplicate",
+      "expected": [
+        "P22A3-00"
+      ],
+      "split": "TEST",
+      "notes": "vs P2205-00 upstream"
+    },
+    {
+      "id": "t045",
+      "query": "urea main pump has come unplugged",
+      "mode": "near_duplicate",
+      "expected": [
+        "P208A-00"
+      ],
+      "split": "TEST",
+      "notes": "vs backflow pump P20A0-00"
+    },
+    {
+      "id": "t046",
+      "query": "urea return pump has come unplugged",
+      "mode": "near_duplicate",
+      "expected": [
+        "P20A0-00"
+      ],
+      "split": "TEST",
+      "notes": "vs main pump P208A-00"
+    },
+    {
+      "id": "t047",
+      "query": "exhaust brake valve stuck in the closed position",
+      "mode": "near_duplicate",
+      "expected": [
+        "P04A5-00"
+      ],
+      "split": "TEST",
+      "notes": "exhaust throttle vs EGR P042F-00"
+    },
+    {
+      "id": "t048",
+      "query": "there is water contamination in the diesel filter",
+      "mode": "symptom",
+      "expected": [
+        "P2264-00",
+        "P2264-12"
+      ],
+      "split": "TEST",
+      "notes": "water in fuel"
+    },
+    {
+      "id": "t049",
+      "query": "truck refuses to fire up and the metering unit output is grounded",
+      "mode": "symptom",
+      "expected": [
+        "P0003-00"
+      ],
+      "split": "TEST",
+      "notes": "no-start"
+    },
+    {
+      "id": "t050",
+      "query": "the fuel pump relay coil has an open circuit",
+      "mode": "symptom",
+      "expected": [
+        "P0627-13"
+      ],
+      "split": "TEST",
+      "notes": "relay open"
+    },
+    {
+      "id": "t051",
+      "query": "the diesel exhaust fluid has frozen solid",
+      "mode": "symptom",
+      "expected": [
+        "P10FF-00"
+      ],
+      "split": "TEST",
+      "notes": "frozen DEF"
+    },
+    {
+      "id": "t052",
+      "query": "the reduction catalyst has worn out and lost its efficiency",
+      "mode": "symptom",
+      "expected": [
+        "P20EE-00"
+      ],
+      "split": "TEST",
+      "notes": "deteriorated SCR"
+    },
+    {
+      "id": "t053",
+      "query": "engine is spinning faster than its permitted maximum",
+      "mode": "symptom",
+      "expected": [
+        "P0219-00"
+      ],
+      "split": "TEST",
+      "notes": "overspeed"
+    },
+    {
+      "id": "t054",
+      "query": "too much ash has built up in the particulate filter",
+      "mode": "symptom",
+      "expected": [
+        "P242F-00"
+      ],
+      "split": "TEST",
+      "notes": "ash load"
+    },
+    {
+      "id": "t055",
+      "query": "the regeneration request switch on the dash is stuck down",
+      "mode": "symptom",
+      "expected": [
+        "P2458-09"
+      ],
+      "split": "TEST",
+      "notes": "regen button stuck"
+    },
+    {
+      "id": "t056",
+      "query": "intake charge cooler is not cooling effectively",
+      "mode": "symptom",
+      "expected": [
+        "P026A-00"
+      ],
+      "split": "TEST",
+      "notes": "CAC efficiency"
+    },
+    {
+      "id": "t057",
+      "query": "road speed reading does not make sense",
+      "mode": "symptom",
+      "expected": [
+        "P0500-1F"
+      ],
+      "split": "TEST",
+      "notes": "speed plausibility"
+    },
+    {
+      "id": "t058",
+      "query": "no fuel pressure builds up while cranking the engine",
+      "mode": "symptom",
+      "expected": [
+        "P00C6-00"
+      ],
+      "split": "TEST",
+      "notes": "no rail build-up"
+    },
+    {
+      "id": "t059",
+      "query": "clutch switch signal does not make sense",
+      "mode": "symptom",
+      "expected": [
+        "P0704-29"
+      ],
+      "split": "TEST",
+      "notes": "clutch plausibility"
+    },
+    {
+      "id": "t060",
+      "query": "the starter motor control line is broken",
+      "mode": "symptom",
+      "expected": [
+        "P0A1B-13"
+      ],
+      "split": "TEST",
+      "notes": "starter open circuit"
+    },
+    {
+      "id": "t061",
+      "query": "list all exhaust throttle valve faults",
+      "mode": "system_group",
+      "expected": [
+        "P048B-11",
+        "P048B-12",
+        "P048D-00",
+        "P048E-00",
+        "P04A0-00",
+        "P04A4-00",
+        "P04A5-00",
+        "P04A8-00",
+        "P04A9-00"
+      ],
+      "split": "TEST",
+      "notes": "grouping intent",
+      "expected_system": "exhaust_throttle"
+    },
+    {
+      "id": "t062",
+      "query": "show every turbocharger related code",
+      "mode": "system_group",
+      "expected": [
+        "P003A-00",
+        "P003B-00",
+        "P0045-13",
+        "P0047-00",
+        "P0048-00",
+        "P004C-00",
+        "P004D-00",
+        "P006E-00",
+        "P006F-00",
+        "P026A-00",
+        "P1002-00",
+        "P22CF-72",
+        "P22CF-73",
+        "P259E-00",
+        "P259F-00"
+      ],
+      "split": "TEST",
+      "notes": "grouping intent",
+      "expected_system": "turbo_boost"
+    },
+    {
+      "id": "t063",
+      "query": "which coolant faults exist",
+      "mode": "system_group",
+      "expected": [
+        "P0116-00",
+        "P0117-00",
+        "P0118-00",
+        "P0119-00"
+      ],
+      "split": "TEST",
+      "notes": "grouping intent",
+      "expected_system": "coolant"
+    },
+    {
+      "id": "t064",
+      "query": "all CAN bus network faults",
+      "mode": "system_group",
+      "expected": [
+        "U0102-00",
+        "U011A-00",
+        "U011A-89"
+      ],
+      "split": "TEST",
+      "notes": "grouping intent",
+      "expected_system": "can_network"
+    },
+    {
+      "id": "t065",
+      "query": "what is the resale value of a five year old truck",
+      "mode": "out_of_scope",
+      "expected": "none",
+      "split": "TEST",
+      "notes": "commercial / price"
+    },
+    {
+      "id": "t066",
+      "query": "how long is the free service period after purchase",
+      "mode": "out_of_scope",
+      "expected": "none",
+      "split": "TEST",
+      "notes": "service terms"
+    },
+    {
+      "id": "t067",
+      "query": "can I get a discount on the extended warranty",
+      "mode": "out_of_scope",
+      "expected": "none",
+      "split": "TEST",
+      "notes": "warranty, commercial"
+    },
+    {
+      "id": "t068",
+      "query": "where can I buy a genuine air filter nearby",
+      "mode": "out_of_scope",
+      "expected": "none",
+      "split": "TEST",
+      "notes": "parts availability"
+    },
+    {
+      "id": "t069",
+      "query": "what time does the service centre open on Sunday",
+      "mode": "out_of_scope",
+      "expected": "none",
+      "split": "TEST",
+      "notes": "service booking / hours"
+    },
+    {
+      "id": "t070",
+      "query": "how do I pair bluetooth with the infotainment unit",
+      "mode": "out_of_scope",
+      "expected": "none",
+      "split": "TEST",
+      "notes": "vehicle-adjacent, not engine DTC"
+    }
+  ]
+}
