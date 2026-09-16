@@ -324,3 +324,89 @@ scope for a vocabulary lexicon and not attempted here.
 - **The lexicon is hand-curated and English-only**; coverage outside its 42 entries degrades
   to baseline behaviour, which fails safe.
 - **Pre-existing injector short-circuit confusion** (P1203-00 hub) remains.
+
+---
+
+## §8.2b — Compound cylinder token (injector short-circuit confusion)
+
+**Scope: DEV + the 14 near-duplicate guardrails only. TEST not run.** C4's lexicon is kept.
+
+### Problem
+
+P1201-00…P1204-00 (*"Injector short circuit high and low side for cylinder N"*) differ only
+by a cylinder digit. In BM25 a bare digit is pervasive noise — pin, step and connector
+numbers — so P1203-00's text held the token `2` twice although it covers cylinder 3.
+"…cylinder 2" and "…cylinder 4" ranked **P1203-00** first: a wrong-injector answer. This
+predated the lexicon (it fails in the unchanged baseline).
+
+### Fix
+
+`tokenize(text, cylinder_compound=True)` in `src/build_index.py` folds `cylinder N`,
+`cyl N`, `cyl.N` and `cylinder no. N` into one token `cylinder_<N>`, at **both** index and
+query time. The dense side is untouched.
+
+It is an **index property, not a global change.** Changing the shared tokenizer outright
+would have made query tokens (`cylinder_2`) stop matching the production index, built with
+the old tokenizer (`cylinder`, `2`) — a silent production regression. Instead the flag is
+recorded in the index (`bm25_corpus.json → tokenizer.cylinder_compound`, and `meta.json`),
+and `Retriever` reads it to tokenize queries identically. Index and query tokenisation
+cannot diverge, and the production `index/` is unaffected.
+
+Identifier preservation verified: `P1201-00`, its base `p1201`, `A71` and `A_B2` stay
+intact, and stray digits (`pin 2`, `step 2`) are untouched. After the rebuild, each of
+P1202/P1203/P1204 carries exactly one `cylinder_<N>` token for its own cylinder, and the
+stray `2`s no longer compete.
+
+### Guardrails — 14/14
+
+| guardrail | expected | C0 baseline | C4 | **C4b (C4 + cylinder token)** |
+|---|---|---|---|---|
+| camshaft no signal | P0340-00 | ✅ | ✅ | ✅ |
+| camshaft disturbed signal | P0341-00 | ✅ | ✅ | ✅ |
+| injector open circuit cylinder 1 | P0201-00 | ✅ | ✅ | ✅ |
+| cylinder 1 injector has a broken wire | P0201-00 | ✅ | ✅ | ✅ |
+| injector short circuit high and low side cylinder 1 | P1201-00 | ✅ | ✅ | ✅ |
+| injector open circuit cylinder 2 | P0202-00 | ✅ | ✅ | ✅ |
+| cylinder 2 injector has a broken wire | P0202-00 | ✅ | ✅ | ✅ |
+| **injector short circuit high and low side cylinder 2** | P1202-00 | ✗ r2 (P1203) | ✗ r2 (P1203) | **✅** |
+| injector open circuit cylinder 3 | P0203-00 | ✅ | ✅ | ✅ |
+| cylinder 3 injector has a broken wire | P0203-00 | ✗ r2 (P1203) | ✅ | ✅ |
+| injector short circuit high and low side cylinder 3 | P1203-00 | ✅ | ✅ | ✅ |
+| injector open circuit cylinder 4 | P0204-00 | ✅ | ✅ | ✅ |
+| cylinder 4 injector has a broken wire | P0204-00 | ✅ | ✅ | ✅ |
+| **injector short circuit high and low side cylinder 4** | P1204-00 | ✗ r2 (P1203) | ✗ r2 (P1203) | **✅** |
+| **total** | | 11/14 | 12/14 | **14/14** |
+
+Both failing short-circuit cases now rank their own code first; none of the 12 already
+passing under C4 regressed.
+
+### DEV under C4b — no regression
+
+| DEV | C0 baseline | C4 | **C4b** |
+|---|---|---|---|
+| symptom hit@1 / hit@5 / MRR | 16.7% / 41.7% / 0.278 | 58.3% / 91.7% / 0.715 | **58.3% / 91.7% / 0.715** |
+| near-duplicate MRR | 0.821 | 1.000 | **1.000** |
+| exact_code MRR | 1.000 | 1.000 | **1.000** |
+| overall hit@1 / MRR | 52.0% / 0.603 | 80.0% / 0.863 | **80.0% / 0.863** |
+| system_group complete | 3/3 | 3/3 | **3/3** |
+| gate: OOS refused / in-scope passed | 4/6 · 27/28 | 4/6 · 28/28 | **4/6 · 28/28** |
+
+C4 vs C4b is identical in every mode, in the gate, and at **every individual DEV query rank**.
+Suite: **37 passed, 1 xfail, 0 failed**.
+
+### What this does and does not show
+
+DEV being unchanged proves **no regression** — it does not independently confirm the fix,
+because **no DEV query contains a cylinder digit**. DEV's injector queries use number
+*words* ("number three injector", "cylinder one injector"), which this fix deliberately does
+not fold. The fix is validated by the guardrails alone.
+
+**Limitation:** `cylinder one`, `3rd cylinder`, `number three injector` are not normalised.
+Extending to number words and ordinals is a natural follow-up, not done here.
+
+**Selected configuration is now C4b** (still selected, not adopted as production default):
+`--index-dir index_exp/minilm_alias_bm25_cyl --lexicon data/domain_lexicon.json --expand bm25`,
+built with `build_index.py --aliases bm25 --cylinder-token`.
+
+Artifacts: `data/experiments/8_2/partB2_cylinder_token_dev{,_rows}.json`;
+`scripts/bench_8_2.py --part B2`.

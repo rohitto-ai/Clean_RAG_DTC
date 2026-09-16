@@ -146,6 +146,8 @@ class Retriever:
 
         blob = json.load(open(os.path.join(index_dir, "bm25_corpus.json")))
         self.bm25_ids = blob["ids"]
+        # Query tokenisation must mirror the index's own tokenisation (8.2b).
+        self.cylinder_compound = bool(blob.get("tokenizer", {}).get("cylinder_compound", False))
         from rank_bm25 import BM25Okapi
         self.bm25 = BM25Okapi(blob["corpus"])
 
@@ -189,7 +191,7 @@ class Retriever:
 
     def _tokenize(self, text):
         from build_index import tokenize
-        return tokenize(text)
+        return tokenize(text, cylinder_compound=self.cylinder_compound)
 
     # ---------------- router branches -----------------------------------
     def _exact(self, code_full, base, k):

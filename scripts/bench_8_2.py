@@ -84,6 +84,14 @@ PART_C = [
 ]
 
 
+# 8.2b: C4 with and without the compound cylinder token, baseline for reference.
+PART_B2 = [
+    ("C0 baseline (no lexicon)", "index", "none"),
+    ("C4 aliases->BM25 + expansion->BM25", "index_exp/minilm_alias_bm25", "bm25"),
+    ("C4b C4 + cylinder_<N> token", "index_exp/minilm_alias_bm25_cyl", "bm25"),
+]
+
+
 def guardrails(R):
     out = []
     for q, exp in GUARDRAILS:
@@ -94,14 +102,15 @@ def guardrails(R):
     return out
 
 
-def part_c(dev, records):
+def part_c(dev, records, configs=None, out="data/experiments/8_2/partC_lexicon_dev"):
+    configs = configs or PART_C
     import answer as A
     import evaluate_v2 as EV
     from lexicon import Lexicon
     from retrieve import Retriever
     lex = Lexicon()
     results = []
-    for name, index_dir, expand in PART_C:
+    for name, index_dir, expand in configs:
         R = Retriever(index_dir=index_dir, lexicon=lex if expand != "none" else None,
                       expand=expand)
         res = EV.run(R, dev, records, A)
@@ -122,15 +131,15 @@ def part_c(dev, records):
         del R
         gc.collect()
     json.dump([{k: v for k, v in r.items() if not k.startswith("_")} for r in results],
-              open("data/experiments/8_2/partC_lexicon_dev.json", "w"), indent=2)
+              open(out + ".json", "w"), indent=2)
     json.dump({r["name"]: {"rows": r["_rows"], "honesty": r["_honesty"]} for r in results},
-              open("data/experiments/8_2/partC_lexicon_dev_rows.json", "w"), indent=1)
-    print("wrote data/experiments/8_2/partC_lexicon_dev.json")
+              open(out + "_rows.json", "w"), indent=1)
+    print(f"wrote {out}.json")
 
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--part", choices=["A", "C"], default="A")
+    ap.add_argument("--part", choices=["A", "C", "B2"], default="A")
     args = ap.parse_args()
     gold = json.load(open("data/gold_v2.json"))
     dev = [q for q in gold["queries"] if q["split"] == "DEV"]      # TEST never loaded
@@ -139,6 +148,9 @@ def main():
 
     if args.part == "C":
         return part_c(dev, records)
+    if args.part == "B2":
+        return part_c(dev, records, configs=PART_B2,
+                      out="data/experiments/8_2/partB2_cylinder_token_dev")
 
     results = []
     for cfg in EMBEDDERS:

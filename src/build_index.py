@@ -55,8 +55,25 @@ def rss_mb():
     return resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1024
 
 
-def tokenize(text):
-    """Lexical tokenizer that preserves DTC codes and pin/net labels."""
+# Phase 8.2b. P1201-00..P1204-00 differ ONLY by a cylinder digit, and a bare digit
+# is pervasive noise in BM25 text (pin 2, step 2, A_B2...). P1203-00's text holds
+# the token "2" twice although it covers cylinder 3, so "cylinder 2" ranked it
+# first. Folding "cylinder N" / "cyl N" / "cyl.N" into one token cylinder_<N>
+# makes cylinder identity match exactly without competing with stray digits.
+CYLINDER_RE = re.compile(r"\b(?:cylinder|cyl)\s*\.?\s*(?:no\.?\s*)?(\d{1,2})\b", re.I)
+
+
+def tokenize(text, cylinder_compound=False):
+    """
+    Lexical tokenizer that preserves DTC codes and pin/net labels.
+
+    cylinder_compound: fold "cylinder N" into the single token cylinder_<N>. It is
+    an INDEX property - recorded in the index metadata and applied identically at
+    query time by the Retriever - so index and query tokenisation cannot diverge.
+    Default off, which reproduces the production index exactly.
+    """
+    if cylinder_compound:
+        text = CYLINDER_RE.sub(lambda m: f" cylinder_{int(m.group(1))} ", text)
     out = []
     for raw in TOKEN_RE.findall(text.lower()):
         t = raw.strip(".-_")
@@ -147,6 +164,8 @@ def main():
     ap.add_argument("--aliases", choices=["none", "bm25", "both"], default="none",
                     help="append lexicon aliases to BM25 text, or BM25 + dense text")
     ap.add_argument("--lexicon", default="data/domain_lexicon.json")
+    ap.add_argument("--cylinder-token", action="store_true",
+                    help='fold "cylinder N" into one BM25 token cylinder_<N> (8.2b)')
     args = ap.parse_args()
     index_dir, model_name = args.index_dir, args.model
     chroma_dir = f"{index_dir}/chroma"
@@ -225,13 +244,15 @@ def main():
     # The tokenised corpus IS the index: BM25Okapi's statistics are a
     # deterministic function of it, so rebuilding at load is exact and avoids
     # pickling a library object across versions. 314 docs rebuild instantly.
-    corpus = [tokenize(bm25_text(r) + (alias_str(r) if args.aliases in ("bm25", "both") else ""))
+    corpus = [tokenize(bm25_text(r) + (alias_str(r) if args.aliases in ("bm25", "both") else ""),
+                       cylinder_compound=args.cylinder_token)
               for r in recs]
     with open(f"{index_dir}/bm25_corpus.json", "w") as f:
         json.dump({"ids": ids, "corpus": corpus,
                    "tokenizer": {"pattern": TOKEN_RE.pattern,
                                  "lowercase": True,
-                                 "dtc_base_expansion": True}}, f)
+                                 "dtc_base_expansion": True,
+                                 "cylinder_compound": args.cylinder_token}}, f)
     print(f"bm25 corpus: {len(corpus)} docs, "
           f"{sum(len(c) for c in corpus)} tokens, "
           f"{len(set(t for c in corpus for t in c))} unique")
@@ -267,6 +288,7 @@ def main():
         "bm25": {"library": "rank-bm25 (BM25Okapi)",
                  "persisted": "tokenised corpus; scorer rebuilt at load",
                  "token_pattern": TOKEN_RE.pattern,
+                 "cylinder_compound": args.cylinder_token,
                  "preserves": ["DTC codes e.g. p0192-00", "pin labels e.g. a71"]},
         "exact": {"by_code_full_keys": len(by_full),
                   "by_dtc_code_keys": len(by_base),

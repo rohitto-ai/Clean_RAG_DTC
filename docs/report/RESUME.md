@@ -1,7 +1,7 @@
 # RESUME — Clean RAG for the 3.3L DTC Manual
 
 **State: Phases 0–7 complete and tagged `v1-phase7`. Phase 8 (limitations iteration)
-in progress on branch `phase8-limitations`: 8.0, 8.1 and 8.2 DONE. STOPPED FOR REVIEW
+in progress on branch `phase8-limitations`: 8.0, 8.1, 8.2 and 8.2b DONE. STOPPED FOR REVIEW
 after 8.2. Production retrieval is still exactly v1-phase7; TEST has NOT been run since
 8.0 and is frozen until 8.5.**
 
@@ -32,7 +32,8 @@ _Last updated: 2026-09-16_
 | 0 · Snapshot | ✅ tag `v1-phase7` → `dbf944b`, pushed; branch `phase8-limitations` |
 | 8.0 · Evaluation foundation | ✅ `data/gold_v2.json` **v2.1** (70 q, DEV 34 / TEST 36), overlap ceiling rule, baselines re-recorded |
 | 8.1 · L2 skip-branch fixes | ✅ 5 fixed via `MANUAL_CORRECTIONS`; suite 37 pass / 1 xfail / 0 fail |
-| 8.2 · Symptom vocabulary gap (L1) | ✅ DEV only. Embedder: keep MiniLM. Lexicon config **C4** selected: DEV symptom MRR 0.278 → 0.715 |
+| 8.2 · Symptom vocabulary gap (L1) | ✅ DEV only. Embedder: keep MiniLM. Lexicon config C4: DEV symptom MRR 0.278 → 0.715 |
+| 8.2b · Compound cylinder token | ✅ **C4b** = C4 + `cylinder_<N>` BM25 token: guardrails **14/14**, DEV identical to C4 |
 | **8.3 · Relevance gate (L3)** | ⏸ next, on go-ahead |
 | 8.5 · Final TEST evaluation | ⏸ frozen until then |
 
@@ -41,7 +42,8 @@ _Last updated: 2026-09-16_
 | DEV | symptom hit@1 | symptom MRR | overall MRR | gate OOS / in-scope |
 |---|---|---|---|---|
 | before (production retriever) | 16.7% | 0.278 | 0.603 | 4/6 · 27/28 |
-| **C4: aliases→BM25 + expansion→BM25** | **58.3%** | **0.715** | **0.863** | 4/6 · 28/28 |
+| C4: aliases→BM25 + expansion→BM25 | 58.3% | 0.715 | 0.863 | 4/6 · 28/28 |
+| **C4b: C4 + cylinder_<N> token (selected)** | **58.3%** | **0.715** | **0.863** | 4/6 · 28/28 |
 
 Gold v2.2: the overlap ceiling is now uniform (DEV 0.090 / TEST 0.098 mean overlap).
 TEST figures from 8.0 (v2.1) remain the frozen before-picture; not re-run.
@@ -53,14 +55,16 @@ TEST figures from 8.0 (v2.1) remain the frozen before-picture; not re-run.
 - The dense threshold (0.30) is MiniLM-calibrated; every alternative embedder tested in 8.2
   refused **0/6**. Another reason MiniLM stays.
 - The soot-trap over-block (d016) already disappears under C4, as a side effect of BM25
-  aliases raising `bm25_max`. So calibrate the gate **against the C4 index**, not production.
+  aliases raising `bm25_max`. So calibrate the gate **against the C4b index**, not production.
 
-**C4 is selected, not adopted.** Reproduce it with
-`--index-dir index_exp/minilm_alias_bm25 --lexicon data/domain_lexicon.json --expand bm25`.
+**C4b is selected, not adopted.** Reproduce it with
+`--index-dir index_exp/minilm_alias_bm25_cyl --lexicon data/domain_lexicon.json --expand bm25`
+(index built with `build_index.py --aliases bm25 --cylinder-token`).
 Make it the production default only after 8.3 and 8.5.
 
-**8.5 must report TEST twice:** with the full lexicon, and with the 19 TEST-matching lexicon
-entries ablated (`Lexicon(exclude_test_matching=True)`) — the uncontaminated lower bound.
+**8.5 must report TEST twice — DECIDED:** with the full lexicon, and with the 19 TEST-matching
+lexicon entries ablated (`Lexicon(exclude_test_matching=True)`). **The ablated number is the
+conservative headline.**
 
 **TEST discipline:** `src/evaluate_v2.py` defaults to `--split DEV`. Never pass
 `--split TEST` before 8.5.
@@ -84,16 +88,12 @@ entries ablated (`Lexicon(exclude_test_matching=True)`) — the uncontaminated l
    step** — a consumer that follows `on_true` blindly will dereference a
    non-existent step. Recommendation unchanged: clamp in Phase 6, log in Phase 7.
 
-1. **Lexicon/TEST contamination (for 8.5).** 19 of 42 lexicon entries match TEST query
-   wording — including brief-specified ones (speedo, intercooler, redline, earthed, adblue,
-   soot trap), which are words from the TEST v2.1 rewrites. Kept; mitigated by the 8.5
-   ablation run. Say if you would rather drop them now instead.
+1. ~~**Lexicon/TEST contamination.**~~ **DECIDED:** keep the 19 TEST-matching entries; 8.5
+   reports TEST both full and ablated, ablated = conservative headline.
 
-2. **Pre-existing injector short-circuit confusion (not from the lexicon).** The unchanged
-   baseline fails 3/14 guardrails, all ranking P1203-00 first; 2 remain under C4 (cyl 2, 4).
-   Cause: the cylinder digit is the only discriminating token and digits are pervasive
-   pin/step-number noise in BM25. Likely fix: compound tokens (`cylinder_2`). Out of 8.2's
-   scope; decide whether it joins a later step.
+2. ~~**Injector short-circuit confusion.**~~ **FIXED in 8.2b** via the `cylinder_<N>` BM25
+   token; guardrails 14/14. Remaining gap: number words / ordinals ("cylinder one",
+   "3rd cylinder") are not folded.
 
 3. ~~**TEST split authoring bias.**~~ **RESOLVED (v2.1):** the 13 TEST symptom queries were
    rewritten under a 0.15 word-overlap ceiling (TEST mean 0.412 → 0.098); TEST symptom
@@ -151,6 +151,9 @@ entries ablated (`Lexicon(exclude_test_matching=True)`) — the uncontaminated l
   positionally. `goto[]` is the verbatim audit trail, not the routing.
 - **`on_true` can point outside the step list** (37 steps). Always check membership;
   `src/diagnose.py` clamps to the terminal step and logs it.
+- **A BM25 tokenizer change is an INDEX property.** Changing the shared tokenizer globally
+  would silently break the production index (query `cylinder_2` vs corpus `cylinder`,`2`).
+  Record the option in the index and have the Retriever read it — see `cylinder_compound`.
 - **Never append lexicon aliases to the DENSE text.** It gives near-duplicate families
   (injectors 1–4) identical alias strings, pulls their embeddings together, and broke a
   baseline-passing guardrail (config C6). Aliases go to BM25 only.

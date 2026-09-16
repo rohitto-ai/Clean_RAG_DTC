@@ -1,0 +1,443 @@
+[
+  {
+    "name": "C0 baseline (no lexicon)",
+    "index_dir": "index",
+    "expand": "none",
+    "index_aliases": "none",
+    "by_mode": {
+      "exact_code": {
+        "n": 6,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0,
+        "MRR": 1.0
+      },
+      "near_duplicate": {
+        "n": 7,
+        "hit@1": 0.7142857142857143,
+        "hit@3": 0.8571428571428571,
+        "hit@5": 1.0,
+        "MRR": 0.8214285714285714
+      },
+      "symptom": {
+        "n": 12,
+        "hit@1": 0.16666666666666666,
+        "hit@3": 0.4166666666666667,
+        "hit@5": 0.4166666666666667,
+        "MRR": 0.2777777777777778
+      }
+    },
+    "overall": {
+      "n": 25,
+      "hit@1": 0.52,
+      "hit@3": 0.68,
+      "hit@5": 0.72,
+      "MRR": 0.6033333333333334
+    },
+    "system_group": {
+      "complete": 3,
+      "n": 3
+    },
+    "honesty": {
+      "oos_gated": 4,
+      "oos_n": 6,
+      "in_scope_passed": 27,
+      "in_scope_n": 28
+    },
+    "guardrails": [
+      {
+        "query": "camshaft no signal",
+        "expected": "P0340-00",
+        "top1": "P0340-00",
+        "rank": 1,
+        "pass": true
+      },
+      {
+        "query": "camshaft disturbed signal",
+        "expected": "P0341-00",
+        "top1": "P0341-00",
+        "rank": 1,
+        "pass": true
+      },
+      {
+        "query": "injector open circuit cylinder 1",
+        "expected": "P0201-00",
+        "top1": "P0201-00",
+        "rank": 1,
+        "pass": true
+      },
+      {
+        "query": "cylinder 1 injector has a broken wire",
+        "expected": "P0201-00",
+        "top1": "P0201-00",
+        "rank": 1,
+        "pass": true
+      },
+      {
+        "query": "injector short circuit high and low side cylinder 1",
+        "expected": "P1201-00",
+        "top1": "P1201-00",
+        "rank": 1,
+        "pass": true
+      },
+      {
+        "query": "injector open circuit cylinder 2",
+        "expected": "P0202-00",
+        "top1": "P0202-00",
+        "rank": 1,
+        "pass": true
+      },
+      {
+        "query": "cylinder 2 injector has a broken wire",
+        "expected": "P0202-00",
+        "top1": "P0202-00",
+        "rank": 1,
+        "pass": true
+      },
+      {
+        "query": "injector short circuit high and low side cylinder 2",
+        "expected": "P1202-00",
+        "top1": "P1203-00",
+        "rank": 2,
+        "pass": false
+      },
+      {
+        "query": "injector open circuit cylinder 3",
+        "expected": "P0203-00",
+        "top1": "P0203-00",
+        "rank": 1,
+        "pass": true
+      },
+      {
+        "query": "cylinder 3 injector has a broken wire",
+        "expected": "P0203-00",
+        "top1": "P1203-00",
+        "rank": 2,
+        "pass": false
+      },
+      {
+        "query": "injector short circuit high and low side cylinder 3",
+        "expected": "P1203-00",
+        "top1": "P1203-00",
+        "rank": 1,
+        "pass": true
+      },
+      {
+        "query": "injector open circuit cylinder 4",
+        "expected": "P0204-00",
+        "top1": "P0204-00",
+        "rank": 1,
+        "pass": true
+      },
+      {
+        "query": "cylinder 4 injector has a broken wire",
+        "expected": "P0204-00",
+        "top1": "P0204-00",
+        "rank": 1,
+        "pass": true
+      },
+      {
+        "query": "injector short circuit high and low side cylinder 4",
+        "expected": "P1204-00",
+        "top1": "P1203-00",
+        "rank": 2,
+        "pass": false
+      }
+    ],
+    "guardrails_passed": 11
+  },
+  {
+    "name": "C4 aliases->BM25 + expansion->BM25",
+    "index_dir": "index_exp/minilm_alias_bm25",
+    "expand": "bm25",
+    "index_aliases": "bm25",
+    "by_mode": {
+      "exact_code": {
+        "n": 6,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0,
+        "MRR": 1.0
+      },
+      "near_duplicate": {
+        "n": 7,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0,
+        "MRR": 1.0
+      },
+      "symptom": {
+        "n": 12,
+        "hit@1": 0.5833333333333334,
+        "hit@3": 0.8333333333333334,
+        "hit@5": 0.9166666666666666,
+        "MRR": 0.7152777777777778
+      }
+    },
+    "overall": {
+      "n": 25,
+      "hit@1": 0.8,
+      "hit@3": 0.92,
+      "hit@5": 0.96,
+      "MRR": 0.8633333333333333
+    },
+    "system_group": {
+      "complete": 3,
+      "n": 3
+    },
+    "honesty": {
+      "oos_gated": 4,
+      "oos_n": 6,
+      "in_scope_passed": 28,
+      "in_scope_n": 28
+    },
+    "guardrails": [
+      {
+        "query": "camshaft no signal",
+        "expected": "P0340-00",
+        "top1": "P0340-00",
+        "rank": 1,
+        "pass": true
+      },
+      {
+        "query": "camshaft disturbed signal",
+        "expected": "P0341-00",
+        "top1": "P0341-00",
+        "rank": 1,
+        "pass": true
+      },
+      {
+        "query": "injector open circuit cylinder 1",
+        "expected": "P0201-00",
+        "top1": "P0201-00",
+        "rank": 1,
+        "pass": true
+      },
+      {
+        "query": "cylinder 1 injector has a broken wire",
+        "expected": "P0201-00",
+        "top1": "P0201-00",
+        "rank": 1,
+        "pass": true
+      },
+      {
+        "query": "injector short circuit high and low side cylinder 1",
+        "expected": "P1201-00",
+        "top1": "P1201-00",
+        "rank": 1,
+        "pass": true
+      },
+      {
+        "query": "injector open circuit cylinder 2",
+        "expected": "P0202-00",
+        "top1": "P0202-00",
+        "rank": 1,
+        "pass": true
+      },
+      {
+        "query": "cylinder 2 injector has a broken wire",
+        "expected": "P0202-00",
+        "top1": "P0202-00",
+        "rank": 1,
+        "pass": true
+      },
+      {
+        "query": "injector short circuit high and low side cylinder 2",
+        "expected": "P1202-00",
+        "top1": "P1203-00",
+        "rank": 2,
+        "pass": false
+      },
+      {
+        "query": "injector open circuit cylinder 3",
+        "expected": "P0203-00",
+        "top1": "P0203-00",
+        "rank": 1,
+        "pass": true
+      },
+      {
+        "query": "cylinder 3 injector has a broken wire",
+        "expected": "P0203-00",
+        "top1": "P0203-00",
+        "rank": 1,
+        "pass": true
+      },
+      {
+        "query": "injector short circuit high and low side cylinder 3",
+        "expected": "P1203-00",
+        "top1": "P1203-00",
+        "rank": 1,
+        "pass": true
+      },
+      {
+        "query": "injector open circuit cylinder 4",
+        "expected": "P0204-00",
+        "top1": "P0204-00",
+        "rank": 1,
+        "pass": true
+      },
+      {
+        "query": "cylinder 4 injector has a broken wire",
+        "expected": "P0204-00",
+        "top1": "P0204-00",
+        "rank": 1,
+        "pass": true
+      },
+      {
+        "query": "injector short circuit high and low side cylinder 4",
+        "expected": "P1204-00",
+        "top1": "P1203-00",
+        "rank": 2,
+        "pass": false
+      }
+    ],
+    "guardrails_passed": 12
+  },
+  {
+    "name": "C4b C4 + cylinder_<N> token",
+    "index_dir": "index_exp/minilm_alias_bm25_cyl",
+    "expand": "bm25",
+    "index_aliases": "bm25",
+    "by_mode": {
+      "exact_code": {
+        "n": 6,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0,
+        "MRR": 1.0
+      },
+      "near_duplicate": {
+        "n": 7,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0,
+        "MRR": 1.0
+      },
+      "symptom": {
+        "n": 12,
+        "hit@1": 0.5833333333333334,
+        "hit@3": 0.8333333333333334,
+        "hit@5": 0.9166666666666666,
+        "MRR": 0.7152777777777778
+      }
+    },
+    "overall": {
+      "n": 25,
+      "hit@1": 0.8,
+      "hit@3": 0.92,
+      "hit@5": 0.96,
+      "MRR": 0.8633333333333333
+    },
+    "system_group": {
+      "complete": 3,
+      "n": 3
+    },
+    "honesty": {
+      "oos_gated": 4,
+      "oos_n": 6,
+      "in_scope_passed": 28,
+      "in_scope_n": 28
+    },
+    "guardrails": [
+      {
+        "query": "camshaft no signal",
+        "expected": "P0340-00",
+        "top1": "P0340-00",
+        "rank": 1,
+        "pass": true
+      },
+      {
+        "query": "camshaft disturbed signal",
+        "expected": "P0341-00",
+        "top1": "P0341-00",
+        "rank": 1,
+        "pass": true
+      },
+      {
+        "query": "injector open circuit cylinder 1",
+        "expected": "P0201-00",
+        "top1": "P0201-00",
+        "rank": 1,
+        "pass": true
+      },
+      {
+        "query": "cylinder 1 injector has a broken wire",
+        "expected": "P0201-00",
+        "top1": "P0201-00",
+        "rank": 1,
+        "pass": true
+      },
+      {
+        "query": "injector short circuit high and low side cylinder 1",
+        "expected": "P1201-00",
+        "top1": "P1201-00",
+        "rank": 1,
+        "pass": true
+      },
+      {
+        "query": "injector open circuit cylinder 2",
+        "expected": "P0202-00",
+        "top1": "P0202-00",
+        "rank": 1,
+        "pass": true
+      },
+      {
+        "query": "cylinder 2 injector has a broken wire",
+        "expected": "P0202-00",
+        "top1": "P0202-00",
+        "rank": 1,
+        "pass": true
+      },
+      {
+        "query": "injector short circuit high and low side cylinder 2",
+        "expected": "P1202-00",
+        "top1": "P1202-00",
+        "rank": 1,
+        "pass": true
+      },
+      {
+        "query": "injector open circuit cylinder 3",
+        "expected": "P0203-00",
+        "top1": "P0203-00",
+        "rank": 1,
+        "pass": true
+      },
+      {
+        "query": "cylinder 3 injector has a broken wire",
+        "expected": "P0203-00",
+        "top1": "P0203-00",
+        "rank": 1,
+        "pass": true
+      },
+      {
+        "query": "injector short circuit high and low side cylinder 3",
+        "expected": "P1203-00",
+        "top1": "P1203-00",
+        "rank": 1,
+        "pass": true
+      },
+      {
+        "query": "injector open circuit cylinder 4",
+        "expected": "P0204-00",
+        "top1": "P0204-00",
+        "rank": 1,
+        "pass": true
+      },
+      {
+        "query": "cylinder 4 injector has a broken wire",
+        "expected": "P0204-00",
+        "top1": "P0204-00",
+        "rank": 1,
+        "pass": true
+      },
+      {
+        "query": "injector short circuit high and low side cylinder 4",
+        "expected": "P1204-00",
+        "top1": "P1204-00",
+        "rank": 1,
+        "pass": true
+      }
+    ],
+    "guardrails_passed": 14
+  }
+]
