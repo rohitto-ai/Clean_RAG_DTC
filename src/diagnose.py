@@ -121,6 +121,7 @@ class Diagnoser:
                              if answer == "no" else
                              "Reached the final check. Did the fault clear?")
             state.transitions.append(Transition(s["n"], None, "terminal step"))
+            state.current = None          # nothing left to present
             return state
 
         # --- multi-target: "go to Step 9 & 11" means DO BOTH ----------

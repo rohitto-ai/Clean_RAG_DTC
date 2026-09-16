@@ -1,0 +1,325 @@
+{
+  "gold_set": {
+    "n": 38,
+    "by_mode": {
+      "exact_code": 8,
+      "near_duplicate": 8,
+      "symptom": 11,
+      "system_group": 4,
+      "out_of_scope": 7
+    }
+  },
+  "retrieval_overall": {
+    "n": 27,
+    "hit@1": 0.5925925925925926,
+    "hit@3": 0.7777777777777778,
+    "hit@5": 0.8518518518518519,
+    "MRR": 0.6851851851851852
+  },
+  "retrieval_by_mode": {
+    "exact_code": {
+      "n": 8,
+      "hit@1": 1.0,
+      "hit@3": 1.0,
+      "hit@5": 1.0,
+      "MRR": 1.0
+    },
+    "near_duplicate": {
+      "n": 8,
+      "hit@1": 0.625,
+      "hit@3": 0.875,
+      "hit@5": 1.0,
+      "MRR": 0.7604166666666666
+    },
+    "symptom": {
+      "n": 11,
+      "hit@1": 0.2727272727272727,
+      "hit@3": 0.5454545454545454,
+      "hit@5": 0.6363636363636364,
+      "MRR": 0.40151515151515155
+    }
+  },
+  "near_duplicate_rank1": {
+    "correct": 5,
+    "n": 8,
+    "accuracy": 0.625
+  },
+  "system_group": {
+    "n": 4,
+    "all_correct": 4,
+    "detail": [
+      {
+        "query": "list all EGR faults",
+        "expected_system": "egr",
+        "router_mode": "system_group",
+        "returned": 14,
+        "group_size": 14,
+        "ok": true
+      },
+      {
+        "query": "show me every injector related fault code",
+        "expected_system": "injector",
+        "router_mode": "system_group",
+        "returned": 14,
+        "group_size": 14,
+        "ok": true
+      },
+      {
+        "query": "what soot trap faults are there",
+        "expected_system": "dpf_regen",
+        "router_mode": "system_group",
+        "returned": 18,
+        "group_size": 18,
+        "ok": true
+      },
+      {
+        "query": "all fuel rail pressure codes",
+        "expected_system": "rail_pressure",
+        "router_mode": "system_group",
+        "returned": 7,
+        "group_size": 7,
+        "ok": true
+      }
+    ]
+  },
+  "honesty": {
+    "out_of_scope_n": 7,
+    "out_of_scope_correctly_gated": 6,
+    "in_scope_n": 31,
+    "in_scope_passed_gate": 29
+  },
+  "integrity_walk": {
+    "records": 314,
+    "records_with_inference": 146,
+    "total_clamps": 33,
+    "total_inferences": 326,
+    "records_with_clamp": 13
+  },
+  "integrity_lists": {
+    "clamped": [
+      "P0116-00",
+      "P0100-00",
+      "P0401-00",
+      "P0109-00",
+      "P0088-00",
+      "P0089-92",
+      "P0089-00",
+      "P0500-1F",
+      "P0500-1C",
+      "P208A-00",
+      "P208A-4B",
+      "P208D-00",
+      "P208C-00"
+    ],
+    "inferred": [
+      "P0192-00",
+      "P0193-00",
+      "P0194-00",
+      "P0117-00",
+      "P0118-00",
+      "P0119-00",
+      "P0116-00",
+      "P0100-00",
+      "P0102-00",
+      "P0103-00",
+      "P010C-00",
+      "P010D-00",
+      "P0100-9B",
+      "P0100-9C",
+      "P0101-00",
+      "P0107-00",
+      "P0108-00",
+      "P0109-00",
+      "P0110-11",
+      "P0110-12"
+    ],
+    "looped": [],
+    "dead_ends": []
+  },
+  "misses": [
+    {
+      "query": "the cam sensor gives no output whatsoever",
+      "mode": "near_duplicate",
+      "expected": [
+        "P0340-00"
+      ],
+      "got": [
+        "P0341-00",
+        "P0340-00",
+        "P0180-11",
+        "P0180-12",
+        "P0335-00"
+      ],
+      "rank": 2,
+      "router_mode": "hybrid"
+    },
+    {
+      "query": "fuel rail sender reading has drifted off calibration",
+      "mode": "near_duplicate",
+      "expected": [
+        "P0194-00"
+      ],
+      "got": [
+        "P0088-00",
+        "P0087-00",
+        "P0192-00",
+        "P0194-00",
+        "P0193-00"
+      ],
+      "rank": 4,
+      "router_mode": "hybrid"
+    },
+    {
+      "query": "fuel rail sender wire is broken or touching positive",
+      "mode": "near_duplicate",
+      "expected": [
+        "P0193-00"
+      ],
+      "got": [
+        "P0087-00",
+        "P0192-00",
+        "P0193-00",
+        "P0180-11",
+        "P0194-00"
+      ],
+      "rank": 3,
+      "router_mode": "hybrid"
+    },
+    {
+      "query": "coolant gauge stuck reading at the bottom of the scale",
+      "mode": "symptom",
+      "expected": [
+        "P0117-00"
+      ],
+      "got": [
+        "P0116-00",
+        "P0119-00",
+        "P0118-00",
+        "P0117-00",
+        "P242A-85"
+      ],
+      "rank": 4,
+      "router_mode": "hybrid"
+    },
+    {
+      "query": "exhaust recirculation flap is seized shut",
+      "mode": "symptom",
+      "expected": [
+        "P042F-00"
+      ],
+      "got": [
+        "P206A-F2",
+        "P206A-F1",
+        "P206A-F3",
+        "P242F-00",
+        "P0401-00"
+      ],
+      "rank": null,
+      "router_mode": "hybrid"
+    },
+    {
+      "query": "exhaust recirculation flap is seized wide open",
+      "mode": "symptom",
+      "expected": [
+        "P042E-00"
+      ],
+      "got": [
+        "P206A-F2",
+        "P206A-F1",
+        "P206A-F3",
+        "P04A4-00",
+        "P22CF-72"
+      ],
+      "rank": null,
+      "router_mode": "hybrid"
+    },
+    {
+      "query": "soot trap is completely blocked up",
+      "mode": "symptom",
+      "expected": [
+        "P244B-00"
+      ],
+      "got": [
+        "P2463-85",
+        "P243F-F0",
+        "P04A5-00",
+        "P042F-00",
+        "P04A4-00"
+      ],
+      "rank": null,
+      "router_mode": "hybrid"
+    },
+    {
+      "query": "adblue tank has almost run dry",
+      "mode": "symptom",
+      "expected": [
+        "P203F-00",
+        "P203F-7B"
+      ],
+      "got": [
+        "P203F-84",
+        "P206A-F2",
+        "P203F-7B",
+        "P204F-7C",
+        "P206A-F1"
+      ],
+      "rank": 3,
+      "router_mode": "hybrid"
+    },
+    {
+      "query": "throttle pedal sensors do not agree with each other",
+      "mode": "symptom",
+      "expected": [
+        "P2135-00"
+      ],
+      "got": [
+        "P0220-11",
+        "P2135-00",
+        "P0220-12",
+        "P0120-11",
+        "P0120-12",
+        "P0504-00",
+        "P061E-00",
+        "P0704-29"
+      ],
+      "rank": 2,
+      "router_mode": "system_group"
+    },
+    {
+      "query": "supply voltage is reading above the permitted ceiling",
+      "mode": "symptom",
+      "expected": [
+        "P0562-00"
+      ],
+      "got": [
+        "P006F-00",
+        "P0087-00",
+        "P0088-00",
+        "P0192-00",
+        "P2264-11"
+      ],
+      "rank": null,
+      "router_mode": "hybrid"
+    },
+    {
+      "query": "loss of pulling power with the dash warning light on",
+      "mode": "symptom",
+      "expected": [
+        "P0192-00",
+        "P0193-00",
+        "P0194-00",
+        "P0088-00",
+        "P0087-00"
+      ],
+      "got": [
+        "P0004-00",
+        "P0003-00",
+        "P0192-00",
+        "P0193-00",
+        "P0087-00"
+      ],
+      "rank": 3,
+      "router_mode": "hybrid"
+    }
+  ]
+}

@@ -22,7 +22,7 @@ import time
 MODEL_PATH = "models/qwen2.5-0.5b-instruct-q4_k_m.gguf"
 N_CTX = 2048
 N_THREADS = 4
-MAX_TOKENS = 320
+MAX_TOKENS = 120        # capped: 0.5B rambles and pads past ~120 tokens
 
 # Relevance gate. Deciding whether the manual covers a question AT ALL is a
 # routing decision, so it is made deterministically from the retrieval signal -
@@ -47,7 +47,9 @@ SYSTEM_PROMPT = (
     "CONTEXT genuinely lacks the answer, reply exactly: "
     "\"That is not covered in this manual.\"\n"
     "4. Never invent a DTC code, step number, pin name or page number.\n"
-    "5. Be concise: at most 6 sentences."
+    "5. Be concise: 2-4 sentences. State the DTC code, what it means, and the "
+    "first thing to check. Do not restate field names or say a field is NA. "
+    "Do not repeat yourself. Stop when you have answered."
 )
 
 
@@ -185,7 +187,8 @@ class Phraser:
             messages=[{"role": "system", "content": SYSTEM_PROMPT},
                       {"role": "user",
                        "content": f"CONTEXT:\n{context}\n\nQUESTION: {query}"}],
-            temperature=0.0, max_tokens=max_tokens)
+            temperature=0.0, max_tokens=max_tokens,
+            stop=["\n\n\n", "CONTEXT:", "QUESTION:", "---"])
         dt = time.time() - t0
         text = out["choices"][0]["message"]["content"].strip()
         usage = out.get("usage", {})
@@ -198,10 +201,20 @@ class Phraser:
 
 
 # ---------------------------------------------------------------------------
+RELEVANCE_PROBE_K = 5
+
+
 def is_relevant(retriever, query):
-    """Deterministic in-scope check. Returns (bool, signals)."""
-    res = retriever.coll.query(query_embeddings=retriever._embed(query), n_results=1)
-    dense_sim = 1.0 - res["distances"][0][0] if res["distances"][0] else 0.0
+    """
+    Deterministic in-scope check. Returns (bool, signals).
+
+    The dense similarity is computed by EXACT brute force over all 314 stored
+    vectors, not via Chroma. Chroma's HNSW is approximate, and early evaluation
+    runs returned different top-1 distances for the same query (0.27 / 0.27 /
+    0.39) while the embeddings were verified byte-identical across processes.
+    Ranking tolerates that variance; a threshold decision must not.
+    """
+    dense_sim = retriever.exact_max_sim(query)
     scores = retriever.bm25.get_scores(retriever._tokenize(query))
     bm25_max = float(max(scores)) if len(scores) else 0.0
     ok = dense_sim >= DENSE_RELEVANCE_MIN or bm25_max >= BM25_RELEVANCE_MIN

@@ -1,0 +1,48 @@
+{
+  "version": "v1-draft",
+  "note": "Symptom queries are paraphrased in the evaluator's own words. Manual description text is deliberately NOT copied into any query, or BM25 would win trivially and the metric would be meaningless.",
+  "queries": [
+    {"query": "what does P0192-00 mean", "mode": "exact_code", "expected": ["P0192-00"], "notes": "full code with suffix"},
+    {"query": "P0340", "mode": "exact_code", "expected": ["P0340-00"], "notes": "base code, no suffix"},
+    {"query": "P0180-11", "mode": "exact_code", "expected": ["P0180-11"], "notes": "DUPLICATE: must return both records (pp.100 and 195)"},
+    {"query": "show me trouble code P2153-00", "mode": "exact_code", "expected": ["P2153-00"], "notes": "code embedded in a sentence"},
+    {"query": "how do I fix P0117-00", "mode": "exact_code", "expected": ["P0117-00"], "notes": "natural phrasing around a code"},
+    {"query": "P0100", "mode": "exact_code", "expected": ["P0100-00", "P0100-9B", "P0100-9C"], "notes": "base code with 3 suffix variants"},
+    {"query": "details for U0102-00", "mode": "exact_code", "expected": ["U0102-00"], "notes": "U-family (CAN) code"},
+    {"query": "P042F-00 repair procedure", "mode": "exact_code", "expected": ["P042F-00"], "notes": "code + intent word"},
+
+    {"query": "the cam sensor gives no output whatsoever", "mode": "near_duplicate", "expected": ["P0340-00"], "notes": "vs P0341-00; one word apart in the manual"},
+    {"query": "cam position reading is erratic and noisy", "mode": "near_duplicate", "expected": ["P0341-00"], "notes": "vs P0340-00"},
+    {"query": "crank position reading is noisy and unstable", "mode": "near_duplicate", "expected": ["P0336-00"], "notes": "crank vs cam confusion risk"},
+    {"query": "number three injector has a broken winding", "mode": "near_duplicate", "expected": ["P0203-00"], "notes": "cylinder discrimination 1-4"},
+    {"query": "cylinder one injector is shorted to the main feed", "mode": "near_duplicate", "expected": ["P2147-00"], "notes": "vs P0201-00 open circuit"},
+    {"query": "fuel rail sender pulled down to earth", "mode": "near_duplicate", "expected": ["P0192-00"], "notes": "rail-pressure trio"},
+    {"query": "fuel rail sender reading has drifted off calibration", "mode": "near_duplicate", "expected": ["P0194-00"], "notes": "rail-pressure trio"},
+    {"query": "fuel rail sender wire is broken or touching positive", "mode": "near_duplicate", "expected": ["P0193-00"], "notes": "rail-pressure trio"},
+
+    {"query": "engine will not crank up and there is no signal from the cam", "mode": "symptom", "expected": ["P0340-00"], "notes": "effect: vehicle will not start"},
+    {"query": "coolant gauge stuck reading at the bottom of the scale", "mode": "symptom", "expected": ["P0117-00"], "notes": "short to ground"},
+    {"query": "the wire to the engine temperature sender has gone open", "mode": "symptom", "expected": ["P0118-00"], "notes": "open circuit variant"},
+    {"query": "exhaust recirculation flap is seized shut", "mode": "symptom", "expected": ["P042F-00"], "notes": "jammed closed"},
+    {"query": "exhaust recirculation flap is seized wide open", "mode": "symptom", "expected": ["P042E-00"], "notes": "jammed open"},
+    {"query": "soot trap is completely blocked up", "mode": "symptom", "expected": ["P244B-00"], "notes": "DPF clogged"},
+    {"query": "adblue tank has almost run dry", "mode": "symptom", "expected": ["P203F-00", "P203F-7B"], "notes": "urea level low"},
+    {"query": "charge pressure from the turbo is under target", "mode": "symptom", "expected": ["P0047-00", "P004C-00", "P006E-00"], "notes": "genuinely ambiguous; any boost-control-low code accepted"},
+    {"query": "throttle pedal sensors do not agree with each other", "mode": "symptom", "expected": ["P2135-00"], "notes": "pedal plausibility"},
+    {"query": "supply voltage is reading above the permitted ceiling", "mode": "symptom", "expected": ["P0562-00"], "notes": "battery voltage max range check"},
+    {"query": "loss of pulling power with the dash warning light on", "mode": "symptom", "expected": ["P0192-00", "P0193-00", "P0194-00", "P0088-00", "P0087-00"], "notes": "torque reduction + MIL on; rail-pressure family acceptable"},
+
+    {"query": "list all EGR faults", "mode": "system_group", "expected_system": "egr", "expected": [], "notes": "grouping intent + subsystem"},
+    {"query": "show me every injector related fault code", "mode": "system_group", "expected_system": "injector", "expected": [], "notes": "grouping intent"},
+    {"query": "what soot trap faults are there", "mode": "system_group", "expected_system": "dpf_regen", "expected": [], "notes": "paraphrased subsystem word"},
+    {"query": "all fuel rail pressure codes", "mode": "system_group", "expected_system": "rail_pressure", "expected": [], "notes": "grouping intent"},
+
+    {"query": "how do I change a tyre", "mode": "out_of_scope", "expected": "none", "notes": "previously produced a FABRICATED answer with an invented tyre pressure"},
+    {"query": "what is the capital of France", "mode": "out_of_scope", "expected": "none", "notes": "general knowledge"},
+    {"query": "how much does this truck cost", "mode": "out_of_scope", "expected": "none", "notes": "commercial, not diagnostic"},
+    {"query": "what gearbox oil viscosity should I use", "mode": "out_of_scope", "expected": "none", "notes": "vehicle-related but not a DTC manual topic"},
+    {"query": "book me a service appointment", "mode": "out_of_scope", "expected": "none", "notes": "transactional"},
+    {"query": "how do I reset my mobile phone", "mode": "out_of_scope", "expected": "none", "notes": "unrelated domain"},
+    {"query": "what is the warranty period on this engine", "mode": "out_of_scope", "expected": "none", "notes": "commercial"}
+  ]
+}

@@ -1,7 +1,10 @@
 # RESUME — Clean RAG for the 3.3L DTC Manual
 
-**State: Phases 0–6 complete and committed. Next action is Phase 7 (evaluation &
-robustness harness). Nothing is mid-flight or half-applied.**
+**State: ALL PHASES 0–7 COMPLETE and committed. The pipeline runs end to end and
+is served over FastAPI. Nothing is mid-flight or half-applied.**
+
+The highest-value next work is **query-side synonym expansion** — symptom retrieval
+is the one weak number (27.3% hit@1). See "Open decisions" below.
 
 _Last updated: 2026-09-16_
 
@@ -18,40 +21,57 @@ _Last updated: 2026-09-16_
 | 3 · Canonical schema | ✅ done | `data/dtc_records.jsonl` — **314/314 schema-valid** |
 | 4 · Indexing | ✅ done | `index/` — 314 vectors + BM25 + code dict |
 | 5 · Retrieval | ✅ done | `src/retrieve.py` — router + RRF |
-| 6 · Answering & diagnosis | ✅ done | `src/answer.py`, `src/diagnose.py` — **30 pass / 1 xfail / 0 fail** |
-| **7 · Evaluation harness** | ⬜ **next** | extend `src/validate.py` + gold query set |
+| 6 · Answering & diagnosis | ✅ done | `src/answer.py`, `src/diagnose.py` |
+| 7 · Evaluation + service | ✅ done | `src/evaluate.py`, `app.py` — **30 pass / 1 xfail / 0 fail** |
 
-## Exact next action
+## Headline results (Phase 7)
 
-Build the **Phase 7 evaluation & robustness harness** (extend `src/validate.py`, or
-add `src/evaluate.py` and call it from there). The build plan asks for:
+| | |
+|---|---|
+| Records | **314** DTCs from 545 pages, 314/314 schema-valid |
+| Retrieval — exact code | **hit@1 100%, MRR 1.000** |
+| Retrieval — near-duplicate | hit@1 62.5%, **hit@5 100%** |
+| Retrieval — symptom | **hit@1 27.3%** ← the weak number |
+| Retrieval — overall | hit@1 59.3%, hit@5 85.2%, MRR 0.685 |
+| system_group | 4/4 exact |
+| Honesty | out-of-scope gated **6/7**; in-scope passed **29/31** |
+| Integrity walk | **0 dead ends** across all 314 step graphs |
+| Test suite | 30 passed, 1 xfail, 0 failed |
 
-1. **Retrieval quality** — hand-build a **~30-query gold set** spanning the four
-   modes (exact DTC, symptom/effect, component/system, conversational), then report
-   **hit@k and MRR**. This is the one metric the project still has no number for;
-   everything so far is spot-checked.
-2. **Coverage / step integrity / boilerplate** — already implemented in
-   `src/validate.py` §§1–3. Keep them.
-3. **New, from Phase 6** — report how often the state machine fires a **clamp**
-   (37 out-of-range targets exist) and a **`skip_true_branch` inference** (256
-   conditional steps are shaped for it) across an automated walk of all 314 records.
-   Both are logged in the diagnosis trace already.
-4. **Grounding check** — assert out-of-scope queries return `NOT_COVERED` via the
-   deterministic gate and never reach the model.
+## Exact next action (recommended, not started)
 
-Then wire the **FastAPI `/ingest` and `/query` service** (`app.py`), which the build
-plan lists but nothing has built yet.
+**Query-side synonym / expansion layer.** This single change addresses the two
+weakest numbers at once, and both share one root cause: the manual writes formal ECU
+terminology while technicians describe symptoms in workshop English.
 
-Run everything with the venv interpreter: `.venv/bin/python`.
+- `"exhaust recirculation flap is seized shut"` misses `P042F-00`
+  (*"EGR valve jammed at closed position"*) entirely.
+- `"soot trap is completely blocked up"` misses `P244B-00` (*"Diesel Particulate
+  Filter clogged"*) AND is wrongly refused by the relevance gate.
+
+Build a domain synonym map (flap→valve, seized→jammed/stuck, soot trap→DPF,
+adblue→urea/DEF/reductant, sender→sensor, earth→ground, feed→supply), expand the
+query before both rankers, and re-measure.
+
+**Measure on a HELD-OUT set.** Tuning against `data/gold_queries.json` — the set
+that produces the published numbers — would invalidate the metric. Write new queries
+first, or split the existing 38.
+
+Other candidates, smaller: hand-correct the 6 `skip_true_branch` mismatches listed
+in `docs/report/phase7_evaluation.md` §1; add a `/ingest` endpoint; harden
+`/diagnose` sessions beyond in-process memory.
+
+## Running it
 
 ```bash
 .venv/bin/python src/parse_dtc.py --first 8 --last 545   # ~68 s,   72 MB peak
 .venv/bin/python src/enrich_images.py                     # seconds, 241 MB peak
 .venv/bin/python src/schema.py                            # seconds,  17 MB peak
 .venv/bin/python src/build_index.py --rebuild             # ~21 s,  680 MB peak
-.venv/bin/python src/validate.py                          # regenerates the report
+.venv/bin/python src/validate.py                          # parse/schema report
+PYTHONPATH=src .venv/bin/python src/evaluate.py           # hit@k, MRR, integrity walk
 PYTHONPATH=src .venv/bin/python src/smoke_index.py        # 31 tests, ~1.1 GB peak
-PYTHONPATH=src .venv/bin/python src/retrieve.py <query>   # ad-hoc retrieval CLI
+.venv/bin/uvicorn app:app --host 127.0.0.1 --port 8000    # demo service
 ```
 
 `data/*.jsonl`, `index/` and `models/` are gitignored build artifacts. Regenerate
@@ -77,14 +97,23 @@ them with the commands above **in that order**. The GGUF re-download command is 
    step** — a consumer that follows `on_true` blindly will dereference a
    non-existent step. Recommendation unchanged: clamp in Phase 6, log in Phase 7.
 
-3. **Is Qwen2.5-1.5B worth it?** 0.5B phrasing is serviceable but weak — it cites
+3. **Symptom retrieval is weak — 27.3% hit@1.** Vocabulary gap, not a ranking bug.
+   Fix is the synonym layer described above. Deliberately NOT tuned during Phase 7,
+   because tuning against the measuring set would have invalidated the number.
+
+4. **`skip_true_branch` is 96% right (24/25 audited), with 6 known-wrong cases**
+   corpus-wide: P0192-00 s6, P0193-00 s6, P0194-00 s6, P0194-00 s7, P0627-11 s4,
+   P0627-13 s4. All are logged in the diagnosis trace when they fire. Worth
+   hand-correcting before this goes near a real workshop.
+
+5. **Is Qwen2.5-1.5B worth it?** 0.5B phrasing is serviceable but weak — it cites
    correctly and stays in context, but rambles ("the effect on the vehicle is NA").
    1.5B would cost ~3x latency (~30 s/answer vs 9 s) on these 4 vCPUs; RAM is no
    longer a constraint. My read: **not clearly worth it** — the fast path handles the
    primary exact-DTC workflow with no generation at all, and the *relevance gate*,
    not the model, is what prevents fabrication. **Do not switch unless you say so.**
 
-4. **Image-derived pins.** OCR scored **0%** and was skipped for a structural
+6. **Image-derived pins.** OCR scored **0%** and was skipped for a structural
    reason, not a quality one: the text cites `A71`, but the schematic draws
    connector `C016-A` with a bare pin `71` — the literal token is never rendered.
    `pin_map[]` is text-derived instead (383 high-confidence pins). If you want
@@ -115,6 +144,11 @@ them with the commands above **in that order**. The GGUF re-download command is 
   positionally. `goto[]` is the verbatim audit trail, not the routing.
 - **`on_true` can point outside the step list** (37 steps). Always check membership;
   `src/diagnose.py` clamps to the terminal step and logs it.
+- **Never gate on Chroma's top-1 distance.** HNSW is approximate: three runs of the
+  same deterministic check gave 27/31, 28/31 and 29/31 while the embeddings were
+  byte-identical across processes. `retrieve.exact_max_sim()` does brute force over
+  all 314 vectors (~482 KB) instead. Ranking tolerates approximation; thresholds
+  do not.
 - **Never let the LLM decide whether a question is in scope.** Qwen2.5-0.5B failed
   this both ways — it fabricated tyre-change instructions with an invented psi
   figure, and separately refused a valid query. `answer.is_relevant()` gates
@@ -150,3 +184,4 @@ them with the commands above **in that order**. The GGUF re-download command is 
 - [phase4_indexing.md](phase4_indexing.md)
 - [phase5_retrieval.md](phase5_retrieval.md)
 - [phase6_answer_diagnose.md](phase6_answer_diagnose.md)
+- [phase7_evaluation.md](phase7_evaluation.md) — **the results chapter**

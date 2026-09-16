@@ -138,6 +138,17 @@ class Retriever:
         client = chromadb.PersistentClient(path=os.path.join(index_dir, "chroma"))
         self.coll = client.get_collection(COLLECTION)
 
+        # Exact vector matrix for threshold decisions. Chroma's HNSW is
+        # APPROXIMATE, and early evaluation runs returned different top-1
+        # distances for the same query while the embeddings were byte-identical
+        # across processes. Ranking tolerates that; a threshold does not. At
+        # 314 x 384 floats (~482 KB) an exact dot product is trivially cheap, so
+        # the relevance gate never depends on approximate search.
+        import numpy as _np
+        _all = self.coll.get(include=["embeddings"])
+        self.vec_ids = _all["ids"]
+        self.vectors = _np.asarray(_all["embeddings"], dtype="float32")
+
         # One model, loaded once and kept resident for the service lifetime.
         from sentence_transformers import SentenceTransformer
         self.model = SentenceTransformer(MODEL_NAME, device="cpu")
@@ -148,6 +159,14 @@ class Retriever:
     # ---------------- helpers -------------------------------------------
     def _embed(self, query):
         return self.model.encode([query], normalize_embeddings=True).tolist()
+
+    def exact_max_sim(self, query):
+        """Exact (brute-force) max cosine similarity over all records."""
+        import numpy as np
+        qv = np.asarray(self._embed(query), dtype="float32")[0]
+        if self.vectors.size == 0:
+            return 0.0
+        return float((self.vectors @ qv).max())
 
     def _rec(self, rid):
         return self.records[rid]
