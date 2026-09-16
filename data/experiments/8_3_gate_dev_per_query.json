@@ -1,0 +1,485 @@
+[
+ {
+  "id": "d001",
+  "query": "what does P0192-00 mean",
+  "in_scope": true,
+  "legacy_pass": true,
+  "v2_pass": true,
+  "dense": 0.51,
+  "bm25": 9.46,
+  "reasons": [],
+  "intent_hits": {},
+  "cues": []
+ },
+ {
+  "id": "d002",
+  "query": "P0340",
+  "in_scope": true,
+  "legacy_pass": true,
+  "v2_pass": true,
+  "dense": 0.4454,
+  "bm25": 6.35,
+  "reasons": [],
+  "intent_hits": {},
+  "cues": []
+ },
+ {
+  "id": "d003",
+  "query": "P0180-11",
+  "in_scope": true,
+  "legacy_pass": true,
+  "v2_pass": true,
+  "dense": 0.5221,
+  "bm25": 8.87,
+  "reasons": [],
+  "intent_hits": {},
+  "cues": []
+ },
+ {
+  "id": "d004",
+  "query": "P0100",
+  "in_scope": true,
+  "legacy_pass": true,
+  "v2_pass": true,
+  "dense": 0.4808,
+  "bm25": 5.56,
+  "reasons": [],
+  "intent_hits": {},
+  "cues": []
+ },
+ {
+  "id": "d005",
+  "query": "details for U0102-00",
+  "in_scope": true,
+  "legacy_pass": true,
+  "v2_pass": true,
+  "dense": 0.3505,
+  "bm25": 18.06,
+  "reasons": [],
+  "intent_hits": {},
+  "cues": []
+ },
+ {
+  "id": "d006",
+  "query": "fault code P2264",
+  "in_scope": true,
+  "legacy_pass": true,
+  "v2_pass": true,
+  "dense": 0.4538,
+  "bm25": 5.79,
+  "reasons": [],
+  "intent_hits": {},
+  "cues": [
+   "fault",
+   "code"
+  ]
+ },
+ {
+  "id": "d007",
+  "query": "the cam sensor gives no output whatsoever",
+  "in_scope": true,
+  "legacy_pass": true,
+  "v2_pass": true,
+  "dense": 0.5357,
+  "bm25": 18.4,
+  "reasons": [],
+  "intent_hits": {},
+  "cues": [
+   "sensor"
+  ]
+ },
+ {
+  "id": "d008",
+  "query": "cam position reading is erratic and noisy",
+  "in_scope": true,
+  "legacy_pass": true,
+  "v2_pass": true,
+  "dense": 0.4945,
+  "bm25": 22.77,
+  "reasons": [],
+  "intent_hits": {},
+  "cues": [
+   "reading"
+  ]
+ },
+ {
+  "id": "d009",
+  "query": "fuel rail sender pulled down to earth",
+  "in_scope": true,
+  "legacy_pass": true,
+  "v2_pass": true,
+  "dense": 0.396,
+  "bm25": 12.84,
+  "reasons": [],
+  "intent_hits": {},
+  "cues": []
+ },
+ {
+  "id": "d010",
+  "query": "fuel rail sender reading has drifted off calibration",
+  "in_scope": true,
+  "legacy_pass": true,
+  "v2_pass": true,
+  "dense": 0.4818,
+  "bm25": 8.66,
+  "reasons": [],
+  "intent_hits": {},
+  "cues": [
+   "reading"
+  ]
+ },
+ {
+  "id": "d011",
+  "query": "number three injector has a broken winding",
+  "in_scope": true,
+  "legacy_pass": true,
+  "v2_pass": true,
+  "dense": 0.4671,
+  "bm25": 10.45,
+  "reasons": [],
+  "intent_hits": {},
+  "cues": [
+   "broken"
+  ]
+ },
+ {
+  "id": "d012",
+  "query": "cylinder one injector is shorted to the main feed",
+  "in_scope": true,
+  "legacy_pass": true,
+  "v2_pass": true,
+  "dense": 0.5711,
+  "bm25": 18.69,
+  "reasons": [],
+  "intent_hits": {},
+  "cues": [
+   "shorted"
+  ]
+ },
+ {
+  "id": "d013",
+  "query": "crank position reading is noisy and unstable",
+  "in_scope": true,
+  "legacy_pass": true,
+  "v2_pass": true,
+  "dense": 0.375,
+  "bm25": 14.27,
+  "reasons": [],
+  "intent_hits": {},
+  "cues": [
+   "reading"
+  ]
+ },
+ {
+  "id": "d014",
+  "query": "exhaust recirculation flap is seized shut",
+  "in_scope": true,
+  "legacy_pass": true,
+  "v2_pass": true,
+  "dense": 0.3129,
+  "bm25": 11.55,
+  "reasons": [],
+  "intent_hits": {},
+  "cues": [
+   "seized"
+  ]
+ },
+ {
+  "id": "d015",
+  "query": "the recirculation flap on the egr pipe has seized and refuses to shut",
+  "in_scope": true,
+  "legacy_pass": true,
+  "v2_pass": true,
+  "dense": 0.4216,
+  "bm25": 24.54,
+  "reasons": [],
+  "intent_hits": {},
+  "cues": [
+   "seized"
+  ]
+ },
+ {
+  "id": "d016",
+  "query": "soot trap is completely blocked up",
+  "in_scope": true,
+  "legacy_pass": true,
+  "v2_pass": true,
+  "dense": 0.251,
+  "bm25": 11.75,
+  "reasons": [],
+  "intent_hits": {},
+  "cues": [
+   "blocked"
+  ]
+ },
+ {
+  "id": "d017",
+  "query": "the adblue reservoir is nearly empty and low warning is showing",
+  "in_scope": true,
+  "legacy_pass": true,
+  "v2_pass": true,
+  "dense": 0.3397,
+  "bm25": 19.41,
+  "reasons": [],
+  "intent_hits": {},
+  "cues": [
+   "warning"
+  ]
+ },
+ {
+  "id": "d018",
+  "query": "water temp gauge pegged cold, the reading line looks shorted",
+  "in_scope": true,
+  "legacy_pass": true,
+  "v2_pass": true,
+  "dense": 0.4175,
+  "bm25": 14.34,
+  "reasons": [],
+  "intent_hits": {},
+  "cues": [
+   "shorted",
+   "reading",
+   "gauge"
+  ]
+ },
+ {
+  "id": "d019",
+  "query": "the water temp sensor lead has come adrift and gauge is dead",
+  "in_scope": true,
+  "legacy_pass": true,
+  "v2_pass": true,
+  "dense": 0.5043,
+  "bm25": 22.5,
+  "reasons": [],
+  "intent_hits": {},
+  "cues": [
+   "dead",
+   "sensor",
+   "gauge"
+  ]
+ },
+ {
+  "id": "d020",
+  "query": "the go pedal's two throttle tracks disagree and power is cut",
+  "in_scope": true,
+  "legacy_pass": true,
+  "v2_pass": true,
+  "dense": 0.4603,
+  "bm25": 20.89,
+  "reasons": [],
+  "intent_hits": {},
+  "cues": []
+ },
+ {
+  "id": "d021",
+  "query": "alternator is overcharging and the battery sees far too many volts",
+  "in_scope": true,
+  "legacy_pass": true,
+  "v2_pass": true,
+  "dense": 0.2833,
+  "bm25": 22.8,
+  "reasons": [],
+  "intent_hits": {},
+  "cues": []
+ },
+ {
+  "id": "d022",
+  "query": "charge pressure from the turbo is under target",
+  "in_scope": true,
+  "legacy_pass": true,
+  "v2_pass": true,
+  "dense": 0.4933,
+  "bm25": 13.47,
+  "reasons": [],
+  "intent_hits": {},
+  "cues": []
+ },
+ {
+  "id": "d023",
+  "query": "turns over but never fires, no signal coming from the cam pickup",
+  "in_scope": true,
+  "legacy_pass": true,
+  "v2_pass": true,
+  "dense": 0.4325,
+  "bm25": 17.05,
+  "reasons": [],
+  "intent_hits": {},
+  "cues": []
+ },
+ {
+  "id": "d024",
+  "query": "loss of pulling power with the dash warning light on",
+  "in_scope": true,
+  "legacy_pass": true,
+  "v2_pass": true,
+  "dense": 0.3853,
+  "bm25": 9.17,
+  "reasons": [],
+  "intent_hits": {},
+  "cues": [
+   "warning",
+   "light"
+  ]
+ },
+ {
+  "id": "d025",
+  "query": "system voltage keeps sagging and the ecu drops out on cold starts",
+  "in_scope": true,
+  "legacy_pass": true,
+  "v2_pass": true,
+  "dense": 0.3975,
+  "bm25": 10.26,
+  "reasons": [],
+  "intent_hits": {},
+  "cues": []
+ },
+ {
+  "id": "d026",
+  "query": "list all EGR faults",
+  "in_scope": true,
+  "legacy_pass": true,
+  "v2_pass": true,
+  "dense": 0.4588,
+  "bm25": 5.93,
+  "reasons": [],
+  "intent_hits": {},
+  "cues": [
+   "fault"
+  ]
+ },
+ {
+  "id": "d027",
+  "query": "show me every injector related fault code",
+  "in_scope": true,
+  "legacy_pass": true,
+  "v2_pass": true,
+  "dense": 0.3874,
+  "bm25": 6.37,
+  "reasons": [],
+  "intent_hits": {},
+  "cues": [
+   "fault",
+   "code"
+  ]
+ },
+ {
+  "id": "d028",
+  "query": "what soot trap faults are there",
+  "in_scope": true,
+  "legacy_pass": true,
+  "v2_pass": true,
+  "dense": 0.3902,
+  "bm25": 6.73,
+  "reasons": [],
+  "intent_hits": {},
+  "cues": [
+   "fault"
+  ]
+ },
+ {
+  "id": "d029",
+  "query": "how do I change a tyre",
+  "in_scope": false,
+  "legacy_pass": false,
+  "v2_pass": false,
+  "dense": 0.0597,
+  "bm25": 4.63,
+  "reasons": [
+   "low_retrieval_signal"
+  ],
+  "intent_hits": {},
+  "cues": []
+ },
+ {
+  "id": "d030",
+  "query": "what is the warranty period on this engine",
+  "in_scope": false,
+  "legacy_pass": true,
+  "v2_pass": false,
+  "dense": 0.3222,
+  "bm25": 8.74,
+  "reasons": [
+   "non_diagnostic_intent"
+  ],
+  "intent_hits": {
+   "warranty_legal": [
+    "warranty"
+   ]
+  },
+  "cues": []
+ },
+ {
+  "id": "d031",
+  "query": "how much does this truck cost",
+  "in_scope": false,
+  "legacy_pass": false,
+  "v2_pass": false,
+  "dense": 0.2126,
+  "bm25": 3.57,
+  "reasons": [
+   "low_retrieval_signal",
+   "non_diagnostic_intent"
+  ],
+  "intent_hits": {
+   "commercial_pricing": [
+    "cost",
+    "how much does"
+   ]
+  },
+  "cues": []
+ },
+ {
+  "id": "d032",
+  "query": "book me a service appointment",
+  "in_scope": false,
+  "legacy_pass": false,
+  "v2_pass": false,
+  "dense": 0.0992,
+  "bm25": 2.18,
+  "reasons": [
+   "low_retrieval_signal",
+   "non_diagnostic_intent"
+  ],
+  "intent_hits": {
+   "scheduling_service": [
+    "book",
+    "appointment",
+    "service appointment"
+   ]
+  },
+  "cues": []
+ },
+ {
+  "id": "d033",
+  "query": "are replacement injectors in stock at the dealer",
+  "in_scope": false,
+  "legacy_pass": true,
+  "v2_pass": false,
+  "dense": 0.3228,
+  "bm25": 10.61,
+  "reasons": [
+   "non_diagnostic_intent"
+  ],
+  "intent_hits": {
+   "purchasing_parts": [
+    "in stock",
+    "dealer"
+   ]
+  },
+  "cues": []
+ },
+ {
+  "id": "d034",
+  "query": "what is the capital of France",
+  "in_scope": false,
+  "legacy_pass": false,
+  "v2_pass": false,
+  "dense": 0.1098,
+  "bm25": 5.63,
+  "reasons": [
+   "low_retrieval_signal"
+  ],
+  "intent_hits": {},
+  "cues": []
+ }
+]

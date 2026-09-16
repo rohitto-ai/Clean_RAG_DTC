@@ -1,0 +1,240 @@
+[
+ {
+  "id": "d001",
+  "in_scope": true,
+  "dense_sim": 0.509995698928833,
+  "bm25_max": 9.464500469750744,
+  "query": "what does P0192-00 mean"
+ },
+ {
+  "id": "d002",
+  "in_scope": true,
+  "dense_sim": 0.4453740119934082,
+  "bm25_max": 6.351638477052428,
+  "query": "P0340"
+ },
+ {
+  "id": "d003",
+  "in_scope": true,
+  "dense_sim": 0.5220990180969238,
+  "bm25_max": 8.870492628498798,
+  "query": "P0180-11"
+ },
+ {
+  "id": "d004",
+  "in_scope": true,
+  "dense_sim": 0.480781614780426,
+  "bm25_max": 5.563223578722124,
+  "query": "P0100"
+ },
+ {
+  "id": "d005",
+  "in_scope": true,
+  "dense_sim": 0.3505173325538635,
+  "bm25_max": 18.06471868830348,
+  "query": "details for U0102-00"
+ },
+ {
+  "id": "d006",
+  "in_scope": true,
+  "dense_sim": 0.4537733793258667,
+  "bm25_max": 5.79382774783543,
+  "query": "fault code P2264"
+ },
+ {
+  "id": "d007",
+  "in_scope": true,
+  "dense_sim": 0.5357376933097839,
+  "bm25_max": 18.399900814908293,
+  "query": "the cam sensor gives no output whatsoever"
+ },
+ {
+  "id": "d008",
+  "in_scope": true,
+  "dense_sim": 0.4944738745689392,
+  "bm25_max": 22.773275053996652,
+  "query": "cam position reading is erratic and noisy"
+ },
+ {
+  "id": "d009",
+  "in_scope": true,
+  "dense_sim": 0.39595291018486023,
+  "bm25_max": 12.842103010679597,
+  "query": "fuel rail sender pulled down to earth"
+ },
+ {
+  "id": "d010",
+  "in_scope": true,
+  "dense_sim": 0.48182034492492676,
+  "bm25_max": 8.658950046687508,
+  "query": "fuel rail sender reading has drifted off calibration"
+ },
+ {
+  "id": "d011",
+  "in_scope": true,
+  "dense_sim": 0.4670739769935608,
+  "bm25_max": 10.446018978321932,
+  "query": "number three injector has a broken winding"
+ },
+ {
+  "id": "d012",
+  "in_scope": true,
+  "dense_sim": 0.5710815191268921,
+  "bm25_max": 18.6873624418475,
+  "query": "cylinder one injector is shorted to the main feed"
+ },
+ {
+  "id": "d013",
+  "in_scope": true,
+  "dense_sim": 0.3749969005584717,
+  "bm25_max": 14.27424894264703,
+  "query": "crank position reading is noisy and unstable"
+ },
+ {
+  "id": "d014",
+  "in_scope": true,
+  "dense_sim": 0.3129030168056488,
+  "bm25_max": 11.54536383979276,
+  "query": "exhaust recirculation flap is seized shut"
+ },
+ {
+  "id": "d015",
+  "in_scope": true,
+  "dense_sim": 0.4216139316558838,
+  "bm25_max": 24.539430165064285,
+  "query": "the recirculation flap on the egr pipe has seized and refuses to shut"
+ },
+ {
+  "id": "d016",
+  "in_scope": true,
+  "dense_sim": 0.2509886920452118,
+  "bm25_max": 11.745759713782062,
+  "query": "soot trap is completely blocked up"
+ },
+ {
+  "id": "d017",
+  "in_scope": true,
+  "dense_sim": 0.3396541476249695,
+  "bm25_max": 19.411974645482303,
+  "query": "the adblue reservoir is nearly empty and low warning is showing"
+ },
+ {
+  "id": "d018",
+  "in_scope": true,
+  "dense_sim": 0.41750025749206543,
+  "bm25_max": 14.338756761869718,
+  "query": "water temp gauge pegged cold, the reading line looks shorted"
+ },
+ {
+  "id": "d019",
+  "in_scope": true,
+  "dense_sim": 0.5043206810951233,
+  "bm25_max": 22.503562270837136,
+  "query": "the water temp sensor lead has come adrift and gauge is dead"
+ },
+ {
+  "id": "d020",
+  "in_scope": true,
+  "dense_sim": 0.4603121280670166,
+  "bm25_max": 20.889162639756083,
+  "query": "the go pedal's two throttle tracks disagree and power is cut"
+ },
+ {
+  "id": "d021",
+  "in_scope": true,
+  "dense_sim": 0.2833027243614197,
+  "bm25_max": 22.801515386642926,
+  "query": "alternator is overcharging and the battery sees far too many volts"
+ },
+ {
+  "id": "d022",
+  "in_scope": true,
+  "dense_sim": 0.49326273798942566,
+  "bm25_max": 13.46574666142119,
+  "query": "charge pressure from the turbo is under target"
+ },
+ {
+  "id": "d023",
+  "in_scope": true,
+  "dense_sim": 0.4325404763221741,
+  "bm25_max": 17.05196351940281,
+  "query": "turns over but never fires, no signal coming from the cam pickup"
+ },
+ {
+  "id": "d024",
+  "in_scope": true,
+  "dense_sim": 0.38530778884887695,
+  "bm25_max": 9.16652647757118,
+  "query": "loss of pulling power with the dash warning light on"
+ },
+ {
+  "id": "d025",
+  "in_scope": true,
+  "dense_sim": 0.39753258228302,
+  "bm25_max": 10.259841382310688,
+  "query": "system voltage keeps sagging and the ecu drops out on cold starts"
+ },
+ {
+  "id": "d026",
+  "in_scope": true,
+  "dense_sim": 0.4587971866130829,
+  "bm25_max": 5.931878239322096,
+  "query": "list all EGR faults"
+ },
+ {
+  "id": "d027",
+  "in_scope": true,
+  "dense_sim": 0.38738590478897095,
+  "bm25_max": 6.3728700791797115,
+  "query": "show me every injector related fault code"
+ },
+ {
+  "id": "d028",
+  "in_scope": true,
+  "dense_sim": 0.3901950418949127,
+  "bm25_max": 6.731243925631988,
+  "query": "what soot trap faults are there"
+ },
+ {
+  "id": "d029",
+  "in_scope": false,
+  "dense_sim": 0.05973755195736885,
+  "bm25_max": 4.628899820008343,
+  "query": "how do I change a tyre"
+ },
+ {
+  "id": "d030",
+  "in_scope": false,
+  "dense_sim": 0.32217174768447876,
+  "bm25_max": 8.742657178080023,
+  "query": "what is the warranty period on this engine"
+ },
+ {
+  "id": "d031",
+  "in_scope": false,
+  "dense_sim": 0.21255330741405487,
+  "bm25_max": 3.567113016843869,
+  "query": "how much does this truck cost"
+ },
+ {
+  "id": "d032",
+  "in_scope": false,
+  "dense_sim": 0.09919419884681702,
+  "bm25_max": 2.1786307133998584,
+  "query": "book me a service appointment"
+ },
+ {
+  "id": "d033",
+  "in_scope": false,
+  "dense_sim": 0.32284295558929443,
+  "bm25_max": 10.607111812772624,
+  "query": "are replacement injectors in stock at the dealer"
+ },
+ {
+  "id": "d034",
+  "in_scope": false,
+  "dense_sim": 0.10975746810436249,
+  "bm25_max": 5.630767605693954,
+  "query": "what is the capital of France"
+ }
+]

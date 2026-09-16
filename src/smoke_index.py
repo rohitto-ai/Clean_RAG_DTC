@@ -342,6 +342,35 @@ def main():
           f"{candidates} other skip_true_branch candidates checked; "
           f"stray corrections={fired_elsewhere[:5]}")
 
+    # ================= 9. PHASE 8.3 — gate v2 intent logic (unit) =============
+    # Synthetic queries written for this test only - taken from neither DEV nor
+    # TEST. DEV contains no in-scope query with an intent term, so without these
+    # the diagnostic-cue VETO would be entirely unverified.
+    print("\n== 9. Phase 8.3 gate v2: intent filter + cue veto (unit) ==")
+    from gate import Gate, audit_stoplist
+    G = Gate("data/gate_c4b.json")
+    UNIT = [
+        ("how much would a replacement turbo cost", True,
+         "pricing intent, no fault cue -> refuse"),
+        ("can I pair bluetooth with my phone", True,
+         "comfort intent -> refuse"),
+        ("the dealer says my egr valve is stuck, what is the fault", False,
+         "intent term but fault cues (stuck, fault) VETO -> pass"),
+        ("warning light came on right after the warranty service", False,
+         "intent term but cues (warning, light) VETO -> pass"),
+        ("P0192-00 what is the price of that sensor", False,
+         "DTC code present VETOES intent -> pass"),
+        ("rail pressure sensor shorted to ground", False,
+         "pure fault query, no intent term -> pass"),
+    ]
+    for q, expect_refuse, why in UNIT:
+        got = G.intent(q)["non_diagnostic_dominant"]
+        check(f"intent: {why}", got == expect_refuse,
+              f"{q!r} dominant={got} hits={G.intent(q)['intent_hits']} "
+              f"cues={G.intent(q)['diagnostic_cues']}")
+    coll = audit_stoplist()
+    check("no intent term occurs in manual fault text", not coll, f"collisions={coll}")
+
     npass = sum(1 for _, ok in results if ok is True)
     nxfail = sum(1 for _, ok in results if ok is None)
     nfail = sum(1 for _, ok in results if ok is False)

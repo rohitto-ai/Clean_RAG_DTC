@@ -19,13 +19,14 @@ sys.path.insert(0, "src")
 RANKED = ("exact_code", "near_duplicate", "symptom")
 
 
-def run(R, queries, records, A):
+def run(R, queries, records, A, gate=None):
     import evaluate as E
     ranked_rows, groups, honesty = [], [], []
     for q in queries:
         in_scope = q["mode"] != "out_of_scope"
-        ok, sig = A.is_relevant(R, q["query"])
-        honesty.append({"id": q["id"], "in_scope": in_scope, "passed": ok})
+        ok, sig = A.is_relevant(R, q["query"], gate=gate)
+        honesty.append({"id": q["id"], "in_scope": in_scope, "passed": ok,
+                        "signals": sig})
 
         if q["mode"] in RANKED:
             out = R.retrieve(q["query"], k=5)
@@ -94,6 +95,7 @@ def main():
     ap.add_argument("--lexicon", default=None)
     ap.add_argument("--expand", choices=["none", "bm25", "both"], default="none")
     ap.add_argument("--quiet", action="store_true", help="suppress per-query DEV misses")
+    ap.add_argument("--gate", default=None, help="gate config json (Phase 8.3); default = legacy v1 gate")
     args = ap.parse_args()
 
     gold = json.load(open(args.gold))
@@ -106,6 +108,10 @@ def main():
         lex = Lexicon(args.lexicon)
     R = Retriever(index_dir=args.index_dir, query_prefix=args.query_prefix,
                   lexicon=lex, expand=args.expand)
+    gate = None
+    if args.gate:
+        from gate import Gate
+        gate = Gate(args.gate)
 
     dev = [q for q in gold["queries"] if q["split"] == "DEV"]
     test = [q for q in gold["queries"] if q["split"] == "TEST"]
@@ -123,8 +129,8 @@ def main():
         print(f"{name:4s} n={st['n']:2d} mean={st['mean']:.3f} "
               f"zero-overlap={st['zero_overlap']}/{st['n']} max={st['max']:.3f} "
               f"over-ceiling={st['over_ceiling']}")
-    rd = run(R, dev, records, A) if args.split in ("DEV", "both") else None
-    rt = run(R, test, records, A) if args.split in ("TEST", "both") else None
+    rd = run(R, dev, records, A, gate) if args.split in ("DEV", "both") else None
+    rt = run(R, test, records, A, gate) if args.split in ("TEST", "both") else None
     if rd:
         table(rd, f"DEV ({len(dev)} queries) — {args.label}")
     if rt:
@@ -159,6 +165,7 @@ def main():
                "config": {"index_dir": args.index_dir, "model": R.model_name,
                           "query_prefix": args.query_prefix,
                           "lexicon": args.lexicon, "expand": args.expand,
+                          "gate": args.gate,
                           "index_aliases": R.meta.get("aliases", {}).get("mode", "none")},
                "symptom_overlap": overlap_stats,
                "DEV": strip(rd) if rd else None,

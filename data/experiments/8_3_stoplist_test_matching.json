@@ -1,0 +1,42 @@
+[
+ {
+  "category": "commercial_pricing",
+  "term": "resale",
+  "provenance": "user"
+ },
+ {
+  "category": "commercial_pricing",
+  "term": "discount",
+  "provenance": "user"
+ },
+ {
+  "category": "purchasing_parts",
+  "term": "buy",
+  "provenance": "user"
+ },
+ {
+  "category": "purchasing_parts",
+  "term": "purchase",
+  "provenance": "user"
+ },
+ {
+  "category": "scheduling_service",
+  "term": "service centre",
+  "provenance": "user"
+ },
+ {
+  "category": "warranty_legal",
+  "term": "warranty",
+  "provenance": "user"
+ },
+ {
+  "category": "comfort_infotainment",
+  "term": "bluetooth",
+  "provenance": "user"
+ },
+ {
+  "category": "comfort_infotainment",
+  "term": "infotainment",
+  "provenance": "user"
+ }
+]

@@ -204,8 +204,11 @@ class Phraser:
 RELEVANCE_PROBE_K = 5
 
 
-def is_relevant(retriever, query):
+def is_relevant(retriever, query, gate=None):
     """
+    gate: a gate.Gate (Phase 8.3 two-reason gate). None = the legacy v1 gate below,
+    so the production system is unchanged until a gate config is adopted.
+
     Deterministic in-scope check. Returns (bool, signals).
 
     The dense similarity is computed by EXACT brute force over all 314 stored
@@ -214,6 +217,8 @@ def is_relevant(retriever, query):
     0.39) while the embeddings were verified byte-identical across processes.
     Ranking tolerates that variance; a threshold decision must not.
     """
+    if gate is not None:
+        return gate.decide(retriever, query)
     dense_sim = retriever.exact_max_sim(query)
     scores = retriever.bm25.get_scores(retriever._tokenize(query))
     bm25_max = float(max(scores)) if len(scores) else 0.0
@@ -222,7 +227,7 @@ def is_relevant(retriever, query):
                 "dense_min": DENSE_RELEVANCE_MIN, "bm25_min": BM25_RELEVANCE_MIN}
 
 
-def answer(query, retriever, phraser=None, k=5):
+def answer(query, retriever, phraser=None, k=5, gate=None):
     """
     Route -> render. Returns {mode, path, text, citations, trace, llm_stats?}.
     """
@@ -250,7 +255,7 @@ def answer(query, retriever, phraser=None, k=5):
 
     # hybrid -> gate first, THEN phrase. The model is never shown a question
     # the manual does not cover.
-    ok, signals = is_relevant(retriever, query)
+    ok, signals = is_relevant(retriever, query, gate=gate)
     if not ok:
         return {"mode": mode, "path": "deterministic_gate", "text": NOT_COVERED,
                 "citations": [], "relevance": signals, "trace": out["trace"]}
