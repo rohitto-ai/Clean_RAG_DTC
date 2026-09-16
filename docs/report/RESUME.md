@@ -1,7 +1,7 @@
 # RESUME — Clean RAG for the 3.3L DTC Manual
 
 **State: Phases 0–7 complete and tagged `v1-phase7`. Phase 8 (limitations iteration)
-in progress on branch `phase8-limitations`: 8.0, 8.1, 8.2, 8.2b and 8.3 DONE. STOPPED FOR REVIEW
+in progress on branch `phase8-limitations`: 8.0, 8.1, 8.2, 8.2b, 8.3 and 8.3b DONE — retrieval is deterministic; ready for 8.5 on go-ahead. STOPPED FOR REVIEW
 after 8.2. Production retrieval is still exactly v1-phase7; TEST has NOT been run since
 8.0 and is frozen until 8.5.**
 
@@ -35,7 +35,8 @@ _Last updated: 2026-09-16_
 | 8.2 · Symptom vocabulary gap (L1) | ✅ DEV only. Embedder: keep MiniLM. Lexicon config C4: DEV symptom MRR 0.278 → 0.715 |
 | 8.2b · Compound cylinder token | ✅ **C4b** = C4 + `cylinder_<N>` BM25 token: guardrails **14/14**, DEV identical to C4 |
 | 8.3 · Relevance gate (L3) | ✅ DEV only, on C4b. Gate v2 (signal + non-diagnostic intent): OOS refused **6/6**, in-scope **28/28** |
-| **⚠ decision before 8.5** | Ranking is not reproducible across processes (HNSW dense pool) — see Open decisions |
+| 8.3b · Deterministic retrieval | ✅ exact dense ranking + total RRF order. DEV result byte-identical in 3 processes / 3 hash seeds |
+| **8.5 · Final TEST evaluation** | ⏸ next, on go-ahead |
 | 8.5 · Final TEST evaluation | ⏸ frozen until then |
 
 ### DEV results (gold v2.2) — 8.2
@@ -43,16 +44,20 @@ _Last updated: 2026-09-16_
 | DEV | symptom hit@1 | symptom MRR | overall MRR | gate OOS / in-scope |
 |---|---|---|---|---|
 | before (production retriever) | 16.7% | 0.278 | 0.603 | 4/6 · 27/28 |
-| C4: aliases→BM25 + expansion→BM25 | 58.3% | 0.715 | 0.863 | 4/6 · 28/28 |
-| **C4b: C4 + cylinder_<N> token (selected)** | **58.3%** | **0.715** | **0.863** | 4/6 · 28/28 |
+| C4: aliases→BM25 + expansion→BM25 | 58.3% | 0.711 | 0.861 | 4/6 · 28/28 |
+| C4b: C4 + cylinder_<N> token | 58.3% | 0.711 | 0.861 | 4/6 · 28/28 |
+| **C4b + gate v2 (selected), deterministic** | **58.3%** | **0.711** | **0.861** | **6/6 · 28/28** |
+
+(8.2/8.2b originally reported 0.715 / 0.863 — an approximate-search artefact, corrected in 8.3b.)
 
 Gold v2.2: the overlap ceiling is now uniform (DEV 0.090 / TEST 0.098 mean overlap).
 TEST figures from 8.0 (v2.1) remain the frozen before-picture; not re-run.
 
 ## Exact next action
 
-**Get a decision on the ranking non-determinism, then 8.5.** 8.5 measures TEST once, so the
-retriever should be deterministic first.
+**8.5 — the one-shot TEST evaluation, on go-ahead.** Retrieval is now deterministic (8.3b).
+**First, on the machine that will run 8.5, re-run `scripts/determinism_proof.py` three times**
+and confirm the DEV hash is `76b16c2b9ab8f9f2`. A different BLAS or CPU could change results.
 
 Selected configuration going into 8.5, still not adopted as the production default:
 - **Retrieval — C4b:** `--index-dir index_exp/minilm_alias_bm25_cyl --lexicon
@@ -89,14 +94,9 @@ before 8.5.
    step** — a consumer that follows `on_true` blindly will dereference a
    non-existent step. Recommendation unchanged: clamp in Phase 6, log in Phase 7.
 
-1. **⚠ Ranking is NOT reproducible across processes — decide before 8.5.** Found in 8.3.
-   Same system, same DEV: symptom MRR **0.7153** in one process and **0.7111** in the next
-   (d017 ranks 4 or 5). Root cause: Chroma's HNSW dense search is approximate, and its
-   top-50 pool differed from exact brute force in **2 of 3** processes, first diverging at
-   rank 17/21. Same root cause as Phase 7, which was fixed then for the gate but not for
-   ranking. **Recommended:** take the hybrid dense pool from the exact matrix
-   (`Retriever.vectors`, 314×384) instead of Chroma, then re-run DEV. It changes ranking,
-   so it was not done inside the gate-only 8.3.
+1. ~~**Ranking non-determinism.**~~ **FIXED in 8.3b:** the dense pool now comes from the
+   exact matrix, with a total RRF order. The DEV result is byte-identical across 3 processes
+   and 3 hash seeds. True C4b DEV symptom MRR 0.711 (not 0.715).
 
 2. **Gate v2 intent stoplist vs TEST.** 8 of 50 intent terms match TEST out-of-scope wording
    (resale, discount, buy, purchase, service centre, warranty, bluetooth, infotainment), all
@@ -166,10 +166,12 @@ before 8.5.
   positionally. `goto[]` is the verbatim audit trail, not the routing.
 - **`on_true` can point outside the step list** (37 steps). Always check membership;
   `src/diagnose.py` clamps to the terminal step and logs it.
-- **Chroma HNSW is approximate for RANKING too, not just thresholds.** Its dense top-50
-  pool changes between processes, so DEV MRR moves by about one rank position run to run.
-  Compare gate or config variants **in the same process** (`EV.run` twice), or you will
-  misattribute noise to your change.
+- **Never rank from Chroma's HNSW for a reported metric.** Its dense top-50 pool changed
+  between processes. `Retriever(exact_dense=True)` (the default since 8.3b) ranks from the
+  exact matrix, which is also faster at this size (9.5 ms vs 13.0 ms). Also keep ties
+  TOTALLY ordered: never let a `set` iteration order decide a rank.
+- **A matching metric is not proof of reproducibility.** Two HNSW runs had identical MRR but
+  different top-5 lists. Hash the full canonical output (`scripts/determinism_proof.py`).
 - **A signal threshold that separates 6 negatives exactly is not evidence.** In 8.3,
   `dense≥0.33 or bm25≥10.7` refused 6/6 on DEV but was fitted to one point (margins
   0.007 / 0.09). Prefer refusal reasons that hold by construction (intent).
@@ -236,4 +238,5 @@ before 8.5.
 - [phase7_evaluation.md](phase7_evaluation.md) — the v1 results chapter
 - [phase8_0_eval_foundation.md](phase8_0_eval_foundation.md) — gold v2.1, overlap rule, split correction, baselines, L2 fixes
 - [phase8_2_symptom_retrieval.md](phase8_2_symptom_retrieval.md) — gold v2.2, embedder benchmark, lexicon, C4/C4b, guardrails
-- [phase8_3_relevance_gate.md](phase8_3_relevance_gate.md) — two-reason gate, thresholds, intent taxonomy, HNSW ranking finding
+- [phase8_3_relevance_gate.md](phase8_3_relevance_gate.md) — two-reason gate, thresholds, intent taxonomy
+- [phase8_3b_determinism.md](phase8_3b_determinism.md) — exact ranking, 3-process proof, corrected DEV baseline

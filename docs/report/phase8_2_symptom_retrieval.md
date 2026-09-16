@@ -1,5 +1,11 @@
 # Phase 8.2 — Closing the Symptom Vocabulary Gap (L1)
 
+> **Correction (Phase 8.3b, 2026-09-16):** the C4 / C4b symptom MRR of **0.715** (overall
+> **0.863**) reported below came from Chroma's approximate dense search and was not reproducible
+> across processes. Under exact ranking the true values are **0.711** / **0.861** — DEV lift
+> 0.278 → 0.711. Hit@k figures, guardrails (14/14 for C4b) and the C0 baseline are unchanged.
+> See [phase8_3b_determinism.md](phase8_3b_determinism.md).
+
 **Scope: tuned and reported on DEV only. The frozen TEST split was NOT evaluated in this
 phase** — `src/evaluate_v2.py` now defaults to DEV and requires `--split TEST`
 explicitly, and the benchmark driver filters TEST out before loading anything. TEST is

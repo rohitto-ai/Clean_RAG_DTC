@@ -254,8 +254,8 @@
      "P204F-7C",
      "P0089-00",
      "P0087-00",
-     "P20A0-00",
-     "P0425-84"
+     "P0425-84",
+     "P20A0-00"
     ],
     "rank": null
    },
@@ -387,8 +387,8 @@
     "got": [
      "P20F5-00",
      "P166B-00",
-     "P259F-00",
      "P1114-00",
+     "P259F-00",
      "P259E-00"
     ],
     "rank": null
@@ -398,172 +398,376 @@
    {
     "id": "d001",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.51,
+     "bm25_max": 9.58,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d002",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.4454,
+     "bm25_max": 6.29,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d003",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.5221,
+     "bm25_max": 9.07,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d004",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.4808,
+     "bm25_max": 5.47,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d005",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.3505,
+     "bm25_max": 18.3,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d006",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.4538,
+     "bm25_max": 5.78,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d007",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.5357,
+     "bm25_max": 13.25,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d008",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.4945,
+     "bm25_max": 13.45,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d009",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.396,
+     "bm25_max": 9.42,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d010",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.4818,
+     "bm25_max": 10.12,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d011",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.4671,
+     "bm25_max": 7.73,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d012",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.5711,
+     "bm25_max": 18.91,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d013",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.375,
+     "bm25_max": 9.89,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d014",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.3129,
+     "bm25_max": 4.67,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d015",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.4216,
+     "bm25_max": 14.05,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d016",
     "in_scope": true,
-    "passed": false
+    "passed": false,
+    "signals": {
+     "dense_sim": 0.251,
+     "bm25_max": 7.53,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d017",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.3397,
+     "bm25_max": 12.16,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d018",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.4175,
+     "bm25_max": 12.51,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d019",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.5043,
+     "bm25_max": 16.54,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d020",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.4603,
+     "bm25_max": 13.87,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d021",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.2833,
+     "bm25_max": 17.67,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d022",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.4933,
+     "bm25_max": 13.54,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d023",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.4325,
+     "bm25_max": 14.91,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d024",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.3853,
+     "bm25_max": 9.21,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d025",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.3975,
+     "bm25_max": 10.55,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d026",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.4588,
+     "bm25_max": 5.94,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d027",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.3874,
+     "bm25_max": 6.31,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d028",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.3902,
+     "bm25_max": 3.8,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d029",
     "in_scope": false,
-    "passed": false
+    "passed": false,
+    "signals": {
+     "dense_sim": 0.0597,
+     "bm25_max": 3.79,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d030",
     "in_scope": false,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.3222,
+     "bm25_max": 9.17,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d031",
     "in_scope": false,
-    "passed": false
+    "passed": false,
+    "signals": {
+     "dense_sim": 0.2126,
+     "bm25_max": 1.64,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d032",
     "in_scope": false,
-    "passed": false
+    "passed": false,
+    "signals": {
+     "dense_sim": 0.0992,
+     "bm25_max": 2.18,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d033",
     "in_scope": false,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.3228,
+     "bm25_max": 10.48,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d034",
     "in_scope": false,
-    "passed": false
+    "passed": false,
+    "signals": {
+     "dense_sim": 0.1098,
+     "bm25_max": 5.83,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    }
   ]
  },
@@ -820,12 +1024,12 @@
     ],
     "got": [
      "P206A-F1",
+     "P2BA9-00",
      "P206A-F2",
      "P204F-7C",
-     "P203F-00",
-     "P0425-84"
+     "P203F-00"
     ],
-    "rank": 4
+    "rank": 5
    },
    {
     "id": "d018",
@@ -956,8 +1160,8 @@
      "P0563-00",
      "P0562-00",
      "P20F5-00",
-     "P259F-00",
-     "P1114-00"
+     "P1114-00",
+     "P259F-00"
     ],
     "rank": 1
    }
@@ -966,172 +1170,376 @@
    {
     "id": "d001",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.51,
+     "bm25_max": 9.47,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d002",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.4454,
+     "bm25_max": 6.35,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d003",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.5221,
+     "bm25_max": 8.87,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d004",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.4808,
+     "bm25_max": 5.56,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d005",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.3505,
+     "bm25_max": 18.07,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d006",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.4538,
+     "bm25_max": 5.79,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d007",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.5357,
+     "bm25_max": 18.4,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d008",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.4945,
+     "bm25_max": 22.78,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d009",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.396,
+     "bm25_max": 12.84,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d010",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.4818,
+     "bm25_max": 8.66,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d011",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.4671,
+     "bm25_max": 10.43,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d012",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.5711,
+     "bm25_max": 19.21,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d013",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.375,
+     "bm25_max": 14.28,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d014",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.3129,
+     "bm25_max": 11.55,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d015",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.4216,
+     "bm25_max": 24.54,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d016",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.251,
+     "bm25_max": 11.75,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d017",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.3397,
+     "bm25_max": 19.41,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d018",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.4175,
+     "bm25_max": 14.34,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d019",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.5043,
+     "bm25_max": 22.51,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d020",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.4603,
+     "bm25_max": 20.89,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d021",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.2833,
+     "bm25_max": 22.8,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d022",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.4933,
+     "bm25_max": 13.47,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d023",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.4325,
+     "bm25_max": 17.05,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d024",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.3853,
+     "bm25_max": 9.17,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d025",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.3975,
+     "bm25_max": 10.26,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d026",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.4588,
+     "bm25_max": 5.93,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d027",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.3874,
+     "bm25_max": 6.37,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d028",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.3902,
+     "bm25_max": 6.73,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d029",
     "in_scope": false,
-    "passed": false
+    "passed": false,
+    "signals": {
+     "dense_sim": 0.0597,
+     "bm25_max": 4.63,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d030",
     "in_scope": false,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.3222,
+     "bm25_max": 8.74,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d031",
     "in_scope": false,
-    "passed": false
+    "passed": false,
+    "signals": {
+     "dense_sim": 0.2126,
+     "bm25_max": 3.57,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d032",
     "in_scope": false,
-    "passed": false
+    "passed": false,
+    "signals": {
+     "dense_sim": 0.0992,
+     "bm25_max": 2.18,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d033",
     "in_scope": false,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.3228,
+     "bm25_max": 10.59,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d034",
     "in_scope": false,
-    "passed": false
+    "passed": false,
+    "signals": {
+     "dense_sim": 0.1098,
+     "bm25_max": 5.63,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    }
   ]
  },
@@ -1388,12 +1796,12 @@
     ],
     "got": [
      "P206A-F1",
+     "P2BA9-00",
      "P206A-F2",
      "P204F-7C",
-     "P203F-00",
-     "P0425-84"
+     "P203F-00"
     ],
-    "rank": 4
+    "rank": 5
    },
    {
     "id": "d018",
@@ -1524,8 +1932,8 @@
      "P0563-00",
      "P0562-00",
      "P20F5-00",
-     "P259F-00",
-     "P1114-00"
+     "P1114-00",
+     "P259F-00"
     ],
     "rank": 1
    }
@@ -1534,172 +1942,376 @@
    {
     "id": "d001",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.51,
+     "bm25_max": 9.46,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d002",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.4454,
+     "bm25_max": 6.35,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d003",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.5221,
+     "bm25_max": 8.87,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d004",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.4808,
+     "bm25_max": 5.56,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d005",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.3505,
+     "bm25_max": 18.06,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d006",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.4538,
+     "bm25_max": 5.79,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d007",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.5357,
+     "bm25_max": 18.4,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d008",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.4945,
+     "bm25_max": 22.77,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d009",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.396,
+     "bm25_max": 12.84,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d010",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.4818,
+     "bm25_max": 8.66,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d011",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.4671,
+     "bm25_max": 10.45,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d012",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.5711,
+     "bm25_max": 18.69,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d013",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.375,
+     "bm25_max": 14.27,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d014",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.3129,
+     "bm25_max": 11.55,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d015",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.4216,
+     "bm25_max": 24.54,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d016",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.251,
+     "bm25_max": 11.75,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d017",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.3397,
+     "bm25_max": 19.41,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d018",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.4175,
+     "bm25_max": 14.34,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d019",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.5043,
+     "bm25_max": 22.5,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d020",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.4603,
+     "bm25_max": 20.89,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d021",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.2833,
+     "bm25_max": 22.8,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d022",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.4933,
+     "bm25_max": 13.47,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d023",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.4325,
+     "bm25_max": 17.05,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d024",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.3853,
+     "bm25_max": 9.17,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d025",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.3975,
+     "bm25_max": 10.26,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d026",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.4588,
+     "bm25_max": 5.93,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d027",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.3874,
+     "bm25_max": 6.37,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d028",
     "in_scope": true,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.3902,
+     "bm25_max": 6.73,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d029",
     "in_scope": false,
-    "passed": false
+    "passed": false,
+    "signals": {
+     "dense_sim": 0.0597,
+     "bm25_max": 4.63,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d030",
     "in_scope": false,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.3222,
+     "bm25_max": 8.74,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d031",
     "in_scope": false,
-    "passed": false
+    "passed": false,
+    "signals": {
+     "dense_sim": 0.2126,
+     "bm25_max": 3.57,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d032",
     "in_scope": false,
-    "passed": false
+    "passed": false,
+    "signals": {
+     "dense_sim": 0.0992,
+     "bm25_max": 2.18,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d033",
     "in_scope": false,
-    "passed": true
+    "passed": true,
+    "signals": {
+     "dense_sim": 0.3228,
+     "bm25_max": 10.61,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    },
    {
     "id": "d034",
     "in_scope": false,
-    "passed": false
+    "passed": false,
+    "signals": {
+     "dense_sim": 0.1098,
+     "bm25_max": 5.63,
+     "dense_min": 0.3,
+     "bm25_min": 8.0
+    }
    }
   ]
  }

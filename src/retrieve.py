@@ -108,7 +108,9 @@ def rrf_fuse(dense_ids, bm25_ids, norm_scores, k=RRF_K):
     dr = {d: i + 1 for i, d in enumerate(dense_ids)}
     br = {d: i + 1 for i, d in enumerate(bm25_ids)}
     fused = []
-    for doc in set(dr) | set(br):
+    # Iterate in sorted order: set iteration order for strings varies between
+    # processes (hash randomisation), and full ties would otherwise inherit it.
+    for doc in sorted(set(dr) | set(br)):
         s = 0.0
         if doc in dr:
             s += 1.0 / (k + dr[doc])
@@ -116,22 +118,30 @@ def rrf_fuse(dense_ids, bm25_ids, norm_scores, k=RRF_K):
             s += 1.0 / (k + br[doc])
         tiebreak = norm_scores.get(doc, 0.0)
         fused.append((doc, s, tiebreak, dr.get(doc), br.get(doc)))
-    fused.sort(key=lambda x: (-x[1], -x[2]))
+    # TOTAL order: RRF, then the normalised-score tiebreak, then the record id.
+    # Without the final key an exact double tie is resolved by iteration order,
+    # which is not reproducible across processes (Phase 8.3b).
+    fused.sort(key=lambda x: (-x[1], -x[2], x[0]))
     return fused
 
 
 class Retriever:
     def __init__(self, index_dir=INDEX_DIR, records=RECORDS, verbose=False,
-                 query_prefix="", lexicon=None, expand="none"):
+                 query_prefix="", lexicon=None, expand="none", exact_dense=True):
         """
         Phase 8.2 knobs (defaults reproduce the production retriever exactly):
           query_prefix - model-required query prefix, e.g. "query: " for e5
           lexicon      - a lexicon.Lexicon, or None
           expand       - query-side expansion: "none" | "bm25" | "both"
+          exact_dense  - (8.3b) take the dense candidate pool from the EXACT vector
+                         matrix instead of Chroma's approximate HNSW. Default True.
+                         False exists only to reproduce the old non-deterministic
+                         behaviour for comparison.
         The embedding model is read from the index's own meta.json, so the query
         encoder can never silently differ from the model that built the index.
         """
         self.query_prefix, self.lexicon, self.expand = query_prefix, lexicon, expand
+        self.exact_dense = exact_dense
         if expand != "none" and lexicon is None:
             raise ValueError("expand requires a lexicon")
         meta_path = os.path.join(index_dir, "meta.json")
@@ -163,8 +173,11 @@ class Retriever:
         # the relevance gate never depends on approximate search.
         import numpy as _np
         _all = self.coll.get(include=["embeddings"])
-        self.vec_ids = _all["ids"]
-        self.vectors = _np.asarray(_all["embeddings"], dtype="float32")
+        # Canonical (sorted-by-id) order, so the matrix row order - and therefore
+        # every tie resolution below - is identical in every process.
+        _order = sorted(range(len(_all["ids"])), key=lambda i: _all["ids"][i])
+        self.vec_ids = [_all["ids"][i] for i in _order]
+        self.vectors = _np.asarray([_all["embeddings"][i] for i in _order], dtype="float32")
 
         # One model, loaded once and kept resident for the service lifetime.
         from sentence_transformers import SentenceTransformer
@@ -185,6 +198,25 @@ class Retriever:
         if self.vectors.size == 0:
             return 0.0
         return float((self.vectors @ qv).max())
+
+    def _exact_dense_topk(self, query, n, allowed=None):
+        """
+        Exact dense ranking over the stored matrix (Phase 8.3b).
+
+        Chroma's HNSW is approximate: its top-50 pool for the same query differed
+        between processes, moving DEV MRR by about one rank position run to run.
+        Approximate ranking is acceptable for a live user; a REPORTED benchmark
+        metric must be reproducible. At 314 x 384 an exact dot product is
+        trivially cheap. Ties break by record id, so the order is total.
+        Returns [(id, cosine_sim)] best first.
+        """
+        import numpy as np
+        qv = np.asarray(self._embed(query), dtype="float32")[0]
+        sims = self.vectors @ qv
+        idx = range(len(self.vec_ids)) if allowed is None else \
+            [i for i, rid in enumerate(self.vec_ids) if rid in allowed]
+        order = sorted(idx, key=lambda i: (-float(sims[i]), self.vec_ids[i]))[:n]
+        return [(self.vec_ids[i], float(sims[i])) for i in order]
 
     def _rec(self, rid):
         return self.records[rid]
@@ -216,12 +248,16 @@ class Retriever:
                  "ranked_by": "dense cosine within the metadata filter"}
         if n == 0:
             return [], trace
-        res = self.coll.query(query_embeddings=self._embed(query),
-                              n_results=n, where={"system": system})
+        if self.exact_dense:
+            ranked = self._exact_dense_topk(query, n, allowed=set(got["ids"]))
+        else:
+            res = self.coll.query(query_embeddings=self._embed(query),
+                                  n_results=n, where={"system": system})
+            ranked = [(rid, 1.0 - dist) for rid, dist in
+                      zip(res["ids"][0], res["distances"][0])]
         out = []
-        for rank, (rid, dist) in enumerate(
-                zip(res["ids"][0], res["distances"][0]), 1):
-            out.append({"record": self._rec(rid), "score": round(1.0 - dist, 4),
+        for rank, (rid, sim) in enumerate(ranked, 1):
+            out.append({"record": self._rec(rid), "score": round(sim, 4),
                         "dense_rank": rank})
         return out, trace
 
@@ -232,11 +268,16 @@ class Retriever:
         dense_q = expanded if self.expand == "both" else query
         bm25_q = expanded if self.expand in ("bm25", "both") else query
 
-        # dense pool
-        res = self.coll.query(query_embeddings=self._embed(dense_q),
-                              n_results=min(POOL_SIZE, self.coll.count()))
-        dense_ids = res["ids"][0]
-        dense_sims = [1.0 - d for d in res["distances"][0]]
+        # dense pool - EXACT by default (8.3b), approximate HNSW only on request
+        n_pool = min(POOL_SIZE, len(self.vec_ids))
+        if self.exact_dense:
+            pool = self._exact_dense_topk(dense_q, n_pool)
+            dense_ids = [rid for rid, _ in pool]
+            dense_sims = [sim for _, sim in pool]
+        else:
+            res = self.coll.query(query_embeddings=self._embed(dense_q), n_results=n_pool)
+            dense_ids = res["ids"][0]
+            dense_sims = [1.0 - d for d in res["distances"][0]]
 
         # bm25 pool
         scores = self.bm25.get_scores(self._tokenize(bm25_q))

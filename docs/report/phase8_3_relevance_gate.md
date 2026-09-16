@@ -221,6 +221,9 @@ system_group complete **3/3**.
 
 ## ⚠ Finding — retrieval ranking is not reproducible across processes
 
+> **Resolved in Phase 8.3b:** ranking is now exact and deterministic. The true DEV symptom
+> MRR is **0.711**. See [phase8_3b_determinism.md](phase8_3b_determinism.md).
+
 The first separate-process runs showed symptom MRR **0.715** under the legacy gate and
 **0.711** under gate v2. **The gate is not the cause.** The *legacy* gate alone produced
 **0.7153 in one process and 0.7111 in the next**, because d017 ranked 4 in one run and 5 in
