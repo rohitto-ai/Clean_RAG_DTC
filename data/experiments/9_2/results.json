@@ -1,0 +1,1557 @@
+{
+ "naive_index": {
+  "chunk_chars": 500,
+  "overlap": 50,
+  "first_page": 8,
+  "n_chunks": 1045,
+  "n_chars": 470250,
+  "dtc_starts_found": 314,
+  "records": 314,
+  "unowned_chunks": 0
+ },
+ "autogen": {
+  "summary": {
+   "keyword": {
+    "code": {
+     "n": 311,
+     "hit@1": 1.0,
+     "hit@3": 1.0,
+     "hit@5": 1.0,
+     "MRR": 1.0,
+     "empty": 0
+    },
+    "description": {
+     "n": 312,
+     "hit@1": 0.9102564102564102,
+     "hit@3": 0.9967948717948718,
+     "hit@5": 1.0,
+     "MRR": 0.9521901709401709,
+     "empty": 0
+    },
+    "paraphrase": {
+     "n": 312,
+     "hit@1": 0.6891025641025641,
+     "hit@3": 0.8974358974358975,
+     "hit@5": 0.9391025641025641,
+     "MRR": 0.7915064102564102,
+     "empty": 0
+    },
+    "OVERALL": {
+     "n": 935,
+     "hit@1": 0.8663101604278075,
+     "hit@3": 0.9647058823529412,
+     "hit@5": 0.9796791443850268,
+     "MRR": 0.9144741532976827,
+     "empty": 0
+    }
+   },
+   "rule_based": {
+    "code": {
+     "n": 311,
+     "hit@1": 1.0,
+     "hit@3": 1.0,
+     "hit@5": 1.0,
+     "MRR": 1.0,
+     "empty": 0
+    },
+    "description": {
+     "n": 312,
+     "hit@1": 0.0,
+     "hit@3": 0.0,
+     "hit@5": 0.0,
+     "MRR": 0.0,
+     "empty": 312
+    },
+    "paraphrase": {
+     "n": 312,
+     "hit@1": 0.0,
+     "hit@3": 0.0,
+     "hit@5": 0.0,
+     "MRR": 0.0,
+     "empty": 312
+    },
+    "OVERALL": {
+     "n": 935,
+     "hit@1": 0.332620320855615,
+     "hit@3": 0.332620320855615,
+     "hit@5": 0.332620320855615,
+     "MRR": 0.332620320855615,
+     "empty": 624
+    }
+   },
+   "dense_only": {
+    "code": {
+     "n": 311,
+     "hit@1": 0.1414790996784566,
+     "hit@3": 0.2540192926045016,
+     "hit@5": 0.3279742765273312,
+     "MRR": 0.20385852090032153,
+     "empty": 0
+    },
+    "description": {
+     "n": 312,
+     "hit@1": 0.8301282051282052,
+     "hit@3": 0.9647435897435898,
+     "hit@5": 0.9871794871794872,
+     "MRR": 0.8984508547008547,
+     "empty": 0
+    },
+    "paraphrase": {
+     "n": 312,
+     "hit@1": 0.6538461538461539,
+     "hit@3": 0.8910256410256411,
+     "hit@5": 0.9455128205128205,
+     "MRR": 0.774732905982906,
+     "empty": 0
+    },
+    "OVERALL": {
+     "n": 935,
+     "hit@1": 0.5422459893048128,
+     "hit@3": 0.7037433155080214,
+     "hit@5": 0.7540106951871658,
+     "MRR": 0.6261319073083779,
+     "empty": 0
+    }
+   },
+   "naive_chunk": {
+    "code": {
+     "n": 311,
+     "hit@1": 0.05466237942122187,
+     "hit@3": 0.10932475884244373,
+     "hit@5": 0.1382636655948553,
+     "MRR": 0.0837620578778135,
+     "empty": 0
+    },
+    "description": {
+     "n": 312,
+     "hit@1": 0.2948717948717949,
+     "hit@3": 0.483974358974359,
+     "hit@5": 0.5416666666666666,
+     "MRR": 0.39326923076923076,
+     "empty": 0
+    },
+    "paraphrase": {
+     "n": 312,
+     "hit@1": 0.2724358974358974,
+     "hit@3": 0.47115384615384615,
+     "hit@5": 0.5737179487179487,
+     "MRR": 0.3833333333333333,
+     "empty": 0
+    },
+    "OVERALL": {
+     "n": 935,
+     "hit@1": 0.20748663101604278,
+     "hit@3": 0.35508021390374334,
+     "hit@5": 0.41818181818181815,
+     "MRR": 0.2870053475935829,
+     "empty": 0
+    }
+   },
+   "hybrid": {
+    "code": {
+     "n": 311,
+     "hit@1": 1.0,
+     "hit@3": 1.0,
+     "hit@5": 1.0,
+     "MRR": 1.0,
+     "empty": 0
+    },
+    "description": {
+     "n": 312,
+     "hit@1": 0.9647435897435898,
+     "hit@3": 0.9967948717948718,
+     "hit@5": 1.0,
+     "MRR": 0.9810363247863247,
+     "empty": 0
+    },
+    "paraphrase": {
+     "n": 312,
+     "hit@1": 0.8012820512820513,
+     "hit@3": 0.9487179487179487,
+     "hit@5": 0.9775641025641025,
+     "MRR": 0.8747863247863248,
+     "empty": 0
+    },
+    "OVERALL": {
+     "n": 935,
+     "hit@1": 0.9219251336898395,
+     "hit@3": 0.9818181818181818,
+     "hit@5": 0.9925133689839573,
+     "MRR": 0.9518894830659537,
+     "empty": 0
+    }
+   },
+   "hybrid_gate_off": {
+    "code": {
+     "n": 311,
+     "hit@1": 1.0,
+     "hit@3": 1.0,
+     "hit@5": 1.0,
+     "MRR": 1.0,
+     "empty": 0
+    },
+    "description": {
+     "n": 312,
+     "hit@1": 0.9647435897435898,
+     "hit@3": 0.9967948717948718,
+     "hit@5": 1.0,
+     "MRR": 0.9810363247863247,
+     "empty": 0
+    },
+    "paraphrase": {
+     "n": 312,
+     "hit@1": 0.8012820512820513,
+     "hit@3": 0.9487179487179487,
+     "hit@5": 0.9775641025641025,
+     "MRR": 0.8747863247863248,
+     "empty": 0
+    },
+    "OVERALL": {
+     "n": 935,
+     "hit@1": 0.9219251336898395,
+     "hit@3": 0.9818181818181818,
+     "hit@5": 0.9925133689839573,
+     "MRR": 0.9518894830659537,
+     "empty": 0
+    }
+   }
+  },
+  "win_tie_loss": {
+   "keyword": {
+    "code": {
+     "hybrid_better": 0,
+     "tie": 311,
+     "baseline_better": 0
+    },
+    "description": {
+     "hybrid_better": 21,
+     "tie": 286,
+     "baseline_better": 5
+    },
+    "paraphrase": {
+     "hybrid_better": 73,
+     "tie": 217,
+     "baseline_better": 22
+    }
+   },
+   "rule_based": {
+    "code": {
+     "hybrid_better": 0,
+     "tie": 311,
+     "baseline_better": 0
+    },
+    "description": {
+     "hybrid_better": 312,
+     "tie": 0,
+     "baseline_better": 0
+    },
+    "paraphrase": {
+     "hybrid_better": 305,
+     "tie": 7,
+     "baseline_better": 0
+    }
+   },
+   "dense_only": {
+    "code": {
+     "hybrid_better": 267,
+     "tie": 44,
+     "baseline_better": 0
+    },
+    "description": {
+     "hybrid_better": 51,
+     "tie": 259,
+     "baseline_better": 2
+    },
+    "paraphrase": {
+     "hybrid_better": 73,
+     "tie": 222,
+     "baseline_better": 17
+    }
+   },
+   "naive_chunk": {
+    "code": {
+     "hybrid_better": 294,
+     "tie": 17,
+     "baseline_better": 0
+    },
+    "description": {
+     "hybrid_better": 216,
+     "tie": 93,
+     "baseline_better": 3
+    },
+    "paraphrase": {
+     "hybrid_better": 215,
+     "tie": 77,
+     "baseline_better": 20
+    }
+   }
+  }
+ },
+ "dev": {
+  "summary": {
+   "keyword": {
+    "exact_code": {
+     "n": 6,
+     "hit@1": 1.0,
+     "hit@3": 1.0,
+     "hit@5": 1.0,
+     "MRR": 1.0,
+     "empty": 0
+    },
+    "near_duplicate": {
+     "n": 7,
+     "hit@1": 0.42857142857142855,
+     "hit@3": 0.8571428571428571,
+     "hit@5": 0.8571428571428571,
+     "MRR": 0.5714285714285714,
+     "empty": 0
+    },
+    "symptom": {
+     "n": 12,
+     "hit@1": 0.16666666666666666,
+     "hit@3": 0.25,
+     "hit@5": 0.3333333333333333,
+     "MRR": 0.225,
+     "empty": 0
+    },
+    "OVERALL": {
+     "n": 25,
+     "hit@1": 0.44,
+     "hit@3": 0.6,
+     "hit@5": 0.64,
+     "MRR": 0.508,
+     "empty": 0
+    }
+   },
+   "rule_based": {
+    "exact_code": {
+     "n": 6,
+     "hit@1": 1.0,
+     "hit@3": 1.0,
+     "hit@5": 1.0,
+     "MRR": 1.0,
+     "empty": 0
+    },
+    "near_duplicate": {
+     "n": 7,
+     "hit@1": 0.0,
+     "hit@3": 0.0,
+     "hit@5": 0.0,
+     "MRR": 0.0,
+     "empty": 7
+    },
+    "symptom": {
+     "n": 12,
+     "hit@1": 0.0,
+     "hit@3": 0.0,
+     "hit@5": 0.0,
+     "MRR": 0.0,
+     "empty": 12
+    },
+    "OVERALL": {
+     "n": 25,
+     "hit@1": 0.24,
+     "hit@3": 0.24,
+     "hit@5": 0.24,
+     "MRR": 0.24,
+     "empty": 19
+    }
+   },
+   "dense_only": {
+    "exact_code": {
+     "n": 6,
+     "hit@1": 0.16666666666666666,
+     "hit@3": 0.5,
+     "hit@5": 0.5,
+     "MRR": 0.3055555555555555,
+     "empty": 0
+    },
+    "near_duplicate": {
+     "n": 7,
+     "hit@1": 0.2857142857142857,
+     "hit@3": 1.0,
+     "hit@5": 1.0,
+     "MRR": 0.6428571428571429,
+     "empty": 0
+    },
+    "symptom": {
+     "n": 12,
+     "hit@1": 0.08333333333333333,
+     "hit@3": 0.5,
+     "hit@5": 0.6666666666666666,
+     "MRR": 0.31527777777777777,
+     "empty": 0
+    },
+    "OVERALL": {
+     "n": 25,
+     "hit@1": 0.16,
+     "hit@3": 0.64,
+     "hit@5": 0.72,
+     "MRR": 0.4046666666666667,
+     "empty": 0
+    }
+   },
+   "naive_chunk": {
+    "exact_code": {
+     "n": 6,
+     "hit@1": 0.0,
+     "hit@3": 0.3333333333333333,
+     "hit@5": 0.5,
+     "MRR": 0.19999999999999998,
+     "empty": 0
+    },
+    "near_duplicate": {
+     "n": 7,
+     "hit@1": 0.14285714285714285,
+     "hit@3": 0.5714285714285714,
+     "hit@5": 0.5714285714285714,
+     "MRR": 0.3095238095238095,
+     "empty": 0
+    },
+    "symptom": {
+     "n": 12,
+     "hit@1": 0.25,
+     "hit@3": 0.4166666666666667,
+     "hit@5": 0.5,
+     "MRR": 0.34027777777777773,
+     "empty": 0
+    },
+    "OVERALL": {
+     "n": 25,
+     "hit@1": 0.16,
+     "hit@3": 0.44,
+     "hit@5": 0.52,
+     "MRR": 0.298,
+     "empty": 0
+    }
+   },
+   "hybrid": {
+    "exact_code": {
+     "n": 6,
+     "hit@1": 1.0,
+     "hit@3": 1.0,
+     "hit@5": 1.0,
+     "MRR": 1.0,
+     "empty": 0
+    },
+    "near_duplicate": {
+     "n": 7,
+     "hit@1": 1.0,
+     "hit@3": 1.0,
+     "hit@5": 1.0,
+     "MRR": 1.0,
+     "empty": 0
+    },
+    "symptom": {
+     "n": 12,
+     "hit@1": 0.5833333333333334,
+     "hit@3": 0.8333333333333334,
+     "hit@5": 0.9166666666666666,
+     "MRR": 0.7111111111111111,
+     "empty": 0
+    },
+    "OVERALL": {
+     "n": 25,
+     "hit@1": 0.8,
+     "hit@3": 0.92,
+     "hit@5": 0.96,
+     "MRR": 0.8613333333333334,
+     "empty": 0
+    }
+   },
+   "hybrid_gate_off": {
+    "exact_code": {
+     "n": 6,
+     "hit@1": 1.0,
+     "hit@3": 1.0,
+     "hit@5": 1.0,
+     "MRR": 1.0,
+     "empty": 0
+    },
+    "near_duplicate": {
+     "n": 7,
+     "hit@1": 1.0,
+     "hit@3": 1.0,
+     "hit@5": 1.0,
+     "MRR": 1.0,
+     "empty": 0
+    },
+    "symptom": {
+     "n": 12,
+     "hit@1": 0.5833333333333334,
+     "hit@3": 0.8333333333333334,
+     "hit@5": 0.9166666666666666,
+     "MRR": 0.7111111111111111,
+     "empty": 0
+    },
+    "OVERALL": {
+     "n": 25,
+     "hit@1": 0.8,
+     "hit@3": 0.92,
+     "hit@5": 0.96,
+     "MRR": 0.8613333333333334,
+     "empty": 0
+    }
+   }
+  },
+  "win_tie_loss": {
+   "keyword": {
+    "exact_code": {
+     "hybrid_better": 0,
+     "tie": 6,
+     "baseline_better": 0
+    },
+    "near_duplicate": {
+     "hybrid_better": 4,
+     "tie": 3,
+     "baseline_better": 0
+    },
+    "symptom": {
+     "hybrid_better": 9,
+     "tie": 2,
+     "baseline_better": 1
+    }
+   },
+   "rule_based": {
+    "exact_code": {
+     "hybrid_better": 0,
+     "tie": 6,
+     "baseline_better": 0
+    },
+    "near_duplicate": {
+     "hybrid_better": 7,
+     "tie": 0,
+     "baseline_better": 0
+    },
+    "symptom": {
+     "hybrid_better": 11,
+     "tie": 1,
+     "baseline_better": 0
+    }
+   },
+   "dense_only": {
+    "exact_code": {
+     "hybrid_better": 5,
+     "tie": 1,
+     "baseline_better": 0
+    },
+    "near_duplicate": {
+     "hybrid_better": 5,
+     "tie": 2,
+     "baseline_better": 0
+    },
+    "symptom": {
+     "hybrid_better": 8,
+     "tie": 3,
+     "baseline_better": 1
+    }
+   },
+   "naive_chunk": {
+    "exact_code": {
+     "hybrid_better": 6,
+     "tie": 0,
+     "baseline_better": 0
+    },
+    "near_duplicate": {
+     "hybrid_better": 6,
+     "tie": 1,
+     "baseline_better": 0
+    },
+    "symptom": {
+     "hybrid_better": 7,
+     "tie": 5,
+     "baseline_better": 0
+    }
+   }
+  },
+  "out_of_scope": {
+   "keyword": {
+    "returned_nothing": 0,
+    "n": 6
+   },
+   "rule_based": {
+    "returned_nothing": 6,
+    "n": 6
+   },
+   "dense_only": {
+    "returned_nothing": 0,
+    "n": 6
+   },
+   "naive_chunk": {
+    "returned_nothing": 0,
+    "n": 6
+   },
+   "hybrid": {
+    "returned_nothing": 6,
+    "n": 6
+   }
+  },
+  "system_group": {
+   "keyword": {
+    "complete": 0,
+    "n": 3,
+    "group_sizes": [
+     14,
+     14,
+     18
+    ]
+   },
+   "rule_based": {
+    "complete": 0,
+    "n": 3,
+    "group_sizes": [
+     14,
+     14,
+     18
+    ]
+   },
+   "dense_only": {
+    "complete": 0,
+    "n": 3,
+    "group_sizes": [
+     14,
+     14,
+     18
+    ]
+   },
+   "naive_chunk": {
+    "complete": 0,
+    "n": 3,
+    "group_sizes": [
+     14,
+     14,
+     18
+    ]
+   },
+   "hybrid": {
+    "complete": 3,
+    "n": 3,
+    "group_sizes": [
+     14,
+     14,
+     18
+    ]
+   }
+  },
+  "non_top1": {
+   "keyword": [
+    {
+     "id": "d009",
+     "stratum": "near_duplicate",
+     "rank": 3,
+     "got": [
+      "P0087-00",
+      "P0088-00",
+      "P0192-00",
+      "P0193-00",
+      "P00C6-00"
+     ]
+    },
+    {
+     "id": "d010",
+     "stratum": "near_duplicate",
+     "rank": null,
+     "got": [
+      "P062B-00",
+      "P0087-00",
+      "P0088-00",
+      "P0215-00",
+      "P018F-00"
+     ]
+    },
+    {
+     "id": "d011",
+     "stratum": "near_duplicate",
+     "rank": 3,
+     "got": [
+      "P0201-00",
+      "P0202-00",
+      "P0203-00",
+      "P0204-00",
+      "P1204-00"
+     ]
+    },
+    {
+     "id": "d012",
+     "stratum": "near_duplicate",
+     "rank": 3,
+     "got": [
+      "P2153-00",
+      "P2156-00",
+      "P2147-00",
+      "P2150-00",
+      "P0201-00"
+     ]
+    },
+    {
+     "id": "d014",
+     "stratum": "symptom",
+     "rank": null,
+     "got": [
+      "P206A-F1",
+      "P206A-F2",
+      "P206A-F3",
+      "P0401-00",
+      "P2200-26"
+     ]
+    },
+    {
+     "id": "d016",
+     "stratum": "symptom",
+     "rank": null,
+     "got": [
+      "P204F-7C",
+      "P20F4-00",
+      "P20F4-9B",
+      "P2047-7F",
+      "P259F-00"
+     ]
+    },
+    {
+     "id": "d017",
+     "stratum": "symptom",
+     "rank": null,
+     "got": [
+      "P204F-7C",
+      "P0087-00",
+      "P0089-00",
+      "P20F4-00",
+      "P20F4-9B"
+     ]
+    },
+    {
+     "id": "d018",
+     "stratum": "symptom",
+     "rank": null,
+     "got": [
+      "P2264-12",
+      "P2264-11",
+      "P2264-00",
+      "P20F4-9B",
+      "P2048-00"
+     ]
+    },
+    {
+     "id": "d019",
+     "stratum": "symptom",
+     "rank": null,
+     "got": [
+      "P2264-12",
+      "P2264-00",
+      "P2264-11",
+      "P0102-00",
+      "P010C-00"
+     ]
+    },
+    {
+     "id": "d020",
+     "stratum": "symptom",
+     "rank": 5,
+     "got": [
+      "P0504-00",
+      "P0120-11",
+      "P0120-12",
+      "P0220-12",
+      "P2135-00"
+     ]
+    },
+    {
+     "id": "d022",
+     "stratum": "symptom",
+     "rank": null,
+     "got": [
+      "P2228-00",
+      "P0087-00",
+      "P0192-00",
+      "P0193-00",
+      "P259E-00"
+     ]
+    },
+    {
+     "id": "d023",
+     "stratum": "symptom",
+     "rank": 2,
+     "got": [
+      "P2229-00",
+      "P0340-00",
+      "P0341-00",
+      "P1083-00",
+      "P2228-00"
+     ]
+    },
+    {
+     "id": "d024",
+     "stratum": "symptom",
+     "rank": null,
+     "got": [
+      "P20A3-00",
+      "P0A1B-13",
+      "P0A1B-12",
+      "P0336-00",
+      "P0335-00"
+     ]
+    },
+    {
+     "id": "d025",
+     "stratum": "symptom",
+     "rank": null,
+     "got": [
+      "P259F-00",
+      "P259E-00",
+      "P204F-7C",
+      "P202E-84",
+      "P202E-85"
+     ]
+    }
+   ],
+   "rule_based": [
+    {
+     "id": "d007",
+     "stratum": "near_duplicate",
+     "rank": null,
+     "got": []
+    },
+    {
+     "id": "d008",
+     "stratum": "near_duplicate",
+     "rank": null,
+     "got": []
+    },
+    {
+     "id": "d009",
+     "stratum": "near_duplicate",
+     "rank": null,
+     "got": []
+    },
+    {
+     "id": "d010",
+     "stratum": "near_duplicate",
+     "rank": null,
+     "got": []
+    },
+    {
+     "id": "d011",
+     "stratum": "near_duplicate",
+     "rank": null,
+     "got": []
+    },
+    {
+     "id": "d012",
+     "stratum": "near_duplicate",
+     "rank": null,
+     "got": []
+    },
+    {
+     "id": "d013",
+     "stratum": "near_duplicate",
+     "rank": null,
+     "got": []
+    },
+    {
+     "id": "d014",
+     "stratum": "symptom",
+     "rank": null,
+     "got": []
+    },
+    {
+     "id": "d015",
+     "stratum": "symptom",
+     "rank": null,
+     "got": []
+    },
+    {
+     "id": "d016",
+     "stratum": "symptom",
+     "rank": null,
+     "got": []
+    },
+    {
+     "id": "d017",
+     "stratum": "symptom",
+     "rank": null,
+     "got": []
+    },
+    {
+     "id": "d018",
+     "stratum": "symptom",
+     "rank": null,
+     "got": []
+    },
+    {
+     "id": "d019",
+     "stratum": "symptom",
+     "rank": null,
+     "got": []
+    },
+    {
+     "id": "d020",
+     "stratum": "symptom",
+     "rank": null,
+     "got": []
+    },
+    {
+     "id": "d021",
+     "stratum": "symptom",
+     "rank": null,
+     "got": []
+    },
+    {
+     "id": "d022",
+     "stratum": "symptom",
+     "rank": null,
+     "got": []
+    },
+    {
+     "id": "d023",
+     "stratum": "symptom",
+     "rank": null,
+     "got": []
+    },
+    {
+     "id": "d024",
+     "stratum": "symptom",
+     "rank": null,
+     "got": []
+    },
+    {
+     "id": "d025",
+     "stratum": "symptom",
+     "rank": null,
+     "got": []
+    }
+   ],
+   "dense_only": [
+    {
+     "id": "d001",
+     "stratum": "exact_code",
+     "rank": null,
+     "got": [
+      "P0194-00",
+      "P1081-00",
+      "P101B-00",
+      "P0001-00",
+      "P0193-00"
+     ]
+    },
+    {
+     "id": "d002",
+     "stratum": "exact_code",
+     "rank": 3,
+     "got": [
+      "P0401-00",
+      "P0402-00",
+      "P0340-00",
+      "P0500-1F",
+      "P0003-00"
+     ]
+    },
+    {
+     "id": "d004",
+     "stratum": "exact_code",
+     "rank": 2,
+     "got": [
+      "P0401-00",
+      "P0100-9B",
+      "P0100-9C",
+      "P1001-00",
+      "P0102-00"
+     ]
+    },
+    {
+     "id": "d005",
+     "stratum": "exact_code",
+     "rank": null,
+     "got": [
+      "P0219-00",
+      "P0401-00",
+      "P0001-00",
+      "P1081-00",
+      "P1001-00"
+     ]
+    },
+    {
+     "id": "d006",
+     "stratum": "exact_code",
+     "rank": null,
+     "got": [
+      "P0402-00",
+      "P0401-00",
+      "P242A-64",
+      "P042A-64",
+      "P2228-00"
+     ]
+    },
+    {
+     "id": "d007",
+     "stratum": "near_duplicate",
+     "rank": 2,
+     "got": [
+      "P0341-00",
+      "P0340-00",
+      "P229E-13",
+      "P2200-13",
+      "P229F-76"
+     ]
+    },
+    {
+     "id": "d010",
+     "stratum": "near_duplicate",
+     "rank": 2,
+     "got": [
+      "P0088-00",
+      "P0194-00",
+      "P0087-00",
+      "P0192-00",
+      "P0193-00"
+     ]
+    },
+    {
+     "id": "d011",
+     "stratum": "near_duplicate",
+     "rank": 2,
+     "got": [
+      "P1203-00",
+      "P0203-00",
+      "P2153-00",
+      "P1201-00",
+      "P0204-00"
+     ]
+    },
+    {
+     "id": "d012",
+     "stratum": "near_duplicate",
+     "rank": 2,
+     "got": [
+      "P1201-00",
+      "P2147-00",
+      "P1202-00",
+      "P2150-00",
+      "P0201-00"
+     ]
+    },
+    {
+     "id": "d013",
+     "stratum": "near_duplicate",
+     "rank": 2,
+     "got": [
+      "P04A4-00",
+      "P0336-00",
+      "P04A5-00",
+      "P0335-00",
+      "P048B-11"
+     ]
+    },
+    {
+     "id": "d014",
+     "stratum": "symptom",
+     "rank": null,
+     "got": [
+      "P04A5-00",
+      "P206A-F2",
+      "P04A4-00",
+      "P2047-00",
+      "P2047-4B"
+     ]
+    },
+    {
+     "id": "d015",
+     "stratum": "symptom",
+     "rank": 2,
+     "got": [
+      "P042F-00",
+      "P042E-00",
+      "P0403-00",
+      "P04A5-00",
+      "P0405-00"
+     ]
+    },
+    {
+     "id": "d016",
+     "stratum": "symptom",
+     "rank": null,
+     "got": [
+      "P2463-85",
+      "P243F-F0",
+      "P206A-F3",
+      "P2BA9-00",
+      "P206A-F2"
+     ]
+    },
+    {
+     "id": "d017",
+     "stratum": "symptom",
+     "rank": 3,
+     "got": [
+      "P203F-84",
+      "P2264-00",
+      "P203F-7B",
+      "P0425-84",
+      "P2264-12"
+     ]
+    },
+    {
+     "id": "d018",
+     "stratum": "symptom",
+     "rank": 4,
+     "got": [
+      "P0118-00",
+      "P040C-00",
+      "P0116-00",
+      "P0117-00",
+      "P242A-85"
+     ]
+    },
+    {
+     "id": "d019",
+     "stratum": "symptom",
+     "rank": 2,
+     "got": [
+      "P0116-00",
+      "P0118-00",
+      "P0117-00",
+      "P040C-00",
+      "P0427-00"
+     ]
+    },
+    {
+     "id": "d020",
+     "stratum": "symptom",
+     "rank": 5,
+     "got": [
+      "P0220-11",
+      "P0220-12",
+      "P0120-11",
+      "P0120-12",
+      "P2135-00"
+     ]
+    },
+    {
+     "id": "d021",
+     "stratum": "symptom",
+     "rank": 2,
+     "got": [
+      "P208D-00",
+      "P0562-00",
+      "P003A-00",
+      "P006F-00",
+      "P006E-00"
+     ]
+    },
+    {
+     "id": "d023",
+     "stratum": "symptom",
+     "rank": 2,
+     "got": [
+      "P0341-00",
+      "P0340-00",
+      "P2200-13",
+      "P229E-13",
+      "P0563-00"
+     ]
+    },
+    {
+     "id": "d024",
+     "stratum": "symptom",
+     "rank": null,
+     "got": [
+      "P0003-00",
+      "P0004-00",
+      "P0001-00",
+      "P0627-11",
+      "P0627-12"
+     ]
+    },
+    {
+     "id": "d025",
+     "stratum": "symptom",
+     "rank": null,
+     "got": [
+      "P1114-00",
+      "P2228-00",
+      "P2229-00",
+      "P05EE-00",
+      "P0117-00"
+     ]
+    }
+   ],
+   "naive_chunk": [
+    {
+     "id": "d001",
+     "stratum": "exact_code",
+     "rank": null,
+     "got": [
+      "P0180-1F",
+      "P0004-00",
+      "P2458-09",
+      "P0100-9C",
+      "P0180-11"
+     ]
+    },
+    {
+     "id": "d002",
+     "stratum": "exact_code",
+     "rank": 2,
+     "got": [
+      "P010D-00",
+      "P0340-00",
+      "P0500-1F",
+      "P0103-00",
+      "P0341-00"
+     ]
+    },
+    {
+     "id": "d003",
+     "stratum": "exact_code",
+     "rank": 2,
+     "got": [
+      "P0180-1F",
+      "P0180-11",
+      "P1002-00",
+      "P0101-00",
+      "P0A1B-12"
+     ]
+    },
+    {
+     "id": "d004",
+     "stratum": "exact_code",
+     "rank": 5,
+     "got": [
+      "P0180-1F",
+      "P0180-11",
+      "P1002-00",
+      "P010D-00",
+      "P0100-00"
+     ]
+    },
+    {
+     "id": "d005",
+     "stratum": "exact_code",
+     "rank": null,
+     "got": [
+      "P0004-00",
+      "P0100-9C",
+      "P242F-00",
+      "P0101-00",
+      "P0180-1F"
+     ]
+    },
+    {
+     "id": "d006",
+     "stratum": "exact_code",
+     "rank": null,
+     "got": [
+      "P2200-13",
+      "P2457-00",
+      "P2454-00",
+      "P2452-84",
+      "P042C-00"
+     ]
+    },
+    {
+     "id": "d007",
+     "stratum": "near_duplicate",
+     "rank": null,
+     "got": [
+      "P0102-00",
+      "P0180-1F",
+      "P0180-11",
+      "P0116-00",
+      "P0101-00"
+     ]
+    },
+    {
+     "id": "d008",
+     "stratum": "near_duplicate",
+     "rank": 2,
+     "got": [
+      "P0340-00",
+      "P0341-00",
+      "P0180-11",
+      "P0180-1C",
+      "P0102-00"
+     ]
+    },
+    {
+     "id": "d009",
+     "stratum": "near_duplicate",
+     "rank": null,
+     "got": [
+      "P0089-00",
+      "P00C6-00",
+      "P0088-00",
+      "P0087-00",
+      "P0193-00"
+     ]
+    },
+    {
+     "id": "d010",
+     "stratum": "near_duplicate",
+     "rank": 3,
+     "got": [
+      "P0087-00",
+      "P0192-00",
+      "P0194-00",
+      "P0180-11",
+      "P0180-12"
+     ]
+    },
+    {
+     "id": "d011",
+     "stratum": "near_duplicate",
+     "rank": null,
+     "got": [
+      "P1202-00",
+      "P0202-00",
+      "P1201-00",
+      "P1204-00",
+      "P2156-00"
+     ]
+    },
+    {
+     "id": "d012",
+     "stratum": "near_duplicate",
+     "rank": 3,
+     "got": [
+      "P1202-00",
+      "P1204-00",
+      "P2147-00",
+      "P1201-00",
+      "P2153-00"
+     ]
+    },
+    {
+     "id": "d014",
+     "stratum": "symptom",
+     "rank": null,
+     "got": [
+      "P04A5-00",
+      "P048B-12",
+      "P00C6-00",
+      "P206A-F2",
+      "P0401-00"
+     ]
+    },
+    {
+     "id": "d015",
+     "stratum": "symptom",
+     "rank": 2,
+     "got": [
+      "P042F-00",
+      "P042E-00",
+      "P0405-00",
+      "P0489-00",
+      "P045D-00"
+     ]
+    },
+    {
+     "id": "d016",
+     "stratum": "symptom",
+     "rank": null,
+     "got": [
+      "P04A5-00",
+      "P2463-85",
+      "P22CF-73",
+      "P00C6-00",
+      "P003A-00"
+     ]
+    },
+    {
+     "id": "d017",
+     "stratum": "symptom",
+     "rank": null,
+     "got": [
+      "P00C6-00",
+      "P2264-00",
+      "P2264-12",
+      "P2458-00",
+      "P242F-00"
+     ]
+    },
+    {
+     "id": "d018",
+     "stratum": "symptom",
+     "rank": null,
+     "got": [
+      "P0118-00",
+      "P0421-00",
+      "P0428-00",
+      "P242A-84",
+      "P040C-00"
+     ]
+    },
+    {
+     "id": "d020",
+     "stratum": "symptom",
+     "rank": null,
+     "got": [
+      "P0120-11",
+      "P0120-12",
+      "P0220-11",
+      "P0220-12",
+      "P0504-00"
+     ]
+    },
+    {
+     "id": "d022",
+     "stratum": "symptom",
+     "rank": 4,
+     "got": [
+      "P22CF-73",
+      "P003B-00",
+      "P259F-00",
+      "P006E-00",
+      "P0045-13"
+     ]
+    },
+    {
+     "id": "d024",
+     "stratum": "symptom",
+     "rank": 3,
+     "got": [
+      "P2200-13",
+      "P206A-13",
+      "P0194-00",
+      "P2264-11",
+      "P0108-00"
+     ]
+    },
+    {
+     "id": "d025",
+     "stratum": "symptom",
+     "rank": null,
+     "got": [
+      "P026A-00",
+      "P2229-00",
+      "P0204-00",
+      "P040C-00",
+      "P1204-00"
+     ]
+    }
+   ],
+   "hybrid": [
+    {
+     "id": "d014",
+     "stratum": "symptom",
+     "rank": 3,
+     "got": [
+      "P04A5-00",
+      "P04A4-00",
+      "P042F-00",
+      "P206A-F3",
+      "P22CF-73"
+     ]
+    },
+    {
+     "id": "d015",
+     "stratum": "symptom",
+     "rank": 2,
+     "got": [
+      "P042F-00",
+      "P042E-00",
+      "P04A5-00",
+      "P0406-00",
+      "P0489-00"
+     ]
+    },
+    {
+     "id": "d016",
+     "stratum": "symptom",
+     "rank": null,
+     "got": [
+      "P2463-85",
+      "P243F-F0",
+      "P242F-00",
+      "P243C-00",
+      "P04A5-00"
+     ]
+    },
+    {
+     "id": "d017",
+     "stratum": "symptom",
+     "rank": 5,
+     "got": [
+      "P206A-F1",
+      "P2BA9-00",
+      "P206A-F2",
+      "P204F-7C",
+      "P203F-00"
+     ]
+    },
+    {
+     "id": "d018",
+     "stratum": "symptom",
+     "rank": 2,
+     "got": [
+      "P0118-00",
+      "P0117-00",
+      "P0116-00",
+      "P040C-00",
+      "P0427-00"
+     ]
+    }
+   ],
+   "hybrid_gate_off": [
+    {
+     "id": "d014",
+     "stratum": "symptom",
+     "rank": 3,
+     "got": [
+      "P04A5-00",
+      "P04A4-00",
+      "P042F-00",
+      "P206A-F3",
+      "P22CF-73"
+     ]
+    },
+    {
+     "id": "d015",
+     "stratum": "symptom",
+     "rank": 2,
+     "got": [
+      "P042F-00",
+      "P042E-00",
+      "P04A5-00",
+      "P0406-00",
+      "P0489-00"
+     ]
+    },
+    {
+     "id": "d016",
+     "stratum": "symptom",
+     "rank": null,
+     "got": [
+      "P2463-85",
+      "P243F-F0",
+      "P242F-00",
+      "P243C-00",
+      "P04A5-00"
+     ]
+    },
+    {
+     "id": "d017",
+     "stratum": "symptom",
+     "rank": 5,
+     "got": [
+      "P206A-F1",
+      "P2BA9-00",
+      "P206A-F2",
+      "P204F-7C",
+      "P203F-00"
+     ]
+    },
+    {
+     "id": "d018",
+     "stratum": "symptom",
+     "rank": 2,
+     "got": [
+      "P0118-00",
+      "P0117-00",
+      "P0116-00",
+      "P040C-00",
+      "P0427-00"
+     ]
+    }
+   ]
+  }
+ }
+}

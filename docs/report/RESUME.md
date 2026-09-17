@@ -1,6 +1,6 @@
 # RESUME — Clean RAG for the 3.3L DTC Manual
 
-**State: PHASE 8 COMPLETE; Phase 9.1 (advise mode) + 9.1b (step column-bleed fix) DONE.** All phases 0–8 are done on branch `phase8-limitations`. The
+**State: PHASE 8 COMPLETE; Phase 9.1 (advise mode) + 9.1b (step column-bleed fix) + 9.2 (baseline comparison) DONE.** All phases 0–8 are done on branch `phase8-limitations`. The
 Phase 8 configuration is adopted as the production default. The frozen TEST split has been
 evaluated once and is now spent. The previous system is preserved as tag `v1-phase7`.
 
@@ -9,6 +9,8 @@ _Last updated: 2026-09-17_
 **Phase 9.1:** `src/advise.py` + `POST /advise` return the top-3 DTCs, each with a deterministic fix block (additive; retrieval, gate and indexes unchanged). Details: `docs/report/phase9_1_advise_mode.md`.
 
 **Phase 9.1b:** fixed the parser column-bleed (steps band clamped to the footer + header-anchored column guard). The detector `scripts/detect_step_bleed.py` found 3 records / 34 garbled steps (P0117-00, P00C6-00, P0A1B-12); it now finds 0. DEV metrics are unchanged; **current production determinism hash `ffff9bc707d8754d`** (was `76b16c2b9ab8f9f2`, data changed). Advise related codes now prefer the same system. The 8.5 TEST predates the fix and was not re-run. Details: `docs/report/phase9_1b_step_fix.md`.
+
+**Phase 9.2:** 5-method comparison (keyword BM25, rule-based code lookup, dense-only, naive 500-char chunks in `index_naive/`, production hybrid) on a 935-case auto-generated set (`data/gold_autogen.jsonl`, NOT human-verified) and DEV. Hybrid is best on every non-code stratum (DEV near-dup MRR 1.000 vs ≤0.643; DEV symptom 0.711 vs ≤0.340; paraphrase 0.875 vs ≤0.792); naive chunking is weakest. DEV is not held out for hybrid; baselines were NOT run on the spent TEST. Details: `docs/report/phase9_2_baselines_eval.md`.
 
 ## Final result (Phase 8.5, gold v2.2 TEST, one shot)
 

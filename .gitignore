@@ -6,6 +6,7 @@ images/
 models/
 data/*.jsonl
 !data/validation_report.md
+!data/gold_autogen.jsonl
 
 # model weights - never push these
 *.gguf
@@ -20,3 +21,4 @@ data/*.jsonl
 hf_cache/
 .huggingface/
 index_exp/
+index_naive/
