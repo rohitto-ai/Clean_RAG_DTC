@@ -1,0 +1,177 @@
+{
+ "method": "Every unconfirmed composition NOT on a Bosch part-number row (20 items) was inspected visually as a cropped image with the composed pin boxed. The 44 on a part-number row were classified by row content; 7 of those were also inspected visually in the first random audit, all wrong. A separate random sample of 6 text-CONFIRMED compositions was inspected: 6/6 genuine.",
+ "census_non_part_number_rows": [
+  {
+   "n": 1,
+   "pin": "A09",
+   "connector": "C016-A",
+   "image": "45ddcb60da8ecf00",
+   "verdict": "genuine",
+   "reason": "real C016-A pin 9 beside net O_V_5VCAS; not cited in text"
+  },
+  {
+   "n": 2,
+   "pin": "A72",
+   "connector": "C016-A",
+   "image": "3801374525e2d294",
+   "verdict": "wrong",
+   "reason": "digit misread: image shows 71 (already text-cited as A71)"
+  },
+  {
+   "n": 3,
+   "pin": "K05",
+   "connector": "C016-K",
+   "image": "1b43d89deb9096d8",
+   "verdict": "wrong",
+   "reason": "pin-out cavity art in the connector drawing"
+  },
+  {
+   "n": 4,
+   "pin": "A01",
+   "connector": "C016-A",
+   "image": "e4032d00772d1ece",
+   "verdict": "wrong",
+   "reason": "'1' from Bosch part number 1 928 405 455"
+  },
+  {
+   "n": 5,
+   "pin": "A404",
+   "connector": "C016-A",
+   "image": "e4032d00772d1ece",
+   "verdict": "wrong",
+   "reason": "'404/405' from Bosch part number"
+  },
+  {
+   "n": 6,
+   "pin": "A455",
+   "connector": "C016-A",
+   "image": "e4032d00772d1ece",
+   "verdict": "wrong",
+   "reason": "'455' from Bosch part number"
+  },
+  {
+   "n": 7,
+   "pin": "A35",
+   "connector": "C016-A",
+   "image": "0ac63fa4f7e7e07c",
+   "verdict": "genuine",
+   "reason": "real C016-A pin 35 beside net I_F_CRSSHLD; not cited in text"
+  },
+  {
+   "n": 8,
+   "pin": "A81",
+   "connector": "C016-A",
+   "image": "45ddcb60da8ecf00",
+   "verdict": "genuine",
+   "reason": "real C016-A pin 81 beside net G_R_CAS; not cited in text"
+  },
+  {
+   "n": 9,
+   "pin": "A01",
+   "connector": "C016-A",
+   "image": "d9e2351b28278d14",
+   "verdict": "wrong",
+   "reason": "'1' from Bosch part number"
+  },
+  {
+   "n": 10,
+   "pin": "A404",
+   "connector": "C016-A",
+   "image": "d9e2351b28278d14",
+   "verdict": "wrong",
+   "reason": "'404/405' from Bosch part number"
+  },
+  {
+   "n": 11,
+   "pin": "A455",
+   "connector": "C016-A",
+   "image": "d9e2351b28278d14",
+   "verdict": "wrong",
+   "reason": "'455' from Bosch part number"
+  },
+  {
+   "n": 12,
+   "pin": "K04",
+   "connector": "C016-K",
+   "image": "1dfb1ac77361a86b",
+   "verdict": "wrong",
+   "reason": "blank area under connector drawing"
+  },
+  {
+   "n": 13,
+   "pin": "A06",
+   "connector": "C016-A",
+   "image": "c1245e0f40f5c2b7",
+   "verdict": "wrong",
+   "reason": "pin-out cavity art"
+  },
+  {
+   "n": 14,
+   "pin": "A404",
+   "connector": "C016-A",
+   "image": "c1245e0f40f5c2b7",
+   "verdict": "wrong",
+   "reason": "'404/405' from Bosch part number"
+  },
+  {
+   "n": 15,
+   "pin": "A455",
+   "connector": "C016-A",
+   "image": "c1245e0f40f5c2b7",
+   "verdict": "wrong",
+   "reason": "'455' from Bosch part number"
+  },
+  {
+   "n": 16,
+   "pin": "K01",
+   "connector": "C016-K",
+   "image": "c2b08e2b94e7d81c",
+   "verdict": "wrong",
+   "reason": "'1' of '1 928' Bosch part number"
+  },
+  {
+   "n": 17,
+   "pin": "A02",
+   "connector": "C016-A",
+   "image": "455a1d596376f3f4",
+   "verdict": "wrong",
+   "reason": "blank area beside connector drawing"
+  },
+  {
+   "n": 18,
+   "pin": "A03",
+   "connector": "C016-A",
+   "image": "269a2e91457e2cf5",
+   "verdict": "wrong",
+   "reason": "'1 928' Bosch part number"
+  },
+  {
+   "n": 19,
+   "pin": "A05",
+   "connector": "C016-A",
+   "image": "269a2e91457e2cf5",
+   "verdict": "wrong",
+   "reason": "'405' Bosch part number"
+  },
+  {
+   "n": 20,
+   "pin": "A455",
+   "connector": "C016-A",
+   "image": "269a2e91457e2cf5",
+   "verdict": "wrong",
+   "reason": "'455' Bosch part number"
+  }
+ ],
+ "random_audit_unconfirmed_12": "0/12 genuine (7 Bosch part-number fragments, 3 cavity art/blank, 1 digit misread A72, 1 part number '1 928')",
+ "random_audit_confirmed_6": "6/6 genuine: A94 O_T_EGRPOS, A22 O_P_INJVH12, A16 I_F_CRSPOS, A104 I_A_TEGR, K08 O_V_5VAPP1, A44 O_P_INJVL12",
+ "totals": {
+  "unconfirmed": 64,
+  "genuine_new": 3,
+  "genuine_new_pins": [
+   "A09",
+   "A35",
+   "A81"
+  ],
+  "wrong": 61
+ }
+}

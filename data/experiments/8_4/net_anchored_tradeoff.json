@@ -1,0 +1,12 @@
+{
+ "ground_truth_pairs": 113,
+ "all": {
+  "emitted": 99,
+  "confirmed": 35,
+  "genuine_new_audited": 3
+ },
+ "net_anchored": {
+  "emitted": 20,
+  "confirmed": 19
+ }
+}

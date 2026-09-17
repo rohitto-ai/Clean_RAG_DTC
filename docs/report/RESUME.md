@@ -1,7 +1,7 @@
 # RESUME — Clean RAG for the 3.3L DTC Manual
 
 **State: Phases 0–7 complete and tagged `v1-phase7`. Phase 8 (limitations iteration)
-in progress on branch `phase8-limitations`: 8.0, 8.1, 8.2, 8.2b, 8.3 and 8.3b DONE — retrieval is deterministic; ready for 8.5 on go-ahead. STOPPED FOR REVIEW
+in progress on branch `phase8-limitations`: 8.0, 8.1, 8.2, 8.2b, 8.3, 8.3b and 8.4 DONE — retrieval is deterministic; ready for 8.5 on go-ahead. STOPPED FOR REVIEW
 after 8.2. Production retrieval is still exactly v1-phase7; TEST has NOT been run since
 8.0 and is frozen until 8.5.**
 
@@ -36,6 +36,7 @@ _Last updated: 2026-09-16_
 | 8.2b · Compound cylinder token | ✅ **C4b** = C4 + `cylinder_<N>` BM25 token: guardrails **14/14**, DEV identical to C4 |
 | 8.3 · Relevance gate (L3) | ✅ DEV only, on C4b. Gate v2 (signal + non-diagnostic intent): OOS refused **6/6**, in-scope **28/28** |
 | 8.3b · Deterministic retrieval | ✅ exact dense ranking + total RRF order. DEV result byte-identical in 3 processes / 3 hash seeds |
+| 8.4 · Image-derived pins (L4) | ✅ characterized limitation: recall 31%, audited precision 38%, 3 genuine new pins vs 61 false. Supplementary file only; indexes untouched |
 | **8.5 · Final TEST evaluation** | ⏸ next, on go-ahead |
 | 8.5 · Final TEST evaluation | ⏸ frozen until then |
 
@@ -175,6 +176,9 @@ before 8.5.
 - **A signal threshold that separates 6 negatives exactly is not evidence.** In 8.3,
   `dense≥0.33 or bm25≥10.7` refused 6/6 on DEV but was fitted to one point (margins
   0.007 / 0.09). Prefer refusal reasons that hold by construction (intent).
+- **Schematic connector drawings reuse the ECU connector label.** "C016-A" labels BOTH the pin
+  block and a connector drawing with "Bosch : 1 928 405 455" beneath it. Any proximity-based
+  pin reader will read part numbers as pins (8.4: 44 of 64 false compositions).
 - **A BM25 tokenizer change is an INDEX property.** Changing the shared tokenizer globally
   would silently break the production index (query `cylinder_2` vs corpus `cylinder`,`2`).
   Record the option in the index and have the Retriever read it — see `cylinder_compound`.
@@ -240,3 +244,4 @@ before 8.5.
 - [phase8_2_symptom_retrieval.md](phase8_2_symptom_retrieval.md) — gold v2.2, embedder benchmark, lexicon, C4/C4b, guardrails
 - [phase8_3_relevance_gate.md](phase8_3_relevance_gate.md) — two-reason gate, thresholds, intent taxonomy
 - [phase8_3b_determinism.md](phase8_3b_determinism.md) — exact ranking, 3-process proof, corrected DEV baseline
+- [phase8_4_image_pins.md](phase8_4_image_pins.md) — composition OCR: recall, audited precision, verdict

@@ -1,0 +1,840 @@
+{
+ "net_row": [
+  {
+   "image": "45ddcb60da8ecf00",
+   "pin": "A09",
+   "connector": "C016-A",
+   "pin_number": 9,
+   "net": "O_V_5VCAS",
+   "ocr_conf": 67.0,
+   "bbox_pin": [
+    384,
+    264
+   ],
+   "source": "image_composition"
+  }
+ ],
+ "part_number_row": [
+  {
+   "image": "b27d5d1b0b01cd60",
+   "pin": "A01",
+   "connector": "C016-A",
+   "pin_number": 1,
+   "net": null,
+   "ocr_conf": 67.0,
+   "bbox_pin": [
+    248,
+    409
+   ],
+   "source": "image_composition"
+  },
+  {
+   "image": "b27d5d1b0b01cd60",
+   "pin": "A405",
+   "connector": "C016-A",
+   "pin_number": 405,
+   "net": null,
+   "ocr_conf": 67.0,
+   "bbox_pin": [
+    274,
+    408
+   ],
+   "source": "image_composition"
+  },
+  {
+   "image": "b27d5d1b0b01cd60",
+   "pin": "A455",
+   "connector": "C016-A",
+   "pin_number": 455,
+   "net": null,
+   "ocr_conf": 67.0,
+   "bbox_pin": [
+    292,
+    408
+   ],
+   "source": "image_composition"
+  },
+  {
+   "image": "ef88ae4938e9e1ac",
+   "pin": "A405",
+   "connector": "C016-A",
+   "pin_number": 405,
+   "net": null,
+   "ocr_conf": 49.0,
+   "bbox_pin": [
+    529,
+    593
+   ],
+   "source": "image_composition"
+  },
+  {
+   "image": "ef88ae4938e9e1ac",
+   "pin": "A455",
+   "connector": "C016-A",
+   "pin_number": 455,
+   "net": null,
+   "ocr_conf": 49.0,
+   "bbox_pin": [
+    548,
+    592
+   ],
+   "source": "image_composition"
+  },
+  {
+   "image": "1b43d89deb9096d8",
+   "pin": "K01",
+   "connector": "C016-K",
+   "pin_number": 1,
+   "net": null,
+   "ocr_conf": 83.0,
+   "bbox_pin": [
+    422,
+    589
+   ],
+   "source": "image_composition"
+  },
+  {
+   "image": "1b43d89deb9096d8",
+   "pin": "K405",
+   "connector": "C016-K",
+   "pin_number": 405,
+   "net": null,
+   "ocr_conf": 87.0,
+   "bbox_pin": [
+    465,
+    589
+   ],
+   "source": "image_composition"
+  },
+  {
+   "image": "1b43d89deb9096d8",
+   "pin": "K452",
+   "connector": "C016-K",
+   "pin_number": 452,
+   "net": null,
+   "ocr_conf": 87.0,
+   "bbox_pin": [
+    495,
+    589
+   ],
+   "source": "image_composition"
+  },
+  {
+   "image": "1b43d89deb9096d8",
+   "pin": "K928",
+   "connector": "C016-K",
+   "pin_number": 928,
+   "net": null,
+   "ocr_conf": 83.0,
+   "bbox_pin": [
+    434,
+    589
+   ],
+   "source": "image_composition"
+  },
+  {
+   "image": "0ac63fa4f7e7e07c",
+   "pin": "A405",
+   "connector": "C016-A",
+   "pin_number": 405,
+   "net": null,
+   "ocr_conf": 61.0,
+   "bbox_pin": [
+    325,
+    617
+   ],
+   "source": "image_composition"
+  },
+  {
+   "image": "0ac63fa4f7e7e07c",
+   "pin": "A455",
+   "connector": "C016-A",
+   "pin_number": 455,
+   "net": null,
+   "ocr_conf": 61.0,
+   "bbox_pin": [
+    344,
+    617
+   ],
+   "source": "image_composition"
+  },
+  {
+   "image": "45ddcb60da8ecf00",
+   "pin": "A405",
+   "connector": "C016-A",
+   "pin_number": 405,
+   "net": null,
+   "ocr_conf": 67.0,
+   "bbox_pin": [
+    317,
+    541
+   ],
+   "source": "image_composition"
+  },
+  {
+   "image": "45ddcb60da8ecf00",
+   "pin": "A455",
+   "connector": "C016-A",
+   "pin_number": 455,
+   "net": null,
+   "ocr_conf": 67.0,
+   "bbox_pin": [
+    336,
+    542
+   ],
+   "source": "image_composition"
+  },
+  {
+   "image": "26d3a12939188136",
+   "pin": "A01",
+   "connector": "C016-A",
+   "pin_number": 1,
+   "net": null,
+   "ocr_conf": 68.0,
+   "bbox_pin": [
+    1389,
+    599
+   ],
+   "source": "image_composition"
+  },
+  {
+   "image": "26d3a12939188136",
+   "pin": "A405",
+   "connector": "C016-A",
+   "pin_number": 405,
+   "net": null,
+   "ocr_conf": 69.0,
+   "bbox_pin": [
+    1414,
+    599
+   ],
+   "source": "image_composition"
+  },
+  {
+   "image": "26d3a12939188136",
+   "pin": "A455",
+   "connector": "C016-A",
+   "pin_number": 455,
+   "net": null,
+   "ocr_conf": 69.0,
+   "bbox_pin": [
+    1431,
+    599
+   ],
+   "source": "image_composition"
+  },
+  {
+   "image": "dbdd4f06dcfc21b5",
+   "pin": "K05",
+   "connector": "C016-K",
+   "pin_number": 5,
+   "net": null,
+   "ocr_conf": 79.0,
+   "bbox_pin": [
+    1234,
+    730
+   ],
+   "source": "image_composition"
+  },
+  {
+   "image": "dbdd4f06dcfc21b5",
+   "pin": "K08",
+   "connector": "C016-K",
+   "pin_number": 8,
+   "net": null,
+   "ocr_conf": 79.0,
+   "bbox_pin": [
+    1203,
+    730
+   ],
+   "source": "image_composition"
+  },
+  {
+   "image": "dbdd4f06dcfc21b5",
+   "pin": "K40",
+   "connector": "C016-K",
+   "pin_number": 40,
+   "net": null,
+   "ocr_conf": 79.0,
+   "bbox_pin": [
+    1216,
+    730
+   ],
+   "source": "image_composition"
+  },
+  {
+   "image": "dbdd4f06dcfc21b5",
+   "pin": "K52",
+   "connector": "C016-K",
+   "pin_number": 52,
+   "net": null,
+   "ocr_conf": 56.0,
+   "bbox_pin": [
+    1246,
+    730
+   ],
+   "source": "image_composition"
+  },
+  {
+   "image": "dbdd4f06dcfc21b5",
+   "pin": "K92",
+   "connector": "C016-K",
+   "pin_number": 92,
+   "net": null,
+   "ocr_conf": 79.0,
+   "bbox_pin": [
+    1185,
+    730
+   ],
+   "source": "image_composition"
+  },
+  {
+   "image": "1dfb1ac77361a86b",
+   "pin": "K01",
+   "connector": "C016-K",
+   "pin_number": 1,
+   "net": null,
+   "ocr_conf": 78.0,
+   "bbox_pin": [
+    1175,
+    714
+   ],
+   "source": "image_composition"
+  },
+  {
+   "image": "1dfb1ac77361a86b",
+   "pin": "K405",
+   "connector": "C016-K",
+   "pin_number": 405,
+   "net": null,
+   "ocr_conf": 79.0,
+   "bbox_pin": [
+    1218,
+    714
+   ],
+   "source": "image_composition"
+  },
+  {
+   "image": "1dfb1ac77361a86b",
+   "pin": "K452",
+   "connector": "C016-K",
+   "pin_number": 452,
+   "net": null,
+   "ocr_conf": 79.0,
+   "bbox_pin": [
+    1248,
+    714
+   ],
+   "source": "image_composition"
+  },
+  {
+   "image": "1dfb1ac77361a86b",
+   "pin": "K928",
+   "connector": "C016-K",
+   "pin_number": 928,
+   "net": null,
+   "ocr_conf": 78.0,
+   "bbox_pin": [
+    1187,
+    714
+   ],
+   "source": "image_composition"
+  },
+  {
+   "image": "0031515ae3ff576c",
+   "pin": "A01",
+   "connector": "C016-A",
+   "pin_number": 1,
+   "net": null,
+   "ocr_conf": 33.0,
+   "bbox_pin": [
+    1279,
+    578
+   ],
+   "source": "image_composition"
+  },
+  {
+   "image": "0031515ae3ff576c",
+   "pin": "A405",
+   "connector": "C016-A",
+   "pin_number": 405,
+   "net": null,
+   "ocr_conf": 33.0,
+   "bbox_pin": [
+    1309,
+    577
+   ],
+   "source": "image_composition"
+  },
+  {
+   "image": "0031515ae3ff576c",
+   "pin": "A455",
+   "connector": "C016-A",
+   "pin_number": 455,
+   "net": null,
+   "ocr_conf": 33.0,
+   "bbox_pin": [
+    1330,
+    577
+   ],
+   "source": "image_composition"
+  },
+  {
+   "image": "bf472e849117dd4a",
+   "pin": "K01",
+   "connector": "C016-K",
+   "pin_number": 1,
+   "net": null,
+   "ocr_conf": 73.0,
+   "bbox_pin": [
+    245,
+    512
+   ],
+   "source": "image_composition"
+  },
+  {
+   "image": "bf472e849117dd4a",
+   "pin": "K405",
+   "connector": "C016-K",
+   "pin_number": 405,
+   "net": null,
+   "ocr_conf": 73.0,
+   "bbox_pin": [
+    281,
+    512
+   ],
+   "source": "image_composition"
+  },
+  {
+   "image": "bf472e849117dd4a",
+   "pin": "K452",
+   "connector": "C016-K",
+   "pin_number": 452,
+   "net": null,
+   "ocr_conf": 73.0,
+   "bbox_pin": [
+    307,
+    512
+   ],
+   "source": "image_composition"
+  },
+  {
+   "image": "5052ceec140be220",
+   "pin": "K01",
+   "connector": "C016-K",
+   "pin_number": 1,
+   "net": null,
+   "ocr_conf": 82.0,
+   "bbox_pin": [
+    1236,
+    680
+   ],
+   "source": "image_composition"
+  },
+  {
+   "image": "5052ceec140be220",
+   "pin": "K405",
+   "connector": "C016-K",
+   "pin_number": 405,
+   "net": null,
+   "ocr_conf": 82.0,
+   "bbox_pin": [
+    1274,
+    679
+   ],
+   "source": "image_composition"
+  },
+  {
+   "image": "5052ceec140be220",
+   "pin": "K452",
+   "connector": "C016-K",
+   "pin_number": 452,
+   "net": null,
+   "ocr_conf": 57.0,
+   "bbox_pin": [
+    1301,
+    680
+   ],
+   "source": "image_composition"
+  },
+  {
+   "image": "5052ceec140be220",
+   "pin": "K928",
+   "connector": "C016-K",
+   "pin_number": 928,
+   "net": null,
+   "ocr_conf": 82.0,
+   "bbox_pin": [
+    1247,
+    679
+   ],
+   "source": "image_composition"
+  },
+  {
+   "image": "c2b08e2b94e7d81c",
+   "pin": "K405",
+   "connector": "C016-K",
+   "pin_number": 405,
+   "net": null,
+   "ocr_conf": 81.0,
+   "bbox_pin": [
+    1373,
+    548
+   ],
+   "source": "image_composition"
+  },
+  {
+   "image": "c2b08e2b94e7d81c",
+   "pin": "K452",
+   "connector": "C016-K",
+   "pin_number": 452,
+   "net": null,
+   "ocr_conf": 81.0,
+   "bbox_pin": [
+    1403,
+    548
+   ],
+   "source": "image_composition"
+  },
+  {
+   "image": "455a1d596376f3f4",
+   "pin": "A01",
+   "connector": "C016-A",
+   "pin_number": 1,
+   "net": null,
+   "ocr_conf": 60.0,
+   "bbox_pin": [
+    410,
+    567
+   ],
+   "source": "image_composition"
+  },
+  {
+   "image": "455a1d596376f3f4",
+   "pin": "A405",
+   "connector": "C016-A",
+   "pin_number": 405,
+   "net": null,
+   "ocr_conf": 60.0,
+   "bbox_pin": [
+    435,
+    565
+   ],
+   "source": "image_composition"
+  },
+  {
+   "image": "455a1d596376f3f4",
+   "pin": "A455",
+   "connector": "C016-A",
+   "pin_number": 455,
+   "net": null,
+   "ocr_conf": 60.0,
+   "bbox_pin": [
+    453,
+    566
+   ],
+   "source": "image_composition"
+  },
+  {
+   "image": "814988f65b1a03fd",
+   "pin": "K01",
+   "connector": "C016-K",
+   "pin_number": 1,
+   "net": null,
+   "ocr_conf": 76.0,
+   "bbox_pin": [
+    280,
+    511
+   ],
+   "source": "image_composition"
+  },
+  {
+   "image": "814988f65b1a03fd",
+   "pin": "K405",
+   "connector": "C016-K",
+   "pin_number": 405,
+   "net": null,
+   "ocr_conf": 82.0,
+   "bbox_pin": [
+    322,
+    511
+   ],
+   "source": "image_composition"
+  },
+  {
+   "image": "814988f65b1a03fd",
+   "pin": "K452",
+   "connector": "C016-K",
+   "pin_number": 452,
+   "net": null,
+   "ocr_conf": 82.0,
+   "bbox_pin": [
+    352,
+    511
+   ],
+   "source": "image_composition"
+  },
+  {
+   "image": "814988f65b1a03fd",
+   "pin": "K928",
+   "connector": "C016-K",
+   "pin_number": 928,
+   "net": null,
+   "ocr_conf": 76.0,
+   "bbox_pin": [
+    292,
+    511
+   ],
+   "source": "image_composition"
+  }
+ ],
+ "other": [
+  {
+   "image": "3801374525e2d294",
+   "pin": "A72",
+   "connector": "C016-A",
+   "pin_number": 72,
+   "net": null,
+   "ocr_conf": 73.0,
+   "bbox_pin": [
+    339,
+    238
+   ],
+   "source": "image_composition"
+  },
+  {
+   "image": "1b43d89deb9096d8",
+   "pin": "K05",
+   "connector": "C016-K",
+   "pin_number": 5,
+   "net": null,
+   "ocr_conf": 34.0,
+   "bbox_pin": [
+    446,
+    672
+   ],
+   "source": "image_composition"
+  },
+  {
+   "image": "e4032d00772d1ece",
+   "pin": "A01",
+   "connector": "C016-A",
+   "pin_number": 1,
+   "net": null,
+   "ocr_conf": 63.0,
+   "bbox_pin": [
+    303,
+    512
+   ],
+   "source": "image_composition"
+  },
+  {
+   "image": "e4032d00772d1ece",
+   "pin": "A404",
+   "connector": "C016-A",
+   "pin_number": 404,
+   "net": null,
+   "ocr_conf": 63.0,
+   "bbox_pin": [
+    326,
+    511
+   ],
+   "source": "image_composition"
+  },
+  {
+   "image": "e4032d00772d1ece",
+   "pin": "A455",
+   "connector": "C016-A",
+   "pin_number": 455,
+   "net": null,
+   "ocr_conf": 63.0,
+   "bbox_pin": [
+    341,
+    512
+   ],
+   "source": "image_composition"
+  },
+  {
+   "image": "0ac63fa4f7e7e07c",
+   "pin": "A35",
+   "connector": "C016-A",
+   "pin_number": 35,
+   "net": null,
+   "ocr_conf": 84.0,
+   "bbox_pin": [
+    399,
+    330
+   ],
+   "source": "image_composition"
+  },
+  {
+   "image": "45ddcb60da8ecf00",
+   "pin": "A81",
+   "connector": "C016-A",
+   "pin_number": 81,
+   "net": null,
+   "ocr_conf": 67.0,
+   "bbox_pin": [
+    376,
+    332
+   ],
+   "source": "image_composition"
+  },
+  {
+   "image": "d9e2351b28278d14",
+   "pin": "A01",
+   "connector": "C016-A",
+   "pin_number": 1,
+   "net": null,
+   "ocr_conf": 40.0,
+   "bbox_pin": [
+    394,
+    580
+   ],
+   "source": "image_composition"
+  },
+  {
+   "image": "d9e2351b28278d14",
+   "pin": "A404",
+   "connector": "C016-A",
+   "pin_number": 404,
+   "net": null,
+   "ocr_conf": 40.0,
+   "bbox_pin": [
+    420,
+    578
+   ],
+   "source": "image_composition"
+  },
+  {
+   "image": "d9e2351b28278d14",
+   "pin": "A455",
+   "connector": "C016-A",
+   "pin_number": 455,
+   "net": null,
+   "ocr_conf": 40.0,
+   "bbox_pin": [
+    437,
+    579
+   ],
+   "source": "image_composition"
+  },
+  {
+   "image": "1dfb1ac77361a86b",
+   "pin": "K04",
+   "connector": "C016-K",
+   "pin_number": 4,
+   "net": null,
+   "ocr_conf": 54.0,
+   "bbox_pin": [
+    1226,
+    853
+   ],
+   "source": "image_composition"
+  },
+  {
+   "image": "c1245e0f40f5c2b7",
+   "pin": "A06",
+   "connector": "C016-A",
+   "pin_number": 6,
+   "net": null,
+   "ocr_conf": 47.0,
+   "bbox_pin": [
+    1356,
+    675
+   ],
+   "source": "image_composition"
+  },
+  {
+   "image": "c1245e0f40f5c2b7",
+   "pin": "A404",
+   "connector": "C016-A",
+   "pin_number": 404,
+   "net": null,
+   "ocr_conf": 73.0,
+   "bbox_pin": [
+    1369,
+    584
+   ],
+   "source": "image_composition"
+  },
+  {
+   "image": "c1245e0f40f5c2b7",
+   "pin": "A455",
+   "connector": "C016-A",
+   "pin_number": 455,
+   "net": null,
+   "ocr_conf": 73.0,
+   "bbox_pin": [
+    1384,
+    586
+   ],
+   "source": "image_composition"
+  },
+  {
+   "image": "c2b08e2b94e7d81c",
+   "pin": "K01",
+   "connector": "C016-K",
+   "pin_number": 1,
+   "net": null,
+   "ocr_conf": 47.0,
+   "bbox_pin": [
+    1329,
+    588
+   ],
+   "source": "image_composition"
+  },
+  {
+   "image": "455a1d596376f3f4",
+   "pin": "A02",
+   "connector": "C016-A",
+   "pin_number": 2,
+   "net": null,
+   "ocr_conf": 33.0,
+   "bbox_pin": [
+    490,
+    712
+   ],
+   "source": "image_composition"
+  },
+  {
+   "image": "269a2e91457e2cf5",
+   "pin": "A03",
+   "connector": "C016-A",
+   "pin_number": 3,
+   "net": null,
+   "ocr_conf": 54.0,
+   "bbox_pin": [
+    278,
+    544
+   ],
+   "source": "image_composition"
+  },
+  {
+   "image": "269a2e91457e2cf5",
+   "pin": "A05",
+   "connector": "C016-A",
+   "pin_number": 5,
+   "net": null,
+   "ocr_conf": 54.0,
+   "bbox_pin": [
+    304,
+    542
+   ],
+   "source": "image_composition"
+  },
+  {
+   "image": "269a2e91457e2cf5",
+   "pin": "A455",
+   "connector": "C016-A",
+   "pin_number": 455,
+   "net": null,
+   "ocr_conf": 52.0,
+   "bbox_pin": [
+    321,
+    544
+   ],
+   "source": "image_composition"
+  }
+ ]
+}

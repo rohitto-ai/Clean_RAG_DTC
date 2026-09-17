@@ -1,0 +1,36 @@
+{
+ "record_level": [
+  111,
+  324
+ ],
+ "record_level_excl_calibration": [
+  109,
+  320
+ ],
+ "unique_image_pin_level": [
+  35,
+  112
+ ],
+ "unique_excl_calibration": [
+  33,
+  109
+ ],
+ "unique_composable_form": [
+  35,
+  106
+ ],
+ "composed_total": 99,
+ "confirmed": 35,
+ "unconfirmed": 64,
+ "nets_total": 50,
+ "nets_with_pin": 20,
+ "miss_reasons": {
+  "near-miss: one digit misread": 8,
+  "found": 35,
+  "label read, pin number not attached": 36,
+  "C016-K label not read in image": 17,
+  "no ECU connector label read in image": 9,
+  "not a C016-A/K pin form": 6,
+  "C016-A label not read in image": 1
+ }
+}

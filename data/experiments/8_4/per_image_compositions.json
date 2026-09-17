@@ -1,0 +1,1593 @@
+{
+ "3801374525e2d294": {
+  "pins": [
+   {
+    "pin": "A11",
+    "connector": "C016-A",
+    "pin_number": 11,
+    "net": "O_V_SVRAILPS",
+    "ocr_conf": 73.0,
+    "net_anchored": true,
+    "bbox_pin": [
+     339,
+     210
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "A72",
+    "connector": "C016-A",
+    "pin_number": 72,
+    "net": null,
+    "ocr_conf": 73.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     339,
+     238
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "A83",
+    "connector": "C016-A",
+    "pin_number": 83,
+    "net": "G_R_RAILPS",
+    "ocr_conf": 73.0,
+    "net_anchored": true,
+    "bbox_pin": [
+     338,
+     268
+    ],
+    "source": "image_composition"
+   }
+  ],
+  "nets": [
+   "G_R_RAILPS",
+   "O_V_SVRAILPS"
+  ],
+  "labels": [
+   "C016-A"
+  ]
+ },
+ "b27d5d1b0b01cd60": {
+  "pins": [
+   {
+    "pin": "A01",
+    "connector": "C016-A",
+    "pin_number": 1,
+    "net": null,
+    "ocr_conf": 67.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     248,
+     409
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "A28",
+    "connector": "C016-A",
+    "pin_number": 28,
+    "net": "G_R_CTS",
+    "ocr_conf": 67.0,
+    "net_anchored": true,
+    "bbox_pin": [
+     314,
+     195
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "A405",
+    "connector": "C016-A",
+    "pin_number": 405,
+    "net": null,
+    "ocr_conf": 67.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     274,
+     408
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "A455",
+    "connector": "C016-A",
+    "pin_number": 455,
+    "net": null,
+    "ocr_conf": 67.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     292,
+     408
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "A51",
+    "connector": "C016-A",
+    "pin_number": 51,
+    "net": null,
+    "ocr_conf": 67.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     314,
+     229
+    ],
+    "source": "image_composition"
+   }
+  ],
+  "nets": [
+   "G_R_CTS"
+  ],
+  "labels": [
+   "C016-A"
+  ]
+ },
+ "36be0bc2ea8055f6": {
+  "pins": [],
+  "nets": [
+   "G_R_SENT2",
+   "L_D_SENT_RESO1",
+   "O_V_SVSENT2"
+  ],
+  "labels": [
+   "C016-A"
+  ]
+ },
+ "ef88ae4938e9e1ac": {
+  "pins": [
+   {
+    "pin": "A06",
+    "connector": "C016-A",
+    "pin_number": 6,
+    "net": null,
+    "ocr_conf": 64.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     852,
+     348
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "A405",
+    "connector": "C016-A",
+    "pin_number": 405,
+    "net": null,
+    "ocr_conf": 49.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     529,
+     593
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "A455",
+    "connector": "C016-A",
+    "pin_number": 455,
+    "net": null,
+    "ocr_conf": 49.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     548,
+     592
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "A53",
+    "connector": "C016-A",
+    "pin_number": 53,
+    "net": null,
+    "ocr_conf": 64.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     846,
+     387
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "A89",
+    "connector": "C016-A",
+    "pin_number": 89,
+    "net": null,
+    "ocr_conf": 64.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     846,
+     250
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "A93",
+    "connector": "C016-A",
+    "pin_number": 93,
+    "net": "O_T_LEVGTNEG",
+    "ocr_conf": 64.0,
+    "net_anchored": true,
+    "bbox_pin": [
+     846,
+     313
+    ],
+    "source": "image_composition"
+   }
+  ],
+  "nets": [
+   "L_075",
+   "O_T_LEVGTNEG"
+  ],
+  "labels": [
+   "C016-A",
+   "C016-A"
+  ]
+ },
+ "4402ca5e1951a376": {
+  "pins": [],
+  "nets": [],
+  "labels": []
+ },
+ "1b43d89deb9096d8": {
+  "pins": [
+   {
+    "pin": "K01",
+    "connector": "C016-K",
+    "pin_number": 1,
+    "net": null,
+    "ocr_conf": 83.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     422,
+     589
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "K05",
+    "connector": "C016-K",
+    "pin_number": 5,
+    "net": null,
+    "ocr_conf": 34.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     446,
+     672
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "K08",
+    "connector": "C016-K",
+    "pin_number": 8,
+    "net": "O_V_5VAPP1",
+    "ocr_conf": 88.0,
+    "net_anchored": true,
+    "bbox_pin": [
+     530,
+     399
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "K24",
+    "connector": "C016-K",
+    "pin_number": 24,
+    "net": "G_R_APP1",
+    "ocr_conf": 88.0,
+    "net_anchored": true,
+    "bbox_pin": [
+     521,
+     316
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "K25",
+    "connector": "C016-K",
+    "pin_number": 25,
+    "net": "G_R_APP2",
+    "ocr_conf": 88.0,
+    "net_anchored": true,
+    "bbox_pin": [
+     521,
+     193
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "K29",
+    "connector": "C016-K",
+    "pin_number": 29,
+    "net": null,
+    "ocr_conf": 88.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     521,
+     358
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "K31",
+    "connector": "C016-K",
+    "pin_number": 31,
+    "net": null,
+    "ocr_conf": 88.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     521,
+     234
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "K405",
+    "connector": "C016-K",
+    "pin_number": 405,
+    "net": null,
+    "ocr_conf": 87.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     465,
+     589
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "K452",
+    "connector": "C016-K",
+    "pin_number": 452,
+    "net": null,
+    "ocr_conf": 87.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     495,
+     589
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "K928",
+    "connector": "C016-K",
+    "pin_number": 928,
+    "net": null,
+    "ocr_conf": 83.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     434,
+     589
+    ],
+    "source": "image_composition"
+   }
+  ],
+  "nets": [
+   "G_R_APP1",
+   "G_R_APP2",
+   "O_V_5VAPP1",
+   "O_V_5VAPP2"
+  ],
+  "labels": [
+   "C016-K",
+   "C016-K"
+  ]
+ },
+ "e4032d00772d1ece": {
+  "pins": [
+   {
+    "pin": "A01",
+    "connector": "C016-A",
+    "pin_number": 1,
+    "net": null,
+    "ocr_conf": 63.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     303,
+     512
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "A32",
+    "connector": "C016-A",
+    "pin_number": 32,
+    "net": "G_R_FTS",
+    "ocr_conf": 78.0,
+    "net_anchored": true,
+    "bbox_pin": [
+     372,
+     237
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "A404",
+    "connector": "C016-A",
+    "pin_number": 404,
+    "net": null,
+    "ocr_conf": 63.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     326,
+     511
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "A455",
+    "connector": "C016-A",
+    "pin_number": 455,
+    "net": null,
+    "ocr_conf": 63.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     341,
+     512
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "A77",
+    "connector": "C016-A",
+    "pin_number": 77,
+    "net": null,
+    "ocr_conf": 78.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     372,
+     278
+    ],
+    "source": "image_composition"
+   }
+  ],
+  "nets": [
+   "G_R_FTS"
+  ],
+  "labels": [
+   "C016-A",
+   "C016-A"
+  ]
+ },
+ "7ea85ab57c094a29": {
+  "pins": [
+   {
+    "pin": "A22",
+    "connector": "C016-A",
+    "pin_number": 22,
+    "net": "O_P_INJVH12",
+    "ocr_conf": 73.0,
+    "net_anchored": true,
+    "bbox_pin": [
+     448,
+     342
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "A23",
+    "connector": "C016-A",
+    "pin_number": 23,
+    "net": "O_P_INJVH11",
+    "ocr_conf": 73.0,
+    "net_anchored": true,
+    "bbox_pin": [
+     449,
+     171
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "A43",
+    "connector": "C016-A",
+    "pin_number": 43,
+    "net": "O_P_INJVL11",
+    "ocr_conf": 73.0,
+    "net_anchored": true,
+    "bbox_pin": [
+     448,
+     213
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "A44",
+    "connector": "C016-A",
+    "pin_number": 44,
+    "net": "O_P_INJVL12",
+    "ocr_conf": 73.0,
+    "net_anchored": true,
+    "bbox_pin": [
+     447,
+     383
+    ],
+    "source": "image_composition"
+   }
+  ],
+  "nets": [
+   "O_P_INJVH11",
+   "O_P_INJVH12",
+   "O_P_INJVH21",
+   "O_P_INJVH22",
+   "O_P_INJVL11",
+   "O_P_INJVL12",
+   "O_P_INJVL21",
+   "O_P_INJVL22"
+  ],
+  "labels": [
+   "C016-A"
+  ]
+ },
+ "fd7b1a584734dc6d": {
+  "pins": [],
+  "nets": [
+   "GND_MAP",
+   "SIG_TEMP",
+   "V_SENS1_MAP"
+  ],
+  "labels": []
+ },
+ "0ac63fa4f7e7e07c": {
+  "pins": [
+   {
+    "pin": "A15",
+    "connector": "C016-A",
+    "pin_number": 15,
+    "net": "ILF_CRSNEG",
+    "ocr_conf": 84.0,
+    "net_anchored": true,
+    "bbox_pin": [
+     398,
+     286
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "A16",
+    "connector": "C016-A",
+    "pin_number": 16,
+    "net": null,
+    "ocr_conf": 84.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     400,
+     247
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "A35",
+    "connector": "C016-A",
+    "pin_number": 35,
+    "net": null,
+    "ocr_conf": 84.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     399,
+     330
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "A405",
+    "connector": "C016-A",
+    "pin_number": 405,
+    "net": null,
+    "ocr_conf": 61.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     325,
+     617
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "A455",
+    "connector": "C016-A",
+    "pin_number": 455,
+    "net": null,
+    "ocr_conf": 61.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     344,
+     617
+    ],
+    "source": "image_composition"
+   }
+  ],
+  "nets": [
+   "ILF_CRSNEG"
+  ],
+  "labels": [
+   "C016-A",
+   "C016-A"
+  ]
+ },
+ "45ddcb60da8ecf00": {
+  "pins": [
+   {
+    "pin": "A09",
+    "connector": "C016-A",
+    "pin_number": 9,
+    "net": "O_V_5VCAS",
+    "ocr_conf": 67.0,
+    "net_anchored": true,
+    "bbox_pin": [
+     384,
+     264
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "A405",
+    "connector": "C016-A",
+    "pin_number": 405,
+    "net": null,
+    "ocr_conf": 67.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     317,
+     541
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "A455",
+    "connector": "C016-A",
+    "pin_number": 455,
+    "net": null,
+    "ocr_conf": 67.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     336,
+     542
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "A49",
+    "connector": "C016-A",
+    "pin_number": 49,
+    "net": "IF_CAS",
+    "ocr_conf": 67.0,
+    "net_anchored": true,
+    "bbox_pin": [
+     376,
+     298
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "A81",
+    "connector": "C016-A",
+    "pin_number": 81,
+    "net": null,
+    "ocr_conf": 67.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     376,
+     332
+    ],
+    "source": "image_composition"
+   }
+  ],
+  "nets": [
+   "IF_CAS",
+   "O_V_5VCAS"
+  ],
+  "labels": [
+   "C016-A"
+  ]
+ },
+ "d9e2351b28278d14": {
+  "pins": [
+   {
+    "pin": "A01",
+    "connector": "C016-A",
+    "pin_number": 1,
+    "net": null,
+    "ocr_conf": 40.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     394,
+     580
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "A07",
+    "connector": "C016-A",
+    "pin_number": 7,
+    "net": null,
+    "ocr_conf": 34.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     419,
+     658
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "A100",
+    "connector": "C016-A",
+    "pin_number": 100,
+    "net": "GLR_LETVA",
+    "ocr_conf": 39.0,
+    "net_anchored": true,
+    "bbox_pin": [
+     449,
+     371
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "A404",
+    "connector": "C016-A",
+    "pin_number": 404,
+    "net": null,
+    "ocr_conf": 40.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     420,
+     578
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "A455",
+    "connector": "C016-A",
+    "pin_number": 455,
+    "net": null,
+    "ocr_conf": 40.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     437,
+     579
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "A52",
+    "connector": "C016-A",
+    "pin_number": 52,
+    "net": null,
+    "ocr_conf": 39.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     452,
+     338
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "A90",
+    "connector": "C016-A",
+    "pin_number": 90,
+    "net": null,
+    "ocr_conf": 39.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     451,
+     278
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "A94",
+    "connector": "C016-A",
+    "pin_number": 94,
+    "net": null,
+    "ocr_conf": 39.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     457,
+     219
+    ],
+    "source": "image_composition"
+   }
+  ],
+  "nets": [
+   "GLR_LETVA"
+  ],
+  "labels": [
+   "C016-A",
+   "C016-A"
+  ]
+ },
+ "4347a4b6e8c3ce6d": {
+  "pins": [],
+  "nets": [
+   "G_R_VSS"
+  ],
+  "labels": [
+   "C016-K"
+  ]
+ },
+ "26d3a12939188136": {
+  "pins": [
+   {
+    "pin": "A01",
+    "connector": "C016-A",
+    "pin_number": 1,
+    "net": null,
+    "ocr_conf": 68.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     1389,
+     599
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "A405",
+    "connector": "C016-A",
+    "pin_number": 405,
+    "net": null,
+    "ocr_conf": 69.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     1414,
+     599
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "A455",
+    "connector": "C016-A",
+    "pin_number": 455,
+    "net": null,
+    "ocr_conf": 69.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     1431,
+     599
+    ],
+    "source": "image_composition"
+   }
+  ],
+  "nets": [
+   "0_S_PSP"
+  ],
+  "labels": [
+   "C016-A",
+   "C016-A"
+  ]
+ },
+ "dbdd4f06dcfc21b5": {
+  "pins": [
+   {
+    "pin": "K05",
+    "connector": "C016-K",
+    "pin_number": 5,
+    "net": null,
+    "ocr_conf": 79.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     1234,
+     730
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "K08",
+    "connector": "C016-K",
+    "pin_number": 8,
+    "net": null,
+    "ocr_conf": 79.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     1203,
+     730
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "K40",
+    "connector": "C016-K",
+    "pin_number": 40,
+    "net": null,
+    "ocr_conf": 79.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     1216,
+     730
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "K52",
+    "connector": "C016-K",
+    "pin_number": 52,
+    "net": null,
+    "ocr_conf": 56.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     1246,
+     730
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "K92",
+    "connector": "C016-K",
+    "pin_number": 92,
+    "net": null,
+    "ocr_conf": 79.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     1185,
+     730
+    ],
+    "source": "image_composition"
+   }
+  ],
+  "nets": [
+   "YN_075"
+  ],
+  "labels": [
+   "C016-K",
+   "C016-K"
+  ]
+ },
+ "c2718a4cedfd23f7": {
+  "pins": [],
+  "nets": [],
+  "labels": []
+ },
+ "910ab88a1a5f2684": {
+  "pins": [],
+  "nets": [],
+  "labels": []
+ },
+ "1dfb1ac77361a86b": {
+  "pins": [
+   {
+    "pin": "K01",
+    "connector": "C016-K",
+    "pin_number": 1,
+    "net": null,
+    "ocr_conf": 78.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     1175,
+     714
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "K04",
+    "connector": "C016-K",
+    "pin_number": 4,
+    "net": null,
+    "ocr_conf": 54.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     1226,
+     853
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "K405",
+    "connector": "C016-K",
+    "pin_number": 405,
+    "net": null,
+    "ocr_conf": 79.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     1218,
+     714
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "K452",
+    "connector": "C016-K",
+    "pin_number": 452,
+    "net": null,
+    "ocr_conf": 79.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     1248,
+     714
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "K928",
+    "connector": "C016-K",
+    "pin_number": 928,
+    "net": null,
+    "ocr_conf": 78.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     1187,
+     714
+    ],
+    "source": "image_composition"
+   }
+  ],
+  "nets": [],
+  "labels": [
+   "C016-K",
+   "C016-K"
+  ]
+ },
+ "369277f4aced7e57": {
+  "pins": [],
+  "nets": [],
+  "labels": []
+ },
+ "4f1938994a3ce376": {
+  "pins": [],
+  "nets": [],
+  "labels": []
+ },
+ "0031515ae3ff576c": {
+  "pins": [
+   {
+    "pin": "A01",
+    "connector": "C016-A",
+    "pin_number": 1,
+    "net": null,
+    "ocr_conf": 33.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     1279,
+     578
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "A405",
+    "connector": "C016-A",
+    "pin_number": 405,
+    "net": null,
+    "ocr_conf": 33.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     1309,
+     577
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "A455",
+    "connector": "C016-A",
+    "pin_number": 455,
+    "net": null,
+    "ocr_conf": 33.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     1330,
+     577
+    ],
+    "source": "image_composition"
+   }
+  ],
+  "nets": [
+   "G_R_DOCTSUP"
+  ],
+  "labels": [
+   "C016-A",
+   "C016-A"
+  ]
+ },
+ "0be275b45f215aa9": {
+  "pins": [],
+  "nets": [
+   "G_R_DOCTSUP",
+   "I_A_TPFLTUS"
+  ],
+  "labels": [
+   "C016-A"
+  ]
+ },
+ "bf472e849117dd4a": {
+  "pins": [
+   {
+    "pin": "K01",
+    "connector": "C016-K",
+    "pin_number": 1,
+    "net": null,
+    "ocr_conf": 73.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     245,
+     512
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "K405",
+    "connector": "C016-K",
+    "pin_number": 405,
+    "net": null,
+    "ocr_conf": 73.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     281,
+     512
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "K452",
+    "connector": "C016-K",
+    "pin_number": 452,
+    "net": null,
+    "ocr_conf": 73.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     307,
+     512
+    ],
+    "source": "image_composition"
+   }
+  ],
+  "nets": [
+   "G_R_CATSPOST"
+  ],
+  "labels": [
+   "C016-K",
+   "C016-K"
+  ]
+ },
+ "c1245e0f40f5c2b7": {
+  "pins": [
+   {
+    "pin": "A06",
+    "connector": "C016-A",
+    "pin_number": 6,
+    "net": null,
+    "ocr_conf": 47.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     1356,
+     675
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "A404",
+    "connector": "C016-A",
+    "pin_number": 404,
+    "net": null,
+    "ocr_conf": 73.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     1369,
+     584
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "A455",
+    "connector": "C016-A",
+    "pin_number": 455,
+    "net": null,
+    "ocr_conf": 73.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     1384,
+     586
+    ],
+    "source": "image_composition"
+   }
+  ],
+  "nets": [
+   "G_R_PFDP",
+   "O_V_SVPFDP"
+  ],
+  "labels": [
+   "C016-A",
+   "C016-A"
+  ]
+ },
+ "3671a012f10fe230": {
+  "pins": [],
+  "nets": [],
+  "labels": []
+ },
+ "5052ceec140be220": {
+  "pins": [
+   {
+    "pin": "K01",
+    "connector": "C016-K",
+    "pin_number": 1,
+    "net": null,
+    "ocr_conf": 82.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     1236,
+     680
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "K405",
+    "connector": "C016-K",
+    "pin_number": 405,
+    "net": null,
+    "ocr_conf": 82.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     1274,
+     679
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "K452",
+    "connector": "C016-K",
+    "pin_number": 452,
+    "net": null,
+    "ocr_conf": 57.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     1301,
+     680
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "K928",
+    "connector": "C016-K",
+    "pin_number": 928,
+    "net": null,
+    "ocr_conf": 82.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     1247,
+     679
+    ],
+    "source": "image_composition"
+   }
+  ],
+  "nets": [
+   "G_R_RAULS",
+   "OLT_RAPP",
+   "O_S_MPHS",
+   "O_S_SCRMRLY",
+   "O_T_RAMCP",
+   "T_RAULS"
+  ],
+  "labels": [
+   "C016-K",
+   "C016-K"
+  ]
+ },
+ "c2b08e2b94e7d81c": {
+  "pins": [
+   {
+    "pin": "K01",
+    "connector": "C016-K",
+    "pin_number": 1,
+    "net": null,
+    "ocr_conf": 47.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     1329,
+     588
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "K405",
+    "connector": "C016-K",
+    "pin_number": 405,
+    "net": null,
+    "ocr_conf": 81.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     1373,
+     548
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "K452",
+    "connector": "C016-K",
+    "pin_number": 452,
+    "net": null,
+    "ocr_conf": 81.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     1403,
+     548
+    ],
+    "source": "image_composition"
+   }
+  ],
+  "nets": [
+   "O_T_RAMVH",
+   "O_T_RAMVL"
+  ],
+  "labels": [
+   "C016-K",
+   "C016-K"
+  ]
+ },
+ "455a1d596376f3f4": {
+  "pins": [
+   {
+    "pin": "A01",
+    "connector": "C016-A",
+    "pin_number": 1,
+    "net": null,
+    "ocr_conf": 60.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     410,
+     567
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "A02",
+    "connector": "C016-A",
+    "pin_number": 2,
+    "net": null,
+    "ocr_conf": 33.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     490,
+     712
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "A100",
+    "connector": "C016-A",
+    "pin_number": 100,
+    "net": "G_RLETVA",
+    "ocr_conf": 30.0,
+    "net_anchored": true,
+    "bbox_pin": [
+     447,
+     366
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "A405",
+    "connector": "C016-A",
+    "pin_number": 405,
+    "net": null,
+    "ocr_conf": 60.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     435,
+     565
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "A455",
+    "connector": "C016-A",
+    "pin_number": 455,
+    "net": null,
+    "ocr_conf": 60.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     453,
+     566
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "A68",
+    "connector": "C016-A",
+    "pin_number": 68,
+    "net": "OLT_LETVANEG",
+    "ocr_conf": 30.0,
+    "net_anchored": true,
+    "bbox_pin": [
+     452,
+     239
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "A74",
+    "connector": "C016-A",
+    "pin_number": 74,
+    "net": null,
+    "ocr_conf": 30.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     453,
+     332
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "A92",
+    "connector": "C016-A",
+    "pin_number": 92,
+    "net": null,
+    "ocr_conf": 30.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     452,
+     204
+    ],
+    "source": "image_composition"
+   }
+  ],
+  "nets": [
+   "G_RLETVA",
+   "OLT_LETVANEG",
+   "O_V_SVETVA"
+  ],
+  "labels": [
+   "C016-A",
+   "C016-A"
+  ]
+ },
+ "269a2e91457e2cf5": {
+  "pins": [
+   {
+    "pin": "A03",
+    "connector": "C016-A",
+    "pin_number": 3,
+    "net": null,
+    "ocr_conf": 54.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     278,
+     544
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "A05",
+    "connector": "C016-A",
+    "pin_number": 5,
+    "net": null,
+    "ocr_conf": 54.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     304,
+     542
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "A104",
+    "connector": "C016-A",
+    "pin_number": 104,
+    "net": null,
+    "ocr_conf": 87.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     368,
+     263
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "A455",
+    "connector": "C016-A",
+    "pin_number": 455,
+    "net": null,
+    "ocr_conf": 52.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     321,
+     544
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "A54",
+    "connector": "C016-A",
+    "pin_number": 54,
+    "net": null,
+    "ocr_conf": 87.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     375,
+     297
+    ],
+    "source": "image_composition"
+   }
+  ],
+  "nets": [],
+  "labels": [
+   "C016-A",
+   "C016-A"
+  ]
+ },
+ "814988f65b1a03fd": {
+  "pins": [
+   {
+    "pin": "K01",
+    "connector": "C016-K",
+    "pin_number": 1,
+    "net": null,
+    "ocr_conf": 76.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     280,
+     511
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "K12",
+    "connector": "C016-K",
+    "pin_number": 12,
+    "net": "LA_ATS",
+    "ocr_conf": 76.0,
+    "net_anchored": true,
+    "bbox_pin": [
+     373,
+     276
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "K405",
+    "connector": "C016-K",
+    "pin_number": 405,
+    "net": null,
+    "ocr_conf": 82.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     322,
+     511
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "K452",
+    "connector": "C016-K",
+    "pin_number": 452,
+    "net": null,
+    "ocr_conf": 82.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     352,
+     511
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "K83",
+    "connector": "C016-K",
+    "pin_number": 83,
+    "net": "G_R_ATS",
+    "ocr_conf": 76.0,
+    "net_anchored": true,
+    "bbox_pin": [
+     373,
+     235
+    ],
+    "source": "image_composition"
+   },
+   {
+    "pin": "K928",
+    "connector": "C016-K",
+    "pin_number": 928,
+    "net": null,
+    "ocr_conf": 76.0,
+    "net_anchored": false,
+    "bbox_pin": [
+     292,
+     511
+    ],
+    "source": "image_composition"
+   }
+  ],
+  "nets": [
+   "G_R_ATS",
+   "LA_ATS"
+  ],
+  "labels": [
+   "C016-K",
+   "C016-K"
+  ]
+ }
+}

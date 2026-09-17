@@ -1,0 +1,80 @@
+[
+ {
+  "image": "d9e2351b28278d14",
+  "pin": "A94",
+  "connector": "C016-A",
+  "pin_number": 94,
+  "net": null,
+  "ocr_conf": 39.0,
+  "bbox_pin": [
+   457,
+   219
+  ],
+  "source": "image_composition"
+ },
+ {
+  "image": "7ea85ab57c094a29",
+  "pin": "A22",
+  "connector": "C016-A",
+  "pin_number": 22,
+  "net": "O_P_INJVH12",
+  "ocr_conf": 73.0,
+  "bbox_pin": [
+   448,
+   342
+  ],
+  "source": "image_composition"
+ },
+ {
+  "image": "0ac63fa4f7e7e07c",
+  "pin": "A16",
+  "connector": "C016-A",
+  "pin_number": 16,
+  "net": null,
+  "ocr_conf": 84.0,
+  "bbox_pin": [
+   400,
+   247
+  ],
+  "source": "image_composition"
+ },
+ {
+  "image": "269a2e91457e2cf5",
+  "pin": "A104",
+  "connector": "C016-A",
+  "pin_number": 104,
+  "net": null,
+  "ocr_conf": 87.0,
+  "bbox_pin": [
+   368,
+   263
+  ],
+  "source": "image_composition"
+ },
+ {
+  "image": "1b43d89deb9096d8",
+  "pin": "K08",
+  "connector": "C016-K",
+  "pin_number": 8,
+  "net": "O_V_5VAPP1",
+  "ocr_conf": 88.0,
+  "bbox_pin": [
+   530,
+   399
+  ],
+  "source": "image_composition"
+ },
+ {
+  "image": "7ea85ab57c094a29",
+  "pin": "A44",
+  "connector": "C016-A",
+  "pin_number": 44,
+  "net": "O_P_INJVL12",
+  "ocr_conf": 73.0,
+  "bbox_pin": [
+   447,
+   383
+  ],
+  "source": "image_composition"
+ }
+]

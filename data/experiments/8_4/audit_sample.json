@@ -1,0 +1,170 @@
+[
+ {
+  "image": "dbdd4f06dcfc21b5",
+  "pin": "K52",
+  "connector": "C016-K",
+  "pin_number": 52,
+  "net": null,
+  "ocr_conf": 56.0,
+  "bbox_pin": [
+   1246,
+   730
+  ],
+  "source": "image_composition",
+  "sample_no": 1
+ },
+ {
+  "image": "ef88ae4938e9e1ac",
+  "pin": "A455",
+  "connector": "C016-A",
+  "pin_number": 455,
+  "net": null,
+  "ocr_conf": 49.0,
+  "bbox_pin": [
+   548,
+   592
+  ],
+  "source": "image_composition",
+  "sample_no": 2
+ },
+ {
+  "image": "b27d5d1b0b01cd60",
+  "pin": "A455",
+  "connector": "C016-A",
+  "pin_number": 455,
+  "net": null,
+  "ocr_conf": 67.0,
+  "bbox_pin": [
+   292,
+   408
+  ],
+  "source": "image_composition",
+  "sample_no": 3
+ },
+ {
+  "image": "1b43d89deb9096d8",
+  "pin": "K05",
+  "connector": "C016-K",
+  "pin_number": 5,
+  "net": null,
+  "ocr_conf": 34.0,
+  "bbox_pin": [
+   446,
+   672
+  ],
+  "source": "image_composition",
+  "sample_no": 4
+ },
+ {
+  "image": "3801374525e2d294",
+  "pin": "A72",
+  "connector": "C016-A",
+  "pin_number": 72,
+  "net": null,
+  "ocr_conf": 73.0,
+  "bbox_pin": [
+   339,
+   238
+  ],
+  "source": "image_composition",
+  "sample_no": 5
+ },
+ {
+  "image": "e4032d00772d1ece",
+  "pin": "A455",
+  "connector": "C016-A",
+  "pin_number": 455,
+  "net": null,
+  "ocr_conf": 63.0,
+  "bbox_pin": [
+   341,
+   512
+  ],
+  "source": "image_composition",
+  "sample_no": 6
+ },
+ {
+  "image": "269a2e91457e2cf5",
+  "pin": "A05",
+  "connector": "C016-A",
+  "pin_number": 5,
+  "net": null,
+  "ocr_conf": 54.0,
+  "bbox_pin": [
+   304,
+   542
+  ],
+  "source": "image_composition",
+  "sample_no": 7
+ },
+ {
+  "image": "bf472e849117dd4a",
+  "pin": "K01",
+  "connector": "C016-K",
+  "pin_number": 1,
+  "net": null,
+  "ocr_conf": 73.0,
+  "bbox_pin": [
+   245,
+   512
+  ],
+  "source": "image_composition",
+  "sample_no": 8
+ },
+ {
+  "image": "c2b08e2b94e7d81c",
+  "pin": "K452",
+  "connector": "C016-K",
+  "pin_number": 452,
+  "net": null,
+  "ocr_conf": 81.0,
+  "bbox_pin": [
+   1403,
+   548
+  ],
+  "source": "image_composition",
+  "sample_no": 9
+ },
+ {
+  "image": "c1245e0f40f5c2b7",
+  "pin": "A06",
+  "connector": "C016-A",
+  "pin_number": 6,
+  "net": null,
+  "ocr_conf": 47.0,
+  "bbox_pin": [
+   1356,
+   675
+  ],
+  "source": "image_composition",
+  "sample_no": 10
+ },
+ {
+  "image": "455a1d596376f3f4",
+  "pin": "A02",
+  "connector": "C016-A",
+  "pin_number": 2,
+  "net": null,
+  "ocr_conf": 33.0,
+  "bbox_pin": [
+   490,
+   712
+  ],
+  "source": "image_composition",
+  "sample_no": 11
+ },
+ {
+  "image": "1dfb1ac77361a86b",
+  "pin": "K01",
+  "connector": "C016-K",
+  "pin_number": 1,
+  "net": null,
+  "ocr_conf": 78.0,
+  "bbox_pin": [
+   1175,
+   714
+  ],
+  "source": "image_composition",
+  "sample_no": 12
+ }
+]
