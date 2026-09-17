@@ -71,7 +71,8 @@ def advise_endpoint(a: AdviseIn):
     """
     Phase 9.1: top-3 DTCs, each with a deterministic fix block.
     Returns {input, mode, results: [{rank, code_full, why_retrieved, fix_block}], trace}.
-    mode is "dtc_code", "symptom", "system_group" or "refused".
+    mode is "dtc_code", "symptom", "system_group", "refused" or "clarify_code"
+    (9.3b: known base code, unknown suffix - variants listed, no fix blocks).
     """
     from advise import advise
     if not a.input.strip():

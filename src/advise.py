@@ -119,6 +119,14 @@ def advise(query, R, phraser=None, summary=False, top_n=TOP_N):
     trace = {"router_mode": out["mode"], "retrieval_trace": out["trace"]}
     results = []
 
+    if out["mode"] in ("unknown_code", "suffix_not_found"):
+        # Phase 9.3b: never return fix blocks for a code the manual does not contain.
+        t = out["trace"]
+        return {"input": query, "mode": "refused" if out["mode"] == "unknown_code"
+                else "clarify_code", "results": [], "message": t["message"],
+                "known_variants": t.get("known_variants", []),
+                "did_you_mean": t.get("did_you_mean", []), "trace": trace}
+
     if out["mode"] == "exact_code" and out["results"]:
         mode = "dtc_code"
         primaries = [item["record"] for item in out["results"]][:top_n]
@@ -187,8 +195,11 @@ def print_report(res):
     print("=" * 78)
     print(f"INPUT: {res['input']}")
     print(f"MODE : {res['mode']}")
-    if res["mode"] == "refused":
-        print(f"\n{res['message']}  (reason: {', '.join(res.get('refusal_reasons') or [])})")
+    if res["mode"] in ("refused", "clarify_code"):
+        why = ", ".join(res.get("refusal_reasons") or [])
+        print(f"\n{res['message']}" + (f"  (reason: {why})" if why else ""))
+        if res.get("did_you_mean"):
+            print(f"Did you mean (not selected): {', '.join(res['did_you_mean'])}")
         print("=" * 78)
         return
     for r in res["results"]:

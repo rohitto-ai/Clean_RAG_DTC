@@ -21,6 +21,9 @@ Outcome of every query (mutually exclusive, first match wins):
   HARMFUL         exact-code route answered with a DTC that is NOT expected: the user
                   gets a deterministic, unhedged repair procedure for the wrong fault.
                   For garbage input (nothing expected) any exact-code answer is harmful.
+  clarified       (9.3b) route "suffix_not_found": the base code exists but the given
+                  suffix does not; the user is told so and shown the known variants, with
+                  no repair procedure asserted. Safe, not a recovery.
   wrong_hedged    hybrid/group route passed the gate but no expected code in the top 3
                   (a ranked candidate list is shown, not a single asserted fault).
                   For garbage input every non-refused hybrid answer lands here.
@@ -39,7 +42,8 @@ os.environ.setdefault("ANONYMIZED_TELEMETRY", "False")
 
 N_CODE, N_SYMPTOM, K = 80, 80, 5
 OUT_DIR = "data/experiments/9_3"
-OUTCOMES = ["correct@1", "correct@3", "correct_listed", "refused", "HARMFUL", "wrong_hedged"]
+OUTCOMES = ["correct@1", "correct@3", "correct_listed", "refused", "clarified", "HARMFUL",
+            "wrong_hedged"]
 
 
 # ---------------------------------------------------------------- code noise
@@ -170,7 +174,9 @@ def classify(R, A, query, expected):
         ok, _ = A.is_relevant(R, query)
         gated = not ok
     rank = next((i for i, c in enumerate(got, 1) if c in expected), None)
-    if not got or gated:
+    if route == "suffix_not_found":
+        o = "clarified"
+    elif not got or gated:
         o = "refused"
     elif rank == 1:
         o = "correct@1"
@@ -188,6 +194,11 @@ def classify(R, A, query, expected):
 
 
 def main():
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--out", default=f"{OUT_DIR}/results.json",
+                    help="9.3 baseline = results.json; 9.3b re-run writes results_9_3b.json")
+    args = ap.parse_args()
     from retrieve import Retriever
     import answer as A
     R = Retriever()
@@ -260,8 +271,8 @@ def main():
     os.makedirs(OUT_DIR, exist_ok=True)
     json.dump({"config": {"n_code_base": N_CODE, "n_symptom_base": N_SYMPTOM, "k": K},
                "table": table, "by_class": by_class, "harmful": harmful, "rows": rows},
-              open(f"{OUT_DIR}/results.json", "w"), indent=1, ensure_ascii=False)
-    print(f"\nwrote {OUT_DIR}/results.json ({len(rows)} queries)")
+              open(args.out, "w"), indent=1, ensure_ascii=False)
+    print(f"\nwrote {args.out} ({len(rows)} queries)")
 
 
 if __name__ == "__main__":

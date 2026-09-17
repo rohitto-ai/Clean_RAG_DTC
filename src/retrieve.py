@@ -5,7 +5,10 @@ No LLM here (that is Phase 6). Returns full DTC records plus a trace explaining
 why each result surfaced.
 
 Router priority (first match wins):
-  1. exact_code   — a DTC code appears in the query
+  1. exact_code   — a DTC code appears in the query (after 9.3b code-token
+                    normalisation). Unknown P/U code -> mode "unknown_code" (explicit
+                    refusal); known base but unknown suffix -> "suffix_not_found"
+                    (variants listed as a clarification, not as the answer)
   2. system_group — explicit grouping intent AND a subsystem keyword
   3. hybrid       — everything else: dense + BM25 fused with RRF
 
@@ -79,6 +82,67 @@ def detect_code(query):
         return None, None
     base = m.group(1).upper()
     return (f"{base}-{m.group(3).upper()}" if m.group(3) else None), base
+
+
+# ---------------------------------------------------------------------------
+# Phase 9.3b: code-token normalisation (noisy telematics / hand-typed codes)
+# ---------------------------------------------------------------------------
+# Only forms that are UNAMBIGUOUSLY a fault code are rewritten, and only for the
+# fault-code letters P and U (C/B tokens are connector ids in this manual, e.g.
+# C001, and keep their hybrid fallback). Transposed or dropped digits are never
+# "corrected" - that would silently pick a different fault.
+#   "P 0192-00" -> "P0192-00"   space after the letter
+#   "P0192_00"  -> "P0192-00"   underscore or dot separator before a 2-char suffix
+#   "PO192-00"  -> "P0192-00"   letter O in a code position (O is never a hex digit)
+#   "P0192-O0"  -> "P0192-00"
+_CODE_BODY = r"[0-9A-FO]{4}"
+_SPACED_LETTER_RE = re.compile(r"\b([PU])\s+(?=[0-9O][0-9A-FO]{3}\b|[0-9O][0-9A-FO]{3}[-_.])", re.I)
+_CANDIDATE_RE = re.compile(r"\b([PU])(" + _CODE_BODY + r")(?:(\s*[-_.]\s*)([0-9A-FO]{2}))?\b", re.I)
+
+
+def normalize_code_tokens(query):
+    """Return (normalised_query, [(original, normalised), ...])."""
+    q = _SPACED_LETTER_RE.sub(lambda m: m.group(1), query)
+
+    def fix(m):
+        letter, body, sep, suf = m.group(1), m.group(2), m.group(3), m.group(4)
+        if not re.search(r"\d", body):          # "POOF"-like words are not codes
+            return m.group(0)
+        body = body.upper().replace("O", "0")
+        if suf is None:
+            return letter.upper() + body
+        suf = suf.upper().replace("O", "0")
+        if sep.strip() in ("-", "_", "."):
+            return f"{letter.upper()}{body}-{suf}"
+        return m.group(0)
+    q = _CANDIDATE_RE.sub(fix, q)
+    changes = []
+    if q != query:
+        changes.append((query, q))
+    return q, changes
+
+
+def _damerau1(a, b):
+    """True when a and b are within ONE edit (substitute, insert, delete, swap)."""
+    if a == b:
+        return False
+    la, lb = len(a), len(b)
+    if abs(la - lb) > 1:
+        return False
+    if la == lb:
+        diff = [i for i in range(la) if a[i] != b[i]]
+        if len(diff) == 1:
+            return True
+        return (len(diff) == 2 and diff[1] == diff[0] + 1
+                and a[diff[0]] == b[diff[1]] and a[diff[1]] == b[diff[0]])
+    if la > lb:
+        a, b = b, a
+    return any(b[:i] + b[i + 1:] == a for i in range(len(b)))
+
+
+def did_you_mean(code, known_codes, limit=5):
+    """Known codes one edit away. SURFACED ONLY - never auto-selected."""
+    return sorted(c for c in known_codes if _damerau1(code, c))[:limit]
 
 
 def detect_system(query):
@@ -338,17 +402,41 @@ class Retriever:
 
     # ---------------- public --------------------------------------------
     def retrieve(self, query, k=DEFAULT_TOP_K):
-        code_full, base = detect_code(query)
+        normalized, changes = normalize_code_tokens(query)
+        code_full, base = detect_code(normalized)
         system = detect_system(query)
         grouping = detect_grouping_intent(query)
 
         base_trace = {"query": query, "detected_code": code_full or base,
                       "detected_system": system, "grouping_intent": grouping}
+        if changes:
+            base_trace["code_normalized"] = normalized
 
         if code_full or base:
             results, t = self._exact(code_full, base, k)
             mode = "exact_code"
-            if not results:
+            fault_letter = (base or "")[:1] in ("P", "U")
+            well_formed = fault_letter and (len(base) == 5 or code_full is not None)
+            if results and code_full and t.get("lookup", "").startswith("by_dtc_code"):
+                # Phase 9.3b: the base exists but the exact suffix does not. Say so;
+                # never present the base's variants as if they were the answer.
+                mode = "suffix_not_found"
+                known = sorted({i["record"]["code_full"] for i in results})
+                t["message"] = (f"Exact code {code_full} was not found in this manual. "
+                                f"Known variants of {base}: {', '.join(known)}. "
+                                f"Please confirm the full code.")
+                t["known_variants"] = known
+                t["did_you_mean"] = did_you_mean(code_full, self.code_index["by_code_full"])
+            elif not results and well_formed:
+                # Phase 9.3b: a well-formed P/U fault code that maps to nothing is
+                # refused explicitly - no silent hybrid fallback onto unrelated DTCs.
+                shown = code_full or base
+                mode = "unknown_code"
+                t["message"] = f"DTC {shown} is not covered in this manual."
+                t["did_you_mean"] = did_you_mean(
+                    shown, self.code_index["by_code_full"] if code_full
+                    else self.code_index["by_dtc_code"])
+            elif not results:
                 # The code regex can match a non-code token of the same shape -
                 # a connector id like C001, say. Returning nothing would be a
                 # dead end, so fall back to hybrid rather than fail closed.

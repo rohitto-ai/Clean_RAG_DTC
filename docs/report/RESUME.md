@@ -1,6 +1,6 @@
 # RESUME — Clean RAG for the 3.3L DTC Manual
 
-**State: PHASE 8 COMPLETE; Phase 9.1 (advise mode) + 9.1b (step column-bleed fix) + 9.2 (baseline comparison) + 9.3 (noisy-input robustness) DONE.** All phases 0–8 are done on branch `phase8-limitations`. The
+**State: PHASE 8 COMPLETE; Phase 9.1 (advise mode) + 9.1b (step column-bleed fix) + 9.2 (baseline comparison) + 9.3 (noisy-input robustness) + 9.3b (code-handling hardening, adopted) DONE.** All phases 0–8 are done on branch `phase8-limitations`. The
 Phase 8 configuration is adopted as the production default. The frozen TEST split has been
 evaluated once and is now spent. The previous system is preserved as tag `v1-phase7`.
 
@@ -13,6 +13,8 @@ _Last updated: 2026-09-17_
 **Phase 9.2:** 5-method comparison (keyword BM25, rule-based code lookup, dense-only, naive 500-char chunks in `index_naive/`, production hybrid) on a 935-case auto-generated set (`data/gold_autogen.jsonl`, NOT human-verified) and DEV. Hybrid is best on every non-code stratum (DEV near-dup MRR 1.000 vs ≤0.643; DEV symptom 0.711 vs ≤0.340; paraphrase 0.875 vs ≤0.792); naive chunking is weakest. DEV is not held out for hybrid; baselines were NOT run on the spent TEST. Details: `docs/report/phase9_2_baselines_eval.md`.
 
 **Phase 9.3:** noisy-input robustness over 1,007 queries (`scripts/robustness_9_3.py`). Recoverable noise: 0 HARMFUL; case/log-embedded codes 100%, missing suffix 100% listed, symptom typos/abbreviations 94–95% top-3. HARMFUL 6/1007, all transposed digits. Main failure: unknown or unparseable codes (`P 0192-00`, `PO192-00`, codes not in the manual: 0/10 refused) fall back to hybrid and pass gate v2. Hardening proposed, not implemented. Details: `docs/report/phase9_3_robustness.md`.
+
+**Phase 9.3b (changes production):** router code handling hardened — P/U code-token normalisation (`P 0192`, `_`/`.` separators, letter O), unknown P/U code → explicit refusal (`unknown_code`), known base + unknown suffix → clarification listing variants (`suffix_not_found`), did-you-mean (edit distance 1, never auto-selected); C001 connector fallback kept. Robustness: HARMFUL 6 → 2 (inherent real-code collisions), codes not in manual refused 0/10 → 10/10, spacing/letter-O recovery 70–73% → 100%. DEV byte-identical, suite 44/1/0, advise 13/13, guardrails 14/14, code-hardening 23/23; determinism hash unchanged `ffff9bc707d8754d`. Details: `docs/report/phase9_3b_code_hardening.md`.
 
 ## Final result (Phase 8.5, gold v2.2 TEST, one shot)
 

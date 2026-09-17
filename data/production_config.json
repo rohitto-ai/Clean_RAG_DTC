@@ -16,5 +16,18 @@
     "bm25_min": 8.5,
     "intent_stoplist": "data/intent_stoplist.json"
   },
-  "previous_system": "git tag v1-phase7"
+  "previous_system": "git tag v1-phase7",
+  "router_code_handling": {
+    "adopted_phase": "9.3b",
+    "normalization": "P/U code tokens: 'P 0192' space, '_' or '.' suffix separator, letter O in code positions (retrieve.normalize_code_tokens); transposed/dropped digits never corrected",
+    "unknown_code": "well-formed P/U code matching neither code index -> mode unknown_code, explicit refusal 'DTC <code> is not covered in this manual'",
+    "suffix_not_found": "base code known, suffix unknown -> mode suffix_not_found, known variants listed as a clarification, no procedure",
+    "did_you_mean": "codes within Damerau edit distance 1, surfaced only, never auto-selected",
+    "cb_connector_fallback": "C/B tokens (e.g. C001) keep the hybrid fallback"
+  },
+  "determinism_hash_dev_defaults": {
+    "value": "ffff9bc707d8754d",
+    "since": "9.1b",
+    "unchanged_by": "9.3b (no DEV query reaches the changed paths)"
+  }
 }

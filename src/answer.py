@@ -251,6 +251,30 @@ def answer(query, retriever, phraser=None, k=5, gate="default"):
     out = retriever.retrieve(query, k=k)
     mode, results = out["mode"], out["results"]
 
+    if mode == "unknown_code":
+        # Phase 9.3b: explicit refusal for a P/U fault code this manual does not cover.
+        text = out["trace"]["message"]
+        if out["trace"].get("did_you_mean"):
+            text += (" Codes in this manual one character away (not selected - verify "
+                     "the code): " + ", ".join(out["trace"]["did_you_mean"]) + ".")
+        return {"mode": mode, "path": "deterministic_refusal", "text": text,
+                "citations": [], "trace": out["trace"]}
+
+    if mode == "suffix_not_found":
+        # Phase 9.3b: base code known, suffix not. List the variants as a
+        # clarification only - no repair procedure is asserted.
+        lines = [out["trace"]["message"], ""]
+        for i in results:
+            r = i["record"]
+            lines.append(f"  - {r['code_full']} (page {r['page']}): {r['description']}")
+        other = [c for c in out["trace"].get("did_you_mean") or []
+                 if c not in out["trace"].get("known_variants", [])]
+        if other:
+            lines += ["", "Other codes one character away (not selected - verify the code): "
+                      + ", ".join(other)]
+        return {"mode": mode, "path": "deterministic_clarification", "text": "\n".join(lines),
+                "citations": [], "trace": out["trace"]}
+
     if not results:
         return {"mode": mode, "path": "deterministic",
                 "text": "That is not covered in this manual.",

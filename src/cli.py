@@ -56,6 +56,8 @@ def quiet_stderr():
 def print_answer(out, seconds):
     mode_label = {
         "exact_code": "exact DTC lookup",
+        "unknown_code": "DTC code not in this manual",
+        "suffix_not_found": "DTC suffix not found",
         "system_group": "subsystem list",
         "hybrid": "symptom search",
     }.get(out["mode"], out["mode"])
@@ -63,6 +65,8 @@ def print_answer(out, seconds):
         "deterministic": "answered from the manual (no AI model)",
         "llm": "phrased by the local AI model from the manual",
         "deterministic_gate": "refused - outside the manual",
+        "deterministic_refusal": "refused - code not in the manual",
+        "deterministic_clarification": "please confirm the code",
     }.get(out["path"], out["path"])
 
     print(f"\n[{mode_label} | {path_label} | {seconds:.1f}s]\n")
