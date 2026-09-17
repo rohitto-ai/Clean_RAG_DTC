@@ -5,7 +5,8 @@ For any in-scope input, return THREE diagnostic trouble codes, each with a full
 deterministic fix block rendered from the manual record:
 
   * input contains a DTC code  -> that code's record(s) first, then the nearest
-    related codes (exact cosine between stored record vectors) until there are 3
+    related codes until there are 3: same-system records preferred, then
+    cross-system, each by exact cosine between stored record vectors
   * natural-language symptom   -> the top-3 records from the production retriever
 
 Nothing here changes retrieval, the gate or the indexes. The fix steps come from
@@ -80,14 +81,23 @@ def related_records(R, primary_ids, n):
     Nearest records to the FIRST primary by exact cosine over the stored vectors,
     excluding every record that shares a primary's code (so the second occurrence
     of a duplicated code is not reported as "related"). Ties break by record id.
+
+    Ranking preference (Phase 9.1b), not a hard filter: records in the SAME
+    `system` as the anchor come first, ordered by cosine; cross-system records
+    fill any remaining slots, also by cosine. E.g. P0192-00 (rail_pressure) ->
+    P0193-00, P0194-00 rather than the slightly closer fuel_supply P0180-11.
     """
-    import numpy as np
     exclude = {R._rec(i)["code_full"] for i in primary_ids}
     anchor = R.vec_ids.index(primary_ids[0])
+    anchor_system = R._rec(primary_ids[0])["system"]
     sims = R.vectors @ R.vectors[anchor]
-    order = sorted(range(len(R.vec_ids)), key=lambda i: (-float(sims[i]), R.vec_ids[i]))
+
+    def key(i):
+        other = R._rec(R.vec_ids[i])["system"] != anchor_system
+        return (other, -float(sims[i]), R.vec_ids[i])
+
     out = []
-    for i in order:
+    for i in sorted(range(len(R.vec_ids)), key=key):
         rec = R._rec(R.vec_ids[i])
         if rec["code_full"] in exclude:
             continue
@@ -124,7 +134,8 @@ def advise(query, R, phraser=None, summary=False, top_n=TOP_N):
                 results.append((rec, f"related to {anchor['code_full']}: nearest record by "
                                      f"embedding similarity (cosine {sim:.3f}), {same} "
                                      f"({rec['system']})"))
-        trace["related_by"] = "exact cosine between stored record vectors"
+        trace["related_by"] = ("same-system records first, then cross-system; "
+                               "each ordered by exact cosine between stored record vectors")
     else:
         ok, signals = A.is_relevant(R, query)
         trace["gate"] = signals

@@ -129,7 +129,7 @@ def is_boilerplate(text):
     return any(p.match(t) for p in BOILERPLATE)
 
 
-def column_bounds(page, y0, y1, cluster_tol=8.0, min_support=2):
+def column_bounds(page, y0, y1, cluster_tol=8.0, min_support=2, labels=None):
     """
     Column x-boundaries for the table occupying [y0, y1].
 
@@ -165,7 +165,40 @@ def column_bounds(page, y0, y1, cluster_tol=8.0, min_support=2):
     cols = [(sum(c) / len(c), len(c)) for c in clusters if len(c) >= min_support]
     if len(cols) < 3:                                  # need >= 2 outer + 1 interior
         return []
-    return [c for c, _ in cols[1:-1]]
+    interior = cols[1:-1]
+    if labels and len(interior) != len(labels) - 1:
+        # Header-anchored guard (Phase 9.1b). Each interior boundary must fall in
+        # the gap between two adjacent header labels ("Sr." | "Steps" |
+        # "Specifications"); when a gap holds several candidates, the one with
+        # the most edge support wins. Surplus boundaries push step words into the
+        # Specifications column, which is how p.13/86/211 were garbled.
+        picked = []
+        for left, right in zip(labels, labels[1:]):
+            cand = [c for c in interior if left < c[0] < right]
+            if not cand:
+                return [c for c, _ in interior]        # cannot anchor: leave as is
+            picked.append(max(cand, key=lambda c: (c[1], -c[0]))[0])
+        return picked
+    return [c for c, _ in interior]
+
+
+def header_labels(page, y0):
+    """x0 of the "Sr." / "Steps" / "Specification(s)" header labels just below
+    the steps marker, or None when the header row is not on this page."""
+    found = {}
+    for w in page.extract_words():
+        if not (y0 - 1 <= w["top"] <= y0 + 40):
+            continue
+        t = w["text"].rstrip(":")
+        if t == "Sr." and "sr" not in found:
+            found["sr"] = w["x0"]
+        elif t == "Steps" and "steps" not in found:
+            found["steps"] = w["x0"]
+        elif t.startswith("Specification") and "spec" not in found:
+            found["spec"] = w["x0"]
+    if len(found) != 3 or not found["sr"] < found["steps"] < found["spec"]:
+        return None
+    return [found["sr"], found["steps"], found["spec"]]
 
 
 def assign_columns(ws, bounds):
@@ -338,8 +371,13 @@ def extract_page(page, page_no):
         sy0 = HDR_BAND + 2.0
     later = [t for n, t in markers.items() if n != "steps" and t > sy0 + 2]
     sy1 = min(later) - 2 if later else page_bottom
+    # Never let the band run into the repeated footer (Phase 9.1b): the footer box
+    # draws its own vertical rules (x~182, x~515) which otherwise cluster into
+    # phantom column boundaries. Bands past 712 occurred on p.12/13/86/137/140/211/360.
+    sy1 = min(sy1, FTR_BAND)
 
-    bounds = column_bounds(page, sy0, sy1)
+    labels = header_labels(page, sy0) if "steps" in markers else None
+    bounds = column_bounds(page, sy0, sy1, labels=labels)
     steps = step_rows(page, sy0, sy1, bounds) if bounds else []
 
     # The TATA logo sits in the repeated header band on all 545 pages - it is

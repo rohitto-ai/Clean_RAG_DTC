@@ -1,12 +1,14 @@
 # RESUME — Clean RAG for the 3.3L DTC Manual
 
-**State: PHASE 8 COMPLETE; Phase 9.1 (advise mode) DONE.** All phases 0–8 are done on branch `phase8-limitations`. The
+**State: PHASE 8 COMPLETE; Phase 9.1 (advise mode) + 9.1b (step column-bleed fix) DONE.** All phases 0–8 are done on branch `phase8-limitations`. The
 Phase 8 configuration is adopted as the production default. The frozen TEST split has been
 evaluated once and is now spent. The previous system is preserved as tag `v1-phase7`.
 
 _Last updated: 2026-09-17_
 
-**Phase 9.1:** `src/advise.py` + `POST /advise` return the top-3 DTCs, each with a deterministic fix block (additive; retrieval, gate and indexes unchanged). **Open finding for 9.2:** a Phase 1 column-boundary defect leaks step text into `specifications` in at least 3 records (P0117-00, P00C6-00, P0A1B-12), garbling their steps. Details: `docs/report/phase9_1_advise_mode.md`.
+**Phase 9.1:** `src/advise.py` + `POST /advise` return the top-3 DTCs, each with a deterministic fix block (additive; retrieval, gate and indexes unchanged). Details: `docs/report/phase9_1_advise_mode.md`.
+
+**Phase 9.1b:** fixed the parser column-bleed (steps band clamped to the footer + header-anchored column guard). The detector `scripts/detect_step_bleed.py` found 3 records / 34 garbled steps (P0117-00, P00C6-00, P0A1B-12); it now finds 0. DEV metrics are unchanged; **current production determinism hash `ffff9bc707d8754d`** (was `76b16c2b9ab8f9f2`, data changed). Advise related codes now prefer the same system. The 8.5 TEST predates the fix and was not re-run. Details: `docs/report/phase9_1b_step_fix.md`.
 
 ## Final result (Phase 8.5, gold v2.2 TEST, one shot)
 

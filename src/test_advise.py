@@ -63,6 +63,26 @@ def main():
           sorted(r["code_full"] for r in res["results"]) == ["P0100-00", "P0100-9B", "P0100-9C"],
           f"{[r['code_full'] for r in res['results']]}")
 
+    res = run("P0192-00")
+    codes = [r["code_full"] for r in res["results"]]
+    check("related codes prefer the same system (rail pressure)",
+          sorted(codes[1:]) == ["P0193-00", "P0194-00"]
+          and all(r["fix_block"]["system"] == "rail_pressure" for r in res["results"]),
+          f"codes={codes}")
+
+    res = run("P0500-1F")                   # vehicle_speed holds only 2 records
+    systems = [r["fix_block"]["system"] for r in res["results"]]
+    check("related codes fall back to cross-system when the system runs out",
+          systems[:2] == ["vehicle_speed", "vehicle_speed"] and systems[2] != "vehicle_speed",
+          f"codes={[r['code_full'] for r in res['results']]} systems={systems}")
+
+    res = run("P0117-00")                   # Phase 9.1b column-bleed regression
+    steps = res["results"][0]["fix_block"]["steps"]
+    check("P0117-00 steps read cleanly with a real spec (no column bleed)",
+          steps[0]["text"] == "Check the battery voltage" and steps[0]["spec"] == "12.5±3 volts"
+          and all(s["spec"] is None for s in steps[1:]) and len(steps) == 11,
+          f"step1={steps[0]}")
+
     for q in ("what is the capital of France", "what is the warranty period on this engine"):
         res = run(q)
         check(f"out-of-scope {q!r} is refused, not given fix steps",

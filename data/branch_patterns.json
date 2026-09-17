@@ -1,49 +1,49 @@
 {
-  "total_signatures": 32,
+  "total_signatures": 31,
   "patterns": {
     "IF X": {
-      "count": 419,
+      "count": 410,
       "example": "If the error is present check the connector pins from both side i.e. sensor side & wire harness side",
       "example_dtc": "P0192-00 step 4",
       "with_goto": 0,
       "n_targets": {
-        "0": 419
+        "0": 410
       }
     },
     "IF X GOTO": {
-      "count": 256,
+      "count": 261,
       "example": "If error still present go to Step 7",
       "example_dtc": "P0192-00 step 6",
-      "with_goto": 256,
+      "with_goto": 261,
       "n_targets": {
-        "1": 256
+        "1": 261
       }
     },
     "X GOTO": {
-      "count": 134,
+      "count": 136,
       "example": "Fix the back-out cables in proper positions in connector & go to Step 13",
       "example_dtc": "P0192-00 step 8",
-      "with_goto": 134,
+      "with_goto": 136,
       "n_targets": {
-        "1": 134
+        "1": 136
       }
     },
     "IF X THEN X GOTO": {
-      "count": 101,
+      "count": 105,
       "example": "If connector found lose in step 2 then fix is properly & go to Step 13",
       "example_dtc": "P0192-00 step 3",
-      "with_goto": 101,
+      "with_goto": 105,
       "n_targets": {
-        "1": 101
+        "1": 105
       }
     },
     "X IF_YES GOTO": {
-      "count": 63,
+      "count": 64,
       "example": "Check the wire harness for any pin / wire back-out from connector, if yes go to Step 8",
       "example_dtc": "P0192-00 step 7",
-      "with_goto": 63,
+      "with_goto": 64,
       "n_targets": {
-        "1": 63
+        "1": 64
       }
     },
     "IF X THEN X": {
@@ -56,21 +56,21 @@
       }
     },
     "X IF X GOTO": {
-      "count": 32,
+      "count": 34,
       "example": "Check if Pin 2( A39) is shorted to supply(A34) or open circuit, go to step 9",
       "example_dtc": "P0103-00 step 7",
-      "with_goto": 32,
+      "with_goto": 34,
       "n_targets": {
-        "1": 32
+        "1": 34
       }
     },
     "X IF X": {
-      "count": 24,
+      "count": 23,
       "example": "Check connector if rail pressure sensor is connected properly to the wire harness connector",
       "example_dtc": "P0192-00 step 2",
       "with_goto": 0,
       "n_targets": {
-        "0": 24
+        "0": 23
       }
     },
     "X GOTO X": {
@@ -234,15 +234,6 @@
       "with_goto": 0,
       "n_targets": {
         "0": 2
-      }
-    },
-    "X IF_YES": {
-      "count": 1,
-      "example": "Check the wire connector, if yes",
-      "example_dtc": "P0117-00 step 4",
-      "with_goto": 0,
-      "n_targets": {
-        "0": 1
       }
     },
     "IF X IF X GOTO X": {

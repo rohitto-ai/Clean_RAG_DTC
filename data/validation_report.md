@@ -112,7 +112,7 @@
 ## 3. Structural integrity at scale
 
 - Total steps parsed: **2202**
-- Total `goto` references: **701**
+- Total `goto` references: **715**
 - Records with zero steps: **0**
 - Records with non-contiguous step numbering: **7**
 - Unresolved `goto` targets: **37**
@@ -200,22 +200,22 @@
 
 ## 4. Branching-phrase catalogue (instrumentation for Phase 6 polarity)
 
-- Distinct branching signatures: **32**
-- Steps containing branching language: **1205** / 2202 (54.7%)
-- Steps with no branching language: **997**
+- Distinct branching signatures: **31**
+- Steps containing branching language: **1208** / 2202 (54.9%)
+- Steps with no branching language: **994**
 
 _`X` = free text, `GOTO` = a 'go to Step N' reference. `targets` shows how many goto targets that shape carries._
 
 | # | Signature | Count | targets (n->count) | Example |
 |---|---|---|---|---|
-| 1 | `IF X` | 419 | 0->419 | If the error is present check the connector pins from both side i.e. sensor side & wire ha |
-| 2 | `IF X GOTO` | 256 | 1->256 | If error still present go to Step 7 |
-| 3 | `X GOTO` | 134 | 1->134 | Fix the back-out cables in proper positions in connector & go to Step 13 |
-| 4 | `IF X THEN X GOTO` | 101 | 1->101 | If connector found lose in step 2 then fix is properly & go to Step 13 |
-| 5 | `X IF_YES GOTO` | 63 | 1->63 | Check the wire harness for any pin / wire back-out from connector, if yes go to Step 8 |
+| 1 | `IF X` | 410 | 0->410 | If the error is present check the connector pins from both side i.e. sensor side & wire ha |
+| 2 | `IF X GOTO` | 261 | 1->261 | If error still present go to Step 7 |
+| 3 | `X GOTO` | 136 | 1->136 | Fix the back-out cables in proper positions in connector & go to Step 13 |
+| 4 | `IF X THEN X GOTO` | 105 | 1->105 | If connector found lose in step 2 then fix is properly & go to Step 13 |
+| 5 | `X IF_YES GOTO` | 64 | 1->64 | Check the wire harness for any pin / wire back-out from connector, if yes go to Step 8 |
 | 6 | `IF X THEN X` | 36 | 0->36 | If Step 4 & Step 5 fails then check signal (A97) short circuit to ground (A31) |
-| 7 | `X IF X GOTO` | 32 | 1->32 | Check if Pin 2( A39) is shorted to supply(A34) or open circuit, go to step 9 |
-| 8 | `X IF X` | 24 | 0->24 | Check connector if rail pressure sensor is connected properly to the wire harness connecto |
+| 7 | `X IF X GOTO` | 34 | 1->34 | Check if Pin 2( A39) is shorted to supply(A34) or open circuit, go to step 9 |
+| 8 | `X IF X` | 23 | 0->23 | Check connector if rail pressure sensor is connected properly to the wire harness connecto |
 | 9 | `X GOTO X` | 22 | 1->22 | Remove the pump and get it checked from the authorized dealer, go to step 9 after rectific |
 | 10 | `X IF X IF_YES X GOTO` | 15 | 1->15 | Check if DPF brick is damaged , if Yes, replace DPF & go to step 11 |
 | 11 | `X IF X IF_NOT X GOTO` | 12 | 1->12 | Check if the wiring harness connector connected properly to 1st cylinder injector, if not  |
@@ -234,12 +234,11 @@ _`X` = free text, `GOTO` = a 'go to Step N' reference. `targets` shows how many 
 | 24 | `IF X IF X IF_YES X GOTO` | 3 | 1->3 | If error persists, check if Input signal is shorted to battery, if yes arrest issue & go t |
 | 25 | `IF X THEN GOTO ELSE GOTO` | 2 | 2->2 | If continuity is OK in Step 9 then go to Step 12 else go to Step 11 |
 | 26 | `X THEN X` | 2 | 0->2 | Perform pressure preparation checks through diagnostic tool (ignition off and then pressur |
-| 27 | `X IF_YES` | 1 | 0->1 | Check the wire connector, if yes |
-| 28 | `IF X IF X GOTO X` | 1 | 1->1 | If error still present, check if sensor itself is exposed to high temperature source, go t |
-| 29 | `X IF_YES X GOTO X` | 1 | 1->1 | Check for fuel leakage from rail return line in running condition, if yes get it checked f |
-| 30 | `X IF X IF_YES X` | 1 | 0->1 | Check if Pressure relief valve counter or timer is exceeding the design limit, if yes chan |
-| 31 | `IF X THEN X IF_YES GOTO` | 1 | 1->1 | If error still present then Check the wire harness for any pin / wire back-out from connec |
-| 32 | `IF_YES X GOTO` | 1 | 1->1 | If yes , arrest all leakages & go to step 6 |
+| 27 | `IF X IF X GOTO X` | 1 | 1->1 | If error still present, check if sensor itself is exposed to high temperature source, go t |
+| 28 | `X IF_YES X GOTO X` | 1 | 1->1 | Check for fuel leakage from rail return line in running condition, if yes get it checked f |
+| 29 | `X IF X IF_YES X` | 1 | 0->1 | Check if Pressure relief valve counter or timer is exceeding the design limit, if yes chan |
+| 30 | `IF X THEN X IF_YES GOTO` | 1 | 1->1 | If error still present then Check the wire harness for any pin / wire back-out from connec |
+| 31 | `IF_YES X GOTO` | 1 | 1->1 | If yes , arrest all leakages & go to step 6 |
 
 ## 5. Phase 3 — canonical schema conformance
 
@@ -253,35 +252,35 @@ _`X` = free text, `GOTO` = a 'go to Step N' reference. `targets` shows how many 
 
 | kind | steps | % |
 |---|---|---|
-| `action` | 144 | 6.5% |
-| `check` | 1068 | 48.5% |
-| `branch` | 692 | 31.4% |
-| `terminal` | 298 | 13.5% |
+| `action` | 140 | 6.4% |
+| `check` | 1057 | 48.0% |
+| `branch` | 706 | 32.1% |
+| `terminal` | 299 | 13.6% |
 | **total** | **2202** | |
 
 ### `polarity_confidence` distribution
 
 | scope | high | low | total |
 |---|---|---|---|
-| all steps | 1648 | 554 | 2202 |
-| steps with a condition or a goto | 649 | 554 | 1203 |
+| all steps | 1659 | 543 | 2202 |
+| steps with a condition or a goto | 663 | 543 | 1206 |
 
 _A step with neither a condition nor a jump is trivially `high`: there is no route to get wrong. The second row is the meaningful measure._
 
 ### Routing
 
-- Steps with `on_true` set: **686**
+- Steps with `on_true` set: **700**
 - Steps with `on_false` set: **5** (explicit two-way branches)
 - Steps with both: **2**
-- Steps carrying a `goto` edge: **692**
+- Steps carrying a `goto` edge: **706**
 - Steps with a `goto` but deliberately **no** route derived: **6** (multi-target "go to Step 9 & 11" — not expressible as a two-way route, so left null rather than guessed)
-- Steps with a verbatim `condition` captured: **1047**
+- Steps with a verbatim `condition` captured: **1048**
 
 - `on_true` targets pointing outside the step list: **37** (kept verbatim, all marked `['low']` — Phase 6 clamps them)
 
 ### Carried-through fields
 
 - `template_variant` present on **314/314** records — {'full_7_section': 113, 'partial': 28, 'reduced_4_section': 173}
-- `pin_map` entries: **427**, all carrying a valid `confidence`: **YES** — {'high': 383, 'low': 44}
+- `pin_map` entries: **427**, all carrying a valid `confidence`: **YES** — {'high': 384, 'low': 43}
 - `pin_map` entries with a `net` value: **0** (OCR was skipped in Phase 2, so nets are unpopulated by design)
 
