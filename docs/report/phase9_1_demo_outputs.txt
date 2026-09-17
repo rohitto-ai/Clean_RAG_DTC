@@ -1,0 +1,547 @@
+==============================================================================
+INPUT: P0192-00
+MODE : dtc_code
+------------------------------------------------------------------------------
+#1  P0192-00  —  Rail pressure Sensor Short circuit to ground
+    why: DTC code P0192-00 matched in the code index (by_code_full)
+
+P0192-00 — Rail pressure Sensor Short circuit to ground
+  System: rail_pressure   |   Manual page 8
+  Indicators: MIL On | CEL Off | Immo NA | IC message: NA
+  Effect on vehicle: Torque reduction
+
+Likely causes:
+  1. Wiring Harness problem
+  2. Sensor failure
+  3. Sensor connector problem
+
+Checkpoints:
+  1. Check Battery Voltage.
+  2. Check Rail pressure sensor pins for damage
+  3. Check Rail pressure sensor connector for damage.
+  4. Check Rail pressure signal lines for continuity.
+
+Troubleshooting steps:
+  Step 1: Check the battery voltage   [spec: 12.5±3 volts]
+  Step 2: Check connector if rail pressure sensor is connected properly to the wire harness connector
+  Step 3: If connector found lose in step 2 then fix is properly & go to Step 13
+          -> if yes -> Step 13
+  Step 4: If the error is present check the connector pins from both side i.e. sensor side & wire harness side
+  Step 5: If pins are damaged then go to Step No. 12
+          -> if yes -> Step 12
+  Step 6: If error still present go to Step 7
+          -> if yes -> Step 7
+  Step 7: Check the wire harness for any pin / wire back-out from connector, if yes go to Step 8
+          -> if yes -> Step 8
+  Step 8: Fix the back-out cables in proper positions in connector & go to Step 13
+          -> then go to Step 13
+  Step 9: If error is still present, check the continuity between pin 2 of rail pressure sensor to A71.
+  Step 10: If continuity is OK in Step 9 then go to Step 12 else go to Step 11
+          -> if yes -> Step 12; if no -> Step 11
+  Step 11: Check the signal line for short to ground i.e. continuity between Pin2 of rail pressure sensor to A83. If yes, change the cable with new one & go to Step 13.
+          -> if yes -> Step 13
+  Step 12: Change the rail pressure sensor with new one
+  Step 13: Check the DTC
+
+Pins referenced: A71, A83
+See circuit schematic, page 9 of the manual.
+
+Circuit description: EMS monitors the internal fuel pressure of common rail using Rail pressure sensor. It is an analog input type with 3-wires and it gives output voltage in proportion to the internal fuel pressure. This signal is used by EMS to adjust the pressure of rail to the required value. Check for the continuity between EMS and Sensor by referring above schematic.
+
+Source: P0192-00, manual page 8.
+------------------------------------------------------------------------------
+#2  P0193-00  —  Rail pressure sensor Short circuit to battery or Open circuit
+    why: related to P0192-00: nearest record by embedding similarity (cosine 0.962), same system (rail_pressure)
+
+P0193-00 — Rail pressure sensor Short circuit to battery or Open circuit
+  System: rail_pressure   |   Manual page 10
+  Indicators: MIL On | CEL Off | Immo NA | IC message: NA
+  Effect on vehicle: Torque reduction
+
+Likely causes:
+  1. Wiring Harness problem
+  2. Sensor failure
+  3. Sensor connector problem
+
+Checkpoints:
+  1. Check Battery Voltage.
+  2. Check Rail pressure sensor pins for damage
+  3. Check Rail pressure sensor connector for damage.
+  4. Check Rail pressure signal lines for continuity.
+
+Troubleshooting steps:
+  Step 1: Check the battery voltage   [spec: 12.5±3 volts]
+  Step 2: Check connector of rail pressure sensor is connected properly to the wire harness connector
+  Step 3: If connector found loses in step 2 then fix is properly & go to Step 13
+          -> if yes -> Step 13
+  Step 4: If the error is present check the connector pins from both side i.e. sensor side & wire harness side
+  Step 5: If pins are damaged then go to Step No. 12
+          -> if yes -> Step 12
+  Step 6: If error still present go to Step 7
+          -> if yes -> Step 7
+  Step 7: Check the wire harness for any pin / wire back-out from connector, if yes go to Step 8
+          -> if yes -> Step 8
+  Step 8: Fix the back-out cables in proper positions in connector & go to Step 13
+          -> then go to Step 13
+  Step 9: If error is still present, check the continuity between pin 2 of rail pressure sensor to A71.
+  Step 10: If continuity is OK in Step 7 then go to Step 12 else go to Step 11
+          -> if yes -> Step 12; if no -> Step 11
+  Step 11: Check the signal line for short to battery or Open circuit i.e. Pin2 to A11. If yes change the cable with new one & go to Step 13.
+          -> if yes -> Step 13
+  Step 12: Change the rail pressure sensor with new one
+  Step 13: Check the DTC
+
+Pins referenced: A11, A71
+See circuit schematic, page 11 of the manual.
+
+Circuit description: EMS monitors the internal fuel pressure of common rail using Rail pressure sensor. It is an analog input type with 3-wires and it gives output voltage in proportion to the internal fuel pressure. This signal is used by EMS to adjust the pressure of rail to the required value. Check for the continuity between EMS and Sensor by referring above schematic.
+
+Source: P0193-00, manual page 10.
+------------------------------------------------------------------------------
+#3  P0180-11  —  Fuel temperature sensor Short circuit to ground
+    why: related to P0192-00: nearest record by embedding similarity (cosine 0.826), different system (fuel_supply)
+
+P0180-11 — Fuel temperature sensor Short circuit to ground
+  System: fuel_supply   |   Manual page 100
+  Indicators: MIL Off | CEL On | Immo NA | IC message: NA
+
+Likely causes:
+  1. Wiring Harness problem
+  2. Sensor failure
+  3. Sensor connector problem
+
+Checkpoints:
+  1. Check Battery Voltage.
+  2. Check Fuel temperature sensor pins for damage
+  3. Check Fuel temperature sensor connector for damage.
+  4. Check Fuel temperature sensor signal lines for continuity.
+
+Troubleshooting steps:
+  Step 1: Check the battery voltage   [spec: 12.5±3 volts]
+  Step 2: Check the wire harness for any pin / wire back-out from connector, if yes go to step 3
+          -> if yes -> Step 3
+  Step 3: Fix the back-out cables in proper positions in connector & go to Step 9
+          -> then go to Step 9
+  Step 4: If error still present, check the continuity between sensor connector pin 1 & A77 & between pin 2 & A32. Go to Step 5
+          -> if yes -> Step 5
+  Step 5: If continuity is available from Step 4 then check the signal line (A77) short to ground (A32) & go to Step 9
+          -> if yes -> Step 9
+  Step 6: If Step 5 is true then replace the wire harness cable with new one & go to Step 9
+          -> if yes -> Step 9
+  Step 7: Check the proper mounting of the sensor & for mechanical damage. If Step 7 is true then go to Step 9
+          -> if yes -> Step 9
+  Step 8: If error still present then replace Fuel Temp sensor with new one & go to Step 9
+          -> if yes -> Step 9
+  Step 9: Check DTC
+
+Pins referenced: A32, A77
+See circuit schematic, page 101 of the manual.
+
+Circuit description: EMS monitors the internal fuel pressure of common rail using Fuel Temperature sensor. It is an analog input type with 2-wires and it gives output voltage in proportion to the internal fuel pressure. Check for the continuity between EMS and Sensor by referring above schematic.
+
+Source: P0180-11, manual page 100.
+==============================================================================
+
+==============================================================================
+INPUT: my truck shows fault P0192-00, how do I fix it?
+MODE : dtc_code
+------------------------------------------------------------------------------
+#1  P0192-00  —  Rail pressure Sensor Short circuit to ground
+    why: DTC code P0192-00 matched in the code index (by_code_full)
+
+P0192-00 — Rail pressure Sensor Short circuit to ground
+  System: rail_pressure   |   Manual page 8
+  Indicators: MIL On | CEL Off | Immo NA | IC message: NA
+  Effect on vehicle: Torque reduction
+
+Likely causes:
+  1. Wiring Harness problem
+  2. Sensor failure
+  3. Sensor connector problem
+
+Checkpoints:
+  1. Check Battery Voltage.
+  2. Check Rail pressure sensor pins for damage
+  3. Check Rail pressure sensor connector for damage.
+  4. Check Rail pressure signal lines for continuity.
+
+Troubleshooting steps:
+  Step 1: Check the battery voltage   [spec: 12.5±3 volts]
+  Step 2: Check connector if rail pressure sensor is connected properly to the wire harness connector
+  Step 3: If connector found lose in step 2 then fix is properly & go to Step 13
+          -> if yes -> Step 13
+  Step 4: If the error is present check the connector pins from both side i.e. sensor side & wire harness side
+  Step 5: If pins are damaged then go to Step No. 12
+          -> if yes -> Step 12
+  Step 6: If error still present go to Step 7
+          -> if yes -> Step 7
+  Step 7: Check the wire harness for any pin / wire back-out from connector, if yes go to Step 8
+          -> if yes -> Step 8
+  Step 8: Fix the back-out cables in proper positions in connector & go to Step 13
+          -> then go to Step 13
+  Step 9: If error is still present, check the continuity between pin 2 of rail pressure sensor to A71.
+  Step 10: If continuity is OK in Step 9 then go to Step 12 else go to Step 11
+          -> if yes -> Step 12; if no -> Step 11
+  Step 11: Check the signal line for short to ground i.e. continuity between Pin2 of rail pressure sensor to A83. If yes, change the cable with new one & go to Step 13.
+          -> if yes -> Step 13
+  Step 12: Change the rail pressure sensor with new one
+  Step 13: Check the DTC
+
+Pins referenced: A71, A83
+See circuit schematic, page 9 of the manual.
+
+Circuit description: EMS monitors the internal fuel pressure of common rail using Rail pressure sensor. It is an analog input type with 3-wires and it gives output voltage in proportion to the internal fuel pressure. This signal is used by EMS to adjust the pressure of rail to the required value. Check for the continuity between EMS and Sensor by referring above schematic.
+
+Source: P0192-00, manual page 8.
+------------------------------------------------------------------------------
+#2  P0193-00  —  Rail pressure sensor Short circuit to battery or Open circuit
+    why: related to P0192-00: nearest record by embedding similarity (cosine 0.962), same system (rail_pressure)
+
+P0193-00 — Rail pressure sensor Short circuit to battery or Open circuit
+  System: rail_pressure   |   Manual page 10
+  Indicators: MIL On | CEL Off | Immo NA | IC message: NA
+  Effect on vehicle: Torque reduction
+
+Likely causes:
+  1. Wiring Harness problem
+  2. Sensor failure
+  3. Sensor connector problem
+
+Checkpoints:
+  1. Check Battery Voltage.
+  2. Check Rail pressure sensor pins for damage
+  3. Check Rail pressure sensor connector for damage.
+  4. Check Rail pressure signal lines for continuity.
+
+Troubleshooting steps:
+  Step 1: Check the battery voltage   [spec: 12.5±3 volts]
+  Step 2: Check connector of rail pressure sensor is connected properly to the wire harness connector
+  Step 3: If connector found loses in step 2 then fix is properly & go to Step 13
+          -> if yes -> Step 13
+  Step 4: If the error is present check the connector pins from both side i.e. sensor side & wire harness side
+  Step 5: If pins are damaged then go to Step No. 12
+          -> if yes -> Step 12
+  Step 6: If error still present go to Step 7
+          -> if yes -> Step 7
+  Step 7: Check the wire harness for any pin / wire back-out from connector, if yes go to Step 8
+          -> if yes -> Step 8
+  Step 8: Fix the back-out cables in proper positions in connector & go to Step 13
+          -> then go to Step 13
+  Step 9: If error is still present, check the continuity between pin 2 of rail pressure sensor to A71.
+  Step 10: If continuity is OK in Step 7 then go to Step 12 else go to Step 11
+          -> if yes -> Step 12; if no -> Step 11
+  Step 11: Check the signal line for short to battery or Open circuit i.e. Pin2 to A11. If yes change the cable with new one & go to Step 13.
+          -> if yes -> Step 13
+  Step 12: Change the rail pressure sensor with new one
+  Step 13: Check the DTC
+
+Pins referenced: A11, A71
+See circuit schematic, page 11 of the manual.
+
+Circuit description: EMS monitors the internal fuel pressure of common rail using Rail pressure sensor. It is an analog input type with 3-wires and it gives output voltage in proportion to the internal fuel pressure. This signal is used by EMS to adjust the pressure of rail to the required value. Check for the continuity between EMS and Sensor by referring above schematic.
+
+Source: P0193-00, manual page 10.
+------------------------------------------------------------------------------
+#3  P0180-11  —  Fuel temperature sensor Short circuit to ground
+    why: related to P0192-00: nearest record by embedding similarity (cosine 0.826), different system (fuel_supply)
+
+P0180-11 — Fuel temperature sensor Short circuit to ground
+  System: fuel_supply   |   Manual page 100
+  Indicators: MIL Off | CEL On | Immo NA | IC message: NA
+
+Likely causes:
+  1. Wiring Harness problem
+  2. Sensor failure
+  3. Sensor connector problem
+
+Checkpoints:
+  1. Check Battery Voltage.
+  2. Check Fuel temperature sensor pins for damage
+  3. Check Fuel temperature sensor connector for damage.
+  4. Check Fuel temperature sensor signal lines for continuity.
+
+Troubleshooting steps:
+  Step 1: Check the battery voltage   [spec: 12.5±3 volts]
+  Step 2: Check the wire harness for any pin / wire back-out from connector, if yes go to step 3
+          -> if yes -> Step 3
+  Step 3: Fix the back-out cables in proper positions in connector & go to Step 9
+          -> then go to Step 9
+  Step 4: If error still present, check the continuity between sensor connector pin 1 & A77 & between pin 2 & A32. Go to Step 5
+          -> if yes -> Step 5
+  Step 5: If continuity is available from Step 4 then check the signal line (A77) short to ground (A32) & go to Step 9
+          -> if yes -> Step 9
+  Step 6: If Step 5 is true then replace the wire harness cable with new one & go to Step 9
+          -> if yes -> Step 9
+  Step 7: Check the proper mounting of the sensor & for mechanical damage. If Step 7 is true then go to Step 9
+          -> if yes -> Step 9
+  Step 8: If error still present then replace Fuel Temp sensor with new one & go to Step 9
+          -> if yes -> Step 9
+  Step 9: Check DTC
+
+Pins referenced: A32, A77
+See circuit schematic, page 101 of the manual.
+
+Circuit description: EMS monitors the internal fuel pressure of common rail using Fuel Temperature sensor. It is an analog input type with 2-wires and it gives output voltage in proportion to the internal fuel pressure. Check for the continuity between EMS and Sensor by referring above schematic.
+
+Source: P0180-11, manual page 100.
+==============================================================================
+
+==============================================================================
+INPUT: coolant gauge stuck at the bottom
+MODE : symptom
+------------------------------------------------------------------------------
+#1  P0116-00  —  Coolant temperature sensor physical value plausibility check
+    why: hybrid search rank 1: dense rank 1, keyword rank 1, RRF 0.032787
+
+P0116-00 — Coolant temperature sensor physical value plausibility check
+  System: coolant   |   Manual page 20
+  Indicators: MIL On | CEL Off | Immo NA | IC message: NA
+  Effect on vehicle: NA
+
+Likely causes:
+  1. Wiring harness defect
+  2. Faulty sensor
+  3. Sensor connector problem
+  4. High Coolant Temperature
+
+Checkpoints:
+  1. Check Battery Voltage
+  2. Check wire harness connections
+  3. Check sensor condition & any mechanical damage to sensor
+
+Troubleshooting steps:
+  Step 1: Check the battery voltage   [spec: 12.5±3 volts]
+  Step 2: Check the wire harness for any pin / wire back-out from connector, if yes go to step 3
+          -> if yes -> Step 3
+  Step 3: Fix the back-out cables in proper positions in connector & go to Step 10
+          -> then go to Step 10  (inferred)
+  Step 4: If error still present, check the continuity between sensor pin1 & A28 & continuity between sensor pin2 & A29. Go to Step 5
+          -> if yes -> Step 5
+  Step 5: If continuity is unavailable from Step 4 then check the signal line short to ground & go to Step 10
+          -> if yes -> Step 10  (inferred)
+  Step 6: If Step 5 is true then replace the wire harness cable with new one & go to Step 10
+          -> if yes -> Step 10  (inferred)
+  Step 7: Check the proper mounting of the sensor & for mechanical damage. If Step 7 is true then go to Step 10
+          -> if yes -> Step 10  (inferred)
+  Step 8: If error still present, check if sensor itself is exposed to high temperature source, go to step 10 after rectification
+          -> if yes -> Step 10  (inferred)
+  Step 9: If error still present then replace Coolant Temp sensor with new one & go to Step 10
+          -> if yes -> Step 10  (inferred)
+  Step 9: Check DTC
+
+Pins referenced: A28, A29
+See circuit schematic, page 21 of the manual.
+
+Circuit description: EMS measures the temperature of coolant by using this sensor. Coolant Temperature sensor has 2-pole connector and provides the analog input signal at A28. It is thermistor type and resistance of it changes according to coolant temperature. EMS will have internal pull up for this sensor. Check for the continuity between EMS and Sensor by referring above schematic.
+
+Source: P0116-00, manual page 20.
+------------------------------------------------------------------------------
+#2  P0117-00  —  Coolant temperature sensor signal Short circuit to ground
+    why: hybrid search rank 2: dense rank 2, keyword rank 3, RRF 0.032002
+
+P0117-00 — Coolant temperature sensor signal Short circuit to ground
+  System: coolant   |   Manual page 13
+  Indicators: MIL On | CEL Off | Immo NA | IC message: NA
+  Effect on vehicle: NA
+
+Likely causes:
+  1. Wiring harness defect
+  2. Faulty sensor
+  3. Sensor connector problem
+
+Checkpoints:
+  1. Check Battery Voltage
+  2. Check wire harness connections
+  3. Check sensor condition & any mechanical damage to sensor
+
+Troubleshooting steps:
+  Step 1: Check the battery   [spec: voltage]
+  Step 2: Check connector properly to the wire   [spec: of coolant temperature sensor is connected harness connector]
+  Step 3: If connector found Step 11   [spec: lose in step 2 then fix is properly & go to]
+  Step 4: Check the wire connector, if yes   [spec: harness for any pin / wire back-out from go to step 5]
+  Step 5: Fix the back-out Step 11   [spec: cables in proper positions in connector & go to]
+  Step 6: If error still present, & A51, & continuity   [spec: check the continuity between sensor pin1 between sensor pin2 & A28. Go to Step 7]
+  Step 7: If continuity is unavailable from Step 6 then check the signal line short to ground & go to Step 11
+          -> if yes -> Step 11
+  Step 8: If Step 7 is true then replace the wire harness cable with new one & go to Step 9
+          -> if yes -> Step 9
+  Step 9: Check the proper mounting of the sensor & for mechanical damage. If Step 9 is true then go to Step 11
+          -> if yes -> Step 11
+  Step 10: If error still present then replace Coolant Temp sensor with new one & go to Step 11
+          -> if yes -> Step 11
+  Step 11: Check DTC
+
+Pins referenced: A51
+See circuit schematic, page 15 of the manual.
+
+Circuit description: EMS measures the temperature of coolant by using this sensor. Coolant Temperature sensor has 2-pole connector and provides the analog input signal at A28. It is thermistor type and resistance of it changes according to coolant temperature. EMS will have internal pull up for this sensor. Check for the continuity between EMS and Sensor by referring above schematic.
+
+Source: P0117-00, manual page 13.
+------------------------------------------------------------------------------
+#3  P0119-00  —  Coolant temperature sensor signal gradient not plausible or intermittent
+    why: hybrid search rank 3: dense rank 3, keyword rank 2, RRF 0.032002
+
+P0119-00 — Coolant temperature sensor signal gradient not plausible or intermittent
+  System: coolant   |   Manual page 18
+  Indicators: MIL On | CEL Off | Immo NA | IC message: NA
+  Effect on vehicle: NA
+
+Likely causes:
+  1. Wiring harness defect
+  2. Faulty sensor
+  3. Sensor connector problem
+
+Checkpoints:
+  1. Check Battery Voltage
+  2. Check wire harness connections
+  3. Check sensor condition & any mechanical damage to sensor
+
+Troubleshooting steps:
+  Step 1: Check the battery voltage   [spec: 12.5±3 volts]
+  Step 2: Check the wire harness for any pin / wire back-out from connector, if yes go to step 3
+          -> if yes -> Step 3
+  Step 3: Fix the back-out cables in proper positions in connector & go to Step 9
+          -> then go to Step 9
+  Step 4: If error still present, check the continuity between sensor pin 1 & A28 & continuity between sensor pin 2 & A29. Go to Step 5
+          -> if yes -> Step 5
+  Step 5: If continuity is unavailable from Step 4 then check the signal line short to battery or open circuit & go to Step 9
+          -> if yes -> Step 9
+  Step 6: If Step 5 is true then replace the wire harness cable with new one & go to Step 9
+          -> if yes -> Step 9
+  Step 7: Check the proper mounting of the sensor & for mechanical damage. If Step 7 is true then go to Step 8
+          -> if yes -> Step 8
+  Step 8: If error still present then replace Coolant Temp sensor with new one & go to Step 9
+          -> if yes -> Step 9
+  Step 9: Check DTC
+
+Pins referenced: A28, A29
+See circuit schematic, page 19 of the manual.
+
+Circuit description: EMS measures the temperature of coolant by using this sensor. Coolant Temperature sensor has 2-pole connector and provides the analog input signal at A28. It is thermistor type and resistance of it changes according to coolant temperature. EMS will have internal pull up for this sensor. Check for the continuity between EMS and Sensor by referring above schematic.
+
+Source: P0119-00, manual page 18.
+==============================================================================
+
+==============================================================================
+INPUT: cam sensor gives no signal
+MODE : symptom
+------------------------------------------------------------------------------
+#1  P0340-00  —  DFC for camshaft signal diagnose - no signal
+    why: hybrid search rank 1: dense rank 2, keyword rank 1, RRF 0.032522; lexicon matched ['cam sensor', 'cam']
+
+P0340-00 — DFC for camshaft signal diagnose - no signal
+  System: engine_position   |   Manual page 143
+  Indicators: MIL On | CEL Off | Immo NA | IC message: NA
+  Effect on vehicle: Vehicle will not start
+
+Likely causes:
+  1. Wiring harness defect
+  2. Faulty sensor
+  3. Air gap too high
+  4. Mechanical damage to the camshaft tone wheel
+
+Checkpoints:
+  1. Check Battery Voltage
+  2. Check the Wire harness connections for pin damage or electrical problems
+  3. Check the Camshaft Sensor for Air gap & condition or damaged tone wheel.
+
+Troubleshooting steps:
+  Step 1: Check the battery voltage   [spec: 12.5±3 volts]
+  Step 2: Check the wire harness for any pin / wire back-out from connector, if yes go to step 3
+          -> if yes -> Step 3
+  Step 3: Fix the back-out cables in proper positions in connector & go to Step 10
+          -> then go to Step 10
+  Step 4: If error still present then check the voltage between pin 1 & pin 3 for proper value (keep ignition ON)   [spec: 5V]
+  Step 5: Check the continuity between the pin 2 & A49 of CAM sensor.
+  Step 6: If continuity fails then Check the signal for Open circuit or short circuit to battery or ground.
+  Step 7: If Step 6 is true then replace the wire harness cable with new one & go to Step 10
+          -> if yes -> Step 10
+  Step 8: If error still present, check the tone wheel for any mechanical damage or distortion & air gap as per specification.   [spec: 0.5-1.5 mm]
+  Step 9: If Step 7 fails then change the tone wheel with new one & maintain specified air gap. Go to Step 10
+          -> if yes -> Step 10
+  Step 10: Check the DTC
+
+Pins referenced: A49
+See circuit schematic, page 144 of the manual.
+
+Circuit description: EMS measures the position of Cam shaft with the help of Cam Shaft Position Sensor. The sensor is Hall Effect type and provides digital input at A49. Allowable Air gap range between target and sensor mounting is 0.5mm to 1.5mm. Synchronization of CAM and Crank signals will be used to start injection. Check for the continuity between EMS and Sensor by referring above schematic.
+
+Source: P0340-00, manual page 143.
+------------------------------------------------------------------------------
+#2  P0341-00  —  DFC for camshaft signal diagnose - disturbed signal
+    why: hybrid search rank 2: dense rank 1, keyword rank 2, RRF 0.032522; lexicon matched ['cam sensor', 'cam']
+
+P0341-00 — DFC for camshaft signal diagnose - disturbed signal
+  System: engine_position   |   Manual page 146
+  Indicators: MIL Off | CEL On | Immo NA | IC message: NA
+  Effect on vehicle: Vehicle will not start
+
+Likely causes:
+  1. Wiring Harness problem
+  2. Sensor damaged
+  3. Excess gap between sensor and cam gear
+  4. Incorrect fitment of cam sensor
+
+Checkpoints:
+  1. Check Battery Voltage
+  2. Check the Wire harness connections for pin damage or electrical problems
+  3. Check the Camshaft Sensor for Air gap & condition or damaged tone wheel.
+
+Troubleshooting steps:
+  Step 1: Check the battery voltage   [spec: 12.5±3 volts]
+  Step 2: Check connector is connected properly
+  Step 3: Check the gap between the cam sensor tip and cam gear sensing surface.   [spec: 0.5-1.5 mm]
+  Step 4: Check for the proper fitment of the cam sensor
+  Step 5: Replace the sensor if the problem persists
+  Step 6: Check the DTC
+See circuit schematic, page 147 of the manual.
+
+Circuit description: EMS measures the position of Cam shaft with the help of Cam Shaft Position Sensor. The sensor is Hall Effect type and provides digital input at A49. Allowable Air gap range between target and sensor mounting is 0.5mm to 1.5mm. Synchronization of CAM and Crank signals will be used to start injection. Check for the continuity between EMS and Sensor by referring above schematic.
+
+Source: P0341-00, manual page 146.
+------------------------------------------------------------------------------
+#3  P0336-00  —  DFC for crankshaft signal diagnose - disturbed signal
+    why: hybrid search rank 3: dense rank 7, keyword rank 6, RRF 0.030077; lexicon matched ['cam sensor', 'cam']
+
+P0336-00 — DFC for crankshaft signal diagnose - disturbed signal
+  System: engine_position   |   Manual page 140
+  Indicators: MIL Off | CEL On | Immo NA | IC message: NA
+  Effect on vehicle: NA.
+
+Likely causes:
+  1. Wiring Harness defect
+  2. Improper tone wheel mounting
+  3. Mechanical damage to crank sensor or tone wheel
+
+Checkpoints:
+  1. Check wiring harness
+  2. Check crank sensor
+  3. Check tone wheel
+
+Troubleshooting steps:
+  Step 1: Check the battery voltage   [spec: 12.5±3 volts]
+  Step 2: Check the wire harness connector is connected properly to the crankshaft sensor
+  Step 3: If connector found loose then fix it properly and go to step 13
+          -> if yes -> Step 13
+  Step 4: If the error persists, check the crankshaft sensor for properly mounted (Air gap) on location, physical damage, damaged pins or wire back out   [spec: Air gap – 0.5 to 1.5mm]
+  Step 5: Check if crank tone wheel mechanically damage, teeth damage or running out
+  Step 6: In case of non-conformity of step 4 & 5, fit the sensor properly, if found damaged change the sensor, fix the tone wheel problem and go to step no 13
+          -> if yes -> Step 13
+  Step 7: If error persists, check the wire harness connector for any pin damage / wire back-out from connector
+  Step 8: Change the connector if required, fix the back-out cables in proper positions in connector and go to step 13
+          -> if yes -> Step 13
+  Step 9: If error persists, check the continuity between pin 1 of crankshaft sensor to pin A15 of ECU and pin 2 of crankshaft speed sensor to pin A16 of ECU
+  Step 10: Check / ensure no cross continuity between terminals / pins in step no 9
+  Step 11: In case of non-conformity of step 9 & 10 change the wires with new and go to step 13
+          -> then go to Step 13
+  Step 12: If error persists, check and change the crankshaft speed sensor with new
+  Step 13: Clear and check the DTC
+
+Pins referenced: A15, A16
+See circuit schematic, page 141 of the manual.
+
+Circuit description: EMS measures the engine speed with the help of Crank position sensor. The Sensor is Variable Reluctance type. The slot and teeth present on target wheel alter the gap and hence result in change of magnetic field near sensor .This change in magnetic field causes the sensor to produce voltage which is approximately a sine wave and whose frequency is proportional to engine speed. This information in synchronization with CAM sensor is used by EMS to initiate fuel injection.
+
+Source: P0336-00, manual page 140.
+==============================================================================
+

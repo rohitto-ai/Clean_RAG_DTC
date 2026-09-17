@@ -1,10 +1,12 @@
 # RESUME — Clean RAG for the 3.3L DTC Manual
 
-**State: PHASE 8 COMPLETE.** All phases 0–8 are done on branch `phase8-limitations`. The
+**State: PHASE 8 COMPLETE; Phase 9.1 (advise mode) DONE.** All phases 0–8 are done on branch `phase8-limitations`. The
 Phase 8 configuration is adopted as the production default. The frozen TEST split has been
 evaluated once and is now spent. The previous system is preserved as tag `v1-phase7`.
 
 _Last updated: 2026-09-17_
+
+**Phase 9.1:** `src/advise.py` + `POST /advise` return the top-3 DTCs, each with a deterministic fix block (additive; retrieval, gate and indexes unchanged). **Open finding for 9.2:** a Phase 1 column-boundary defect leaks step text into `specifications` in at least 3 records (P0117-00, P00C6-00, P0A1B-12), garbling their steps. Details: `docs/report/phase9_1_advise_mode.md`.
 
 ## Final result (Phase 8.5, gold v2.2 TEST, one shot)
 
@@ -259,3 +261,4 @@ exact dense, cylinder token) + gate v2 by default (`data/production_config.json`
 - [phase8_3b_determinism.md](phase8_3b_determinism.md) — exact ranking, 3-process proof, corrected DEV baseline
 - [phase8_4_image_pins.md](phase8_4_image_pins.md) — composition OCR: recall, audited precision, verdict
 - [phase8_5_final_eval.md](phase8_5_final_eval.md) — **the Phase 8 results chapter**: one-shot TEST, ablations, adoption
+- [phase9_1_advise_mode.md](phase9_1_advise_mode.md) — top-3 DTCs with fix steps; the step/spec column parse defect

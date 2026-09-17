@@ -7,6 +7,7 @@ Endpoints
     GET  /health              readiness + index sizes
     POST /query               retrieve -> answer (deterministic or LLM-phrased)
     POST /diagnose            stateful step-wise walk of a DTC's decision tree
+    POST /advise              top-3 DTCs, each with a deterministic fix block (Phase 9.1)
 
 Diagnosis sessions are held in memory: this is a single-process demo surface,
 not a production service.
@@ -45,6 +46,11 @@ class QueryIn(BaseModel):
     k: int = 5
 
 
+class AdviseIn(BaseModel):
+    input: str
+    summary: bool = False                # optional one-sentence LLM summary per code
+
+
 class DiagnoseIn(BaseModel):
     code_full: str | None = None
     session_id: str | None = None
@@ -58,6 +64,19 @@ def health():
     return {"status": "ok", "records": len(STATE["records"]),
             "vectors": R.coll.count(), "bm25_docs": len(R.bm25_ids),
             "model_loaded": STATE["phraser"].llm is not None}
+
+
+@app.post("/advise")
+def advise_endpoint(a: AdviseIn):
+    """
+    Phase 9.1: top-3 DTCs, each with a deterministic fix block.
+    Returns {input, mode, results: [{rank, code_full, why_retrieved, fix_block}], trace}.
+    mode is "dtc_code", "symptom", "system_group" or "refused".
+    """
+    from advise import advise
+    if not a.input.strip():
+        raise HTTPException(400, "empty input")
+    return advise(a.input, STATE["retriever"], phraser=STATE["phraser"], summary=a.summary)
 
 
 @app.post("/query")
