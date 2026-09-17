@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "calibrated_on_index": "index_exp/minilm_alias_bm25_cyl_lexablated",
+  "calibration_split": "DEV only (TEST held out for 8.5)",
+  "dense_min": 0.23,
+  "bm25_min": 8.5,
+  "rule": "refuse if (dense_sim < dense_min AND bm25_max < bm25_min) OR non_diagnostic_intent_dominant",
+  "intent_filter": true,
+  "intent_stoplist": "data/experiments/8_5/intent_stoplist_ablated.json",
+  "intent_stoplist_sha256_16": "75aff6b4ecd374ca",
+  "threshold_rationale": {
+    "dense_min": "midpoint of max DEV general-out-of-scope dense_sim (0.213, 'how much does this truck cost') and min DEV in-scope dense_sim (0.251, 'soot trap is completely blocked up')",
+    "bm25_min": "midpoint of max DEV general-out-of-scope bm25_max (5.63, 'what is the capital of France') and the lowest bm25_max among the in-scope queries nearest the dense threshold (~11.6), keeping BM25 a real second pass-route for paraphrases",
+    "vehicle_adjacent_oos": "d030 warranty (0.322/8.74) and d033 injectors in stock (0.323/10.61) sit inside the in-scope range on BOTH signals; no signal threshold refuses them without blocking in-scope queries, so reason (b) handles them"
+  },
+  "note": "Phase 8.5 ablation variant: thresholds unchanged from gate_c4b.json (calibrated on DEV, full C4b index)"
+}

@@ -1,0 +1,40 @@
+{
+  "phase": "8.5",
+  "registered_utc": "2026-09-17T16:22:26Z",
+  "git_head_before_registration": "1fae1e816a9d8a82ec13e6b6dff31e6c8e3db341",
+  "protocol": "Run scripts/final_test_eval.py exactly once. Headline = config d (both ablated). No configuration, threshold, lexicon or stoplist change after TEST is seen.",
+  "determinism_check": {
+    "script": "scripts/determinism_proof.py",
+    "runs": 3,
+    "hash": "76b16c2b9ab8f9f2",
+    "result": "identical x3 on this machine"
+  },
+  "file_sha256": {
+    "scripts/final_test_eval.py": "de1ea48458a24fa8403f4dabc07c1ef172e98f50324823b3cc6d93efa1597f9d",
+    "data/gold_v2.json": "787c6641401b93693c364637457d5a8210c1492cd7340c9318c9dc44abc191f7",
+    "data/dtc_records.jsonl": "a0e76da9dfe1e0b37934c97fc99e32f90eec2e5d4bb6a4fe3eb1edd9bf61e916",
+    "data/domain_lexicon.json": "3adeae1b9fe5a0fd9c7b2a8995e77102c5361214abb58a5ff9e67660b8d1ee6a",
+    "data/experiments/8_5/domain_lexicon_ablated.json": "4a3240a84fdb30073d2dfa2f52ad4e44d8bc5778043f84d87363f76e6cae0f57",
+    "data/intent_stoplist.json": "736ea4205e04100d75380e67b832aa71f7a276a0fd663c757838ceb63ee36d09",
+    "data/experiments/8_5/intent_stoplist_ablated.json": "75aff6b4ecd374ca724ca178774b09c6de6b8c88590ff00e018096e0330056ed",
+    "data/gate_c4b.json": "42bbddd4aa708aceaacadcd7813dd860d05f0b20bc408518995d6afe801f7ee9",
+    "data/experiments/8_5/gate_full_on_lexablated.json": "9744841bc9f7c1fb1a72326536a4e0278be9dfa070578264a27b9950fda0f57f",
+    "data/experiments/8_5/gate_stopablated.json": "bebc3fc4b00f05ad9bc08f9482ed990e3eb6f7570887d3731821fbf8623cb103",
+    "data/experiments/8_5/gate_stopablated_on_lexablated.json": "d7f0efa7ad22fecc82d47611342434ae4df07cea699bffcf8e1911a24a1b253f",
+    "src/retrieve.py": "237077912fa3a40ff2d667e4d11a9c9160681c48bb40155b06c390f1b05be859",
+    "src/gate.py": "25bacaaba2dd143197581192dc709e2c8c6bba89ac5b90d9408e2e73b9b04910",
+    "src/lexicon.py": "cb60c3430450649c2c2cf239f9017e4f2f923b37ed7acc764f2d24485cec9e15",
+    "src/answer.py": "0b2e22caee3519f368790b3431d06a9b40c8e4161fe557461d8f8c158dae1cc1",
+    "src/evaluate_v2.py": "dfe0223bc98567a25ccf7a6404f9d36f941bb8244bb2f1f3452f274d6b1779d1",
+    "src/build_index.py": "1e79675ed29c0c2ecd0cc2f8f9f3cb7ec6bf44d0792c88603de0cfc15d265cfa"
+  },
+  "index_bm25_corpus_sha256": {
+    "index": "89c620dd4570a254c64206bd6387f3582da237c55142e3556cc208e2b33e9d4c",
+    "index_exp/minilm_alias_bm25_cyl": "3b2c62107e5a00d7f2a817e46e662b1ba3833635b2f84666661800a458f711e3",
+    "index_exp/minilm_alias_bm25_cyl_lexablated": "33e3e9823104d49aaf6d4609b05ba826ab0083aaac112b215d5c2690984dc6fe"
+  },
+  "ablation_counts": {
+    "lexicon_entries_removed": 19,
+    "intent_terms_removed": 8
+  }
+}

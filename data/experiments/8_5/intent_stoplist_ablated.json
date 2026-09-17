@@ -1,0 +1,256 @@
+{
+  "version": "1-ablated-test-matching",
+  "purpose": "Non-diagnostic intent taxonomy for the relevance gate (Phase 8.3, reason (b)). A query is refused for intent only when non-diagnostic intent dominates: at least one intent term, NO diagnostic cue word, and NO DTC code.",
+  "authoring": [
+    "Built from GENERAL non-diagnostic intent categories, terms named in the Phase 8.3 brief, and the DEV out-of-scope queries. TEST out-of-scope queries were NOT consulted while building this list.",
+    "provenance: general = standard non-fault intent vocabulary; user = named in the 8.3 brief; dev_oos = taken from a DEV out-of-scope query.",
+    "Safety rule (automated, src/gate.py audit): no intent term may occur in any manual DTC description, cause, effect or checkpoint - a real fault query that echoes the manual must never trip the intent filter. Ambiguous words are therefore omitted on purpose: 'available/availability' (the manual has 'heater unavailability' as a fault), bare 'seat' (valve seat), bare 'ac' (AC voltage), 'supply' (supply voltage), 'order' (firing order).",
+    "Diagnostic cues are words that signal a fault. Any cue in the query vetoes an intent refusal, so a fault query that happens to mention price, a dealer or a warranty still passes.",
+    "Terms match on word boundaries, case-insensitive, tolerating a plural 's'. matches_test_query flags are COMPUTED only after this file is frozen (see docs/report/phase8_3_relevance_gate.md)."
+  ],
+  "intents": {
+    "commercial_pricing": [
+      {
+        "term": "price",
+        "provenance": "user"
+      },
+      {
+        "term": "pricing",
+        "provenance": "general"
+      },
+      {
+        "term": "cost",
+        "provenance": "user"
+      },
+      {
+        "term": "how much does",
+        "provenance": "dev_oos"
+      },
+      {
+        "term": "how much is",
+        "provenance": "general"
+      },
+      {
+        "term": "quote",
+        "provenance": "user"
+      },
+      {
+        "term": "quotation",
+        "provenance": "general"
+      },
+      {
+        "term": "finance",
+        "provenance": "general"
+      },
+      {
+        "term": "trade-in",
+        "provenance": "general"
+      },
+      {
+        "term": "trade in",
+        "provenance": "general"
+      },
+      {
+        "term": "cheaper",
+        "provenance": "general"
+      },
+      {
+        "term": "expensive",
+        "provenance": "general"
+      }
+    ],
+    "purchasing_parts": [
+      {
+        "term": "in stock",
+        "provenance": "user"
+      },
+      {
+        "term": "dealer",
+        "provenance": "user"
+      },
+      {
+        "term": "dealership",
+        "provenance": "general"
+      },
+      {
+        "term": "spare part",
+        "provenance": "general"
+      },
+      {
+        "term": "genuine part",
+        "provenance": "general"
+      },
+      {
+        "term": "part number",
+        "provenance": "general"
+      },
+      {
+        "term": "supplier",
+        "provenance": "general"
+      },
+      {
+        "term": "delivery time",
+        "provenance": "general"
+      }
+    ],
+    "scheduling_service": [
+      {
+        "term": "book",
+        "provenance": "user"
+      },
+      {
+        "term": "booking",
+        "provenance": "general"
+      },
+      {
+        "term": "appointment",
+        "provenance": "user"
+      },
+      {
+        "term": "service center",
+        "provenance": "user"
+      },
+      {
+        "term": "opening hours",
+        "provenance": "user"
+      },
+      {
+        "term": "service appointment",
+        "provenance": "dev_oos"
+      },
+      {
+        "term": "service interval",
+        "provenance": "general"
+      },
+      {
+        "term": "next service",
+        "provenance": "general"
+      },
+      {
+        "term": "reschedule",
+        "provenance": "general"
+      }
+    ],
+    "warranty_legal": [
+      {
+        "term": "guarantee",
+        "provenance": "user"
+      },
+      {
+        "term": "insurance",
+        "provenance": "general"
+      },
+      {
+        "term": "recall",
+        "provenance": "general"
+      },
+      {
+        "term": "claim",
+        "provenance": "general"
+      },
+      {
+        "term": "refund",
+        "provenance": "general"
+      }
+    ],
+    "comfort_infotainment": [
+      {
+        "term": "radio",
+        "provenance": "user"
+      },
+      {
+        "term": "speaker",
+        "provenance": "general"
+      },
+      {
+        "term": "navigation",
+        "provenance": "general"
+      },
+      {
+        "term": "sat nav",
+        "provenance": "general"
+      },
+      {
+        "term": "air conditioning",
+        "provenance": "user"
+      },
+      {
+        "term": "climate control",
+        "provenance": "general"
+      },
+      {
+        "term": "touchscreen",
+        "provenance": "general"
+      },
+      {
+        "term": "usb",
+        "provenance": "general"
+      }
+    ]
+  },
+  "diagnostic_cues": [
+    "fault",
+    "faulty",
+    "error",
+    "code",
+    "dtc",
+    "warning",
+    "light",
+    "lamp",
+    "mil",
+    "broken",
+    "stuck",
+    "seized",
+    "jammed",
+    "leak",
+    "leaking",
+    "noise",
+    "rattle",
+    "won't start",
+    "will not start",
+    "not starting",
+    "not working",
+    "fail",
+    "fails",
+    "failure",
+    "failed",
+    "dead",
+    "short",
+    "shorted",
+    "open circuit",
+    "sensor",
+    "reading",
+    "gauge",
+    "misfire",
+    "smoke",
+    "stall",
+    "stalling",
+    "cuts out",
+    "cutting out",
+    "loss of power",
+    "power loss",
+    "overheating",
+    "too high",
+    "too low",
+    "blocked",
+    "clogged",
+    "diagnose",
+    "troubleshoot",
+    "symptom",
+    "problem",
+    "issue"
+  ],
+  "ablation": {
+    "reason": "Phase 8.5 conservative TEST measurement: intent terms matching TEST query wording removed",
+    "excluded": [
+      "bluetooth",
+      "buy",
+      "discount",
+      "infotainment",
+      "purchase",
+      "resale",
+      "service centre",
+      "warranty"
+    ]
+  }
+}

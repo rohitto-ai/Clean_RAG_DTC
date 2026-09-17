@@ -1,0 +1,293 @@
+{
+  "version": "2-ablated-test-matching",
+  "purpose": "Map technician/colloquial vocabulary to the manual's formal ECU terminology, to close the symptom-retrieval vocabulary gap (Phase 8.2, limitation L1).",
+  "rules": [
+    "Aliases are SUBSYSTEM-level (system_aliases, applied to every record of that system) or DESCRIPTION-level (term_synonyms, applied only when the manual term appears in a record's description, optionally restricted to listed systems). They are NEVER derived from step text: step boilerplate is shared across hundreds of DTCs, and aliasing it would re-collapse near-duplicates.",
+    "Index side: a record's alias string = colloquial terms of its system + colloquial terms of every term_synonym triggered by its description.",
+    "Query side: every colloquial term found in the query (word-boundary, longest first) is expanded by appending its manual terms.",
+    "provenance: general = standard technician synonym authored from the manual's own vocabulary before inspecting any 8.2 retrieval output; user = specified in the Phase 8.2 brief; dev_driven = added after inspecting a DEV miss.",
+    "matches_dev_query / matches_test_query are COMPUTED from gold query text (src/lexicon.py audit), never hand-set. TEST-matching entries are ablated at 8.5 to give an uncontaminated TEST lower bound.",
+    "v2: an alias stays SUBSYSTEM-level only if it is correct for EVERY record in that subsystem. Where a subsystem mixes components (engine_position = crank + cam; dpf_regen = DPF + DOC; fuel_supply = pump + temperature sensor + metering unit; o2_exhaust = NOx + exhaust-temperature; pedal_clutch_brake = pedal + clutch + brake), the alias is DESCRIPTION-level instead, so a camshaft record never receives crank aliases."
+  ],
+  "system_aliases": {
+    "egr": {
+      "colloquial": [
+        "exhaust recirculation",
+        "recirc"
+      ],
+      "manual": [
+        "egr",
+        "exhaust gas recirculation"
+      ],
+      "provenance": "general"
+    },
+    "turbo_boost": {
+      "colloquial": [
+        "turbo"
+      ],
+      "manual": [
+        "turbocharger",
+        "boost"
+      ],
+      "provenance": "general"
+    },
+    "coolant": {
+      "colloquial": [
+        "water temp",
+        "engine water",
+        "temp gauge"
+      ],
+      "manual": [
+        "coolant temperature"
+      ],
+      "provenance": "general"
+    },
+    "rail_pressure": {
+      "colloquial": [
+        "common rail",
+        "injection pressure"
+      ],
+      "manual": [
+        "rail pressure",
+        "fuel rail"
+      ],
+      "provenance": "general"
+    },
+    "injector": {
+      "colloquial": [
+        "nozzle"
+      ],
+      "manual": [
+        "injector"
+      ],
+      "provenance": "general"
+    }
+  },
+  "term_synonyms": [
+    {
+      "manual": [
+        "valve"
+      ],
+      "colloquial": [
+        "flap"
+      ],
+      "systems": [
+        "egr",
+        "exhaust_throttle",
+        "turbo_boost"
+      ],
+      "provenance": "user"
+    },
+    {
+      "manual": [
+        "jammed",
+        "stuck"
+      ],
+      "colloquial": [
+        "seized",
+        "seized up",
+        "sticking"
+      ],
+      "provenance": "user"
+    },
+    {
+      "manual": [
+        "fuel pump"
+      ],
+      "colloquial": [
+        "lift pump",
+        "feed pump",
+        "transfer pump"
+      ],
+      "provenance": "user"
+    },
+    {
+      "manual": [
+        "short circuit to battery"
+      ],
+      "colloquial": [
+        "shorted to positive",
+        "short to positive",
+        "shorted to supply"
+      ],
+      "provenance": "general"
+    },
+    {
+      "manual": [
+        "short circuit to ground"
+      ],
+      "colloquial": [
+        "shorted to earth",
+        "short to earth"
+      ],
+      "provenance": "general"
+    },
+    {
+      "manual": [
+        "battery voltage"
+      ],
+      "colloquial": [
+        "system voltage",
+        "supply voltage",
+        "charging voltage",
+        "volts"
+      ],
+      "provenance": "general"
+    },
+    {
+      "manual": [
+        "no signal"
+      ],
+      "colloquial": [
+        "no output",
+        "nothing from"
+      ],
+      "provenance": "general"
+    },
+    {
+      "manual": [
+        "disturbed signal"
+      ],
+      "colloquial": [
+        "erratic",
+        "noisy",
+        "intermittent"
+      ],
+      "provenance": "general"
+    },
+    {
+      "manual": [
+        "clogged"
+      ],
+      "colloquial": [
+        "blocked",
+        "blocked up",
+        "choked"
+      ],
+      "provenance": "general"
+    },
+    {
+      "manual": [
+        "level too low"
+      ],
+      "colloquial": [
+        "empty",
+        "run dry",
+        "nearly empty",
+        "running out"
+      ],
+      "provenance": "general"
+    },
+    {
+      "manual": [
+        "starter motor"
+      ],
+      "colloquial": [
+        "starter solenoid",
+        "cranking motor"
+      ],
+      "provenance": "general"
+    },
+    {
+      "manual": [
+        "cranking"
+      ],
+      "colloquial": [
+        "turning over",
+        "turns over"
+      ],
+      "provenance": "general"
+    },
+    {
+      "manual": [
+        "water in fuel"
+      ],
+      "colloquial": [
+        "water separator",
+        "moisture in fuel",
+        "contaminated fuel"
+      ],
+      "provenance": "general"
+    },
+    {
+      "manual": [
+        "metering unit"
+      ],
+      "colloquial": [
+        "fuel metering valve",
+        "quantity control valve"
+      ],
+      "provenance": "general"
+    },
+    {
+      "manual": [
+        "camshaft"
+      ],
+      "colloquial": [
+        "cam",
+        "cam pickup",
+        "cam sensor"
+      ],
+      "provenance": "general"
+    },
+    {
+      "manual": [
+        "fuel filter",
+        "water in fuel"
+      ],
+      "colloquial": [
+        "diesel filter"
+      ],
+      "provenance": "general"
+    },
+    {
+      "manual": [
+        "lambda"
+      ],
+      "colloquial": [
+        "lambda probe",
+        "o2 sensor"
+      ],
+      "provenance": "general"
+    },
+    {
+      "manual": [
+        "pedal"
+      ],
+      "colloquial": [
+        "throttle pedal",
+        "gas pedal",
+        "go pedal",
+        "accelerator"
+      ],
+      "systems": [
+        "pedal_clutch_brake"
+      ],
+      "provenance": "general"
+    }
+  ],
+  "ablation": {
+    "reason": "Phase 8.5 conservative TEST measurement: entries whose colloquial terms appear in TEST query wording removed",
+    "excluded": [
+      "system:vehicle_speed",
+      "system:exhaust_throttle",
+      "system:can_network",
+      "term:ground",
+      "term:sensor",
+      "term:vehicle speed",
+      "term:charge air cooler",
+      "term:engine speed",
+      "term:open circuit",
+      "term:plausibility",
+      "term:frozen",
+      "term:deteriorated",
+      "term:temperature",
+      "term:crankshaft",
+      "term:particulate filter",
+      "term:soot",
+      "term:regeneration",
+      "term:urea",
+      "term:nox sensor"
+    ]
+  }
+}
