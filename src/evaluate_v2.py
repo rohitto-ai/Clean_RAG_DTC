@@ -92,24 +92,25 @@ def main():
     ap.add_argument("--split", choices=["DEV", "TEST", "both"], default="DEV")
     ap.add_argument("--index-dir", default="index")
     ap.add_argument("--query-prefix", default="")
-    ap.add_argument("--lexicon", default=None)
-    ap.add_argument("--expand", choices=["none", "bm25", "both"], default="none")
+    ap.add_argument("--lexicon", default="auto", help='"auto" = from index meta; "none" = no lexicon')
+    ap.add_argument("--expand", choices=["auto", "none", "bm25", "both"], default="auto")
     ap.add_argument("--quiet", action="store_true", help="suppress per-query DEV misses")
-    ap.add_argument("--gate", default=None, help="gate config json (Phase 8.3); default = legacy v1 gate")
+    ap.add_argument("--gate", default="default",
+                    help='gate config json; "default" = adopted gate v2; "legacy" = v1 gate')
     args = ap.parse_args()
 
     gold = json.load(open(args.gold))
     records = [json.loads(l) for l in open("data/dtc_records.jsonl")]
     from retrieve import Retriever
     import answer as A
-    lex = None
-    if args.lexicon:
+    lex = None if args.lexicon == "none" else "auto"
+    if args.lexicon not in ("auto", "none"):
         from lexicon import Lexicon
         lex = Lexicon(args.lexicon)
     R = Retriever(index_dir=args.index_dir, query_prefix=args.query_prefix,
                   lexicon=lex, expand=args.expand)
-    gate = None
-    if args.gate:
+    gate = None if args.gate == "legacy" else "default"
+    if args.gate not in ("default", "legacy"):
         from gate import Gate
         gate = Gate(args.gate)
 

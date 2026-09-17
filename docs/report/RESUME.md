@@ -1,13 +1,26 @@
 # RESUME — Clean RAG for the 3.3L DTC Manual
 
-**State: Phases 0–7 complete and tagged `v1-phase7`. Phase 8 (limitations iteration)
-in progress on branch `phase8-limitations`: 8.0, 8.1, 8.2, 8.2b, 8.3, 8.3b and 8.4 DONE — retrieval is deterministic; ready for 8.5 on go-ahead. STOPPED FOR REVIEW
-after 8.2. Production retrieval is still exactly v1-phase7; TEST has NOT been run since
-8.0 and is frozen until 8.5.**
+**State: PHASE 8 COMPLETE.** All phases 0–8 are done on branch `phase8-limitations`. The
+Phase 8 configuration is adopted as the production default. The frozen TEST split has been
+evaluated once and is now spent. The previous system is preserved as tag `v1-phase7`.
 
-_Recover the evaluated v1 system at any time:_ `git checkout v1-phase7`
+_Last updated: 2026-09-17_
 
-_Last updated: 2026-09-16_
+## Final result (Phase 8.5, gold v2.2 TEST, one shot)
+
+| TEST | v1-phase7 | **conservative headline (both ablated)** | adopted production (full) |
+|---|---|---|---|
+| overall MRR | 0.562 | **0.601** | 0.728 |
+| symptom hit@1 / MRR | 23.1% / 0.291 | **23.1% / 0.368** | 53.8% / 0.628 |
+| near-duplicate MRR | 0.690 | 0.690 | 0.679 |
+| exact-code hit@1 | 100% | 100% | 100% |
+| out-of-scope refused | 3/6 | **2/6** | 6/6 |
+| in-scope passed | 29/30 | 30/30 | 30/30 |
+
+**Honest reading:** most of the TEST symptom gain comes from lexicon entries whose wording also
+appears in TEST. The defensible gain over v1 is +0.077 symptom MRR with no hit@1 change. Gate v2
+is weaker than v1 on commercial phrasing its stoplist doesn't cover. Full analysis:
+`docs/report/phase8_5_final_eval.md`.
 
 ---
 
@@ -37,7 +50,7 @@ _Last updated: 2026-09-16_
 | 8.3 · Relevance gate (L3) | ✅ DEV only, on C4b. Gate v2 (signal + non-diagnostic intent): OOS refused **6/6**, in-scope **28/28** |
 | 8.3b · Deterministic retrieval | ✅ exact dense ranking + total RRF order. DEV result byte-identical in 3 processes / 3 hash seeds |
 | 8.4 · Image-derived pins (L4) | ✅ characterized limitation: recall 31%, audited precision 38%, 3 genuine new pins vs 61 false. Supplementary file only; indexes untouched |
-| **8.5 · Final TEST evaluation** | ⏸ next, on go-ahead |
+| 8.5 · Final TEST evaluation + adoption | ✅ one-shot, pre-registered; C4b + gate v2 adopted; suite 44/1/0, guardrails 14/14, production hash 76b16c2b9ab8f9f2 |
 | 8.5 · Final TEST evaluation | ⏸ frozen until then |
 
 ### DEV results (gold v2.2) — 8.2
@@ -54,27 +67,23 @@ _Last updated: 2026-09-16_
 Gold v2.2: the overlap ceiling is now uniform (DEV 0.090 / TEST 0.098 mean overlap).
 TEST figures from 8.0 (v2.1) remain the frozen before-picture; not re-run.
 
-## Exact next action
+## Next steps (Phase 8 is complete — these are recommendations)
 
-**8.5 — the one-shot TEST evaluation, on go-ahead.** Retrieval is now deterministic (8.3b).
-**First, on the machine that will run 8.5, re-run `scripts/determinism_proof.py` three times**
-and confirm the DEV hash is `76b16c2b9ab8f9f2`. A different BLAS or CPU could change results.
+1. **Independent query author.** The gold set, lexicon and stoplist share one author, and 8.5
+   showed that is the largest source of optimism. A new held-out set written by someone who
+   hasn't seen the lexicon is the most valuable next measurement. **TEST v2.2 is spent** and must
+   not be reused as a clean held-out set.
+2. **Gate: restore a stricter signal floor for intent-free queries**, or grow the stoplist from
+   an independent source. Gate v2's lowered `dense_min` (0.23) lets unfamiliar commercial phrasing
+   through (TEST conservative 2/6 vs v1 3/6).
+3. **Merge** `phase8-limitations` → `main` after review (PR opened in 8.5).
+4. Smaller: number words and ordinals for the cylinder token; negation in symptom queries; the
+   image-pin redesign (pin-block detection + net-anchored numbers), only if pins from images are
+   ever needed.
 
-Selected configuration going into 8.5, still not adopted as the production default:
-- **Retrieval — C4b:** `--index-dir index_exp/minilm_alias_bm25_cyl --lexicon
-  data/domain_lexicon.json --expand bm25` (index built with `build_index.py --aliases bm25
-  --cylinder-token`)
-- **Gate — v2:** `--gate data/gate_c4b.json` (dense_min 0.23, bm25_min 8.5, plus the
-  intent filter from `data/intent_stoplist.json`, sha `736ea4205e04100d`)
-
-**8.5 must report TEST with ablations — DECIDED:**
-- lexicon: full, and with the 19 TEST-matching entries removed (`Lexicon(exclude_test_matching=True)`)
-- gate stoplist: full, and with the 8 TEST-matching intent terms removed
-  (`data/experiments/8_3_stoplist_test_matching.json`)
-- **the fully ablated figure is the conservative headline.**
-
-**TEST discipline:** `src/evaluate_v2.py` defaults to `--split DEV`. Never pass `--split TEST`
-before 8.5.
+**Production is now:** `Retriever()` (auto config from `index/` meta: lexicon + BM25 expansion,
+exact dense, cylinder token) + gate v2 by default (`data/production_config.json`). Reproduce v1:
+`git checkout v1-phase7`.
 
 ## Open decisions for you
 
@@ -94,6 +103,9 @@ before 8.5.
    all marked `polarity_confidence: "low"`. **Phase 6 must clamp them to the terminal
    step** — a consumer that follows `on_true` blindly will dereference a
    non-existent step. Recommendation unchanged: clamp in Phase 6, log in Phase 7.
+
+0. **Phase 8.5 outcome:** TEST measured once; the conservative (both-ablated) headline is the
+   number to quote. Adopted (a) for production — see the final report for why (a) rather than (d).
 
 1. ~~**Ranking non-determinism.**~~ **FIXED in 8.3b:** the dense pool now comes from the
    exact matrix, with a total RRF order. The DEV result is byte-identical across 3 processes
@@ -190,6 +202,7 @@ before 8.5.
 - **Subsystem-level aliases must be right for every record in the subsystem.** Mixed
   subsystems (engine_position = crank + cam) need description-level aliases, or a cam DTC
   gets crank aliases.
+- **TEST v2.2 is SPENT (evaluated in 8.5).** Do not report new results on it as held-out.
 - **Never tune against TEST in `data/gold_v2.json`**, and never look at TEST
   per-query misses. `src/evaluate_v2.py` withholds them on purpose.
 - **An anti-copy substring check is not enough to keep a gold set honest.** It passed
@@ -245,3 +258,4 @@ before 8.5.
 - [phase8_3_relevance_gate.md](phase8_3_relevance_gate.md) — two-reason gate, thresholds, intent taxonomy
 - [phase8_3b_determinism.md](phase8_3b_determinism.md) — exact ranking, 3-process proof, corrected DEV baseline
 - [phase8_4_image_pins.md](phase8_4_image_pins.md) — composition OCR: recall, audited precision, verdict
+- [phase8_5_final_eval.md](phase8_5_final_eval.md) — **the Phase 8 results chapter**: one-shot TEST, ablations, adoption

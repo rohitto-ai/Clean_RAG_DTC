@@ -204,8 +204,23 @@ class Phraser:
 RELEVANCE_PROBE_K = 5
 
 
-def is_relevant(retriever, query, gate=None):
+DEFAULT_GATE_CONFIG = "data/gate_c4b.json"   # gate v2, adopted in Phase 8.5
+_DEFAULT_GATE = None
+
+
+def default_gate():
+    global _DEFAULT_GATE
+    if _DEFAULT_GATE is None:
+        from gate import Gate
+        _DEFAULT_GATE = Gate(DEFAULT_GATE_CONFIG)
+    return _DEFAULT_GATE
+
+
+def is_relevant(retriever, query, gate="default"):
     """
+    gate="default" (Phase 8.5): the adopted two-reason gate v2. gate=None: the
+    legacy v1 threshold-only gate, kept for reproducing v1 results.
+
     gate: a gate.Gate (Phase 8.3 two-reason gate). None = the legacy v1 gate below,
     so the production system is unchanged until a gate config is adopted.
 
@@ -217,6 +232,8 @@ def is_relevant(retriever, query, gate=None):
     0.39) while the embeddings were verified byte-identical across processes.
     Ranking tolerates that variance; a threshold decision must not.
     """
+    if gate == "default":
+        gate = default_gate()
     if gate is not None:
         return gate.decide(retriever, query)
     dense_sim = retriever.exact_max_sim(query)
@@ -227,7 +244,7 @@ def is_relevant(retriever, query, gate=None):
                 "dense_min": DENSE_RELEVANCE_MIN, "bm25_min": BM25_RELEVANCE_MIN}
 
 
-def answer(query, retriever, phraser=None, k=5, gate=None):
+def answer(query, retriever, phraser=None, k=5, gate="default"):
     """
     Route -> render. Returns {mode, path, text, citations, trace, llm_stats?}.
     """

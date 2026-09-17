@@ -24,6 +24,10 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--exact", type=int, choices=[0, 1], default=1)
     ap.add_argument("--tag", required=True)
+    ap.add_argument("--index-dir", default="index_exp/minilm_alias_bm25_cyl")
+    ap.add_argument("--defaults", action="store_true",
+                    help="construct exactly as production does: Retriever(index_dir) with auto "
+                         "config, and the default gate (Phase 8.5 adoption check)")
     args = ap.parse_args()
 
     import answer as A
@@ -37,9 +41,14 @@ def main():
     assert dev and all(q["split"] == "DEV" for q in dev)
     records = [json.loads(l) for l in open("data/dtc_records.jsonl")]
 
-    R = Retriever(index_dir="index_exp/minilm_alias_bm25_cyl", lexicon=Lexicon(),
-                  expand="bm25", exact_dense=bool(args.exact))
-    res = EV.run(R, dev, records, A, Gate("data/gate_c4b.json"))
+    if args.defaults:
+        R = Retriever(index_dir=args.index_dir)
+        gate = A.default_gate()
+    else:
+        R = Retriever(index_dir=args.index_dir, lexicon=Lexicon(),
+                      expand="bm25", exact_dense=bool(args.exact))
+        gate = Gate("data/gate_c4b.json")
+    res = EV.run(R, dev, records, A, gate)
 
     canon = {
         "rows": [{"id": r["id"], "mode": r["mode"], "rank": r["rank"], "got": r["got"]}
@@ -53,7 +62,7 @@ def main():
     }
     blob = json.dumps(canon, sort_keys=True, separators=(",", ":")).encode()
     digest = hashlib.sha256(blob).hexdigest()
-    mode = "exact" if args.exact else "hnsw"
+    mode = ("prod_defaults" if args.defaults else "exact") if args.exact else "hnsw"
     out = f"data/experiments/8_3b/dev_{mode}_{args.tag}.json"
     open(out, "wb").write(blob)
     s = res["by_mode"]["symptom"]

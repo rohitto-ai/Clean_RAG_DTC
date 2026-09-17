@@ -127,7 +127,7 @@ def rrf_fuse(dense_ids, bm25_ids, norm_scores, k=RRF_K):
 
 class Retriever:
     def __init__(self, index_dir=INDEX_DIR, records=RECORDS, verbose=False,
-                 query_prefix="", lexicon=None, expand="none", exact_dense=True):
+                 query_prefix="", lexicon="auto", expand="auto", exact_dense=True):
         """
         Phase 8.2 knobs (defaults reproduce the production retriever exactly):
           query_prefix - model-required query prefix, e.g. "query: " for e5
@@ -142,10 +142,27 @@ class Retriever:
         """
         self.query_prefix, self.lexicon, self.expand = query_prefix, lexicon, expand
         self.exact_dense = exact_dense
-        if expand != "none" and lexicon is None:
-            raise ValueError("expand requires a lexicon")
+
         meta_path = os.path.join(index_dir, "meta.json")
         self.meta = json.load(open(meta_path)) if os.path.exists(meta_path) else {}
+
+        # Phase 8.5 adoption: "auto" reads the query-side configuration from the
+        # INDEX's own metadata, like the tokenizer. An index built with lexicon
+        # aliases gets that lexicon and BM25 query expansion; a plain index gets
+        # neither. Query and index configuration cannot drift apart. Explicit
+        # arguments still override (experiments, ablations, v1 reproduction).
+        aliases = self.meta.get("aliases", {})
+        if lexicon == "auto":
+            if aliases.get("mode", "none") != "none" and aliases.get("lexicon"):
+                from lexicon import Lexicon
+                lexicon = Lexicon(aliases["lexicon"])
+            else:
+                lexicon = None
+        if expand == "auto":
+            expand = "bm25" if lexicon is not None else "none"
+        self.query_prefix, self.lexicon, self.expand = query_prefix, lexicon, expand
+        if expand != "none" and lexicon is None:
+            raise ValueError("expand requires a lexicon")
         self.model_name = self.meta.get("dense", {}).get("model", MODEL_NAME)
         self.records = {}
         for line in open(records):

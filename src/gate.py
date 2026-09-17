@@ -13,9 +13,9 @@ A query passes only if it clears (a) and does not trip (b).
 Dense similarity is the EXACT brute-force max over all stored vectors
 (Retriever.exact_max_sim) - a threshold must never depend on approximate search.
 
-The gate is a CONFIG (e.g. data/gate_c4b.json), bound to the index it was
-calibrated on. With no config, answer.is_relevant keeps the legacy v1 gate, so
-the production system is unchanged until a gate is explicitly adopted.
+The gate is a CONFIG (data/gate_c4b.json), bound to the index it was calibrated
+on. ADOPTED as the production default in Phase 8.5: answer.is_relevant() uses it
+unless gate=None (legacy v1) is passed explicitly.
 """
 from __future__ import annotations
 

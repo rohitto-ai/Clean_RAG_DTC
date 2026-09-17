@@ -1,0 +1,20 @@
+{
+  "adopted_phase": "8.5",
+  "adopted_after": "one-shot TEST run (data/experiments/8_5/final_eval_results.json)",
+  "retrieval": {
+    "index": "index (rebuilt: build_index.py --rebuild --aliases bm25 --cylinder-token)",
+    "verified_identical_to": "index_exp/minilm_alias_bm25_cyl (BM25 corpus sha256 + byte-identical dense vectors)",
+    "lexicon": "data/domain_lexicon.json (read from index meta, lexicon='auto')",
+    "expand": "bm25 (auto)",
+    "exact_dense": true,
+    "cylinder_compound": true,
+    "embedder": "sentence-transformers/all-MiniLM-L6-v2"
+  },
+  "gate": {
+    "config": "data/gate_c4b.json",
+    "dense_min": 0.23,
+    "bm25_min": 8.5,
+    "intent_stoplist": "data/intent_stoplist.json"
+  },
+  "previous_system": "git tag v1-phase7"
+}

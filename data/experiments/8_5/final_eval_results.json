@@ -1,0 +1,5930 @@
+{
+ "gold_version": "v2.2",
+ "DEV": {
+  "v1": {
+   "description": "v1-phase7 system (no lexicon, legacy gate), exact ranking",
+   "index_dir": "index",
+   "lexicon": null,
+   "expand": "none",
+   "gate": "legacy v1",
+   "by_mode": {
+    "exact_code": {
+     "n": 6,
+     "hit@1": 1.0,
+     "hit@3": 1.0,
+     "hit@5": 1.0,
+     "MRR": 1.0
+    },
+    "near_duplicate": {
+     "n": 7,
+     "hit@1": 0.7142857142857143,
+     "hit@3": 0.8571428571428571,
+     "hit@5": 1.0,
+     "MRR": 0.8214285714285714
+    },
+    "symptom": {
+     "n": 12,
+     "hit@1": 0.16666666666666666,
+     "hit@3": 0.4166666666666667,
+     "hit@5": 0.4166666666666667,
+     "MRR": 0.2777777777777778
+    }
+   },
+   "overall": {
+    "n": 25,
+    "hit@1": 0.52,
+    "hit@3": 0.68,
+    "hit@5": 0.72,
+    "MRR": 0.6033333333333334
+   },
+   "system_group": {
+    "complete": 3,
+    "n": 3
+   },
+   "honesty": {
+    "oos_gated": 4,
+    "oos_n": 6,
+    "in_scope_passed": 27,
+    "in_scope_n": 28
+   },
+   "rows": [
+    {
+     "id": "d001",
+     "mode": "exact_code",
+     "rank": 1,
+     "got": [
+      "P0192-00"
+     ]
+    },
+    {
+     "id": "d002",
+     "mode": "exact_code",
+     "rank": 1,
+     "got": [
+      "P0340-00"
+     ]
+    },
+    {
+     "id": "d003",
+     "mode": "exact_code",
+     "rank": 1,
+     "got": [
+      "P0180-11",
+      "P0180-11"
+     ]
+    },
+    {
+     "id": "d004",
+     "mode": "exact_code",
+     "rank": 1,
+     "got": [
+      "P0100-00",
+      "P0100-9B",
+      "P0100-9C"
+     ]
+    },
+    {
+     "id": "d005",
+     "mode": "exact_code",
+     "rank": 1,
+     "got": [
+      "U0102-00"
+     ]
+    },
+    {
+     "id": "d006",
+     "mode": "exact_code",
+     "rank": 1,
+     "got": [
+      "P2264-12",
+      "P2264-11",
+      "P2264-00"
+     ]
+    },
+    {
+     "id": "d007",
+     "mode": "near_duplicate",
+     "rank": 2,
+     "got": [
+      "P0341-00",
+      "P0340-00",
+      "P0180-11",
+      "P0180-12",
+      "P0335-00"
+     ]
+    },
+    {
+     "id": "d008",
+     "mode": "near_duplicate",
+     "rank": 1,
+     "got": [
+      "P0341-00",
+      "P0340-00",
+      "P0336-00",
+      "P0335-00",
+      "P04A0-00"
+     ]
+    },
+    {
+     "id": "d009",
+     "mode": "near_duplicate",
+     "rank": 1,
+     "got": [
+      "P0192-00",
+      "P0087-00",
+      "P0088-00",
+      "P0194-00",
+      "P0193-00"
+     ]
+    },
+    {
+     "id": "d010",
+     "mode": "near_duplicate",
+     "rank": 4,
+     "got": [
+      "P0088-00",
+      "P0087-00",
+      "P0192-00",
+      "P0194-00",
+      "P0193-00"
+     ]
+    },
+    {
+     "id": "d011",
+     "mode": "near_duplicate",
+     "rank": 1,
+     "got": [
+      "P0203-00",
+      "P0201-00",
+      "P0204-00",
+      "P0202-00",
+      "P1201-00"
+     ]
+    },
+    {
+     "id": "d012",
+     "mode": "near_duplicate",
+     "rank": 1,
+     "got": [
+      "P2147-00",
+      "P2150-00",
+      "P0201-00",
+      "P2153-00",
+      "P1201-00"
+     ]
+    },
+    {
+     "id": "d013",
+     "mode": "near_duplicate",
+     "rank": 1,
+     "got": [
+      "P0336-00",
+      "P0335-00",
+      "P0341-00",
+      "P048B-11",
+      "P0340-00"
+     ]
+    },
+    {
+     "id": "d014",
+     "mode": "symptom",
+     "rank": null,
+     "got": [
+      "P206A-F2",
+      "P206A-F1",
+      "P206A-F3",
+      "P242F-00",
+      "P0401-00"
+     ]
+    },
+    {
+     "id": "d015",
+     "mode": "symptom",
+     "rank": 2,
+     "got": [
+      "P042F-00",
+      "P042E-00",
+      "P0405-00",
+      "P0406-00",
+      "P0489-00"
+     ]
+    },
+    {
+     "id": "d016",
+     "mode": "symptom",
+     "rank": null,
+     "got": [
+      "P2463-85",
+      "P243F-F0",
+      "P04A5-00",
+      "P042F-00",
+      "P04A4-00"
+     ]
+    },
+    {
+     "id": "d017",
+     "mode": "symptom",
+     "rank": null,
+     "got": [
+      "P204F-7C",
+      "P0089-00",
+      "P0087-00",
+      "P0425-84",
+      "P20A0-00"
+     ]
+    },
+    {
+     "id": "d018",
+     "mode": "symptom",
+     "rank": null,
+     "got": [
+      "P2264-11",
+      "P2264-12",
+      "P0427-00",
+      "P242C-00",
+      "P2264-00"
+     ]
+    },
+    {
+     "id": "d019",
+     "mode": "symptom",
+     "rank": null,
+     "got": [
+      "P2264-11",
+      "P0427-00",
+      "P2264-12",
+      "P0116-00",
+      "P0428-00"
+     ]
+    },
+    {
+     "id": "d020",
+     "mode": "symptom",
+     "rank": null,
+     "got": [
+      "P0120-11",
+      "P0220-12",
+      "P0220-11",
+      "P0504-00",
+      "P0120-12"
+     ]
+    },
+    {
+     "id": "d021",
+     "mode": "symptom",
+     "rank": 1,
+     "got": [
+      "P0562-00",
+      "P0563-00",
+      "P208D-00",
+      "P20F4-00",
+      "P20F5-00"
+     ]
+    },
+    {
+     "id": "d022",
+     "mode": "symptom",
+     "rank": 1,
+     "got": [
+      "P006E-00",
+      "P259E-00",
+      "P006F-00",
+      "P0048-00",
+      "P0045-13"
+     ]
+    },
+    {
+     "id": "d023",
+     "mode": "symptom",
+     "rank": 2,
+     "got": [
+      "P0341-00",
+      "P0340-00",
+      "P0336-00",
+      "P0335-00",
+      "P2229-00"
+     ]
+    },
+    {
+     "id": "d024",
+     "mode": "symptom",
+     "rank": 3,
+     "got": [
+      "P0004-00",
+      "P0003-00",
+      "P0192-00",
+      "P0193-00",
+      "P0087-00"
+     ]
+    },
+    {
+     "id": "d025",
+     "mode": "symptom",
+     "rank": null,
+     "got": [
+      "P20F5-00",
+      "P166B-00",
+      "P1114-00",
+      "P259F-00",
+      "P259E-00"
+     ]
+    }
+   ],
+   "groups": [
+    {
+     "id": "d026",
+     "query": "list all EGR faults",
+     "router_mode": "system_group",
+     "detected_system": "egr",
+     "expected_system": "egr",
+     "complete": true,
+     "returned": 14,
+     "expected_n": 14
+    },
+    {
+     "id": "d027",
+     "query": "show me every injector related fault code",
+     "router_mode": "system_group",
+     "detected_system": "injector",
+     "expected_system": "injector",
+     "complete": true,
+     "returned": 14,
+     "expected_n": 14
+    },
+    {
+     "id": "d028",
+     "query": "what soot trap faults are there",
+     "router_mode": "system_group",
+     "detected_system": "dpf_regen",
+     "expected_system": "dpf_regen",
+     "complete": true,
+     "returned": 18,
+     "expected_n": 18
+    }
+   ],
+   "gate_decisions": [
+    {
+     "id": "d001",
+     "in_scope": true,
+     "passed": true,
+     "reasons": null
+    },
+    {
+     "id": "d002",
+     "in_scope": true,
+     "passed": true,
+     "reasons": null
+    },
+    {
+     "id": "d003",
+     "in_scope": true,
+     "passed": true,
+     "reasons": null
+    },
+    {
+     "id": "d004",
+     "in_scope": true,
+     "passed": true,
+     "reasons": null
+    },
+    {
+     "id": "d005",
+     "in_scope": true,
+     "passed": true,
+     "reasons": null
+    },
+    {
+     "id": "d006",
+     "in_scope": true,
+     "passed": true,
+     "reasons": null
+    },
+    {
+     "id": "d007",
+     "in_scope": true,
+     "passed": true,
+     "reasons": null
+    },
+    {
+     "id": "d008",
+     "in_scope": true,
+     "passed": true,
+     "reasons": null
+    },
+    {
+     "id": "d009",
+     "in_scope": true,
+     "passed": true,
+     "reasons": null
+    },
+    {
+     "id": "d010",
+     "in_scope": true,
+     "passed": true,
+     "reasons": null
+    },
+    {
+     "id": "d011",
+     "in_scope": true,
+     "passed": true,
+     "reasons": null
+    },
+    {
+     "id": "d012",
+     "in_scope": true,
+     "passed": true,
+     "reasons": null
+    },
+    {
+     "id": "d013",
+     "in_scope": true,
+     "passed": true,
+     "reasons": null
+    },
+    {
+     "id": "d014",
+     "in_scope": true,
+     "passed": true,
+     "reasons": null
+    },
+    {
+     "id": "d015",
+     "in_scope": true,
+     "passed": true,
+     "reasons": null
+    },
+    {
+     "id": "d016",
+     "in_scope": true,
+     "passed": false,
+     "reasons": null
+    },
+    {
+     "id": "d017",
+     "in_scope": true,
+     "passed": true,
+     "reasons": null
+    },
+    {
+     "id": "d018",
+     "in_scope": true,
+     "passed": true,
+     "reasons": null
+    },
+    {
+     "id": "d019",
+     "in_scope": true,
+     "passed": true,
+     "reasons": null
+    },
+    {
+     "id": "d020",
+     "in_scope": true,
+     "passed": true,
+     "reasons": null
+    },
+    {
+     "id": "d021",
+     "in_scope": true,
+     "passed": true,
+     "reasons": null
+    },
+    {
+     "id": "d022",
+     "in_scope": true,
+     "passed": true,
+     "reasons": null
+    },
+    {
+     "id": "d023",
+     "in_scope": true,
+     "passed": true,
+     "reasons": null
+    },
+    {
+     "id": "d024",
+     "in_scope": true,
+     "passed": true,
+     "reasons": null
+    },
+    {
+     "id": "d025",
+     "in_scope": true,
+     "passed": true,
+     "reasons": null
+    },
+    {
+     "id": "d026",
+     "in_scope": true,
+     "passed": true,
+     "reasons": null
+    },
+    {
+     "id": "d027",
+     "in_scope": true,
+     "passed": true,
+     "reasons": null
+    },
+    {
+     "id": "d028",
+     "in_scope": true,
+     "passed": true,
+     "reasons": null
+    },
+    {
+     "id": "d029",
+     "in_scope": false,
+     "passed": false,
+     "reasons": null
+    },
+    {
+     "id": "d030",
+     "in_scope": false,
+     "passed": true,
+     "reasons": null
+    },
+    {
+     "id": "d031",
+     "in_scope": false,
+     "passed": false,
+     "reasons": null
+    },
+    {
+     "id": "d032",
+     "in_scope": false,
+     "passed": false,
+     "reasons": null
+    },
+    {
+     "id": "d033",
+     "in_scope": false,
+     "passed": true,
+     "reasons": null
+    },
+    {
+     "id": "d034",
+     "in_scope": false,
+     "passed": false,
+     "reasons": null
+    }
+   ]
+  },
+  "a": {
+   "description": "C4b full lexicon + gate v2 full stoplist",
+   "index_dir": "index_exp/minilm_alias_bm25_cyl",
+   "lexicon": "data/domain_lexicon.json",
+   "expand": "bm25",
+   "gate": "data/gate_c4b.json",
+   "by_mode": {
+    "exact_code": {
+     "n": 6,
+     "hit@1": 1.0,
+     "hit@3": 1.0,
+     "hit@5": 1.0,
+     "MRR": 1.0
+    },
+    "near_duplicate": {
+     "n": 7,
+     "hit@1": 1.0,
+     "hit@3": 1.0,
+     "hit@5": 1.0,
+     "MRR": 1.0
+    },
+    "symptom": {
+     "n": 12,
+     "hit@1": 0.5833333333333334,
+     "hit@3": 0.8333333333333334,
+     "hit@5": 0.9166666666666666,
+     "MRR": 0.7111111111111111
+    }
+   },
+   "overall": {
+    "n": 25,
+    "hit@1": 0.8,
+    "hit@3": 0.92,
+    "hit@5": 0.96,
+    "MRR": 0.8613333333333334
+   },
+   "system_group": {
+    "complete": 3,
+    "n": 3
+   },
+   "honesty": {
+    "oos_gated": 6,
+    "oos_n": 6,
+    "in_scope_passed": 28,
+    "in_scope_n": 28
+   },
+   "rows": [
+    {
+     "id": "d001",
+     "mode": "exact_code",
+     "rank": 1,
+     "got": [
+      "P0192-00"
+     ]
+    },
+    {
+     "id": "d002",
+     "mode": "exact_code",
+     "rank": 1,
+     "got": [
+      "P0340-00"
+     ]
+    },
+    {
+     "id": "d003",
+     "mode": "exact_code",
+     "rank": 1,
+     "got": [
+      "P0180-11",
+      "P0180-11"
+     ]
+    },
+    {
+     "id": "d004",
+     "mode": "exact_code",
+     "rank": 1,
+     "got": [
+      "P0100-00",
+      "P0100-9B",
+      "P0100-9C"
+     ]
+    },
+    {
+     "id": "d005",
+     "mode": "exact_code",
+     "rank": 1,
+     "got": [
+      "U0102-00"
+     ]
+    },
+    {
+     "id": "d006",
+     "mode": "exact_code",
+     "rank": 1,
+     "got": [
+      "P2264-12",
+      "P2264-11",
+      "P2264-00"
+     ]
+    },
+    {
+     "id": "d007",
+     "mode": "near_duplicate",
+     "rank": 1,
+     "got": [
+      "P0340-00",
+      "P0341-00",
+      "P0180-11",
+      "P0180-12",
+      "P0335-00"
+     ]
+    },
+    {
+     "id": "d008",
+     "mode": "near_duplicate",
+     "rank": 1,
+     "got": [
+      "P0341-00",
+      "P0340-00",
+      "P0336-00",
+      "P0335-00",
+      "P048B-12"
+     ]
+    },
+    {
+     "id": "d009",
+     "mode": "near_duplicate",
+     "rank": 1,
+     "got": [
+      "P0192-00",
+      "P0180-11",
+      "P0087-00",
+      "P0003-00",
+      "P0194-00"
+     ]
+    },
+    {
+     "id": "d010",
+     "mode": "near_duplicate",
+     "rank": 1,
+     "got": [
+      "P0194-00",
+      "P0088-00",
+      "P0192-00",
+      "P0087-00",
+      "P0193-00"
+     ]
+    },
+    {
+     "id": "d011",
+     "mode": "near_duplicate",
+     "rank": 1,
+     "got": [
+      "P0203-00",
+      "P0201-00",
+      "P0204-00",
+      "P0202-00",
+      "P1201-00"
+     ]
+    },
+    {
+     "id": "d012",
+     "mode": "near_duplicate",
+     "rank": 1,
+     "got": [
+      "P2147-00",
+      "P2150-00",
+      "P0201-00",
+      "P2153-00",
+      "P1201-00"
+     ]
+    },
+    {
+     "id": "d013",
+     "mode": "near_duplicate",
+     "rank": 1,
+     "got": [
+      "P0336-00",
+      "P0335-00",
+      "P0341-00",
+      "P048B-11",
+      "P0340-00"
+     ]
+    },
+    {
+     "id": "d014",
+     "mode": "symptom",
+     "rank": 3,
+     "got": [
+      "P04A5-00",
+      "P04A4-00",
+      "P042F-00",
+      "P206A-F3",
+      "P22CF-73"
+     ]
+    },
+    {
+     "id": "d015",
+     "mode": "symptom",
+     "rank": 2,
+     "got": [
+      "P042F-00",
+      "P042E-00",
+      "P04A5-00",
+      "P0406-00",
+      "P0489-00"
+     ]
+    },
+    {
+     "id": "d016",
+     "mode": "symptom",
+     "rank": null,
+     "got": [
+      "P2463-85",
+      "P243F-F0",
+      "P242F-00",
+      "P243C-00",
+      "P04A5-00"
+     ]
+    },
+    {
+     "id": "d017",
+     "mode": "symptom",
+     "rank": 5,
+     "got": [
+      "P206A-F1",
+      "P2BA9-00",
+      "P206A-F2",
+      "P204F-7C",
+      "P203F-00"
+     ]
+    },
+    {
+     "id": "d018",
+     "mode": "symptom",
+     "rank": 2,
+     "got": [
+      "P0118-00",
+      "P0117-00",
+      "P0116-00",
+      "P040C-00",
+      "P0427-00"
+     ]
+    },
+    {
+     "id": "d019",
+     "mode": "symptom",
+     "rank": 1,
+     "got": [
+      "P0118-00",
+      "P0116-00",
+      "P0117-00",
+      "P0428-00",
+      "P0180-12"
+     ]
+    },
+    {
+     "id": "d020",
+     "mode": "symptom",
+     "rank": 1,
+     "got": [
+      "P2135-00",
+      "P0220-12",
+      "P0220-11",
+      "P0120-12",
+      "P0504-00"
+     ]
+    },
+    {
+     "id": "d021",
+     "mode": "symptom",
+     "rank": 1,
+     "got": [
+      "P0562-00",
+      "P0563-00",
+      "P20F5-00",
+      "P20F5-7A",
+      "P208D-00"
+     ]
+    },
+    {
+     "id": "d022",
+     "mode": "symptom",
+     "rank": 1,
+     "got": [
+      "P006E-00",
+      "P006F-00",
+      "P0045-13",
+      "P0048-00",
+      "P259E-00"
+     ]
+    },
+    {
+     "id": "d023",
+     "mode": "symptom",
+     "rank": 1,
+     "got": [
+      "P0340-00",
+      "P0341-00",
+      "P0336-00",
+      "P0335-00",
+      "P2200-13"
+     ]
+    },
+    {
+     "id": "d024",
+     "mode": "symptom",
+     "rank": 1,
+     "got": [
+      "P0192-00",
+      "P0193-00",
+      "P0087-00",
+      "P0003-00",
+      "P20A3-00"
+     ]
+    },
+    {
+     "id": "d025",
+     "mode": "symptom",
+     "rank": 1,
+     "got": [
+      "P0563-00",
+      "P0562-00",
+      "P20F5-00",
+      "P1114-00",
+      "P259F-00"
+     ]
+    }
+   ],
+   "groups": [
+    {
+     "id": "d026",
+     "query": "list all EGR faults",
+     "router_mode": "system_group",
+     "detected_system": "egr",
+     "expected_system": "egr",
+     "complete": true,
+     "returned": 14,
+     "expected_n": 14
+    },
+    {
+     "id": "d027",
+     "query": "show me every injector related fault code",
+     "router_mode": "system_group",
+     "detected_system": "injector",
+     "expected_system": "injector",
+     "complete": true,
+     "returned": 14,
+     "expected_n": 14
+    },
+    {
+     "id": "d028",
+     "query": "what soot trap faults are there",
+     "router_mode": "system_group",
+     "detected_system": "dpf_regen",
+     "expected_system": "dpf_regen",
+     "complete": true,
+     "returned": 18,
+     "expected_n": 18
+    }
+   ],
+   "gate_decisions": [
+    {
+     "id": "d001",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d002",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d003",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d004",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d005",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d006",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d007",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d008",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d009",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d010",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d011",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d012",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d013",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d014",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d015",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d016",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d017",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d018",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d019",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d020",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d021",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d022",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d023",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d024",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d025",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d026",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d027",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d028",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d029",
+     "in_scope": false,
+     "passed": false,
+     "reasons": [
+      "low_retrieval_signal"
+     ]
+    },
+    {
+     "id": "d030",
+     "in_scope": false,
+     "passed": false,
+     "reasons": [
+      "non_diagnostic_intent"
+     ]
+    },
+    {
+     "id": "d031",
+     "in_scope": false,
+     "passed": false,
+     "reasons": [
+      "low_retrieval_signal",
+      "non_diagnostic_intent"
+     ]
+    },
+    {
+     "id": "d032",
+     "in_scope": false,
+     "passed": false,
+     "reasons": [
+      "low_retrieval_signal",
+      "non_diagnostic_intent"
+     ]
+    },
+    {
+     "id": "d033",
+     "in_scope": false,
+     "passed": false,
+     "reasons": [
+      "non_diagnostic_intent"
+     ]
+    },
+    {
+     "id": "d034",
+     "in_scope": false,
+     "passed": false,
+     "reasons": [
+      "low_retrieval_signal"
+     ]
+    }
+   ]
+  },
+  "b": {
+   "description": "lexicon ABLATED + gate v2 full stoplist",
+   "index_dir": "index_exp/minilm_alias_bm25_cyl_lexablated",
+   "lexicon": "data/experiments/8_5/domain_lexicon_ablated.json",
+   "expand": "bm25",
+   "gate": "data/experiments/8_5/gate_full_on_lexablated.json",
+   "by_mode": {
+    "exact_code": {
+     "n": 6,
+     "hit@1": 1.0,
+     "hit@3": 1.0,
+     "hit@5": 1.0,
+     "MRR": 1.0
+    },
+    "near_duplicate": {
+     "n": 7,
+     "hit@1": 0.8571428571428571,
+     "hit@3": 0.8571428571428571,
+     "hit@5": 1.0,
+     "MRR": 0.8928571428571429
+    },
+    "symptom": {
+     "n": 12,
+     "hit@1": 0.3333333333333333,
+     "hit@3": 0.6666666666666666,
+     "hit@5": 0.8333333333333334,
+     "MRR": 0.5416666666666666
+    }
+   },
+   "overall": {
+    "n": 25,
+    "hit@1": 0.64,
+    "hit@3": 0.8,
+    "hit@5": 0.92,
+    "MRR": 0.75
+   },
+   "system_group": {
+    "complete": 3,
+    "n": 3
+   },
+   "honesty": {
+    "oos_gated": 6,
+    "oos_n": 6,
+    "in_scope_passed": 28,
+    "in_scope_n": 28
+   },
+   "rows": [
+    {
+     "id": "d001",
+     "mode": "exact_code",
+     "rank": 1,
+     "got": [
+      "P0192-00"
+     ]
+    },
+    {
+     "id": "d002",
+     "mode": "exact_code",
+     "rank": 1,
+     "got": [
+      "P0340-00"
+     ]
+    },
+    {
+     "id": "d003",
+     "mode": "exact_code",
+     "rank": 1,
+     "got": [
+      "P0180-11",
+      "P0180-11"
+     ]
+    },
+    {
+     "id": "d004",
+     "mode": "exact_code",
+     "rank": 1,
+     "got": [
+      "P0100-00",
+      "P0100-9B",
+      "P0100-9C"
+     ]
+    },
+    {
+     "id": "d005",
+     "mode": "exact_code",
+     "rank": 1,
+     "got": [
+      "U0102-00"
+     ]
+    },
+    {
+     "id": "d006",
+     "mode": "exact_code",
+     "rank": 1,
+     "got": [
+      "P2264-12",
+      "P2264-11",
+      "P2264-00"
+     ]
+    },
+    {
+     "id": "d007",
+     "mode": "near_duplicate",
+     "rank": 1,
+     "got": [
+      "P0340-00",
+      "P0341-00",
+      "P0180-11",
+      "P0180-12",
+      "P0335-00"
+     ]
+    },
+    {
+     "id": "d008",
+     "mode": "near_duplicate",
+     "rank": 1,
+     "got": [
+      "P0341-00",
+      "P0340-00",
+      "P0336-00",
+      "P0335-00",
+      "P048B-12"
+     ]
+    },
+    {
+     "id": "d009",
+     "mode": "near_duplicate",
+     "rank": 1,
+     "got": [
+      "P0192-00",
+      "P0087-00",
+      "P0088-00",
+      "P0193-00",
+      "P0627-11"
+     ]
+    },
+    {
+     "id": "d010",
+     "mode": "near_duplicate",
+     "rank": 4,
+     "got": [
+      "P0088-00",
+      "P0087-00",
+      "P0192-00",
+      "P0194-00",
+      "P0193-00"
+     ]
+    },
+    {
+     "id": "d011",
+     "mode": "near_duplicate",
+     "rank": 1,
+     "got": [
+      "P0203-00",
+      "P0201-00",
+      "P0204-00",
+      "P0202-00",
+      "P1201-00"
+     ]
+    },
+    {
+     "id": "d012",
+     "mode": "near_duplicate",
+     "rank": 1,
+     "got": [
+      "P2147-00",
+      "P2150-00",
+      "P0201-00",
+      "P2153-00",
+      "P1201-00"
+     ]
+    },
+    {
+     "id": "d013",
+     "mode": "near_duplicate",
+     "rank": 1,
+     "got": [
+      "P0336-00",
+      "P0335-00",
+      "P0341-00",
+      "P048B-11",
+      "P0340-00"
+     ]
+    },
+    {
+     "id": "d014",
+     "mode": "symptom",
+     "rank": 4,
+     "got": [
+      "P04A5-00",
+      "P04A4-00",
+      "P206A-F3",
+      "P042F-00",
+      "P22CF-73"
+     ]
+    },
+    {
+     "id": "d015",
+     "mode": "symptom",
+     "rank": 2,
+     "got": [
+      "P042F-00",
+      "P042E-00",
+      "P04A5-00",
+      "P0405-00",
+      "P0406-00"
+     ]
+    },
+    {
+     "id": "d016",
+     "mode": "symptom",
+     "rank": null,
+     "got": [
+      "P2463-85",
+      "P243F-F0",
+      "P04A5-00",
+      "P206A-F3",
+      "P04A4-00"
+     ]
+    },
+    {
+     "id": "d017",
+     "mode": "symptom",
+     "rank": null,
+     "got": [
+      "P204F-7C",
+      "P0425-84",
+      "P0089-00",
+      "P2BA9-00",
+      "P042A-84"
+     ]
+    },
+    {
+     "id": "d018",
+     "mode": "symptom",
+     "rank": 2,
+     "got": [
+      "P0118-00",
+      "P0117-00",
+      "P0116-00",
+      "P0119-00",
+      "P0427-00"
+     ]
+    },
+    {
+     "id": "d019",
+     "mode": "symptom",
+     "rank": 2,
+     "got": [
+      "P0116-00",
+      "P0118-00",
+      "P0117-00",
+      "P0119-00",
+      "P2264-11"
+     ]
+    },
+    {
+     "id": "d020",
+     "mode": "symptom",
+     "rank": 4,
+     "got": [
+      "P0220-11",
+      "P0120-11",
+      "P0504-00",
+      "P2135-00",
+      "P0220-12"
+     ]
+    },
+    {
+     "id": "d021",
+     "mode": "symptom",
+     "rank": 1,
+     "got": [
+      "P0562-00",
+      "P0563-00",
+      "P20F5-00",
+      "P20F5-7A",
+      "P208D-00"
+     ]
+    },
+    {
+     "id": "d022",
+     "mode": "symptom",
+     "rank": 1,
+     "got": [
+      "P006E-00",
+      "P006F-00",
+      "P0045-13",
+      "P0048-00",
+      "P259E-00"
+     ]
+    },
+    {
+     "id": "d023",
+     "mode": "symptom",
+     "rank": 1,
+     "got": [
+      "P0340-00",
+      "P0341-00",
+      "P0336-00",
+      "P0335-00",
+      "P2229-00"
+     ]
+    },
+    {
+     "id": "d024",
+     "mode": "symptom",
+     "rank": 1,
+     "got": [
+      "P0192-00",
+      "P0193-00",
+      "P0087-00",
+      "P0003-00",
+      "P20A3-00"
+     ]
+    },
+    {
+     "id": "d025",
+     "mode": "symptom",
+     "rank": 2,
+     "got": [
+      "P0562-00",
+      "P0563-00",
+      "P20F5-00",
+      "P1114-00",
+      "P259F-00"
+     ]
+    }
+   ],
+   "groups": [
+    {
+     "id": "d026",
+     "query": "list all EGR faults",
+     "router_mode": "system_group",
+     "detected_system": "egr",
+     "expected_system": "egr",
+     "complete": true,
+     "returned": 14,
+     "expected_n": 14
+    },
+    {
+     "id": "d027",
+     "query": "show me every injector related fault code",
+     "router_mode": "system_group",
+     "detected_system": "injector",
+     "expected_system": "injector",
+     "complete": true,
+     "returned": 14,
+     "expected_n": 14
+    },
+    {
+     "id": "d028",
+     "query": "what soot trap faults are there",
+     "router_mode": "system_group",
+     "detected_system": "dpf_regen",
+     "expected_system": "dpf_regen",
+     "complete": true,
+     "returned": 18,
+     "expected_n": 18
+    }
+   ],
+   "gate_decisions": [
+    {
+     "id": "d001",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d002",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d003",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d004",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d005",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d006",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d007",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d008",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d009",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d010",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d011",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d012",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d013",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d014",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d015",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d016",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d017",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d018",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d019",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d020",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d021",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d022",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d023",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d024",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d025",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d026",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d027",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d028",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d029",
+     "in_scope": false,
+     "passed": false,
+     "reasons": [
+      "low_retrieval_signal"
+     ]
+    },
+    {
+     "id": "d030",
+     "in_scope": false,
+     "passed": false,
+     "reasons": [
+      "non_diagnostic_intent"
+     ]
+    },
+    {
+     "id": "d031",
+     "in_scope": false,
+     "passed": false,
+     "reasons": [
+      "low_retrieval_signal",
+      "non_diagnostic_intent"
+     ]
+    },
+    {
+     "id": "d032",
+     "in_scope": false,
+     "passed": false,
+     "reasons": [
+      "low_retrieval_signal",
+      "non_diagnostic_intent"
+     ]
+    },
+    {
+     "id": "d033",
+     "in_scope": false,
+     "passed": false,
+     "reasons": [
+      "non_diagnostic_intent"
+     ]
+    },
+    {
+     "id": "d034",
+     "in_scope": false,
+     "passed": false,
+     "reasons": [
+      "low_retrieval_signal"
+     ]
+    }
+   ]
+  },
+  "c": {
+   "description": "C4b full lexicon + gate stoplist ABLATED",
+   "index_dir": "index_exp/minilm_alias_bm25_cyl",
+   "lexicon": "data/domain_lexicon.json",
+   "expand": "bm25",
+   "gate": "data/experiments/8_5/gate_stopablated.json",
+   "by_mode": {
+    "exact_code": {
+     "n": 6,
+     "hit@1": 1.0,
+     "hit@3": 1.0,
+     "hit@5": 1.0,
+     "MRR": 1.0
+    },
+    "near_duplicate": {
+     "n": 7,
+     "hit@1": 1.0,
+     "hit@3": 1.0,
+     "hit@5": 1.0,
+     "MRR": 1.0
+    },
+    "symptom": {
+     "n": 12,
+     "hit@1": 0.5833333333333334,
+     "hit@3": 0.8333333333333334,
+     "hit@5": 0.9166666666666666,
+     "MRR": 0.7111111111111111
+    }
+   },
+   "overall": {
+    "n": 25,
+    "hit@1": 0.8,
+    "hit@3": 0.92,
+    "hit@5": 0.96,
+    "MRR": 0.8613333333333334
+   },
+   "system_group": {
+    "complete": 3,
+    "n": 3
+   },
+   "honesty": {
+    "oos_gated": 5,
+    "oos_n": 6,
+    "in_scope_passed": 28,
+    "in_scope_n": 28
+   },
+   "rows": [
+    {
+     "id": "d001",
+     "mode": "exact_code",
+     "rank": 1,
+     "got": [
+      "P0192-00"
+     ]
+    },
+    {
+     "id": "d002",
+     "mode": "exact_code",
+     "rank": 1,
+     "got": [
+      "P0340-00"
+     ]
+    },
+    {
+     "id": "d003",
+     "mode": "exact_code",
+     "rank": 1,
+     "got": [
+      "P0180-11",
+      "P0180-11"
+     ]
+    },
+    {
+     "id": "d004",
+     "mode": "exact_code",
+     "rank": 1,
+     "got": [
+      "P0100-00",
+      "P0100-9B",
+      "P0100-9C"
+     ]
+    },
+    {
+     "id": "d005",
+     "mode": "exact_code",
+     "rank": 1,
+     "got": [
+      "U0102-00"
+     ]
+    },
+    {
+     "id": "d006",
+     "mode": "exact_code",
+     "rank": 1,
+     "got": [
+      "P2264-12",
+      "P2264-11",
+      "P2264-00"
+     ]
+    },
+    {
+     "id": "d007",
+     "mode": "near_duplicate",
+     "rank": 1,
+     "got": [
+      "P0340-00",
+      "P0341-00",
+      "P0180-11",
+      "P0180-12",
+      "P0335-00"
+     ]
+    },
+    {
+     "id": "d008",
+     "mode": "near_duplicate",
+     "rank": 1,
+     "got": [
+      "P0341-00",
+      "P0340-00",
+      "P0336-00",
+      "P0335-00",
+      "P048B-12"
+     ]
+    },
+    {
+     "id": "d009",
+     "mode": "near_duplicate",
+     "rank": 1,
+     "got": [
+      "P0192-00",
+      "P0180-11",
+      "P0087-00",
+      "P0003-00",
+      "P0194-00"
+     ]
+    },
+    {
+     "id": "d010",
+     "mode": "near_duplicate",
+     "rank": 1,
+     "got": [
+      "P0194-00",
+      "P0088-00",
+      "P0192-00",
+      "P0087-00",
+      "P0193-00"
+     ]
+    },
+    {
+     "id": "d011",
+     "mode": "near_duplicate",
+     "rank": 1,
+     "got": [
+      "P0203-00",
+      "P0201-00",
+      "P0204-00",
+      "P0202-00",
+      "P1201-00"
+     ]
+    },
+    {
+     "id": "d012",
+     "mode": "near_duplicate",
+     "rank": 1,
+     "got": [
+      "P2147-00",
+      "P2150-00",
+      "P0201-00",
+      "P2153-00",
+      "P1201-00"
+     ]
+    },
+    {
+     "id": "d013",
+     "mode": "near_duplicate",
+     "rank": 1,
+     "got": [
+      "P0336-00",
+      "P0335-00",
+      "P0341-00",
+      "P048B-11",
+      "P0340-00"
+     ]
+    },
+    {
+     "id": "d014",
+     "mode": "symptom",
+     "rank": 3,
+     "got": [
+      "P04A5-00",
+      "P04A4-00",
+      "P042F-00",
+      "P206A-F3",
+      "P22CF-73"
+     ]
+    },
+    {
+     "id": "d015",
+     "mode": "symptom",
+     "rank": 2,
+     "got": [
+      "P042F-00",
+      "P042E-00",
+      "P04A5-00",
+      "P0406-00",
+      "P0489-00"
+     ]
+    },
+    {
+     "id": "d016",
+     "mode": "symptom",
+     "rank": null,
+     "got": [
+      "P2463-85",
+      "P243F-F0",
+      "P242F-00",
+      "P243C-00",
+      "P04A5-00"
+     ]
+    },
+    {
+     "id": "d017",
+     "mode": "symptom",
+     "rank": 5,
+     "got": [
+      "P206A-F1",
+      "P2BA9-00",
+      "P206A-F2",
+      "P204F-7C",
+      "P203F-00"
+     ]
+    },
+    {
+     "id": "d018",
+     "mode": "symptom",
+     "rank": 2,
+     "got": [
+      "P0118-00",
+      "P0117-00",
+      "P0116-00",
+      "P040C-00",
+      "P0427-00"
+     ]
+    },
+    {
+     "id": "d019",
+     "mode": "symptom",
+     "rank": 1,
+     "got": [
+      "P0118-00",
+      "P0116-00",
+      "P0117-00",
+      "P0428-00",
+      "P0180-12"
+     ]
+    },
+    {
+     "id": "d020",
+     "mode": "symptom",
+     "rank": 1,
+     "got": [
+      "P2135-00",
+      "P0220-12",
+      "P0220-11",
+      "P0120-12",
+      "P0504-00"
+     ]
+    },
+    {
+     "id": "d021",
+     "mode": "symptom",
+     "rank": 1,
+     "got": [
+      "P0562-00",
+      "P0563-00",
+      "P20F5-00",
+      "P20F5-7A",
+      "P208D-00"
+     ]
+    },
+    {
+     "id": "d022",
+     "mode": "symptom",
+     "rank": 1,
+     "got": [
+      "P006E-00",
+      "P006F-00",
+      "P0045-13",
+      "P0048-00",
+      "P259E-00"
+     ]
+    },
+    {
+     "id": "d023",
+     "mode": "symptom",
+     "rank": 1,
+     "got": [
+      "P0340-00",
+      "P0341-00",
+      "P0336-00",
+      "P0335-00",
+      "P2200-13"
+     ]
+    },
+    {
+     "id": "d024",
+     "mode": "symptom",
+     "rank": 1,
+     "got": [
+      "P0192-00",
+      "P0193-00",
+      "P0087-00",
+      "P0003-00",
+      "P20A3-00"
+     ]
+    },
+    {
+     "id": "d025",
+     "mode": "symptom",
+     "rank": 1,
+     "got": [
+      "P0563-00",
+      "P0562-00",
+      "P20F5-00",
+      "P1114-00",
+      "P259F-00"
+     ]
+    }
+   ],
+   "groups": [
+    {
+     "id": "d026",
+     "query": "list all EGR faults",
+     "router_mode": "system_group",
+     "detected_system": "egr",
+     "expected_system": "egr",
+     "complete": true,
+     "returned": 14,
+     "expected_n": 14
+    },
+    {
+     "id": "d027",
+     "query": "show me every injector related fault code",
+     "router_mode": "system_group",
+     "detected_system": "injector",
+     "expected_system": "injector",
+     "complete": true,
+     "returned": 14,
+     "expected_n": 14
+    },
+    {
+     "id": "d028",
+     "query": "what soot trap faults are there",
+     "router_mode": "system_group",
+     "detected_system": "dpf_regen",
+     "expected_system": "dpf_regen",
+     "complete": true,
+     "returned": 18,
+     "expected_n": 18
+    }
+   ],
+   "gate_decisions": [
+    {
+     "id": "d001",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d002",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d003",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d004",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d005",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d006",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d007",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d008",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d009",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d010",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d011",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d012",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d013",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d014",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d015",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d016",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d017",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d018",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d019",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d020",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d021",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d022",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d023",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d024",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d025",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d026",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d027",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d028",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d029",
+     "in_scope": false,
+     "passed": false,
+     "reasons": [
+      "low_retrieval_signal"
+     ]
+    },
+    {
+     "id": "d030",
+     "in_scope": false,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d031",
+     "in_scope": false,
+     "passed": false,
+     "reasons": [
+      "low_retrieval_signal",
+      "non_diagnostic_intent"
+     ]
+    },
+    {
+     "id": "d032",
+     "in_scope": false,
+     "passed": false,
+     "reasons": [
+      "low_retrieval_signal",
+      "non_diagnostic_intent"
+     ]
+    },
+    {
+     "id": "d033",
+     "in_scope": false,
+     "passed": false,
+     "reasons": [
+      "non_diagnostic_intent"
+     ]
+    },
+    {
+     "id": "d034",
+     "in_scope": false,
+     "passed": false,
+     "reasons": [
+      "low_retrieval_signal"
+     ]
+    }
+   ]
+  },
+  "d": {
+   "description": "BOTH ablated (conservative headline)",
+   "index_dir": "index_exp/minilm_alias_bm25_cyl_lexablated",
+   "lexicon": "data/experiments/8_5/domain_lexicon_ablated.json",
+   "expand": "bm25",
+   "gate": "data/experiments/8_5/gate_stopablated_on_lexablated.json",
+   "by_mode": {
+    "exact_code": {
+     "n": 6,
+     "hit@1": 1.0,
+     "hit@3": 1.0,
+     "hit@5": 1.0,
+     "MRR": 1.0
+    },
+    "near_duplicate": {
+     "n": 7,
+     "hit@1": 0.8571428571428571,
+     "hit@3": 0.8571428571428571,
+     "hit@5": 1.0,
+     "MRR": 0.8928571428571429
+    },
+    "symptom": {
+     "n": 12,
+     "hit@1": 0.3333333333333333,
+     "hit@3": 0.6666666666666666,
+     "hit@5": 0.8333333333333334,
+     "MRR": 0.5416666666666666
+    }
+   },
+   "overall": {
+    "n": 25,
+    "hit@1": 0.64,
+    "hit@3": 0.8,
+    "hit@5": 0.92,
+    "MRR": 0.75
+   },
+   "system_group": {
+    "complete": 3,
+    "n": 3
+   },
+   "honesty": {
+    "oos_gated": 5,
+    "oos_n": 6,
+    "in_scope_passed": 28,
+    "in_scope_n": 28
+   },
+   "rows": [
+    {
+     "id": "d001",
+     "mode": "exact_code",
+     "rank": 1,
+     "got": [
+      "P0192-00"
+     ]
+    },
+    {
+     "id": "d002",
+     "mode": "exact_code",
+     "rank": 1,
+     "got": [
+      "P0340-00"
+     ]
+    },
+    {
+     "id": "d003",
+     "mode": "exact_code",
+     "rank": 1,
+     "got": [
+      "P0180-11",
+      "P0180-11"
+     ]
+    },
+    {
+     "id": "d004",
+     "mode": "exact_code",
+     "rank": 1,
+     "got": [
+      "P0100-00",
+      "P0100-9B",
+      "P0100-9C"
+     ]
+    },
+    {
+     "id": "d005",
+     "mode": "exact_code",
+     "rank": 1,
+     "got": [
+      "U0102-00"
+     ]
+    },
+    {
+     "id": "d006",
+     "mode": "exact_code",
+     "rank": 1,
+     "got": [
+      "P2264-12",
+      "P2264-11",
+      "P2264-00"
+     ]
+    },
+    {
+     "id": "d007",
+     "mode": "near_duplicate",
+     "rank": 1,
+     "got": [
+      "P0340-00",
+      "P0341-00",
+      "P0180-11",
+      "P0180-12",
+      "P0335-00"
+     ]
+    },
+    {
+     "id": "d008",
+     "mode": "near_duplicate",
+     "rank": 1,
+     "got": [
+      "P0341-00",
+      "P0340-00",
+      "P0336-00",
+      "P0335-00",
+      "P048B-12"
+     ]
+    },
+    {
+     "id": "d009",
+     "mode": "near_duplicate",
+     "rank": 1,
+     "got": [
+      "P0192-00",
+      "P0087-00",
+      "P0088-00",
+      "P0193-00",
+      "P0627-11"
+     ]
+    },
+    {
+     "id": "d010",
+     "mode": "near_duplicate",
+     "rank": 4,
+     "got": [
+      "P0088-00",
+      "P0087-00",
+      "P0192-00",
+      "P0194-00",
+      "P0193-00"
+     ]
+    },
+    {
+     "id": "d011",
+     "mode": "near_duplicate",
+     "rank": 1,
+     "got": [
+      "P0203-00",
+      "P0201-00",
+      "P0204-00",
+      "P0202-00",
+      "P1201-00"
+     ]
+    },
+    {
+     "id": "d012",
+     "mode": "near_duplicate",
+     "rank": 1,
+     "got": [
+      "P2147-00",
+      "P2150-00",
+      "P0201-00",
+      "P2153-00",
+      "P1201-00"
+     ]
+    },
+    {
+     "id": "d013",
+     "mode": "near_duplicate",
+     "rank": 1,
+     "got": [
+      "P0336-00",
+      "P0335-00",
+      "P0341-00",
+      "P048B-11",
+      "P0340-00"
+     ]
+    },
+    {
+     "id": "d014",
+     "mode": "symptom",
+     "rank": 4,
+     "got": [
+      "P04A5-00",
+      "P04A4-00",
+      "P206A-F3",
+      "P042F-00",
+      "P22CF-73"
+     ]
+    },
+    {
+     "id": "d015",
+     "mode": "symptom",
+     "rank": 2,
+     "got": [
+      "P042F-00",
+      "P042E-00",
+      "P04A5-00",
+      "P0405-00",
+      "P0406-00"
+     ]
+    },
+    {
+     "id": "d016",
+     "mode": "symptom",
+     "rank": null,
+     "got": [
+      "P2463-85",
+      "P243F-F0",
+      "P04A5-00",
+      "P206A-F3",
+      "P04A4-00"
+     ]
+    },
+    {
+     "id": "d017",
+     "mode": "symptom",
+     "rank": null,
+     "got": [
+      "P204F-7C",
+      "P0425-84",
+      "P0089-00",
+      "P2BA9-00",
+      "P042A-84"
+     ]
+    },
+    {
+     "id": "d018",
+     "mode": "symptom",
+     "rank": 2,
+     "got": [
+      "P0118-00",
+      "P0117-00",
+      "P0116-00",
+      "P0119-00",
+      "P0427-00"
+     ]
+    },
+    {
+     "id": "d019",
+     "mode": "symptom",
+     "rank": 2,
+     "got": [
+      "P0116-00",
+      "P0118-00",
+      "P0117-00",
+      "P0119-00",
+      "P2264-11"
+     ]
+    },
+    {
+     "id": "d020",
+     "mode": "symptom",
+     "rank": 4,
+     "got": [
+      "P0220-11",
+      "P0120-11",
+      "P0504-00",
+      "P2135-00",
+      "P0220-12"
+     ]
+    },
+    {
+     "id": "d021",
+     "mode": "symptom",
+     "rank": 1,
+     "got": [
+      "P0562-00",
+      "P0563-00",
+      "P20F5-00",
+      "P20F5-7A",
+      "P208D-00"
+     ]
+    },
+    {
+     "id": "d022",
+     "mode": "symptom",
+     "rank": 1,
+     "got": [
+      "P006E-00",
+      "P006F-00",
+      "P0045-13",
+      "P0048-00",
+      "P259E-00"
+     ]
+    },
+    {
+     "id": "d023",
+     "mode": "symptom",
+     "rank": 1,
+     "got": [
+      "P0340-00",
+      "P0341-00",
+      "P0336-00",
+      "P0335-00",
+      "P2229-00"
+     ]
+    },
+    {
+     "id": "d024",
+     "mode": "symptom",
+     "rank": 1,
+     "got": [
+      "P0192-00",
+      "P0193-00",
+      "P0087-00",
+      "P0003-00",
+      "P20A3-00"
+     ]
+    },
+    {
+     "id": "d025",
+     "mode": "symptom",
+     "rank": 2,
+     "got": [
+      "P0562-00",
+      "P0563-00",
+      "P20F5-00",
+      "P1114-00",
+      "P259F-00"
+     ]
+    }
+   ],
+   "groups": [
+    {
+     "id": "d026",
+     "query": "list all EGR faults",
+     "router_mode": "system_group",
+     "detected_system": "egr",
+     "expected_system": "egr",
+     "complete": true,
+     "returned": 14,
+     "expected_n": 14
+    },
+    {
+     "id": "d027",
+     "query": "show me every injector related fault code",
+     "router_mode": "system_group",
+     "detected_system": "injector",
+     "expected_system": "injector",
+     "complete": true,
+     "returned": 14,
+     "expected_n": 14
+    },
+    {
+     "id": "d028",
+     "query": "what soot trap faults are there",
+     "router_mode": "system_group",
+     "detected_system": "dpf_regen",
+     "expected_system": "dpf_regen",
+     "complete": true,
+     "returned": 18,
+     "expected_n": 18
+    }
+   ],
+   "gate_decisions": [
+    {
+     "id": "d001",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d002",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d003",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d004",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d005",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d006",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d007",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d008",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d009",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d010",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d011",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d012",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d013",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d014",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d015",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d016",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d017",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d018",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d019",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d020",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d021",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d022",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d023",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d024",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d025",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d026",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d027",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d028",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d029",
+     "in_scope": false,
+     "passed": false,
+     "reasons": [
+      "low_retrieval_signal"
+     ]
+    },
+    {
+     "id": "d030",
+     "in_scope": false,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "d031",
+     "in_scope": false,
+     "passed": false,
+     "reasons": [
+      "low_retrieval_signal",
+      "non_diagnostic_intent"
+     ]
+    },
+    {
+     "id": "d032",
+     "in_scope": false,
+     "passed": false,
+     "reasons": [
+      "low_retrieval_signal",
+      "non_diagnostic_intent"
+     ]
+    },
+    {
+     "id": "d033",
+     "in_scope": false,
+     "passed": false,
+     "reasons": [
+      "non_diagnostic_intent"
+     ]
+    },
+    {
+     "id": "d034",
+     "in_scope": false,
+     "passed": false,
+     "reasons": [
+      "low_retrieval_signal"
+     ]
+    }
+   ]
+  }
+ },
+ "TEST": {
+  "v1": {
+   "description": "v1-phase7 system (no lexicon, legacy gate), exact ranking",
+   "index_dir": "index",
+   "lexicon": null,
+   "expand": "none",
+   "gate": "legacy v1",
+   "by_mode": {
+    "exact_code": {
+     "n": 6,
+     "hit@1": 1.0,
+     "hit@3": 1.0,
+     "hit@5": 1.0,
+     "MRR": 1.0
+    },
+    "near_duplicate": {
+     "n": 7,
+     "hit@1": 0.42857142857142855,
+     "hit@3": 1.0,
+     "hit@5": 1.0,
+     "MRR": 0.6904761904761905
+    },
+    "symptom": {
+     "n": 13,
+     "hit@1": 0.23076923076923078,
+     "hit@3": 0.3076923076923077,
+     "hit@5": 0.46153846153846156,
+     "MRR": 0.291025641025641
+    }
+   },
+   "overall": {
+    "n": 26,
+    "hit@1": 0.46153846153846156,
+    "hit@3": 0.6538461538461539,
+    "hit@5": 0.7307692307692307,
+    "MRR": 0.5621794871794872
+   },
+   "system_group": {
+    "complete": 4,
+    "n": 4
+   },
+   "honesty": {
+    "oos_gated": 3,
+    "oos_n": 6,
+    "in_scope_passed": 29,
+    "in_scope_n": 30
+   },
+   "rows": [
+    {
+     "id": "t035",
+     "mode": "exact_code",
+     "rank": 1,
+     "got": [
+      "P0627-12"
+     ]
+    },
+    {
+     "id": "t036",
+     "mode": "exact_code",
+     "rank": 1,
+     "got": [
+      "P0401-00"
+     ]
+    },
+    {
+     "id": "t037",
+     "mode": "exact_code",
+     "rank": 1,
+     "got": [
+      "P0180-12",
+      "P0180-12"
+     ]
+    },
+    {
+     "id": "t038",
+     "mode": "exact_code",
+     "rank": 1,
+     "got": [
+      "P20EE-00"
+     ]
+    },
+    {
+     "id": "t039",
+     "mode": "exact_code",
+     "rank": 1,
+     "got": [
+      "P2458-00",
+      "P2458-09"
+     ]
+    },
+    {
+     "id": "t040",
+     "mode": "exact_code",
+     "rank": 1,
+     "got": [
+      "U011A-89"
+     ]
+    },
+    {
+     "id": "t041",
+     "mode": "near_duplicate",
+     "rank": 1,
+     "got": [
+      "P0405-00",
+      "P0406-00",
+      "P042F-00",
+      "P0403-00",
+      "P042E-00"
+     ]
+    },
+    {
+     "id": "t042",
+     "mode": "near_duplicate",
+     "rank": 2,
+     "got": [
+      "P042F-00",
+      "P0406-00",
+      "P042E-00",
+      "P0405-00",
+      "P0403-00"
+     ]
+    },
+    {
+     "id": "t043",
+     "mode": "near_duplicate",
+     "rank": 2,
+     "got": [
+      "P2205-29",
+      "P2205-00",
+      "P22A3-29",
+      "P22A3-00",
+      "P229E-F0"
+     ]
+    },
+    {
+     "id": "t044",
+     "mode": "near_duplicate",
+     "rank": 2,
+     "got": [
+      "P22A3-29",
+      "P22A3-00",
+      "P2205-29",
+      "P2205-00",
+      "P229E-0A"
+     ]
+    },
+    {
+     "id": "t045",
+     "mode": "near_duplicate",
+     "rank": 1,
+     "got": [
+      "P208A-00",
+      "P208A-4B",
+      "P208D-00",
+      "P208C-00",
+      "P20A0-4B"
+     ]
+    },
+    {
+     "id": "t046",
+     "mode": "near_duplicate",
+     "rank": 3,
+     "got": [
+      "P208A-00",
+      "P20A0-4B",
+      "P20A0-00",
+      "P20A2-00",
+      "P208A-4B"
+     ]
+    },
+    {
+     "id": "t047",
+     "mode": "near_duplicate",
+     "rank": 1,
+     "got": [
+      "P04A5-00",
+      "P04A4-00",
+      "P042F-00",
+      "P042E-00",
+      "P048B-11"
+     ]
+    },
+    {
+     "id": "t048",
+     "mode": "symptom",
+     "rank": null,
+     "got": [
+      "P206A-13",
+      "P206A-86",
+      "P244A-00",
+      "P226D-00",
+      "P2463-85"
+     ]
+    },
+    {
+     "id": "t049",
+     "mode": "symptom",
+     "rank": null,
+     "got": [
+      "P2047-7F",
+      "P018F-00",
+      "P2048-00",
+      "P2047-00",
+      "P2047-4B"
+     ]
+    },
+    {
+     "id": "t050",
+     "mode": "symptom",
+     "rank": null,
+     "got": [
+      "P018F-00",
+      "P0001-00",
+      "P0089-00",
+      "P0180-11",
+      "P0180-12"
+     ]
+    },
+    {
+     "id": "t051",
+     "mode": "symptom",
+     "rank": null,
+     "got": [
+      "P0110-12",
+      "P0110-11",
+      "P0109-00",
+      "P0425-84",
+      "P0427-00"
+     ]
+    },
+    {
+     "id": "t052",
+     "mode": "symptom",
+     "rank": 1,
+     "got": [
+      "P20EE-00",
+      "P2200-27",
+      "P10FF-00",
+      "P2200-26",
+      "P229E-26"
+     ]
+    },
+    {
+     "id": "t053",
+     "mode": "symptom",
+     "rank": 3,
+     "got": [
+      "P0336-00",
+      "P0335-00",
+      "P0219-00",
+      "P1201-00",
+      "P0203-00"
+     ]
+    },
+    {
+     "id": "t054",
+     "mode": "symptom",
+     "rank": 5,
+     "got": [
+      "P2463-85",
+      "P243F-F0",
+      "P04A5-00",
+      "P04A4-00",
+      "P242F-00"
+     ]
+    },
+    {
+     "id": "t055",
+     "mode": "symptom",
+     "rank": null,
+     "got": [
+      "P04A5-00",
+      "P0704-29",
+      "P22CF-73",
+      "P04A4-00",
+      "P22CF-72"
+     ]
+    },
+    {
+     "id": "t056",
+     "mode": "symptom",
+     "rank": 4,
+     "got": [
+      "P0100-00",
+      "P0110-11",
+      "P0110-12",
+      "P026A-00",
+      "P0100-9C"
+     ]
+    },
+    {
+     "id": "t057",
+     "mode": "symptom",
+     "rank": null,
+     "got": [
+      "P1202-00",
+      "P1201-00",
+      "P0204-00",
+      "P0202-00",
+      "P0201-00"
+     ]
+    },
+    {
+     "id": "t058",
+     "mode": "symptom",
+     "rank": null,
+     "got": [
+      "P0A1B-12",
+      "P0A1B-13",
+      "P1201-00",
+      "P2147-00",
+      "P1202-00"
+     ]
+    },
+    {
+     "id": "t059",
+     "mode": "symptom",
+     "rank": 1,
+     "got": [
+      "P0704-29",
+      "P0504-00",
+      "P0120-11",
+      "P2135-00",
+      "P0220-11"
+     ]
+    },
+    {
+     "id": "t060",
+     "mode": "symptom",
+     "rank": 1,
+     "got": [
+      "P0A1B-13",
+      "P0A1B-12",
+      "P00C6-00",
+      "P1653-00",
+      "P1674-00"
+     ]
+    }
+   ],
+   "groups": [
+    {
+     "id": "t061",
+     "query": "list all exhaust throttle valve faults",
+     "router_mode": "system_group",
+     "detected_system": "exhaust_throttle",
+     "expected_system": "exhaust_throttle",
+     "complete": true,
+     "returned": 9,
+     "expected_n": 9
+    },
+    {
+     "id": "t062",
+     "query": "show every turbocharger related code",
+     "router_mode": "system_group",
+     "detected_system": "turbo_boost",
+     "expected_system": "turbo_boost",
+     "complete": true,
+     "returned": 15,
+     "expected_n": 15
+    },
+    {
+     "id": "t063",
+     "query": "which coolant faults exist",
+     "router_mode": "system_group",
+     "detected_system": "coolant",
+     "expected_system": "coolant",
+     "complete": true,
+     "returned": 4,
+     "expected_n": 4
+    },
+    {
+     "id": "t064",
+     "query": "all CAN bus network faults",
+     "router_mode": "system_group",
+     "detected_system": "can_network",
+     "expected_system": "can_network",
+     "complete": true,
+     "returned": 3,
+     "expected_n": 3
+    }
+   ],
+   "gate_decisions": [
+    {
+     "id": "t035",
+     "in_scope": true,
+     "passed": true,
+     "reasons": null
+    },
+    {
+     "id": "t036",
+     "in_scope": true,
+     "passed": true,
+     "reasons": null
+    },
+    {
+     "id": "t037",
+     "in_scope": true,
+     "passed": true,
+     "reasons": null
+    },
+    {
+     "id": "t038",
+     "in_scope": true,
+     "passed": true,
+     "reasons": null
+    },
+    {
+     "id": "t039",
+     "in_scope": true,
+     "passed": true,
+     "reasons": null
+    },
+    {
+     "id": "t040",
+     "in_scope": true,
+     "passed": true,
+     "reasons": null
+    },
+    {
+     "id": "t041",
+     "in_scope": true,
+     "passed": true,
+     "reasons": null
+    },
+    {
+     "id": "t042",
+     "in_scope": true,
+     "passed": true,
+     "reasons": null
+    },
+    {
+     "id": "t043",
+     "in_scope": true,
+     "passed": true,
+     "reasons": null
+    },
+    {
+     "id": "t044",
+     "in_scope": true,
+     "passed": true,
+     "reasons": null
+    },
+    {
+     "id": "t045",
+     "in_scope": true,
+     "passed": true,
+     "reasons": null
+    },
+    {
+     "id": "t046",
+     "in_scope": true,
+     "passed": true,
+     "reasons": null
+    },
+    {
+     "id": "t047",
+     "in_scope": true,
+     "passed": true,
+     "reasons": null
+    },
+    {
+     "id": "t048",
+     "in_scope": true,
+     "passed": true,
+     "reasons": null
+    },
+    {
+     "id": "t049",
+     "in_scope": true,
+     "passed": true,
+     "reasons": null
+    },
+    {
+     "id": "t050",
+     "in_scope": true,
+     "passed": true,
+     "reasons": null
+    },
+    {
+     "id": "t051",
+     "in_scope": true,
+     "passed": false,
+     "reasons": null
+    },
+    {
+     "id": "t052",
+     "in_scope": true,
+     "passed": true,
+     "reasons": null
+    },
+    {
+     "id": "t053",
+     "in_scope": true,
+     "passed": true,
+     "reasons": null
+    },
+    {
+     "id": "t054",
+     "in_scope": true,
+     "passed": true,
+     "reasons": null
+    },
+    {
+     "id": "t055",
+     "in_scope": true,
+     "passed": true,
+     "reasons": null
+    },
+    {
+     "id": "t056",
+     "in_scope": true,
+     "passed": true,
+     "reasons": null
+    },
+    {
+     "id": "t057",
+     "in_scope": true,
+     "passed": true,
+     "reasons": null
+    },
+    {
+     "id": "t058",
+     "in_scope": true,
+     "passed": true,
+     "reasons": null
+    },
+    {
+     "id": "t059",
+     "in_scope": true,
+     "passed": true,
+     "reasons": null
+    },
+    {
+     "id": "t060",
+     "in_scope": true,
+     "passed": true,
+     "reasons": null
+    },
+    {
+     "id": "t061",
+     "in_scope": true,
+     "passed": true,
+     "reasons": null
+    },
+    {
+     "id": "t062",
+     "in_scope": true,
+     "passed": true,
+     "reasons": null
+    },
+    {
+     "id": "t063",
+     "in_scope": true,
+     "passed": true,
+     "reasons": null
+    },
+    {
+     "id": "t064",
+     "in_scope": true,
+     "passed": true,
+     "reasons": null
+    },
+    {
+     "id": "t065",
+     "in_scope": false,
+     "passed": true,
+     "reasons": null
+    },
+    {
+     "id": "t066",
+     "in_scope": false,
+     "passed": true,
+     "reasons": null
+    },
+    {
+     "id": "t067",
+     "in_scope": false,
+     "passed": false,
+     "reasons": null
+    },
+    {
+     "id": "t068",
+     "in_scope": false,
+     "passed": false,
+     "reasons": null
+    },
+    {
+     "id": "t069",
+     "in_scope": false,
+     "passed": false,
+     "reasons": null
+    },
+    {
+     "id": "t070",
+     "in_scope": false,
+     "passed": true,
+     "reasons": null
+    }
+   ]
+  },
+  "a": {
+   "description": "C4b full lexicon + gate v2 full stoplist",
+   "index_dir": "index_exp/minilm_alias_bm25_cyl",
+   "lexicon": "data/domain_lexicon.json",
+   "expand": "bm25",
+   "gate": "data/gate_c4b.json",
+   "by_mode": {
+    "exact_code": {
+     "n": 6,
+     "hit@1": 1.0,
+     "hit@3": 1.0,
+     "hit@5": 1.0,
+     "MRR": 1.0
+    },
+    "near_duplicate": {
+     "n": 7,
+     "hit@1": 0.42857142857142855,
+     "hit@3": 0.8571428571428571,
+     "hit@5": 1.0,
+     "MRR": 0.6785714285714286
+    },
+    "symptom": {
+     "n": 13,
+     "hit@1": 0.5384615384615384,
+     "hit@3": 0.6923076923076923,
+     "hit@5": 0.8461538461538461,
+     "MRR": 0.6282051282051282
+    }
+   },
+   "overall": {
+    "n": 26,
+    "hit@1": 0.6153846153846154,
+    "hit@3": 0.8076923076923077,
+    "hit@5": 0.9230769230769231,
+    "MRR": 0.7275641025641026
+   },
+   "system_group": {
+    "complete": 4,
+    "n": 4
+   },
+   "honesty": {
+    "oos_gated": 6,
+    "oos_n": 6,
+    "in_scope_passed": 30,
+    "in_scope_n": 30
+   },
+   "rows": [
+    {
+     "id": "t035",
+     "mode": "exact_code",
+     "rank": 1,
+     "got": [
+      "P0627-12"
+     ]
+    },
+    {
+     "id": "t036",
+     "mode": "exact_code",
+     "rank": 1,
+     "got": [
+      "P0401-00"
+     ]
+    },
+    {
+     "id": "t037",
+     "mode": "exact_code",
+     "rank": 1,
+     "got": [
+      "P0180-12",
+      "P0180-12"
+     ]
+    },
+    {
+     "id": "t038",
+     "mode": "exact_code",
+     "rank": 1,
+     "got": [
+      "P20EE-00"
+     ]
+    },
+    {
+     "id": "t039",
+     "mode": "exact_code",
+     "rank": 1,
+     "got": [
+      "P2458-00",
+      "P2458-09"
+     ]
+    },
+    {
+     "id": "t040",
+     "mode": "exact_code",
+     "rank": 1,
+     "got": [
+      "U011A-89"
+     ]
+    },
+    {
+     "id": "t041",
+     "mode": "near_duplicate",
+     "rank": 1,
+     "got": [
+      "P0405-00",
+      "P0403-00",
+      "P0406-00",
+      "P042F-00",
+      "P042E-00"
+     ]
+    },
+    {
+     "id": "t042",
+     "mode": "near_duplicate",
+     "rank": 2,
+     "got": [
+      "P042F-00",
+      "P0406-00",
+      "P042E-00",
+      "P0405-00",
+      "P0403-00"
+     ]
+    },
+    {
+     "id": "t043",
+     "mode": "near_duplicate",
+     "rank": 2,
+     "got": [
+      "P2205-29",
+      "P2205-00",
+      "P22A3-29",
+      "P22A3-00",
+      "P229E-F0"
+     ]
+    },
+    {
+     "id": "t044",
+     "mode": "near_duplicate",
+     "rank": 2,
+     "got": [
+      "P22A3-29",
+      "P22A3-00",
+      "P2205-29",
+      "P2205-00",
+      "P229E-F0"
+     ]
+    },
+    {
+     "id": "t045",
+     "mode": "near_duplicate",
+     "rank": 1,
+     "got": [
+      "P208A-00",
+      "P208A-4B",
+      "P208D-00",
+      "P208C-00",
+      "P20A0-4B"
+     ]
+    },
+    {
+     "id": "t046",
+     "mode": "near_duplicate",
+     "rank": 4,
+     "got": [
+      "P208A-00",
+      "P20A0-4B",
+      "P208A-4B",
+      "P20A0-00",
+      "P0089-00"
+     ]
+    },
+    {
+     "id": "t047",
+     "mode": "near_duplicate",
+     "rank": 1,
+     "got": [
+      "P04A5-00",
+      "P04A4-00",
+      "P048B-11",
+      "P048B-12",
+      "P042F-00"
+     ]
+    },
+    {
+     "id": "t048",
+     "mode": "symptom",
+     "rank": 1,
+     "got": [
+      "P2264-00",
+      "P2264-12",
+      "P2264-11",
+      "P2463-85",
+      "P226D-00"
+     ]
+    },
+    {
+     "id": "t049",
+     "mode": "symptom",
+     "rank": 3,
+     "got": [
+      "P2048-00",
+      "P2047-7F",
+      "P0003-00",
+      "P018F-00",
+      "P04A8-00"
+     ]
+    },
+    {
+     "id": "t050",
+     "mode": "symptom",
+     "rank": 1,
+     "got": [
+      "P0627-13",
+      "P0180-12",
+      "P0627-12",
+      "P0627-11",
+      "P0180-12"
+     ]
+    },
+    {
+     "id": "t051",
+     "mode": "symptom",
+     "rank": 1,
+     "got": [
+      "P10FF-00",
+      "P20F4-00",
+      "P204F-7C",
+      "P208A-4B",
+      "P0116-00"
+     ]
+    },
+    {
+     "id": "t052",
+     "mode": "symptom",
+     "rank": 1,
+     "got": [
+      "P20EE-00",
+      "P2200-27",
+      "P2200-26",
+      "P10FF-00",
+      "P229E-26"
+     ]
+    },
+    {
+     "id": "t053",
+     "mode": "symptom",
+     "rank": 3,
+     "got": [
+      "P0336-00",
+      "P0335-00",
+      "P0219-00",
+      "P061C-00",
+      "P061C-00"
+     ]
+    },
+    {
+     "id": "t054",
+     "mode": "symptom",
+     "rank": 4,
+     "got": [
+      "P2463-85",
+      "P243F-F0",
+      "P243C-00",
+      "P242F-00",
+      "P244B-00"
+     ]
+    },
+    {
+     "id": "t055",
+     "mode": "symptom",
+     "rank": null,
+     "got": [
+      "P0704-29",
+      "P04A5-00",
+      "P04A4-00",
+      "P22CF-73",
+      "P042F-00"
+     ]
+    },
+    {
+     "id": "t056",
+     "mode": "symptom",
+     "rank": 4,
+     "got": [
+      "P0110-11",
+      "P0100-00",
+      "P0110-12",
+      "P026A-00",
+      "P0100-9C"
+     ]
+    },
+    {
+     "id": "t057",
+     "mode": "symptom",
+     "rank": 1,
+     "got": [
+      "P0500-1F",
+      "P0500-1C",
+      "P1202-00",
+      "P1201-00",
+      "P0204-00"
+     ]
+    },
+    {
+     "id": "t058",
+     "mode": "symptom",
+     "rank": null,
+     "got": [
+      "P0A1B-12",
+      "P0A1B-13",
+      "P1201-00",
+      "P2147-00",
+      "P1202-00"
+     ]
+    },
+    {
+     "id": "t059",
+     "mode": "symptom",
+     "rank": 1,
+     "got": [
+      "P0704-29",
+      "P2135-00",
+      "P0504-00",
+      "P0220-11",
+      "P0120-12"
+     ]
+    },
+    {
+     "id": "t060",
+     "mode": "symptom",
+     "rank": 1,
+     "got": [
+      "P0A1B-13",
+      "P0A1B-12",
+      "P1653-00",
+      "P0073-00",
+      "P0180-12"
+     ]
+    }
+   ],
+   "groups": [
+    {
+     "id": "t061",
+     "query": "list all exhaust throttle valve faults",
+     "router_mode": "system_group",
+     "detected_system": "exhaust_throttle",
+     "expected_system": "exhaust_throttle",
+     "complete": true,
+     "returned": 9,
+     "expected_n": 9
+    },
+    {
+     "id": "t062",
+     "query": "show every turbocharger related code",
+     "router_mode": "system_group",
+     "detected_system": "turbo_boost",
+     "expected_system": "turbo_boost",
+     "complete": true,
+     "returned": 15,
+     "expected_n": 15
+    },
+    {
+     "id": "t063",
+     "query": "which coolant faults exist",
+     "router_mode": "system_group",
+     "detected_system": "coolant",
+     "expected_system": "coolant",
+     "complete": true,
+     "returned": 4,
+     "expected_n": 4
+    },
+    {
+     "id": "t064",
+     "query": "all CAN bus network faults",
+     "router_mode": "system_group",
+     "detected_system": "can_network",
+     "expected_system": "can_network",
+     "complete": true,
+     "returned": 3,
+     "expected_n": 3
+    }
+   ],
+   "gate_decisions": [
+    {
+     "id": "t035",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t036",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t037",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t038",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t039",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t040",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t041",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t042",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t043",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t044",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t045",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t046",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t047",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t048",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t049",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t050",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t051",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t052",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t053",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t054",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t055",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t056",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t057",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t058",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t059",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t060",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t061",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t062",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t063",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t064",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t065",
+     "in_scope": false,
+     "passed": false,
+     "reasons": [
+      "non_diagnostic_intent"
+     ]
+    },
+    {
+     "id": "t066",
+     "in_scope": false,
+     "passed": false,
+     "reasons": [
+      "non_diagnostic_intent"
+     ]
+    },
+    {
+     "id": "t067",
+     "in_scope": false,
+     "passed": false,
+     "reasons": [
+      "low_retrieval_signal",
+      "non_diagnostic_intent"
+     ]
+    },
+    {
+     "id": "t068",
+     "in_scope": false,
+     "passed": false,
+     "reasons": [
+      "non_diagnostic_intent"
+     ]
+    },
+    {
+     "id": "t069",
+     "in_scope": false,
+     "passed": false,
+     "reasons": [
+      "non_diagnostic_intent"
+     ]
+    },
+    {
+     "id": "t070",
+     "in_scope": false,
+     "passed": false,
+     "reasons": [
+      "low_retrieval_signal",
+      "non_diagnostic_intent"
+     ]
+    }
+   ]
+  },
+  "b": {
+   "description": "lexicon ABLATED + gate v2 full stoplist",
+   "index_dir": "index_exp/minilm_alias_bm25_cyl_lexablated",
+   "lexicon": "data/experiments/8_5/domain_lexicon_ablated.json",
+   "expand": "bm25",
+   "gate": "data/experiments/8_5/gate_full_on_lexablated.json",
+   "by_mode": {
+    "exact_code": {
+     "n": 6,
+     "hit@1": 1.0,
+     "hit@3": 1.0,
+     "hit@5": 1.0,
+     "MRR": 1.0
+    },
+    "near_duplicate": {
+     "n": 7,
+     "hit@1": 0.42857142857142855,
+     "hit@3": 1.0,
+     "hit@5": 1.0,
+     "MRR": 0.6904761904761905
+    },
+    "symptom": {
+     "n": 13,
+     "hit@1": 0.23076923076923078,
+     "hit@3": 0.46153846153846156,
+     "hit@5": 0.6153846153846154,
+     "MRR": 0.3679487179487179
+    }
+   },
+   "overall": {
+    "n": 26,
+    "hit@1": 0.46153846153846156,
+    "hit@3": 0.7307692307692307,
+    "hit@5": 0.8076923076923077,
+    "MRR": 0.6006410256410256
+   },
+   "system_group": {
+    "complete": 4,
+    "n": 4
+   },
+   "honesty": {
+    "oos_gated": 6,
+    "oos_n": 6,
+    "in_scope_passed": 30,
+    "in_scope_n": 30
+   },
+   "rows": [
+    {
+     "id": "t035",
+     "mode": "exact_code",
+     "rank": 1,
+     "got": [
+      "P0627-12"
+     ]
+    },
+    {
+     "id": "t036",
+     "mode": "exact_code",
+     "rank": 1,
+     "got": [
+      "P0401-00"
+     ]
+    },
+    {
+     "id": "t037",
+     "mode": "exact_code",
+     "rank": 1,
+     "got": [
+      "P0180-12",
+      "P0180-12"
+     ]
+    },
+    {
+     "id": "t038",
+     "mode": "exact_code",
+     "rank": 1,
+     "got": [
+      "P20EE-00"
+     ]
+    },
+    {
+     "id": "t039",
+     "mode": "exact_code",
+     "rank": 1,
+     "got": [
+      "P2458-00",
+      "P2458-09"
+     ]
+    },
+    {
+     "id": "t040",
+     "mode": "exact_code",
+     "rank": 1,
+     "got": [
+      "U011A-89"
+     ]
+    },
+    {
+     "id": "t041",
+     "mode": "near_duplicate",
+     "rank": 1,
+     "got": [
+      "P0405-00",
+      "P0406-00",
+      "P042F-00",
+      "P0403-00",
+      "P042E-00"
+     ]
+    },
+    {
+     "id": "t042",
+     "mode": "near_duplicate",
+     "rank": 2,
+     "got": [
+      "P042F-00",
+      "P0406-00",
+      "P042E-00",
+      "P0405-00",
+      "P0403-00"
+     ]
+    },
+    {
+     "id": "t043",
+     "mode": "near_duplicate",
+     "rank": 2,
+     "got": [
+      "P2205-29",
+      "P2205-00",
+      "P22A3-29",
+      "P22A3-00",
+      "P229E-F0"
+     ]
+    },
+    {
+     "id": "t044",
+     "mode": "near_duplicate",
+     "rank": 2,
+     "got": [
+      "P22A3-29",
+      "P22A3-00",
+      "P2205-29",
+      "P2205-00",
+      "P229E-0A"
+     ]
+    },
+    {
+     "id": "t045",
+     "mode": "near_duplicate",
+     "rank": 1,
+     "got": [
+      "P208A-00",
+      "P208A-4B",
+      "P208D-00",
+      "P208C-00",
+      "P20A0-4B"
+     ]
+    },
+    {
+     "id": "t046",
+     "mode": "near_duplicate",
+     "rank": 3,
+     "got": [
+      "P208A-00",
+      "P20A0-4B",
+      "P20A0-00",
+      "P20A2-00",
+      "P208A-4B"
+     ]
+    },
+    {
+     "id": "t047",
+     "mode": "near_duplicate",
+     "rank": 1,
+     "got": [
+      "P04A5-00",
+      "P04A4-00",
+      "P042F-00",
+      "P042E-00",
+      "P048B-11"
+     ]
+    },
+    {
+     "id": "t048",
+     "mode": "symptom",
+     "rank": 1,
+     "got": [
+      "P2264-00",
+      "P206A-13",
+      "P2264-12",
+      "P206A-86",
+      "P244A-00"
+     ]
+    },
+    {
+     "id": "t049",
+     "mode": "symptom",
+     "rank": null,
+     "got": [
+      "P2047-7F",
+      "P018F-00",
+      "P2048-00",
+      "P2047-00",
+      "P2047-4B"
+     ]
+    },
+    {
+     "id": "t050",
+     "mode": "symptom",
+     "rank": 2,
+     "got": [
+      "P0627-11",
+      "P0627-13",
+      "P0627-12",
+      "P0001-00",
+      "P018F-00"
+     ]
+    },
+    {
+     "id": "t051",
+     "mode": "symptom",
+     "rank": null,
+     "got": [
+      "P0110-12",
+      "P0110-11",
+      "P0425-84",
+      "P0425-85",
+      "P0427-00"
+     ]
+    },
+    {
+     "id": "t052",
+     "mode": "symptom",
+     "rank": 1,
+     "got": [
+      "P20EE-00",
+      "P2200-27",
+      "P10FF-00",
+      "P2200-26",
+      "P229E-26"
+     ]
+    },
+    {
+     "id": "t053",
+     "mode": "symptom",
+     "rank": 3,
+     "got": [
+      "P0336-00",
+      "P0335-00",
+      "P0219-00",
+      "P1201-00",
+      "P0203-00"
+     ]
+    },
+    {
+     "id": "t054",
+     "mode": "symptom",
+     "rank": 5,
+     "got": [
+      "P2463-85",
+      "P243F-F0",
+      "P04A5-00",
+      "P04A4-00",
+      "P242F-00"
+     ]
+    },
+    {
+     "id": "t055",
+     "mode": "symptom",
+     "rank": null,
+     "got": [
+      "P04A5-00",
+      "P04A4-00",
+      "P0704-29",
+      "P042F-00",
+      "P042E-00"
+     ]
+    },
+    {
+     "id": "t056",
+     "mode": "symptom",
+     "rank": 4,
+     "got": [
+      "P0100-00",
+      "P0110-11",
+      "P0110-12",
+      "P026A-00",
+      "P0100-9C"
+     ]
+    },
+    {
+     "id": "t057",
+     "mode": "symptom",
+     "rank": null,
+     "got": [
+      "P1202-00",
+      "P1201-00",
+      "P0204-00",
+      "P0202-00",
+      "P0201-00"
+     ]
+    },
+    {
+     "id": "t058",
+     "mode": "symptom",
+     "rank": null,
+     "got": [
+      "P0A1B-12",
+      "P0A1B-13",
+      "P1201-00",
+      "P2147-00",
+      "P1202-00"
+     ]
+    },
+    {
+     "id": "t059",
+     "mode": "symptom",
+     "rank": 1,
+     "got": [
+      "P0704-29",
+      "P0504-00",
+      "P0120-11",
+      "P0220-11",
+      "P2135-00"
+     ]
+    },
+    {
+     "id": "t060",
+     "mode": "symptom",
+     "rank": 2,
+     "got": [
+      "P0A1B-12",
+      "P0A1B-13",
+      "P1653-00",
+      "P00C6-00",
+      "P1674-00"
+     ]
+    }
+   ],
+   "groups": [
+    {
+     "id": "t061",
+     "query": "list all exhaust throttle valve faults",
+     "router_mode": "system_group",
+     "detected_system": "exhaust_throttle",
+     "expected_system": "exhaust_throttle",
+     "complete": true,
+     "returned": 9,
+     "expected_n": 9
+    },
+    {
+     "id": "t062",
+     "query": "show every turbocharger related code",
+     "router_mode": "system_group",
+     "detected_system": "turbo_boost",
+     "expected_system": "turbo_boost",
+     "complete": true,
+     "returned": 15,
+     "expected_n": 15
+    },
+    {
+     "id": "t063",
+     "query": "which coolant faults exist",
+     "router_mode": "system_group",
+     "detected_system": "coolant",
+     "expected_system": "coolant",
+     "complete": true,
+     "returned": 4,
+     "expected_n": 4
+    },
+    {
+     "id": "t064",
+     "query": "all CAN bus network faults",
+     "router_mode": "system_group",
+     "detected_system": "can_network",
+     "expected_system": "can_network",
+     "complete": true,
+     "returned": 3,
+     "expected_n": 3
+    }
+   ],
+   "gate_decisions": [
+    {
+     "id": "t035",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t036",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t037",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t038",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t039",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t040",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t041",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t042",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t043",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t044",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t045",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t046",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t047",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t048",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t049",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t050",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t051",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t052",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t053",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t054",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t055",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t056",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t057",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t058",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t059",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t060",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t061",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t062",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t063",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t064",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t065",
+     "in_scope": false,
+     "passed": false,
+     "reasons": [
+      "non_diagnostic_intent"
+     ]
+    },
+    {
+     "id": "t066",
+     "in_scope": false,
+     "passed": false,
+     "reasons": [
+      "non_diagnostic_intent"
+     ]
+    },
+    {
+     "id": "t067",
+     "in_scope": false,
+     "passed": false,
+     "reasons": [
+      "low_retrieval_signal",
+      "non_diagnostic_intent"
+     ]
+    },
+    {
+     "id": "t068",
+     "in_scope": false,
+     "passed": false,
+     "reasons": [
+      "non_diagnostic_intent"
+     ]
+    },
+    {
+     "id": "t069",
+     "in_scope": false,
+     "passed": false,
+     "reasons": [
+      "low_retrieval_signal",
+      "non_diagnostic_intent"
+     ]
+    },
+    {
+     "id": "t070",
+     "in_scope": false,
+     "passed": false,
+     "reasons": [
+      "non_diagnostic_intent"
+     ]
+    }
+   ]
+  },
+  "c": {
+   "description": "C4b full lexicon + gate stoplist ABLATED",
+   "index_dir": "index_exp/minilm_alias_bm25_cyl",
+   "lexicon": "data/domain_lexicon.json",
+   "expand": "bm25",
+   "gate": "data/experiments/8_5/gate_stopablated.json",
+   "by_mode": {
+    "exact_code": {
+     "n": 6,
+     "hit@1": 1.0,
+     "hit@3": 1.0,
+     "hit@5": 1.0,
+     "MRR": 1.0
+    },
+    "near_duplicate": {
+     "n": 7,
+     "hit@1": 0.42857142857142855,
+     "hit@3": 0.8571428571428571,
+     "hit@5": 1.0,
+     "MRR": 0.6785714285714286
+    },
+    "symptom": {
+     "n": 13,
+     "hit@1": 0.5384615384615384,
+     "hit@3": 0.6923076923076923,
+     "hit@5": 0.8461538461538461,
+     "MRR": 0.6282051282051282
+    }
+   },
+   "overall": {
+    "n": 26,
+    "hit@1": 0.6153846153846154,
+    "hit@3": 0.8076923076923077,
+    "hit@5": 0.9230769230769231,
+    "MRR": 0.7275641025641026
+   },
+   "system_group": {
+    "complete": 4,
+    "n": 4
+   },
+   "honesty": {
+    "oos_gated": 2,
+    "oos_n": 6,
+    "in_scope_passed": 30,
+    "in_scope_n": 30
+   },
+   "rows": [
+    {
+     "id": "t035",
+     "mode": "exact_code",
+     "rank": 1,
+     "got": [
+      "P0627-12"
+     ]
+    },
+    {
+     "id": "t036",
+     "mode": "exact_code",
+     "rank": 1,
+     "got": [
+      "P0401-00"
+     ]
+    },
+    {
+     "id": "t037",
+     "mode": "exact_code",
+     "rank": 1,
+     "got": [
+      "P0180-12",
+      "P0180-12"
+     ]
+    },
+    {
+     "id": "t038",
+     "mode": "exact_code",
+     "rank": 1,
+     "got": [
+      "P20EE-00"
+     ]
+    },
+    {
+     "id": "t039",
+     "mode": "exact_code",
+     "rank": 1,
+     "got": [
+      "P2458-00",
+      "P2458-09"
+     ]
+    },
+    {
+     "id": "t040",
+     "mode": "exact_code",
+     "rank": 1,
+     "got": [
+      "U011A-89"
+     ]
+    },
+    {
+     "id": "t041",
+     "mode": "near_duplicate",
+     "rank": 1,
+     "got": [
+      "P0405-00",
+      "P0403-00",
+      "P0406-00",
+      "P042F-00",
+      "P042E-00"
+     ]
+    },
+    {
+     "id": "t042",
+     "mode": "near_duplicate",
+     "rank": 2,
+     "got": [
+      "P042F-00",
+      "P0406-00",
+      "P042E-00",
+      "P0405-00",
+      "P0403-00"
+     ]
+    },
+    {
+     "id": "t043",
+     "mode": "near_duplicate",
+     "rank": 2,
+     "got": [
+      "P2205-29",
+      "P2205-00",
+      "P22A3-29",
+      "P22A3-00",
+      "P229E-F0"
+     ]
+    },
+    {
+     "id": "t044",
+     "mode": "near_duplicate",
+     "rank": 2,
+     "got": [
+      "P22A3-29",
+      "P22A3-00",
+      "P2205-29",
+      "P2205-00",
+      "P229E-F0"
+     ]
+    },
+    {
+     "id": "t045",
+     "mode": "near_duplicate",
+     "rank": 1,
+     "got": [
+      "P208A-00",
+      "P208A-4B",
+      "P208D-00",
+      "P208C-00",
+      "P20A0-4B"
+     ]
+    },
+    {
+     "id": "t046",
+     "mode": "near_duplicate",
+     "rank": 4,
+     "got": [
+      "P208A-00",
+      "P20A0-4B",
+      "P208A-4B",
+      "P20A0-00",
+      "P0089-00"
+     ]
+    },
+    {
+     "id": "t047",
+     "mode": "near_duplicate",
+     "rank": 1,
+     "got": [
+      "P04A5-00",
+      "P04A4-00",
+      "P048B-11",
+      "P048B-12",
+      "P042F-00"
+     ]
+    },
+    {
+     "id": "t048",
+     "mode": "symptom",
+     "rank": 1,
+     "got": [
+      "P2264-00",
+      "P2264-12",
+      "P2264-11",
+      "P2463-85",
+      "P226D-00"
+     ]
+    },
+    {
+     "id": "t049",
+     "mode": "symptom",
+     "rank": 3,
+     "got": [
+      "P2048-00",
+      "P2047-7F",
+      "P0003-00",
+      "P018F-00",
+      "P04A8-00"
+     ]
+    },
+    {
+     "id": "t050",
+     "mode": "symptom",
+     "rank": 1,
+     "got": [
+      "P0627-13",
+      "P0180-12",
+      "P0627-12",
+      "P0627-11",
+      "P0180-12"
+     ]
+    },
+    {
+     "id": "t051",
+     "mode": "symptom",
+     "rank": 1,
+     "got": [
+      "P10FF-00",
+      "P20F4-00",
+      "P204F-7C",
+      "P208A-4B",
+      "P0116-00"
+     ]
+    },
+    {
+     "id": "t052",
+     "mode": "symptom",
+     "rank": 1,
+     "got": [
+      "P20EE-00",
+      "P2200-27",
+      "P2200-26",
+      "P10FF-00",
+      "P229E-26"
+     ]
+    },
+    {
+     "id": "t053",
+     "mode": "symptom",
+     "rank": 3,
+     "got": [
+      "P0336-00",
+      "P0335-00",
+      "P0219-00",
+      "P061C-00",
+      "P061C-00"
+     ]
+    },
+    {
+     "id": "t054",
+     "mode": "symptom",
+     "rank": 4,
+     "got": [
+      "P2463-85",
+      "P243F-F0",
+      "P243C-00",
+      "P242F-00",
+      "P244B-00"
+     ]
+    },
+    {
+     "id": "t055",
+     "mode": "symptom",
+     "rank": null,
+     "got": [
+      "P0704-29",
+      "P04A5-00",
+      "P04A4-00",
+      "P22CF-73",
+      "P042F-00"
+     ]
+    },
+    {
+     "id": "t056",
+     "mode": "symptom",
+     "rank": 4,
+     "got": [
+      "P0110-11",
+      "P0100-00",
+      "P0110-12",
+      "P026A-00",
+      "P0100-9C"
+     ]
+    },
+    {
+     "id": "t057",
+     "mode": "symptom",
+     "rank": 1,
+     "got": [
+      "P0500-1F",
+      "P0500-1C",
+      "P1202-00",
+      "P1201-00",
+      "P0204-00"
+     ]
+    },
+    {
+     "id": "t058",
+     "mode": "symptom",
+     "rank": null,
+     "got": [
+      "P0A1B-12",
+      "P0A1B-13",
+      "P1201-00",
+      "P2147-00",
+      "P1202-00"
+     ]
+    },
+    {
+     "id": "t059",
+     "mode": "symptom",
+     "rank": 1,
+     "got": [
+      "P0704-29",
+      "P2135-00",
+      "P0504-00",
+      "P0220-11",
+      "P0120-12"
+     ]
+    },
+    {
+     "id": "t060",
+     "mode": "symptom",
+     "rank": 1,
+     "got": [
+      "P0A1B-13",
+      "P0A1B-12",
+      "P1653-00",
+      "P0073-00",
+      "P0180-12"
+     ]
+    }
+   ],
+   "groups": [
+    {
+     "id": "t061",
+     "query": "list all exhaust throttle valve faults",
+     "router_mode": "system_group",
+     "detected_system": "exhaust_throttle",
+     "expected_system": "exhaust_throttle",
+     "complete": true,
+     "returned": 9,
+     "expected_n": 9
+    },
+    {
+     "id": "t062",
+     "query": "show every turbocharger related code",
+     "router_mode": "system_group",
+     "detected_system": "turbo_boost",
+     "expected_system": "turbo_boost",
+     "complete": true,
+     "returned": 15,
+     "expected_n": 15
+    },
+    {
+     "id": "t063",
+     "query": "which coolant faults exist",
+     "router_mode": "system_group",
+     "detected_system": "coolant",
+     "expected_system": "coolant",
+     "complete": true,
+     "returned": 4,
+     "expected_n": 4
+    },
+    {
+     "id": "t064",
+     "query": "all CAN bus network faults",
+     "router_mode": "system_group",
+     "detected_system": "can_network",
+     "expected_system": "can_network",
+     "complete": true,
+     "returned": 3,
+     "expected_n": 3
+    }
+   ],
+   "gate_decisions": [
+    {
+     "id": "t035",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t036",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t037",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t038",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t039",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t040",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t041",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t042",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t043",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t044",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t045",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t046",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t047",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t048",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t049",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t050",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t051",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t052",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t053",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t054",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t055",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t056",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t057",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t058",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t059",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t060",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t061",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t062",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t063",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t064",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t065",
+     "in_scope": false,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t066",
+     "in_scope": false,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t067",
+     "in_scope": false,
+     "passed": false,
+     "reasons": [
+      "low_retrieval_signal"
+     ]
+    },
+    {
+     "id": "t068",
+     "in_scope": false,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t069",
+     "in_scope": false,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t070",
+     "in_scope": false,
+     "passed": false,
+     "reasons": [
+      "low_retrieval_signal"
+     ]
+    }
+   ]
+  },
+  "d": {
+   "description": "BOTH ablated (conservative headline)",
+   "index_dir": "index_exp/minilm_alias_bm25_cyl_lexablated",
+   "lexicon": "data/experiments/8_5/domain_lexicon_ablated.json",
+   "expand": "bm25",
+   "gate": "data/experiments/8_5/gate_stopablated_on_lexablated.json",
+   "by_mode": {
+    "exact_code": {
+     "n": 6,
+     "hit@1": 1.0,
+     "hit@3": 1.0,
+     "hit@5": 1.0,
+     "MRR": 1.0
+    },
+    "near_duplicate": {
+     "n": 7,
+     "hit@1": 0.42857142857142855,
+     "hit@3": 1.0,
+     "hit@5": 1.0,
+     "MRR": 0.6904761904761905
+    },
+    "symptom": {
+     "n": 13,
+     "hit@1": 0.23076923076923078,
+     "hit@3": 0.46153846153846156,
+     "hit@5": 0.6153846153846154,
+     "MRR": 0.3679487179487179
+    }
+   },
+   "overall": {
+    "n": 26,
+    "hit@1": 0.46153846153846156,
+    "hit@3": 0.7307692307692307,
+    "hit@5": 0.8076923076923077,
+    "MRR": 0.6006410256410256
+   },
+   "system_group": {
+    "complete": 4,
+    "n": 4
+   },
+   "honesty": {
+    "oos_gated": 2,
+    "oos_n": 6,
+    "in_scope_passed": 30,
+    "in_scope_n": 30
+   },
+   "rows": [
+    {
+     "id": "t035",
+     "mode": "exact_code",
+     "rank": 1,
+     "got": [
+      "P0627-12"
+     ]
+    },
+    {
+     "id": "t036",
+     "mode": "exact_code",
+     "rank": 1,
+     "got": [
+      "P0401-00"
+     ]
+    },
+    {
+     "id": "t037",
+     "mode": "exact_code",
+     "rank": 1,
+     "got": [
+      "P0180-12",
+      "P0180-12"
+     ]
+    },
+    {
+     "id": "t038",
+     "mode": "exact_code",
+     "rank": 1,
+     "got": [
+      "P20EE-00"
+     ]
+    },
+    {
+     "id": "t039",
+     "mode": "exact_code",
+     "rank": 1,
+     "got": [
+      "P2458-00",
+      "P2458-09"
+     ]
+    },
+    {
+     "id": "t040",
+     "mode": "exact_code",
+     "rank": 1,
+     "got": [
+      "U011A-89"
+     ]
+    },
+    {
+     "id": "t041",
+     "mode": "near_duplicate",
+     "rank": 1,
+     "got": [
+      "P0405-00",
+      "P0406-00",
+      "P042F-00",
+      "P0403-00",
+      "P042E-00"
+     ]
+    },
+    {
+     "id": "t042",
+     "mode": "near_duplicate",
+     "rank": 2,
+     "got": [
+      "P042F-00",
+      "P0406-00",
+      "P042E-00",
+      "P0405-00",
+      "P0403-00"
+     ]
+    },
+    {
+     "id": "t043",
+     "mode": "near_duplicate",
+     "rank": 2,
+     "got": [
+      "P2205-29",
+      "P2205-00",
+      "P22A3-29",
+      "P22A3-00",
+      "P229E-F0"
+     ]
+    },
+    {
+     "id": "t044",
+     "mode": "near_duplicate",
+     "rank": 2,
+     "got": [
+      "P22A3-29",
+      "P22A3-00",
+      "P2205-29",
+      "P2205-00",
+      "P229E-0A"
+     ]
+    },
+    {
+     "id": "t045",
+     "mode": "near_duplicate",
+     "rank": 1,
+     "got": [
+      "P208A-00",
+      "P208A-4B",
+      "P208D-00",
+      "P208C-00",
+      "P20A0-4B"
+     ]
+    },
+    {
+     "id": "t046",
+     "mode": "near_duplicate",
+     "rank": 3,
+     "got": [
+      "P208A-00",
+      "P20A0-4B",
+      "P20A0-00",
+      "P20A2-00",
+      "P208A-4B"
+     ]
+    },
+    {
+     "id": "t047",
+     "mode": "near_duplicate",
+     "rank": 1,
+     "got": [
+      "P04A5-00",
+      "P04A4-00",
+      "P042F-00",
+      "P042E-00",
+      "P048B-11"
+     ]
+    },
+    {
+     "id": "t048",
+     "mode": "symptom",
+     "rank": 1,
+     "got": [
+      "P2264-00",
+      "P206A-13",
+      "P2264-12",
+      "P206A-86",
+      "P244A-00"
+     ]
+    },
+    {
+     "id": "t049",
+     "mode": "symptom",
+     "rank": null,
+     "got": [
+      "P2047-7F",
+      "P018F-00",
+      "P2048-00",
+      "P2047-00",
+      "P2047-4B"
+     ]
+    },
+    {
+     "id": "t050",
+     "mode": "symptom",
+     "rank": 2,
+     "got": [
+      "P0627-11",
+      "P0627-13",
+      "P0627-12",
+      "P0001-00",
+      "P018F-00"
+     ]
+    },
+    {
+     "id": "t051",
+     "mode": "symptom",
+     "rank": null,
+     "got": [
+      "P0110-12",
+      "P0110-11",
+      "P0425-84",
+      "P0425-85",
+      "P0427-00"
+     ]
+    },
+    {
+     "id": "t052",
+     "mode": "symptom",
+     "rank": 1,
+     "got": [
+      "P20EE-00",
+      "P2200-27",
+      "P10FF-00",
+      "P2200-26",
+      "P229E-26"
+     ]
+    },
+    {
+     "id": "t053",
+     "mode": "symptom",
+     "rank": 3,
+     "got": [
+      "P0336-00",
+      "P0335-00",
+      "P0219-00",
+      "P1201-00",
+      "P0203-00"
+     ]
+    },
+    {
+     "id": "t054",
+     "mode": "symptom",
+     "rank": 5,
+     "got": [
+      "P2463-85",
+      "P243F-F0",
+      "P04A5-00",
+      "P04A4-00",
+      "P242F-00"
+     ]
+    },
+    {
+     "id": "t055",
+     "mode": "symptom",
+     "rank": null,
+     "got": [
+      "P04A5-00",
+      "P04A4-00",
+      "P0704-29",
+      "P042F-00",
+      "P042E-00"
+     ]
+    },
+    {
+     "id": "t056",
+     "mode": "symptom",
+     "rank": 4,
+     "got": [
+      "P0100-00",
+      "P0110-11",
+      "P0110-12",
+      "P026A-00",
+      "P0100-9C"
+     ]
+    },
+    {
+     "id": "t057",
+     "mode": "symptom",
+     "rank": null,
+     "got": [
+      "P1202-00",
+      "P1201-00",
+      "P0204-00",
+      "P0202-00",
+      "P0201-00"
+     ]
+    },
+    {
+     "id": "t058",
+     "mode": "symptom",
+     "rank": null,
+     "got": [
+      "P0A1B-12",
+      "P0A1B-13",
+      "P1201-00",
+      "P2147-00",
+      "P1202-00"
+     ]
+    },
+    {
+     "id": "t059",
+     "mode": "symptom",
+     "rank": 1,
+     "got": [
+      "P0704-29",
+      "P0504-00",
+      "P0120-11",
+      "P0220-11",
+      "P2135-00"
+     ]
+    },
+    {
+     "id": "t060",
+     "mode": "symptom",
+     "rank": 2,
+     "got": [
+      "P0A1B-12",
+      "P0A1B-13",
+      "P1653-00",
+      "P00C6-00",
+      "P1674-00"
+     ]
+    }
+   ],
+   "groups": [
+    {
+     "id": "t061",
+     "query": "list all exhaust throttle valve faults",
+     "router_mode": "system_group",
+     "detected_system": "exhaust_throttle",
+     "expected_system": "exhaust_throttle",
+     "complete": true,
+     "returned": 9,
+     "expected_n": 9
+    },
+    {
+     "id": "t062",
+     "query": "show every turbocharger related code",
+     "router_mode": "system_group",
+     "detected_system": "turbo_boost",
+     "expected_system": "turbo_boost",
+     "complete": true,
+     "returned": 15,
+     "expected_n": 15
+    },
+    {
+     "id": "t063",
+     "query": "which coolant faults exist",
+     "router_mode": "system_group",
+     "detected_system": "coolant",
+     "expected_system": "coolant",
+     "complete": true,
+     "returned": 4,
+     "expected_n": 4
+    },
+    {
+     "id": "t064",
+     "query": "all CAN bus network faults",
+     "router_mode": "system_group",
+     "detected_system": "can_network",
+     "expected_system": "can_network",
+     "complete": true,
+     "returned": 3,
+     "expected_n": 3
+    }
+   ],
+   "gate_decisions": [
+    {
+     "id": "t035",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t036",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t037",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t038",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t039",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t040",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t041",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t042",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t043",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t044",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t045",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t046",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t047",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t048",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t049",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t050",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t051",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t052",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t053",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t054",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t055",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t056",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t057",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t058",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t059",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t060",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t061",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t062",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t063",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t064",
+     "in_scope": true,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t065",
+     "in_scope": false,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t066",
+     "in_scope": false,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t067",
+     "in_scope": false,
+     "passed": false,
+     "reasons": [
+      "low_retrieval_signal"
+     ]
+    },
+    {
+     "id": "t068",
+     "in_scope": false,
+     "passed": true,
+     "reasons": []
+    },
+    {
+     "id": "t069",
+     "in_scope": false,
+     "passed": false,
+     "reasons": [
+      "low_retrieval_signal"
+     ]
+    },
+    {
+     "id": "t070",
+     "in_scope": false,
+     "passed": true,
+     "reasons": []
+    }
+   ]
+  }
+ }
+}
