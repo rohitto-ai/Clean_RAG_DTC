@@ -4,6 +4,32 @@ A fully local, CPU-only retrieval system over `3.3L DTC Manual.pdf` (545 pages,
 3.3L_NGE_BSVI, ECU MD1CS018). **Nothing leaves the machine**: no cloud APIs, no
 API keys, no `.env`. Design is specified in [RAG_Build_Plan.md](RAG_Build_Plan.md).
 
+## How to run
+
+```bash
+./run.sh
+```
+
+It checks the setup, then shows `Enter your query>`. Type a question and press Enter. Type
+`quit` or press Ctrl+C to exit. On the very first run it also rebuilds any missing data files,
+the search index and the local model download. Those are one-time steps, a few minutes in total.
+
+Things you can ask:
+
+| you type | what you get | speed |
+|---|---|---|
+| `how do I fix P0192-00` or just `P0340` | the full troubleshooting procedure for that code, straight from the manual | instant |
+| `list all EGR faults` | every DTC in that subsystem | instant |
+| `the adblue has turned to solid ice` | a short AI-phrased answer, plus the ranked list of matching DTCs | ~10 s (first one ~30 s) |
+| `what is the warranty period` | refused: not covered by this manual | instant |
+
+The ranked "Top matching DTCs" list comes from the search itself and is the part to trust. The
+small local AI model only phrases the answer and sometimes dwells on the second match.
+
+If `.venv` does not exist yet, `run.sh` stops and prints the one-time setup commands (also below).
+
+For the web API instead: `.venv/bin/uvicorn app:app --host 127.0.0.1 --port 8000`.
+
 ## Core design
 
 One **record per DTC**, not fixed-size chunking. Each DTC's troubleshooting steps
