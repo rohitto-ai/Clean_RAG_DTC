@@ -10,7 +10,7 @@ production hash is **`ffff9bc707d8754d`**, identical under PYTHONHASHSEED 0 and 
 
 > **Data-quality correction; TEST not re-run.** The Phase 8.5 one-shot TEST evaluation predates
 > this fix. The fix changes only the 3 records below. Two TEST queries involve them: `t058`
-> expects a code whose neighbourhood includes P00C6-00, and `t063` ("which coolant faults
+> (symptom) expects P00C6-00, and `t063` ("which coolant faults
 > exist") lists P0117-00. The TEST split is spent and was **not** re-run. The Phase 8.5 TEST
 > numbers stand as recorded, against the pre-fix data.
 
