@@ -98,7 +98,7 @@ inside.
 
 | class | n | HARMFUL before → after | wrong (hedged) before → after | refused before → after |
 |---|---|---|---|---|
-| recoverable | 547 | 0 → 0 | 64 → **9** | 0 → 0 |
+| recoverable | 547 | 0 → 0 | 51 → **9** | 0 → 0 |
 | unrecoverable | 160 | **6 → 2** | 132 → **0** | 0 → **154** (+4 clarified) |
 | garbage | 60 | 0 → 0 | 15 → **5** | 45 → **55** |
 
