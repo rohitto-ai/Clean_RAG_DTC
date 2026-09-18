@@ -1,0 +1,631 @@
+{
+ "label": "synthetic - illustrative",
+ "framing": "functional demonstration + edge-case coverage; NOT an accuracy result",
+ "counts": {
+  "ADVISORY": 5,
+  "CLARIFY_LOW_BYTE": 1,
+  "REFUSED_NOT_IN_MANUAL": 1,
+  "FALLBACK_CANDIDATES": 2,
+  "UNMAPPED_NO_ADVISORY": 1,
+  "REJECTED_MALFORMED": 7,
+  "DUPLICATE_SKIPPED": 1
+ },
+ "results": [
+  {
+   "input": {
+    "timestamp": "2026-03-02T08:14:05Z",
+    "vehicle_id": "SYN-VEH-0001",
+    "spn": 520210,
+    "fmi": 4,
+    "occurrences": 3
+   },
+   "ladder": [
+    {
+     "rung": "R0 validate",
+     "result": "ok"
+    },
+    {
+     "rung": "R0 de-duplicate",
+     "result": "new"
+    },
+    {
+     "rung": "R1 exact (spn,fmi)",
+     "result": "hit",
+     "p_code": "P0192",
+     "dtc_low_byte": "00",
+     "code_full": "P0192-00",
+     "dictionary_description": "rail pressure sensor (synthetic SPN): voltage below normal, or shorted to low source"
+    },
+    {
+     "rung": "R1 manual lookup",
+     "result": "exact_code",
+     "lookup": "by_code_full"
+    }
+   ],
+   "label": "synthetic - illustrative",
+   "outcome": "ADVISORY",
+   "resolved_code": "P0192-00",
+   "records": [
+    "P0192-00@p8#1"
+   ],
+   "message": "SPN 520210 FMI 4 -> P0192-00: manual entry found.",
+   "line": 2
+  },
+  {
+   "input": {
+    "timestamp": "2026-03-02T08:20:41Z",
+    "vehicle_id": "SYN-VEH-0001",
+    "spn": 520220,
+    "fmi": 4,
+    "occurrences": 1
+   },
+   "ladder": [
+    {
+     "rung": "R0 validate",
+     "result": "ok"
+    },
+    {
+     "rung": "R0 de-duplicate",
+     "result": "new"
+    },
+    {
+     "rung": "R1 exact (spn,fmi)",
+     "result": "hit",
+     "p_code": "P0117",
+     "dtc_low_byte": "00",
+     "code_full": "P0117-00",
+     "dictionary_description": "coolant temperature sensor (synthetic SPN): voltage below normal, or shorted to low source"
+    },
+    {
+     "rung": "R1 manual lookup",
+     "result": "exact_code",
+     "lookup": "by_code_full"
+    }
+   ],
+   "label": "synthetic - illustrative",
+   "outcome": "ADVISORY",
+   "resolved_code": "P0117-00",
+   "records": [
+    "P0117-00@p13#1"
+   ],
+   "message": "SPN 520220 FMI 4 -> P0117-00: manual entry found.",
+   "line": 3
+  },
+  {
+   "input": {
+    "timestamp": "2026-03-02T09:02:10Z",
+    "vehicle_id": "SYN-VEH-0002",
+    "spn": 520240,
+    "fmi": 1,
+    "occurrences": 5
+   },
+   "ladder": [
+    {
+     "rung": "R0 validate",
+     "result": "ok"
+    },
+    {
+     "rung": "R0 de-duplicate",
+     "result": "new"
+    },
+    {
+     "rung": "R1 exact (spn,fmi)",
+     "result": "hit",
+     "p_code": "P0100",
+     "dtc_low_byte": "9C",
+     "code_full": "P0100-9C",
+     "dictionary_description": "air mass sensor (synthetic SPN): data valid but below normal operating range - most severe"
+    },
+    {
+     "rung": "R1 manual lookup",
+     "result": "exact_code",
+     "lookup": "by_code_full"
+    }
+   ],
+   "label": "synthetic - illustrative",
+   "outcome": "ADVISORY",
+   "resolved_code": "P0100-9C",
+   "records": [
+    "P0100-9C@p40#1"
+   ],
+   "message": "SPN 520240 FMI 1 -> P0100-9C: manual entry found.",
+   "line": 4
+  },
+  {
+   "input": {
+    "timestamp": "2026-03-02T09:05:55Z",
+    "vehicle_id": "SYN-VEH-0002",
+    "spn": 520230,
+    "fmi": 8,
+    "occurrences": 7
+   },
+   "ladder": [
+    {
+     "rung": "R0 validate",
+     "result": "ok"
+    },
+    {
+     "rung": "R0 de-duplicate",
+     "result": "new"
+    },
+    {
+     "rung": "R1 exact (spn,fmi)",
+     "result": "hit",
+     "p_code": "P0340",
+     "dtc_low_byte": "00",
+     "code_full": "P0340-00",
+     "dictionary_description": "camshaft position sensor (synthetic SPN): abnormal frequency or pulse width or period"
+    },
+    {
+     "rung": "R1 manual lookup",
+     "result": "exact_code",
+     "lookup": "by_code_full"
+    }
+   ],
+   "label": "synthetic - illustrative",
+   "outcome": "ADVISORY",
+   "resolved_code": "P0340-00",
+   "records": [
+    "P0340-00@p143#1"
+   ],
+   "message": "SPN 520230 FMI 8 -> P0340-00: manual entry found.",
+   "line": 5
+  },
+  {
+   "input": {
+    "timestamp": "2026-03-02T09:40:00Z",
+    "vehicle_id": "SYN-VEH-0003",
+    "spn": 520250,
+    "fmi": 1,
+    "occurrences": 2
+   },
+   "ladder": [
+    {
+     "rung": "R0 validate",
+     "result": "ok"
+    },
+    {
+     "rung": "R0 de-duplicate",
+     "result": "new"
+    },
+    {
+     "rung": "R1 exact (spn,fmi)",
+     "result": "hit",
+     "p_code": "P0563",
+     "dtc_low_byte": "00",
+     "code_full": "P0563-00",
+     "dictionary_description": "battery voltage (synthetic SPN): data valid but below normal operating range - most severe"
+    },
+    {
+     "rung": "R1 manual lookup",
+     "result": "exact_code",
+     "lookup": "by_code_full"
+    }
+   ],
+   "label": "synthetic - illustrative",
+   "outcome": "ADVISORY",
+   "resolved_code": "P0563-00",
+   "records": [
+    "P0563-00@p360#1"
+   ],
+   "message": "SPN 520250 FMI 1 -> P0563-00: manual entry found.",
+   "line": 6
+  },
+  {
+   "input": {
+    "timestamp": "2026-03-02T10:11:12Z",
+    "vehicle_id": "SYN-VEH-0001",
+    "spn": 520210,
+    "fmi": 5,
+    "occurrences": 2
+   },
+   "ladder": [
+    {
+     "rung": "R0 validate",
+     "result": "ok"
+    },
+    {
+     "rung": "R0 de-duplicate",
+     "result": "new"
+    },
+    {
+     "rung": "R1 exact (spn,fmi)",
+     "result": "miss"
+    },
+    {
+     "rung": "R2 spn-only / nearest-fmi",
+     "result": "candidates",
+     "n": 3,
+     "nearest_fmi": 4,
+     "advise_on_fallback": false
+    }
+   ],
+   "label": "synthetic - illustrative",
+   "outcome": "FALLBACK_CANDIDATES",
+   "resolved_code": null,
+   "candidates": [
+    {
+     "fmi": 4,
+     "fmi_distance": 1,
+     "code_full": "P0192-00",
+     "in_manual": true,
+     "nearest": true
+    },
+    {
+     "fmi": 3,
+     "fmi_distance": 2,
+     "code_full": "P0193-00",
+     "in_manual": true,
+     "nearest": false
+    },
+    {
+     "fmi": 2,
+     "fmi_distance": 3,
+     "code_full": "P0194-00",
+     "in_manual": true,
+     "nearest": false
+    }
+   ],
+   "message": "SPN 520210 is known but FMI 5 (current below normal or open circuit) has no mapping. No advisory is issued: an FMI is a failure mode and a neighbouring FMI may be a different fault. Candidates for a technician to confirm: P0192-00 (FMI 4, nearest), P0193-00 (FMI 3), P0194-00 (FMI 2).",
+   "line": 7
+  },
+  {
+   "input": {
+    "timestamp": "2026-03-02T10:15:30Z",
+    "vehicle_id": "SYN-VEH-0002",
+    "spn": 520240,
+    "fmi": 31,
+    "occurrences": 1
+   },
+   "ladder": [
+    {
+     "rung": "R0 validate",
+     "result": "ok"
+    },
+    {
+     "rung": "R0 de-duplicate",
+     "result": "new"
+    },
+    {
+     "rung": "R1 exact (spn,fmi)",
+     "result": "miss"
+    },
+    {
+     "rung": "R2 spn-only / nearest-fmi",
+     "result": "candidates",
+     "n": 3,
+     "nearest_fmi": 9,
+     "advise_on_fallback": false
+    }
+   ],
+   "label": "synthetic - illustrative",
+   "outcome": "FALLBACK_CANDIDATES",
+   "resolved_code": null,
+   "candidates": [
+    {
+     "fmi": 9,
+     "fmi_distance": 22,
+     "code_full": "P0100-00",
+     "in_manual": true,
+     "nearest": true
+    },
+    {
+     "fmi": 1,
+     "fmi_distance": 30,
+     "code_full": "P0100-9C",
+     "in_manual": true,
+     "nearest": false
+    },
+    {
+     "fmi": 0,
+     "fmi_distance": 31,
+     "code_full": "P0100-9B",
+     "in_manual": true,
+     "nearest": false
+    }
+   ],
+   "message": "SPN 520240 is known but FMI 31 (condition exists) has no mapping. No advisory is issued: an FMI is a failure mode and a neighbouring FMI may be a different fault. Candidates for a technician to confirm: P0100-00 (FMI 9, nearest), P0100-9C (FMI 1), P0100-9B (FMI 0).",
+   "line": 8
+  },
+  {
+   "input": {
+    "timestamp": "2026-03-02T10:30:00Z",
+    "vehicle_id": "SYN-VEH-0003",
+    "spn": 520299,
+    "fmi": 4,
+    "occurrences": 4
+   },
+   "ladder": [
+    {
+     "rung": "R0 validate",
+     "result": "ok"
+    },
+    {
+     "rung": "R0 de-duplicate",
+     "result": "new"
+    },
+    {
+     "rung": "R1 exact (spn,fmi)",
+     "result": "miss"
+    },
+    {
+     "rung": "R2 spn-only / nearest-fmi",
+     "result": "spn unknown"
+    }
+   ],
+   "label": "synthetic - illustrative",
+   "outcome": "UNMAPPED_NO_ADVISORY",
+   "resolved_code": null,
+   "message": "SPN 520299 FMI 4 is not in the dictionary; no advisory. Logged.",
+   "line": 9
+  },
+  {
+   "input": {
+    "timestamp": "2026-03-02T11:00:00Z",
+    "vehicle_id": "SYN-VEH-0003",
+    "spn": 520260,
+    "fmi": 4,
+    "occurrences": 1
+   },
+   "ladder": [
+    {
+     "rung": "R0 validate",
+     "result": "ok"
+    },
+    {
+     "rung": "R0 de-duplicate",
+     "result": "new"
+    },
+    {
+     "rung": "R1 exact (spn,fmi)",
+     "result": "hit",
+     "p_code": "P0195",
+     "dtc_low_byte": "00",
+     "code_full": "P0195-00",
+     "dictionary_description": "fuel rail pressure sensor B (synthetic SPN): voltage below normal, or shorted to low source"
+    },
+    {
+     "rung": "R1 manual lookup",
+     "result": "unknown_code",
+     "lookup": "no match in either code index"
+    }
+   ],
+   "label": "synthetic - illustrative",
+   "outcome": "REFUSED_NOT_IN_MANUAL",
+   "resolved_code": "P0195-00",
+   "did_you_mean": [
+    "P0192-00",
+    "P0193-00",
+    "P0194-00"
+   ],
+   "message": "DTC P0195-00 is not covered in this manual.",
+   "line": 10
+  },
+  {
+   "input": {
+    "timestamp": "2026-03-02T11:05:00Z",
+    "vehicle_id": "SYN-VEH-0001",
+    "spn": 520220,
+    "fmi": 16,
+    "occurrences": 1
+   },
+   "ladder": [
+    {
+     "rung": "R0 validate",
+     "result": "ok"
+    },
+    {
+     "rung": "R0 de-duplicate",
+     "result": "new"
+    },
+    {
+     "rung": "R1 exact (spn,fmi)",
+     "result": "hit",
+     "p_code": "P0116",
+     "dtc_low_byte": "13",
+     "code_full": "P0116-13",
+     "dictionary_description": "coolant temperature sensor (synthetic SPN): data valid but above normal operating range - moderately severe"
+    },
+    {
+     "rung": "R1 manual lookup",
+     "result": "suffix_not_found",
+     "lookup": "by_dtc_code (base; all suffix variants)"
+    }
+   ],
+   "label": "synthetic - illustrative",
+   "outcome": "CLARIFY_LOW_BYTE",
+   "resolved_code": "P0116-13",
+   "known_variants": [
+    "P0116-00"
+   ],
+   "did_you_mean": [],
+   "message": "Exact code P0116-13 was not found in this manual. Known variants of P0116: P0116-00. Please confirm the full code.",
+   "line": 11
+  },
+  {
+   "input": {
+    "timestamp": "2026-03-02T08:14:05Z",
+    "vehicle_id": "SYN-VEH-0001",
+    "spn": 520210,
+    "fmi": 4,
+    "occurrences": 3
+   },
+   "ladder": [
+    {
+     "rung": "R0 validate",
+     "result": "ok"
+    },
+    {
+     "rung": "R0 de-duplicate",
+     "result": "duplicate"
+    }
+   ],
+   "label": "synthetic - illustrative",
+   "outcome": "DUPLICATE_SKIPPED",
+   "resolved_code": null,
+   "message": "Identical row already processed; skipped.",
+   "line": 12
+  },
+  {
+   "input": {
+    "timestamp": "2026-03-02T12:00:00Z",
+    "vehicle_id": "SYN-VEH-0002",
+    "spn": "abc",
+    "fmi": 4,
+    "occurrences": 1
+   },
+   "ladder": [
+    {
+     "rung": "R0 validate",
+     "result": "fail",
+     "problems": [
+      "spn missing or not an integer ('abc')"
+     ]
+    }
+   ],
+   "label": "synthetic - illustrative",
+   "outcome": "REJECTED_MALFORMED",
+   "resolved_code": null,
+   "message": "Row rejected (malformed): spn missing or not an integer ('abc')",
+   "line": 13
+  },
+  {
+   "input": {
+    "timestamp": "2026-03-02T12:01:00Z",
+    "vehicle_id": "SYN-VEH-0002",
+    "spn": 520210,
+    "fmi": 40,
+    "occurrences": 1
+   },
+   "ladder": [
+    {
+     "rung": "R0 validate",
+     "result": "fail",
+     "problems": [
+      "fmi 40 outside 0..31"
+     ]
+    }
+   ],
+   "label": "synthetic - illustrative",
+   "outcome": "REJECTED_MALFORMED",
+   "resolved_code": null,
+   "message": "Row rejected (malformed): fmi 40 outside 0..31",
+   "line": 14
+  },
+  {
+   "input": {
+    "timestamp": "2026-03-02T12:02:00Z",
+    "vehicle_id": "SYN-VEH-0002",
+    "spn": 520210,
+    "fmi": null,
+    "occurrences": 1
+   },
+   "ladder": [
+    {
+     "rung": "R0 validate",
+     "result": "fail",
+     "problems": [
+      "fmi missing or not an integer (None)"
+     ]
+    }
+   ],
+   "label": "synthetic - illustrative",
+   "outcome": "REJECTED_MALFORMED",
+   "resolved_code": null,
+   "message": "Row rejected (malformed): fmi missing or not an integer (None)",
+   "line": 15
+  },
+  {
+   "input": {
+    "timestamp": "2026-03-02T12:03:00Z",
+    "vehicle_id": "SYN-VEH-0003",
+    "spn": 600000,
+    "fmi": 4,
+    "occurrences": 1
+   },
+   "ladder": [
+    {
+     "rung": "R0 validate",
+     "result": "fail",
+     "problems": [
+      "spn 600000 outside the 19-bit range 0..524287"
+     ]
+    }
+   ],
+   "label": "synthetic - illustrative",
+   "outcome": "REJECTED_MALFORMED",
+   "resolved_code": null,
+   "message": "Row rejected (malformed): spn 600000 outside the 19-bit range 0..524287",
+   "line": 16
+  },
+  {
+   "input": {
+    "timestamp": "2026-03-02T12:04:00Z",
+    "vehicle_id": "SYN-VEH-0003",
+    "spn": 520220,
+    "fmi": 3,
+    "occurrences": -2
+   },
+   "ladder": [
+    {
+     "rung": "R0 validate",
+     "result": "fail",
+     "problems": [
+      "occurrences must be an integer >= 1 (-2)"
+     ]
+    }
+   ],
+   "label": "synthetic - illustrative",
+   "outcome": "REJECTED_MALFORMED",
+   "resolved_code": null,
+   "message": "Row rejected (malformed): occurrences must be an integer >= 1 (-2)",
+   "line": 17
+  },
+  {
+   "input": {
+    "timestamp": "2026-02-31T12:05:00Z",
+    "vehicle_id": "SYN-VEH-0001",
+    "spn": 520220,
+    "fmi": 3,
+    "occurrences": 1
+   },
+   "ladder": [
+    {
+     "rung": "R0 validate",
+     "result": "fail",
+     "problems": [
+      "timestamp not valid ISO-8601 ('2026-02-31T12:05:00Z')"
+     ]
+    }
+   ],
+   "label": "synthetic - illustrative",
+   "outcome": "REJECTED_MALFORMED",
+   "resolved_code": null,
+   "message": "Row rejected (malformed): timestamp not valid ISO-8601 ('2026-02-31T12:05:00Z')",
+   "line": 18
+  },
+  {
+   "input": {
+    "timestamp": "2026-03-02T12:06:00Z",
+    "vehicle_id": "",
+    "spn": 520220,
+    "fmi": 3,
+    "occurrences": 1
+   },
+   "ladder": [
+    {
+     "rung": "R0 validate",
+     "result": "fail",
+     "problems": [
+      "vehicle_id empty"
+     ]
+    }
+   ],
+   "label": "synthetic - illustrative",
+   "outcome": "REJECTED_MALFORMED",
+   "resolved_code": null,
+   "message": "Row rejected (malformed): vehicle_id empty",
+   "line": 19
+  }
+ ]
+}

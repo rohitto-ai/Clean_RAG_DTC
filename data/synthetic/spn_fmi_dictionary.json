@@ -1,0 +1,159 @@
+{
+ "_meta": {
+  "label": "synthetic - illustrative",
+  "confidentiality": "Fabricated values. The real SPN/FMI dictionary is TATA Motors proprietary and is not used or reproduced.",
+  "spn_range": "SAE J1939 manufacturer-proprietary range 520192-524287, invented values",
+  "fmi_definitions": "public SAE J1939-73",
+  "p_codes": "real codes from the 3.3L DTC manual (except P0195, deliberately absent); the SPN/FMI -> P-code pairing is fictitious",
+  "dtc_low_byte": "failure-type byte = the manual's suffix (P0192 + 00 -> P0192-00)"
+ },
+ "fmi_meaning": {
+  "0": "data valid but above normal operating range - most severe",
+  "1": "data valid but below normal operating range - most severe",
+  "2": "data erratic, intermittent or incorrect",
+  "3": "voltage above normal, or shorted to high source",
+  "4": "voltage below normal, or shorted to low source",
+  "5": "current below normal or open circuit",
+  "8": "abnormal frequency or pulse width or period",
+  "9": "abnormal update rate",
+  "16": "data valid but above normal operating range - moderately severe",
+  "31": "condition exists"
+ },
+ "entries": [
+  {
+   "spn": 520210,
+   "fmi": 4,
+   "description": "rail pressure sensor (synthetic SPN): voltage below normal, or shorted to low source",
+   "p_code": "P0192",
+   "dtc_low_byte": "00",
+   "exercises": "complete",
+   "label": "synthetic - illustrative"
+  },
+  {
+   "spn": 520210,
+   "fmi": 3,
+   "description": "rail pressure sensor (synthetic SPN): voltage above normal, or shorted to high source",
+   "p_code": "P0193",
+   "dtc_low_byte": "00",
+   "exercises": "complete",
+   "label": "synthetic - illustrative"
+  },
+  {
+   "spn": 520210,
+   "fmi": 2,
+   "description": "rail pressure sensor (synthetic SPN): data erratic, intermittent or incorrect",
+   "p_code": "P0194",
+   "dtc_low_byte": "00",
+   "exercises": "complete",
+   "label": "synthetic - illustrative"
+  },
+  {
+   "spn": 520220,
+   "fmi": 4,
+   "description": "coolant temperature sensor (synthetic SPN): voltage below normal, or shorted to low source",
+   "p_code": "P0117",
+   "dtc_low_byte": "00",
+   "exercises": "complete",
+   "label": "synthetic - illustrative"
+  },
+  {
+   "spn": 520220,
+   "fmi": 3,
+   "description": "coolant temperature sensor (synthetic SPN): voltage above normal, or shorted to high source",
+   "p_code": "P0118",
+   "dtc_low_byte": "00",
+   "exercises": "complete",
+   "label": "synthetic - illustrative"
+  },
+  {
+   "spn": 520220,
+   "fmi": 2,
+   "description": "coolant temperature sensor (synthetic SPN): data erratic, intermittent or incorrect",
+   "p_code": "P0116",
+   "dtc_low_byte": "00",
+   "exercises": "complete",
+   "label": "synthetic - illustrative"
+  },
+  {
+   "spn": 520220,
+   "fmi": 16,
+   "description": "coolant temperature sensor (synthetic SPN): data valid but above normal operating range - moderately severe",
+   "p_code": "P0116",
+   "dtc_low_byte": "13",
+   "exercises": "low_byte_not_in_manual",
+   "label": "synthetic - illustrative"
+  },
+  {
+   "spn": 520230,
+   "fmi": 8,
+   "description": "camshaft position sensor (synthetic SPN): abnormal frequency or pulse width or period",
+   "p_code": "P0340",
+   "dtc_low_byte": "00",
+   "exercises": "complete",
+   "label": "synthetic - illustrative"
+  },
+  {
+   "spn": 520230,
+   "fmi": 2,
+   "description": "camshaft position sensor (synthetic SPN): data erratic, intermittent or incorrect",
+   "p_code": "P0341",
+   "dtc_low_byte": "00",
+   "exercises": "complete",
+   "label": "synthetic - illustrative"
+  },
+  {
+   "spn": 520240,
+   "fmi": 9,
+   "description": "air mass sensor SENT line (synthetic SPN): abnormal update rate",
+   "p_code": "P0100",
+   "dtc_low_byte": "00",
+   "exercises": "complete",
+   "label": "synthetic - illustrative"
+  },
+  {
+   "spn": 520240,
+   "fmi": 0,
+   "description": "air mass sensor (synthetic SPN): data valid but above normal operating range - most severe",
+   "p_code": "P0100",
+   "dtc_low_byte": "9B",
+   "exercises": "complete",
+   "label": "synthetic - illustrative"
+  },
+  {
+   "spn": 520240,
+   "fmi": 1,
+   "description": "air mass sensor (synthetic SPN): data valid but below normal operating range - most severe",
+   "p_code": "P0100",
+   "dtc_low_byte": "9C",
+   "exercises": "complete",
+   "label": "synthetic - illustrative"
+  },
+  {
+   "spn": 520250,
+   "fmi": 0,
+   "description": "battery voltage (synthetic SPN): data valid but above normal operating range - most severe",
+   "p_code": "P0562",
+   "dtc_low_byte": "00",
+   "exercises": "complete",
+   "label": "synthetic - illustrative"
+  },
+  {
+   "spn": 520250,
+   "fmi": 1,
+   "description": "battery voltage (synthetic SPN): data valid but below normal operating range - most severe",
+   "p_code": "P0563",
+   "dtc_low_byte": "00",
+   "exercises": "complete",
+   "label": "synthetic - illustrative"
+  },
+  {
+   "spn": 520260,
+   "fmi": 4,
+   "description": "fuel rail pressure sensor B (synthetic SPN): voltage below normal, or shorted to low source",
+   "p_code": "P0195",
+   "dtc_low_byte": "00",
+   "exercises": "p_code_not_in_manual",
+   "label": "synthetic - illustrative"
+  }
+ ]
+}

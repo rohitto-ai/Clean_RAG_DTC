@@ -1,0 +1,311 @@
+[synthetic - illustrative]
+line  vehicle           SPN  FMI  resolved   outcome
+   2  SYN-VEH-0001   520210    4  P0192-00   ADVISORY
+   3  SYN-VEH-0001   520220    4  P0117-00   ADVISORY
+   4  SYN-VEH-0002   520240    1  P0100-9C   ADVISORY
+   5  SYN-VEH-0002   520230    8  P0340-00   ADVISORY
+   6  SYN-VEH-0003   520250    1  P0563-00   ADVISORY
+   7  SYN-VEH-0001   520210    5  -          FALLBACK_CANDIDATES
+   8  SYN-VEH-0002   520240   31  -          FALLBACK_CANDIDATES
+   9  SYN-VEH-0003   520299    4  -          UNMAPPED_NO_ADVISORY
+  10  SYN-VEH-0003   520260    4  P0195-00   REFUSED_NOT_IN_MANUAL
+  11  SYN-VEH-0001   520220   16  P0116-13   CLARIFY_LOW_BYTE
+  12  SYN-VEH-0001   520210    4  -          DUPLICATE_SKIPPED
+  13  SYN-VEH-0002      abc    4  -          REJECTED_MALFORMED
+  14  SYN-VEH-0002   520210   40  -          REJECTED_MALFORMED
+  15  SYN-VEH-0002   520210 None  -          REJECTED_MALFORMED
+  16  SYN-VEH-0003   600000    4  -          REJECTED_MALFORMED
+  17  SYN-VEH-0003   520220    3  -          REJECTED_MALFORMED
+  18  SYN-VEH-0001   520220    3  -          REJECTED_MALFORMED
+  19                 520220    3  -          REJECTED_MALFORMED
+
+outcome counts: {'ADVISORY': 5, 'CLARIFY_LOW_BYTE': 1, 'REFUSED_NOT_IN_MANUAL': 1, 'FALLBACK_CANDIDATES': 2, 'UNMAPPED_NO_ADVISORY': 1, 'REJECTED_MALFORMED': 7, 'DUPLICATE_SKIPPED': 1}
+
+==============================================================================
+line 2: {'timestamp': '2026-03-02T08:14:05Z', 'vehicle_id': 'SYN-VEH-0001', 'spn': 520210, 'fmi': 4, 'occurrences': 3}  [synthetic - illustrative]
+  {'rung': 'R0 validate', 'result': 'ok'}
+  {'rung': 'R0 de-duplicate', 'result': 'new'}
+  {'rung': 'R1 exact (spn,fmi)', 'result': 'hit', 'p_code': 'P0192', 'dtc_low_byte': '00', 'code_full': 'P0192-00', 'dictionary_description': 'rail pressure sensor (synthetic SPN): voltage below normal, or shorted to low source'}
+  {'rung': 'R1 manual lookup', 'result': 'exact_code', 'lookup': 'by_code_full'}
+OUTCOME: ADVISORY
+SPN 520210 FMI 4 -> P0192-00: manual entry found.
+
+P0192-00 — Rail pressure Sensor Short circuit to ground
+  System: rail_pressure   |   Manual page 8
+  Indicators: MIL On | CEL Off | Immo NA | IC message: NA
+  Effect on vehicle: Torque reduction
+
+Likely causes:
+  1. Wiring Harness problem
+  2. Sensor failure
+  3. Sensor connector problem
+
+Checkpoints:
+  1. Check Battery Voltage.
+  2. Check Rail pressure sensor pins for damage
+  3. Check Rail pressure sensor connector for damage.
+  4. Check Rail pressure signal lines for continuity.
+
+Troubleshooting steps:
+  Step 1: Check the battery voltage   [spec: 12.5±3 volts]
+  Step 2: Check connector if rail pressure sensor is connected properly to the wire harness connector
+  Step 3: If connector found lose in step 2 then fix is properly & go to Step 13
+          -> if yes -> Step 13
+  Step 4: If the error is present check the connector pins from both side i.e. sensor side & wire harness side
+  Step 5: If pins are damaged then go to Step No. 12
+          -> if yes -> Step 12
+  Step 6: If error still present go to Step 7
+          -> if yes -> Step 7
+  Step 7: Check the wire harness for any pin / wire back-out from connector, if yes go to Step 8
+          -> if yes -> Step 8
+  Step 8: Fix the back-out cables in proper positions in connector & go to Step 13
+          -> then go to Step 13
+  Step 9: If error is still present, check the continuity between pin 2 of rail pressure sensor to A71.
+  Step 10: If continuity is OK in Step 9 then go to Step 12 else go to Step 11
+          -> if yes -> Step 12; if no -> Step 11
+  Step 11: Check the signal line for short to ground i.e. continuity between Pin2 of rail pressure sensor to A83. If yes, change the cable with new one & go to Step 13.
+          -> if yes -> Step 13
+  Step 12: Change the rail pressure sensor with new one
+  Step 13: Check the DTC
+
+Pins referenced: A71, A83
+See circuit schematic, page 9 of the manual.
+
+Circuit description: EMS monitors the internal fuel pressure of common rail using Rail pressure sensor. It is an analog input type with 3-wires and it gives output voltage in proportion to the internal fuel pressure. This signal is used by EMS to adjust the pressure of rail to the required value. Check for the continuity between EMS and Sensor by referring above schematic.
+
+Source: P0192-00, manual page 8.
+
+==============================================================================
+line 3: {'timestamp': '2026-03-02T08:20:41Z', 'vehicle_id': 'SYN-VEH-0001', 'spn': 520220, 'fmi': 4, 'occurrences': 1}  [synthetic - illustrative]
+  {'rung': 'R0 validate', 'result': 'ok'}
+  {'rung': 'R0 de-duplicate', 'result': 'new'}
+  {'rung': 'R1 exact (spn,fmi)', 'result': 'hit', 'p_code': 'P0117', 'dtc_low_byte': '00', 'code_full': 'P0117-00', 'dictionary_description': 'coolant temperature sensor (synthetic SPN): voltage below normal, or shorted to low source'}
+  {'rung': 'R1 manual lookup', 'result': 'exact_code', 'lookup': 'by_code_full'}
+OUTCOME: ADVISORY
+SPN 520220 FMI 4 -> P0117-00: manual entry found.
+
+P0117-00 — Coolant temperature sensor signal Short circuit to ground
+  System: coolant   |   Manual page 13
+  Indicators: MIL On | CEL Off | Immo NA | IC message: NA
+  Effect on vehicle: NA
+
+Likely causes:
+  1. Wiring harness defect
+  2. Faulty sensor
+  3. Sensor connector problem
+
+Checkpoints:
+  1. Check Battery Voltage
+  2. Check wire harness connections
+  3. Check sensor condition & any mechanical damage to sensor
+
+Troubleshooting steps:
+  Step 1: Check the battery voltage   [spec: 12.5±3 volts]
+  Step 2: Check connector of coolant temperature sensor is connected properly to the wire harness connector
+  Step 3: If connector found lose in step 2 then fix is properly & go to Step 11
+          -> if yes -> Step 11
+  Step 4: Check the wire harness for any pin / wire back-out from connector, if yes go to step 5
+          -> if yes -> Step 5
+  Step 5: Fix the back-out cables in proper positions in connector & go to Step 11
+          -> then go to Step 11
+  Step 6: If error still present, check the continuity between sensor pin1 & A51, & continuity between sensor pin2 & A28. Go to Step 7
+          -> if yes -> Step 7
+  Step 7: If continuity is unavailable from Step 6 then check the signal line short to ground & go to Step 11
+          -> if yes -> Step 11
+  Step 8: If Step 7 is true then replace the wire harness cable with new one & go to Step 9
+          -> if yes -> Step 9
+  Step 9: Check the proper mounting of the sensor & for mechanical damage. If Step 9 is true then go to Step 11
+          -> if yes -> Step 11
+  Step 10: If error still present then replace Coolant Temp sensor with new one & go to Step 11
+          -> if yes -> Step 11
+  Step 11: Check DTC
+
+Pins referenced: A28, A51
+See circuit schematic, page 15 of the manual.
+
+Circuit description: EMS measures the temperature of coolant by using this sensor. Coolant Temperature sensor has 2-pole connector and provides the analog input signal at A28. It is thermistor type and resistance of it changes according to coolant temperature. EMS will have internal pull up for this sensor. Check for the continuity between EMS and Sensor by referring above schematic.
+
+Source: P0117-00, manual page 13.
+
+==============================================================================
+line 4: {'timestamp': '2026-03-02T09:02:10Z', 'vehicle_id': 'SYN-VEH-0002', 'spn': 520240, 'fmi': 1, 'occurrences': 5}  [synthetic - illustrative]
+  {'rung': 'R0 validate', 'result': 'ok'}
+  {'rung': 'R0 de-duplicate', 'result': 'new'}
+  {'rung': 'R1 exact (spn,fmi)', 'result': 'hit', 'p_code': 'P0100', 'dtc_low_byte': '9C', 'code_full': 'P0100-9C', 'dictionary_description': 'air mass sensor (synthetic SPN): data valid but below normal operating range - most severe'}
+  {'rung': 'R1 manual lookup', 'result': 'exact_code', 'lookup': 'by_code_full'}
+OUTCOME: ADVISORY
+SPN 520240 FMI 1 -> P0100-9C: manual entry found.
+
+P0100-9C — DFC for Mass air flow sensor physical range check low error
+  System: intake_air   |   Manual page 40
+  Indicators: MIL On | CEL Off | Immo NA | IC message: NA
+  Effect on vehicle: NA
+
+Likely causes:
+  1. Wiring harness defect
+  2. Faulty sensor
+  3. Sensor connector problem
+  4. Leakage in air intake pipes
+
+Checkpoints:
+  1. Check Battery Voltage
+  2. Check Wire harness connections
+  3. Check Air intake pipes for good condition & leakages or damage
+  4. Check PFM Sensor condition for any mechanical damage.
+
+Troubleshooting steps:
+  Step 1: Check the battery voltage   [spec: 12.5±3 volts]
+  Step 2: Check the wire harness for any pin / wire back-out from connector, if yes go to step 3
+          -> if yes -> Step 3
+  Step 3: Fix the back-out cables in proper positions in connector & go to Step 10
+          -> then go to Step 10
+  Step 4: Check the 5V supply between pin1 & pin3 of the sensor. Go to Step 5   [spec: 5V]
+          -> then go to Step 5
+  Step 5: If 5V not available, check the continuity between pin1 & A34.
+  Step 6: If continuity in between pin 1 & A34 and pin 3 & A29 is not available then replace the wire harness cable with new one & go to Step 10
+          -> if yes -> Step 10
+  Step 7: Check for any physical damage to sensor. If yes, replace with new one go to Step 10
+          -> if yes -> Step 10
+  Step 8: Checks the intake system for leaks, if present arrest it. Go to Step 10
+          -> if yes -> Step 10
+  Step 9: If still error present replace PFM sensor with new one & go to Step 10
+          -> if yes -> Step 10
+  Step 10: Check DTC
+
+Pins referenced: A29, A34
+See circuit schematic, page 41 of the manual.
+
+Circuit description: EMS measures the mass and temperature of air entering intake by using this sensor. PFM sensor has 4-pole connector and provides the input signal at A39 which corresponds to differential pressure sensor pdiff and input at A38 which corresponds to absolute pressure pabs and temperature sensor Tair. It is mounted in the intake air duct between the air cleaner and turbo charger. Check for the continuity between EMS and Sensor by referring above schematic.
+
+Source: P0100-9C, manual page 40.
+
+==============================================================================
+line 5: {'timestamp': '2026-03-02T09:05:55Z', 'vehicle_id': 'SYN-VEH-0002', 'spn': 520230, 'fmi': 8, 'occurrences': 7}  [synthetic - illustrative]
+  {'rung': 'R0 validate', 'result': 'ok'}
+  {'rung': 'R0 de-duplicate', 'result': 'new'}
+  {'rung': 'R1 exact (spn,fmi)', 'result': 'hit', 'p_code': 'P0340', 'dtc_low_byte': '00', 'code_full': 'P0340-00', 'dictionary_description': 'camshaft position sensor (synthetic SPN): abnormal frequency or pulse width or period'}
+  {'rung': 'R1 manual lookup', 'result': 'exact_code', 'lookup': 'by_code_full'}
+OUTCOME: ADVISORY
+SPN 520230 FMI 8 -> P0340-00: manual entry found.
+
+P0340-00 — DFC for camshaft signal diagnose - no signal
+  System: engine_position   |   Manual page 143
+  Indicators: MIL On | CEL Off | Immo NA | IC message: NA
+  Effect on vehicle: Vehicle will not start
+
+Likely causes:
+  1. Wiring harness defect
+  2. Faulty sensor
+  3. Air gap too high
+  4. Mechanical damage to the camshaft tone wheel
+
+Checkpoints:
+  1. Check Battery Voltage
+  2. Check the Wire harness connections for pin damage or electrical problems
+  3. Check the Camshaft Sensor for Air gap & condition or damaged tone wheel.
+
+Troubleshooting steps:
+  Step 1: Check the battery voltage   [spec: 12.5±3 volts]
+  Step 2: Check the wire harness for any pin / wire back-out from connector, if yes go to step 3
+          -> if yes -> Step 3
+  Step 3: Fix the back-out cables in proper positions in connector & go to Step 10
+          -> then go to Step 10
+  Step 4: If error still present then check the voltage between pin 1 & pin 3 for proper value (keep ignition ON)   [spec: 5V]
+  Step 5: Check the continuity between the pin 2 & A49 of CAM sensor.
+  Step 6: If continuity fails then Check the signal for Open circuit or short circuit to battery or ground.
+  Step 7: If Step 6 is true then replace the wire harness cable with new one & go to Step 10
+          -> if yes -> Step 10
+  Step 8: If error still present, check the tone wheel for any mechanical damage or distortion & air gap as per specification.   [spec: 0.5-1.5 mm]
+  Step 9: If Step 7 fails then change the tone wheel with new one & maintain specified air gap. Go to Step 10
+          -> if yes -> Step 10
+  Step 10: Check the DTC
+
+Pins referenced: A49
+See circuit schematic, page 144 of the manual.
+
+Circuit description: EMS measures the position of Cam shaft with the help of Cam Shaft Position Sensor. The sensor is Hall Effect type and provides digital input at A49. Allowable Air gap range between target and sensor mounting is 0.5mm to 1.5mm. Synchronization of CAM and Crank signals will be used to start injection. Check for the continuity between EMS and Sensor by referring above schematic.
+
+Source: P0340-00, manual page 143.
+
+==============================================================================
+line 6: {'timestamp': '2026-03-02T09:40:00Z', 'vehicle_id': 'SYN-VEH-0003', 'spn': 520250, 'fmi': 1, 'occurrences': 2}  [synthetic - illustrative]
+  {'rung': 'R0 validate', 'result': 'ok'}
+  {'rung': 'R0 de-duplicate', 'result': 'new'}
+  {'rung': 'R1 exact (spn,fmi)', 'result': 'hit', 'p_code': 'P0563', 'dtc_low_byte': '00', 'code_full': 'P0563-00', 'dictionary_description': 'battery voltage (synthetic SPN): data valid but below normal operating range - most severe'}
+  {'rung': 'R1 manual lookup', 'result': 'exact_code', 'lookup': 'by_code_full'}
+OUTCOME: ADVISORY
+SPN 520250 FMI 1 -> P0563-00: manual entry found.
+
+P0563-00 — DFC for Signal Range Min Check of Battery Voltage
+  System: electrical   |   Manual page 360
+  Indicators: MIL On | CEL Off
+  Effect on vehicle: NA
+
+Likely causes:
+  1. ECU failure
+  2. Cluster Failure
+  3. Wiring Harness Failure
+
+Checkpoints:
+  1. Check the Wiring Harness
+  2. Check Instrument cluster.
+  3. Check ECU
+
+Troubleshooting steps:
+  Step 1: Check the battery voltage   [spec: 12.5±3 volts]
+  Step 2: If any Issues, check for battery connection, if loose connect & check if battery is charging in running condition.
+  Step 3: If issue still persists, check for alternator connection, if found loose connect & check if battery is charging
+  Step 4: If issue still persists change battery & go to step 6
+          -> if yes -> Step 6
+  Step 5: If Issue still persists change alternator & go to step 6
+          -> if yes -> Step 6
+  Step 6: Clear and check DTC
+
+Source: P0563-00, manual page 360.
+
+==============================================================================
+line 7: {'timestamp': '2026-03-02T10:11:12Z', 'vehicle_id': 'SYN-VEH-0001', 'spn': 520210, 'fmi': 5, 'occurrences': 2}  [synthetic - illustrative]
+  {'rung': 'R0 validate', 'result': 'ok'}
+  {'rung': 'R0 de-duplicate', 'result': 'new'}
+  {'rung': 'R1 exact (spn,fmi)', 'result': 'miss'}
+  {'rung': 'R2 spn-only / nearest-fmi', 'result': 'candidates', 'n': 3, 'nearest_fmi': 4, 'advise_on_fallback': False}
+OUTCOME: FALLBACK_CANDIDATES
+SPN 520210 is known but FMI 5 (current below normal or open circuit) has no mapping. No advisory is issued: an FMI is a failure mode and a neighbouring FMI may be a different fault. Candidates for a technician to confirm: P0192-00 (FMI 4, nearest), P0193-00 (FMI 3), P0194-00 (FMI 2).
+
+==============================================================================
+line 8: {'timestamp': '2026-03-02T10:15:30Z', 'vehicle_id': 'SYN-VEH-0002', 'spn': 520240, 'fmi': 31, 'occurrences': 1}  [synthetic - illustrative]
+  {'rung': 'R0 validate', 'result': 'ok'}
+  {'rung': 'R0 de-duplicate', 'result': 'new'}
+  {'rung': 'R1 exact (spn,fmi)', 'result': 'miss'}
+  {'rung': 'R2 spn-only / nearest-fmi', 'result': 'candidates', 'n': 3, 'nearest_fmi': 9, 'advise_on_fallback': False}
+OUTCOME: FALLBACK_CANDIDATES
+SPN 520240 is known but FMI 31 (condition exists) has no mapping. No advisory is issued: an FMI is a failure mode and a neighbouring FMI may be a different fault. Candidates for a technician to confirm: P0100-00 (FMI 9, nearest), P0100-9C (FMI 1), P0100-9B (FMI 0).
+
+==============================================================================
+line 9: {'timestamp': '2026-03-02T10:30:00Z', 'vehicle_id': 'SYN-VEH-0003', 'spn': 520299, 'fmi': 4, 'occurrences': 4}  [synthetic - illustrative]
+  {'rung': 'R0 validate', 'result': 'ok'}
+  {'rung': 'R0 de-duplicate', 'result': 'new'}
+  {'rung': 'R1 exact (spn,fmi)', 'result': 'miss'}
+  {'rung': 'R2 spn-only / nearest-fmi', 'result': 'spn unknown'}
+OUTCOME: UNMAPPED_NO_ADVISORY
+SPN 520299 FMI 4 is not in the dictionary; no advisory. Logged.
+
+==============================================================================
+line 10: {'timestamp': '2026-03-02T11:00:00Z', 'vehicle_id': 'SYN-VEH-0003', 'spn': 520260, 'fmi': 4, 'occurrences': 1}  [synthetic - illustrative]
+  {'rung': 'R0 validate', 'result': 'ok'}
+  {'rung': 'R0 de-duplicate', 'result': 'new'}
+  {'rung': 'R1 exact (spn,fmi)', 'result': 'hit', 'p_code': 'P0195', 'dtc_low_byte': '00', 'code_full': 'P0195-00', 'dictionary_description': 'fuel rail pressure sensor B (synthetic SPN): voltage below normal, or shorted to low source'}
+  {'rung': 'R1 manual lookup', 'result': 'unknown_code', 'lookup': 'no match in either code index'}
+OUTCOME: REFUSED_NOT_IN_MANUAL
+DTC P0195-00 is not covered in this manual.
+
+==============================================================================
+line 11: {'timestamp': '2026-03-02T11:05:00Z', 'vehicle_id': 'SYN-VEH-0001', 'spn': 520220, 'fmi': 16, 'occurrences': 1}  [synthetic - illustrative]
+  {'rung': 'R0 validate', 'result': 'ok'}
+  {'rung': 'R0 de-duplicate', 'result': 'new'}
+  {'rung': 'R1 exact (spn,fmi)', 'result': 'hit', 'p_code': 'P0116', 'dtc_low_byte': '13', 'code_full': 'P0116-13', 'dictionary_description': 'coolant temperature sensor (synthetic SPN): data valid but above normal operating range - moderately severe'}
+  {'rung': 'R1 manual lookup', 'result': 'suffix_not_found', 'lookup': 'by_dtc_code (base; all suffix variants)'}
+OUTCOME: CLARIFY_LOW_BYTE
+Exact code P0116-13 was not found in this manual. Known variants of P0116: P0116-00. Please confirm the full code.
+
+wrote data/experiments/9_4/normalization_run.json

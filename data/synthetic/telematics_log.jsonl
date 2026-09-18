@@ -1,0 +1,19 @@
+{"_meta": {"label": "synthetic - illustrative", "rows": 18, "notes": ["complete -> P0192-00", "complete -> P0117-00", "complete -> P0100-9C (non-00 low byte)", "complete -> P0340-00", "complete -> P0563-00", "SPN known, FMI 5 unmapped -> fallback candidates", "SPN known, FMI 31 unmapped -> fallback candidates", "unknown SPN -> unmapped, logged", "mapped P0195-00 not in manual -> refusal", "mapped P0116-13, low byte not in manual -> clarification", "exact duplicate of row 1 -> skipped", "malformed: non-integer SPN", "malformed: FMI outside 0-31", "malformed: FMI missing", "malformed: SPN outside 19-bit range", "malformed: negative occurrences", "malformed: impossible date", "malformed: empty vehicle_id"]}}
+{"timestamp": "2026-03-02T08:14:05Z", "vehicle_id": "SYN-VEH-0001", "spn": 520210, "fmi": 4, "occurrences": 3, "_label": "synthetic - illustrative"}
+{"timestamp": "2026-03-02T08:20:41Z", "vehicle_id": "SYN-VEH-0001", "spn": 520220, "fmi": 4, "occurrences": 1, "_label": "synthetic - illustrative"}
+{"timestamp": "2026-03-02T09:02:10Z", "vehicle_id": "SYN-VEH-0002", "spn": 520240, "fmi": 1, "occurrences": 5, "_label": "synthetic - illustrative"}
+{"timestamp": "2026-03-02T09:05:55Z", "vehicle_id": "SYN-VEH-0002", "spn": 520230, "fmi": 8, "occurrences": 7, "_label": "synthetic - illustrative"}
+{"timestamp": "2026-03-02T09:40:00Z", "vehicle_id": "SYN-VEH-0003", "spn": 520250, "fmi": 1, "occurrences": 2, "_label": "synthetic - illustrative"}
+{"timestamp": "2026-03-02T10:11:12Z", "vehicle_id": "SYN-VEH-0001", "spn": 520210, "fmi": 5, "occurrences": 2, "_label": "synthetic - illustrative"}
+{"timestamp": "2026-03-02T10:15:30Z", "vehicle_id": "SYN-VEH-0002", "spn": 520240, "fmi": 31, "occurrences": 1, "_label": "synthetic - illustrative"}
+{"timestamp": "2026-03-02T10:30:00Z", "vehicle_id": "SYN-VEH-0003", "spn": 520299, "fmi": 4, "occurrences": 4, "_label": "synthetic - illustrative"}
+{"timestamp": "2026-03-02T11:00:00Z", "vehicle_id": "SYN-VEH-0003", "spn": 520260, "fmi": 4, "occurrences": 1, "_label": "synthetic - illustrative"}
+{"timestamp": "2026-03-02T11:05:00Z", "vehicle_id": "SYN-VEH-0001", "spn": 520220, "fmi": 16, "occurrences": 1, "_label": "synthetic - illustrative"}
+{"timestamp": "2026-03-02T08:14:05Z", "vehicle_id": "SYN-VEH-0001", "spn": 520210, "fmi": 4, "occurrences": 3, "_label": "synthetic - illustrative"}
+{"timestamp": "2026-03-02T12:00:00Z", "vehicle_id": "SYN-VEH-0002", "spn": "abc", "fmi": 4, "occurrences": 1, "_label": "synthetic - illustrative"}
+{"timestamp": "2026-03-02T12:01:00Z", "vehicle_id": "SYN-VEH-0002", "spn": 520210, "fmi": 40, "occurrences": 1, "_label": "synthetic - illustrative"}
+{"timestamp": "2026-03-02T12:02:00Z", "vehicle_id": "SYN-VEH-0002", "spn": 520210, "occurrences": 1, "_label": "synthetic - illustrative"}
+{"timestamp": "2026-03-02T12:03:00Z", "vehicle_id": "SYN-VEH-0003", "spn": 600000, "fmi": 4, "occurrences": 1, "_label": "synthetic - illustrative"}
+{"timestamp": "2026-03-02T12:04:00Z", "vehicle_id": "SYN-VEH-0003", "spn": 520220, "fmi": 3, "occurrences": -2, "_label": "synthetic - illustrative"}
+{"timestamp": "2026-02-31T12:05:00Z", "vehicle_id": "SYN-VEH-0001", "spn": 520220, "fmi": 3, "occurrences": 1, "_label": "synthetic - illustrative"}
+{"timestamp": "2026-03-02T12:06:00Z", "vehicle_id": "", "spn": 520220, "fmi": 3, "occurrences": 1, "_label": "synthetic - illustrative"}
