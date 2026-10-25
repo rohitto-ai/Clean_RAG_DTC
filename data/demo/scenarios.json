@@ -1,0 +1,97 @@
+{
+ "_meta": {
+  "label": "synthetic - illustrative",
+  "phase": "10.2",
+  "seed": 1002,
+  "confidentiality": "Synthetic. No real TATA Motors telematics data or SPN/FMI dictionary is used or reproduced. Column names are the real ones so the pipeline can later run on a real export offline; only the values are invented.",
+  "cost_tat": "ILLUSTRATIVE placeholders - that data is owned by another team.",
+  "dictionary_entries": 73,
+  "subsystems_covered": 42,
+  "log_rows": 1000,
+  "vehicles": 200,
+  "days": 30,
+  "duplicate_fraction_target": 0.12,
+  "ambiguous_keys": {
+   "520362:7": [
+    "P042E-00",
+    "P042F-00"
+   ],
+   "520379:7": [
+    "P04A4-00",
+    "P04A5-00"
+   ]
+  }
+ },
+ "scenarios": {
+  "normal_advisory": {
+   "vehicle_id": "DEMO-MAT-0001",
+   "registration": "DM34TN3620",
+   "note": "single unambiguous mapping -> ADVISORY with fix blocks"
+  },
+  "red_stop_lamp": {
+   "vehicle_id": "DEMO-MAT-0002",
+   "registration": "DM10EI7930",
+   "note": "Red stop lamp ON -> severity CRITICAL"
+  },
+  "duplicate_rows": {
+   "vehicle_id": "DEMO-MAT-0003",
+   "registration": "DM09US1527",
+   "note": "3 identical rows -> 1 episode after de-duplication"
+  },
+  "ambiguous_key": {
+   "vehicle_id": "DEMO-MAT-0004",
+   "registration": "DM46NQ0789",
+   "note": "one (SPN,FMI) mapped to P042E-00 and P042F-00 -> AMBIGUOUS_MAPPING_CANDIDATES"
+  },
+  "ambiguous_key_2": {
+   "vehicle_id": "DEMO-MAT-0005",
+   "registration": "DM16HZ0662",
+   "note": "second ambiguous key -> P04A4-00 and P04A5-00"
+  },
+  "fmi_unmapped": {
+   "vehicle_id": "DEMO-MAT-0006",
+   "registration": "DM27AS9115",
+   "note": "SPN known, FMI 10 not mapped -> FALLBACK_CANDIDATES (never auto-advised)"
+  },
+  "unknown_spn": {
+   "vehicle_id": "DEMO-MAT-0007",
+   "registration": "DM44EY9553",
+   "note": "SPN not in the dictionary -> UNMAPPED, logged, no advisory"
+  },
+  "code_not_in_manual": {
+   "vehicle_id": "DEMO-MAT-0008",
+   "registration": "DM11JO4603",
+   "note": "maps to P0195-00, which this manual does not cover -> REFUSED_NOT_IN_MANUAL"
+  },
+  "low_byte_not_in_manual": {
+   "vehicle_id": "DEMO-MAT-0009",
+   "registration": "DM06QS7212",
+   "note": "maps to P0116-13; base P0116 exists, that low byte does not -> CLARIFY_LOW_BYTE"
+  },
+  "malformed_rows": {
+   "vehicle_id": "DEMO-MAT-0010",
+   "registration": "DM40JW1176",
+   "note": "6 rows: 4 malformed ones are rejected on this vehicle's report, a 5th has an empty Vehicle_Id so it cannot be attributed to any vehicle and is counted in fleet_summary's rows_rejected, and the 6th is valid and still advises"
+  },
+  "transposition_P1000": {
+   "vehicle_id": "DEMO-MAT-0011",
+   "registration": "DM07NW1461",
+   "note": "telemetry -> P1000-00; a technician typing P0100-00 must be flagged MISMATCH with 'possible transposition'"
+  },
+  "transposition_P1675": {
+   "vehicle_id": "DEMO-MAT-0012",
+   "registration": "DM42CM5132",
+   "note": "telemetry -> P1675-00; a technician typing P1657-00 must be flagged MISMATCH with 'possible transposition'"
+  },
+  "severity_cap": {
+   "vehicle_id": "DEMO-MAT-0013",
+   "registration": "DM39ET6829",
+   "note": "no lamp but occurrence 9 / 240 min -> raised to HIGH, never CRITICAL"
+  },
+  "flashing_red_lamp": {
+   "vehicle_id": "DEMO-MAT-0014",
+   "registration": "DM05PC8631",
+   "note": "Flashing red stop lamp -> severity CRITICAL"
+  }
+ }
+}

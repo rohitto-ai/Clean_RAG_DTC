@@ -1,0 +1,74 @@
+Fault Name,P Code,DTC_LB,SPN,FMI,SPN_Name
+RAILP_SNSR_STG,P0192,0,520209,4,Engine Fuel Rail Pressure Sensor Circuit
+RAILP_SNSR_STB,P0193,0,520209,3,Engine Fuel Rail Pressure Sensor Circuit
+RAILP_SNSR_DRIFT,P0194,0,520209,2,Engine Fuel Rail Pressure Sensor Circuit
+RAILP_DEV_POS,P0087,0,520226,1,Engine Fuel Rail Pressure Deviation
+RAILP_DEV_NEG,P0088,0,520226,0,Engine Fuel Rail Pressure Deviation
+COOLT_SNSR_STG,P0117,0,520243,4,Engine Coolant Temperature Sensor Circuit
+COOLT_SNSR_STB,P0118,0,520243,3,Engine Coolant Temperature Sensor Circuit
+COOLT_SNSR_INTERM,P0119,0,520243,2,Engine Coolant Temperature Sensor Circuit
+COOLT_SNSR_PLAUS,P0116,0,520243,11,Engine Coolant Temperature Sensor Circuit
+CRANK_SNSR_OPEN,P0335,0,520260,5,Engine Crankshaft Position Sensor Circuit
+CRANK_SIG_DIST,P0336,0,520260,2,Engine Crankshaft Position Sensor Circuit
+CAM_SIG_NONE,P0340,0,520277,8,Engine Camshaft Position Sensor Circuit
+CAM_SIG_DIST,P0341,0,520277,2,Engine Camshaft Position Sensor Circuit
+INJ1_OPEN,P0201,0,520294,5,Engine Injector Cylinder 1 Circuit
+INJ2_OPEN,P0202,0,520311,5,Engine Injector Cylinder 2 Circuit
+INJ3_OPEN,P0203,0,520328,5,Engine Injector Cylinder 3 Circuit
+INJ4_OPEN,P0204,0,520345,5,Engine Injector Cylinder 4 Circuit
+INJ1_SC_HILO,P1201,0,520294,6,Engine Injector Cylinder 1 Circuit
+INJ2_SC_HILO,P1202,0,520311,6,Engine Injector Cylinder 2 Circuit
+EGRV_JAM_OPEN,P042E,0,520362,7,Engine EGR Valve Position
+EGRV_JAM_CLOSED,P042F,0,520362,7,Engine EGR Valve Position
+EGRV_POS_SRC_LO,P0405,0,520362,4,Engine EGR Valve Position
+EGRV_POS_SRC_HI,P0406,0,520362,3,Engine EGR Valve Position
+ETV_JAM_OPEN,P04A4,0,520379,7,Engine Exhaust Throttle Valve Position
+ETV_JAM_CLOSED,P04A5,0,520379,7,Engine Exhaust Throttle Valve Position
+ETV_POS_SRC_LO,P048B,17,520379,17,Engine Exhaust Throttle Valve Position
+ETV_POS_SRC_HI,P048B,18,520379,18,Engine Exhaust Throttle Valve Position
+TURBO_A_LOW,P0047,0,520396,4,Engine Turbocharger Boost Control A Circuit
+TURBO_A_HIGH,P0048,0,520396,3,Engine Turbocharger Boost Control A Circuit
+TURBO_SPLY_LOW,P006E,0,520413,4,Engine Turbocharger Boost Control Supply Voltage
+TURBO_SPLY_HIGH,P006F,0,520413,3,Engine Turbocharger Boost Control Supply Voltage
+MAF_RANGE_HI,P0100,155,520430,0,Engine Intake Air Mass Flow Sensor
+MAF_RANGE_LO,P0100,156,520430,1,Engine Intake Air Mass Flow Sensor
+MAF_SENT_COMM,P0100,0,520430,9,Engine Intake Air Mass Flow Sensor
+AMBT_PLAUS,P1000,0,520447,11,Engine Intake Air Ambient Temperature Monitor
+AIRMASS_GOV_POS,P0401,0,520464,1,Engine Intake Air Mass Governor Deviation
+MAFA_CKT_LOW,P0102,0,520481,1,Engine Mass Air Flow Sensor A Circuit
+MAFA_CKT_HIGH,P0103,0,520481,0,Engine Mass Air Flow Sensor A Circuit
+MAFB_CKT_LOW,P010C,0,520498,1,Engine Mass Air Flow Sensor B Circuit
+MAFB_CKT_HIGH,P010D,0,520498,0,Engine Mass Air Flow Sensor B Circuit
+DOC_TEMP_HIGH,P0425,133,520515,0,Aftertreatment DOC Inlet Gas Temperature
+DOC_TEMP_LOW,P0425,132,520515,1,Aftertreatment DOC Inlet Gas Temperature
+DOC_TEMP_STB,P0428,0,520515,3,Aftertreatment DOC Inlet Gas Temperature
+DOC_TEMP_STG,P0427,0,520515,4,Aftertreatment DOC Inlet Gas Temperature
+DPF_DP_HOSE,P2452,149,520532,31,Aftertreatment DPF Delta Pressure
+UREA_LVL_HIGH,P203B,133,520549,0,Aftertreatment Urea DEF Tank Level
+SCR_TEMP_HIGH,P242A,133,520566,0,Aftertreatment SCR Inlet Gas Temperature
+SCR_TEMP_STB,P242D,0,520566,3,Aftertreatment SCR Inlet Gas Temperature
+DEF_CONC_STUCK,P206A,243,520583,31,Aftertreatment DEF Concentration Quality
+NOXU_NET_ERR,P2200,19,520600,19,Aftertreatment NOx Sensor Upstream
+NOXU_SIG_INCORR,P2200,134,520600,16,Aftertreatment NOx Sensor Upstream
+NOXD_NET_ERR,P229E,19,520617,19,Aftertreatment NOx Sensor Downstream
+FUELT_SNSR_STG,P0180,17,520634,17,Engine Fuel Temperature Sensor Circuit
+FUELT_SNSR_STB,P0180,18,520634,18,Engine Fuel Temperature Sensor Circuit
+PRV_OPEN,P0089,0,520651,7,Engine Fuel Pressure Relief Valve
+FPRELAY_OPEN,P0627,19,520668,19,Engine Fuel Pump Relay Circuit
+WIF_SNSR_OPEN,P2264,18,520685,18,Engine Water In Fuel Indicator
+APP1_STG,P0120,17,520702,17,Accelerator Pedal Position Sensor 1
+APP2_STG,P0220,17,520719,17,Accelerator Pedal Position Sensor 2
+APP_INCOMPAT,P2135,0,520702,31,Accelerator Pedal Position Sensor 1
+VSPD_PLAUS,P0500,31,520736,31,Wheel Based Vehicle Speed Sensor
+VSPD_MAX_THRESH,P0500,28,520736,0,Wheel Based Vehicle Speed Sensor
+CAN_DISCONNECT,U0102,0,520753,19,CAN Bus Network Communication
+CAN_HW_CONN,U011A,137,520770,19,CAN Bus Network Internal Hardware
+MAP_SNSR_STG,P0107,0,520787,4,Engine Intake Manifold Pressure Sensor Circuit
+MAP_SNSR_STB,P0108,0,520787,3,Engine Intake Manifold Pressure Sensor Circuit
+STARTM_STB,P0A1B,18,520804,18,Engine Starter Motor Control Circuit
+BARO_OVERVOLT,P2229,0,520821,0,Barometric Pressure Sensor Circuit
+ECU_EMM_FCCU22,P1675,0,520838,31,Engine ECU Internal EMM Alarm FCCU22
+ECU_RPM_PERF,P061C,0,520855,11,Engine ECU Internal Engine Speed Performance
+L2_OVERSPEED,P0219,0,520872,0,Engine Speed Level 2 Monitoring Overspeed
+FUELT2_SNSR_STG,P0195,0,520889,4,Engine Fuel Temperature Sensor 2 Circuit
+COOLT_RATIONALITY,P0116,19,520906,16,Engine Coolant Temperature Sensor Rationality

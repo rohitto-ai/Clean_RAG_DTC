@@ -1,0 +1,47 @@
+{
+ "label": "synthetic - illustrative",
+ "by_outcome": {
+  "ADVISORY": 753,
+  "FALLBACK_CANDIDATES": 24,
+  "AMBIGUOUS_MAPPING_CANDIDATES": 22,
+  "UNMAPPED": 21,
+  "REFUSED_NOT_IN_MANUAL": 20,
+  "CLARIFY_LOW_BYTE": 7
+ },
+ "by_worst_severity": {
+  "LOW": 2,
+  "MEDIUM": 0,
+  "HIGH": 163,
+  "CRITICAL": 34
+ },
+ "advisory_by_subsystem": {
+  "injector": 69,
+  "fuel_supply": 63,
+  "intake_air": 56,
+  "rail_pressure": 52,
+  "electrical": 51,
+  "engine_position": 50,
+  "sensor_generic": 47,
+  "dpf_regen": 46,
+  "scr_def": 45,
+  "coolant": 39,
+  "turbo_boost": 36,
+  "pedal_clutch_brake": 36,
+  "exhaust_throttle": 33,
+  "level2_monitoring": 31,
+  "o2_exhaust": 30,
+  "vehicle_speed": 20,
+  "can_network": 19,
+  "egr": 17,
+  "ecu_internal": 13
+ },
+ "episodes": 847,
+ "rows": 1000,
+ "rows_rejected": 5,
+ "latency_ms": {
+  "n": 60,
+  "p50": 0.4,
+  "p95": 0.6
+ },
+ "fleet_seconds": 0.06
+}
