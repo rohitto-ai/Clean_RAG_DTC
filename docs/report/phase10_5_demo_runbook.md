@@ -7,6 +7,41 @@ internet, the Codespace checklist, and what to do when it breaks on stage.
 
 ---
 
+## 0. One-click demo
+
+**Codespace / VS Code** — three ways, all equivalent:
+
+| how | what to click |
+|---|---|
+| Run and Debug panel | select **"Start demo"**, press the green ▶. The `Demo: start` task brings the service up and VS Code waits for its `DEMO READY` banner; then `scripts/open_demo.py` prints the local and Codespace URLs. |
+| Command palette | **Terminal → Run Task… → "Demo: start"** (no Python extension needed) |
+| Terminal | `./run.sh demo` |
+
+Port **8000** is declared in `.devcontainer/devcontainer.json` as *Diagnostic Demo* with
+`onAutoForward: openBrowser`, so the Codespace opens the page by itself once the port appears.
+**Autostart on attach is OFF by default**; set the environment variable `DEMO_AUTOSTART=1` (a
+Codespace secret, or `export DEMO_AUTOSTART=1` before reopening) if you want the demo to come up
+without being asked.
+
+**Stopping:** Run Task → **"Demo: stop"**, or `./run.sh demo --stop`, or Ctrl+C in the task
+terminal. Stopping the *debug session* does **not** stop the demo — the server lives in the
+task's terminal, not the debug session.
+
+**Pre-flight:** Run Task → **"Demo: check"** (`./run.sh demo --check`) — expect `43/43` and
+`DEMO CHECK PASSED`.
+
+**Windows laptop** — double-click **`start_demo.bat`**. It calls `start_demo.ps1` with
+`-ExecutionPolicy Bypass` **for that one process only** (nothing machine-wide changes, no
+administrator rights). The script checks the Python 3.12 environment and points at §2 of this
+runbook if it is missing, builds the index and demo data if absent, starts uvicorn on
+`127.0.0.1:8000` in its own window, polls `/health` for up to 120 s, warms `/symptom` and
+`/vehicle`, then opens your browser. Double-click **`stop_demo.bat`** to stop it — it stops only
+the server these scripts started, identified by its pid file.
+
+No internet is needed once installed, and **no language model is needed** (§2a).
+
+---
+
 ## 1. The two commands
 
 ```bash
@@ -210,8 +245,13 @@ gh codespace ports visibility 8000:private -c "$CODESPACE_NAME"
 ### Restart in under 60 seconds
 
 ```bash
-pkill -f "uvicorn app:app" ; ./run.sh demo
+./run.sh demo --stop ; ./run.sh demo        # or: Run Task "Demo: stop", then "Demo: start"
 ```
+
+`--stop` only ever kills the server `run.sh` started (it checks the pid file against
+`/proc/<pid>/cmdline`). If something untracked is squatting on the port, `--stop` says so and
+leaves it alone; stop it with `pkill -f "[u]vicorn app:app"` — the `[u]` stops the pattern
+matching the shell that runs it.
 
 Start-up is ~6 s plus warm-up, so this is comfortably inside a minute **provided `index/` and
 `data/` are intact** (they are, unless the Codespace was rebuilt). Say out loud: *"restarting —
@@ -264,6 +304,12 @@ Say plainly that these are screenshots of the same system, captured by
 
 | check | result |
 |---|---|
+| `.vscode/tasks.json`, `.vscode/launch.json`, `.devcontainer/devcontainer.json` | valid JSONC |
+| task `Demo: check` (`./run.sh demo --check`) | **43/43, exit 0** |
+| task `Demo: start` (`./run.sh demo`) | both problem-matcher patterns emitted once; `/health` ok |
+| play button action (`scripts/open_demo.py`) | printed the local **and** Codespace URLs |
+| task `Demo: stop` (`./run.sh demo --stop`) | stopped its own server; port verified closed |
+| `start_demo.ps1`, `stop_demo.ps1` | **parse clean** under PowerShell 7.6.8 (`Parser::ParseFile`) — **not executed: no Windows machine here** |
 | `./run.sh demo --check`, clean shell, run 1 | **43/43, exit 0** |
 | `./run.sh demo --check`, clean shell, run 2 | **43/43, exit 0** |
 | failure path (`--base` to a dead port) | clean `FAIL` line, **exit 1**, no traceback |

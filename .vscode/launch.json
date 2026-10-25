@@ -1,0 +1,45 @@
+{
+  // Phase 10.5b - Run and Debug > "Start demo" > green play button.
+  //
+  // The preLaunchTask ("Demo: start", see tasks.json) brings the service up in its
+  // own terminal and VS Code waits for its "DEMO READY" banner. This configuration
+  // then runs scripts/open_demo.py, which confirms /health and prints the local and
+  // Codespace URLs. Stopping the debug session does NOT stop the demo: use the
+  // "Demo: stop" task, or ./run.sh demo --stop.
+  //
+  // Needs the Python extension (debugpy). Without it, use
+  // Terminal > Run Task... > "Demo: start" instead - same result, one more click.
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Start demo",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/scripts/open_demo.py",
+      "args": ["--port", "8000"],
+      "python": "${workspaceFolder}/.venv/bin/python",
+      "cwd": "${workspaceFolder}",
+      "env": {
+        "PYTHONPATH": "src",
+        "ANONYMIZED_TELEMETRY": "False"
+      },
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "preLaunchTask": "Demo: start"
+    },
+    {
+      "name": "Demo pre-flight (no server left running)",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "scripts.demo_smoke",
+      "cwd": "${workspaceFolder}",
+      "python": "${workspaceFolder}/.venv/bin/python",
+      "env": {
+        "PYTHONPATH": "src",
+        "ANONYMIZED_TELEMETRY": "False"
+      },
+      "console": "integratedTerminal",
+      "justMyCode": true
+    }
+  ]
+}

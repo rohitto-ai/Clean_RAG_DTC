@@ -1,0 +1,66 @@
+{
+  // Phase 10.5b - one-click demo from the VS Code / Codespace UI.
+  // Terminal > Run Task..., or the Run and Debug panel (see launch.json).
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Demo: start",
+      "detail": "Build anything missing, serve on 0.0.0.0:8000, warm the models.",
+      "type": "shell",
+      "command": "./run.sh demo",
+      "isBackground": true,
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "group": "demo",
+        "clear": true
+      },
+      "problemMatcher": {
+        // Nothing here parses compiler errors: the matcher exists so VS Code knows
+        // WHEN this background task is ready. "endsPattern" is the banner run.sh
+        // prints only after /health returns ok and the warm-up calls have come
+        // back, so a preLaunchTask waits for a genuinely serving demo rather than
+        // for the process to merely spawn.
+        "owner": "dtc-demo",
+        "fileLocation": "relative",
+        "pattern": {
+          "regexp": "^ERROR: (.*)$",
+          "file": 1,
+          "message": 1
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": ">> Starting the service on",
+          "endsPattern": "DEMO READY"
+        }
+      }
+    },
+    {
+      "label": "Demo: check",
+      "detail": "Pre-flight: start, run the 43 preset checks, stop again. Non-zero on failure.",
+      "type": "shell",
+      "command": "./run.sh demo --check",
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "group": "demo",
+        "clear": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Demo: stop",
+      "detail": "Stop the demo server that run.sh started (and only that one).",
+      "type": "shell",
+      "command": "./run.sh demo --stop",
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "group": "demo",
+        "clear": false
+      },
+      "problemMatcher": []
+    }
+  ]
+}

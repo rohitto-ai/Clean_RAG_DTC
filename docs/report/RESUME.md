@@ -6,6 +6,21 @@ evaluated once and is now spent. The previous system is preserved as tag `v1-pha
 
 _Last updated: 2026-10-25_
 
+## One-click demo
+
+**Codespace / VS Code:** Run and Debug panel → **"Start demo"** → green ▶.
+(Or Terminal → Run Task… → **"Demo: start"**; or `./run.sh demo`.)
+Port 8000 is forwarded as *Diagnostic Demo* and opens the browser automatically.
+Stop with Run Task → **"Demo: stop"** or `./run.sh demo --stop`.
+Pre-flight with Run Task → **"Demo: check"** — expect `43/43`.
+Autostart on attach is **off** by default; set `DEMO_AUTOSTART=1` to enable it.
+
+**Windows laptop (offline):** double-click **`start_demo.bat`** → it starts the server on
+`127.0.0.1:8000`, waits for `/health`, warms the models and opens the browser.
+Double-click **`stop_demo.bat`** to stop it. No admin rights, no internet, no language model.
+
+Details, including the offline install: `docs/report/phase10_5_demo_runbook.md`.
+
 **Phase 9.1:** `src/advise.py` + `POST /advise` return the top-3 DTCs, each with a deterministic fix block (additive; retrieval, gate and indexes unchanged). Details: `docs/report/phase9_1_advise_mode.md`.
 
 **Phase 9.1b:** fixed the parser column-bleed (steps band clamped to the footer + header-anchored column guard). The detector `scripts/detect_step_bleed.py` found 3 records / 34 garbled steps (P0117-00, P00C6-00, P0A1B-12); it now finds 0. DEV metrics are unchanged; **current production determinism hash `ffff9bc707d8754d`** (was `76b16c2b9ab8f9f2`, data changed). Advise related codes now prefer the same system. The 8.5 TEST predates the fix and was not re-run. Details: `docs/report/phase9_1b_step_fix.md`.

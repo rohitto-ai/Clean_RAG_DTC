@@ -1,0 +1,39 @@
+{
+  // Phase 10.5b - Codespace configuration for the demo.
+  //
+  // This file did not exist before; nothing was overwritten. It only forwards the
+  // demo port and offers an OPT-IN autostart. It does not change retrieval, the
+  // gate, the index, the records or any API behaviour.
+  "name": "Clean RAG DTC (3.3L manual)",
+  "image": "mcr.microsoft.com/devcontainers/universal:2-linux",
+
+  "forwardPorts": [8000],
+  "portsAttributes": {
+    "8000": {
+      "label": "Diagnostic Demo",
+      "onAutoForward": "openBrowser"
+    }
+  },
+
+  // OPT-IN autostart. Default is OFF: attaching to the Codespace starts nothing.
+  // Set DEMO_AUTOSTART=1 (Codespace secret, or `export DEMO_AUTOSTART=1` before
+  // reopening) to have the demo come up by itself on attach. The server is
+  // detached with nohup and logs to /tmp/dtc_demo_8000.log, so it survives the
+  // postAttachCommand returning; stop it with ./run.sh demo --stop.
+  "postAttachCommand": {
+    "demo-autostart": "if [ \"${DEMO_AUTOSTART:-0}\" = \"1\" ]; then nohup ./run.sh demo > /tmp/dtc_demo_autostart.log 2>&1 & echo 'demo autostart requested (DEMO_AUTOSTART=1); see /tmp/dtc_demo_autostart.log'; else echo 'demo autostart is off (set DEMO_AUTOSTART=1 to enable); start it with: ./run.sh demo'; fi"
+  },
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.debugpy"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+        "terminal.integrated.defaultProfile.linux": "bash"
+      }
+    }
+  }
+}

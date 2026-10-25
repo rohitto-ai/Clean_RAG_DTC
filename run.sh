@@ -4,6 +4,7 @@
 #   ./run.sh                   interactive command-line assistant (Phase 7/9.1)
 #   ./run.sh demo              serve the demo website + API on 0.0.0.0:8000
 #   ./run.sh demo --check      start, verify with the preset smoke test, stop again
+#   ./run.sh demo --stop       stop the demo server this script started
 #   ./run.sh demo --port 8080  use another port
 #
 # Checks the setup and rebuilds any missing data/index files first. Nothing here
@@ -18,12 +19,14 @@ export ANONYMIZED_TELEMETRY=False
 MODE="cli"
 PORT=8000
 CHECK=0
+STOP=0
 if [[ "${1:-}" == "demo" ]]; then
   MODE="demo"
   shift
   while [[ $# -gt 0 ]]; do
     case "$1" in
       --check) CHECK=1; shift ;;
+      --stop)  STOP=1; shift ;;
       --port)  PORT="${2:?--port needs a number}"; shift 2 ;;
       -h|--help)
         sed -n '2,10p' "$0"; exit 0 ;;
@@ -34,11 +37,59 @@ fi
 
 MODEL="models/qwen2.5-0.5b-instruct-q4_k_m.gguf"
 LOG="/tmp/dtc_demo_${PORT}.log"
+PIDFILE="/tmp/dtc_demo_${PORT}.pid"
 SERVER_PID=""
 
 step() { printf '\n>> %s\n' "$1"; }
 note() { printf '   %s\n' "$1"; }
 fail() { printf '\nERROR: %s\n' "$1" >&2; exit 1; }
+
+# ------------------------------------------------------------ 0. demo --stop
+# Stops ONLY a server this script started: the pid file is written by step 6, and
+# the process is confirmed to be our uvicorn on this port before anything is sent.
+if [[ "$STOP" == "1" ]]; then
+  if [[ ! -f "$PIDFILE" ]]; then
+    printf 'No demo server was started by run.sh on port %s (no %s).\n' "$PORT" "$PIDFILE"
+    # Something may still be listening that this script did not start. Say so
+    # rather than killing a process we cannot account for. The [u] in the pkill
+    # hint stops the pattern from matching the shell that runs it.
+    if "$PY" - "http://127.0.0.1:${PORT}" <<'PROBE' 2>/dev/null
+import json, sys, urllib.request
+try:
+    with urllib.request.urlopen(sys.argv[1] + "/health", timeout=3) as r:
+        sys.exit(0 if json.load(r).get("status") == "ok" else 1)
+except Exception:
+    sys.exit(1)
+PROBE
+    then
+      printf 'Something else IS answering on port %s; it was not started by this\n' "$PORT"
+      printf 'script, so it is left alone. To stop it anyway:\n'
+      printf '  pkill -f "[u]vicorn app:app"\n'
+    fi
+    exit 0
+  fi
+  pid="$(cat "$PIDFILE" 2>/dev/null || true)"
+  if [[ -z "$pid" ]] || ! kill -0 "$pid" 2>/dev/null; then
+    rm -f "$PIDFILE"
+    printf 'The demo server on port %s is already stopped.\n' "$PORT"
+    exit 0
+  fi
+  cmd="$(tr '\0' ' ' < "/proc/$pid/cmdline" 2>/dev/null || true)"
+  if [[ "$cmd" != *"uvicorn app:app"* || "$cmd" != *"$PORT"* ]]; then
+    printf 'PID %s is not the demo server (%s). Leaving it alone.\n' "$pid" "${cmd:-unknown}" >&2
+    rm -f "$PIDFILE"
+    exit 1
+  fi
+  kill "$pid" 2>/dev/null || true
+  for _ in $(seq 1 20); do
+    kill -0 "$pid" 2>/dev/null || break
+    sleep 0.25
+  done
+  kill -9 "$pid" 2>/dev/null || true
+  rm -f "$PIDFILE"
+  printf 'Demo server on port %s stopped (pid %s).\n' "$PORT" "$pid"
+  exit 0
+fi
 
 # ---------------------------------------------------------------- 1. setup
 if [[ ! -x "$PY" ]]; then
@@ -119,6 +170,7 @@ stop_server() {
     done
     kill -9 "$SERVER_PID" 2>/dev/null || true
   fi
+  rm -f "$PIDFILE"
 }
 
 health_ok() {
@@ -143,6 +195,7 @@ else
   : > "$LOG"
   "$PY" -m uvicorn app:app --host 0.0.0.0 --port "$PORT" --log-level warning >>"$LOG" 2>&1 &
   SERVER_PID=$!
+  echo "$SERVER_PID" > "$PIDFILE"
   trap 'stop_server' EXIT
 
   ready=0
@@ -225,6 +278,7 @@ fi
 cat <<BANNER
      server log ${LOG}
      pre-flight ./run.sh demo --check
+     stop       ./run.sh demo --stop   (or Ctrl+C here)
   Press Ctrl+C to stop.
 ============================================================
 BANNER
