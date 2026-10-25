@@ -1,0 +1,73 @@
+{
+  "label": "lexv2",
+  "gold": "data/gold_v2.json",
+  "gold_version": "v2.2",
+  "config": {
+    "index_dir": "index_exp/minilm_lexv2",
+    "model": "sentence-transformers/all-MiniLM-L6-v2",
+    "query_prefix": "",
+    "lexicon": "data/domain_lexicon_v2.json",
+    "expand": "bm25",
+    "gate": "default",
+    "index_aliases": "bm25"
+  },
+  "symptom_overlap": {
+    "DEV": {
+      "n": 12,
+      "mean": 0.08961640211640211,
+      "zero_overlap": 4,
+      "max": 0.14285714285714285,
+      "over_ceiling": 0
+    },
+    "TEST": {
+      "n": 13,
+      "mean": 0.09752747252747253,
+      "zero_overlap": 4,
+      "max": 0.14285714285714285,
+      "over_ceiling": 0
+    }
+  },
+  "DEV": {
+    "by_mode": {
+      "exact_code": {
+        "n": 6,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0,
+        "MRR": 1.0
+      },
+      "near_duplicate": {
+        "n": 7,
+        "hit@1": 1.0,
+        "hit@3": 1.0,
+        "hit@5": 1.0,
+        "MRR": 1.0
+      },
+      "symptom": {
+        "n": 12,
+        "hit@1": 0.5833333333333334,
+        "hit@3": 0.75,
+        "hit@5": 0.9166666666666666,
+        "MRR": 0.7041666666666666
+      }
+    },
+    "overall": {
+      "n": 25,
+      "hit@1": 0.8,
+      "hit@3": 0.88,
+      "hit@5": 0.96,
+      "MRR": 0.858
+    },
+    "system_group": {
+      "complete": 3,
+      "n": 3
+    },
+    "honesty": {
+      "oos_gated": 6,
+      "oos_n": 6,
+      "in_scope_passed": 28,
+      "in_scope_n": 28
+    }
+  },
+  "TEST": null
+}

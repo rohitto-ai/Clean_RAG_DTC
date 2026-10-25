@@ -1,0 +1,790 @@
+{
+ "c4b": [
+  {
+   "id": "d001",
+   "query": "what does P0192-00 mean",
+   "mode": "exact_code",
+   "expected": [
+    "P0192-00"
+   ],
+   "got": [
+    "P0192-00"
+   ],
+   "rank": 1
+  },
+  {
+   "id": "d002",
+   "query": "P0340",
+   "mode": "exact_code",
+   "expected": [
+    "P0340-00"
+   ],
+   "got": [
+    "P0340-00"
+   ],
+   "rank": 1
+  },
+  {
+   "id": "d003",
+   "query": "P0180-11",
+   "mode": "exact_code",
+   "expected": [
+    "P0180-11"
+   ],
+   "got": [
+    "P0180-11",
+    "P0180-11"
+   ],
+   "rank": 1
+  },
+  {
+   "id": "d004",
+   "query": "P0100",
+   "mode": "exact_code",
+   "expected": [
+    "P0100-00",
+    "P0100-9B",
+    "P0100-9C"
+   ],
+   "got": [
+    "P0100-00",
+    "P0100-9B",
+    "P0100-9C"
+   ],
+   "rank": 1
+  },
+  {
+   "id": "d005",
+   "query": "details for U0102-00",
+   "mode": "exact_code",
+   "expected": [
+    "U0102-00"
+   ],
+   "got": [
+    "U0102-00"
+   ],
+   "rank": 1
+  },
+  {
+   "id": "d006",
+   "query": "fault code P2264",
+   "mode": "exact_code",
+   "expected": [
+    "P2264-00",
+    "P2264-11",
+    "P2264-12"
+   ],
+   "got": [
+    "P2264-12",
+    "P2264-11",
+    "P2264-00"
+   ],
+   "rank": 1
+  },
+  {
+   "id": "d007",
+   "query": "the cam sensor gives no output whatsoever",
+   "mode": "near_duplicate",
+   "expected": [
+    "P0340-00"
+   ],
+   "got": [
+    "P0340-00",
+    "P0341-00",
+    "P0180-11",
+    "P0180-12",
+    "P0192-00"
+   ],
+   "rank": 1
+  },
+  {
+   "id": "d008",
+   "query": "cam position reading is erratic and noisy",
+   "mode": "near_duplicate",
+   "expected": [
+    "P0341-00"
+   ],
+   "got": [
+    "P0341-00",
+    "P0340-00",
+    "P0336-00",
+    "P0335-00",
+    "P048B-12"
+   ],
+   "rank": 1
+  },
+  {
+   "id": "d009",
+   "query": "fuel rail sender pulled down to earth",
+   "mode": "near_duplicate",
+   "expected": [
+    "P0192-00"
+   ],
+   "got": [
+    "P0192-00",
+    "P0180-11",
+    "P0194-00",
+    "P0087-00",
+    "P0003-00"
+   ],
+   "rank": 1
+  },
+  {
+   "id": "d010",
+   "query": "fuel rail sender reading has drifted off calibration",
+   "mode": "near_duplicate",
+   "expected": [
+    "P0194-00"
+   ],
+   "got": [
+    "P0194-00",
+    "P0088-00",
+    "P0192-00",
+    "P0087-00",
+    "P0193-00"
+   ],
+   "rank": 1
+  },
+  {
+   "id": "d011",
+   "query": "number three injector has a broken winding",
+   "mode": "near_duplicate",
+   "expected": [
+    "P0203-00"
+   ],
+   "got": [
+    "P0203-00",
+    "P0201-00",
+    "P0204-00",
+    "P0202-00",
+    "P1201-00"
+   ],
+   "rank": 1
+  },
+  {
+   "id": "d012",
+   "query": "cylinder one injector is shorted to the main feed",
+   "mode": "near_duplicate",
+   "expected": [
+    "P2147-00"
+   ],
+   "got": [
+    "P2147-00",
+    "P2150-00",
+    "P0201-00",
+    "P2153-00",
+    "P1201-00"
+   ],
+   "rank": 1
+  },
+  {
+   "id": "d013",
+   "query": "crank position reading is noisy and unstable",
+   "mode": "near_duplicate",
+   "expected": [
+    "P0336-00"
+   ],
+   "got": [
+    "P0336-00",
+    "P0335-00",
+    "P0341-00",
+    "P048B-11",
+    "P0340-00"
+   ],
+   "rank": 1
+  },
+  {
+   "id": "d014",
+   "query": "exhaust recirculation flap is seized shut",
+   "mode": "symptom",
+   "expected": [
+    "P042F-00"
+   ],
+   "got": [
+    "P04A5-00",
+    "P04A4-00",
+    "P042F-00",
+    "P206A-F3",
+    "P22CF-73"
+   ],
+   "rank": 3
+  },
+  {
+   "id": "d015",
+   "query": "the recirculation flap on the egr pipe has seized and refuses to shut",
+   "mode": "symptom",
+   "expected": [
+    "P042E-00"
+   ],
+   "got": [
+    "P042F-00",
+    "P042E-00",
+    "P04A5-00",
+    "P0406-00",
+    "P0489-00"
+   ],
+   "rank": 2
+  },
+  {
+   "id": "d016",
+   "query": "soot trap is completely blocked up",
+   "mode": "symptom",
+   "expected": [
+    "P244B-00"
+   ],
+   "got": [
+    "P2463-85",
+    "P243F-F0",
+    "P242F-00",
+    "P243C-00",
+    "P04A5-00"
+   ],
+   "rank": null
+  },
+  {
+   "id": "d017",
+   "query": "the adblue reservoir is nearly empty and low warning is showing",
+   "mode": "symptom",
+   "expected": [
+    "P203F-00",
+    "P203F-7B"
+   ],
+   "got": [
+    "P206A-F1",
+    "P2BA9-00",
+    "P206A-F2",
+    "P204F-7C",
+    "P203F-00"
+   ],
+   "rank": 5
+  },
+  {
+   "id": "d018",
+   "query": "water temp gauge pegged cold, the reading line looks shorted",
+   "mode": "symptom",
+   "expected": [
+    "P0117-00"
+   ],
+   "got": [
+    "P0118-00",
+    "P0117-00",
+    "P0116-00",
+    "P040C-00",
+    "P0427-00"
+   ],
+   "rank": 2
+  },
+  {
+   "id": "d019",
+   "query": "the water temp sensor lead has come adrift and gauge is dead",
+   "mode": "symptom",
+   "expected": [
+    "P0118-00"
+   ],
+   "got": [
+    "P0118-00",
+    "P0116-00",
+    "P0117-00",
+    "P0428-00",
+    "P0180-12"
+   ],
+   "rank": 1
+  },
+  {
+   "id": "d020",
+   "query": "the go pedal's two throttle tracks disagree and power is cut",
+   "mode": "symptom",
+   "expected": [
+    "P2135-00"
+   ],
+   "got": [
+    "P2135-00",
+    "P0220-12",
+    "P0220-11",
+    "P0120-12",
+    "P0504-00"
+   ],
+   "rank": 1
+  },
+  {
+   "id": "d021",
+   "query": "alternator is overcharging and the battery sees far too many volts",
+   "mode": "symptom",
+   "expected": [
+    "P0562-00"
+   ],
+   "got": [
+    "P0562-00",
+    "P0563-00",
+    "P20F5-00",
+    "P20F5-7A",
+    "P208D-00"
+   ],
+   "rank": 1
+  },
+  {
+   "id": "d022",
+   "query": "charge pressure from the turbo is under target",
+   "mode": "symptom",
+   "expected": [
+    "P0047-00",
+    "P004C-00",
+    "P006E-00"
+   ],
+   "got": [
+    "P006E-00",
+    "P006F-00",
+    "P0045-13",
+    "P0048-00",
+    "P259E-00"
+   ],
+   "rank": 1
+  },
+  {
+   "id": "d023",
+   "query": "turns over but never fires, no signal coming from the cam pickup",
+   "mode": "symptom",
+   "expected": [
+    "P0340-00"
+   ],
+   "got": [
+    "P0340-00",
+    "P0341-00",
+    "P0336-00",
+    "P0335-00",
+    "P2200-13"
+   ],
+   "rank": 1
+  },
+  {
+   "id": "d024",
+   "query": "loss of pulling power with the dash warning light on",
+   "mode": "symptom",
+   "expected": [
+    "P0192-00",
+    "P0193-00",
+    "P0194-00",
+    "P0087-00",
+    "P0088-00"
+   ],
+   "got": [
+    "P0192-00",
+    "P0193-00",
+    "P0087-00",
+    "P0003-00",
+    "P20A3-00"
+   ],
+   "rank": 1
+  },
+  {
+   "id": "d025",
+   "query": "system voltage keeps sagging and the ecu drops out on cold starts",
+   "mode": "symptom",
+   "expected": [
+    "P0563-00"
+   ],
+   "got": [
+    "P0563-00",
+    "P0562-00",
+    "P20F5-00",
+    "P1114-00",
+    "P259F-00"
+   ],
+   "rank": 1
+  }
+ ],
+ "lexv2": [
+  {
+   "id": "d001",
+   "query": "what does P0192-00 mean",
+   "mode": "exact_code",
+   "expected": [
+    "P0192-00"
+   ],
+   "got": [
+    "P0192-00"
+   ],
+   "rank": 1
+  },
+  {
+   "id": "d002",
+   "query": "P0340",
+   "mode": "exact_code",
+   "expected": [
+    "P0340-00"
+   ],
+   "got": [
+    "P0340-00"
+   ],
+   "rank": 1
+  },
+  {
+   "id": "d003",
+   "query": "P0180-11",
+   "mode": "exact_code",
+   "expected": [
+    "P0180-11"
+   ],
+   "got": [
+    "P0180-11",
+    "P0180-11"
+   ],
+   "rank": 1
+  },
+  {
+   "id": "d004",
+   "query": "P0100",
+   "mode": "exact_code",
+   "expected": [
+    "P0100-00",
+    "P0100-9B",
+    "P0100-9C"
+   ],
+   "got": [
+    "P0100-00",
+    "P0100-9B",
+    "P0100-9C"
+   ],
+   "rank": 1
+  },
+  {
+   "id": "d005",
+   "query": "details for U0102-00",
+   "mode": "exact_code",
+   "expected": [
+    "U0102-00"
+   ],
+   "got": [
+    "U0102-00"
+   ],
+   "rank": 1
+  },
+  {
+   "id": "d006",
+   "query": "fault code P2264",
+   "mode": "exact_code",
+   "expected": [
+    "P2264-00",
+    "P2264-11",
+    "P2264-12"
+   ],
+   "got": [
+    "P2264-12",
+    "P2264-11",
+    "P2264-00"
+   ],
+   "rank": 1
+  },
+  {
+   "id": "d007",
+   "query": "the cam sensor gives no output whatsoever",
+   "mode": "near_duplicate",
+   "expected": [
+    "P0340-00"
+   ],
+   "got": [
+    "P0340-00",
+    "P0341-00",
+    "P0180-11",
+    "P0180-12",
+    "P0192-00"
+   ],
+   "rank": 1
+  },
+  {
+   "id": "d008",
+   "query": "cam position reading is erratic and noisy",
+   "mode": "near_duplicate",
+   "expected": [
+    "P0341-00"
+   ],
+   "got": [
+    "P0341-00",
+    "P0340-00",
+    "P0336-00",
+    "P0335-00",
+    "P048B-12"
+   ],
+   "rank": 1
+  },
+  {
+   "id": "d009",
+   "query": "fuel rail sender pulled down to earth",
+   "mode": "near_duplicate",
+   "expected": [
+    "P0192-00"
+   ],
+   "got": [
+    "P0192-00",
+    "P0180-11",
+    "P0194-00",
+    "P0193-00",
+    "P0003-00"
+   ],
+   "rank": 1
+  },
+  {
+   "id": "d010",
+   "query": "fuel rail sender reading has drifted off calibration",
+   "mode": "near_duplicate",
+   "expected": [
+    "P0194-00"
+   ],
+   "got": [
+    "P0194-00",
+    "P0088-00",
+    "P0192-00",
+    "P0087-00",
+    "P0193-00"
+   ],
+   "rank": 1
+  },
+  {
+   "id": "d011",
+   "query": "number three injector has a broken winding",
+   "mode": "near_duplicate",
+   "expected": [
+    "P0203-00"
+   ],
+   "got": [
+    "P0203-00",
+    "P1203-00",
+    "P2153-00",
+    "P0201-00",
+    "P0204-00"
+   ],
+   "rank": 1
+  },
+  {
+   "id": "d012",
+   "query": "cylinder one injector is shorted to the main feed",
+   "mode": "near_duplicate",
+   "expected": [
+    "P2147-00"
+   ],
+   "got": [
+    "P2147-00",
+    "P1201-00",
+    "P0201-00",
+    "P2150-00",
+    "P2153-00"
+   ],
+   "rank": 1
+  },
+  {
+   "id": "d013",
+   "query": "crank position reading is noisy and unstable",
+   "mode": "near_duplicate",
+   "expected": [
+    "P0336-00"
+   ],
+   "got": [
+    "P0336-00",
+    "P0335-00",
+    "P048B-11",
+    "P0341-00",
+    "P0340-00"
+   ],
+   "rank": 1
+  },
+  {
+   "id": "d014",
+   "query": "exhaust recirculation flap is seized shut",
+   "mode": "symptom",
+   "expected": [
+    "P042F-00"
+   ],
+   "got": [
+    "P04A5-00",
+    "P04A4-00",
+    "P22CF-73",
+    "P042F-00",
+    "P042E-00"
+   ],
+   "rank": 4
+  },
+  {
+   "id": "d015",
+   "query": "the recirculation flap on the egr pipe has seized and refuses to shut",
+   "mode": "symptom",
+   "expected": [
+    "P042E-00"
+   ],
+   "got": [
+    "P042F-00",
+    "P042E-00",
+    "P04A5-00",
+    "P0403-00",
+    "P0405-00"
+   ],
+   "rank": 2
+  },
+  {
+   "id": "d016",
+   "query": "soot trap is completely blocked up",
+   "mode": "symptom",
+   "expected": [
+    "P244B-00"
+   ],
+   "got": [
+    "P2463-85",
+    "P243F-F0",
+    "P242F-00",
+    "P243C-00",
+    "P206A-F3"
+   ],
+   "rank": null
+  },
+  {
+   "id": "d017",
+   "query": "the adblue reservoir is nearly empty and low warning is showing",
+   "mode": "symptom",
+   "expected": [
+    "P203F-00",
+    "P203F-7B"
+   ],
+   "got": [
+    "P206A-F1",
+    "P2BA9-00",
+    "P206A-F2",
+    "P204F-7C",
+    "P203F-00"
+   ],
+   "rank": 5
+  },
+  {
+   "id": "d018",
+   "query": "water temp gauge pegged cold, the reading line looks shorted",
+   "mode": "symptom",
+   "expected": [
+    "P0117-00"
+   ],
+   "got": [
+    "P0118-00",
+    "P0117-00",
+    "P0116-00",
+    "P0427-00",
+    "P242C-00"
+   ],
+   "rank": 2
+  },
+  {
+   "id": "d019",
+   "query": "the water temp sensor lead has come adrift and gauge is dead",
+   "mode": "symptom",
+   "expected": [
+    "P0118-00"
+   ],
+   "got": [
+    "P0118-00",
+    "P0116-00",
+    "P0117-00",
+    "P0428-00",
+    "P0180-12"
+   ],
+   "rank": 1
+  },
+  {
+   "id": "d020",
+   "query": "the go pedal's two throttle tracks disagree and power is cut",
+   "mode": "symptom",
+   "expected": [
+    "P2135-00"
+   ],
+   "got": [
+    "P2135-00",
+    "P0220-12",
+    "P0220-11",
+    "P0120-12",
+    "P0504-00"
+   ],
+   "rank": 1
+  },
+  {
+   "id": "d021",
+   "query": "alternator is overcharging and the battery sees far too many volts",
+   "mode": "symptom",
+   "expected": [
+    "P0562-00"
+   ],
+   "got": [
+    "P0562-00",
+    "P0563-00",
+    "P2229-00",
+    "P2228-00",
+    "P0406-00"
+   ],
+   "rank": 1
+  },
+  {
+   "id": "d022",
+   "query": "charge pressure from the turbo is under target",
+   "mode": "symptom",
+   "expected": [
+    "P0047-00",
+    "P004C-00",
+    "P006E-00"
+   ],
+   "got": [
+    "P006E-00",
+    "P0045-13",
+    "P0048-00",
+    "P006F-00",
+    "P259E-00"
+   ],
+   "rank": 1
+  },
+  {
+   "id": "d023",
+   "query": "turns over but never fires, no signal coming from the cam pickup",
+   "mode": "symptom",
+   "expected": [
+    "P0340-00"
+   ],
+   "got": [
+    "P0340-00",
+    "P0341-00",
+    "P0336-00",
+    "P0335-00",
+    "P2200-13"
+   ],
+   "rank": 1
+  },
+  {
+   "id": "d024",
+   "query": "loss of pulling power with the dash warning light on",
+   "mode": "symptom",
+   "expected": [
+    "P0192-00",
+    "P0193-00",
+    "P0194-00",
+    "P0087-00",
+    "P0088-00"
+   ],
+   "got": [
+    "P0192-00",
+    "P0193-00",
+    "P0087-00",
+    "P0003-00",
+    "P243F-F0"
+   ],
+   "rank": 1
+  },
+  {
+   "id": "d025",
+   "query": "system voltage keeps sagging and the ecu drops out on cold starts",
+   "mode": "symptom",
+   "expected": [
+    "P0563-00"
+   ],
+   "got": [
+    "P0563-00",
+    "P0562-00",
+    "P20F5-00",
+    "P0119-00",
+    "P1114-00"
+   ],
+   "rank": 1
+  }
+ ]
+}

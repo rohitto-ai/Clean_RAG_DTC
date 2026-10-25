@@ -1,10 +1,10 @@
 # RESUME — Clean RAG for the 3.3L DTC Manual
 
-**State: PHASE 8 COMPLETE; Phase 9.1 (advise mode) + 9.1b (step column-bleed fix) + 9.2 (baseline comparison) + 9.3 (noisy-input robustness) + 9.3b (code-handling hardening, adopted) + 9.4 (synthetic SPN/FMI normalization demo) DONE.** All phases 0–8 are done on branch `phase8-limitations`. The
+**State: PHASE 8 COMPLETE; Phase 9.1 (advise mode) + 9.1b (step column-bleed fix) + 9.2 (baseline comparison) + 9.3 (noisy-input robustness) + 9.3b (code-handling hardening, adopted) + 9.4 (synthetic SPN/FMI normalization demo) DONE; Phase 10.1 (lexicon v2) DONE and FROZEN, NOT adopted — on branch `phase10-demo`.** All phases 0–8 are done on branch `phase8-limitations`. The
 Phase 8 configuration is adopted as the production default. The frozen TEST split has been
 evaluated once and is now spent. The previous system is preserved as tag `v1-phase7`.
 
-_Last updated: 2026-09-17_
+_Last updated: 2026-10-25_
 
 **Phase 9.1:** `src/advise.py` + `POST /advise` return the top-3 DTCs, each with a deterministic fix block (additive; retrieval, gate and indexes unchanged). Details: `docs/report/phase9_1_advise_mode.md`.
 
@@ -17,6 +17,8 @@ _Last updated: 2026-09-17_
 **Phase 9.3b (changes production):** router code handling hardened — P/U code-token normalisation (`P 0192`, `_`/`.` separators, letter O), unknown P/U code → explicit refusal (`unknown_code`), known base + unknown suffix → clarification listing variants (`suffix_not_found`), did-you-mean (edit distance 1, never auto-selected); C001 connector fallback kept. Robustness: HARMFUL 6 → 2 (inherent real-code collisions), codes not in manual refused 0/10 → 10/10, spacing/letter-O recovery 70–73% → 100%. DEV byte-identical, suite 44/1/0, advise 13/13, guardrails 14/14, code-hardening 23/23; determinism hash unchanged `ffff9bc707d8754d`. Details: `docs/report/phase9_3b_code_hardening.md`.
 
 **Phase 9.4 (additive, no production change):** synthetic SPN/FMI -> P-code normalization ladder (`src/normalize.py`, `data/synthetic/`, label "synthetic - illustrative"). Real SPN/FMI dictionary and telematics logs are TATA proprietary and NOT used; SPNs are invented in the J1939 proprietary range and map to real manual P-codes. Ladder: validate/de-dup -> exact (SPN,FMI) -> P-code + DTC low byte -> manual entry (9.3b refusal/clarification reused) -> SPN-only/nearest-FMI candidates (never auto-advised) -> unmapped/logged. 18-row log covers all 7 outcomes; `src/test_normalize.py` 21/21. **Functional demonstration + edge-case coverage, NOT an accuracy result.** Full telematics ingestion = Plan-of-Work Phase 4. Details: `docs/report/phase9_4_spn_fmi_normalization.md`.
+
+**Phase 10.1 (branch `phase10-demo`; additive, production default UNCHANGED):** domain synonym layer v2 — `data/domain_lexicon_v2.json`, 42 → **88 entries** (30 manual_term, 22 sae_j1939, 36 general_technician, **0 dev_driven**), built by `scripts/build_lexicon_v2.py` from independent sources only. New deterministic query-side rules in `src/lexicon.py`, enabled only by `query_rules: true` (v1 does not declare it, so production is byte-identical): **R1** cylinder number words/ordinals -> the manual's `cylinder <N>` digit form (feeds the 8.2b compound token); **R2** valve/switch state negation ("refuses to shut" -> `jammed at open position`). New index-side `--state-token` fold `jammed_<state>` (default OFF). Selectable config in `index_exp/minilm_lexv2`; **not adopted**. DEV: symptom MRR 0.711 -> **0.704** (one query, d014, rank 3 -> 4; no measurable change), guardrails **14/14** no regression, gate **6/6 / 28/28** unchanged, suite **44/1/0**, determinism **`ffff9bc707d8754d`** unchanged, `src/test_lexicon_v2.py` **79/79**. **FROZEN** in `data/experiments/10_1/freeze.json` — lexicon and rules may not change until the independent technician query set is evaluated; that set was never read in this phase. Details: `docs/report/phase10_1_lexicon_v2.md`.
 
 ## Final result (Phase 8.5, gold v2.2 TEST, one shot)
 

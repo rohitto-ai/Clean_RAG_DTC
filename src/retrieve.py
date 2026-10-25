@@ -239,6 +239,8 @@ class Retriever:
         self.bm25_ids = blob["ids"]
         # Query tokenisation must mirror the index's own tokenisation (8.2b).
         self.cylinder_compound = bool(blob.get("tokenizer", {}).get("cylinder_compound", False))
+        # Phase 10.1: same index-property contract as cylinder_compound.
+        self.state_compound = bool(blob.get("tokenizer", {}).get("state_compound", False))
         from rank_bm25 import BM25Okapi
         self.bm25 = BM25Okapi(blob["corpus"])
 
@@ -304,7 +306,8 @@ class Retriever:
 
     def _tokenize(self, text):
         from build_index import tokenize
-        return tokenize(text, cylinder_compound=self.cylinder_compound)
+        return tokenize(text, cylinder_compound=self.cylinder_compound,
+                        state_compound=self.state_compound)
 
     # ---------------- router branches -----------------------------------
     def _exact(self, code_full, base, k):

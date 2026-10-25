@@ -62,10 +62,25 @@ def rss_mb():
 # makes cylinder identity match exactly without competing with stray digits.
 CYLINDER_RE = re.compile(r"\b(?:cylinder|cyl)\s*\.?\s*(?:no\.?\s*)?(\d{1,2})\b", re.I)
 
+# Phase 10.1, same mechanism as 8.2b for the same reason. Three actuator pairs are
+# separated ONLY by the words open/closed: P042E/P042F (EGR valve), P04A4/P04A5
+# (exhaust throttle valve), P22CF-72/-73 (boost control actuator). "open" is
+# pervasive in this corpus - "open circuit" / "open load" appear in 25+ records -
+# so its IDF is near-worthless and the discriminating word carries almost no
+# weight, while "closed" is rare. Folding the manual's own phrase "jammed at
+# <state> position" (and the cause-text variant "stuck in <state> position") into
+# one token jammed_open / jammed_closed makes the STATE match exactly instead of
+# competing with stray "open circuit" tokens.
+STATE_RE = re.compile(r"\b(?:jammed|stuck)\s+(?:at|in)\s+(open|closed)\s+position\b", re.I)
 
-def tokenize(text, cylinder_compound=False):
+
+def tokenize(text, cylinder_compound=False, state_compound=False):
     """
     Lexical tokenizer that preserves DTC codes and pin/net labels.
+
+    state_compound: fold "jammed/stuck at|in <open|closed> position" into the single
+    token jammed_<state> (Phase 10.1). Like cylinder_compound it is an INDEX
+    property, recorded in the index metadata and applied identically at query time.
 
     cylinder_compound: fold "cylinder N" into the single token cylinder_<N>. It is
     an INDEX property - recorded in the index metadata and applied identically at
@@ -74,6 +89,8 @@ def tokenize(text, cylinder_compound=False):
     """
     if cylinder_compound:
         text = CYLINDER_RE.sub(lambda m: f" cylinder_{int(m.group(1))} ", text)
+    if state_compound:
+        text = STATE_RE.sub(lambda m: f" jammed_{m.group(1).lower()} ", text)
     out = []
     for raw in TOKEN_RE.findall(text.lower()):
         t = raw.strip(".-_")
@@ -166,6 +183,8 @@ def main():
     ap.add_argument("--lexicon", default="data/domain_lexicon.json")
     ap.add_argument("--cylinder-token", action="store_true",
                     help='fold "cylinder N" into one BM25 token cylinder_<N> (8.2b)')
+    ap.add_argument("--state-token", action="store_true",
+                    help='fold "jammed at <open|closed> position" into jammed_<state> (10.1)')
     args = ap.parse_args()
     index_dir, model_name = args.index_dir, args.model
     chroma_dir = f"{index_dir}/chroma"
@@ -245,14 +264,16 @@ def main():
     # deterministic function of it, so rebuilding at load is exact and avoids
     # pickling a library object across versions. 314 docs rebuild instantly.
     corpus = [tokenize(bm25_text(r) + (alias_str(r) if args.aliases in ("bm25", "both") else ""),
-                       cylinder_compound=args.cylinder_token)
+                       cylinder_compound=args.cylinder_token,
+                       state_compound=args.state_token)
               for r in recs]
     with open(f"{index_dir}/bm25_corpus.json", "w") as f:
         json.dump({"ids": ids, "corpus": corpus,
                    "tokenizer": {"pattern": TOKEN_RE.pattern,
                                  "lowercase": True,
                                  "dtc_base_expansion": True,
-                                 "cylinder_compound": args.cylinder_token}}, f)
+                                 "cylinder_compound": args.cylinder_token,
+                                 "state_compound": args.state_token}}, f)
     print(f"bm25 corpus: {len(corpus)} docs, "
           f"{sum(len(c) for c in corpus)} tokens, "
           f"{len(set(t for c in corpus for t in c))} unique")

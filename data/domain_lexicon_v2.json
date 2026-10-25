@@ -1,0 +1,1242 @@
+{
+ "version": 3,
+ "lexicon_version": "v2",
+ "phase": "10.1",
+ "query_rules": true,
+ "purpose": "Map technician/driver/SAE J1939 vocabulary to the manual's formal ECU terminology, to close the free-text symptom-retrieval gap (mid-sem feedback). Extends the Phase 8.2 lexicon; v1 entries are kept verbatim.",
+ "provenance_values": [
+  "manual_term",
+  "sae_j1939",
+  "general_technician"
+ ],
+ "rules": [
+  "Aliases are SUBSYSTEM-level (system_aliases) or DESCRIPTION-level (term_synonyms). A subsystem-level alias must be correct for EVERY record in that subsystem; otherwise it is description-level (Phase 8.2 rule).",
+  "Aliases are NEVER derived from step text: step boilerplate is shared across hundreds of DTCs and aliasing it would re-collapse near-duplicate families.",
+  "Index side: BM25 ONLY (--aliases bm25). Phase 8.2 config C6 showed that aliasing the dense text merges near-duplicate families.",
+  "provenance dev_driven is 0 by construction: no entry is derived from a DEV miss. The frozen TEST split and the forthcoming independent technician query set were not read when authoring v2.",
+  "Query-side rewrite rules (cylinder ordinals, valve/switch state negation) live in src/lexicon.py and are enabled by query_rules=true; they run BEFORE BM25 expansion and never touch the dense query or the gate."
+ ],
+ "not_covered": [
+  "Warning-lamp language (warning light, dash light, check engine, MIL): the tokens 'lamp', 'mil' and 'warning' do not occur in the BM25 corpus at all, because bm25_text() carries description/cause/effect/checkpoints/circuit text but not the MIL field. An alias here would expand to a term with no postings, so none was added.",
+  "Abnormal-noise language (knocking, rattle, whistle, whine): 'noise', 'knock', 'rattle' and 'whistle' do not occur in the corpus.",
+  "White/blue smoke: no smoke vocabulary exists in the corpus. Only black smoke is mapped, to soot/particulate filter, and that mapping is a diagnostic inference rather than a synonym."
+ ],
+ "system_aliases": {
+  "egr": {
+   "colloquial": [
+    "exhaust recirculation",
+    "recirc",
+    "exhaust gas recirc",
+    "egr circuit"
+   ],
+   "manual": [
+    "egr",
+    "exhaust gas recirculation"
+   ],
+   "provenance": "manual_term",
+   "provenance_v1": "general",
+   "origin": "phase8.2",
+   "added_in_v2": [
+    "exhaust gas recirc",
+    "egr circuit"
+   ],
+   "added_provenance": "sae_j1939"
+  },
+  "turbo_boost": {
+   "colloquial": [
+    "turbo",
+    "turbo charger",
+    "boost control"
+   ],
+   "manual": [
+    "turbocharger",
+    "boost"
+   ],
+   "provenance": "general_technician",
+   "provenance_v1": "general",
+   "origin": "phase8.2",
+   "added_in_v2": [
+    "turbo charger",
+    "boost control"
+   ],
+   "added_provenance": "sae_j1939"
+  },
+  "coolant": {
+   "colloquial": [
+    "water temp",
+    "engine water",
+    "temp gauge",
+    "engine coolant temperature",
+    "coolant sender"
+   ],
+   "manual": [
+    "coolant temperature"
+   ],
+   "provenance": "general_technician",
+   "provenance_v1": "general",
+   "origin": "phase8.2",
+   "added_in_v2": [
+    "engine coolant temperature",
+    "coolant sender"
+   ],
+   "added_provenance": "sae_j1939"
+  },
+  "rail_pressure": {
+   "colloquial": [
+    "common rail",
+    "injection pressure",
+    "fuel rail pressure",
+    "rail press"
+   ],
+   "manual": [
+    "rail pressure",
+    "fuel rail"
+   ],
+   "provenance": "manual_term",
+   "provenance_v1": "general",
+   "origin": "phase8.2",
+   "added_in_v2": [
+    "fuel rail pressure",
+    "rail press"
+   ],
+   "added_provenance": "sae_j1939"
+  },
+  "vehicle_speed": {
+   "colloquial": [
+    "speedo",
+    "speedometer",
+    "road speed",
+    "wheel based vehicle speed"
+   ],
+   "manual": [
+    "vehicle speed"
+   ],
+   "provenance": "sae_j1939",
+   "provenance_v1": "user",
+   "origin": "phase8.2",
+   "added_in_v2": [
+    "wheel based vehicle speed"
+   ],
+   "added_provenance": "sae_j1939"
+  },
+  "injector": {
+   "colloquial": [
+    "nozzle",
+    "fuel injector",
+    "injectors"
+   ],
+   "manual": [
+    "injector"
+   ],
+   "provenance": "general_technician",
+   "provenance_v1": "general",
+   "origin": "phase8.2",
+   "added_in_v2": [
+    "fuel injector",
+    "injectors"
+   ],
+   "added_provenance": "sae_j1939"
+  },
+  "exhaust_throttle": {
+   "colloquial": [
+    "exhaust brake",
+    "exhaust flap",
+    "etv valve",
+    "back pressure valve"
+   ],
+   "manual": [
+    "exhaust throttle valve",
+    "etv"
+   ],
+   "provenance": "manual_term",
+   "provenance_v1": "general",
+   "origin": "phase8.2",
+   "added_in_v2": [
+    "etv valve",
+    "back pressure valve"
+   ],
+   "added_provenance": "manual_term"
+  },
+  "can_network": {
+   "colloquial": [
+    "can bus",
+    "network comms",
+    "j1939 bus",
+    "data bus",
+    "communication bus"
+   ],
+   "manual": [
+    "can"
+   ],
+   "provenance": "sae_j1939",
+   "provenance_v1": "general",
+   "origin": "phase8.2",
+   "added_in_v2": [
+    "j1939 bus",
+    "data bus",
+    "communication bus"
+   ],
+   "added_provenance": "sae_j1939"
+  },
+  "scr_def": {
+   "colloquial": [
+    "aftertreatment",
+    "after treatment",
+    "exhaust aftertreatment"
+   ],
+   "manual": [
+    "scr",
+    "urea",
+    "def"
+   ],
+   "provenance": "sae_j1939",
+   "origin": "phase10.1"
+  },
+  "dpf_regen": {
+   "colloquial": [
+    "aftertreatment",
+    "after treatment",
+    "exhaust aftertreatment"
+   ],
+   "manual": [
+    "dpf",
+    "particulate filter",
+    "doc"
+   ],
+   "provenance": "sae_j1939",
+   "origin": "phase10.1"
+  },
+  "o2_exhaust": {
+   "colloquial": [
+    "aftertreatment",
+    "after treatment",
+    "exhaust sensor"
+   ],
+   "manual": [
+    "nox",
+    "exhaust-gas temperature",
+    "lambda"
+   ],
+   "provenance": "sae_j1939",
+   "origin": "phase10.1"
+  }
+ },
+ "term_synonyms": [
+  {
+   "manual": [
+    "valve"
+   ],
+   "colloquial": [
+    "flap"
+   ],
+   "provenance": "general_technician",
+   "provenance_v1": "user",
+   "origin": "phase8.2",
+   "systems": [
+    "egr",
+    "exhaust_throttle",
+    "turbo_boost"
+   ]
+  },
+  {
+   "manual": [
+    "jammed",
+    "stuck"
+   ],
+   "colloquial": [
+    "seized",
+    "seized up",
+    "sticking"
+   ],
+   "provenance": "general_technician",
+   "provenance_v1": "user",
+   "origin": "phase8.2"
+  },
+  {
+   "manual": [
+    "ground"
+   ],
+   "colloquial": [
+    "earth",
+    "earthed",
+    "shorted to chassis"
+   ],
+   "provenance": "general_technician",
+   "provenance_v1": "user",
+   "origin": "phase8.2"
+  },
+  {
+   "manual": [
+    "sensor"
+   ],
+   "colloquial": [
+    "sender",
+    "sending unit",
+    "pickup",
+    "probe"
+   ],
+   "provenance": "general_technician",
+   "provenance_v1": "user",
+   "origin": "phase8.2"
+  },
+  {
+   "manual": [
+    "vehicle speed"
+   ],
+   "colloquial": [
+    "speedo",
+    "speedometer",
+    "road speed"
+   ],
+   "provenance": "sae_j1939",
+   "provenance_v1": "user",
+   "origin": "phase8.2"
+  },
+  {
+   "manual": [
+    "charge air cooler"
+   ],
+   "colloquial": [
+    "intercooler"
+   ],
+   "provenance": "sae_j1939",
+   "provenance_v1": "user",
+   "origin": "phase8.2"
+  },
+  {
+   "manual": [
+    "fuel pump"
+   ],
+   "colloquial": [
+    "lift pump",
+    "feed pump",
+    "transfer pump"
+   ],
+   "provenance": "general_technician",
+   "provenance_v1": "user",
+   "origin": "phase8.2"
+  },
+  {
+   "manual": [
+    "engine speed"
+   ],
+   "colloquial": [
+    "redline",
+    "overspeed",
+    "over-rev",
+    "over revving",
+    "rpm"
+   ],
+   "provenance": "sae_j1939",
+   "provenance_v1": "user",
+   "origin": "phase8.2"
+  },
+  {
+   "manual": [
+    "open circuit"
+   ],
+   "colloquial": [
+    "broken wire",
+    "wire broken",
+    "snapped",
+    "disconnected",
+    "come adrift"
+   ],
+   "provenance": "manual_term",
+   "provenance_v1": "general",
+   "origin": "phase8.2"
+  },
+  {
+   "manual": [
+    "short circuit to battery"
+   ],
+   "colloquial": [
+    "shorted to positive",
+    "short to positive",
+    "shorted to supply"
+   ],
+   "provenance": "manual_term",
+   "provenance_v1": "general",
+   "origin": "phase8.2"
+  },
+  {
+   "manual": [
+    "short circuit to ground"
+   ],
+   "colloquial": [
+    "shorted to earth",
+    "short to earth"
+   ],
+   "provenance": "manual_term",
+   "provenance_v1": "general",
+   "origin": "phase8.2"
+  },
+  {
+   "manual": [
+    "battery voltage"
+   ],
+   "colloquial": [
+    "system voltage",
+    "supply voltage",
+    "charging voltage",
+    "volts"
+   ],
+   "provenance": "sae_j1939",
+   "provenance_v1": "general",
+   "origin": "phase8.2"
+  },
+  {
+   "manual": [
+    "plausibility",
+    "not plausible",
+    "incompatible"
+   ],
+   "colloquial": [
+    "does not make sense",
+    "nonsense",
+    "disagree",
+    "do not agree"
+   ],
+   "provenance": "manual_term",
+   "provenance_v1": "general",
+   "origin": "phase8.2"
+  },
+  {
+   "manual": [
+    "no signal"
+   ],
+   "colloquial": [
+    "no output",
+    "nothing from"
+   ],
+   "provenance": "manual_term",
+   "provenance_v1": "general",
+   "origin": "phase8.2"
+  },
+  {
+   "manual": [
+    "disturbed signal"
+   ],
+   "colloquial": [
+    "erratic",
+    "noisy",
+    "intermittent"
+   ],
+   "provenance": "manual_term",
+   "provenance_v1": "general",
+   "origin": "phase8.2"
+  },
+  {
+   "manual": [
+    "clogged"
+   ],
+   "colloquial": [
+    "blocked",
+    "blocked up",
+    "choked"
+   ],
+   "provenance": "general_technician",
+   "provenance_v1": "general",
+   "origin": "phase8.2"
+  },
+  {
+   "manual": [
+    "frozen"
+   ],
+   "colloquial": [
+    "iced",
+    "ice",
+    "frozen solid"
+   ],
+   "provenance": "general_technician",
+   "provenance_v1": "general",
+   "origin": "phase8.2"
+  },
+  {
+   "manual": [
+    "deteriorated"
+   ],
+   "colloquial": [
+    "worn out",
+    "aged",
+    "degraded"
+   ],
+   "provenance": "general_technician",
+   "provenance_v1": "general",
+   "origin": "phase8.2"
+  },
+  {
+   "manual": [
+    "level too low"
+   ],
+   "colloquial": [
+    "empty",
+    "run dry",
+    "nearly empty",
+    "running out"
+   ],
+   "provenance": "general_technician",
+   "provenance_v1": "general",
+   "origin": "phase8.2"
+  },
+  {
+   "manual": [
+    "starter motor"
+   ],
+   "colloquial": [
+    "starter solenoid",
+    "cranking motor"
+   ],
+   "provenance": "general_technician",
+   "provenance_v1": "general",
+   "origin": "phase8.2"
+  },
+  {
+   "manual": [
+    "temperature"
+   ],
+   "colloquial": [
+    "temp"
+   ],
+   "provenance": "manual_term",
+   "provenance_v1": "general",
+   "origin": "phase8.2"
+  },
+  {
+   "manual": [
+    "cranking"
+   ],
+   "colloquial": [
+    "turning over",
+    "turns over"
+   ],
+   "provenance": "general_technician",
+   "provenance_v1": "general",
+   "origin": "phase8.2"
+  },
+  {
+   "manual": [
+    "water in fuel"
+   ],
+   "colloquial": [
+    "water separator",
+    "moisture in fuel",
+    "contaminated fuel"
+   ],
+   "provenance": "manual_term",
+   "provenance_v1": "general",
+   "origin": "phase8.2"
+  },
+  {
+   "manual": [
+    "metering unit"
+   ],
+   "colloquial": [
+    "fuel metering valve",
+    "quantity control valve"
+   ],
+   "provenance": "manual_term",
+   "provenance_v1": "general",
+   "origin": "phase8.2"
+  },
+  {
+   "manual": [
+    "camshaft"
+   ],
+   "colloquial": [
+    "cam",
+    "cam pickup",
+    "cam sensor"
+   ],
+   "provenance": "manual_term",
+   "provenance_v1": "general",
+   "origin": "phase8.2"
+  },
+  {
+   "manual": [
+    "crankshaft"
+   ],
+   "colloquial": [
+    "crank",
+    "crank pickup",
+    "crank sensor"
+   ],
+   "provenance": "manual_term",
+   "provenance_v1": "general",
+   "origin": "phase8.2"
+  },
+  {
+   "manual": [
+    "particulate filter",
+    "dpf"
+   ],
+   "colloquial": [
+    "soot trap",
+    "particulate trap"
+   ],
+   "provenance": "manual_term",
+   "provenance_v1": "user",
+   "origin": "phase8.2"
+  },
+  {
+   "manual": [
+    "soot"
+   ],
+   "colloquial": [
+    "soot trap"
+   ],
+   "provenance": "manual_term",
+   "provenance_v1": "user",
+   "origin": "phase8.2"
+  },
+  {
+   "manual": [
+    "regeneration"
+   ],
+   "colloquial": [
+    "regen",
+    "burn off",
+    "burn-off"
+   ],
+   "provenance": "manual_term",
+   "provenance_v1": "general",
+   "origin": "phase8.2"
+  },
+  {
+   "manual": [
+    "urea",
+    "def",
+    "reductant",
+    "diesel exhaust fluid"
+   ],
+   "colloquial": [
+    "adblue",
+    "ad blue",
+    "exhaust fluid"
+   ],
+   "provenance": "sae_j1939",
+   "provenance_v1": "user",
+   "origin": "phase8.2"
+  },
+  {
+   "manual": [
+    "fuel filter",
+    "water in fuel"
+   ],
+   "colloquial": [
+    "diesel filter"
+   ],
+   "provenance": "general_technician",
+   "provenance_v1": "general",
+   "origin": "phase8.2"
+  },
+  {
+   "manual": [
+    "nox sensor"
+   ],
+   "colloquial": [
+    "nox probe"
+   ],
+   "provenance": "sae_j1939",
+   "provenance_v1": "general",
+   "origin": "phase8.2"
+  },
+  {
+   "manual": [
+    "lambda"
+   ],
+   "colloquial": [
+    "lambda probe",
+    "o2 sensor"
+   ],
+   "provenance": "sae_j1939",
+   "provenance_v1": "general",
+   "origin": "phase8.2"
+  },
+  {
+   "manual": [
+    "pedal"
+   ],
+   "colloquial": [
+    "throttle pedal",
+    "gas pedal",
+    "go pedal",
+    "accelerator"
+   ],
+   "provenance": "manual_term",
+   "provenance_v1": "general",
+   "origin": "phase8.2",
+   "systems": [
+    "pedal_clutch_brake"
+   ]
+  },
+  {
+   "manual": [
+    "pedal position",
+    "accelerator"
+   ],
+   "colloquial": [
+    "accelerator pedal position",
+    "app sensor",
+    "throttle position sensor",
+    "tps"
+   ],
+   "provenance": "sae_j1939",
+   "origin": "phase10.1",
+   "systems": [
+    "pedal_clutch_brake"
+   ]
+  },
+  {
+   "manual": [
+    "manifold pressure",
+    "intake manifold"
+   ],
+   "colloquial": [
+    "intake manifold pressure",
+    "map sensor",
+    "inlet manifold",
+    "boost pressure sensor"
+   ],
+   "provenance": "sae_j1939",
+   "origin": "phase10.1"
+  },
+  {
+   "manual": [
+    "air mass",
+    "mass air flow"
+   ],
+   "colloquial": [
+    "maf",
+    "maf sensor",
+    "mass airflow",
+    "air flow meter",
+    "air mass meter"
+   ],
+   "provenance": "sae_j1939",
+   "origin": "phase10.1"
+  },
+  {
+   "manual": [
+    "ambient pressure"
+   ],
+   "colloquial": [
+    "barometric pressure",
+    "baro sensor",
+    "atmospheric pressure"
+   ],
+   "provenance": "sae_j1939",
+   "origin": "phase10.1"
+  },
+  {
+   "manual": [
+    "delta pressure"
+   ],
+   "colloquial": [
+    "differential pressure sensor",
+    "dp sensor",
+    "pressure difference"
+   ],
+   "provenance": "sae_j1939",
+   "origin": "phase10.1"
+  },
+  {
+   "manual": [
+    "boost pressure"
+   ],
+   "colloquial": [
+    "charge pressure",
+    "manifold boost",
+    "turbo pressure"
+   ],
+   "provenance": "sae_j1939",
+   "origin": "phase10.1"
+  },
+  {
+   "manual": [
+    "exhaust-gas temperature",
+    "temperature sensor upstream"
+   ],
+   "colloquial": [
+    "egt",
+    "egt sensor",
+    "exhaust temp",
+    "exhaust gas temp"
+   ],
+   "provenance": "sae_j1939",
+   "origin": "phase10.1"
+  },
+  {
+   "manual": [
+    "catalyst"
+   ],
+   "colloquial": [
+    "catalytic converter",
+    "cat brick"
+   ],
+   "provenance": "sae_j1939",
+   "origin": "phase10.1"
+  },
+  {
+   "manual": [
+    "glow plug"
+   ],
+   "colloquial": [
+    "heater plug",
+    "starting aid"
+   ],
+   "provenance": "sae_j1939",
+   "origin": "phase10.1"
+  },
+  {
+   "manual": [
+    "quality sensor"
+   ],
+   "colloquial": [
+    "def quality",
+    "fluid quality",
+    "urea quality"
+   ],
+   "provenance": "sae_j1939",
+   "origin": "phase10.1",
+   "systems": [
+    "scr_def"
+   ]
+  },
+  {
+   "manual": [
+    "src",
+    "physical range",
+    "signal range"
+   ],
+   "colloquial": [
+    "out of range",
+    "range check",
+    "signal out of range"
+   ],
+   "provenance": "manual_term",
+   "origin": "phase10.1"
+  },
+  {
+   "manual": [
+    "physical range high",
+    "range high",
+    "src high"
+   ],
+   "colloquial": [
+    "reading too high",
+    "over range",
+    "maxed out",
+    "reads high"
+   ],
+   "provenance": "manual_term",
+   "origin": "phase10.1"
+  },
+  {
+   "manual": [
+    "physical range low",
+    "range low",
+    "src low"
+   ],
+   "colloquial": [
+    "reading too low",
+    "under range",
+    "reads low"
+   ],
+   "provenance": "manual_term",
+   "origin": "phase10.1"
+  },
+  {
+   "manual": [
+    "jammed at open position"
+   ],
+   "colloquial": [
+    "stuck open",
+    "jammed open",
+    "seized open",
+    "held open"
+   ],
+   "provenance": "manual_term",
+   "origin": "phase10.1"
+  },
+  {
+   "manual": [
+    "jammed at closed position"
+   ],
+   "colloquial": [
+    "stuck closed",
+    "stuck shut",
+    "jammed closed",
+    "jammed shut",
+    "seized closed"
+   ],
+   "provenance": "manual_term",
+   "origin": "phase10.1"
+  },
+  {
+   "manual": [
+    "pressure relief valve"
+   ],
+   "colloquial": [
+    "prv",
+    "relief valve",
+    "overflow valve"
+   ],
+   "provenance": "manual_term",
+   "origin": "phase10.1"
+  },
+  {
+   "manual": [
+    "position sensor"
+   ],
+   "colloquial": [
+    "feedback sensor",
+    "position feedback"
+   ],
+   "provenance": "manual_term",
+   "origin": "phase10.1"
+  },
+  {
+   "manual": [
+    "drift"
+   ],
+   "colloquial": [
+    "drifting",
+    "out of calibration",
+    "reading wandering"
+   ],
+   "provenance": "manual_term",
+   "origin": "phase10.1"
+  },
+  {
+   "manual": [
+    "over voltage"
+   ],
+   "colloquial": [
+    "overvoltage",
+    "too many volts",
+    "volts too high"
+   ],
+   "provenance": "manual_term",
+   "origin": "phase10.1"
+  },
+  {
+   "manual": [
+    "under voltage"
+   ],
+   "colloquial": [
+    "undervoltage",
+    "low volts",
+    "volts too low"
+   ],
+   "provenance": "manual_term",
+   "origin": "phase10.1"
+  },
+  {
+   "manual": [
+    "heater"
+   ],
+   "colloquial": [
+    "heating element",
+    "sensor heater"
+   ],
+   "provenance": "manual_term",
+   "origin": "phase10.1"
+  },
+  {
+   "manual": [
+    "inducement"
+   ],
+   "colloquial": [
+    "derate",
+    "derated",
+    "power derate",
+    "inducement strategy"
+   ],
+   "provenance": "manual_term",
+   "origin": "phase10.1"
+  },
+  {
+   "manual": [
+    "torque reduction",
+    "torque limitation"
+   ],
+   "colloquial": [
+    "loss of power",
+    "lost power",
+    "no power",
+    "down on power",
+    "lacks power",
+    "will not pull",
+    "wont pull",
+    "gutless",
+    "sluggish",
+    "limp mode",
+    "limp home",
+    "reduced power"
+   ],
+   "provenance": "general_technician",
+   "origin": "phase10.1"
+  },
+  {
+   "manual": [
+    "vehicle will not start"
+   ],
+   "colloquial": [
+    "will not start",
+    "wont start",
+    "no start",
+    "fails to start",
+    "turns over but will not fire",
+    "cranks but will not start"
+   ],
+   "provenance": "general_technician",
+   "origin": "phase10.1"
+  },
+  {
+   "manual": [
+    "vehicle will halt"
+   ],
+   "colloquial": [
+    "stalls",
+    "stalling",
+    "cuts out",
+    "shuts down",
+    "engine dies",
+    "cuts off"
+   ],
+   "provenance": "general_technician",
+   "origin": "phase10.1"
+  },
+  {
+   "manual": [
+    "creep mode",
+    "speed limitation"
+   ],
+   "colloquial": [
+    "crawl mode",
+    "speed capped",
+    "speed limited"
+   ],
+   "provenance": "general_technician",
+   "origin": "phase10.1"
+  },
+  {
+   "manual": [
+    "overheat",
+    "coolant temperature"
+   ],
+   "colloquial": [
+    "overheating",
+    "running hot",
+    "boiling over"
+   ],
+   "provenance": "general_technician",
+   "origin": "phase10.1"
+  },
+  {
+   "manual": [
+    "soot",
+    "particulate filter"
+   ],
+   "colloquial": [
+    "black smoke",
+    "sooting up",
+    "smoky exhaust"
+   ],
+   "provenance": "general_technician",
+   "origin": "phase10.1"
+  },
+  {
+   "manual": [
+    "leak",
+    "leakage"
+   ],
+   "colloquial": [
+    "leaking",
+    "weeping",
+    "air leak",
+    "blowing air"
+   ],
+   "provenance": "general_technician",
+   "origin": "phase10.1"
+  },
+  {
+   "manual": [
+    "clogged",
+    "blocked"
+   ],
+   "colloquial": [
+    "bunged up",
+    "restricted",
+    "plugged up"
+   ],
+   "provenance": "general_technician",
+   "origin": "phase10.1"
+  },
+  {
+   "manual": [
+    "gradient",
+    "intermittent"
+   ],
+   "colloquial": [
+    "jumpy",
+    "spiking",
+    "cutting in and out",
+    "flickering"
+   ],
+   "provenance": "general_technician",
+   "origin": "phase10.1"
+  },
+  {
+   "manual": [
+    "harness",
+    "connector"
+   ],
+   "colloquial": [
+    "loom",
+    "wiring loom",
+    "plug",
+    "socket",
+    "terminal",
+    "chafed wire",
+    "corroded pin"
+   ],
+   "provenance": "general_technician",
+   "origin": "phase10.1"
+  },
+  {
+   "manual": [
+    "fuse"
+   ],
+   "colloquial": [
+    "blown fuse",
+    "fuse blown"
+   ],
+   "provenance": "general_technician",
+   "origin": "phase10.1"
+  },
+  {
+   "manual": [
+    "relay"
+   ],
+   "colloquial": [
+    "switching relay",
+    "solenoid relay"
+   ],
+   "provenance": "general_technician",
+   "origin": "phase10.1"
+  },
+  {
+   "manual": [
+    "switch"
+   ],
+   "colloquial": [
+    "micro switch",
+    "contact switch"
+   ],
+   "provenance": "general_technician",
+   "origin": "phase10.1"
+  },
+  {
+   "manual": [
+    "clutch switch"
+   ],
+   "colloquial": [
+    "clutch pedal switch",
+    "clutch sensor"
+   ],
+   "provenance": "general_technician",
+   "origin": "phase10.1",
+   "systems": [
+    "pedal_clutch_brake"
+   ]
+  },
+  {
+   "manual": [
+    "brake"
+   ],
+   "colloquial": [
+    "brake switch",
+    "brake pedal signal"
+   ],
+   "provenance": "general_technician",
+   "origin": "phase10.1",
+   "systems": [
+    "pedal_clutch_brake"
+   ]
+  },
+  {
+   "manual": [
+    "strainer",
+    "fuel filter"
+   ],
+   "colloquial": [
+    "pre filter",
+    "fuel screen",
+    "filter gauze"
+   ],
+   "provenance": "general_technician",
+   "origin": "phase10.1"
+  },
+  {
+   "manual": [
+    "water in fuel"
+   ],
+   "colloquial": [
+    "water in diesel",
+    "wet fuel",
+    "diesel bug"
+   ],
+   "provenance": "general_technician",
+   "origin": "phase10.1"
+  },
+  {
+   "manual": [
+    "metering unit"
+   ],
+   "colloquial": [
+    "mprop",
+    "fuel control valve"
+   ],
+   "provenance": "general_technician",
+   "origin": "phase10.1"
+  },
+  {
+   "manual": [
+    "starter motor"
+   ],
+   "colloquial": [
+    "starter",
+    "cranking circuit"
+   ],
+   "provenance": "general_technician",
+   "origin": "phase10.1"
+  },
+  {
+   "manual": [
+    "regeneration"
+   ],
+   "colloquial": [
+    "forced regen",
+    "parked regen",
+    "dpf burn"
+   ],
+   "provenance": "general_technician",
+   "origin": "phase10.1"
+  },
+  {
+   "manual": [
+    "level too low",
+    "level"
+   ],
+   "colloquial": [
+    "low level",
+    "tank low",
+    "fluid low"
+   ],
+   "provenance": "general_technician",
+   "origin": "phase10.1"
+  }
+ ]
+}
