@@ -264,9 +264,21 @@ def main():
         # ---------------- static ----------------
         print("\n== static ==")
         r = call("get", "/")
-        check("GET / serves the Phase 10.4 placeholder from web/",
-              r.status_code == 200 and "Demo UI — Phase 10.4" in r.text
+        check("GET / serves the demo UI from web/",
+              r.status_code == 200 and "DTC Diagnostic Assistant" in r.text
               and "text/html" in r.headers.get("content-type", ""))
+        check("the UI's four tabs are present",
+              all(t in r.text for t in ("tab-fleet", "tab-vehicle", "tab-symptom", "tab-audit")))
+        check("the synthetic-data footer is on the page",
+              "no proprietary TATA data is used" in r.text
+              and "Cost/TAT figures are illustrative" in r.text)
+        for asset, ctype in (("/style.css", "text/css"), ("/app.js", "javascript")):
+            a = call("get", asset)
+            check(f"static {asset} is served", a.status_code == 200
+                  and ctype in a.headers.get("content-type", ""))
+        check("the UI makes no external requests",
+              not any(u in client.get("/app.js").text + client.get("/style.css").text
+                      for u in ("http://", "https://", "//cdn", "fonts.googleapis")))
         check("an unknown static path -> 404", client.get("/nope.html").status_code == 404)
 
         # ---------------- latency ----------------

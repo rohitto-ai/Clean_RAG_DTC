@@ -160,7 +160,7 @@ curl -s "$BASE/audit?limit=5" | jq '.entries[] | {endpoint, decision, latency_ms
 
 ## Tests
 
-`src/test_api.py` — **56/56**, via `fastapi.testclient.TestClient`:
+`src/test_api.py` — **61/61**, via `fastapi.testclient.TestClient` (56 at 10.3; the placeholder assertion was replaced in 10.4 by five stronger static checks):
 
 - `/health` (versions, hash, counts, `startup_seconds`, lexicon-v2-not-adopted), `/scenarios`;
 - `/fleet` plus each filter, and **422** for an unknown severity or outcome;
@@ -176,7 +176,7 @@ curl -s "$BASE/audit?limit=5" | jq '.entries[] | {endpoint, decision, latency_ms
 - audit: coverage of every endpoint, the required fields, the closed decision vocabulary, the
   refusal and mismatch entries, the hash and commit on every line, **exactly one new line per
   request**, and that the file is gitignored;
-- static: `/` serves the placeholder, unknown static path **404**;
+- static: `/` serves the UI (four tabs, synthetic-data footer, no external requests), unknown static path **404**;
 - a `why` block of the right shape on every response, with every step labelled RULE or AI.
 
 Latency is measured in the same run, bucketed per endpoint (`/vehicle/{id}` is one bucket, not
@@ -190,7 +190,7 @@ every call; nothing is cached between requests beyond per-process code resolutio
 | file | change |
 |---|---|
 | `app.py` | extended: startup loads once, 10 new endpoints, `why` builders, audit, replay, static mount |
-| `web/index.html` | "Demo UI — Phase 10.4" placeholder (new) |
+| `web/index.html` | placeholder at 10.3; **replaced by the real UI in Phase 10.4** |
 | `src/test_api.py` | 56 tests + latency measurement (new) |
 | `.gitignore` | `data/demo/audit.jsonl`, `.jsonl.1` |
 | `data/experiments/10_3/api_latency.json` | measured latency |

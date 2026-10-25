@@ -1,6 +1,6 @@
 # RESUME — Clean RAG for the 3.3L DTC Manual
 
-**State: PHASE 8 COMPLETE; Phase 9.1 (advise mode) + 9.1b (step column-bleed fix) + 9.2 (baseline comparison) + 9.3 (noisy-input robustness) + 9.3b (code-handling hardening, adopted) + 9.4 (synthetic SPN/FMI normalization demo) DONE; Phase 10.1 + 10.1b (lexicon v2, lamp reachability) DONE and FROZEN, NOT adopted; Phase 10.2 (synthetic demo data + telematics pipeline) + 10.3 (FastAPI service + audit log) DONE — on branch `phase10-demo`.** All phases 0–8 are done on branch `phase8-limitations`. The
+**State: PHASE 8 COMPLETE; Phase 9.1 (advise mode) + 9.1b (step column-bleed fix) + 9.2 (baseline comparison) + 9.3 (noisy-input robustness) + 9.3b (code-handling hardening, adopted) + 9.4 (synthetic SPN/FMI normalization demo) DONE; Phase 10.1 + 10.1b (lexicon v2, lamp reachability) DONE and FROZEN, NOT adopted; Phase 10.2 (synthetic demo data + telematics pipeline) + 10.3 (FastAPI service + audit log) + 10.4 (demo website) DONE — on branch `phase10-demo`.** All phases 0–8 are done on branch `phase8-limitations`. The
 Phase 8 configuration is adopted as the production default. The frozen TEST split has been
 evaluated once and is now spent. The previous system is preserved as tag `v1-phase7`.
 
@@ -25,6 +25,30 @@ _Last updated: 2026-10-25_
 **Phase 10.2 (additive, production default UNCHANGED):** synthetic demo data + end-to-end telematics pipeline. `scripts/gen_demo_data.py` (seed 1002) writes `data/demo/`: a 73-entry SPN/FMI dictionary (`Fault Name | P Code | DTC_LB | SPN | FMI | SPN_Name`, DTC_LB decimal -> hex suffix, 19->13 / 155->9B / 156->9C; 42 SPNs over 19 subsystems; **2 ambiguous keys** P042E/P042F and P04A4/P04A5), a 1,000-row / 200-vehicle / 30-day fleet log with the production feed's **exact 21 column names** and lamp vocabulary (12.2% exact duplicates), illustrative `cost_tat_rules.csv` (owned by another team), and `scenarios.json` (14 scenarios). All **`synthetic - illustrative`**; no real TATA data. `src/telematics.py` reuses `normalize.validate_row`, `Retriever.retrieve` (9.3b refusal/clarification), `advise.fix_block`, `did_you_mean` and `detect_system`: ladder R0 validate/de-dup -> R1 single mapping (ADVISORY / CLARIFY_LOW_BYTE / REFUSED_NOT_IN_MANUAL) -> **R1b ambiguous key -> AMBIGUOUS_MAPPING_CANDIDATES (never auto-advised)** -> R2 FALLBACK_CANDIDATES -> R3 UNMAPPED; deterministic severity (red lamp -> CRITICAL; amber/MIL/protect -> HIGH; else LOW/MEDIUM with escalation **capped at HIGH**); SPN_Name-vs-record cross-check; `verify_reported_code` flags both scripted transpositions (P0100-00 vs P1000-00, P1657-00 vs P1675-00) as MISMATCH + possible transposition, **never auto-replacing** - these are exactly the 2 residual 9.3b HARMFUL cases, now detectable with telemetry. On the 1,000-row log: 847 episodes, ADVISORY 753 / FALLBACK 24 / AMBIGUOUS 22 / UNMAPPED 21 / REFUSED 20 / CLARIFY 7, 5 rows rejected; per-vehicle latency p50 0.4 ms / p95 0.6 ms. Tests `src/test_telematics.py` **66/66**, `src/test_demo_data.py` **22/22**, `scripts/validate_demo_data.py` OK. New pinned dep `openpyxl==3.1.5`. Suite **44/1/0**, determinism **`ffff9bc707d8754d`**. **Functional demonstration, NOT an accuracy result.** Details: `docs/report/phase10_2_telematics.md`.
 
 **Phase 10.3 (extends `app.py`; production retrieval/gate UNCHANGED):** demo service surface. Models and indexes load **once** at startup (**6.0 s**, reported as `/health.startup_seconds`); the telematics `Pipeline` reuses the same `Retriever`, so one copy of MiniLM/Chroma per process. Endpoints: `/health`, `/scenarios`, `/fleet?severity=&region=&outcome=`, `/vehicle/{id_or_registration}` (404 if unknown), `POST /verify-code`, `POST /symptom` (**production default only - lexicon v2 is NOT reachable**), `/audit?limit=`, `/replay/start|stop|reset|status`, plus the unchanged `/query`, `/diagnose`, `/advise`, and static `web/` at `/` (mounted last, so API paths keep priority; no CORS). Every response carries a **`why`** block: route, ladder rungs, retrieval ranks, gate decision + reasons, citations (code + manual page), severity reasons, and every step labelled **RULE or AI** (the telematics path is all RULE; only `/symptom --summary` adds one AI step). Cost/TAT is always under `illustrative_cost_tat`, labelled "Illustrative - owned by another team; not from the manual". **Audit**: one JSON line per request to `data/demo/audit.jsonl` (gitignored, rotates at 5 MB) with timestamp, endpoint, request, route, codes, decision (answer/refuse/clarify/candidates/mismatch/match/not_found/no_code_detected), latency, git commit and determinism hash. **Replay** feeds the demo log in `Event_Date` order into a live store; while active `/fleet` and `/vehicle` see only the replayed rows. Latency p50/p95 (excl. startup): `/vehicle` 1.9/2.3 ms, `/symptom` 31.5/35.8 ms, `/fleet` 63.5/74.0 ms. `src/test_api.py` **56/56**. Suite **44/1/0**, determinism **`ffff9bc707d8754d`**. Details: `docs/report/phase10_3_api.md`.
+
+**Phase 10.4 (demo website):** `web/` — plain HTML + CSS + vanilla JS, **no build step, no CDN, no web fonts, works offline**, served by `app.py` at `/` and consuming only the 10.3 endpoints. Four tabs: **Fleet** (counters, severity badges CRITICAL/HIGH/MEDIUM/LOW, severity+region+outcome filters, replay Start/Stop/Reset with `/fleet` polled every 3 s *only* while replaying, click-through to a vehicle), **Vehicle** (per-episode chain SPN/FMI → P-code → outcome badge, severity + reasons, fix blocks with manual pages, candidates marked "Not auto-advised — confirm with technician", refusals with no steps, a separate grey dashed **illustrative cost/TAT** panel, and the technician-reported-code cross-check showing MISMATCH + possible transposition, never auto-replaced), **Service query** (top-3 + cost, refusals rendered as refusals with the reason), **Audit** (latest 50 entries). Every result has a collapsible **"Why this answer?"** panel: route, ladder rungs, retrieval ranks, gate decision + signals, citations, severity reasons, and steps badged **RULE (green) / AI (purple)**. A **Demo presets** menu is built from `/scenarios` (all 14 scenarios + 3 symptom presets + both transposition cases). `scripts/demo_smoke.py` drives every preset: **43/43**. 11 screenshots captured from the real UI at 1280×720 by `scripts/capture_screens.py` (Playwright, dev-only, not in requirements) into `docs/report/img/`. `src/test_api.py` **56/56**, suite **44/1/0**, determinism **`ffff9bc707d8754d`**. Includes a 10-minute demo script. Details: `docs/report/phase10_4_website.md`.
+
+## How to run the demo
+
+```bash
+# one-time, if index/ or the model are missing (rebuilds both)
+./run.sh            # then quit it once it reaches "Enter your query>"
+
+# regenerate the synthetic demo data if data/demo/ is empty
+PYTHONPATH=src .venv/bin/python scripts/gen_demo_data.py
+
+# pre-flight: drives every demo preset through the API
+PYTHONPATH=src .venv/bin/python scripts/demo_smoke.py        # expect 43/43
+
+# serve the website + API on one port
+.venv/bin/uvicorn app:app --host 0.0.0.0 --port 8000
+```
+
+Open `http://127.0.0.1:8000/`. In a Codespace, forward port 8000 (Ports panel), set visibility
+to **Public** only for the demo and back to **Private** afterwards — a public port exposes the
+whole API including `/audit`. The 10-minute demo script and the screenshots are in
+`docs/report/phase10_4_website.md`; port and keep-alive details are in
+`docs/report/phase10_3_api.md`.
 
 ## Final result (Phase 8.5, gold v2.2 TEST, one shot)
 
