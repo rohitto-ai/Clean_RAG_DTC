@@ -1,0 +1,41 @@
+{
+ "phase": "10.1b",
+ "supersedes": "data/experiments/10_1/freeze.json",
+ "frozen_utc": "2026-10-25T14:48:18+00:00",
+ "statement": "Domain lexicon v2 and its query-side rules are frozen. They may not change until the independent technician query set has been evaluated. The independent set was never read, requested or received in this phase.",
+ "experimental_indexes": [
+  "index_exp/minilm_lexv2",
+  "index_exp/minilm_lexv2_lamp"
+ ],
+ "production_untouched": {
+  "index": "index/ (C4b) unchanged",
+  "determinism_hash_dev_defaults": "ffff9bc707d8754d",
+  "suite": "44 passed / 1 xfail / 0 failed"
+ },
+ "counts": {
+  "entries_total": 91,
+  "entries_system_level": 11,
+  "entries_description_level": 80,
+  "by_provenance": {
+   "general_technician": 38,
+   "manual_term": 30,
+   "sae_j1939": 23
+  },
+  "by_origin": {
+   "phase10.1": 46,
+   "phase10.1b": 3,
+   "phase8.2": 42
+  },
+  "dev_driven": 0,
+  "colloquial_terms_total": 307,
+  "colloquial_terms_authored_in_v2": 174
+ },
+ "sha256": {
+  "data/domain_lexicon_v2.json": "c6c9fec5188dc2a85d3e2834dbe285b562bf63352fd349299a76b0ee1f61b6e9",
+  "src/lexicon.py": "1d1d3ab832aae0806d6123e254cd0ce107dc52d46d2eff50bba33ecc6d7745ca",
+  "src/build_index.py": "971b8433351cd286f0d6641dbae46cd5f2cc6edc1a0e8e66176edf5947fb0492",
+  "scripts/build_lexicon_v2.py": "02ea857e8b575e3d4cd8221a2dccbfe72cd3441b8100da00f5febcb53aa2d970",
+  "index_exp/minilm_lexv2/bm25_corpus.json": "97e11150a63c3ae24a382b99f8871d81d8e86d902b58a2ecb67d8e6ad9e9964e",
+  "index_exp/minilm_lexv2_lamp/bm25_corpus.json": "f0eec8cded1ddbd891db79f5fa7edca6a0b219841efd18caef46b2736509bd5b"
+ }
+}

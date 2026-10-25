@@ -20,6 +20,7 @@ os.environ.setdefault("ANONYMIZED_TELEMETRY", "False")
 V1 = "data/domain_lexicon.json"
 V2 = "data/domain_lexicon_v2.json"
 EXP_INDEX = "index_exp/minilm_lexv2"
+LAMP_INDEX = "index_exp/minilm_lexv2_lamp"
 
 # Frozen expectations: the only v2-authored colloquial terms that happen to
 # coincide with wording in the spent TEST split. Standard-vocabulary coincidences,
@@ -200,6 +201,75 @@ def main():
                            "data/independent_queries.json", "data/gold_v3.json")
                if os.path.exists(p)]
     check("no independent technician query set is present in the repo", not present, str(present))
+
+    # ---------------- 10.1b: warning-lamp reachability ----------------
+    print("\n== 10.1b lamp-state token ==")
+    from build_index import lamp_token
+    recs = [json.loads(l) for l in open("data/dtc_records.jsonl")]
+    toks = [lamp_token(r) for r in recs]
+    check("every record resolves to mil_on or mil_off",
+          set(toks) == {"mil_on", "mil_off"} and None not in toks,
+          f"{{'mil_on': {toks.count('mil_on')}, 'mil_off': {toks.count('mil_off')}}}")
+    check("lamp_token normalises the 'ON' spelling",
+          lamp_token({"MIL": "ON"}) == "mil_on" and lamp_token({"MIL": "Off"}) == "mil_off"
+          and lamp_token({"MIL": None}) is None)
+
+    lampA = json.load(open(f"{EXP_INDEX}/bm25_corpus.json"))
+    lampB = json.load(open(f"{LAMP_INDEX}/bm25_corpus.json"))
+    check("lamp index records the flag; the plain v2 index does not",
+          lampB["tokenizer"]["lamp_field"] is True
+          and lampA["tokenizer"]["lamp_field"] is False)
+    extra = set()
+    for x, y in zip(lampA["corpus"], lampB["corpus"]):
+        extra |= set(y) - set(x)
+        check_ok = set(x) - set(y) == set()
+        if not check_ok:
+            break
+    check("the lamp build adds ONLY mil_on/mil_off and removes nothing",
+          extra == {"mil_on", "mil_off"} and check_ok, f"extra={extra}")
+    check("production index does NOT use the lamp field",
+          json.load(open("index/bm25_corpus.json"))["tokenizer"].get("lamp_field", False) is False)
+
+    RL = Retriever(index_dir=LAMP_INDEX, lexicon=L2, expand="bm25")
+    check("retriever reads lamp_field from the index", RL.lamp_field is True and R.lamp_field is False)
+
+    # the lamp entries must be QUERY-SIDE ONLY: nothing attaches to any record
+    lamp_words = {c for e in lx["term_synonyms"] if e["manual"][0] in ("mil_on", "mil_off")
+                  for c in e["colloquial"]}
+    check("lamp colloquial terms attach to no record index-side",
+          not [1 for r in recs for a in L2.record_aliases(r) if a in lamp_words])
+    for q, want in [("check engine light is on", "mil_on"), ("warning lamp glowing", "mil_on"),
+                    ("the dash light stays on", "mil_on"), ("MIL on", "mil_on"),
+                    ("malfunction indicator lamp", "mil_on"),
+                    ("no warning light at all", "mil_off")]:
+        check(f"{q!r} expands to {want}", want in L2.expand_query(q)[0], L2.expand_query(q)[0][-40:])
+    # the token must survive tokenisation intact on both sides
+    check("mil_on survives tokenisation as one token",
+          RL._tokenize("check engine light mil_on").count("mil_on") == 1
+          and tokenize("x\nmil_on") == ["x", "mil_on"])
+
+    # SYNTHETIC off-topic lamp queries (authored here; not from any gold set).
+    # Honest expectation: the lamp token must NOT make body-electrical questions
+    # answerable. Verdicts are compared against production C4b to prove the lamp
+    # build changes no gate decision.
+    print("\n== 10.1b synthetic off-topic lamp probes (not from any gold set) ==")
+    import answer as AA
+    R_prod = Retriever()
+    probes = ["my headlight bulb has fused", "the number plate light is not working",
+              "interior dome lamp flickering", "i need a new indicator bulb",
+              "the dashboard light stays on", "check engine light is on",
+              "warning lamp glowing but engine runs fine"]
+    for q in probes:
+        ok_p, _ = AA.is_relevant(R_prod, q)
+        ok_l, sig = AA.is_relevant(RL, q)
+        check(f"gate verdict unchanged by the lamp build: {q!r}", ok_p == ok_l,
+              f"prod={'PASS' if ok_p else 'REFUSE'} lamp={'PASS' if ok_l else 'REFUSE'}")
+    ok, sig = AA.is_relevant(RL, "my headlight bulb has fused")
+    check("'my headlight bulb has fused' is still REFUSED", not ok,
+          f"reasons={sig.get('refusal_reasons')}")
+    ok, sig = AA.is_relevant(RL, "the dashboard light stays on")
+    check("a lamp-alias-only query is NOT rescued by the lamp token alone", not ok,
+          f"bm25_max={sig['bm25_max']} (mil_on IDF is floored: it sits in 62% of the corpus)")
 
     passed = sum(RESULTS)
     print(f"\n==== LEXICON V2: {passed}/{len(RESULTS)} passed ====")

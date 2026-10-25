@@ -241,6 +241,10 @@ class Retriever:
         self.cylinder_compound = bool(blob.get("tokenizer", {}).get("cylinder_compound", False))
         # Phase 10.1: same index-property contract as cylinder_compound.
         self.state_compound = bool(blob.get("tokenizer", {}).get("state_compound", False))
+        # Phase 10.1b: the lamp token is literal (mil_on / mil_off), so no query-side
+        # fold is needed - the lexicon supplies it. Recorded here so the property is
+        # visible in the trace and assertable in tests.
+        self.lamp_field = bool(blob.get("tokenizer", {}).get("lamp_field", False))
         from rank_bm25 import BM25Okapi
         self.bm25 = BM25Okapi(blob["corpus"])
 

@@ -22,13 +22,17 @@ import sys
 
 sys.path.insert(0, "src")
 
-OUT = "data/experiments/10_1/freeze.json"
+# Phase 10.1b supersedes the 10.1 freeze; the 10.1 file is KEPT as the record of
+# what was frozen before warning-lamp reachability was added.
+OUT = "data/experiments/10_1b/freeze.json"
+SUPERSEDES = "data/experiments/10_1/freeze.json"
 FILES = [
-    "data/domain_lexicon_v2.json",          # the lexicon itself
+    "data/domain_lexicon_v2.json",          # the lexicon (now incl. lamp entries)
     "src/lexicon.py",                       # R1 + R2 query-side rules
-    "src/build_index.py",                   # the compound-token folds (index side)
+    "src/build_index.py",                   # compound-token folds + the lamp field
     "scripts/build_lexicon_v2.py",          # the deterministic lexicon builder
-    "index_exp/minilm_lexv2/bm25_corpus.json",   # the experimental BM25 corpus
+    "index_exp/minilm_lexv2/bm25_corpus.json",        # experimental corpus, v2
+    "index_exp/minilm_lexv2_lamp/bm25_corpus.json",   # experimental corpus, v2 + lamp
 ]
 
 
@@ -83,12 +87,14 @@ def main():
 
     from datetime import datetime, timezone
     blob = {
-        "phase": "10.1",
+        "phase": "10.1b",
+        "supersedes": SUPERSEDES,
         "frozen_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "statement": "Domain lexicon v2 and its query-side rules are frozen. They may not "
                      "change until the independent technician query set has been evaluated. "
                      "The independent set was never read, requested or received in this phase.",
-        "experimental_index": "index_exp/minilm_lexv2",
+        "experimental_indexes": ["index_exp/minilm_lexv2",
+                                 "index_exp/minilm_lexv2_lamp"],
         "production_untouched": {
             "index": "index/ (C4b) unchanged",
             "determinism_hash_dev_defaults": "ffff9bc707d8754d",

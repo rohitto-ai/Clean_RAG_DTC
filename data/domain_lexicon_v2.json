@@ -1237,6 +1237,58 @@
    ],
    "provenance": "general_technician",
    "origin": "phase10.1"
+  },
+  {
+   "manual": [
+    "mil_on"
+   ],
+   "colloquial": [
+    "malfunction indicator lamp",
+    "malfunction lamp",
+    "mil on",
+    "mil illuminated",
+    "mil is on"
+   ],
+   "provenance": "sae_j1939",
+   "origin": "phase10.1b"
+  },
+  {
+   "manual": [
+    "mil_on"
+   ],
+   "colloquial": [
+    "check engine light",
+    "engine light",
+    "engine management light",
+    "engine warning light",
+    "dashboard light",
+    "dash light",
+    "dash warning light",
+    "warning lamp",
+    "warning light",
+    "amber warning light",
+    "lamp glowing",
+    "lamp is on",
+    "light stays on",
+    "light on the dash",
+    "telltale lamp"
+   ],
+   "provenance": "general_technician",
+   "origin": "phase10.1b"
+  },
+  {
+   "manual": [
+    "mil_off"
+   ],
+   "colloquial": [
+    "no warning light",
+    "no warning lamp",
+    "light does not come on",
+    "lamp not glowing",
+    "no dash light"
+   ],
+   "provenance": "general_technician",
+   "origin": "phase10.1b"
   }
  ]
 }

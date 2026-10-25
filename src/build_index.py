@@ -130,6 +130,23 @@ def embedding_text(r):
     return "\n".join(parts)
 
 
+# Phase 10.1b. Technicians describe a fault by the lamp they can see ("check
+# engine light is on"), but bm25_text() carries description/cause/effect/
+# checkpoints/circuit text and NOT the MIL field, so "lamp", "mil" and "warning"
+# have no postings at all in the corpus. --lamp-field appends one compound token
+# per record for its lamp state, giving that phrasing something to match.
+# NOTE the discrimination limit, measured in 10.1b: MIL is On for 195 of 314
+# records and Off for 119, so mil_on sits in 62% of the corpus. BM25Okapi floors
+# the negative IDF of such a term, which makes it nearly worthless for RANKING.
+# Its real effect is to give lamp wording a lexical target at all.
+def lamp_token(r):
+    """mil_on / mil_off for the record's MIL field, or None when unset."""
+    v = str(r.get("MIL") or "").strip().lower()
+    if v in ("on", "off"):
+        return f"mil_{v}"
+    return None
+
+
 def bm25_text(r):
     """Lexical text: as above, plus the step CONDITION clauses (not full steps)."""
     parts = [
@@ -185,6 +202,8 @@ def main():
                     help='fold "cylinder N" into one BM25 token cylinder_<N> (8.2b)')
     ap.add_argument("--state-token", action="store_true",
                     help='fold "jammed at <open|closed> position" into jammed_<state> (10.1)')
+    ap.add_argument("--lamp-field", action="store_true",
+                    help="append the record's lamp-state token mil_on/mil_off to BM25 (10.1b)")
     args = ap.parse_args()
     index_dir, model_name = args.index_dir, args.model
     chroma_dir = f"{index_dir}/chroma"
@@ -263,7 +282,15 @@ def main():
     # The tokenised corpus IS the index: BM25Okapi's statistics are a
     # deterministic function of it, so rebuilding at load is exact and avoids
     # pickling a library object across versions. 314 docs rebuild instantly.
-    corpus = [tokenize(bm25_text(r) + (alias_str(r) if args.aliases in ("bm25", "both") else ""),
+    def lamp_str(r):
+        t = lamp_token(r) if args.lamp_field else None
+        # The TOKEN only: writing prose like "Lamp state: mil_on" would also give
+        # the words "lamp" and "state" postings in all 314 records, which is noise
+        # with no discriminating value. Lamp WORDING reaches the corpus solely
+        # through the lexicon entries that map it to mil_on.
+        return f"\n{t}" if t else ""
+    corpus = [tokenize(bm25_text(r) + (alias_str(r) if args.aliases in ("bm25", "both") else "")
+                       + lamp_str(r),
                        cylinder_compound=args.cylinder_token,
                        state_compound=args.state_token)
               for r in recs]
@@ -273,7 +300,8 @@ def main():
                                  "lowercase": True,
                                  "dtc_base_expansion": True,
                                  "cylinder_compound": args.cylinder_token,
-                                 "state_compound": args.state_token}}, f)
+                                 "state_compound": args.state_token,
+                                 "lamp_field": args.lamp_field}}, f)
     print(f"bm25 corpus: {len(corpus)} docs, "
           f"{sum(len(c) for c in corpus)} tokens, "
           f"{len(set(t for c in corpus for t in c))} unique")

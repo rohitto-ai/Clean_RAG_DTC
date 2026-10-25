@@ -271,3 +271,210 @@ PYTHONPATH=src .venv/bin/python src/evaluate_v2.py --split DEV \
 6. **Hand-curated and English-only**, as in 8.2. 88 entries cannot cover an open vocabulary.
 7. **Not adopted as production.** v2 lives in `index_exp/minilm_lexv2` as a selectable
    configuration, exactly as C4/C4b did before 8.5. Adoption needs the independent evaluation.
+
+---
+
+# Phase 10.1b — Making warning-lamp language reachable
+
+_2026-10-25 · branch `phase10-demo` · additive, **production default still unchanged** · independent technician set still not read_
+
+## Objective
+
+10.1 limitation 4: the tokens `lamp`, `mil` and `warning` have **no postings** in the BM25
+corpus, because `bm25_text()` omits the MIL field. "Check engine light on" — a very likely
+technician phrasing — had no lexical target at all. 10.1b gives it one, as a selectable config.
+
+## Headline
+
+**The feature works mechanically and costs DEV accuracy.** Lamp wording now reaches a real
+token, no guardrail or gate decision changes, and DEV symptom MRR drops 0.704 → **0.649**
+because that token sits in 62% of the corpus. On this evidence I would **not** adopt it as the
+default; it is frozen as a selectable config for the independent evaluation to judge.
+
+## Method
+
+### 1. Lamp state as an index property — `--lamp-field`
+
+`build_index.lamp_token(r)` maps each record's MIL field to one compound token, appended to its
+BM25 text: **`mil_on` for 195 records, `mil_off` for 119** (all 314 resolve; the `ON` spelling
+variant is normalised). Recorded in `meta.json` and `bm25_corpus.json` as
+`tokenizer.lamp_field` and read back by `Retriever.lamp_field`, exactly like
+`cylinder_compound` and `state_compound`, so index and query tokenisation cannot diverge. The
+token is literal, so it needs no query-side fold: the lexicon supplies it.
+
+**Only the token is appended, not prose.** Writing "Lamp state: mil_on" would have given the
+words *lamp* and *state* postings in all 314 records — pure noise with no discriminating value.
+Lamp wording therefore reaches the corpus solely through the lexicon entries below.
+
+Verified: the lamp corpus differs from the plain v2 corpus by **exactly one `mil_on`/`mil_off`
+token per record and nothing else** (asserted by test). `index/` is untouched (md5 unchanged).
+
+### 2. Lexicon entries — 88 → 91 entries
+
+Three new description-level entries, `origin: phase10.1b`:
+
+| provenance | colloquial → manual |
+|---|---|
+| `sae_j1939` | malfunction indicator lamp, malfunction lamp, MIL on, MIL illuminated, MIL is on → **`mil_on`** |
+| `general_technician` | check engine light, engine light, engine management light, engine warning light, dashboard light, dash light, dash warning light, warning lamp, warning light, amber warning light, lamp glowing, lamp is on, light stays on, light on the dash, telltale lamp → **`mil_on`** |
+| `general_technician` | no warning light, no warning lamp, light does not come on, lamp not glowing, no dash light → **`mil_off`** |
+
+Counts: 30 `manual_term`, 23 `sae_j1939`, 38 `general_technician`, **0 `dev_driven`**.
+
+These are the only entries whose manual side is a synthetic index token rather than manual
+prose. Two consequences, both verified by test:
+
+- **They are query-side only.** `record_aliases()` triggers on a record's *description*, and no
+  description contains `mil_on`, so they attach to **no record**. The plain v2 corpus is
+  token-identical with or without them.
+- **They are inert on a non-lamp index**: `mil_on` simply has no postings, so the expansion is a
+  no-op rather than a distortion.
+
+### 3. Smoke colour and noises — still not added
+
+Unchanged from 10.1 and logged as a limitation. The brief's condition ("only if correct for
+EVERY record it attaches to") cannot be met: `noise`, `knock`, `rattle`, `whistle` and `smoke`
+have no postings, and there is no field — unlike MIL — from which a smoke or noise token could
+be derived. The one existing inference (*black smoke* → `soot`/`particulate filter`) stays
+flagged as an inference.
+
+## Results — DEV (gold v2.2), three configurations
+
+| mode | n | metric | C4b (production) | v2 | **v2 + lamp** |
+|---|---|---|---|---|---|
+| exact_code | 6 | Hit@1 / Hit@5 / MRR | 100% / 100% / 1.000 | 100% / 100% / 1.000 | 100% / 100% / **1.000** |
+| near_duplicate | 7 | Hit@1 / Hit@5 / MRR | 100% / 100% / 1.000 | 100% / 100% / 1.000 | 100% / 100% / **1.000** |
+| symptom | 12 | Hit@1 | 58.3% | 58.3% | **50.0%** |
+| | | Hit@5 | 91.7% | 91.7% | **91.7%** |
+| | | MRR | 0.711 | 0.704 | **0.649** |
+| **OVERALL** | 25 | Hit@1 | 80.0% | 80.0% | **76.0%** |
+| | | Hit@5 | 96.0% | 96.0% | **96.0%** |
+| | | MRR | 0.861 | 0.858 | **0.831** |
+
+system_group 3/3 in all three. Per-query rows: `data/experiments/10_1b/dev_rows.json`.
+
+**Exactly one query moved, and it explains the whole drop:**
+
+| id | query | expected | v2 | v2+lamp |
+|---|---|---|---|---|
+| d024 | *loss of pulling power with the dash warning light on* | P0192-00 / P0193-00 / P0194-00 / P0087-00 / P0088-00 | **1** | **3** |
+
+"dash warning light" now expands to `mil_on`, which matches 195 of 314 records. That near-uniform
+boost **dilutes** the query's genuinely discriminating words ("pulling power") and lets
+P0004-00 / P0003-00 (metering-unit records, MIL On) overtake the rail-pressure answers. This is
+the predicted failure mode of a low-IDF token, measured rather than assumed.
+
+Note the direction honestly: two lamp colloquialisms (`warning light`, `dash warning light`)
+coincide with d024's wording, and the coincidence made that query **worse**, not better — which
+is itself evidence the entries were not tuned against DEV.
+
+### Guardrails — 14/14, no regression
+
+| config | guardrails |
+|---|---|
+| v2 | 14/14 |
+| **v2 + lamp** | **14/14** |
+
+`data/experiments/10_1b/guardrails.json`. The lamp token is spread evenly across each
+near-duplicate family, so it cannot re-collapse one.
+
+### Gate — unchanged, thresholds untouched
+
+DEV: out-of-scope refused **6/6**, in-scope passed **28/28** in all three configurations.
+
+## The headlight test — outcome, honestly
+
+Seven synthetic off-topic lamp queries, authored for this test and **not** from any gold set.
+The decisive comparison is against production C4b:
+
+| synthetic query | C4b | v2 | v2 + lamp | lamp alias matched? |
+|---|---|---|---|---|
+| my headlight bulb has fused | REFUSE d=0.170 b=1.2 | REFUSE | **REFUSE** | no |
+| interior dome lamp flickering | REFUSE d=0.178 b=0.0 | REFUSE b=3.8 | **REFUSE** b=3.8 | no |
+| i need a new indicator bulb | REFUSE d=0.213 | REFUSE | **REFUSE** | no |
+| the dashboard light stays on | REFUSE d=0.200 b=2.9 | REFUSE | **REFUSE** b=2.9 | **yes → mil_on** |
+| the number plate light is not working | PASS d=0.285 b=11.9 | PASS | **PASS** b=11.3 | no |
+| check engine light is on | PASS d=0.360 b=8.1 | PASS | **PASS** b=8.1 | **yes → mil_on** |
+| warning lamp glowing but engine runs fine | PASS d=0.304 b=7.5 | PASS | **PASS** b=7.3 | **yes → mil_on** |
+
+**Every gate verdict is identical in all three configurations** (asserted by test). Three findings:
+
+1. **The lamp token rescues nothing.** `my headlight bulb has fused` is still refused: *headlight*
+   is not an alias, so no lamp token enters the query.
+2. **A lamp-alias-only query is not answered from the lamp token alone.** `the dashboard light
+   stays on` matches two lamp aliases and does inject `mil_on`, yet `bm25_max` stays at **2.9**
+   and the gate still refuses. Because `mil_on` occupies 62% of the corpus, BM25Okapi floors its
+   negative IDF, so it contributes almost no score. The token makes lamp wording *reachable*; it
+   does not make it *persuasive*.
+3. **Two probes do pass, and that is pre-existing, not caused by 10.1b.** `check engine light is
+   on` (dense 0.360) and `the number plate light is not working` (dense 0.285, bm25 11.9) pass
+   the gate identically under production C4b. They are carried by **dense** similarity to engine
+   wording, not by the lamp token, and the answers returned are unrelated DTCs (P0335-00,
+   P0340-00). This is an honest pre-existing gate weakness on body-electrical phrasing, outside
+   10.1b's scope and not fixed by it.
+
+## Freeze — `data/experiments/10_1b/freeze.json` (supersedes 10.1; 10.1 kept)
+
+| sha256 | file |
+|---|---|
+| `c6c9fec5188dc2a85d3e2834dbe285b562bf63352fd349299a76b0ee1f61b6e9` | `data/domain_lexicon_v2.json` |
+| `1d1d3ab832aae0806d6123e254cd0ce107dc52d46d2eff50bba33ecc6d7745ca` | `src/lexicon.py` |
+| `971b8433351cd286f0d6641dbae46cd5f2cc6edc1a0e8e66176edf5947fb0492` | `src/build_index.py` |
+| `02ea857e8b575e3d4cd8221a2dccbfe72cd3441b8100da00f5febcb53aa2d970` | `scripts/build_lexicon_v2.py` |
+| `97e11150a63c3ae24a382b99f8871d81d8e86d902b58a2ecb67d8e6ad9e9964e` | `index_exp/minilm_lexv2/bm25_corpus.json` |
+| `f0eec8cded1ddbd891db79f5fa7edca6a0b219841efd18caef46b2736509bd5b` | `index_exp/minilm_lexv2_lamp/bm25_corpus.json` |
+
+`scripts/freeze_10_1.py` now writes/verifies the 10.1b file and names the 10.1 file it
+supersedes. Re-running verifies instead of overwriting: all 6 PASS.
+
+## Production integrity
+
+| check | result |
+|---|---|
+| `index/bm25_corpus.json` md5 | unchanged |
+| production index `lamp_field` | **false** (asserted by test) |
+| suite | **44 passed / 1 xfail / 0 failed** |
+| determinism `--defaults` | **`ffff9bc707d8754d`** |
+| `src/test_lexicon_v2.py` | **102/102** (79 from 10.1 + 23 lamp tests) |
+
+## Files added or changed in 10.1b
+
+| file | change |
+|---|---|
+| `src/build_index.py` | `lamp_token()`, `--lamp-field`, `tokenizer.lamp_field` metadata |
+| `src/retrieve.py` | reads `lamp_field` as an index property |
+| `scripts/build_lexicon_v2.py` | 3 lamp entries, `origin: phase10.1b` |
+| `data/domain_lexicon_v2.json` | 88 → 91 entries |
+| `src/test_lexicon_v2.py` | +23 tests (lamp token, query-side-only, synthetic probes) |
+| `scripts/freeze_10_1.py` | freezes both corpora, writes `10_1b/freeze.json` |
+| `index_exp/minilm_lexv2_lamp/` | new experimental index (gitignored) |
+| `data/experiments/10_1b/` | `dev_c4b.json`, `dev_v2.json`, `dev_v2lamp.json`, `dev_rows.json`, `guardrails.json`, `freeze.json` |
+
+Reproduce:
+
+```bash
+PYTHONPATH=src .venv/bin/python scripts/build_lexicon_v2.py
+PYTHONPATH=src .venv/bin/python src/build_index.py --rebuild \
+  --index-dir index_exp/minilm_lexv2_lamp --aliases bm25 --cylinder-token --state-token \
+  --lamp-field --lexicon data/domain_lexicon_v2.json
+PYTHONPATH=src .venv/bin/python src/evaluate_v2.py --split DEV \
+  --index-dir index_exp/minilm_lexv2_lamp --lexicon data/domain_lexicon_v2.json --expand bm25
+```
+
+## Limitations added in 10.1b
+
+1. **The lamp token cannot discriminate, by construction.** MIL is On for 195/314 records, so
+   `mil_on` covers 62% of the corpus and its negative IDF is floored by BM25. It gives lamp
+   wording a target; it cannot rank with it. A genuinely useful lamp signal needs a *combination*
+   (lamp state + subsystem) or a structured filter, not a bag-of-words token.
+2. **It measurably hurts mixed queries.** A query combining lamp wording with a real symptom
+   (d024) loses precision because the lamp term dilutes the discriminating terms. On DEV that is
+   −0.055 symptom MRR, worse than the −0.007 of v2 alone.
+3. **CEL / Immo / IC-message fields are still unreachable.** The same mechanism would extend to
+   `cel_on`/`cel_off` (On for 113, Off for 200), and `immo_lamp` / `ic_message` are `NA`/`None`
+   for all 314 records and carry no information at all.
+4. **Body-electrical questions can still pass the gate** (`check engine light is on`,
+   `the number plate light is not working`) on dense similarity alone. Pre-existing, identical
+   under production, and not addressed here.
+5. **Smoke colour and abnormal noises remain unreachable** — no postings and no field to derive
+   a token from.

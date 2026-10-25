@@ -158,6 +158,22 @@ NEW_TERMS = [
      "general_technician", None),
     (["level too low", "level"], ["low level", "tank low", "fluid low"],
      "general_technician", None),
+    # ---- Phase 10.1b: warning-lamp wording -> the lamp-state token ----
+    # These are the ONLY entries whose manual side is a synthetic index token
+    # rather than manual prose. They are inert unless the index was built with
+    # --lamp-field (mil_on / mil_off have no postings otherwise), and they attach
+    # NOTHING on the index side: record_aliases() triggers on a record's
+    # description, and no description contains "mil_on". So the BM25 corpus of the
+    # non-lamp v2 index is byte-identical with or without them.
+    (["mil_on"], ["malfunction indicator lamp", "malfunction lamp", "mil on",
+     "mil illuminated", "mil is on"], "sae_j1939", None),
+    (["mil_on"], ["check engine light", "engine light", "engine management light",
+     "engine warning light", "dashboard light", "dash light", "dash warning light",
+     "warning lamp", "warning light", "amber warning light", "lamp glowing",
+     "lamp is on", "light stays on", "light on the dash", "telltale lamp"],
+     "general_technician", None),
+    (["mil_off"], ["no warning light", "no warning lamp", "light does not come on",
+     "lamp not glowing", "no dash light"], "general_technician", None),
 ]
 
 
@@ -194,8 +210,10 @@ def main():
             ne["systems"] = list(e["systems"])
         term_synonyms.append(ne)
     for manual, colloq, prov, systems in NEW_TERMS:
+        # the lamp-state entries arrived in 10.1b; everything else in 10.1
+        origin = "phase10.1b" if manual[0] in ("mil_on", "mil_off") else "phase10.1"
         ne = {"manual": list(manual), "colloquial": list(colloq), "provenance": prov,
-              "origin": "phase10.1"}
+              "origin": origin}
         if systems:
             ne["systems"] = list(systems)
         term_synonyms.append(ne)
