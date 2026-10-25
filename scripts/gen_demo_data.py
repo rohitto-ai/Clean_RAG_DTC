@@ -255,14 +255,48 @@ def write_csv(path, columns, rows):
 
 
 def write_xlsx(path, columns, rows, sheet):
+    """Byte-stable .xlsx: openpyxl stamps created/modified times by default, which
+    would make these committed artifacts churn on every regeneration."""
+    from datetime import datetime as _dt
+
     from openpyxl import Workbook
     wb = Workbook()
+    fixed = _dt(2026, 1, 1, 0, 0, 0)
+    wb.properties.created = fixed
+    wb.properties.modified = fixed
+    wb.properties.creator = LABEL
+    wb.properties.lastModifiedBy = LABEL
     ws = wb.active
     ws.title = sheet
     ws.append(columns)
     for r in rows:
         ws.append([r[c] for c in columns])
     wb.save(path)
+    _normalize_zip_times(path)
+
+
+def _normalize_zip_times(path, when=(2026, 1, 1, 0, 0, 0)):
+    """An .xlsx is a zip, and each member carries its own timestamp taken from the
+    clock at save time. Rewrite the archive with one fixed timestamp so a
+    regeneration is byte-identical and the committed file does not churn."""
+    import re as _re
+    import zipfile
+    stamp = "{:04d}-{:02d}-{:02d}T{:02d}:{:02d}:{:02d}Z".format(*when)
+    with zipfile.ZipFile(path) as zin:
+        members = [(i, zin.read(i.filename)) for i in sorted(zin.infolist(),
+                                                             key=lambda i: i.filename)]
+    # openpyxl rewrites dcterms:modified at save time whatever the properties say
+    members = [(i, _re.sub(rb"<dcterms:modified[^>]*>[^<]*</dcterms:modified>",
+                           f'<dcterms:modified xsi:type="dcterms:W3CDTF">{stamp}'
+                           f'</dcterms:modified>'.encode(), d)
+                if i.filename == "docProps/core.xml" else d)
+               for i, d in members]
+    with zipfile.ZipFile(path, "w", zipfile.ZIP_DEFLATED) as zout:
+        for info, data in members:
+            new = zipfile.ZipInfo(info.filename, date_time=when)
+            new.compress_type = zipfile.ZIP_DEFLATED
+            new.external_attr = info.external_attr
+            zout.writestr(new, data)
 
 
 def main():

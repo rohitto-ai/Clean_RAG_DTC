@@ -42,12 +42,16 @@ def main():
           r.stdout.strip().splitlines()[-1] if r.stdout else r.stderr[-200:])
 
     # deterministic regeneration: the generator has a fixed seed
+    # the .xlsx files are included deliberately: an .xlsx embeds save-time stamps,
+    # so a committed artifact would churn on every regeneration unless they are pinned
     before = {f: sha(f"{DEMO}/{f}") for f in ("synthetic_spn_fmi_dictionary.csv",
-                                              "synthetic_fleet_log.csv", "scenarios.json")}
+                                              "synthetic_spn_fmi_dictionary.xlsx",
+                                              "synthetic_fleet_log.csv",
+                                              "synthetic_fleet_log.xlsx", "scenarios.json")}
     r = subprocess.run([sys.executable, "scripts/gen_demo_data.py"],
                        capture_output=True, text=True, env=env)
     after = {f: sha(f"{DEMO}/{f}") for f in before}
-    check("regenerating with the fixed seed reproduces identical files",
+    check("regenerating with the fixed seed reproduces byte-identical files (incl. .xlsx)",
           r.returncode == 0 and before == after,
           str([f for f in before if before[f] != after[f]]))
 
