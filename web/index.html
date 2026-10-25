@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DTC Demo</title>
+<style>
+  :root { color-scheme: light dark; --fg:#1b1b1b; --bg:#fbfbfa; --mut:#6b6b6b; --line:#e3e3e0; }
+  @media (prefers-color-scheme: dark) {
+    :root { --fg:#e8e8e6; --bg:#17181a; --mut:#9a9a98; --line:#2c2d30; }
+  }
+  body { margin:0; padding:48px 16px; background:var(--bg); color:var(--fg);
+         font:16px/1.55 ui-sans-serif, system-ui, -apple-system, sans-serif; }
+  main { max-width:44rem; margin:0 auto; }
+  h1 { font-size:1.6rem; margin:0 0 .25rem; }
+  p.sub { color:var(--mut); margin:0 0 2rem; }
+  ul { padding-left:1.1rem; }
+  code { background:var(--line); padding:.1em .35em; border-radius:4px; font-size:.9em; }
+  .note { border-left:3px solid var(--line); padding:.6rem 0 .6rem 1rem; color:var(--mut); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Demo UI — Phase 10.4</h1>
+  <p class="sub">Placeholder. The interface is built in Phase 10.4; the API is live now.</p>
+  <p>Endpoints on this same port:</p>
+  <ul>
+    <li><code>GET /health</code> — readiness, versions, determinism hash</li>
+    <li><code>GET /scenarios</code> — demo presets</li>
+    <li><code>GET /fleet</code> — fleet summary (<code>?severity=&amp;region=&amp;outcome=</code>)</li>
+    <li><code>GET /vehicle/{id_or_registration}</code> — per-vehicle report</li>
+    <li><code>POST /verify-code</code> — technician's code vs telemetry</li>
+    <li><code>POST /symptom</code> — top-3 DTCs with fix steps</li>
+    <li><code>GET /audit</code> — request audit trail</li>
+    <li><code>POST /replay/start</code> · <code>/stop</code> · <code>/reset</code>, <code>GET /replay/status</code></li>
+  </ul>
+  <p class="note">All demo telematics data is <strong>synthetic — illustrative</strong>.
+     Cost and turnaround figures are illustrative and owned by another team; they do not
+     come from the manual.</p>
+</main>
+</body>
+</html>

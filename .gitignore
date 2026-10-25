@@ -22,3 +22,7 @@ hf_cache/
 .huggingface/
 index_exp/
 index_naive/
+
+# Phase 10.3 audit log (runtime artifact)
+data/demo/audit.jsonl
+data/demo/audit.jsonl.1

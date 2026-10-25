@@ -1,0 +1,66 @@
+{
+ "startup_seconds_testclient": 6.04,
+ "health_startup_seconds": 6.03,
+ "latency_ms": {
+  "GET /": {
+   "n": 1,
+   "p50": 5.2,
+   "p95": 5.2
+  },
+  "GET /audit": {
+   "n": 7,
+   "p50": 2.0,
+   "p95": 2.8
+  },
+  "GET /fleet": {
+   "n": 15,
+   "p50": 63.5,
+   "p95": 74.0
+  },
+  "GET /health": {
+   "n": 8,
+   "p50": 1.9,
+   "p95": 2.1
+  },
+  "GET /replay/status": {
+   "n": 5,
+   "p50": 1.1,
+   "p95": 1.5
+  },
+  "GET /scenarios": {
+   "n": 1,
+   "p50": 1.7,
+   "p95": 1.7
+  },
+  "GET /vehicle/{id}": {
+   "n": 13,
+   "p50": 1.9,
+   "p95": 2.3
+  },
+  "POST /replay/reset": {
+   "n": 1,
+   "p50": 1.2,
+   "p95": 1.2
+  },
+  "POST /replay/start": {
+   "n": 2,
+   "p50": 2.1,
+   "p95": 1.2
+  },
+  "POST /replay/stop": {
+   "n": 2,
+   "p50": 1.2,
+   "p95": 0.9
+  },
+  "POST /symptom": {
+   "n": 10,
+   "p50": 31.5,
+   "p95": 35.8
+  },
+  "POST /verify-code": {
+   "n": 10,
+   "p50": 1.4,
+   "p95": 2.0
+  }
+ }
+}
