@@ -115,6 +115,10 @@ class Client:
                 return r.status, self._body(r.headers.get("content-type"), r.read())
         except urllib.error.HTTPError as e:
             return e.code, self._body(e.headers.get("content-type"), e.read())
+        except Exception as e:
+            # a dead or unreachable server must read as a clean FAIL before a demo,
+            # not as a traceback
+            return 0, {"detail": f"cannot reach {self.base}: {e}"}
 
 
 def main():
@@ -126,6 +130,13 @@ def main():
     with Client(a.base) as c:
         print(f"[demo smoke] {'live ' + a.base if a.base else 'in-process app'} "
               f"(ready in {time.perf_counter() - t0:.1f}s)\n")
+        if a.base:
+            st, probe = c.get("/health")
+            if st != 200:
+                print(f"  [FAIL] the server at {a.base} is not answering — "
+                      f"{probe.get('detail', st)}")
+                print("\n==== DEMO SMOKE: 0/1 passed ====")
+                sys.exit(1)
 
         print("== service ==")
         st, h = c.get("/health")

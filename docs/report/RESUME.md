@@ -1,6 +1,6 @@
 # RESUME — Clean RAG for the 3.3L DTC Manual
 
-**State: PHASE 8 COMPLETE; Phase 9.1 (advise mode) + 9.1b (step column-bleed fix) + 9.2 (baseline comparison) + 9.3 (noisy-input robustness) + 9.3b (code-handling hardening, adopted) + 9.4 (synthetic SPN/FMI normalization demo) DONE; Phase 10.1 + 10.1b (lexicon v2, lamp reachability) DONE and FROZEN, NOT adopted; Phase 10.2 (synthetic demo data + telematics pipeline) + 10.3 (FastAPI service + audit log) + 10.4 (demo website) DONE — on branch `phase10-demo`.** All phases 0–8 are done on branch `phase8-limitations`. The
+**State: PHASE 8 COMPLETE; Phase 9.1 (advise mode) + 9.1b (step column-bleed fix) + 9.2 (baseline comparison) + 9.3 (noisy-input robustness) + 9.3b (code-handling hardening, adopted) + 9.4 (synthetic SPN/FMI normalization demo) DONE; Phase 10.1 + 10.1b (lexicon v2, lamp reachability) DONE and FROZEN, NOT adopted; Phase 10.2 (synthetic demo data + telematics pipeline) + 10.3 (FastAPI service + audit log) + 10.4 (demo website) + 10.5 (demo hardening) DONE — on branch `phase10-demo`.** All phases 0–8 are done on branch `phase8-limitations`. The
 Phase 8 configuration is adopted as the production default. The frozen TEST split has been
 evaluated once and is now spent. The previous system is preserved as tag `v1-phase7`.
 
@@ -28,27 +28,33 @@ _Last updated: 2026-10-25_
 
 **Phase 10.4 (demo website):** `web/` — plain HTML + CSS + vanilla JS, **no build step, no CDN, no web fonts, works offline**, served by `app.py` at `/` and consuming only the 10.3 endpoints. Four tabs: **Fleet** (counters, severity badges CRITICAL/HIGH/MEDIUM/LOW, severity+region+outcome filters, replay Start/Stop/Reset with `/fleet` polled every 3 s *only* while replaying, click-through to a vehicle), **Vehicle** (per-episode chain SPN/FMI → P-code → outcome badge, severity + reasons, fix blocks with manual pages, candidates marked "Not auto-advised — confirm with technician", refusals with no steps, a separate grey dashed **illustrative cost/TAT** panel, and the technician-reported-code cross-check showing MISMATCH + possible transposition, never auto-replaced), **Service query** (top-3 + cost, refusals rendered as refusals with the reason), **Audit** (latest 50 entries). Every result has a collapsible **"Why this answer?"** panel: route, ladder rungs, retrieval ranks, gate decision + signals, citations, severity reasons, and steps badged **RULE (green) / AI (purple)**. A **Demo presets** menu is built from `/scenarios` (all 14 scenarios + 3 symptom presets + both transposition cases). `scripts/demo_smoke.py` drives every preset: **43/43**. 11 screenshots captured from the real UI at 1280×720 by `scripts/capture_screens.py` (Playwright, dev-only, not in requirements) into `docs/report/img/`. `src/test_api.py` **56/56**, suite **44/1/0**, determinism **`ffff9bc707d8754d`**. Includes a 10-minute demo script. Details: `docs/report/phase10_4_website.md`.
 
+**Phase 10.5 (demo hardening; retrieval, gate, index and records UNCHANGED):** `run.sh` gained a `demo` target — rebuilds `index/` and `data/demo/` if missing, starts uvicorn on `0.0.0.0:8000`, polls `GET /health` until ok (tailing the log and failing clearly if start-up dies), **warms the models** with one `/symptom` + one `/vehicle` call, then prints the local and Codespace URLs, the log path and the pre-flight command. `./run.sh demo --check` runs `scripts/demo_smoke.py` against the live server, stops the server it started, and **exits non-zero on any FAIL**; an unreachable server now reads as a clean FAIL instead of a traceback. `--port N` supported; a healthy server already on the port is reused. Verified **twice from a clean shell** (`env -i`): 43/43, exit 0 both times; failure path exits 1. The demo runs **without the LLM** (every demo path is rule-based; `llama_cpp` is imported lazily), and `run.sh demo` says so rather than blocking. New runbook `docs/report/phase10_5_demo_runbook.md`: offline Windows fallback (Python 3.12, venv, wheel cache, CPU-only torch, optional llama-cpp build, what to copy incl. the Hugging Face cache for the embedder), Codespace checklist (port visibility public→private, idle timeout, keep-alive, dropped-URL recovery), and a 2-minute panic section (<60 s restart, the 9 screenshots to fall back on, and the behaviours that look like failures but are not). `src/test_api.py` **61/61**, suite **44/1/0**, determinism **`ffff9bc707d8754d`**.
+
 ## How to run the demo
 
 ```bash
-# one-time, if index/ or the model are missing (rebuilds both)
-./run.sh            # then quit it once it reaches "Enter your query>"
-
-# regenerate the synthetic demo data if data/demo/ is empty
-PYTHONPATH=src .venv/bin/python scripts/gen_demo_data.py
-
-# pre-flight: drives every demo preset through the API
-PYTHONPATH=src .venv/bin/python scripts/demo_smoke.py        # expect 43/43
-
-# serve the website + API on one port
-.venv/bin/uvicorn app:app --host 0.0.0.0 --port 8000
+./run.sh demo --check     # pre-flight: start, verify (43/43), stop. Exit 0 = safe to present
+./run.sh demo             # serve the website + API on 0.0.0.0:8000 and keep running
 ```
+
+`./run.sh demo` rebuilds `index/` and the synthetic demo data if either is missing, starts
+uvicorn, **waits for `GET /health`**, **warms the models** with one `/symptom` and one
+`/vehicle` call, then prints the local and Codespace URLs. `--check` additionally runs
+`scripts/demo_smoke.py`, stops the server it started, and exits non-zero on any failure.
+`--port N` moves off 8000; a healthy server already on the port is reused.
 
 Open `http://127.0.0.1:8000/`. In a Codespace, forward port 8000 (Ports panel), set visibility
 to **Public** only for the demo and back to **Private** afterwards — a public port exposes the
-whole API including `/audit`. The 10-minute demo script and the screenshots are in
-`docs/report/phase10_4_website.md`; port and keep-alive details are in
-`docs/report/phase10_3_api.md`.
+whole API including `/audit`.
+
+The local model is optional: every demo path is rule-based, and `llama_cpp` is imported lazily,
+so the demo runs with no model file and no `llama-cpp-python`. Only the "add AI one-line
+summary" checkbox needs it.
+
+**Runbook — `docs/report/phase10_5_demo_runbook.md`:** the offline Windows-laptop fallback, the
+Codespace checklist (visibility, idle timeout, keep-alive, dropped URL), and a 2-minute panic
+section (restart in under 60 s; which screenshots to show if the live demo fails). The
+10-minute demo script and the screenshots are in `docs/report/phase10_4_website.md`.
 
 ## Final result (Phase 8.5, gold v2.2 TEST, one shot)
 
