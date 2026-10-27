@@ -1,0 +1,915 @@
+{
+ "gold_sha256": "87c3d966e27f5a18a420beda85147333c191b685dde0bf08fc6e82f5147f5353",
+ "preregistration": "data/experiments/11_2/preregistration.json",
+ "freeze": "data/experiments/11_2/freeze.json",
+ "subsets": {
+  "ALL": {
+   "a_v3_production": {
+    "symptom": {
+     "n": 15,
+     "hit@1": 0.13333333333333333,
+     "hit@3": 0.3333333333333333,
+     "hit@5": 0.4,
+     "MRR": 0.24666666666666667,
+     "false_declines": 0,
+     "false_decline_ids": [],
+     "MRR_ci": {
+      "point": 0.24666666666666667,
+      "lo": 0.08,
+      "hi": 0.43333333333333335
+     }
+    },
+    "no_dtc": {
+     "n": 4,
+     "declined": 0,
+     "decline_rate": 0.0,
+     "decline_rate_ci": {
+      "point": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "answered": {
+      "R16": {
+       "codes": [
+        "P226D-00",
+        "P244A-00",
+        "P242F-00"
+       ],
+       "advisory_shown": false,
+       "areas": null
+      },
+      "R17": {
+       "codes": [
+        "P0119-00",
+        "P1114-00",
+        "P0219-00"
+       ],
+       "advisory_shown": false,
+       "areas": null
+      },
+      "R18": {
+       "codes": [
+        "P2228-00",
+        "P0047-00",
+        "P0048-00"
+       ],
+       "advisory_shown": false,
+       "areas": null
+      },
+      "R19": {
+       "codes": [
+        "P2200-85",
+        "P1645-00",
+        "P2228-00"
+       ],
+       "advisory_shown": false,
+       "areas": null
+      }
+     }
+    }
+   },
+   "b_a_narrow": {
+    "symptom": {
+     "n": 15,
+     "hit@1": 0.13333333333333333,
+     "hit@3": 0.3333333333333333,
+     "hit@5": 0.4,
+     "MRR": 0.24666666666666667,
+     "false_declines": 0,
+     "false_decline_ids": [],
+     "MRR_ci": {
+      "point": 0.24666666666666667,
+      "lo": 0.08,
+      "hi": 0.43333333333333335
+     }
+    },
+    "no_dtc": {
+     "n": 4,
+     "declined": 1,
+     "decline_rate": 0.25,
+     "decline_rate_ci": {
+      "point": 0.25,
+      "lo": 0.0,
+      "hi": 0.75
+     },
+     "answered": {
+      "R17": {
+       "codes": [
+        "P0119-00",
+        "P1114-00",
+        "P0219-00"
+       ],
+       "advisory_shown": false,
+       "areas": null
+      },
+      "R18": {
+       "codes": [
+        "P2228-00",
+        "P0047-00",
+        "P0048-00"
+       ],
+       "advisory_shown": true,
+       "areas": [
+        "exhaust smoke colour",
+        "the air path for a leak or restriction"
+       ]
+      },
+      "R19": {
+       "codes": [
+        "P2200-85",
+        "P1645-00",
+        "P2228-00"
+       ],
+       "advisory_shown": true,
+       "areas": [
+        "the noise source under load"
+       ]
+      }
+     }
+    }
+   },
+   "paired_b_minus_a": {
+    "diff": 0.0,
+    "lo": 0.0,
+    "hi": 0.0,
+    "excludes_zero": false
+   }
+  },
+  "EXCL_R16_R18": {
+   "a_v3_production": {
+    "symptom": {
+     "n": 15,
+     "hit@1": 0.13333333333333333,
+     "hit@3": 0.3333333333333333,
+     "hit@5": 0.4,
+     "MRR": 0.24666666666666667,
+     "false_declines": 0,
+     "false_decline_ids": [],
+     "MRR_ci": {
+      "point": 0.24666666666666667,
+      "lo": 0.08,
+      "hi": 0.43333333333333335
+     }
+    },
+    "no_dtc": {
+     "n": 2,
+     "declined": 0,
+     "decline_rate": 0.0,
+     "decline_rate_ci": {
+      "point": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "answered": {
+      "R17": {
+       "codes": [
+        "P0119-00",
+        "P1114-00",
+        "P0219-00"
+       ],
+       "advisory_shown": false,
+       "areas": null
+      },
+      "R19": {
+       "codes": [
+        "P2200-85",
+        "P1645-00",
+        "P2228-00"
+       ],
+       "advisory_shown": false,
+       "areas": null
+      }
+     }
+    }
+   },
+   "b_a_narrow": {
+    "symptom": {
+     "n": 15,
+     "hit@1": 0.13333333333333333,
+     "hit@3": 0.3333333333333333,
+     "hit@5": 0.4,
+     "MRR": 0.24666666666666667,
+     "false_declines": 0,
+     "false_decline_ids": [],
+     "MRR_ci": {
+      "point": 0.24666666666666667,
+      "lo": 0.08,
+      "hi": 0.43333333333333335
+     }
+    },
+    "no_dtc": {
+     "n": 2,
+     "declined": 0,
+     "decline_rate": 0.0,
+     "decline_rate_ci": {
+      "point": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     },
+     "answered": {
+      "R17": {
+       "codes": [
+        "P0119-00",
+        "P1114-00",
+        "P0219-00"
+       ],
+       "advisory_shown": false,
+       "areas": null
+      },
+      "R19": {
+       "codes": [
+        "P2200-85",
+        "P1645-00",
+        "P2228-00"
+       ],
+       "advisory_shown": true,
+       "areas": [
+        "the noise source under load"
+       ]
+      }
+     }
+    }
+   },
+   "paired_b_minus_a": {
+    "diff": 0.0,
+    "lo": 0.0,
+    "hi": 0.0,
+    "excludes_zero": false
+   }
+  }
+ },
+ "rows": {
+  "a_v3_production": [
+   {
+    "id": "R01",
+    "mode": "symptom",
+    "rank": null,
+    "declined": false,
+    "decline_by": null,
+    "advisory_shown": false,
+    "areas": null,
+    "codes": [
+     "P0A1B-13",
+     "P0A1B-12",
+     "P1083-00",
+     "P060A-49",
+     "P1203-00"
+    ]
+   },
+   {
+    "id": "R02",
+    "mode": "symptom",
+    "rank": null,
+    "declined": false,
+    "decline_by": null,
+    "advisory_shown": false,
+    "areas": null,
+    "codes": [
+     "P0194-00",
+     "P20A3-00",
+     "P0045-13",
+     "P1203-00",
+     "P0048-00"
+    ]
+   },
+   {
+    "id": "R03",
+    "mode": "symptom",
+    "rank": 2,
+    "declined": false,
+    "decline_by": null,
+    "advisory_shown": false,
+    "areas": null,
+    "codes": [
+     "P1203-00",
+     "P0201-00",
+     "P0203-00",
+     "P2153-00",
+     "P0202-00"
+    ]
+   },
+   {
+    "id": "R04",
+    "mode": "symptom",
+    "rank": 2,
+    "declined": false,
+    "decline_by": null,
+    "advisory_shown": false,
+    "areas": null,
+    "codes": [
+     "P0116-00",
+     "P0119-00",
+     "P0118-00",
+     "P0117-00",
+     "P0180-12"
+    ]
+   },
+   {
+    "id": "R05",
+    "mode": "symptom",
+    "rank": null,
+    "declined": false,
+    "decline_by": null,
+    "advisory_shown": false,
+    "areas": null,
+    "codes": [
+     "P0627-11",
+     "P0627-12",
+     "P0180-11",
+     "P1204-00",
+     "P1202-00"
+    ]
+   },
+   {
+    "id": "R06",
+    "mode": "symptom",
+    "rank": null,
+    "declined": false,
+    "decline_by": null,
+    "advisory_shown": false,
+    "areas": null,
+    "codes": [
+     "P0219-00",
+     "P061C-00",
+     "P0504-00",
+     "P0336-00",
+     "P1114-00"
+    ]
+   },
+   {
+    "id": "R07",
+    "mode": "symptom",
+    "rank": null,
+    "declined": false,
+    "decline_by": null,
+    "advisory_shown": false,
+    "areas": null,
+    "codes": [
+     "P0504-00",
+     "P0220-11",
+     "P0120-11",
+     "P0220-12",
+     "P0120-12"
+    ]
+   },
+   {
+    "id": "R08",
+    "mode": "symptom",
+    "rank": null,
+    "declined": false,
+    "decline_by": null,
+    "advisory_shown": false,
+    "areas": null,
+    "codes": [
+     "P0219-00",
+     "P061C-00",
+     "P2BA9-00",
+     "P206A-86",
+     "P206A-13"
+    ]
+   },
+   {
+    "id": "R09",
+    "mode": "symptom",
+    "rank": null,
+    "declined": false,
+    "decline_by": null,
+    "advisory_shown": false,
+    "areas": null,
+    "codes": [
+     "P0219-00",
+     "P061C-00",
+     "P2153-00",
+     "P1114-00"
+    ]
+   },
+   {
+    "id": "R10",
+    "mode": "symptom",
+    "rank": 5,
+    "declined": false,
+    "decline_by": null,
+    "advisory_shown": false,
+    "areas": null,
+    "codes": [
+     "P0A1B-12",
+     "P0A1B-13",
+     "P0335-00",
+     "P0336-00",
+     "P0341-00"
+    ]
+   },
+   {
+    "id": "R11",
+    "mode": "symptom",
+    "rank": 1,
+    "declined": false,
+    "decline_by": null,
+    "advisory_shown": false,
+    "areas": null,
+    "codes": [
+     "P0500-1F",
+     "P0500-1C",
+     "P0336-00",
+     "P2048-00",
+     "P20F4-00"
+    ]
+   },
+   {
+    "id": "R12",
+    "mode": "symptom",
+    "rank": 1,
+    "declined": false,
+    "decline_by": null,
+    "advisory_shown": false,
+    "areas": null,
+    "codes": [
+     "P0A1B-13",
+     "P0A1B-12",
+     "P0340-00",
+     "P0704-29",
+     "P2229-00"
+    ]
+   },
+   {
+    "id": "R13",
+    "mode": "symptom",
+    "rank": null,
+    "declined": false,
+    "decline_by": null,
+    "advisory_shown": false,
+    "areas": null,
+    "codes": [
+     "P242F-00",
+     "P2458-09",
+     "P0001-00",
+     "P0627-11",
+     "P206A-F3"
+    ]
+   },
+   {
+    "id": "R14",
+    "mode": "symptom",
+    "rank": null,
+    "declined": false,
+    "decline_by": null,
+    "advisory_shown": false,
+    "areas": null,
+    "codes": [
+     "P042A-84",
+     "P042A-85",
+     "P042C-00",
+     "P042D-00",
+     "P243F-F0"
+    ]
+   },
+   {
+    "id": "R15",
+    "mode": "symptom",
+    "rank": 2,
+    "declined": false,
+    "decline_by": null,
+    "advisory_shown": false,
+    "areas": null,
+    "codes": [
+     "P1014-00",
+     "P2458-00",
+     "P2458-09",
+     "P1080-00",
+     "P243C-00"
+    ]
+   },
+   {
+    "id": "R16",
+    "mode": "no_dtc",
+    "rank": null,
+    "declined": false,
+    "decline_by": null,
+    "advisory_shown": false,
+    "areas": null,
+    "codes": [
+     "P226D-00",
+     "P244A-00",
+     "P242F-00",
+     "P2463-85",
+     "P243F-F0"
+    ]
+   },
+   {
+    "id": "R17",
+    "mode": "no_dtc",
+    "rank": null,
+    "declined": false,
+    "decline_by": null,
+    "advisory_shown": false,
+    "areas": null,
+    "codes": [
+     "P0119-00",
+     "P1114-00",
+     "P0219-00",
+     "P242A-64",
+     "P0425-85"
+    ]
+   },
+   {
+    "id": "R18",
+    "mode": "no_dtc",
+    "rank": null,
+    "declined": false,
+    "decline_by": null,
+    "advisory_shown": false,
+    "areas": null,
+    "codes": [
+     "P2228-00",
+     "P0047-00",
+     "P0048-00",
+     "P0220-11",
+     "P0102-00"
+    ]
+   },
+   {
+    "id": "R19",
+    "mode": "no_dtc",
+    "rank": null,
+    "declined": false,
+    "decline_by": null,
+    "advisory_shown": false,
+    "areas": null,
+    "codes": [
+     "P2200-85",
+     "P1645-00",
+     "P2228-00",
+     "P1672-00",
+     "P1083-00"
+    ]
+   },
+   {
+    "id": "R20",
+    "mode": "inconclusive",
+    "rank": null,
+    "declined": false,
+    "decline_by": null,
+    "advisory_shown": false,
+    "areas": null,
+    "codes": [
+     "P0336-00",
+     "P0A1B-12",
+     "P0335-00",
+     "P0A1B-13",
+     "P0219-00"
+    ]
+   }
+  ],
+  "b_a_narrow": [
+   {
+    "id": "R01",
+    "mode": "symptom",
+    "rank": null,
+    "declined": false,
+    "decline_by": null,
+    "advisory_shown": false,
+    "areas": null,
+    "codes": [
+     "P0A1B-13",
+     "P0A1B-12",
+     "P1083-00",
+     "P060A-49",
+     "P1203-00"
+    ]
+   },
+   {
+    "id": "R02",
+    "mode": "symptom",
+    "rank": null,
+    "declined": false,
+    "decline_by": null,
+    "advisory_shown": false,
+    "areas": null,
+    "codes": [
+     "P0194-00",
+     "P20A3-00",
+     "P0045-13",
+     "P1203-00",
+     "P0048-00"
+    ]
+   },
+   {
+    "id": "R03",
+    "mode": "symptom",
+    "rank": 2,
+    "declined": false,
+    "decline_by": null,
+    "advisory_shown": true,
+    "areas": [
+     "mountings, balance and the drivetrain"
+    ],
+    "codes": [
+     "P1203-00",
+     "P0201-00",
+     "P0203-00",
+     "P2153-00",
+     "P0202-00"
+    ]
+   },
+   {
+    "id": "R04",
+    "mode": "symptom",
+    "rank": 2,
+    "declined": false,
+    "decline_by": null,
+    "advisory_shown": false,
+    "areas": null,
+    "codes": [
+     "P0116-00",
+     "P0119-00",
+     "P0118-00",
+     "P0117-00",
+     "P0180-12"
+    ]
+   },
+   {
+    "id": "R05",
+    "mode": "symptom",
+    "rank": null,
+    "declined": false,
+    "decline_by": null,
+    "advisory_shown": false,
+    "areas": null,
+    "codes": [
+     "P0627-11",
+     "P0627-12",
+     "P0180-11",
+     "P1204-00",
+     "P1202-00"
+    ]
+   },
+   {
+    "id": "R06",
+    "mode": "symptom",
+    "rank": null,
+    "declined": false,
+    "decline_by": null,
+    "advisory_shown": false,
+    "areas": null,
+    "codes": [
+     "P0219-00",
+     "P061C-00",
+     "P0504-00",
+     "P0336-00",
+     "P1114-00"
+    ]
+   },
+   {
+    "id": "R07",
+    "mode": "symptom",
+    "rank": null,
+    "declined": false,
+    "decline_by": null,
+    "advisory_shown": false,
+    "areas": null,
+    "codes": [
+     "P0504-00",
+     "P0220-11",
+     "P0120-11",
+     "P0220-12",
+     "P0120-12"
+    ]
+   },
+   {
+    "id": "R08",
+    "mode": "symptom",
+    "rank": null,
+    "declined": false,
+    "decline_by": null,
+    "advisory_shown": false,
+    "areas": null,
+    "codes": [
+     "P0219-00",
+     "P061C-00",
+     "P2BA9-00",
+     "P206A-86",
+     "P206A-13"
+    ]
+   },
+   {
+    "id": "R09",
+    "mode": "symptom",
+    "rank": null,
+    "declined": false,
+    "decline_by": null,
+    "advisory_shown": false,
+    "areas": null,
+    "codes": [
+     "P0219-00",
+     "P061C-00",
+     "P2153-00",
+     "P1114-00"
+    ]
+   },
+   {
+    "id": "R10",
+    "mode": "symptom",
+    "rank": 5,
+    "declined": false,
+    "decline_by": null,
+    "advisory_shown": false,
+    "areas": null,
+    "codes": [
+     "P0A1B-12",
+     "P0A1B-13",
+     "P0335-00",
+     "P0336-00",
+     "P0341-00"
+    ]
+   },
+   {
+    "id": "R11",
+    "mode": "symptom",
+    "rank": 1,
+    "declined": false,
+    "decline_by": null,
+    "advisory_shown": false,
+    "areas": null,
+    "codes": [
+     "P0500-1F",
+     "P0500-1C",
+     "P0336-00",
+     "P2048-00",
+     "P20F4-00"
+    ]
+   },
+   {
+    "id": "R12",
+    "mode": "symptom",
+    "rank": 1,
+    "declined": false,
+    "decline_by": null,
+    "advisory_shown": false,
+    "areas": null,
+    "codes": [
+     "P0A1B-13",
+     "P0A1B-12",
+     "P0340-00",
+     "P0704-29",
+     "P2229-00"
+    ]
+   },
+   {
+    "id": "R13",
+    "mode": "symptom",
+    "rank": null,
+    "declined": false,
+    "decline_by": null,
+    "advisory_shown": false,
+    "areas": null,
+    "codes": [
+     "P242F-00",
+     "P2458-09",
+     "P0001-00",
+     "P0627-11",
+     "P206A-F3"
+    ]
+   },
+   {
+    "id": "R14",
+    "mode": "symptom",
+    "rank": null,
+    "declined": false,
+    "decline_by": null,
+    "advisory_shown": false,
+    "areas": null,
+    "codes": [
+     "P042A-84",
+     "P042A-85",
+     "P042C-00",
+     "P042D-00",
+     "P243F-F0"
+    ]
+   },
+   {
+    "id": "R15",
+    "mode": "symptom",
+    "rank": 2,
+    "declined": false,
+    "decline_by": null,
+    "advisory_shown": false,
+    "areas": null,
+    "codes": [
+     "P1014-00",
+     "P2458-00",
+     "P2458-09",
+     "P1080-00",
+     "P243C-00"
+    ]
+   },
+   {
+    "id": "R16",
+    "mode": "no_dtc",
+    "rank": null,
+    "declined": true,
+    "decline_by": "a_narrow",
+    "advisory_shown": true,
+    "areas": [
+     "the fluid level and for leaks"
+    ],
+    "codes": []
+   },
+   {
+    "id": "R17",
+    "mode": "no_dtc",
+    "rank": null,
+    "declined": false,
+    "decline_by": null,
+    "advisory_shown": false,
+    "areas": null,
+    "codes": [
+     "P0119-00",
+     "P1114-00",
+     "P0219-00",
+     "P242A-64",
+     "P0425-85"
+    ]
+   },
+   {
+    "id": "R18",
+    "mode": "no_dtc",
+    "rank": null,
+    "declined": false,
+    "decline_by": null,
+    "advisory_shown": true,
+    "areas": [
+     "exhaust smoke colour",
+     "the air path for a leak or restriction"
+    ],
+    "codes": [
+     "P2228-00",
+     "P0047-00",
+     "P0048-00",
+     "P0220-11",
+     "P0102-00"
+    ]
+   },
+   {
+    "id": "R19",
+    "mode": "no_dtc",
+    "rank": null,
+    "declined": false,
+    "decline_by": null,
+    "advisory_shown": true,
+    "areas": [
+     "the noise source under load"
+    ],
+    "codes": [
+     "P2200-85",
+     "P1645-00",
+     "P2228-00",
+     "P1672-00",
+     "P1083-00"
+    ]
+   },
+   {
+    "id": "R20",
+    "mode": "inconclusive",
+    "rank": null,
+    "declined": false,
+    "decline_by": null,
+    "advisory_shown": false,
+    "areas": null,
+    "codes": [
+     "P0336-00",
+     "P0A1B-12",
+     "P0335-00",
+     "P0A1B-13",
+     "P0219-00"
+    ]
+   }
+  ]
+ },
+ "inconclusive": {
+  "R20": {
+   "declined": false,
+   "codes": [
+    "P0336-00",
+    "P0A1B-12",
+    "P0335-00"
+   ],
+   "advisory_shown": false
+  }
+ },
+ "inconclusive_production": {
+  "R20": {
+   "declined": false,
+   "codes": [
+    "P0336-00",
+    "P0A1B-12",
+    "P0335-00"
+   ]
+  }
+ },
+ "word_overlap_info_only": {
+  "n": 15,
+  "mean": 0.055,
+  "max": 0.2222222222222222,
+  "zero": 9
+ }
+}

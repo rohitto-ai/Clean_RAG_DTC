@@ -12,6 +12,7 @@ _Last updated: 2026-10-25_
 |---|---|---|
 | `data/gold_v2.json` DEV | development | free use; every DEV number is optimistic |
 | `data/gold_v2.json` TEST | **SPENT** (Phase 8.5, one shot) | post-hoc only; label every number |
+| `data/gold_r2_colleague.json` | **SPENT** (Phase 11.2, one shot) | post-hoc only; label every number |
 | `data/gold_independent.json` | **SPENT** (Phase 10.6, one shot) | **post-hoc only.** From now on ANY metric computed on it is development feedback and MUST be labelled "post-hoc, optimistic" wherever it is reported |
 
 The system as evaluated in Phase 10.6 is preserved as the annotated tag **`v3-final-eval`** —
