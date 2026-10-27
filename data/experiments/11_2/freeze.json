@@ -1,0 +1,39 @@
+{
+ "phase": "11.2",
+ "frozen_utc": "2026-10-27T17:54:51+00:00",
+ "git_commit": "52474a6080097bfda561123dc940207b8b993be6",
+ "statement": "A-narrow is frozen here, BEFORE the colleague-written R2 set is touched. The R2 run is one shot; this freeze is what makes its numbers attributable to this code.",
+ "a_narrow": {
+  "file": "src/no_dtc_narrow.py (decision) + src/no_dtc.py (term tables, unchanged)",
+  "rule": "decline only on leak / fluid-level / consumption-wear evidence; smoke colour, mechanical noise and smell ADVISE alongside the ranked codes; any electronic evidence overrides a decline entirely",
+  "decline_categories": [
+   "external leak / fluid loss",
+   "fluid level / condition",
+   "consumption / wear"
+  ],
+  "advisory_categories": [
+   "smoke colour",
+   "mechanical noise",
+   "smell"
+  ],
+  "derived_from": "the Phase 11.1 recommendation: all 6 of the broad rule's false declines came from the three advisory categories, and all 13 of its correct declines from the three decline categories",
+  "fix_during_development": "weather phrases ('damp morning', 'wet road') are removed before the mechanical scan - weather is not a fluid leak. Found on a synthetic probe, not on any gold row."
+ },
+ "no_regression_before_freezing": {
+  "DEV": "symptom hit@1 0.583 / MRR 0.7111, groups 3/3, oos 6/6, in-scope 28/28 - identical to production",
+  "TEST_post_hoc": "symptom MRR 0.6282 - identical to production",
+  "guardrails": "14/14",
+  "determinism_hash_dev_defaults": "ffff9bc707d8754d"
+ },
+ "round1_post_hoc": {
+  "note": "POST-HOC: the Round-1 set was spent in Phase 10.6",
+  "broad_A": "13/19 declined, 6 false declines on 41 symptom rows",
+  "A_narrow": "7/19 declined, 1 false decline (Q19), 6 no_dtc rows get advisory + codes",
+  "symptom_MRR": "0.2447, equal to production"
+ },
+ "sha256": {
+  "src/no_dtc_narrow.py": "0900d87e74e9e9365757e0b99f0ea01968546895a07daa438bfe6aa4767528eb",
+  "src/no_dtc.py": "67f5764fa13ba5871e96c01583b1026ff21436271861fa1dd09d58f6b5b4a5d4",
+  "scripts/eval_11_2.py": "6142c98932376c56a620aec4cc51fbec0d9e65f29fabdcb7125f1cec00694349"
+ }
+}

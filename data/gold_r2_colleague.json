@@ -1,0 +1,212 @@
+{
+    "version":  "r2-colleague-1.0",
+    "created":  "2026-10-27",
+    "provenance":  {
+                       "queries":  "20 symptoms written by colleagues working with the author, each with the writer\u0027s own label. Whether the writers had seen Round-1 material, or used writing tools, was not recorded; several topics overlap Round 1. No version of the system had been run on these queries before the pre-registered evaluation.",
+                       "labels":  "Writer\u0027s labels used unchanged (mostly a single DTC per row, so scoring is strict). Modes: 15 symptom (DTC expected), 4 no_dtc (mechanical, correct behaviour = decline), 1 inconclusive (excluded from scoring). Flags on R16 and R18 in notes.",
+                       "scoring":  "symptom rows: hit = any expected code, any decline is an error; no_dtc rows: decline is correct; inconclusive rows: reported, not scored. Report all-rows and a sensitivity analysis excluding R16 and R18."
+                   },
+    "queries":  [
+                    {
+                        "id":  "R01",
+                        "query":  "Vehicle takes several attempts to start in the morning. Once started, it runs reasonably well.",
+                        "mode":  "symptom",
+                        "expected":  [
+                                         "P00C6-00"
+                                     ],
+                        "split":  "R2_COLLEAGUE",
+                        "notes":  "writer label: DTC-linked candidate; writer assessment: P00C6-00 — verify fuel-rail pressure during cranking"
+                    },
+                    {
+                        "id":  "R02",
+                        "query":  "Truck loses pulling power on steep inclines, especially with a heavy load.",
+                        "mode":  "symptom",
+                        "expected":  [
+                                         "P0087-00"
+                                     ],
+                        "split":  "R2_COLLEAGUE",
+                        "notes":  "writer label: DTC-linked candidate; writer assessment: P0087-00 — investigate fuel-pressure deviation"
+                    },
+                    {
+                        "id":  "R03",
+                        "query":  "Engine shakes at idle, and the driver says it feels like one cylinder is not contributing properly.",
+                        "mode":  "symptom",
+                        "expected":  [
+                                         "P0201-00"
+                                     ],
+                        "split":  "R2_COLLEAGUE",
+                        "notes":  "writer label: DTC-linked candidate; writer assessment: P0201-00 — investigate cylinder 1 injector circuit"
+                    },
+                    {
+                        "id":  "R04",
+                        "query":  "Temperature gauge behaves normally at first but suddenly jumps to an unusually high reading.",
+                        "mode":  "symptom",
+                        "expected":  [
+                                         "P0119-00"
+                                     ],
+                        "split":  "R2_COLLEAGUE",
+                        "notes":  "writer label: DTC-linked candidate; writer assessment: P0119-00 — investigate intermittent coolant-temperature signal"
+                    },
+                    {
+                        "id":  "R05",
+                        "query":  "Fuel economy has dropped, and the vehicle feels less responsive than it used to.",
+                        "mode":  "symptom",
+                        "expected":  [
+                                         "P0101-00"
+                                     ],
+                        "split":  "R2_COLLEAGUE",
+                        "notes":  "writer label: DTC-linked candidate; writer assessment: P0101-00 — check air-mass/charging-pressure plausibility"
+                    },
+                    {
+                        "id":  "R06",
+                        "query":  "Engine feels weak during overtaking, and the driver reports that acceleration is inconsistent.",
+                        "mode":  "symptom",
+                        "expected":  [
+                                         "P259F-00",
+                                         "P259E-00"
+                                     ],
+                        "split":  "R2_COLLEAGUE",
+                        "notes":  "writer label: DTC-linked candidate; writer assessment: P259F-00 / P259E-00 — investigate boost-control limits"
+                    },
+                    {
+                        "id":  "R07",
+                        "query":  "Pressing the accelerator sometimes produces very little response, although the engine continues running.",
+                        "mode":  "symptom",
+                        "expected":  [
+                                         "P2135-00"
+                                     ],
+                        "split":  "R2_COLLEAGUE",
+                        "notes":  "writer label: DTC-linked candidate; writer assessment: P2135-00 — check pedal-position signal compatibility"
+                    },
+                    {
+                        "id":  "R08",
+                        "query":  "Vehicle smokes more than usual and runs roughly at low engine speeds.",
+                        "mode":  "symptom",
+                        "expected":  [
+                                         "P042E-00"
+                                     ],
+                        "split":  "R2_COLLEAGUE",
+                        "notes":  "writer label: DTC-linked candidate; writer assessment: P042E-00 — investigate EGR operation"
+                    },
+                    {
+                        "id":  "R09",
+                        "query":  "Engine occasionally cuts out while driving and may take time to restart.",
+                        "mode":  "symptom",
+                        "expected":  [
+                                         "P0336-00"
+                                     ],
+                        "split":  "R2_COLLEAGUE",
+                        "notes":  "writer label: DTC-linked candidate; writer assessment: P0336-00 — investigate disturbed crankshaft signal"
+                    },
+                    {
+                        "id":  "R10",
+                        "query":  "Engine cranks longer than usual and sometimes struggles to start after being switched off briefly.",
+                        "mode":  "symptom",
+                        "expected":  [
+                                         "P0341-00"
+                                     ],
+                        "split":  "R2_COLLEAGUE",
+                        "notes":  "writer label: DTC-linked candidate; writer assessment: P0341-00 — investigate disturbed camshaft signal"
+                    },
+                    {
+                        "id":  "R11",
+                        "query":  "Speedometer intermittently drops to zero while the vehicle is moving.",
+                        "mode":  "symptom",
+                        "expected":  [
+                                         "P0500-1F"
+                                     ],
+                        "split":  "R2_COLLEAGUE",
+                        "notes":  "writer label: DTC-linked candidate; writer assessment: P0500-1F — investigate vehicle-speed signal plausibility"
+                    },
+                    {
+                        "id":  "R12",
+                        "query":  "Starter does not operate consistently; turning the key sometimes produces no cranking.",
+                        "mode":  "symptom",
+                        "expected":  [
+                                         "P0A1B-13"
+                                     ],
+                        "split":  "R2_COLLEAGUE",
+                        "notes":  "writer label: DTC-linked candidate; writer assessment: P0A1B-13 — inspect starter-control circuit"
+                    },
+                    {
+                        "id":  "R13",
+                        "query":  "Driver reports a fuel-filter warning after refuelling, with occasional hesitation under load.",
+                        "mode":  "symptom",
+                        "expected":  [
+                                         "P2264-00"
+                                     ],
+                        "split":  "R2_COLLEAGUE",
+                        "notes":  "writer label: DTC-linked candidate; writer assessment: P2264-00 — check water-in-fuel detection and fuel condition"
+                    },
+                    {
+                        "id":  "R14",
+                        "query":  "DPF warning appears, and the vehicle gradually becomes less powerful during continued use.",
+                        "mode":  "symptom",
+                        "expected":  [
+                                         "P244B-00"
+                                     ],
+                        "split":  "R2_COLLEAGUE",
+                        "notes":  "writer label: DTC-linked candidate; writer assessment: P244B-00 — investigate DPF restriction"
+                    },
+                    {
+                        "id":  "R15",
+                        "query":  "Vehicle repeatedly fails to complete its regeneration process, with the warning returning after driving.",
+                        "mode":  "symptom",
+                        "expected":  [
+                                         "P2458-00"
+                                     ],
+                        "split":  "R2_COLLEAGUE",
+                        "notes":  "writer label: DTC-linked candidate; writer assessment: P2458-00 — investigate regeneration lockout"
+                    },
+                    {
+                        "id":  "R16",
+                        "query":  "Engine oil level is rising between services, and the oil smells strongly of diesel.",
+                        "mode":  "no_dtc",
+                        "expected":  [
+
+                                     ],
+                        "split":  "R2_COLLEAGUE",
+                        "notes":  "writer label: Mechanical / no-DTC expected; writer assessment: Investigate fuel dilution, injector leakage and regeneration history | FLAG: concept overlaps Round-1 Q46 (oil dilution), which informed the development of refinement A - not independent of A; report results with and without this row"
+                    },
+                    {
+                        "id":  "R17",
+                        "query":  "Engine temperature rises mainly during long climbs, but returns toward normal on level roads.",
+                        "mode":  "no_dtc",
+                        "expected":  [
+
+                                     ],
+                        "split":  "R2_COLLEAGUE",
+                        "notes":  "writer label: Mechanical / no-DTC expected; writer assessment: Inspect cooling system, radiator airflow, coolant circulation and load"
+                    },
+                    {
+                        "id":  "R18",
+                        "query":  "There is a loud hissing sound under acceleration, accompanied by black smoke and weak pulling power.",
+                        "mode":  "no_dtc",
+                        "expected":  [
+
+                                     ],
+                        "split":  "R2_COLLEAGUE",
+                        "notes":  "writer label: Mechanical / no-DTC expected; writer assessment: Inspect charge-air hoses, intercooler and intake leaks | FLAG: arguable label: a charge-air leak often triggers air-mass/boost codes (Round-1 Q56 was labelled P0101-00/P259F-00); writer\u0027s no-DTC label kept; under A-narrow smoke/noise give advice, not a decline"
+                    },
+                    {
+                        "id":  "R19",
+                        "query":  "A metallic knocking noise is heard under heavy load, but idle quality and starting appear normal.",
+                        "mode":  "no_dtc",
+                        "expected":  [
+
+                                     ],
+                        "split":  "R2_COLLEAGUE",
+                        "notes":  "writer label: Mechanical / no-DTC expected; writer assessment: Investigate combustion, injector condition and mechanical causes"
+                    },
+                    {
+                        "id":  "R20",
+                        "query":  "Engine cranks at normal speed but starts only after repeated attempts; fuel supply and electrical connections appear intact.",
+                        "mode":  "inconclusive",
+                        "expected":  [
+
+                                     ],
+                        "split":  "R2_COLLEAGUE",
+                        "notes":  "writer label: Mechanical / inconclusive; writer assessment: Check fuel-filter restriction, air ingress, fuel quality and compression before assigning a DTC | FLAG: writer marked inconclusive - excluded from scoring, reported separately"
+                    }
+                ]
+}

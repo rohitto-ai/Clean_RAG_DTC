@@ -1,0 +1,137 @@
+{
+ "guardrails": "14/14",
+ "configs": {
+  "a_v3_production": {
+   "DEV": {
+    "symptom": {
+     "n": 12,
+     "hit@1": 0.5833333333333334,
+     "hit@3": 0.8333333333333334,
+     "hit@5": 0.9166666666666666,
+     "MRR": 0.7111111111111111,
+     "false_declines": 0,
+     "false_decline_ids": []
+    },
+    "overall": {
+     "n": 25,
+     "hit@1": 0.8,
+     "hit@3": 0.92,
+     "hit@5": 0.96,
+     "MRR": 0.8613333333333334,
+     "false_declines": 0,
+     "false_decline_ids": []
+    },
+    "groups": "3/3",
+    "oos": "6/6",
+    "in_scope": "28/28"
+   },
+   "TEST_post_hoc": {
+    "symptom": {
+     "n": 13,
+     "hit@1": 0.5384615384615384,
+     "hit@3": 0.6923076923076923,
+     "hit@5": 0.8461538461538461,
+     "MRR": 0.6282051282051282,
+     "false_declines": 0,
+     "false_decline_ids": []
+    },
+    "overall": {
+     "n": 26,
+     "hit@1": 0.6153846153846154,
+     "hit@3": 0.8076923076923077,
+     "hit@5": 0.9230769230769231,
+     "MRR": 0.7275641025641026,
+     "false_declines": 0,
+     "false_decline_ids": []
+    },
+    "groups": "4/4",
+    "oos": "6/6",
+    "in_scope": "30/30"
+   },
+   "ROUND1_post_hoc": {
+    "symptom": {
+     "n": 41,
+     "hit@1": 0.14634146341463414,
+     "hit@3": 0.2926829268292683,
+     "hit@5": 0.4146341463414634,
+     "MRR": 0.24471544715447155,
+     "false_declines": 0,
+     "false_decline_ids": []
+    },
+    "no_dtc": {
+     "n": 19,
+     "declined": 0,
+     "decline_rate": 0.0,
+     "advisory_without_decline": 0
+    }
+   }
+  },
+  "b_a_narrow": {
+   "DEV": {
+    "symptom": {
+     "n": 12,
+     "hit@1": 0.5833333333333334,
+     "hit@3": 0.8333333333333334,
+     "hit@5": 0.9166666666666666,
+     "MRR": 0.7111111111111111,
+     "false_declines": 0,
+     "false_decline_ids": []
+    },
+    "overall": {
+     "n": 25,
+     "hit@1": 0.8,
+     "hit@3": 0.92,
+     "hit@5": 0.96,
+     "MRR": 0.8613333333333334,
+     "false_declines": 0,
+     "false_decline_ids": []
+    },
+    "groups": "3/3",
+    "oos": "6/6",
+    "in_scope": "28/28"
+   },
+   "TEST_post_hoc": {
+    "symptom": {
+     "n": 13,
+     "hit@1": 0.5384615384615384,
+     "hit@3": 0.6923076923076923,
+     "hit@5": 0.8461538461538461,
+     "MRR": 0.6282051282051282,
+     "false_declines": 0,
+     "false_decline_ids": []
+    },
+    "overall": {
+     "n": 26,
+     "hit@1": 0.6153846153846154,
+     "hit@3": 0.8076923076923077,
+     "hit@5": 0.9230769230769231,
+     "MRR": 0.7275641025641026,
+     "false_declines": 0,
+     "false_decline_ids": []
+    },
+    "groups": "4/4",
+    "oos": "6/6",
+    "in_scope": "30/30"
+   },
+   "ROUND1_post_hoc": {
+    "symptom": {
+     "n": 41,
+     "hit@1": 0.14634146341463414,
+     "hit@3": 0.2926829268292683,
+     "hit@5": 0.4146341463414634,
+     "MRR": 0.24471544715447155,
+     "false_declines": 1,
+     "false_decline_ids": [
+      "Q19"
+     ]
+    },
+    "no_dtc": {
+     "n": 19,
+     "declined": 7,
+     "decline_rate": 0.3684210526315789,
+     "advisory_without_decline": 6
+    }
+   }
+  }
+ }
+}
