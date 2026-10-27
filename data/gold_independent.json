@@ -1,0 +1,844 @@
+{
+    "version":  "independent-1.0",
+    "created":  "2026-10-27",
+    "provenance":  {
+                       "queries":  "60 symptoms written in their own words by a pool of workshop technicians, colleagues and non-engineer vehicle owners, not by the system designer; some may have been phrased with AI assistance.",
+                       "ground_truth":  "Drafted by an AI assistant from the manual\u0027s 314 DTC definitions WITHOUT access to system outputs; reviewed by a second AI assistant under the author\u0027s supervision. Rule applied: keep blind drafts; accept a reviewer change only if it was not taken from the reviewer tool\u0027s retrieved candidate lists (accepted: Q26 +P22CF-72; rejected: Q14 +P0504-00, Q25 +P061C-00, Q20/Q46 +P243C-00); \u0027consider none\u0027 suggestions (Q09, Q16, Q23, Q58) kept as low-confidence labels.",
+                       "query_field":  "Only the \u0027query\u0027 text is given to the system. lamp_reported is metadata and must not be appended to the query.",
+                       "scoring":  "symptom rows: hit = any expected code; no_dtc rows: correct behaviour is to decline (no DTC in this manual)."
+                   },
+    "queries":  [
+                    {
+                        "id":  "Q01",
+                        "query":  "After a short stop, it cranks at normal speed but sometimes needs a second try before it catches. Once it is running, it seems okay.",
+                        "mode":  "symptom",
+                        "expected":  [
+                                         "P00C6-00",
+                                         "P0340-00",
+                                         "P0341-00",
+                                         "P0336-00"
+                                     ],
+                        "confidence":  "low",
+                        "lamp_reported":  "None noticed",
+                        "split":  "INDEPENDENT",
+                        "notes":  "AI-drafted blind label; second-reviewer verdict recorded"
+                    },
+                    {
+                        "id":  "Q02",
+                        "query":  "At steady road speed it gives a small jerk every few seconds; I can\u0027t really feel it when revving in neutral.",
+                        "mode":  "symptom",
+                        "expected":  [
+                                         "P0194-00",
+                                         "P0087-00",
+                                         "P0088-00",
+                                         "P0336-00"
+                                     ],
+                        "confidence":  "low",
+                        "lamp_reported":  "None noticed",
+                        "split":  "INDEPENDENT",
+                        "notes":  "AI-drafted blind label; second-reviewer verdict recorded"
+                    },
+                    {
+                        "id":  "Q03",
+                        "query":  "There\u0027s a sharper tapping from the injector side at idle than I remember, and the cab picks up a slight vibration.",
+                        "mode":  "symptom",
+                        "expected":  [
+                                         "P0201-00",
+                                         "P0202-00",
+                                         "P0203-00",
+                                         "P0204-00",
+                                         "P1201-00",
+                                         "P1202-00",
+                                         "P1203-00",
+                                         "P1204-00",
+                                         "P2147-00",
+                                         "P2150-00",
+                                         "P2153-00",
+                                         "P2156-00"
+                                     ],
+                        "confidence":  "medium",
+                        "lamp_reported":  "MIL / check-engine lamp",
+                        "split":  "INDEPENDENT",
+                        "notes":  "AI-drafted blind label; second-reviewer verdict recorded"
+                    },
+                    {
+                        "id":  "Q04",
+                        "query":  "Fuel filter housing is damp after a run and there\u0027s a diesel smell around that corner of the engine. I cleaned it once but it came back.",
+                        "mode":  "no_dtc",
+                        "expected":  [
+
+                                     ],
+                        "confidence":  "high",
+                        "lamp_reported":  "None noticed",
+                        "split":  "INDEPENDENT",
+                        "notes":  "AI-drafted blind label; second-reviewer verdict recorded"
+                    },
+                    {
+                        "id":  "Q05",
+                        "query":  "Pulling away from a junction, there\u0027s a short flat spot before the engine picks up. After that it pulls normally.",
+                        "mode":  "symptom",
+                        "expected":  [
+                                         "P0101-00",
+                                         "P0401-00",
+                                         "P259E-00",
+                                         "P0102-00"
+                                     ],
+                        "confidence":  "low",
+                        "lamp_reported":  "None noticed",
+                        "split":  "INDEPENDENT",
+                        "notes":  "AI-drafted blind label; second-reviewer verdict recorded"
+                    },
+                    {
+                        "id":  "Q06",
+                        "query":  "I hear a faint whooshing noise from the intake hose under load, like air escaping, but I couldn\u0027t see an obvious split.",
+                        "mode":  "symptom",
+                        "expected":  [
+                                         "P0101-00",
+                                         "P259F-00"
+                                     ],
+                        "confidence":  "medium",
+                        "lamp_reported":  "None noticed",
+                        "split":  "INDEPENDENT",
+                        "notes":  "AI-drafted blind label; second-reviewer verdict recorded"
+                    },
+                    {
+                        "id":  "Q07",
+                        "query":  "In slow traffic the engine feels uneven and the exhaust smells stronger than normal; once moving freely it smooths out.",
+                        "mode":  "symptom",
+                        "expected":  [
+                                         "P042E-00",
+                                         "P0402-00",
+                                         "P0406-00"
+                                     ],
+                        "confidence":  "medium",
+                        "lamp_reported":  "MIL / check-engine lamp",
+                        "split":  "INDEPENDENT",
+                        "notes":  "AI-drafted blind label; second-reviewer verdict recorded"
+                    },
+                    {
+                        "id":  "Q08",
+                        "query":  "DPF lamp has started coming up more often on the same daily route. Earlier it would go several days without showing.",
+                        "mode":  "symptom",
+                        "expected":  [
+                                         "P243C-00",
+                                         "P2463-85",
+                                         "P244B-00",
+                                         "P242F-00"
+                                     ],
+                        "confidence":  "high",
+                        "lamp_reported":  "DPF lamp",
+                        "split":  "INDEPENDENT",
+                        "notes":  "AI-drafted blind label; second-reviewer verdict recorded"
+                    },
+                    {
+                        "id":  "Q09",
+                        "query":  "After a highway run the exhaust area stays very hot and the fan carries on for a while after switch-off.",
+                        "mode":  "symptom",
+                        "expected":  [
+                                         "P042A-85",
+                                         "P0425-85",
+                                         "P242A-85"
+                                     ],
+                        "confidence":  "low",
+                        "lamp_reported":  "No lamp noticed",
+                        "split":  "INDEPENDENT",
+                        "notes":  "AI-drafted blind label; second-reviewer verdict recorded"
+                    },
+                    {
+                        "id":  "Q10",
+                        "query":  "AdBlue was filled to the top, but the dash still shows low level and an exhaust-system warning came back after a while.",
+                        "mode":  "symptom",
+                        "expected":  [
+                                         "P203B-84",
+                                         "P203F-00",
+                                         "P203A-23",
+                                         "P203A-24",
+                                         "P203A-29",
+                                         "P203F-7B"
+                                     ],
+                        "confidence":  "high",
+                        "lamp_reported":  "AdBlue / exhaust warning",
+                        "split":  "INDEPENDENT",
+                        "notes":  "AI-drafted blind label; second-reviewer verdict recorded"
+                    },
+                    {
+                        "id":  "Q11",
+                        "query":  "Coolant in the reservoir keeps dropping a little between checks. No clear puddle under the vehicle, but there is a sweet smell when hot.",
+                        "mode":  "no_dtc",
+                        "expected":  [
+
+                                     ],
+                        "confidence":  "medium",
+                        "lamp_reported":  "Low coolant warning (once)",
+                        "split":  "INDEPENDENT",
+                        "notes":  "AI-drafted blind label; second-reviewer verdict recorded"
+                    },
+                    {
+                        "id":  "Q12",
+                        "query":  "Temperature reading jumps up for a few seconds and then returns to normal, even when the load and road speed haven\u0027t changed.",
+                        "mode":  "symptom",
+                        "expected":  [
+                                         "P0119-00",
+                                         "P0116-00",
+                                         "P0118-00"
+                                     ],
+                        "confidence":  "high",
+                        "lamp_reported":  "Temp warning (brief)",
+                        "split":  "INDEPENDENT",
+                        "notes":  "AI-drafted blind label; second-reviewer verdict recorded"
+                    },
+                    {
+                        "id":  "Q13",
+                        "query":  "Crossing rough road, multiple warning lamps flicker together and the radio resets once in a while. The engine doesn\u0027t cut out.",
+                        "mode":  "symptom",
+                        "expected":  [
+                                         "P0563-00",
+                                         "P0562-00",
+                                         "U0102-00"
+                                     ],
+                        "confidence":  "medium",
+                        "lamp_reported":  "Several lamps flicker",
+                        "split":  "INDEPENDENT",
+                        "notes":  "AI-drafted blind label; second-reviewer verdict recorded"
+                    },
+                    {
+                        "id":  "Q14",
+                        "query":  "Pedal travel feels normal, but response isn\u0027t consistent; sometimes the engine picks up later even with the same pedal press.",
+                        "mode":  "symptom",
+                        "expected":  [
+                                         "P2135-00",
+                                         "P0120-11",
+                                         "P0120-12",
+                                         "P0220-11",
+                                         "P0220-12"
+                                     ],
+                        "confidence":  "high",
+                        "lamp_reported":  "MIL / check-engine lamp",
+                        "split":  "INDEPENDENT",
+                        "notes":  "AI-drafted blind label; second-reviewer verdict recorded"
+                    },
+                    {
+                        "id":  "Q15",
+                        "query":  "When I lift off the accelerator, the revs stay up briefly before dropping. Makes low-speed gear changes a bit awkward.",
+                        "mode":  "symptom",
+                        "expected":  [
+                                         "P2135-00",
+                                         "P0120-12",
+                                         "P0220-12"
+                                     ],
+                        "confidence":  "low",
+                        "lamp_reported":  "None noticed",
+                        "split":  "INDEPENDENT",
+                        "notes":  "AI-drafted blind label; second-reviewer verdict recorded"
+                    },
+                    {
+                        "id":  "Q16",
+                        "query":  "On the first start of the day it gives a pale smoke puff and runs unevenly for half a minute. Once warm, it settles down.",
+                        "mode":  "symptom",
+                        "expected":  [
+                                         "P0116-00",
+                                         "P0117-00",
+                                         "P0118-00",
+                                         "P0110-11",
+                                         "P0110-12"
+                                     ],
+                        "confidence":  "low",
+                        "lamp_reported":  "No lamp noticed",
+                        "split":  "INDEPENDENT",
+                        "notes":  "AI-drafted blind label; second-reviewer verdict recorded"
+                    },
+                    {
+                        "id":  "Q17",
+                        "query":  "After parking overnight, it cranks longer than usual before starting. If I stop and start it again later, it fires up straight away.",
+                        "mode":  "symptom",
+                        "expected":  [
+                                         "P00C6-00",
+                                         "P0627-13",
+                                         "P0627-11"
+                                     ],
+                        "confidence":  "medium",
+                        "lamp_reported":  "No lamp noticed",
+                        "split":  "INDEPENDENT",
+                        "notes":  "AI-drafted blind label; second-reviewer verdict recorded"
+                    },
+                    {
+                        "id":  "Q18",
+                        "query":  "On a long climb it gradually loses pull, even with the pedal down. After switching off for a few minutes, it feels normal again for a while.",
+                        "mode":  "symptom",
+                        "expected":  [
+                                         "P259F-00",
+                                         "P0087-00",
+                                         "P0101-00",
+                                         "P243F-F0",
+                                         "P0401-00"
+                                     ],
+                        "confidence":  "low",
+                        "lamp_reported":  "MIL / check-engine lamp",
+                        "split":  "INDEPENDENT",
+                        "notes":  "AI-drafted blind label; second-reviewer verdict recorded"
+                    },
+                    {
+                        "id":  "Q19",
+                        "query":  "When the tank is getting low, it sometimes hesitates on a sharp turn or steep ramp. It goes away after I add more diesel.",
+                        "mode":  "symptom",
+                        "expected":  [
+                                         "P0087-00"
+                                     ],
+                        "confidence":  "low",
+                        "lamp_reported":  "No lamp noticed",
+                        "split":  "INDEPENDENT",
+                        "notes":  "AI-drafted blind label; second-reviewer verdict recorded"
+                    },
+                    {
+                        "id":  "Q20",
+                        "query":  "The engine is using more diesel than it used to on the same route, but I can\u0027t see any wet patches or smell a fuel leak.",
+                        "mode":  "no_dtc",
+                        "expected":  [
+
+                                     ],
+                        "confidence":  "medium",
+                        "lamp_reported":  "No lamp noticed",
+                        "split":  "INDEPENDENT",
+                        "notes":  "AI-drafted blind label; second-reviewer verdict recorded"
+                    },
+                    {
+                        "id":  "Q21",
+                        "query":  "It stumbled for a second when I crossed a pothole, then carried on as if nothing happened. The dash didn\u0027t go completely blank.",
+                        "mode":  "symptom",
+                        "expected":  [
+                                         "P0336-00",
+                                         "P0341-00",
+                                         "P0335-00"
+                                     ],
+                        "confidence":  "low",
+                        "lamp_reported":  "No lamp noticed",
+                        "split":  "INDEPENDENT",
+                        "notes":  "AI-drafted blind label; second-reviewer verdict recorded"
+                    },
+                    {
+                        "id":  "Q22",
+                        "query":  "At idle the revs dip when the air conditioner cuts in, then recover. Earlier the change was barely noticeable.",
+                        "mode":  "no_dtc",
+                        "expected":  [
+
+                                     ],
+                        "confidence":  "medium",
+                        "lamp_reported":  "No lamp noticed",
+                        "split":  "INDEPENDENT",
+                        "notes":  "AI-drafted blind label; second-reviewer verdict recorded"
+                    },
+                    {
+                        "id":  "Q23",
+                        "query":  "When cold, the engine has a slight shake and a lumpy sound for the first few minutes. It gets smoother after the temperature comes up.",
+                        "mode":  "symptom",
+                        "expected":  [
+                                         "P0116-00",
+                                         "P0117-00",
+                                         "P0118-00"
+                                     ],
+                        "confidence":  "low",
+                        "lamp_reported":  "No lamp noticed",
+                        "split":  "INDEPENDENT",
+                        "notes":  "AI-drafted blind label; second-reviewer verdict recorded"
+                    },
+                    {
+                        "id":  "Q24",
+                        "query":  "After a short fuel stop with the engine already hot, it took several seconds of cranking to restart. It started normally once it finally caught.",
+                        "mode":  "symptom",
+                        "expected":  [
+                                         "P00C6-00",
+                                         "P0180-11",
+                                         "P0180-12",
+                                         "P0340-00",
+                                         "P0336-00"
+                                     ],
+                        "confidence":  "low",
+                        "lamp_reported":  "No lamp noticed",
+                        "split":  "INDEPENDENT",
+                        "notes":  "AI-drafted blind label; second-reviewer verdict recorded"
+                    },
+                    {
+                        "id":  "Q25",
+                        "query":  "It feels like the engine is being held back and won\u0027t rev much past about 1,800 rpm. Turning it off and starting again sometimes clears it temporarily.",
+                        "mode":  "symptom",
+                        "expected":  [
+                                         "P061A-00",
+                                         "P0087-00",
+                                         "P259F-00",
+                                         "P2135-00",
+                                         "P0101-00"
+                                     ],
+                        "confidence":  "low",
+                        "lamp_reported":  "MIL / check-engine lamp",
+                        "split":  "INDEPENDENT",
+                        "notes":  "AI-drafted blind label; second-reviewer verdict recorded"
+                    },
+                    {
+                        "id":  "Q26",
+                        "query":  "There is more dark smoke than usual when pulling away hard, especially with a load on. The smoke is much less noticeable when driving gently.",
+                        "mode":  "symptom",
+                        "expected":  [
+                                         "P0101-00",
+                                         "P0401-00",
+                                         "P042E-00",
+                                         "P259F-00",
+                                         "P22CF-72"
+                                     ],
+                        "confidence":  "medium",
+                        "lamp_reported":  "No lamp noticed",
+                        "split":  "INDEPENDENT",
+                        "notes":  "AI-drafted blind label; reviewer addition P22CF-72 accepted (not from reviewer\u0027s retrieved candidates)"
+                    },
+                    {
+                        "id":  "Q27",
+                        "query":  "I hear a rattly diesel knock when accelerating in a high gear at low rpm. It quietens down once the engine speed comes up.",
+                        "mode":  "no_dtc",
+                        "expected":  [
+
+                                     ],
+                        "confidence":  "medium",
+                        "lamp_reported":  "No lamp noticed",
+                        "split":  "INDEPENDENT",
+                        "notes":  "AI-drafted blind label; second-reviewer verdict recorded"
+                    },
+                    {
+                        "id":  "Q28",
+                        "query":  "The engine takes longer than before to settle to its normal idle after a cold start. The temperature gauge looks normal once it has warmed up.",
+                        "mode":  "symptom",
+                        "expected":  [
+                                         "P0116-00",
+                                         "P0117-00",
+                                         "P0118-00"
+                                     ],
+                        "confidence":  "low",
+                        "lamp_reported":  "No lamp noticed",
+                        "split":  "INDEPENDENT",
+                        "notes":  "AI-drafted blind label; second-reviewer verdict recorded"
+                    },
+                    {
+                        "id":  "Q29",
+                        "query":  "There is an oily film around the charge-air pipe joint near the intercooler. I wiped it clean, but a fresh patch has appeared after a few runs.",
+                        "mode":  "no_dtc",
+                        "expected":  [
+
+                                     ],
+                        "confidence":  "medium",
+                        "lamp_reported":  "No lamp noticed",
+                        "split":  "INDEPENDENT",
+                        "notes":  "AI-drafted blind label; second-reviewer verdict recorded"
+                    },
+                    {
+                        "id":  "Q30",
+                        "query":  "Under acceleration the turbo sound changes from a smooth whistle to a brief flutter. I notice it most when I lift off the pedal.",
+                        "mode":  "no_dtc",
+                        "expected":  [
+
+                                     ],
+                        "confidence":  "medium",
+                        "lamp_reported":  "No lamp noticed",
+                        "split":  "INDEPENDENT",
+                        "notes":  "AI-drafted blind label; second-reviewer verdict recorded"
+                    },
+                    {
+                        "id":  "Q31",
+                        "query":  "With an empty vehicle it pulls reasonably well, but with a full load it feels flat and struggles to build speed on a slope.",
+                        "mode":  "symptom",
+                        "expected":  [
+                                         "P259F-00",
+                                         "P0101-00",
+                                         "P22CF-72",
+                                         "P0087-00"
+                                     ],
+                        "confidence":  "medium",
+                        "lamp_reported":  "No lamp noticed",
+                        "split":  "INDEPENDENT",
+                        "notes":  "AI-drafted blind label; second-reviewer verdict recorded"
+                    },
+                    {
+                        "id":  "Q32",
+                        "query":  "A little blue-grey smoke appears after a long downhill coast and then pressing the accelerator again. It clears after a short burst.",
+                        "mode":  "no_dtc",
+                        "expected":  [
+
+                                     ],
+                        "confidence":  "high",
+                        "lamp_reported":  "No lamp noticed",
+                        "split":  "INDEPENDENT",
+                        "notes":  "AI-drafted blind label; second-reviewer verdict recorded"
+                    },
+                    {
+                        "id":  "Q33",
+                        "query":  "Once the engine is fully warm, the idle gets rough when waiting at a signal. A small increase in rpm makes it feel smoother.",
+                        "mode":  "symptom",
+                        "expected":  [
+                                         "P042E-00",
+                                         "P0402-00",
+                                         "P0406-00"
+                                     ],
+                        "confidence":  "medium",
+                        "lamp_reported":  "MIL / check-engine lamp",
+                        "split":  "INDEPENDENT",
+                        "notes":  "AI-drafted blind label; second-reviewer verdict recorded"
+                    },
+                    {
+                        "id":  "Q34",
+                        "query":  "After sitting in traffic, the engine sometimes has a brief stumble when I move off. It doesn\u0027t happen every time and feels fine at cruising speed.",
+                        "mode":  "symptom",
+                        "expected":  [
+                                         "P042E-00",
+                                         "P0401-00",
+                                         "P0402-00"
+                                     ],
+                        "confidence":  "low",
+                        "lamp_reported":  "No lamp noticed",
+                        "split":  "INDEPENDENT",
+                        "notes":  "AI-drafted blind label; second-reviewer verdict recorded"
+                    },
+                    {
+                        "id":  "Q35",
+                        "query":  "The DPF message comes back a day or two after a regeneration seems to have finished. The route and load have been about the same.",
+                        "mode":  "symptom",
+                        "expected":  [
+                                         "P243C-00",
+                                         "P2453-64",
+                                         "P2452-95",
+                                         "P2452-85",
+                                         "P242F-00",
+                                         "P244B-00"
+                                     ],
+                        "confidence":  "high",
+                        "lamp_reported":  "DPF / exhaust warning",
+                        "split":  "INDEPENDENT",
+                        "notes":  "AI-drafted blind label; second-reviewer verdict recorded"
+                    },
+                    {
+                        "id":  "Q36",
+                        "query":  "During what seems like a regeneration, the idle stays higher than normal and the cooling fan runs hard even though the weather is cool.",
+                        "mode":  "no_dtc",
+                        "expected":  [
+
+                                     ],
+                        "confidence":  "medium",
+                        "lamp_reported":  "No lamp noticed",
+                        "split":  "INDEPENDENT",
+                        "notes":  "AI-drafted blind label; second-reviewer verdict recorded"
+                    },
+                    {
+                        "id":  "Q37",
+                        "query":  "There is a sharp exhaust smell around the side of the vehicle after a long drive, mainly when stopped with the engine running.",
+                        "mode":  "no_dtc",
+                        "expected":  [
+
+                                     ],
+                        "confidence":  "medium",
+                        "lamp_reported":  "No lamp noticed",
+                        "split":  "INDEPENDENT",
+                        "notes":  "AI-drafted blind label; second-reviewer verdict recorded"
+                    },
+                    {
+                        "id":  "Q38",
+                        "query":  "I can see whitish crust around the AdBlue dosing pipe connection. It looks like dried liquid, and the exhaust warning has appeared a couple of times.",
+                        "mode":  "symptom",
+                        "expected":  [
+                                         "P204F-7C",
+                                         "P20F5-00",
+                                         "P20F5-7A",
+                                         "P2047-7F"
+                                     ],
+                        "confidence":  "medium",
+                        "lamp_reported":  "Exhaust / AdBlue warning",
+                        "split":  "INDEPENDENT",
+                        "notes":  "AI-drafted blind label; second-reviewer verdict recorded"
+                    },
+                    {
+                        "id":  "Q39",
+                        "query":  "The AdBlue level looks okay, but the dash has shown an exhaust-system message again. The engine still starts and drives normally at the moment.",
+                        "mode":  "symptom",
+                        "expected":  [
+                                         "P20EE-00",
+                                         "P2BA9-00",
+                                         "P229F-76",
+                                         "P2201-76"
+                                     ],
+                        "confidence":  "low",
+                        "lamp_reported":  "Exhaust-system warning",
+                        "split":  "INDEPENDENT",
+                        "notes":  "AI-drafted blind label; second-reviewer verdict recorded"
+                    },
+                    {
+                        "id":  "Q40",
+                        "query":  "An exhaust warning appeared after a highway trip, but I didn\u0027t notice smoke or any obvious loss of power. It stayed on after the next start.",
+                        "mode":  "symptom",
+                        "expected":  [
+                                         "P2201-76",
+                                         "P229F-76",
+                                         "P0425-64",
+                                         "P042A-64",
+                                         "P242A-64"
+                                     ],
+                        "confidence":  "low",
+                        "lamp_reported":  "MIL / exhaust warning",
+                        "split":  "INDEPENDENT",
+                        "notes":  "AI-drafted blind label; second-reviewer verdict recorded"
+                    },
+                    {
+                        "id":  "Q41",
+                        "query":  "The cabin heater blows cool air at idle, then starts getting warm when I raise the revs. The temperature gauge stays around its usual position.",
+                        "mode":  "no_dtc",
+                        "expected":  [
+
+                                     ],
+                        "confidence":  "high",
+                        "lamp_reported":  "No lamp noticed",
+                        "split":  "INDEPENDENT",
+                        "notes":  "AI-drafted blind label; second-reviewer verdict recorded"
+                    },
+                    {
+                        "id":  "Q42",
+                        "query":  "After parking, I get a sweet coolant smell near the front of the vehicle, especially after the fan has been running. There isn\u0027t a clear puddle on the ground.",
+                        "mode":  "no_dtc",
+                        "expected":  [
+
+                                     ],
+                        "confidence":  "high",
+                        "lamp_reported":  "No lamp noticed",
+                        "split":  "INDEPENDENT",
+                        "notes":  "AI-drafted blind label; second-reviewer verdict recorded"
+                    },
+                    {
+                        "id":  "Q43",
+                        "query":  "The temperature rises when crawling in traffic with the air conditioner on, but comes down once I get moving again.",
+                        "mode":  "no_dtc",
+                        "expected":  [
+
+                                     ],
+                        "confidence":  "medium",
+                        "lamp_reported":  "Temperature warning briefly",
+                        "split":  "INDEPENDENT",
+                        "notes":  "AI-drafted blind label; second-reviewer verdict recorded"
+                    },
+                    {
+                        "id":  "Q44",
+                        "query":  "On a cold morning the temperature gauge takes much longer than usual to reach its normal position. The cabin heater also warms up slowly.",
+                        "mode":  "symptom",
+                        "expected":  [
+                                         "P0116-00"
+                                     ],
+                        "confidence":  "medium",
+                        "lamp_reported":  "No lamp noticed",
+                        "split":  "INDEPENDENT",
+                        "notes":  "AI-drafted blind label; second-reviewer verdict recorded"
+                    },
+                    {
+                        "id":  "Q45",
+                        "query":  "The oil-pressure light flickered once at a hot idle, then went out when I raised the revs slightly. I switched the engine off to be safe.",
+                        "mode":  "no_dtc",
+                        "expected":  [
+
+                                     ],
+                        "confidence":  "high",
+                        "lamp_reported":  "Oil-pressure lamp briefly",
+                        "split":  "INDEPENDENT",
+                        "notes":  "AI-drafted blind label; second-reviewer verdict recorded"
+                    },
+                    {
+                        "id":  "Q46",
+                        "query":  "The dipstick level has crept above the maximum mark between services, and the oil smells more like diesel than it normally does.",
+                        "mode":  "no_dtc",
+                        "expected":  [
+
+                                     ],
+                        "confidence":  "medium",
+                        "lamp_reported":  "No lamp noticed",
+                        "split":  "INDEPENDENT",
+                        "notes":  "AI-drafted blind label; second-reviewer verdict recorded"
+                    },
+                    {
+                        "id":  "Q47",
+                        "query":  "There is fresh oil wetness around the top cover area, and dust is sticking to it. I haven\u0027t found oil dripping onto the ground yet.",
+                        "mode":  "no_dtc",
+                        "expected":  [
+
+                                     ],
+                        "confidence":  "high",
+                        "lamp_reported":  "No lamp noticed",
+                        "split":  "INDEPENDENT",
+                        "notes":  "AI-drafted blind label; second-reviewer verdict recorded"
+                    },
+                    {
+                        "id":  "Q48",
+                        "query":  "The belt gives a short squeal just after the first start, especially on damp mornings. It usually quietens down within a minute.",
+                        "mode":  "no_dtc",
+                        "expected":  [
+
+                                     ],
+                        "confidence":  "high",
+                        "lamp_reported":  "No lamp noticed",
+                        "split":  "INDEPENDENT",
+                        "notes":  "AI-drafted blind label; second-reviewer verdict recorded"
+                    },
+                    {
+                        "id":  "Q49",
+                        "query":  "The battery warning flickers briefly over bumps, although the engine keeps running and it starts normally most of the time.",
+                        "mode":  "symptom",
+                        "expected":  [
+                                         "P0563-00",
+                                         "P0562-00"
+                                     ],
+                        "confidence":  "low",
+                        "lamp_reported":  "Battery / charging lamp flickers",
+                        "split":  "INDEPENDENT",
+                        "notes":  "AI-drafted blind label; second-reviewer verdict recorded"
+                    },
+                    {
+                        "id":  "Q50",
+                        "query":  "The engine has stalled twice after a long run, but after waiting a little it starts again. It seems more likely when the engine is hot.",
+                        "mode":  "symptom",
+                        "expected":  [
+                                         "P0335-00",
+                                         "P0336-00",
+                                         "P0340-00",
+                                         "P0341-00"
+                                     ],
+                        "confidence":  "medium",
+                        "lamp_reported":  "MIL not always present",
+                        "split":  "INDEPENDENT",
+                        "notes":  "AI-drafted blind label; second-reviewer verdict recorded"
+                    },
+                    {
+                        "id":  "Q51",
+                        "query":  "While driving, the rev counter suddenly drops close to zero for a moment, but the engine seems to keep running through it.",
+                        "mode":  "symptom",
+                        "expected":  [
+                                         "P0336-00",
+                                         "P0335-00",
+                                         "U0102-00"
+                                     ],
+                        "confidence":  "medium",
+                        "lamp_reported":  "No lamp noticed",
+                        "split":  "INDEPENDENT",
+                        "notes":  "AI-drafted blind label; second-reviewer verdict recorded"
+                    },
+                    {
+                        "id":  "Q52",
+                        "query":  "The accelerator feels normal under my foot, but after changing gear the engine sometimes takes a moment to respond. It is not consistent on every shift.",
+                        "mode":  "symptom",
+                        "expected":  [
+                                         "P0704-29",
+                                         "P2135-00"
+                                     ],
+                        "confidence":  "low",
+                        "lamp_reported":  "No lamp noticed",
+                        "split":  "INDEPENDENT",
+                        "notes":  "AI-drafted blind label; second-reviewer verdict recorded"
+                    },
+                    {
+                        "id":  "Q53",
+                        "query":  "The cruise control switches itself off on a fairly smooth road, then works again after I cancel it and set it once more.",
+                        "mode":  "symptom",
+                        "expected":  [
+                                         "P0500-1F",
+                                         "P0504-00",
+                                         "P061E-00",
+                                         "P0704-29"
+                                     ],
+                        "confidence":  "medium",
+                        "lamp_reported":  "No lamp noticed",
+                        "split":  "INDEPENDENT",
+                        "notes":  "AI-drafted blind label; second-reviewer verdict recorded"
+                    },
+                    {
+                        "id":  "Q54",
+                        "query":  "The water-in-fuel warning appeared once after a wet day. It went away after the next start, but I haven\u0027t had the filter checked yet.",
+                        "mode":  "symptom",
+                        "expected":  [
+                                         "P2264-00",
+                                         "P2264-12",
+                                         "P2264-11"
+                                     ],
+                        "confidence":  "high",
+                        "lamp_reported":  "Water-in-fuel warning",
+                        "split":  "INDEPENDENT",
+                        "notes":  "AI-drafted blind label; second-reviewer verdict recorded"
+                    },
+                    {
+                        "id":  "Q55",
+                        "query":  "It pulls normally at low speed, but feels short of air when I hold the pedal down for a longer overtake. No obvious hose damage is visible from outside.",
+                        "mode":  "symptom",
+                        "expected":  [
+                                         "P0101-00",
+                                         "P0401-00",
+                                         "P0100-9C"
+                                     ],
+                        "confidence":  "low",
+                        "lamp_reported":  "No lamp noticed",
+                        "split":  "INDEPENDENT",
+                        "notes":  "AI-drafted blind label; second-reviewer verdict recorded"
+                    },
+                    {
+                        "id":  "Q56",
+                        "query":  "At high load there is a brief sucking noise from the intake side and the engine feels weaker than before. I can hear it more clearly with the window open.",
+                        "mode":  "symptom",
+                        "expected":  [
+                                         "P0101-00",
+                                         "P259F-00"
+                                     ],
+                        "confidence":  "medium",
+                        "lamp_reported":  "No lamp noticed",
+                        "split":  "INDEPENDENT",
+                        "notes":  "AI-drafted blind label; second-reviewer verdict recorded"
+                    },
+                    {
+                        "id":  "Q57",
+                        "query":  "The oil filler cap seems to puff more than I remember with the engine idling, and there is a stronger oily vapour smell around the engine bay.",
+                        "mode":  "no_dtc",
+                        "expected":  [
+
+                                     ],
+                        "confidence":  "high",
+                        "lamp_reported":  "No lamp noticed",
+                        "split":  "INDEPENDENT",
+                        "notes":  "AI-drafted blind label; second-reviewer verdict recorded"
+                    },
+                    {
+                        "id":  "Q58",
+                        "query":  "After revving the engine while stationary, the rpm sometimes hangs for a second before returning to idle. It doesn\u0027t do it every time.",
+                        "mode":  "symptom",
+                        "expected":  [
+                                         "P2135-00",
+                                         "P0120-12",
+                                         "P0220-12"
+                                     ],
+                        "confidence":  "low",
+                        "lamp_reported":  "No lamp noticed",
+                        "split":  "INDEPENDENT",
+                        "notes":  "AI-drafted blind label; second-reviewer verdict recorded"
+                    },
+                    {
+                        "id":  "Q59",
+                        "query":  "Turning the key sometimes gives only a click on the first try; on the next try the starter turns the engine normally. The battery hasn\u0027t gone flat.",
+                        "mode":  "symptom",
+                        "expected":  [
+                                         "P0A1B-13",
+                                         "P0A1B-12",
+                                         "P0563-00"
+                                     ],
+                        "confidence":  "medium",
+                        "lamp_reported":  "No lamp noticed",
+                        "split":  "INDEPENDENT",
+                        "notes":  "AI-drafted blind label; second-reviewer verdict recorded"
+                    },
+                    {
+                        "id":  "Q60",
+                        "query":  "The coolant-level warning flashes for a moment on rough roads and then disappears. When I stop to check, the reservoir is still above the minimum mark.",
+                        "mode":  "no_dtc",
+                        "expected":  [
+
+                                     ],
+                        "confidence":  "medium",
+                        "lamp_reported":  "Coolant-level warning briefly",
+                        "split":  "INDEPENDENT",
+                        "notes":  "AI-drafted blind label; second-reviewer verdict recorded"
+                    }
+                ]
+}

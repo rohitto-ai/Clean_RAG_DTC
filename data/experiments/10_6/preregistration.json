@@ -1,0 +1,146 @@
+{
+ "phase": "10.6",
+ "registered_utc": "2026-10-27T17:15:48+00:00",
+ "git_commit_at_registration": "88ded516b2ab2a4a15f18aac418615d267b1401e",
+ "statement": "ONE SHOT. Every configuration below is evaluated exactly once on the independent set. Nothing is tuned after results are seen, no query is dropped or edited, and no configuration is adopted in this phase \u2014 the adoption rule is recorded here and its verdict is reported, nothing more.",
+ "gold": {
+  "path": "data/gold_independent.json",
+  "sha256": "266abff6aaf30078aafc15a0decfa3e1ced3014f8519eb7b15088d830df6ecf4",
+  "rows": 60,
+  "symptom": 41,
+  "no_dtc": 19,
+  "confidence": {
+   "high": 14,
+   "medium": 26,
+   "low": 20
+  },
+  "input_to_system": "q['query'] ONLY. lamp_reported, notes, confidence and expected are never shown to the system.",
+  "validated_by": "scripts/validate_independent.py (schema, codes exist, sha256)"
+ },
+ "configurations": [
+  {
+   "key": "a",
+   "name": "v1-phase7 (no lexicon, legacy gate)",
+   "index_dir": "index_exp/minilm_v1",
+   "lexicon": null,
+   "expand": "none",
+   "gate": "legacy",
+   "rerank": null,
+   "note": "The v1 RETRIEVAL CONFIGURATION rebuilt on today's records, not a byte-identical time capsule of the v1-phase7 tag: the 9.1b parser fix changed 3 records. Same data for every configuration, so the comparison is like-for-like."
+  },
+  {
+   "key": "b",
+   "name": "production C4b + gate v2 (the incumbent)",
+   "index_dir": "index",
+   "lexicon": "auto",
+   "expand": "auto",
+   "gate": "default",
+   "rerank": null,
+   "note": "The adopted production default. Every other configuration is compared against this one."
+  },
+  {
+   "key": "c",
+   "name": "lexicon v2 (Phase 10.1, frozen)",
+   "index_dir": "index_exp/minilm_lexv2",
+   "lexicon": "data/domain_lexicon_v2.json",
+   "expand": "bm25",
+   "gate": "default",
+   "rerank": null
+  },
+  {
+   "key": "d",
+   "name": "lexicon v2 + lamp token (Phase 10.1b, frozen)",
+   "index_dir": "index_exp/minilm_lexv2_lamp",
+   "lexicon": "data/domain_lexicon_v2.json",
+   "expand": "bm25",
+   "gate": "default",
+   "rerank": null
+  },
+  {
+   "key": "e",
+   "name": "lexicon v2 + CPU cross-encoder re-rank of the top 20",
+   "index_dir": "index_exp/minilm_lexv2",
+   "lexicon": "data/domain_lexicon_v2.json",
+   "expand": "bm25",
+   "gate": "default",
+   "rerank": {
+    "model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+    "top_k": 20,
+    "device": "cpu",
+    "pair": "(query, embedding_text(record))",
+    "tie_break": "cross-encoder score desc, then original rank, then code_full"
+   }
+  }
+ ],
+ "rerank_config_e": {
+  "will_run": true,
+  "reason": "cross-encoder/ms-marco-MiniLM-L-6-v2 is present in the local Hugging Face cache and runs on CPU, so it runs offline here"
+ },
+ "metrics": {
+  "symptom_rows": {
+   "hit": "any expected code appears in the returned list",
+   "reported": [
+    "hit@1",
+    "hit@3",
+    "hit@5",
+    "MRR",
+    "gate_pass_rate"
+   ],
+   "k": 5,
+   "mrr": "1/rank of the first expected code in the top 5, else 0",
+   "gated_rows_score_zero": true,
+   "note": "A row refused by the gate scores 0 for hit and MRR: a refusal is the right behaviour for no_dtc rows and the wrong one here, and the metric must not hide that."
+  },
+  "no_dtc_rows": {
+   "reported": [
+    "decline_rate",
+    "codes_returned_when_answered"
+   ],
+   "declined": "the gate refused, or the retriever returned nothing",
+   "note": "The exact-code and system_group routes bypass the gate by design; the route taken is recorded for every row so any non-hybrid route is visible."
+  },
+  "subsets": [
+   "ALL",
+   "HIGH only",
+   "HIGH+MEDIUM"
+  ]
+ },
+ "uncertainty": {
+  "method": "non-parametric bootstrap over rows",
+  "resamples": 10000,
+  "seed": 1006,
+  "interval": "percentile 95% CI (2.5th, 97.5th)",
+  "paired_test": "paired bootstrap of symptom MRR difference vs configuration (b): the same resampled row indices are applied to both configurations, and the CI is over the per-resample difference"
+ },
+ "adoption_rule": {
+  "fixed_before_running": true,
+  "rule": "A configuration replaces (b) only if BOTH hold: (1) its paired 95% CI for symptom MRR gain over (b) excludes 0, AND (2) its no_dtc decline rate is not lower than (b)'s.",
+  "evaluated_on": "ALL rows (the headline subset)",
+  "action_in_this_phase": "report the verdict only; adopt nothing"
+ },
+ "inputs_sha256": {
+  "data/gold_independent.json": "266abff6aaf30078aafc15a0decfa3e1ced3014f8519eb7b15088d830df6ecf4",
+  "data/dtc_records.jsonl": "308fa6d157591ef12b6a1d7b90b62cf9e854d382cd0aeee24676dd3533d5511f",
+  "data/domain_lexicon.json": "3adeae1b9fe5a0fd9c7b2a8995e77102c5361214abb58a5ff9e67660b8d1ee6a",
+  "data/domain_lexicon_v2.json": "c6c9fec5188dc2a85d3e2834dbe285b562bf63352fd349299a76b0ee1f61b6e9",
+  "data/gate_c4b.json": "42bbddd4aa708aceaacadcd7813dd860d05f0b20bc408518995d6afe801f7ee9",
+  "data/intent_stoplist.json": "736ea4205e04100d75380e67b832aa71f7a276a0fd663c757838ceb63ee36d09",
+  "data/experiments/10_1/freeze.json": "375ed951c013a56665cd04e16e14155e57dd13132c0dff4bd07382bdb3b1afa1",
+  "data/experiments/10_1b/freeze.json": "70112c052c13e8dacf8a1c4182b5bb8643b5aaffde2da650cdf00922076936c5",
+  "index/bm25_corpus.json": "054791969e72b2c58e996d52628684b70db839f1fe0d1bbfae809cbcf4080814",
+  "index_exp/minilm_v1/bm25_corpus.json": "9bc080c3d3b1e8c801d010e0e0172b64e6b67c6134b89a5c335fd816a855d869",
+  "index_exp/minilm_lexv2/bm25_corpus.json": "97e11150a63c3ae24a382b99f8871d81d8e86d902b58a2ecb67d8e6ad9e9964e",
+  "index_exp/minilm_lexv2_lamp/bm25_corpus.json": "f0eec8cded1ddbd891db79f5fa7edca6a0b219841efd18caef46b2736509bd5b",
+  "src/retrieve.py": "0eb5a5870070a5b6ed784141d0826a2e81af05b29ddf1e9dfbb05eea2c744fb9",
+  "src/lexicon.py": "1d1d3ab832aae0806d6123e254cd0ce107dc52d46d2eff50bba33ecc6d7745ca",
+  "src/gate.py": "1a91cc4815a1002bdc325fd029246ee1121caccfd479778fe0bd28473436ef0d",
+  "src/answer.py": "6a3ba1ddb0d4aeab057c1b7a35b634d39fe942a0cba616bd8a930c32e6848b5e"
+ },
+ "environment": {
+  "determinism_hash_dev_defaults": "ffff9bc707d8754d",
+  "python": "3.12.3",
+  "exact_dense": true,
+  "note": "All ranking is exact brute force with id tie-breaks, so results are reproducible across processes."
+ },
+ "one_shot_enforcement": "scripts/independent_eval.py refuses to run if data/experiments/10_6/results.json already exists."
+}
