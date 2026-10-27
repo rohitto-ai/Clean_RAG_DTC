@@ -1,0 +1,7308 @@
+{
+ "preregistration": "data/experiments/10_6/preregistration.json",
+ "preregistered_utc": "2026-10-27T17:15:48+00:00",
+ "gold_sha256": "266abff6aaf30078aafc15a0decfa3e1ced3014f8519eb7b15088d830df6ecf4",
+ "results": {
+  "a": {
+   "config": {
+    "key": "a",
+    "name": "v1-phase7 (no lexicon, legacy gate)",
+    "index_dir": "index_exp/minilm_v1",
+    "lexicon": null,
+    "expand": "none",
+    "gate": "legacy",
+    "rerank": null,
+    "note": "The v1 RETRIEVAL CONFIGURATION rebuilt on today's records, not a byte-identical time capsule of the v1-phase7 tag: the 9.1b parser fix changed 3 records. Same data for every configuration, so the comparison is like-for-like."
+   },
+   "status": "RUN",
+   "seconds": 7.8,
+   "rows": [
+    {
+     "id": "Q01",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 1,
+     "route": "hybrid",
+     "codes": [
+      "P0336-00",
+      "P0627-11",
+      "P0627-12",
+      "P0335-00",
+      "P018F-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": null,
+     "reranked": false
+    },
+    {
+     "id": "Q02",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [],
+     "declined": true,
+     "gate_passed": false,
+     "gate_reasons": null,
+     "reranked": false
+    },
+    {
+     "id": "Q03",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": 1,
+     "route": "hybrid",
+     "codes": [
+      "P2150-00",
+      "P2147-00",
+      "P1201-00",
+      "P0201-00",
+      "P1202-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": null,
+     "reranked": false
+    },
+    {
+     "id": "Q04",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P244A-00",
+      "P243C-00",
+      "P244B-00",
+      "P2463-85",
+      "P226D-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": null,
+     "reranked": false
+    },
+    {
+     "id": "Q05",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0335-00",
+      "P0336-00",
+      "P0089-00",
+      "P00C6-00",
+      "P018F-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": null,
+     "reranked": false
+    },
+    {
+     "id": "Q06",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": 1,
+     "route": "hybrid",
+     "codes": [
+      "P0101-00",
+      "P2458-00",
+      "P242F-00",
+      "P259F-00",
+      "P0100-9B"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": null,
+     "reranked": false
+    },
+    {
+     "id": "Q07",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P206A-86",
+      "P242F-00",
+      "P2463-85",
+      "P243C-00",
+      "P0219-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": null,
+     "reranked": false
+    },
+    {
+     "id": "Q08",
+     "mode": "symptom",
+     "confidence": "high",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P042A-85",
+      "P042C-00",
+      "P042A-84",
+      "P042D-00",
+      "P0421-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": null,
+     "reranked": false
+    },
+    {
+     "id": "Q09",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 2,
+     "route": "hybrid",
+     "codes": [
+      "P2043-85",
+      "P042A-85",
+      "P042D-00",
+      "P242A-85",
+      "P242A-84"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": null,
+     "reranked": false
+    },
+    {
+     "id": "Q10",
+     "mode": "symptom",
+     "confidence": "high",
+     "rank": 1,
+     "route": "hybrid",
+     "codes": [
+      "P203F-00",
+      "P1083-00",
+      "P203B-84",
+      "P203B-85",
+      "P242F-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": null,
+     "reranked": false
+    },
+    {
+     "id": "Q11",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0118-00",
+      "P0119-00",
+      "P2043-84",
+      "P2228-00",
+      "P22A3-29"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": null,
+     "reranked": false
+    },
+    {
+     "id": "Q12",
+     "mode": "symptom",
+     "confidence": "high",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0425-84",
+      "P0425-85",
+      "P0427-00",
+      "P242A-84",
+      "P242A-85"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": null,
+     "reranked": false
+    },
+    {
+     "id": "Q13",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0219-00",
+      "P061C-00",
+      "P0336-00",
+      "P166E-00",
+      "P0335-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": null,
+     "reranked": false
+    },
+    {
+     "id": "Q14",
+     "mode": "symptom",
+     "confidence": "high",
+     "rank": 2,
+     "route": "hybrid",
+     "codes": [
+      "P0504-00",
+      "P0120-11",
+      "P0220-11",
+      "P0120-12",
+      "P0220-12"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": null,
+     "reranked": false
+    },
+    {
+     "id": "Q15",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 2,
+     "route": "hybrid",
+     "codes": [
+      "P0504-00",
+      "P0220-12",
+      "P0220-11",
+      "P0120-11",
+      "P0120-12"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": null,
+     "reranked": false
+    },
+    {
+     "id": "Q16",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P1201-00",
+      "P242F-00",
+      "P0120-12",
+      "P244B-00",
+      "P244A-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": null,
+     "reranked": false
+    },
+    {
+     "id": "Q17",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": 4,
+     "route": "hybrid",
+     "codes": [
+      "P0004-00",
+      "P0003-00",
+      "P0627-12",
+      "P0627-11",
+      "P0A1B-12"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": null,
+     "reranked": false
+    },
+    {
+     "id": "Q18",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0504-00",
+      "P0120-11",
+      "P0120-12",
+      "P0220-11",
+      "P0220-12"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": null,
+     "reranked": false
+    },
+    {
+     "id": "Q19",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P206A-F1",
+      "P206A-F2",
+      "P206A-F3",
+      "P203F-84",
+      "P0089-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": null,
+     "reranked": false
+    },
+    {
+     "id": "Q20",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P2463-85",
+      "P2458-00",
+      "P242F-00",
+      "P244A-00",
+      "P243F-F0"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": null,
+     "reranked": false
+    },
+    {
+     "id": "Q21",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P1204-00",
+      "P203A-29",
+      "P2156-00",
+      "P2200-01",
+      "P229E-01"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": null,
+     "reranked": false
+    },
+    {
+     "id": "Q22",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0101-00",
+      "P0110-11",
+      "P0110-12",
+      "P0100-9B",
+      "P0100-9C"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": null,
+     "reranked": false
+    },
+    {
+     "id": "Q23",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P242A-84",
+      "P0110-12",
+      "P0110-11",
+      "P0109-00",
+      "P2043-84"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": null,
+     "reranked": false
+    },
+    {
+     "id": "Q24",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 2,
+     "route": "hybrid",
+     "codes": [
+      "P0627-12",
+      "P0180-12",
+      "P0A1B-12",
+      "P2156-00",
+      "P0627-11"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": null,
+     "reranked": false
+    },
+    {
+     "id": "Q25",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P061C-00",
+      "P0336-00",
+      "P0500-1F",
+      "P0335-00",
+      "P0504-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": null,
+     "reranked": false
+    },
+    {
+     "id": "Q26",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P242F-00",
+      "P2147-00",
+      "P1201-00",
+      "P0120-11",
+      "P0120-12"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": null,
+     "reranked": false
+    },
+    {
+     "id": "Q27",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0219-00",
+      "P061C-00",
+      "P0336-00",
+      "P2452-85",
+      "P2452-84"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": null,
+     "reranked": false
+    },
+    {
+     "id": "Q28",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 4,
+     "route": "hybrid",
+     "codes": [
+      "P0100-00",
+      "P0073-00",
+      "P0072-00",
+      "P0118-00",
+      "P242A-84"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": null,
+     "reranked": false
+    },
+    {
+     "id": "Q29",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P242F-00",
+      "P2458-09",
+      "P243C-00",
+      "P2458-00",
+      "P0109-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": null,
+     "reranked": false
+    },
+    {
+     "id": "Q30",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0048-00",
+      "P0047-00",
+      "P003A-00",
+      "P0120-11",
+      "P0120-12"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": null,
+     "reranked": false
+    },
+    {
+     "id": "Q31",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P1204-00",
+      "P2147-00",
+      "P0204-00",
+      "P2156-00",
+      "P1202-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": null,
+     "reranked": false
+    },
+    {
+     "id": "Q32",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0110-11",
+      "P0110-12",
+      "P242F-00",
+      "P2458-09",
+      "P2458-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": null,
+     "reranked": false
+    },
+    {
+     "id": "Q33",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0336-00",
+      "P0335-00",
+      "P0048-00",
+      "P0047-00",
+      "P003A-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": null,
+     "reranked": false
+    },
+    {
+     "id": "Q34",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0219-00",
+      "P061C-00",
+      "P0336-00",
+      "P062B-00",
+      "P0120-11"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": null,
+     "reranked": false
+    },
+    {
+     "id": "Q35",
+     "mode": "symptom",
+     "confidence": "high",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P042C-00",
+      "P042D-00",
+      "P2458-09",
+      "P042A-84",
+      "P042A-85"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": null,
+     "reranked": false
+    },
+    {
+     "id": "Q36",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P1114-00",
+      "P0425-85",
+      "P242A-85",
+      "P242A-84",
+      "P0425-84"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": null,
+     "reranked": false
+    },
+    {
+     "id": "Q37",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P242F-00",
+      "P2463-85",
+      "P243C-00",
+      "P2458-09",
+      "P2458-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": null,
+     "reranked": false
+    },
+    {
+     "id": "Q38",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P2200-0A",
+      "P242F-00",
+      "P243C-00",
+      "P2458-00",
+      "P229E-0A"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": null,
+     "reranked": false
+    },
+    {
+     "id": "Q39",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P1083-00",
+      "P0219-00",
+      "P203F-00",
+      "P061C-00",
+      "P203B-84"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": null,
+     "reranked": false
+    },
+    {
+     "id": "Q40",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P1083-00",
+      "P242F-00",
+      "P2205-29",
+      "P22A3-29",
+      "P2455-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": null,
+     "reranked": false
+    },
+    {
+     "id": "Q41",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P2205-00",
+      "P22A3-00",
+      "P0110-11",
+      "P0110-12",
+      "P2205-29"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": null,
+     "reranked": false
+    },
+    {
+     "id": "Q42",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0117-00",
+      "P0119-00",
+      "P0118-00",
+      "P0116-00",
+      "P22A3-29"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": null,
+     "reranked": false
+    },
+    {
+     "id": "Q43",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0110-11",
+      "P0110-12",
+      "P0100-9C",
+      "P0100-9B",
+      "P0109-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": null,
+     "reranked": false
+    },
+    {
+     "id": "Q44",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P22A3-00",
+      "P2205-00",
+      "P22A3-29",
+      "P2205-29",
+      "P0428-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": null,
+     "reranked": false
+    },
+    {
+     "id": "Q45",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P2452-85",
+      "P0336-00",
+      "P0335-00",
+      "P2454-00",
+      "P2458-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": null,
+     "reranked": false
+    },
+    {
+     "id": "Q46",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P2463-85",
+      "P243F-F0",
+      "P242F-00",
+      "P243C-00",
+      "P206A-86"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": null,
+     "reranked": false
+    },
+    {
+     "id": "Q47",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P20A2-00",
+      "P208C-00",
+      "P2454-00",
+      "P20EE-00",
+      "P229E-27"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": null,
+     "reranked": false
+    },
+    {
+     "id": "Q48",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0110-12",
+      "P0110-11",
+      "P0A1B-12",
+      "P0108-00",
+      "P2455-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": null,
+     "reranked": false
+    },
+    {
+     "id": "Q49",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0336-00",
+      "P0335-00",
+      "P018F-00",
+      "P0A1B-12",
+      "P0219-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": null,
+     "reranked": false
+    },
+    {
+     "id": "Q50",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P061C-00",
+      "P018F-00",
+      "P1083-00",
+      "P00C6-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": null,
+     "reranked": false
+    },
+    {
+     "id": "Q51",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": 3,
+     "route": "hybrid",
+     "codes": [
+      "P0219-00",
+      "P061C-00",
+      "P0336-00",
+      "P0335-00",
+      "P00C6-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": null,
+     "reranked": false
+    },
+    {
+     "id": "Q52",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "system_group",
+     "codes": [
+      "P0504-00",
+      "P0220-11",
+      "P0120-11",
+      "P0120-12",
+      "P0220-12"
+     ],
+     "declined": false,
+     "gate_passed": null,
+     "gate_reasons": null,
+     "reranked": false
+    },
+    {
+     "id": "Q53",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0215-00",
+      "P003A-00",
+      "P062B-00",
+      "P0048-00",
+      "P0047-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": null,
+     "reranked": false
+    },
+    {
+     "id": "Q54",
+     "mode": "symptom",
+     "confidence": "high",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P2463-85",
+      "P2458-00",
+      "P2458-09",
+      "P243C-00",
+      "P242F-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": null,
+     "reranked": false
+    },
+    {
+     "id": "Q55",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0120-11",
+      "P0220-11",
+      "P0120-12",
+      "P0220-12",
+      "P0504-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": null,
+     "reranked": false
+    },
+    {
+     "id": "Q56",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": 4,
+     "route": "hybrid",
+     "codes": [
+      "P0103-00",
+      "P242F-00",
+      "P010D-00",
+      "P0101-00",
+      "P0045-13"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": null,
+     "reranked": false
+    },
+    {
+     "id": "Q57",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0219-00",
+      "P242F-00",
+      "P2463-85",
+      "P00C6-00",
+      "P243C-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": null,
+     "reranked": false
+    },
+    {
+     "id": "Q58",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P061C-00",
+      "P0336-00",
+      "P0335-00",
+      "P0219-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": null,
+     "reranked": false
+    },
+    {
+     "id": "Q59",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": 1,
+     "route": "hybrid",
+     "codes": [
+      "P0A1B-13",
+      "P0A1B-12",
+      "P0335-00",
+      "P0336-00",
+      "P0563-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": null,
+     "reranked": false
+    },
+    {
+     "id": "Q60",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P242A-84",
+      "P242A-85",
+      "P0425-84",
+      "P0425-85",
+      "P0427-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": null,
+     "reranked": false
+    }
+   ],
+   "symptom": {
+    "ALL": {
+     "n": 41,
+     "hit@1": 0.12195121951219512,
+     "hit@3": 0.24390243902439024,
+     "hit@5": 0.3170731707317073,
+     "MRR": 0.19715447154471546,
+     "gate_pass_rate": 0.975609756097561,
+     "declined": 1,
+     "MRR_ci": {
+      "point": 0.19715447154471546,
+      "lo": 0.0975609756097561,
+      "hi": 0.3069105691056911
+     },
+     "hit@1_ci": {
+      "point": 0.12195121951219512,
+      "lo": 0.024390243902439025,
+      "hi": 0.24390243902439024
+     }
+    },
+    "HIGH": {
+     "n": 6,
+     "hit@1": 0.16666666666666666,
+     "hit@3": 0.3333333333333333,
+     "hit@5": 0.3333333333333333,
+     "MRR": 0.25,
+     "gate_pass_rate": 1.0,
+     "declined": 0,
+     "MRR_ci": {
+      "point": 0.25,
+      "lo": 0.0,
+      "hi": 0.5833333333333334
+     },
+     "hit@1_ci": {
+      "point": 0.16666666666666666,
+      "lo": 0.0,
+      "hi": 0.5
+     }
+    },
+    "HIGH+MEDIUM": {
+     "n": 21,
+     "hit@1": 0.19047619047619047,
+     "hit@3": 0.2857142857142857,
+     "hit@5": 0.38095238095238093,
+     "MRR": 0.25396825396825395,
+     "gate_pass_rate": 1.0,
+     "declined": 0,
+     "MRR_ci": {
+      "point": 0.25396825396825395,
+      "lo": 0.10317460317460317,
+      "hi": 0.42857142857142855
+     },
+     "hit@1_ci": {
+      "point": 0.19047619047619047,
+      "lo": 0.047619047619047616,
+      "hi": 0.38095238095238093
+     }
+    }
+   },
+   "no_dtc": {
+    "ALL": {
+     "n": 19,
+     "decline_rate": 0.0,
+     "declined": 0,
+     "answered": 19,
+     "codes_when_answered": {
+      "Q04": [
+       "P244A-00",
+       "P243C-00",
+       "P244B-00"
+      ],
+      "Q11": [
+       "P0118-00",
+       "P0119-00",
+       "P2043-84"
+      ],
+      "Q20": [
+       "P2463-85",
+       "P2458-00",
+       "P242F-00"
+      ],
+      "Q22": [
+       "P0101-00",
+       "P0110-11",
+       "P0110-12"
+      ],
+      "Q27": [
+       "P0219-00",
+       "P061C-00",
+       "P0336-00"
+      ],
+      "Q29": [
+       "P242F-00",
+       "P2458-09",
+       "P243C-00"
+      ],
+      "Q30": [
+       "P0048-00",
+       "P0047-00",
+       "P003A-00"
+      ],
+      "Q32": [
+       "P0110-11",
+       "P0110-12",
+       "P242F-00"
+      ],
+      "Q36": [
+       "P1114-00",
+       "P0425-85",
+       "P242A-85"
+      ],
+      "Q37": [
+       "P242F-00",
+       "P2463-85",
+       "P243C-00"
+      ],
+      "Q41": [
+       "P2205-00",
+       "P22A3-00",
+       "P0110-11"
+      ],
+      "Q42": [
+       "P0117-00",
+       "P0119-00",
+       "P0118-00"
+      ],
+      "Q43": [
+       "P0110-11",
+       "P0110-12",
+       "P0100-9C"
+      ],
+      "Q45": [
+       "P2452-85",
+       "P0336-00",
+       "P0335-00"
+      ],
+      "Q46": [
+       "P2463-85",
+       "P243F-F0",
+       "P242F-00"
+      ],
+      "Q47": [
+       "P20A2-00",
+       "P208C-00",
+       "P2454-00"
+      ],
+      "Q48": [
+       "P0110-12",
+       "P0110-11",
+       "P0A1B-12"
+      ],
+      "Q57": [
+       "P0219-00",
+       "P242F-00",
+       "P2463-85"
+      ],
+      "Q60": [
+       "P242A-84",
+       "P242A-85",
+       "P0425-84"
+      ]
+     },
+     "routes": {
+      "hybrid": 19
+     },
+     "decline_rate_ci": {
+      "point": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     }
+    },
+    "HIGH": {
+     "n": 8,
+     "decline_rate": 0.0,
+     "declined": 0,
+     "answered": 8,
+     "codes_when_answered": {
+      "Q04": [
+       "P244A-00",
+       "P243C-00",
+       "P244B-00"
+      ],
+      "Q32": [
+       "P0110-11",
+       "P0110-12",
+       "P242F-00"
+      ],
+      "Q41": [
+       "P2205-00",
+       "P22A3-00",
+       "P0110-11"
+      ],
+      "Q42": [
+       "P0117-00",
+       "P0119-00",
+       "P0118-00"
+      ],
+      "Q45": [
+       "P2452-85",
+       "P0336-00",
+       "P0335-00"
+      ],
+      "Q47": [
+       "P20A2-00",
+       "P208C-00",
+       "P2454-00"
+      ],
+      "Q48": [
+       "P0110-12",
+       "P0110-11",
+       "P0A1B-12"
+      ],
+      "Q57": [
+       "P0219-00",
+       "P242F-00",
+       "P2463-85"
+      ]
+     },
+     "routes": {
+      "hybrid": 8
+     },
+     "decline_rate_ci": {
+      "point": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     }
+    },
+    "HIGH+MEDIUM": {
+     "n": 19,
+     "decline_rate": 0.0,
+     "declined": 0,
+     "answered": 19,
+     "codes_when_answered": {
+      "Q04": [
+       "P244A-00",
+       "P243C-00",
+       "P244B-00"
+      ],
+      "Q11": [
+       "P0118-00",
+       "P0119-00",
+       "P2043-84"
+      ],
+      "Q20": [
+       "P2463-85",
+       "P2458-00",
+       "P242F-00"
+      ],
+      "Q22": [
+       "P0101-00",
+       "P0110-11",
+       "P0110-12"
+      ],
+      "Q27": [
+       "P0219-00",
+       "P061C-00",
+       "P0336-00"
+      ],
+      "Q29": [
+       "P242F-00",
+       "P2458-09",
+       "P243C-00"
+      ],
+      "Q30": [
+       "P0048-00",
+       "P0047-00",
+       "P003A-00"
+      ],
+      "Q32": [
+       "P0110-11",
+       "P0110-12",
+       "P242F-00"
+      ],
+      "Q36": [
+       "P1114-00",
+       "P0425-85",
+       "P242A-85"
+      ],
+      "Q37": [
+       "P242F-00",
+       "P2463-85",
+       "P243C-00"
+      ],
+      "Q41": [
+       "P2205-00",
+       "P22A3-00",
+       "P0110-11"
+      ],
+      "Q42": [
+       "P0117-00",
+       "P0119-00",
+       "P0118-00"
+      ],
+      "Q43": [
+       "P0110-11",
+       "P0110-12",
+       "P0100-9C"
+      ],
+      "Q45": [
+       "P2452-85",
+       "P0336-00",
+       "P0335-00"
+      ],
+      "Q46": [
+       "P2463-85",
+       "P243F-F0",
+       "P242F-00"
+      ],
+      "Q47": [
+       "P20A2-00",
+       "P208C-00",
+       "P2454-00"
+      ],
+      "Q48": [
+       "P0110-12",
+       "P0110-11",
+       "P0A1B-12"
+      ],
+      "Q57": [
+       "P0219-00",
+       "P242F-00",
+       "P2463-85"
+      ],
+      "Q60": [
+       "P242A-84",
+       "P242A-85",
+       "P0425-84"
+      ]
+     },
+     "routes": {
+      "hybrid": 19
+     },
+     "decline_rate_ci": {
+      "point": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     }
+    }
+   }
+  },
+  "b": {
+   "config": {
+    "key": "b",
+    "name": "production C4b + gate v2 (the incumbent)",
+    "index_dir": "index",
+    "lexicon": "auto",
+    "expand": "auto",
+    "gate": "default",
+    "rerank": null,
+    "note": "The adopted production default. Every other configuration is compared against this one."
+   },
+   "status": "RUN",
+   "seconds": 4.2,
+   "rows": [
+    {
+     "id": "Q01",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 1,
+     "route": "hybrid",
+     "codes": [
+      "P0336-00",
+      "P0335-00",
+      "P0627-11",
+      "P0627-12",
+      "P018F-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q02",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 5,
+     "route": "hybrid",
+     "codes": [
+      "P061C-00",
+      "P0500-1F",
+      "P0219-00",
+      "P0500-1C",
+      "P0336-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q03",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": 1,
+     "route": "hybrid",
+     "codes": [
+      "P2150-00",
+      "P2147-00",
+      "P1201-00",
+      "P0201-00",
+      "P1202-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q04",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P244A-00",
+      "P243C-00",
+      "P226D-00",
+      "P244B-00",
+      "P2463-85"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q05",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0335-00",
+      "P0336-00",
+      "P0089-00",
+      "P00C6-00",
+      "P018F-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q06",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": 1,
+     "route": "hybrid",
+     "codes": [
+      "P0101-00",
+      "P2458-00",
+      "P242F-00",
+      "P259F-00",
+      "P0100-9B"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q07",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P244A-00",
+      "P0219-00",
+      "P206A-86",
+      "P2BA9-00",
+      "P259E-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q08",
+     "mode": "symptom",
+     "confidence": "high",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P042A-85",
+      "P042A-84",
+      "P042C-00",
+      "P042D-00",
+      "P0421-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q09",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 2,
+     "route": "hybrid",
+     "codes": [
+      "P2043-85",
+      "P042A-85",
+      "P242A-85",
+      "P242A-84",
+      "P0425-85"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q10",
+     "mode": "symptom",
+     "confidence": "high",
+     "rank": 1,
+     "route": "hybrid",
+     "codes": [
+      "P203F-00",
+      "P2BA9-00",
+      "P203B-84",
+      "P203B-85",
+      "P206A-F1"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q11",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0118-00",
+      "P0119-00",
+      "P2228-00",
+      "P22A3-29",
+      "P2205-29"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q12",
+     "mode": "symptom",
+     "confidence": "high",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0425-84",
+      "P0425-85",
+      "P242A-84",
+      "P242A-85",
+      "P0427-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q13",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0219-00",
+      "P061C-00",
+      "P0336-00",
+      "P166E-00",
+      "P0335-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q14",
+     "mode": "symptom",
+     "confidence": "high",
+     "rank": 2,
+     "route": "hybrid",
+     "codes": [
+      "P0504-00",
+      "P0120-12",
+      "P0120-11",
+      "P0220-11",
+      "P0220-12"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q15",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 4,
+     "route": "hybrid",
+     "codes": [
+      "P0504-00",
+      "P0220-11",
+      "P0120-11",
+      "P0220-12",
+      "P0120-12"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q16",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P1201-00",
+      "P242F-00",
+      "P244B-00",
+      "P2463-85",
+      "P2150-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q17",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0004-00",
+      "P0336-00",
+      "P0003-00",
+      "P0335-00",
+      "P0627-12"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q18",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0120-12",
+      "P0504-00",
+      "P0120-11",
+      "P0220-11",
+      "P0220-12"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q19",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P206A-F1",
+      "P203F-84",
+      "P206A-F2",
+      "P0089-00",
+      "P206A-F3"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q20",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P2463-85",
+      "P242F-00",
+      "P2458-00",
+      "P244A-00",
+      "P226D-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q21",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0120-11",
+      "P0120-12",
+      "P0504-00",
+      "P203A-29",
+      "P2200-01"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q22",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0101-00",
+      "P0110-11",
+      "P010C-00",
+      "P0102-00",
+      "P0100-9B"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q23",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0119-00",
+      "P242A-84",
+      "P0110-11",
+      "P0110-12",
+      "P242D-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q24",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 4,
+     "route": "hybrid",
+     "codes": [
+      "P0A1B-12",
+      "P0A1B-13",
+      "P0627-12",
+      "P0180-12",
+      "P0627-11"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q25",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0219-00",
+      "P061C-00",
+      "P0336-00",
+      "P0335-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q26",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P242F-00",
+      "P1201-00",
+      "P2147-00",
+      "P0120-11",
+      "P243F-F0"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q27",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0219-00",
+      "P061C-00",
+      "P0336-00",
+      "P0335-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q28",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 1,
+     "route": "hybrid",
+     "codes": [
+      "P0117-00",
+      "P0118-00",
+      "P0116-00",
+      "P0119-00",
+      "P0100-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q29",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P026A-00",
+      "P0101-00",
+      "P0109-00",
+      "P0110-12",
+      "P0102-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q30",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0048-00",
+      "P0047-00",
+      "P003A-00",
+      "P0045-13",
+      "P006E-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q31",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P1204-00",
+      "P1202-00",
+      "P2147-00",
+      "P1201-00",
+      "P0204-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q32",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0110-11",
+      "P0504-00",
+      "P0110-12",
+      "P242F-00",
+      "P2458-09"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q33",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0336-00",
+      "P0335-00",
+      "P0119-00",
+      "P061C-00",
+      "P0048-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q34",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0219-00",
+      "P0336-00",
+      "P061C-00",
+      "P0120-11",
+      "P062B-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q35",
+     "mode": "symptom",
+     "confidence": "high",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P042C-00",
+      "P2458-09",
+      "P042D-00",
+      "P042A-84",
+      "P042A-85"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q36",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P1114-00",
+      "P0425-85",
+      "P242A-84",
+      "P242A-85",
+      "P0425-84"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q37",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P242F-00",
+      "P2463-85",
+      "P243C-00",
+      "P2458-00",
+      "P2458-09"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q38",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P206A-F2",
+      "P2BA9-00",
+      "P206A-F1",
+      "P206A-86",
+      "P206A-F3"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q39",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 2,
+     "route": "hybrid",
+     "codes": [
+      "P203F-00",
+      "P2BA9-00",
+      "P206A-F2",
+      "P203B-84",
+      "P203B-85"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q40",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P1083-00",
+      "P242F-00",
+      "P2205-29",
+      "P22A3-29",
+      "P2455-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q41",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P2205-00",
+      "P22A3-00",
+      "P0119-00",
+      "P0110-12",
+      "P0118-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q42",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0117-00",
+      "P0119-00",
+      "P0118-00",
+      "P0116-00",
+      "P0336-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q43",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0110-11",
+      "P0110-12",
+      "P0100-9C",
+      "P0100-9B",
+      "P0109-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q44",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": 4,
+     "route": "hybrid",
+     "codes": [
+      "P0118-00",
+      "P0117-00",
+      "P0119-00",
+      "P0116-00",
+      "P22A3-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q45",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P2458-09",
+      "P2458-00",
+      "P0336-00",
+      "P2452-85",
+      "P2454-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q46",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P2463-85",
+      "P243F-F0",
+      "P242F-00",
+      "P243C-00",
+      "P2458-09"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q47",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P2458-09",
+      "P20A2-00",
+      "P208C-00",
+      "P20A2-11",
+      "P2454-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q48",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0110-12",
+      "P0110-11",
+      "P0A1B-12",
+      "P0108-00",
+      "P2455-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q49",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P061C-00",
+      "P0219-00",
+      "P0336-00",
+      "P0335-00",
+      "P018F-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q50",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P061C-00",
+      "P018F-00",
+      "P1083-00",
+      "P00C6-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q51",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": 2,
+     "route": "hybrid",
+     "codes": [
+      "P0219-00",
+      "P0336-00",
+      "P0335-00",
+      "P00C6-00",
+      "P061C-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q52",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "system_group",
+     "codes": [
+      "P0504-00",
+      "P0220-11",
+      "P0120-11",
+      "P0120-12",
+      "P0220-12"
+     ],
+     "declined": false,
+     "gate_passed": null,
+     "gate_reasons": null,
+     "reranked": false
+    },
+    {
+     "id": "Q53",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": 3,
+     "route": "hybrid",
+     "codes": [
+      "P0500-1C",
+      "P0215-00",
+      "P0500-1F",
+      "P003A-00",
+      "P062B-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q54",
+     "mode": "symptom",
+     "confidence": "high",
+     "rank": 3,
+     "route": "hybrid",
+     "codes": [
+      "P2463-85",
+      "P2458-00",
+      "P2264-00",
+      "P2458-09",
+      "P242F-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q55",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0220-11",
+      "P0120-11",
+      "P0120-12",
+      "P0220-12",
+      "P0504-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q56",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": 4,
+     "route": "hybrid",
+     "codes": [
+      "P242F-00",
+      "P0103-00",
+      "P010D-00",
+      "P0101-00",
+      "P0045-13"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q57",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0219-00",
+      "P2463-85",
+      "P00C6-00",
+      "P242F-00",
+      "P243F-F0"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q58",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P061C-00",
+      "P0336-00",
+      "P0335-00",
+      "P0219-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q59",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": 1,
+     "route": "hybrid",
+     "codes": [
+      "P0A1B-13",
+      "P0A1B-12",
+      "P0335-00",
+      "P0336-00",
+      "P0563-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q60",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P242A-84",
+      "P242A-85",
+      "P0425-84",
+      "P0425-85",
+      "P0427-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    }
+   ],
+   "symptom": {
+    "ALL": {
+     "n": 41,
+     "hit@1": 0.14634146341463414,
+     "hit@3": 0.2926829268292683,
+     "hit@5": 0.4146341463414634,
+     "MRR": 0.24065040650406505,
+     "gate_pass_rate": 1.0,
+     "declined": 0,
+     "MRR_ci": {
+      "point": 0.24065040650406505,
+      "lo": 0.13495934959349593,
+      "hi": 0.35365853658536583
+     },
+     "hit@1_ci": {
+      "point": 0.14634146341463414,
+      "lo": 0.04878048780487805,
+      "hi": 0.2682926829268293
+     }
+    },
+    "HIGH": {
+     "n": 6,
+     "hit@1": 0.16666666666666666,
+     "hit@3": 0.5,
+     "hit@5": 0.5,
+     "MRR": 0.3055555555555555,
+     "gate_pass_rate": 1.0,
+     "declined": 0,
+     "MRR_ci": {
+      "point": 0.3055555555555555,
+      "lo": 0.05555555555555555,
+      "hi": 0.638888888888889
+     },
+     "hit@1_ci": {
+      "point": 0.16666666666666666,
+      "lo": 0.0,
+      "hi": 0.5
+     }
+    },
+    "HIGH+MEDIUM": {
+     "n": 21,
+     "hit@1": 0.19047619047619047,
+     "hit@3": 0.38095238095238093,
+     "hit@5": 0.47619047619047616,
+     "MRR": 0.29365079365079366,
+     "gate_pass_rate": 1.0,
+     "declined": 0,
+     "MRR_ci": {
+      "point": 0.29365079365079366,
+      "lo": 0.14285714285714285,
+      "hi": 0.46825396825396826
+     },
+     "hit@1_ci": {
+      "point": 0.19047619047619047,
+      "lo": 0.047619047619047616,
+      "hi": 0.38095238095238093
+     }
+    }
+   },
+   "no_dtc": {
+    "ALL": {
+     "n": 19,
+     "decline_rate": 0.0,
+     "declined": 0,
+     "answered": 19,
+     "codes_when_answered": {
+      "Q04": [
+       "P244A-00",
+       "P243C-00",
+       "P226D-00"
+      ],
+      "Q11": [
+       "P0118-00",
+       "P0119-00",
+       "P2228-00"
+      ],
+      "Q20": [
+       "P2463-85",
+       "P242F-00",
+       "P2458-00"
+      ],
+      "Q22": [
+       "P0101-00",
+       "P0110-11",
+       "P010C-00"
+      ],
+      "Q27": [
+       "P0219-00",
+       "P061C-00",
+       "P0336-00"
+      ],
+      "Q29": [
+       "P026A-00",
+       "P0101-00",
+       "P0109-00"
+      ],
+      "Q30": [
+       "P0048-00",
+       "P0047-00",
+       "P003A-00"
+      ],
+      "Q32": [
+       "P0110-11",
+       "P0504-00",
+       "P0110-12"
+      ],
+      "Q36": [
+       "P1114-00",
+       "P0425-85",
+       "P242A-84"
+      ],
+      "Q37": [
+       "P242F-00",
+       "P2463-85",
+       "P243C-00"
+      ],
+      "Q41": [
+       "P2205-00",
+       "P22A3-00",
+       "P0119-00"
+      ],
+      "Q42": [
+       "P0117-00",
+       "P0119-00",
+       "P0118-00"
+      ],
+      "Q43": [
+       "P0110-11",
+       "P0110-12",
+       "P0100-9C"
+      ],
+      "Q45": [
+       "P2458-09",
+       "P2458-00",
+       "P0336-00"
+      ],
+      "Q46": [
+       "P2463-85",
+       "P243F-F0",
+       "P242F-00"
+      ],
+      "Q47": [
+       "P2458-09",
+       "P20A2-00",
+       "P208C-00"
+      ],
+      "Q48": [
+       "P0110-12",
+       "P0110-11",
+       "P0A1B-12"
+      ],
+      "Q57": [
+       "P0219-00",
+       "P2463-85",
+       "P00C6-00"
+      ],
+      "Q60": [
+       "P242A-84",
+       "P242A-85",
+       "P0425-84"
+      ]
+     },
+     "routes": {
+      "hybrid": 19
+     },
+     "decline_rate_ci": {
+      "point": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     }
+    },
+    "HIGH": {
+     "n": 8,
+     "decline_rate": 0.0,
+     "declined": 0,
+     "answered": 8,
+     "codes_when_answered": {
+      "Q04": [
+       "P244A-00",
+       "P243C-00",
+       "P226D-00"
+      ],
+      "Q32": [
+       "P0110-11",
+       "P0504-00",
+       "P0110-12"
+      ],
+      "Q41": [
+       "P2205-00",
+       "P22A3-00",
+       "P0119-00"
+      ],
+      "Q42": [
+       "P0117-00",
+       "P0119-00",
+       "P0118-00"
+      ],
+      "Q45": [
+       "P2458-09",
+       "P2458-00",
+       "P0336-00"
+      ],
+      "Q47": [
+       "P2458-09",
+       "P20A2-00",
+       "P208C-00"
+      ],
+      "Q48": [
+       "P0110-12",
+       "P0110-11",
+       "P0A1B-12"
+      ],
+      "Q57": [
+       "P0219-00",
+       "P2463-85",
+       "P00C6-00"
+      ]
+     },
+     "routes": {
+      "hybrid": 8
+     },
+     "decline_rate_ci": {
+      "point": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     }
+    },
+    "HIGH+MEDIUM": {
+     "n": 19,
+     "decline_rate": 0.0,
+     "declined": 0,
+     "answered": 19,
+     "codes_when_answered": {
+      "Q04": [
+       "P244A-00",
+       "P243C-00",
+       "P226D-00"
+      ],
+      "Q11": [
+       "P0118-00",
+       "P0119-00",
+       "P2228-00"
+      ],
+      "Q20": [
+       "P2463-85",
+       "P242F-00",
+       "P2458-00"
+      ],
+      "Q22": [
+       "P0101-00",
+       "P0110-11",
+       "P010C-00"
+      ],
+      "Q27": [
+       "P0219-00",
+       "P061C-00",
+       "P0336-00"
+      ],
+      "Q29": [
+       "P026A-00",
+       "P0101-00",
+       "P0109-00"
+      ],
+      "Q30": [
+       "P0048-00",
+       "P0047-00",
+       "P003A-00"
+      ],
+      "Q32": [
+       "P0110-11",
+       "P0504-00",
+       "P0110-12"
+      ],
+      "Q36": [
+       "P1114-00",
+       "P0425-85",
+       "P242A-84"
+      ],
+      "Q37": [
+       "P242F-00",
+       "P2463-85",
+       "P243C-00"
+      ],
+      "Q41": [
+       "P2205-00",
+       "P22A3-00",
+       "P0119-00"
+      ],
+      "Q42": [
+       "P0117-00",
+       "P0119-00",
+       "P0118-00"
+      ],
+      "Q43": [
+       "P0110-11",
+       "P0110-12",
+       "P0100-9C"
+      ],
+      "Q45": [
+       "P2458-09",
+       "P2458-00",
+       "P0336-00"
+      ],
+      "Q46": [
+       "P2463-85",
+       "P243F-F0",
+       "P242F-00"
+      ],
+      "Q47": [
+       "P2458-09",
+       "P20A2-00",
+       "P208C-00"
+      ],
+      "Q48": [
+       "P0110-12",
+       "P0110-11",
+       "P0A1B-12"
+      ],
+      "Q57": [
+       "P0219-00",
+       "P2463-85",
+       "P00C6-00"
+      ],
+      "Q60": [
+       "P242A-84",
+       "P242A-85",
+       "P0425-84"
+      ]
+     },
+     "routes": {
+      "hybrid": 19
+     },
+     "decline_rate_ci": {
+      "point": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     }
+    }
+   }
+  },
+  "c": {
+   "config": {
+    "key": "c",
+    "name": "lexicon v2 (Phase 10.1, frozen)",
+    "index_dir": "index_exp/minilm_lexv2",
+    "lexicon": "data/domain_lexicon_v2.json",
+    "expand": "bm25",
+    "gate": "default",
+    "rerank": null
+   },
+   "status": "RUN",
+   "seconds": 4.6,
+   "rows": [
+    {
+     "id": "Q01",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 1,
+     "route": "hybrid",
+     "codes": [
+      "P0336-00",
+      "P0335-00",
+      "P2156-00",
+      "P2147-00",
+      "P1204-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q02",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 5,
+     "route": "hybrid",
+     "codes": [
+      "P061C-00",
+      "P0500-1F",
+      "P0219-00",
+      "P0500-1C",
+      "P0336-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q03",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": 1,
+     "route": "hybrid",
+     "codes": [
+      "P2150-00",
+      "P2147-00",
+      "P1201-00",
+      "P0201-00",
+      "P1202-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q04",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P244A-00",
+      "P2463-85",
+      "P242F-00",
+      "P243C-00",
+      "P226D-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q05",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0335-00",
+      "P0336-00",
+      "P0089-00",
+      "P00C6-00",
+      "P018F-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q06",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": 2,
+     "route": "hybrid",
+     "codes": [
+      "P2458-00",
+      "P0101-00",
+      "P0100-9B",
+      "P0100-9C",
+      "P242F-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q07",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0219-00",
+      "P244A-00",
+      "P2452-85",
+      "P2452-84",
+      "P259E-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q08",
+     "mode": "symptom",
+     "confidence": "high",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P042A-85",
+      "P042A-84",
+      "P042C-00",
+      "P042D-00",
+      "P0421-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q09",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 2,
+     "route": "hybrid",
+     "codes": [
+      "P2043-85",
+      "P042A-85",
+      "P242A-84",
+      "P242A-85",
+      "P042D-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q10",
+     "mode": "symptom",
+     "confidence": "high",
+     "rank": 1,
+     "route": "hybrid",
+     "codes": [
+      "P203F-00",
+      "P2BA9-00",
+      "P203B-84",
+      "P1083-00",
+      "P203A-29"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q11",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0118-00",
+      "P0119-00",
+      "P0117-00",
+      "P22A3-29",
+      "P2205-29"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q12",
+     "mode": "symptom",
+     "confidence": "high",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0425-84",
+      "P0425-85",
+      "P242A-84",
+      "P242A-85",
+      "P040B-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q13",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0219-00",
+      "P061C-00",
+      "P0336-00",
+      "P166E-00",
+      "P00C6-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q14",
+     "mode": "symptom",
+     "confidence": "high",
+     "rank": 2,
+     "route": "hybrid",
+     "codes": [
+      "P0504-00",
+      "P0120-12",
+      "P0220-11",
+      "P0120-11",
+      "P0220-12"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q15",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 3,
+     "route": "hybrid",
+     "codes": [
+      "P0504-00",
+      "P0220-11",
+      "P0220-12",
+      "P0120-11",
+      "P0120-12"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q16",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P2463-85",
+      "P244B-00",
+      "P244A-00",
+      "P226D-00",
+      "P243C-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q17",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0004-00",
+      "P0336-00",
+      "P0003-00",
+      "P0335-00",
+      "P0A1B-12"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q18",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0120-12",
+      "P0504-00",
+      "P0120-11",
+      "P0220-11",
+      "P0220-12"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q19",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P203F-84",
+      "P206A-F1",
+      "P203A-23",
+      "P20F4-00",
+      "P20F4-9B"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q20",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P2264-12",
+      "P2264-11",
+      "P2264-00",
+      "P2463-85",
+      "P242F-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q21",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0120-11",
+      "P0120-12",
+      "P0220-12",
+      "P0504-00",
+      "P203A-29"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q22",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0101-00",
+      "P0110-11",
+      "P010C-00",
+      "P0102-00",
+      "P0100-9B"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q23",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 3,
+     "route": "hybrid",
+     "codes": [
+      "P0119-00",
+      "P242A-84",
+      "P0118-00",
+      "P242D-00",
+      "P2043-84"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q24",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 3,
+     "route": "hybrid",
+     "codes": [
+      "P0A1B-12",
+      "P0A1B-13",
+      "P0180-12",
+      "P2156-00",
+      "P2147-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q25",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0219-00",
+      "P061C-00",
+      "P0336-00",
+      "P04A4-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q26",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P242F-00",
+      "P243F-F0",
+      "P2463-85",
+      "P1201-00",
+      "P2147-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q27",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0219-00",
+      "P061C-00",
+      "P243F-F0",
+      "P0336-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q28",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 1,
+     "route": "hybrid",
+     "codes": [
+      "P0117-00",
+      "P0118-00",
+      "P0116-00",
+      "P0119-00",
+      "P0100-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q29",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P026A-00",
+      "P0101-00",
+      "P0102-00",
+      "P2458-09",
+      "P243C-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q30",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0048-00",
+      "P0047-00",
+      "P003A-00",
+      "P0045-13",
+      "P259E-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q31",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P1204-00",
+      "P1202-00",
+      "P2147-00",
+      "P1201-00",
+      "P2156-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q32",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P243C-00",
+      "P2463-85",
+      "P242F-00",
+      "P0504-00",
+      "P2458-09"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q33",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0336-00",
+      "P0335-00",
+      "P0119-00",
+      "P061C-00",
+      "P0048-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q34",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0219-00",
+      "P0336-00",
+      "P061C-00",
+      "P0120-11",
+      "P0500-1F"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q35",
+     "mode": "symptom",
+     "confidence": "high",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P042C-00",
+      "P2458-09",
+      "P042D-00",
+      "P042A-84",
+      "P042A-85"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q36",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P1114-00",
+      "P0425-85",
+      "P242A-84",
+      "P242A-85",
+      "P0425-84"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q37",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P242F-00",
+      "P2463-85",
+      "P2458-09",
+      "P243C-00",
+      "P2458-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q38",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P206A-F2",
+      "P206A-86",
+      "P2BA9-00",
+      "P206A-F1",
+      "P206A-F3"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q39",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P1083-00",
+      "P203F-00",
+      "P203B-85",
+      "P203B-84",
+      "P206A-86"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q40",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 4,
+     "route": "hybrid",
+     "codes": [
+      "P1083-00",
+      "P242F-00",
+      "P206A-13",
+      "P242A-64",
+      "P2200-13"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q41",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P2205-00",
+      "P22A3-00",
+      "P0119-00",
+      "P0110-12",
+      "P0118-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q42",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0117-00",
+      "P0119-00",
+      "P0118-00",
+      "P0116-00",
+      "P22A3-29"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q43",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0110-11",
+      "P0110-12",
+      "P0100-9C",
+      "P0100-9B",
+      "P0109-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q44",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0118-00",
+      "P22A3-00",
+      "P2205-00",
+      "P22A3-29",
+      "P2205-29"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q45",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P2458-09",
+      "P2458-00",
+      "P2452-85",
+      "P2452-84",
+      "P0336-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q46",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P2463-85",
+      "P243F-F0",
+      "P242F-00",
+      "P243C-00",
+      "P2458-09"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q47",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P2458-09",
+      "P20A2-00",
+      "P208C-00",
+      "P20A2-11",
+      "P2454-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q48",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0A1B-12",
+      "P2458-09",
+      "P2455-00",
+      "P244B-00",
+      "P0A1B-13"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q49",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P061C-00",
+      "P0219-00",
+      "P0336-00",
+      "P1114-00",
+      "P0335-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q50",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P061C-00",
+      "P018F-00",
+      "P1083-00",
+      "P00C6-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q51",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": 2,
+     "route": "hybrid",
+     "codes": [
+      "P0219-00",
+      "P0336-00",
+      "P0335-00",
+      "P1114-00",
+      "P0120-12"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q52",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "system_group",
+     "codes": [
+      "P0504-00",
+      "P0220-11",
+      "P0120-11",
+      "P0120-12",
+      "P0220-12"
+     ],
+     "declined": false,
+     "gate_passed": null,
+     "gate_reasons": null,
+     "reranked": false
+    },
+    {
+     "id": "Q53",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": 4,
+     "route": "hybrid",
+     "codes": [
+      "P0500-1C",
+      "P003A-00",
+      "P0215-00",
+      "P0500-1F",
+      "P0048-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q54",
+     "mode": "symptom",
+     "confidence": "high",
+     "rank": 1,
+     "route": "hybrid",
+     "codes": [
+      "P2264-00",
+      "P2463-85",
+      "P2264-12",
+      "P2264-11",
+      "P242F-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q55",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0220-11",
+      "P0120-11",
+      "P0120-12",
+      "P0220-12",
+      "P0504-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q56",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": 3,
+     "route": "hybrid",
+     "codes": [
+      "P0103-00",
+      "P242F-00",
+      "P0101-00",
+      "P010D-00",
+      "P0045-13"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q57",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0219-00",
+      "P2463-85",
+      "P242F-00",
+      "P00C6-00",
+      "P243C-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q58",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P061C-00",
+      "P0336-00",
+      "P0335-00",
+      "P0219-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q59",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": 1,
+     "route": "hybrid",
+     "codes": [
+      "P0A1B-13",
+      "P0A1B-12",
+      "P208D-00",
+      "P0335-00",
+      "P0336-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q60",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P242A-84",
+      "P242A-85",
+      "P0425-84",
+      "P0425-85",
+      "P042A-84"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    }
+   ],
+   "symptom": {
+    "ALL": {
+     "n": 41,
+     "hit@1": 0.14634146341463414,
+     "hit@3": 0.34146341463414637,
+     "hit@5": 0.4146341463414634,
+     "MRR": 0.24471544715447155,
+     "gate_pass_rate": 1.0,
+     "declined": 0,
+     "MRR_ci": {
+      "point": 0.24471544715447155,
+      "lo": 0.1402439024390244,
+      "hi": 0.35813008130081303
+     },
+     "hit@1_ci": {
+      "point": 0.14634146341463414,
+      "lo": 0.04878048780487805,
+      "hi": 0.2682926829268293
+     }
+    },
+    "HIGH": {
+     "n": 6,
+     "hit@1": 0.3333333333333333,
+     "hit@3": 0.5,
+     "hit@5": 0.5,
+     "MRR": 0.4166666666666667,
+     "gate_pass_rate": 1.0,
+     "declined": 0,
+     "MRR_ci": {
+      "point": 0.4166666666666667,
+      "lo": 0.08333333333333333,
+      "hi": 0.8333333333333334
+     },
+     "hit@1_ci": {
+      "point": 0.3333333333333333,
+      "lo": 0.0,
+      "hi": 0.6666666666666666
+     }
+    },
+    "HIGH+MEDIUM": {
+     "n": 21,
+     "hit@1": 0.19047619047619047,
+     "hit@3": 0.38095238095238093,
+     "hit@5": 0.42857142857142855,
+     "MRR": 0.28968253968253965,
+     "gate_pass_rate": 1.0,
+     "declined": 0,
+     "MRR_ci": {
+      "point": 0.28968253968253965,
+      "lo": 0.13492063492063494,
+      "hi": 0.46825396825396826
+     },
+     "hit@1_ci": {
+      "point": 0.19047619047619047,
+      "lo": 0.047619047619047616,
+      "hi": 0.38095238095238093
+     }
+    }
+   },
+   "no_dtc": {
+    "ALL": {
+     "n": 19,
+     "decline_rate": 0.0,
+     "declined": 0,
+     "answered": 19,
+     "codes_when_answered": {
+      "Q04": [
+       "P244A-00",
+       "P2463-85",
+       "P242F-00"
+      ],
+      "Q11": [
+       "P0118-00",
+       "P0119-00",
+       "P0117-00"
+      ],
+      "Q20": [
+       "P2264-12",
+       "P2264-11",
+       "P2264-00"
+      ],
+      "Q22": [
+       "P0101-00",
+       "P0110-11",
+       "P010C-00"
+      ],
+      "Q27": [
+       "P0219-00",
+       "P061C-00",
+       "P243F-F0"
+      ],
+      "Q29": [
+       "P026A-00",
+       "P0101-00",
+       "P0102-00"
+      ],
+      "Q30": [
+       "P0048-00",
+       "P0047-00",
+       "P003A-00"
+      ],
+      "Q32": [
+       "P243C-00",
+       "P2463-85",
+       "P242F-00"
+      ],
+      "Q36": [
+       "P1114-00",
+       "P0425-85",
+       "P242A-84"
+      ],
+      "Q37": [
+       "P242F-00",
+       "P2463-85",
+       "P2458-09"
+      ],
+      "Q41": [
+       "P2205-00",
+       "P22A3-00",
+       "P0119-00"
+      ],
+      "Q42": [
+       "P0117-00",
+       "P0119-00",
+       "P0118-00"
+      ],
+      "Q43": [
+       "P0110-11",
+       "P0110-12",
+       "P0100-9C"
+      ],
+      "Q45": [
+       "P2458-09",
+       "P2458-00",
+       "P2452-85"
+      ],
+      "Q46": [
+       "P2463-85",
+       "P243F-F0",
+       "P242F-00"
+      ],
+      "Q47": [
+       "P2458-09",
+       "P20A2-00",
+       "P208C-00"
+      ],
+      "Q48": [
+       "P0A1B-12",
+       "P2458-09",
+       "P2455-00"
+      ],
+      "Q57": [
+       "P0219-00",
+       "P2463-85",
+       "P242F-00"
+      ],
+      "Q60": [
+       "P242A-84",
+       "P242A-85",
+       "P0425-84"
+      ]
+     },
+     "routes": {
+      "hybrid": 19
+     },
+     "decline_rate_ci": {
+      "point": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     }
+    },
+    "HIGH": {
+     "n": 8,
+     "decline_rate": 0.0,
+     "declined": 0,
+     "answered": 8,
+     "codes_when_answered": {
+      "Q04": [
+       "P244A-00",
+       "P2463-85",
+       "P242F-00"
+      ],
+      "Q32": [
+       "P243C-00",
+       "P2463-85",
+       "P242F-00"
+      ],
+      "Q41": [
+       "P2205-00",
+       "P22A3-00",
+       "P0119-00"
+      ],
+      "Q42": [
+       "P0117-00",
+       "P0119-00",
+       "P0118-00"
+      ],
+      "Q45": [
+       "P2458-09",
+       "P2458-00",
+       "P2452-85"
+      ],
+      "Q47": [
+       "P2458-09",
+       "P20A2-00",
+       "P208C-00"
+      ],
+      "Q48": [
+       "P0A1B-12",
+       "P2458-09",
+       "P2455-00"
+      ],
+      "Q57": [
+       "P0219-00",
+       "P2463-85",
+       "P242F-00"
+      ]
+     },
+     "routes": {
+      "hybrid": 8
+     },
+     "decline_rate_ci": {
+      "point": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     }
+    },
+    "HIGH+MEDIUM": {
+     "n": 19,
+     "decline_rate": 0.0,
+     "declined": 0,
+     "answered": 19,
+     "codes_when_answered": {
+      "Q04": [
+       "P244A-00",
+       "P2463-85",
+       "P242F-00"
+      ],
+      "Q11": [
+       "P0118-00",
+       "P0119-00",
+       "P0117-00"
+      ],
+      "Q20": [
+       "P2264-12",
+       "P2264-11",
+       "P2264-00"
+      ],
+      "Q22": [
+       "P0101-00",
+       "P0110-11",
+       "P010C-00"
+      ],
+      "Q27": [
+       "P0219-00",
+       "P061C-00",
+       "P243F-F0"
+      ],
+      "Q29": [
+       "P026A-00",
+       "P0101-00",
+       "P0102-00"
+      ],
+      "Q30": [
+       "P0048-00",
+       "P0047-00",
+       "P003A-00"
+      ],
+      "Q32": [
+       "P243C-00",
+       "P2463-85",
+       "P242F-00"
+      ],
+      "Q36": [
+       "P1114-00",
+       "P0425-85",
+       "P242A-84"
+      ],
+      "Q37": [
+       "P242F-00",
+       "P2463-85",
+       "P2458-09"
+      ],
+      "Q41": [
+       "P2205-00",
+       "P22A3-00",
+       "P0119-00"
+      ],
+      "Q42": [
+       "P0117-00",
+       "P0119-00",
+       "P0118-00"
+      ],
+      "Q43": [
+       "P0110-11",
+       "P0110-12",
+       "P0100-9C"
+      ],
+      "Q45": [
+       "P2458-09",
+       "P2458-00",
+       "P2452-85"
+      ],
+      "Q46": [
+       "P2463-85",
+       "P243F-F0",
+       "P242F-00"
+      ],
+      "Q47": [
+       "P2458-09",
+       "P20A2-00",
+       "P208C-00"
+      ],
+      "Q48": [
+       "P0A1B-12",
+       "P2458-09",
+       "P2455-00"
+      ],
+      "Q57": [
+       "P0219-00",
+       "P2463-85",
+       "P242F-00"
+      ],
+      "Q60": [
+       "P242A-84",
+       "P242A-85",
+       "P0425-84"
+      ]
+     },
+     "routes": {
+      "hybrid": 19
+     },
+     "decline_rate_ci": {
+      "point": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     }
+    }
+   }
+  },
+  "d": {
+   "config": {
+    "key": "d",
+    "name": "lexicon v2 + lamp token (Phase 10.1b, frozen)",
+    "index_dir": "index_exp/minilm_lexv2_lamp",
+    "lexicon": "data/domain_lexicon_v2.json",
+    "expand": "bm25",
+    "gate": "default",
+    "rerank": null
+   },
+   "status": "RUN",
+   "seconds": 4.4,
+   "rows": [
+    {
+     "id": "Q01",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 1,
+     "route": "hybrid",
+     "codes": [
+      "P0336-00",
+      "P0335-00",
+      "P2156-00",
+      "P2147-00",
+      "P1204-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q02",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 5,
+     "route": "hybrid",
+     "codes": [
+      "P061C-00",
+      "P0500-1F",
+      "P0219-00",
+      "P0500-1C",
+      "P0336-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q03",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": 1,
+     "route": "hybrid",
+     "codes": [
+      "P2150-00",
+      "P2147-00",
+      "P1201-00",
+      "P0201-00",
+      "P1202-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q04",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P244A-00",
+      "P2463-85",
+      "P242F-00",
+      "P243C-00",
+      "P226D-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q05",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0335-00",
+      "P0336-00",
+      "P0089-00",
+      "P00C6-00",
+      "P018F-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q06",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": 2,
+     "route": "hybrid",
+     "codes": [
+      "P2458-00",
+      "P0101-00",
+      "P0100-9B",
+      "P0103-00",
+      "P0100-9C"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q07",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0219-00",
+      "P244A-00",
+      "P2452-85",
+      "P2452-84",
+      "P259E-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q08",
+     "mode": "symptom",
+     "confidence": "high",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P042A-85",
+      "P042A-84",
+      "P042C-00",
+      "P042D-00",
+      "P0421-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q09",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 2,
+     "route": "hybrid",
+     "codes": [
+      "P2043-85",
+      "P042A-85",
+      "P242A-84",
+      "P242A-85",
+      "P042D-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q10",
+     "mode": "symptom",
+     "confidence": "high",
+     "rank": 1,
+     "route": "hybrid",
+     "codes": [
+      "P203F-00",
+      "P2BA9-00",
+      "P203B-84",
+      "P1083-00",
+      "P203A-29"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q11",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0118-00",
+      "P0119-00",
+      "P0117-00",
+      "P22A3-29",
+      "P2205-29"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q12",
+     "mode": "symptom",
+     "confidence": "high",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0425-84",
+      "P0425-85",
+      "P242A-84",
+      "P242A-85",
+      "P040B-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q13",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0219-00",
+      "P00C6-00",
+      "P166E-00",
+      "P0335-00",
+      "P1640-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q14",
+     "mode": "symptom",
+     "confidence": "high",
+     "rank": 2,
+     "route": "hybrid",
+     "codes": [
+      "P0504-00",
+      "P0120-12",
+      "P0220-11",
+      "P0120-11",
+      "P0220-12"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q15",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 3,
+     "route": "hybrid",
+     "codes": [
+      "P0504-00",
+      "P0220-11",
+      "P0220-12",
+      "P0120-11",
+      "P0120-12"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q16",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P2463-85",
+      "P244B-00",
+      "P244A-00",
+      "P226D-00",
+      "P243C-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q17",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0004-00",
+      "P0336-00",
+      "P0003-00",
+      "P0335-00",
+      "P0A1B-12"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q18",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0120-12",
+      "P0504-00",
+      "P0120-11",
+      "P0220-11",
+      "P0220-12"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q19",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P203F-84",
+      "P206A-F1",
+      "P203A-23",
+      "P20F4-00",
+      "P203A-24"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q20",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P2264-12",
+      "P2264-11",
+      "P2264-00",
+      "P2463-85",
+      "P242F-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q21",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0120-11",
+      "P0120-12",
+      "P0220-12",
+      "P0504-00",
+      "P203A-29"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q22",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0101-00",
+      "P0110-11",
+      "P010C-00",
+      "P0102-00",
+      "P0100-9B"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q23",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 3,
+     "route": "hybrid",
+     "codes": [
+      "P0119-00",
+      "P242A-84",
+      "P0118-00",
+      "P242D-00",
+      "P2043-84"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q24",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 3,
+     "route": "hybrid",
+     "codes": [
+      "P0A1B-12",
+      "P0A1B-13",
+      "P0180-12",
+      "P2156-00",
+      "P2147-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q25",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0219-00",
+      "P061C-00",
+      "P0336-00",
+      "P04A4-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q26",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P242F-00",
+      "P243F-F0",
+      "P2463-85",
+      "P1201-00",
+      "P2147-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q27",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0219-00",
+      "P061C-00",
+      "P243F-F0",
+      "P0336-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q28",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 1,
+     "route": "hybrid",
+     "codes": [
+      "P0117-00",
+      "P0118-00",
+      "P0116-00",
+      "P0119-00",
+      "P0100-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q29",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P026A-00",
+      "P0101-00",
+      "P0102-00",
+      "P2458-09",
+      "P243C-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q30",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0048-00",
+      "P0047-00",
+      "P003A-00",
+      "P0045-13",
+      "P259E-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q31",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P1204-00",
+      "P1202-00",
+      "P2147-00",
+      "P1201-00",
+      "P2156-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q32",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P243C-00",
+      "P2463-85",
+      "P242F-00",
+      "P0504-00",
+      "P2458-09"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q33",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0336-00",
+      "P0335-00",
+      "P0119-00",
+      "P061C-00",
+      "P0048-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q34",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0219-00",
+      "P0336-00",
+      "P061C-00",
+      "P0120-11",
+      "P0500-1F"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q35",
+     "mode": "symptom",
+     "confidence": "high",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P042C-00",
+      "P2458-09",
+      "P042D-00",
+      "P042A-84",
+      "P042A-85"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q36",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P1114-00",
+      "P0425-85",
+      "P242A-84",
+      "P242A-85",
+      "P0425-84"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q37",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P242F-00",
+      "P2463-85",
+      "P2458-09",
+      "P243C-00",
+      "P2458-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q38",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P206A-F2",
+      "P206A-86",
+      "P2BA9-00",
+      "P206A-F1",
+      "P206A-F3"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q39",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P1083-00",
+      "P203F-00",
+      "P203B-85",
+      "P203B-84",
+      "P206A-86"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q40",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 5,
+     "route": "hybrid",
+     "codes": [
+      "P1083-00",
+      "P242F-00",
+      "P206A-13",
+      "P2200-13",
+      "P042A-64"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q41",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P2205-00",
+      "P22A3-00",
+      "P0119-00",
+      "P0110-12",
+      "P0118-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q42",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0117-00",
+      "P0119-00",
+      "P0118-00",
+      "P0116-00",
+      "P22A3-29"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q43",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0110-11",
+      "P0110-12",
+      "P0100-9C",
+      "P0100-9B",
+      "P0109-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q44",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0118-00",
+      "P22A3-00",
+      "P2205-00",
+      "P22A3-29",
+      "P2205-29"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q45",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P2458-09",
+      "P2458-00",
+      "P2452-85",
+      "P2452-84",
+      "P0336-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q46",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P2463-85",
+      "P243F-F0",
+      "P242F-00",
+      "P243C-00",
+      "P2458-09"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q47",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P2458-09",
+      "P20A2-00",
+      "P208C-00",
+      "P20A2-11",
+      "P2454-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q48",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0A1B-12",
+      "P2458-09",
+      "P2455-00",
+      "P244B-00",
+      "P0A1B-13"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q49",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P061C-00",
+      "P0336-00",
+      "P0219-00",
+      "P1114-00",
+      "P0335-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q50",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P061C-00",
+      "P018F-00",
+      "P1083-00",
+      "P00C6-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q51",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": 2,
+     "route": "hybrid",
+     "codes": [
+      "P0219-00",
+      "P0336-00",
+      "P0335-00",
+      "P1114-00",
+      "P0120-12"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q52",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "system_group",
+     "codes": [
+      "P0504-00",
+      "P0220-11",
+      "P0120-11",
+      "P0120-12",
+      "P0220-12"
+     ],
+     "declined": false,
+     "gate_passed": null,
+     "gate_reasons": null,
+     "reranked": false
+    },
+    {
+     "id": "Q53",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": 4,
+     "route": "hybrid",
+     "codes": [
+      "P0500-1C",
+      "P003A-00",
+      "P0215-00",
+      "P0500-1F",
+      "P0048-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q54",
+     "mode": "symptom",
+     "confidence": "high",
+     "rank": 1,
+     "route": "hybrid",
+     "codes": [
+      "P2264-00",
+      "P2463-85",
+      "P2264-12",
+      "P2264-11",
+      "P242F-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q55",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0220-11",
+      "P0120-11",
+      "P0120-12",
+      "P0220-12",
+      "P0504-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q56",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": 3,
+     "route": "hybrid",
+     "codes": [
+      "P242F-00",
+      "P0103-00",
+      "P0101-00",
+      "P010D-00",
+      "P0045-13"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q57",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0219-00",
+      "P2463-85",
+      "P242F-00",
+      "P00C6-00",
+      "P243C-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q58",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P061C-00",
+      "P0336-00",
+      "P0335-00",
+      "P0219-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q59",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": 1,
+     "route": "hybrid",
+     "codes": [
+      "P0A1B-13",
+      "P0A1B-12",
+      "P208D-00",
+      "P0335-00",
+      "P0336-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    },
+    {
+     "id": "Q60",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P242A-84",
+      "P242A-85",
+      "P0425-84",
+      "P0425-85",
+      "P042A-84"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": false
+    }
+   ],
+   "symptom": {
+    "ALL": {
+     "n": 41,
+     "hit@1": 0.14634146341463414,
+     "hit@3": 0.34146341463414637,
+     "hit@5": 0.4146341463414634,
+     "MRR": 0.24349593495934957,
+     "gate_pass_rate": 1.0,
+     "declined": 0,
+     "MRR_ci": {
+      "point": 0.24349593495934957,
+      "lo": 0.13902439024390245,
+      "hi": 0.356910569105691
+     },
+     "hit@1_ci": {
+      "point": 0.14634146341463414,
+      "lo": 0.04878048780487805,
+      "hi": 0.2682926829268293
+     }
+    },
+    "HIGH": {
+     "n": 6,
+     "hit@1": 0.3333333333333333,
+     "hit@3": 0.5,
+     "hit@5": 0.5,
+     "MRR": 0.4166666666666667,
+     "gate_pass_rate": 1.0,
+     "declined": 0,
+     "MRR_ci": {
+      "point": 0.4166666666666667,
+      "lo": 0.08333333333333333,
+      "hi": 0.8333333333333334
+     },
+     "hit@1_ci": {
+      "point": 0.3333333333333333,
+      "lo": 0.0,
+      "hi": 0.6666666666666666
+     }
+    },
+    "HIGH+MEDIUM": {
+     "n": 21,
+     "hit@1": 0.19047619047619047,
+     "hit@3": 0.38095238095238093,
+     "hit@5": 0.42857142857142855,
+     "MRR": 0.28968253968253965,
+     "gate_pass_rate": 1.0,
+     "declined": 0,
+     "MRR_ci": {
+      "point": 0.28968253968253965,
+      "lo": 0.13492063492063494,
+      "hi": 0.46825396825396826
+     },
+     "hit@1_ci": {
+      "point": 0.19047619047619047,
+      "lo": 0.047619047619047616,
+      "hi": 0.38095238095238093
+     }
+    }
+   },
+   "no_dtc": {
+    "ALL": {
+     "n": 19,
+     "decline_rate": 0.0,
+     "declined": 0,
+     "answered": 19,
+     "codes_when_answered": {
+      "Q04": [
+       "P244A-00",
+       "P2463-85",
+       "P242F-00"
+      ],
+      "Q11": [
+       "P0118-00",
+       "P0119-00",
+       "P0117-00"
+      ],
+      "Q20": [
+       "P2264-12",
+       "P2264-11",
+       "P2264-00"
+      ],
+      "Q22": [
+       "P0101-00",
+       "P0110-11",
+       "P010C-00"
+      ],
+      "Q27": [
+       "P0219-00",
+       "P061C-00",
+       "P243F-F0"
+      ],
+      "Q29": [
+       "P026A-00",
+       "P0101-00",
+       "P0102-00"
+      ],
+      "Q30": [
+       "P0048-00",
+       "P0047-00",
+       "P003A-00"
+      ],
+      "Q32": [
+       "P243C-00",
+       "P2463-85",
+       "P242F-00"
+      ],
+      "Q36": [
+       "P1114-00",
+       "P0425-85",
+       "P242A-84"
+      ],
+      "Q37": [
+       "P242F-00",
+       "P2463-85",
+       "P2458-09"
+      ],
+      "Q41": [
+       "P2205-00",
+       "P22A3-00",
+       "P0119-00"
+      ],
+      "Q42": [
+       "P0117-00",
+       "P0119-00",
+       "P0118-00"
+      ],
+      "Q43": [
+       "P0110-11",
+       "P0110-12",
+       "P0100-9C"
+      ],
+      "Q45": [
+       "P2458-09",
+       "P2458-00",
+       "P2452-85"
+      ],
+      "Q46": [
+       "P2463-85",
+       "P243F-F0",
+       "P242F-00"
+      ],
+      "Q47": [
+       "P2458-09",
+       "P20A2-00",
+       "P208C-00"
+      ],
+      "Q48": [
+       "P0A1B-12",
+       "P2458-09",
+       "P2455-00"
+      ],
+      "Q57": [
+       "P0219-00",
+       "P2463-85",
+       "P242F-00"
+      ],
+      "Q60": [
+       "P242A-84",
+       "P242A-85",
+       "P0425-84"
+      ]
+     },
+     "routes": {
+      "hybrid": 19
+     },
+     "decline_rate_ci": {
+      "point": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     }
+    },
+    "HIGH": {
+     "n": 8,
+     "decline_rate": 0.0,
+     "declined": 0,
+     "answered": 8,
+     "codes_when_answered": {
+      "Q04": [
+       "P244A-00",
+       "P2463-85",
+       "P242F-00"
+      ],
+      "Q32": [
+       "P243C-00",
+       "P2463-85",
+       "P242F-00"
+      ],
+      "Q41": [
+       "P2205-00",
+       "P22A3-00",
+       "P0119-00"
+      ],
+      "Q42": [
+       "P0117-00",
+       "P0119-00",
+       "P0118-00"
+      ],
+      "Q45": [
+       "P2458-09",
+       "P2458-00",
+       "P2452-85"
+      ],
+      "Q47": [
+       "P2458-09",
+       "P20A2-00",
+       "P208C-00"
+      ],
+      "Q48": [
+       "P0A1B-12",
+       "P2458-09",
+       "P2455-00"
+      ],
+      "Q57": [
+       "P0219-00",
+       "P2463-85",
+       "P242F-00"
+      ]
+     },
+     "routes": {
+      "hybrid": 8
+     },
+     "decline_rate_ci": {
+      "point": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     }
+    },
+    "HIGH+MEDIUM": {
+     "n": 19,
+     "decline_rate": 0.0,
+     "declined": 0,
+     "answered": 19,
+     "codes_when_answered": {
+      "Q04": [
+       "P244A-00",
+       "P2463-85",
+       "P242F-00"
+      ],
+      "Q11": [
+       "P0118-00",
+       "P0119-00",
+       "P0117-00"
+      ],
+      "Q20": [
+       "P2264-12",
+       "P2264-11",
+       "P2264-00"
+      ],
+      "Q22": [
+       "P0101-00",
+       "P0110-11",
+       "P010C-00"
+      ],
+      "Q27": [
+       "P0219-00",
+       "P061C-00",
+       "P243F-F0"
+      ],
+      "Q29": [
+       "P026A-00",
+       "P0101-00",
+       "P0102-00"
+      ],
+      "Q30": [
+       "P0048-00",
+       "P0047-00",
+       "P003A-00"
+      ],
+      "Q32": [
+       "P243C-00",
+       "P2463-85",
+       "P242F-00"
+      ],
+      "Q36": [
+       "P1114-00",
+       "P0425-85",
+       "P242A-84"
+      ],
+      "Q37": [
+       "P242F-00",
+       "P2463-85",
+       "P2458-09"
+      ],
+      "Q41": [
+       "P2205-00",
+       "P22A3-00",
+       "P0119-00"
+      ],
+      "Q42": [
+       "P0117-00",
+       "P0119-00",
+       "P0118-00"
+      ],
+      "Q43": [
+       "P0110-11",
+       "P0110-12",
+       "P0100-9C"
+      ],
+      "Q45": [
+       "P2458-09",
+       "P2458-00",
+       "P2452-85"
+      ],
+      "Q46": [
+       "P2463-85",
+       "P243F-F0",
+       "P242F-00"
+      ],
+      "Q47": [
+       "P2458-09",
+       "P20A2-00",
+       "P208C-00"
+      ],
+      "Q48": [
+       "P0A1B-12",
+       "P2458-09",
+       "P2455-00"
+      ],
+      "Q57": [
+       "P0219-00",
+       "P2463-85",
+       "P242F-00"
+      ],
+      "Q60": [
+       "P242A-84",
+       "P242A-85",
+       "P0425-84"
+      ]
+     },
+     "routes": {
+      "hybrid": 19
+     },
+     "decline_rate_ci": {
+      "point": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     }
+    }
+   }
+  },
+  "e": {
+   "config": {
+    "key": "e",
+    "name": "lexicon v2 + CPU cross-encoder re-rank of the top 20",
+    "index_dir": "index_exp/minilm_lexv2",
+    "lexicon": "data/domain_lexicon_v2.json",
+    "expand": "bm25",
+    "gate": "default",
+    "rerank": {
+     "model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+     "top_k": 20,
+     "device": "cpu",
+     "pair": "(query, embedding_text(record))",
+     "tie_break": "cross-encoder score desc, then original rank, then code_full"
+    }
+   },
+   "status": "RUN",
+   "seconds": 64.0,
+   "rows": [
+    {
+     "id": "Q01",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 3,
+     "route": "hybrid",
+     "codes": [
+      "P0A1B-12",
+      "P0335-00",
+      "P0336-00",
+      "P0A1B-13",
+      "P259E-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": true
+    },
+    {
+     "id": "Q02",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0219-00",
+      "P061C-00",
+      "P0500-1F",
+      "P0500-1C",
+      "P20F4-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": true
+    },
+    {
+     "id": "Q03",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": 1,
+     "route": "hybrid",
+     "codes": [
+      "P1201-00",
+      "P1203-00",
+      "P1202-00",
+      "P2147-00",
+      "P1204-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": true
+    },
+    {
+     "id": "Q04",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P226D-00",
+      "P244A-00",
+      "P244B-00",
+      "P00C6-00",
+      "P243C-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": true
+    },
+    {
+     "id": "Q05",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0335-00",
+      "P0336-00",
+      "P0089-00",
+      "P0117-00",
+      "P018F-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": true
+    },
+    {
+     "id": "Q06",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": 1,
+     "route": "hybrid",
+     "codes": [
+      "P0101-00",
+      "P259F-00",
+      "P0110-11",
+      "P0100-9B",
+      "P0100-9C"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": true
+    },
+    {
+     "id": "Q07",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P2200-26",
+      "P229E-26",
+      "P2BA9-00",
+      "P0219-00",
+      "P206A-86"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": true
+    },
+    {
+     "id": "Q08",
+     "mode": "symptom",
+     "confidence": "high",
+     "rank": 5,
+     "route": "hybrid",
+     "codes": [
+      "P2452-95",
+      "P042A-85",
+      "P2458-09",
+      "P042A-84",
+      "P244B-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": true
+    },
+    {
+     "id": "Q09",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P22A3-00",
+      "P22A3-29",
+      "P2205-00",
+      "P2205-29",
+      "P242A-64"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": true
+    },
+    {
+     "id": "Q10",
+     "mode": "symptom",
+     "confidence": "high",
+     "rank": 4,
+     "route": "hybrid",
+     "codes": [
+      "P2BA9-00",
+      "P206A-13",
+      "P206A-86",
+      "P203F-00",
+      "P203B-84"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": true
+    },
+    {
+     "id": "Q11",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0116-00",
+      "P0117-00",
+      "P0119-00",
+      "P0118-00",
+      "P22A3-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": true
+    },
+    {
+     "id": "Q12",
+     "mode": "symptom",
+     "confidence": "high",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P242A-84",
+      "P0425-85",
+      "P0425-84",
+      "P042A-85",
+      "P042A-84"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": true
+    },
+    {
+     "id": "Q13",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0215-00",
+      "P062B-00",
+      "P0219-00",
+      "P061C-00",
+      "P166D-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": true
+    },
+    {
+     "id": "Q14",
+     "mode": "symptom",
+     "confidence": "high",
+     "rank": 4,
+     "route": "hybrid",
+     "codes": [
+      "P0704-29",
+      "P0504-00",
+      "P061E-00",
+      "P2135-00",
+      "P0120-11"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": true
+    },
+    {
+     "id": "Q15",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 4,
+     "route": "hybrid",
+     "codes": [
+      "P061E-00",
+      "P0504-00",
+      "P0220-11",
+      "P2135-00",
+      "P0120-11"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": true
+    },
+    {
+     "id": "Q16",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P018F-00",
+      "P0119-00",
+      "P2463-85",
+      "P242F-00",
+      "P0180-1C"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": true
+    },
+    {
+     "id": "Q17",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0335-00",
+      "P0A1B-13",
+      "P0A1B-12",
+      "P018F-00",
+      "P0003-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": true
+    },
+    {
+     "id": "Q18",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0704-29",
+      "P0504-00",
+      "P2135-00",
+      "P0220-11",
+      "P0120-11"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": true
+    },
+    {
+     "id": "Q19",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P2BA9-00",
+      "P0089-00",
+      "P206A-F1",
+      "P206A-F3",
+      "P206A-F2"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": true
+    },
+    {
+     "id": "Q20",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P00C6-00",
+      "P206A-F1",
+      "P206A-F2",
+      "P206A-86",
+      "P206A-13"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": true
+    },
+    {
+     "id": "Q21",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P2200-0D",
+      "P229E-01",
+      "P203A-29",
+      "P2200-01",
+      "P0500-1F"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": true
+    },
+    {
+     "id": "Q22",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P259E-00",
+      "P259F-00",
+      "P0401-00",
+      "P1111-00",
+      "P0101-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": true
+    },
+    {
+     "id": "Q23",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 4,
+     "route": "hybrid",
+     "codes": [
+      "P1002-00",
+      "P026A-00",
+      "P0119-00",
+      "P0117-00",
+      "P242A-84"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": true
+    },
+    {
+     "id": "Q24",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 4,
+     "route": "hybrid",
+     "codes": [
+      "P0003-00",
+      "P0627-12",
+      "P0A1B-12",
+      "P0180-12",
+      "P1204-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": true
+    },
+    {
+     "id": "Q25",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P061C-00",
+      "P0219-00",
+      "P0402-00",
+      "P0336-00",
+      "P0335-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": true
+    },
+    {
+     "id": "Q26",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P2452-95",
+      "P2200-85",
+      "P229E-85",
+      "P229E-26",
+      "P229E-84"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": true
+    },
+    {
+     "id": "Q27",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0219-00",
+      "P061C-00",
+      "P203B-85",
+      "P203B-84",
+      "P203F-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": true
+    },
+    {
+     "id": "Q28",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 1,
+     "route": "hybrid",
+     "codes": [
+      "P0116-00",
+      "P0119-00",
+      "P0100-00",
+      "P0117-00",
+      "P0118-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": true
+    },
+    {
+     "id": "Q29",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P026A-00",
+      "P0101-00",
+      "P0110-12",
+      "P0100-9C",
+      "P0100-9B"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": true
+    },
+    {
+     "id": "Q30",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P259E-00",
+      "P259F-00",
+      "P0504-00",
+      "P2135-00",
+      "P1002-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": true
+    },
+    {
+     "id": "Q31",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": 1,
+     "route": "hybrid",
+     "codes": [
+      "P0087-00",
+      "P10FF-00",
+      "P2200-13",
+      "P202E-84",
+      "P202E-85"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": true
+    },
+    {
+     "id": "Q32",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0219-00",
+      "P259E-00",
+      "P259F-00",
+      "P0504-00",
+      "P0402-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": true
+    },
+    {
+     "id": "Q33",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P061C-00",
+      "P0336-00",
+      "P0219-00",
+      "P0A1B-13",
+      "P0A1B-12"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": true
+    },
+    {
+     "id": "Q34",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P061C-00",
+      "P0219-00",
+      "P062B-00",
+      "P229E-26",
+      "P0336-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": true
+    },
+    {
+     "id": "Q35",
+     "mode": "symptom",
+     "confidence": "high",
+     "rank": 3,
+     "route": "hybrid",
+     "codes": [
+      "P2458-00",
+      "P2458-09",
+      "P243C-00",
+      "P242F-00",
+      "P226D-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": true
+    },
+    {
+     "id": "Q36",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P026A-00",
+      "P1114-00",
+      "P1003-00",
+      "P2458-00",
+      "P243C-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": true
+    },
+    {
+     "id": "Q37",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P243F-F0",
+      "P206A-F3",
+      "P2200-84",
+      "P206A-F2",
+      "P2200-85"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": true
+    },
+    {
+     "id": "Q38",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P2047-00",
+      "P206A-F2",
+      "P206A-F3",
+      "P229E-0A",
+      "P206A-F1"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": true
+    },
+    {
+     "id": "Q39",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 4,
+     "route": "hybrid",
+     "codes": [
+      "P1083-00",
+      "P206A-86",
+      "P206A-13",
+      "P2BA9-00",
+      "P1080-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": true
+    },
+    {
+     "id": "Q40",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P2200-13",
+      "P229E-13",
+      "P2205-00",
+      "P206A-13",
+      "P22A3-29"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": true
+    },
+    {
+     "id": "Q41",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P22A3-00",
+      "P2205-00",
+      "P22A3-29",
+      "P0117-00",
+      "P2205-29"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": true
+    },
+    {
+     "id": "Q42",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0117-00",
+      "P0116-00",
+      "P22A3-00",
+      "P0119-00",
+      "P2205-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": true
+    },
+    {
+     "id": "Q43",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P1002-00",
+      "P1000-00",
+      "P0071-00",
+      "P0110-11",
+      "P0110-12"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": true
+    },
+    {
+     "id": "Q44",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": 1,
+     "route": "hybrid",
+     "codes": [
+      "P0116-00",
+      "P22A3-29",
+      "P0119-00",
+      "P2205-29",
+      "P22A3-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": true
+    },
+    {
+     "id": "Q45",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P00C6-00",
+      "P0336-00",
+      "P2463-85",
+      "P243F-F0",
+      "P208C-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": true
+    },
+    {
+     "id": "Q46",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P2BA9-00",
+      "P206A-86",
+      "P206A-13",
+      "P2463-85",
+      "P243F-F0"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": true
+    },
+    {
+     "id": "Q47",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P206A-F3",
+      "P208C-00",
+      "P20A2-00",
+      "P229E-26",
+      "P20A2-11"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": true
+    },
+    {
+     "id": "Q48",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0004-00",
+      "P0A1B-12",
+      "P0341-00",
+      "P0340-00",
+      "P0110-11"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": true
+    },
+    {
+     "id": "Q49",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0219-00",
+      "P1114-00",
+      "P061C-00",
+      "P20A3-00",
+      "P0A1B-12"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": true
+    },
+    {
+     "id": "Q50",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0219-00",
+      "P061C-00",
+      "P1114-00",
+      "P259E-00",
+      "P1083-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": true
+    },
+    {
+     "id": "Q51",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0219-00",
+      "P061C-00",
+      "P1015-00",
+      "P061A-00",
+      "P1081-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": true
+    },
+    {
+     "id": "Q52",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "system_group",
+     "codes": [
+      "P0504-00",
+      "P0220-11",
+      "P0120-11",
+      "P0120-12",
+      "P0220-12"
+     ],
+     "declined": false,
+     "gate_passed": null,
+     "gate_reasons": null,
+     "reranked": false
+    },
+    {
+     "id": "Q53",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0215-00",
+      "P0219-00",
+      "P061C-00",
+      "P062B-00",
+      "P203A-29"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": true
+    },
+    {
+     "id": "Q54",
+     "mode": "symptom",
+     "confidence": "high",
+     "rank": 1,
+     "route": "hybrid",
+     "codes": [
+      "P2264-00",
+      "P2264-12",
+      "P2264-11",
+      "P1083-00",
+      "P00C6-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": true
+    },
+    {
+     "id": "Q55",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0120-11",
+      "P0220-11",
+      "P0504-00",
+      "P0120-12",
+      "P0220-12"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": true
+    },
+    {
+     "id": "Q56",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": 2,
+     "route": "hybrid",
+     "codes": [
+      "P259E-00",
+      "P259F-00",
+      "P242F-00",
+      "P2463-85",
+      "P243F-F0"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": true
+    },
+    {
+     "id": "Q57",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0219-00",
+      "P242F-00",
+      "P2463-85",
+      "P244B-00",
+      "P243F-F0"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": true
+    },
+    {
+     "id": "Q58",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P061C-00",
+      "P0219-00",
+      "P1111-00",
+      "P1113-00",
+      "P0336-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": true
+    },
+    {
+     "id": "Q59",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": 1,
+     "route": "hybrid",
+     "codes": [
+      "P0A1B-12",
+      "P0A1B-13",
+      "P0201-00",
+      "P0202-00",
+      "P0204-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": true
+    },
+    {
+     "id": "Q60",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "route": "hybrid",
+     "codes": [
+      "P0119-00",
+      "P203F-7B",
+      "P203F-84",
+      "P203A-29",
+      "P00C6-00"
+     ],
+     "declined": false,
+     "gate_passed": true,
+     "gate_reasons": [],
+     "reranked": true
+    }
+   ],
+   "symptom": {
+    "ALL": {
+     "n": 41,
+     "hit@1": 0.17073170731707318,
+     "hit@3": 0.24390243902439024,
+     "hit@5": 0.4146341463414634,
+     "MRR": 0.24065040650406505,
+     "gate_pass_rate": 1.0,
+     "declined": 0,
+     "MRR_ci": {
+      "point": 0.24065040650406505,
+      "lo": 0.13170731707317074,
+      "hi": 0.3617886178861789
+     },
+     "hit@1_ci": {
+      "point": 0.17073170731707318,
+      "lo": 0.07317073170731707,
+      "hi": 0.2926829268292683
+     }
+    },
+    "HIGH": {
+     "n": 6,
+     "hit@1": 0.16666666666666666,
+     "hit@3": 0.3333333333333333,
+     "hit@5": 0.8333333333333334,
+     "MRR": 0.33888888888888885,
+     "gate_pass_rate": 1.0,
+     "declined": 0,
+     "MRR_ci": {
+      "point": 0.33888888888888885,
+      "lo": 0.13888888888888887,
+      "hi": 0.625
+     },
+     "hit@1_ci": {
+      "point": 0.16666666666666666,
+      "lo": 0.0,
+      "hi": 0.5
+     }
+    },
+    "HIGH+MEDIUM": {
+     "n": 21,
+     "hit@1": 0.2857142857142857,
+     "hit@3": 0.38095238095238093,
+     "hit@5": 0.5238095238095238,
+     "MRR": 0.35873015873015873,
+     "gate_pass_rate": 1.0,
+     "declined": 0,
+     "MRR_ci": {
+      "point": 0.35873015873015873,
+      "lo": 0.18015873015873016,
+      "hi": 0.5476190476190477
+     },
+     "hit@1_ci": {
+      "point": 0.2857142857142857,
+      "lo": 0.09523809523809523,
+      "hi": 0.47619047619047616
+     }
+    }
+   },
+   "no_dtc": {
+    "ALL": {
+     "n": 19,
+     "decline_rate": 0.0,
+     "declined": 0,
+     "answered": 19,
+     "codes_when_answered": {
+      "Q04": [
+       "P226D-00",
+       "P244A-00",
+       "P244B-00"
+      ],
+      "Q11": [
+       "P0116-00",
+       "P0117-00",
+       "P0119-00"
+      ],
+      "Q20": [
+       "P00C6-00",
+       "P206A-F1",
+       "P206A-F2"
+      ],
+      "Q22": [
+       "P259E-00",
+       "P259F-00",
+       "P0401-00"
+      ],
+      "Q27": [
+       "P0219-00",
+       "P061C-00",
+       "P203B-85"
+      ],
+      "Q29": [
+       "P026A-00",
+       "P0101-00",
+       "P0110-12"
+      ],
+      "Q30": [
+       "P259E-00",
+       "P259F-00",
+       "P0504-00"
+      ],
+      "Q32": [
+       "P0219-00",
+       "P259E-00",
+       "P259F-00"
+      ],
+      "Q36": [
+       "P026A-00",
+       "P1114-00",
+       "P1003-00"
+      ],
+      "Q37": [
+       "P243F-F0",
+       "P206A-F3",
+       "P2200-84"
+      ],
+      "Q41": [
+       "P22A3-00",
+       "P2205-00",
+       "P22A3-29"
+      ],
+      "Q42": [
+       "P0117-00",
+       "P0116-00",
+       "P22A3-00"
+      ],
+      "Q43": [
+       "P1002-00",
+       "P1000-00",
+       "P0071-00"
+      ],
+      "Q45": [
+       "P00C6-00",
+       "P0336-00",
+       "P2463-85"
+      ],
+      "Q46": [
+       "P2BA9-00",
+       "P206A-86",
+       "P206A-13"
+      ],
+      "Q47": [
+       "P206A-F3",
+       "P208C-00",
+       "P20A2-00"
+      ],
+      "Q48": [
+       "P0004-00",
+       "P0A1B-12",
+       "P0341-00"
+      ],
+      "Q57": [
+       "P0219-00",
+       "P242F-00",
+       "P2463-85"
+      ],
+      "Q60": [
+       "P0119-00",
+       "P203F-7B",
+       "P203F-84"
+      ]
+     },
+     "routes": {
+      "hybrid": 19
+     },
+     "decline_rate_ci": {
+      "point": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     }
+    },
+    "HIGH": {
+     "n": 8,
+     "decline_rate": 0.0,
+     "declined": 0,
+     "answered": 8,
+     "codes_when_answered": {
+      "Q04": [
+       "P226D-00",
+       "P244A-00",
+       "P244B-00"
+      ],
+      "Q32": [
+       "P0219-00",
+       "P259E-00",
+       "P259F-00"
+      ],
+      "Q41": [
+       "P22A3-00",
+       "P2205-00",
+       "P22A3-29"
+      ],
+      "Q42": [
+       "P0117-00",
+       "P0116-00",
+       "P22A3-00"
+      ],
+      "Q45": [
+       "P00C6-00",
+       "P0336-00",
+       "P2463-85"
+      ],
+      "Q47": [
+       "P206A-F3",
+       "P208C-00",
+       "P20A2-00"
+      ],
+      "Q48": [
+       "P0004-00",
+       "P0A1B-12",
+       "P0341-00"
+      ],
+      "Q57": [
+       "P0219-00",
+       "P242F-00",
+       "P2463-85"
+      ]
+     },
+     "routes": {
+      "hybrid": 8
+     },
+     "decline_rate_ci": {
+      "point": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     }
+    },
+    "HIGH+MEDIUM": {
+     "n": 19,
+     "decline_rate": 0.0,
+     "declined": 0,
+     "answered": 19,
+     "codes_when_answered": {
+      "Q04": [
+       "P226D-00",
+       "P244A-00",
+       "P244B-00"
+      ],
+      "Q11": [
+       "P0116-00",
+       "P0117-00",
+       "P0119-00"
+      ],
+      "Q20": [
+       "P00C6-00",
+       "P206A-F1",
+       "P206A-F2"
+      ],
+      "Q22": [
+       "P259E-00",
+       "P259F-00",
+       "P0401-00"
+      ],
+      "Q27": [
+       "P0219-00",
+       "P061C-00",
+       "P203B-85"
+      ],
+      "Q29": [
+       "P026A-00",
+       "P0101-00",
+       "P0110-12"
+      ],
+      "Q30": [
+       "P259E-00",
+       "P259F-00",
+       "P0504-00"
+      ],
+      "Q32": [
+       "P0219-00",
+       "P259E-00",
+       "P259F-00"
+      ],
+      "Q36": [
+       "P026A-00",
+       "P1114-00",
+       "P1003-00"
+      ],
+      "Q37": [
+       "P243F-F0",
+       "P206A-F3",
+       "P2200-84"
+      ],
+      "Q41": [
+       "P22A3-00",
+       "P2205-00",
+       "P22A3-29"
+      ],
+      "Q42": [
+       "P0117-00",
+       "P0116-00",
+       "P22A3-00"
+      ],
+      "Q43": [
+       "P1002-00",
+       "P1000-00",
+       "P0071-00"
+      ],
+      "Q45": [
+       "P00C6-00",
+       "P0336-00",
+       "P2463-85"
+      ],
+      "Q46": [
+       "P2BA9-00",
+       "P206A-86",
+       "P206A-13"
+      ],
+      "Q47": [
+       "P206A-F3",
+       "P208C-00",
+       "P20A2-00"
+      ],
+      "Q48": [
+       "P0004-00",
+       "P0A1B-12",
+       "P0341-00"
+      ],
+      "Q57": [
+       "P0219-00",
+       "P242F-00",
+       "P2463-85"
+      ],
+      "Q60": [
+       "P0119-00",
+       "P203F-7B",
+       "P203F-84"
+      ]
+     },
+     "routes": {
+      "hybrid": 19
+     },
+     "decline_rate_ci": {
+      "point": 0.0,
+      "lo": 0.0,
+      "hi": 0.0
+     }
+    }
+   }
+  }
+ },
+ "paired_vs_b": {
+  "a": {
+   "ALL": {
+    "diff": -0.04349593495934959,
+    "lo": -0.10121951219512199,
+    "hi": 0.0060975609756097615,
+    "excludes_zero": false
+   },
+   "HIGH": {
+    "diff": -0.055555555555555546,
+    "lo": -0.16666666666666669,
+    "hi": 0.0,
+    "excludes_zero": false
+   },
+   "HIGH+MEDIUM": {
+    "diff": -0.03968253968253971,
+    "lo": -0.09523809523809523,
+    "hi": 0.011904761904761918,
+    "excludes_zero": false
+   }
+  },
+  "c": {
+   "ALL": {
+    "diff": 0.00406504065040649,
+    "lo": -0.04878048780487804,
+    "hi": 0.05894308943089427,
+    "excludes_zero": false
+   },
+   "HIGH": {
+    "diff": 0.11111111111111112,
+    "lo": 0.0,
+    "hi": 0.33333333333333337,
+    "excludes_zero": false
+   },
+   "HIGH+MEDIUM": {
+    "diff": -0.003968253968253997,
+    "lo": -0.08333333333333334,
+    "hi": 0.08730158730158727,
+    "excludes_zero": false
+   }
+  },
+  "d": {
+   "ALL": {
+    "diff": 0.002845528455284521,
+    "lo": -0.04918699186991865,
+    "hi": 0.05650406504065042,
+    "excludes_zero": false
+   },
+   "HIGH": {
+    "diff": 0.11111111111111112,
+    "lo": 0.0,
+    "hi": 0.33333333333333337,
+    "excludes_zero": false
+   },
+   "HIGH+MEDIUM": {
+    "diff": -0.003968253968253997,
+    "lo": -0.08333333333333334,
+    "hi": 0.08730158730158727,
+    "excludes_zero": false
+   }
+  },
+  "e": {
+   "ALL": {
+    "diff": 0.0,
+    "lo": -0.09471544715447155,
+    "hi": 0.10000000000000003,
+    "excludes_zero": false
+   },
+   "HIGH": {
+    "diff": 0.033333333333333326,
+    "lo": -0.33333333333333337,
+    "hi": 0.3666666666666667,
+    "excludes_zero": false
+   },
+   "HIGH+MEDIUM": {
+    "diff": 0.06507936507936506,
+    "lo": -0.09126984126984122,
+    "hi": 0.2380952380952381,
+    "excludes_zero": false
+   }
+  }
+ },
+ "verdicts": {
+  "a": {
+   "mrr_gain": -0.04349593495934959,
+   "ci": [
+    -0.10121951219512199,
+    0.0060975609756097615
+   ],
+   "ci_excludes_zero": false,
+   "ci_shows_gain": false,
+   "decline_rate": 0.0,
+   "b_decline_rate": 0.0,
+   "decline_not_lower": true,
+   "replaces_b": false
+  },
+  "c": {
+   "mrr_gain": 0.00406504065040649,
+   "ci": [
+    -0.04878048780487804,
+    0.05894308943089427
+   ],
+   "ci_excludes_zero": false,
+   "ci_shows_gain": false,
+   "decline_rate": 0.0,
+   "b_decline_rate": 0.0,
+   "decline_not_lower": true,
+   "replaces_b": false
+  },
+  "d": {
+   "mrr_gain": 0.002845528455284521,
+   "ci": [
+    -0.04918699186991865,
+    0.05650406504065042
+   ],
+   "ci_excludes_zero": false,
+   "ci_shows_gain": false,
+   "decline_rate": 0.0,
+   "b_decline_rate": 0.0,
+   "decline_not_lower": true,
+   "replaces_b": false
+  },
+  "e": {
+   "mrr_gain": 0.0,
+   "ci": [
+    -0.09471544715447155,
+    0.10000000000000003
+   ],
+   "ci_excludes_zero": false,
+   "ci_shows_gain": false,
+   "decline_rate": 0.0,
+   "b_decline_rate": 0.0,
+   "decline_not_lower": true,
+   "replaces_b": false
+  }
+ },
+ "adoption_rule": {
+  "fixed_before_running": true,
+  "rule": "A configuration replaces (b) only if BOTH hold: (1) its paired 95% CI for symptom MRR gain over (b) excludes 0, AND (2) its no_dtc decline rate is not lower than (b)'s.",
+  "evaluated_on": "ALL rows (the headline subset)",
+  "action_in_this_phase": "report the verdict only; adopt nothing"
+ },
+ "ran_utc": "2026-10-27T17:19:18Z"
+}

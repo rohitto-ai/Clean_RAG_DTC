@@ -1,6 +1,6 @@
 # RESUME — Clean RAG for the 3.3L DTC Manual
 
-**State: PHASE 8 COMPLETE; Phase 9.1 (advise mode) + 9.1b (step column-bleed fix) + 9.2 (baseline comparison) + 9.3 (noisy-input robustness) + 9.3b (code-handling hardening, adopted) + 9.4 (synthetic SPN/FMI normalization demo) DONE; Phase 10.1 + 10.1b (lexicon v2, lamp reachability) DONE and FROZEN, NOT adopted; Phase 10.2 (synthetic demo data + telematics pipeline) + 10.3 (FastAPI service + audit log) + 10.4 (demo website) + 10.5 (demo hardening) DONE — on branch `phase10-demo`.** All phases 0–8 are done on branch `phase8-limitations`. The
+**State: PHASE 8 COMPLETE; Phase 9.1 (advise mode) + 9.1b (step column-bleed fix) + 9.2 (baseline comparison) + 9.3 (noisy-input robustness) + 9.3b (code-handling hardening, adopted) + 9.4 (synthetic SPN/FMI normalization demo) DONE; Phase 10.1 + 10.1b (lexicon v2, lamp reachability) DONE and FROZEN, NOT adopted; Phase 10.2 (synthetic demo data + telematics pipeline) + 10.3 (FastAPI service + audit log) + 10.4 (demo website) + 10.5 (demo hardening) + 10.5b (one-click launchers) + 10.6 (INDEPENDENT one-shot evaluation) DONE — on branch `phase10-demo`.** All phases 0–8 are done on branch `phase8-limitations`. The
 Phase 8 configuration is adopted as the production default. The frozen TEST split has been
 evaluated once and is now spent. The previous system is preserved as tag `v1-phase7`.
 
