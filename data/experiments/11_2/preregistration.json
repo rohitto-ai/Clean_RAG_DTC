@@ -1,0 +1,93 @@
+{
+ "phase": "11.2 step 3",
+ "registered_utc": "2026-10-27T17:55:24+00:00",
+ "git_commit_at_registration": "a45f053d62ce396ba849c2d7d4cf4f72da9a5deb",
+ "statement": "ONE SHOT on the colleague-written R2 set. Both configurations are run exactly once; scripts/eval_11_2.py refuses a second run. Nothing is tuned afterwards and NOTHING is adopted in this task - the recommendation is reported only.",
+ "precondition": {
+  "a_narrow_frozen": true,
+  "freeze": "data/experiments/11_2/freeze.json",
+  "freeze_commit": "a45f053",
+  "verified_before_run": "the harness re-checks every frozen sha256 and refuses to run on drift"
+ },
+ "gold": {
+  "path": "data/gold_r2_colleague.json",
+  "sha256": "87c3d966e27f5a18a420beda85147333c191b685dde0bf08fc6e82f5147f5353",
+  "expected_sha256": "87c3d966e27f5a18a420beda85147333c191b685dde0bf08fc6e82f5147f5353",
+  "rows": 20,
+  "modes": {
+   "symptom": 15,
+   "no_dtc": 4,
+   "inconclusive": 1
+  },
+  "input_to_system": "q['query'] ONLY - never notes, expected or mode",
+  "provenance_verbatim": {
+   "queries": "20 symptoms written by colleagues working with the author, each with the writer's own label. Whether the writers had seen Round-1 material, or used writing tools, was not recorded; several topics overlap Round 1. No version of the system had been run on these queries before the pre-registered evaluation.",
+   "labels": "Writer's labels used unchanged (mostly a single DTC per row, so scoring is strict). Modes: 15 symptom (DTC expected), 4 no_dtc (mechanical, correct behaviour = decline), 1 inconclusive (excluded from scoring). Flags on R16 and R18 in notes.",
+   "scoring": "symptom rows: hit = any expected code, any decline is an error; no_dtc rows: decline is correct; inconclusive rows: reported, not scored. Report all-rows and a sensitivity analysis excluding R16 and R18."
+  }
+ },
+ "configurations": [
+  {
+   "key": "a_v3_production",
+   "name": "v3-final-eval production (C4b + gate v2)",
+   "narrow": false
+  },
+  {
+   "key": "b_a_narrow",
+   "name": "A-narrow in front of production (frozen)",
+   "narrow": true
+  }
+ ],
+ "metrics": {
+  "symptom_rows": {
+   "n": 15,
+   "reported": [
+    "hit@1",
+    "hit@3",
+    "hit@5",
+    "MRR",
+    "false_declines"
+   ],
+   "hit": "any expected code in the returned list",
+   "k": 5,
+   "false_decline": "ANY decline on a symptom row is an error and is listed by id"
+  },
+  "no_dtc_rows": {
+   "n": 4,
+   "reported": [
+    "decline_rate",
+    "per-row: was an inspection-area advisory shown when answered"
+   ]
+  },
+  "inconclusive_row": {
+   "id": "R20",
+   "treatment": "reported, NOT scored"
+  }
+ },
+ "subsets": {
+  "ALL": "all scored rows",
+  "EXCL_R16_R18": "sensitivity analysis excluding R16 (concept overlaps Round-1 Q46, which informed refinement A, so it is not independent of A) and R18 (arguable label: a charge-air leak often triggers air-mass/boost codes)"
+ },
+ "uncertainty": {
+  "method": "non-parametric bootstrap over rows",
+  "resamples": 10000,
+  "seed": 1102,
+  "interval": "percentile 95% CI",
+  "paired_test": "paired bootstrap of symptom MRR, A-narrow minus production, same resampled indices both sides",
+  "warning": "n = 15 symptom rows and 4 no_dtc rows. These intervals are very wide and a single row moves MRR by up to 0.067. No difference here can be called significant; the run is a sanity check, not a measurement."
+ },
+ "word_overlap": "reported with src/gold_overlap.py for information only; no query is dropped or edited",
+ "adoption": "NOT in this task. The report states a recommendation only.",
+ "inputs_sha256": {
+  "data/gold_r2_colleague.json": "87c3d966e27f5a18a420beda85147333c191b685dde0bf08fc6e82f5147f5353",
+  "src/no_dtc_narrow.py": "0900d87e74e9e9365757e0b99f0ea01968546895a07daa438bfe6aa4767528eb",
+  "src/no_dtc.py": "67f5764fa13ba5871e96c01583b1026ff21436271861fa1dd09d58f6b5b4a5d4",
+  "scripts/eval_11_2.py": "6142c98932376c56a620aec4cc51fbec0d9e65f29fabdcb7125f1cec00694349",
+  "data/experiments/11_2/freeze.json": "1a1eb892f0f461f94a148da4c071d0f684d40591e9ccfb832f6c8011a17263bf",
+  "data/dtc_records.jsonl": "308fa6d157591ef12b6a1d7b90b62cf9e854d382cd0aeee24676dd3533d5511f",
+  "index/bm25_corpus.json": "054791969e72b2c58e996d52628684b70db839f1fe0d1bbfae809cbcf4080814",
+  "data/gate_c4b.json": "42bbddd4aa708aceaacadcd7813dd860d05f0b20bc408518995d6afe801f7ee9",
+  "src/retrieve.py": "b2a31aef47a297ec8bc5718c196010101b4d2c0f395b56f592abc24993a480c3",
+  "src/answer.py": "6a3ba1ddb0d4aeab057c1b7a35b634d39fe942a0cba616bd8a930c32e6848b5e"
+ }
+}
