@@ -152,6 +152,36 @@ def detect_system(query):
     return None
 
 
+def detect_systems(query, lexicon=None):
+    """
+    Phase 11.1, improvement B. EVERY subsystem the query's own words point at,
+    not just the first. Rule-based and explainable: the keyword map that already
+    drives the grouping route, plus the lexicon's manual terms for any colloquial
+    phrase in the query (so "adblue" reaches scr_def and "soot trap" reaches
+    dpf_regen). Returns (systems, evidence).
+    """
+    hits, evidence = [], []
+    for name, pat in SYSTEM_KEYWORDS:
+        m = re.search(pat, query, re.I)
+        if m:
+            hits.append(name)
+            evidence.append({"system": name, "matched": m.group(0).lower(),
+                             "via": "subsystem keyword map"})
+    if lexicon is not None:
+        expanded, matched = lexicon.expand_query(query)
+        if matched and expanded != query:
+            added = expanded[len(query):]
+            for name, pat in SYSTEM_KEYWORDS:
+                if name in hits:
+                    continue
+                m = re.search(pat, added, re.I)
+                if m:
+                    hits.append(name)
+                    evidence.append({"system": name, "matched": m.group(0).lower(),
+                                     "via": f"lexicon expansion of {matched}"})
+    return hits, evidence
+
+
 def detect_grouping_intent(query):
     return bool(GROUPING_INTENT_RE.search(query))
 
@@ -191,12 +221,18 @@ def rrf_fuse(dense_ids, bm25_ids, norm_scores, k=RRF_K):
 
 class Retriever:
     def __init__(self, index_dir=INDEX_DIR, records=RECORDS, verbose=False,
-                 query_prefix="", lexicon="auto", expand="auto", exact_dense=True):
+                 query_prefix="", lexicon="auto", expand="auto", exact_dense=True,
+                 subsystem_prior=0.0):
         """
         Phase 8.2 knobs (defaults reproduce the production retriever exactly):
           query_prefix - model-required query prefix, e.g. "query: " for e5
           lexicon      - a lexicon.Lexicon, or None
           expand       - query-side expansion: "none" | "bm25" | "both"
+          subsystem_prior - (11.1) weight of a SOFT boost for records whose system
+                         the query's own words point at. 0.0 = off, which is the
+                         production default, so the fused order is unchanged. It is
+                         a boost inside the fusion, never a filter: a record of
+                         another subsystem can still win.
           exact_dense  - (8.3b) take the dense candidate pool from the EXACT vector
                          matrix instead of Chroma's approximate HNSW. Default True.
                          False exists only to reproduce the old non-deterministic
@@ -206,6 +242,7 @@ class Retriever:
         """
         self.query_prefix, self.lexicon, self.expand = query_prefix, lexicon, expand
         self.exact_dense = exact_dense
+        self.subsystem_prior = float(subsystem_prior)
 
         meta_path = os.path.join(index_dir, "meta.json")
         self.meta = json.load(open(meta_path)) if os.path.exists(meta_path) else {}
@@ -384,7 +421,30 @@ class Retriever:
                 norm[rid] = norm.get(rid, 0.0) + v
 
         fused = rrf_fuse(dense_ids, bm25_ids, norm)
+
+        # ---- Phase 11.1: soft subsystem prior (off unless asked for) ----------
+        # A boost added to the fused score, worth at most one RRF rank-1 vote, so
+        # a strongly-ranked record from another subsystem still wins. Ties keep
+        # the total order of rrf_fuse, so the result stays deterministic.
+        prior_systems, prior_evidence, boosted = [], [], 0
+        if self.subsystem_prior > 0:
+            prior_systems, prior_evidence = detect_systems(query, self.lexicon)
+            if prior_systems:
+                wanted = set(prior_systems)
+                step = self.subsystem_prior / (RRF_K + 1)
+                rescored = []
+                for pos, (doc, score, tb, dr, br) in enumerate(fused):
+                    match = self._rec(doc)["system"] in wanted
+                    boosted += match
+                    rescored.append((doc, score + (step if match else 0.0), tb, dr, br, pos))
+                rescored.sort(key=lambda x: (-x[1], -x[2], x[5]))
+                fused = [(d, s, tb, dr, br) for d, s, tb, dr, br, _ in rescored]
+
         trace = {
+            "subsystem_prior": ({"weight": self.subsystem_prior, "systems": prior_systems,
+                                 "evidence": prior_evidence, "records_boosted": boosted,
+                                 "mode": "soft boost inside fusion, never a filter"}
+                                if self.subsystem_prior > 0 else None),
             "dense_pool": len(dense_ids),
             "bm25_pool": len(bm25_ids),
             "union_pool": len(fused),
