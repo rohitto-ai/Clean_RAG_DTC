@@ -6,6 +6,18 @@ evaluated once and is now spent. The previous system is preserved as tag `v1-pha
 
 _Last updated: 2026-10-25_
 
+## ⚠ Evaluation-set status
+
+| set | status | how it may be used |
+|---|---|---|
+| `data/gold_v2.json` DEV | development | free use; every DEV number is optimistic |
+| `data/gold_v2.json` TEST | **SPENT** (Phase 8.5, one shot) | post-hoc only; label every number |
+| `data/gold_independent.json` | **SPENT** (Phase 10.6, one shot) | **post-hoc only.** From now on ANY metric computed on it is development feedback and MUST be labelled "post-hoc, optimistic" wherever it is reported |
+
+The system as evaluated in Phase 10.6 is preserved as the annotated tag **`v3-final-eval`** —
+every number in `docs/report/phase10_6_independent_eval.md` comes from that tag. Refinement
+continues on `phase11-refine`.
+
 ## One-click demo
 
 **Codespace / VS Code:** Run and Debug panel → **"Start demo"** → green ▶.

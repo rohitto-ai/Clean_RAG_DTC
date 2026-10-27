@@ -1,0 +1,4104 @@
+{
+ "label": "POST-HOC (development) \u2014 the independent set was spent in Phase 10.6 and these refinements were written after reading its error analysis. Optimistic.",
+ "prior_weight": 0.5,
+ "configs": {
+  "base": {
+   "description": "production C4b + gate v2",
+   "cfg": {
+    "no_dtc": false,
+    "prior": 0.0
+   },
+   "symptom": {
+    "n": 41,
+    "hit@1": 0.14634146341463414,
+    "hit@3": 0.2926829268292683,
+    "hit@5": 0.4146341463414634,
+    "MRR": 0.24471544715447155,
+    "false_declines": 0,
+    "false_decline_ids": []
+   },
+   "no_dtc": {
+    "n": 19,
+    "declined": 0,
+    "decline_rate": 0.0,
+    "declined_ids": [],
+    "still_answered": {
+     "Q04": [
+      "P244A-00",
+      "P243C-00",
+      "P226D-00"
+     ],
+     "Q11": [
+      "P0118-00",
+      "P0119-00",
+      "P2228-00"
+     ],
+     "Q20": [
+      "P2463-85",
+      "P242F-00",
+      "P2458-00"
+     ],
+     "Q22": [
+      "P0101-00",
+      "P0110-11",
+      "P010C-00"
+     ],
+     "Q27": [
+      "P0219-00",
+      "P061C-00",
+      "P0336-00"
+     ],
+     "Q29": [
+      "P026A-00",
+      "P0101-00",
+      "P0109-00"
+     ],
+     "Q30": [
+      "P0048-00",
+      "P0047-00",
+      "P003A-00"
+     ],
+     "Q32": [
+      "P0110-11",
+      "P0504-00",
+      "P0110-12"
+     ],
+     "Q36": [
+      "P1114-00",
+      "P0425-85",
+      "P242A-84"
+     ],
+     "Q37": [
+      "P242F-00",
+      "P2463-85",
+      "P243C-00"
+     ],
+     "Q41": [
+      "P2205-00",
+      "P22A3-00",
+      "P0119-00"
+     ],
+     "Q42": [
+      "P0117-00",
+      "P0119-00",
+      "P0118-00"
+     ],
+     "Q43": [
+      "P0110-11",
+      "P0110-12",
+      "P0100-9C"
+     ],
+     "Q45": [
+      "P2458-09",
+      "P2458-00",
+      "P0336-00"
+     ],
+     "Q46": [
+      "P2463-85",
+      "P243F-F0",
+      "P242F-00"
+     ],
+     "Q47": [
+      "P2458-09",
+      "P20A2-00",
+      "P208C-00"
+     ],
+     "Q48": [
+      "P0110-12",
+      "P0110-11",
+      "P0A1B-12"
+     ],
+     "Q57": [
+      "P0219-00",
+      "P2463-85",
+      "P00C6-00"
+     ],
+     "Q60": [
+      "P242A-84",
+      "P242A-85",
+      "P0425-84"
+     ]
+    }
+   },
+   "rows": [
+    {
+     "id": "Q01",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 1,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0336-00",
+      "P0335-00",
+      "P0627-11",
+      "P0627-12",
+      "P018F-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q02",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 5,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P061C-00",
+      "P0500-1F",
+      "P0219-00",
+      "P0500-1C",
+      "P0336-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q03",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": 1,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P2150-00",
+      "P2147-00",
+      "P1201-00",
+      "P0201-00",
+      "P1202-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q04",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P244A-00",
+      "P243C-00",
+      "P226D-00",
+      "P244B-00",
+      "P2463-85"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q05",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0335-00",
+      "P0336-00",
+      "P0089-00",
+      "P00C6-00",
+      "P018F-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q06",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": 1,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0101-00",
+      "P2458-00",
+      "P242F-00",
+      "P259F-00",
+      "P0100-9B"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q07",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P244A-00",
+      "P0219-00",
+      "P206A-86",
+      "P2BA9-00",
+      "P259E-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q08",
+     "mode": "symptom",
+     "confidence": "high",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P042A-85",
+      "P042A-84",
+      "P042C-00",
+      "P042D-00",
+      "P0421-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q09",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 2,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P2043-85",
+      "P042A-85",
+      "P242A-85",
+      "P242A-84",
+      "P0425-85"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q10",
+     "mode": "symptom",
+     "confidence": "high",
+     "rank": 1,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P203F-00",
+      "P2BA9-00",
+      "P203B-84",
+      "P203B-85",
+      "P206A-F1"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q11",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0118-00",
+      "P0119-00",
+      "P2228-00",
+      "P22A3-29",
+      "P2205-29"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q12",
+     "mode": "symptom",
+     "confidence": "high",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0425-84",
+      "P0425-85",
+      "P242A-84",
+      "P242A-85",
+      "P0427-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q13",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0219-00",
+      "P061C-00",
+      "P0336-00",
+      "P166E-00",
+      "P0335-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q14",
+     "mode": "symptom",
+     "confidence": "high",
+     "rank": 2,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0504-00",
+      "P0120-12",
+      "P0120-11",
+      "P0220-11",
+      "P0220-12"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q15",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 4,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0504-00",
+      "P0220-11",
+      "P0120-11",
+      "P0220-12",
+      "P0120-12"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q16",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P1201-00",
+      "P242F-00",
+      "P244B-00",
+      "P2463-85",
+      "P2150-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q17",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0004-00",
+      "P0336-00",
+      "P0003-00",
+      "P0335-00",
+      "P0627-12"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q18",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0120-12",
+      "P0504-00",
+      "P0120-11",
+      "P0220-11",
+      "P0220-12"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q19",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P206A-F1",
+      "P203F-84",
+      "P206A-F2",
+      "P0089-00",
+      "P206A-F3"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q20",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P2463-85",
+      "P242F-00",
+      "P2458-00",
+      "P244A-00",
+      "P226D-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q21",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0120-11",
+      "P0120-12",
+      "P0504-00",
+      "P203A-29",
+      "P2200-01"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q22",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0101-00",
+      "P0110-11",
+      "P010C-00",
+      "P0102-00",
+      "P0100-9B"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q23",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0119-00",
+      "P242A-84",
+      "P0110-11",
+      "P0110-12",
+      "P242D-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q24",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 4,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0A1B-12",
+      "P0A1B-13",
+      "P0627-12",
+      "P0180-12",
+      "P0627-11"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q25",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0219-00",
+      "P061C-00",
+      "P0336-00",
+      "P0335-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q26",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P242F-00",
+      "P1201-00",
+      "P2147-00",
+      "P0120-11",
+      "P243F-F0"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q27",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0219-00",
+      "P061C-00",
+      "P0336-00",
+      "P0335-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q28",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 1,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0117-00",
+      "P0118-00",
+      "P0116-00",
+      "P0119-00",
+      "P0100-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q29",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P026A-00",
+      "P0101-00",
+      "P0109-00",
+      "P0110-12",
+      "P0102-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q30",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0048-00",
+      "P0047-00",
+      "P003A-00",
+      "P0045-13",
+      "P006E-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q31",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P1204-00",
+      "P1202-00",
+      "P2147-00",
+      "P1201-00",
+      "P0204-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q32",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0110-11",
+      "P0504-00",
+      "P0110-12",
+      "P242F-00",
+      "P2458-09"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q33",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0336-00",
+      "P0335-00",
+      "P0119-00",
+      "P061C-00",
+      "P0048-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q34",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0219-00",
+      "P0336-00",
+      "P061C-00",
+      "P0120-11",
+      "P062B-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q35",
+     "mode": "symptom",
+     "confidence": "high",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P042C-00",
+      "P2458-09",
+      "P042D-00",
+      "P042A-84",
+      "P042A-85"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q36",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P1114-00",
+      "P0425-85",
+      "P242A-84",
+      "P242A-85",
+      "P0425-84"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q37",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P242F-00",
+      "P2463-85",
+      "P243C-00",
+      "P2458-00",
+      "P2458-09"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q38",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P206A-F2",
+      "P2BA9-00",
+      "P206A-F1",
+      "P206A-86",
+      "P206A-F3"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q39",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 2,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P203F-00",
+      "P2BA9-00",
+      "P206A-F2",
+      "P203B-84",
+      "P203B-85"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q40",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P1083-00",
+      "P242F-00",
+      "P2205-29",
+      "P22A3-29",
+      "P2455-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q41",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P2205-00",
+      "P22A3-00",
+      "P0119-00",
+      "P0110-12",
+      "P0118-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q42",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0117-00",
+      "P0119-00",
+      "P0118-00",
+      "P0116-00",
+      "P0336-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q43",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0110-11",
+      "P0110-12",
+      "P0100-9C",
+      "P0100-9B",
+      "P0109-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q44",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": 4,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0118-00",
+      "P0117-00",
+      "P0119-00",
+      "P0116-00",
+      "P22A3-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q45",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P2458-09",
+      "P2458-00",
+      "P0336-00",
+      "P2452-85",
+      "P2454-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q46",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P2463-85",
+      "P243F-F0",
+      "P242F-00",
+      "P243C-00",
+      "P2458-09"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q47",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P2458-09",
+      "P20A2-00",
+      "P208C-00",
+      "P20A2-11",
+      "P2454-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q48",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0110-12",
+      "P0110-11",
+      "P0A1B-12",
+      "P0108-00",
+      "P2455-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q49",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P061C-00",
+      "P0219-00",
+      "P0336-00",
+      "P0335-00",
+      "P018F-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q50",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P061C-00",
+      "P018F-00",
+      "P1083-00",
+      "P00C6-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q51",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": 2,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0219-00",
+      "P0336-00",
+      "P0335-00",
+      "P00C6-00",
+      "P061C-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q52",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 6,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0504-00",
+      "P0220-11",
+      "P0120-11",
+      "P0120-12",
+      "P0220-12",
+      "P2135-00",
+      "P0704-29",
+      "P061E-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q53",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": 3,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0500-1C",
+      "P0215-00",
+      "P0500-1F",
+      "P003A-00",
+      "P062B-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q54",
+     "mode": "symptom",
+     "confidence": "high",
+     "rank": 3,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P2463-85",
+      "P2458-00",
+      "P2264-00",
+      "P2458-09",
+      "P242F-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q55",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0220-11",
+      "P0120-11",
+      "P0120-12",
+      "P0220-12",
+      "P0504-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q56",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": 4,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P242F-00",
+      "P0103-00",
+      "P010D-00",
+      "P0101-00",
+      "P0045-13"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q57",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0219-00",
+      "P2463-85",
+      "P00C6-00",
+      "P242F-00",
+      "P243F-F0"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q58",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P061C-00",
+      "P0336-00",
+      "P0335-00",
+      "P0219-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q59",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": 1,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0A1B-13",
+      "P0A1B-12",
+      "P0335-00",
+      "P0336-00",
+      "P0563-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q60",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P242A-84",
+      "P242A-85",
+      "P0425-84",
+      "P0425-85",
+      "P0427-00"
+     ],
+     "areas": null
+    }
+   ]
+  },
+  "A": {
+   "description": "+ no-DTC-match detector",
+   "cfg": {
+    "no_dtc": true,
+    "prior": 0.0
+   },
+   "symptom": {
+    "n": 41,
+    "hit@1": 0.12195121951219512,
+    "hit@3": 0.2682926829268293,
+    "hit@5": 0.3902439024390244,
+    "MRR": 0.22032520325203253,
+    "false_declines": 6,
+    "false_decline_ids": [
+     "Q03",
+     "Q07",
+     "Q16",
+     "Q19",
+     "Q23",
+     "Q26"
+    ]
+   },
+   "no_dtc": {
+    "n": 19,
+    "declined": 13,
+    "decline_rate": 0.6842105263157895,
+    "declined_ids": [
+     "Q04",
+     "Q11",
+     "Q20",
+     "Q27",
+     "Q29",
+     "Q30",
+     "Q32",
+     "Q37",
+     "Q42",
+     "Q46",
+     "Q47",
+     "Q48",
+     "Q57"
+    ],
+    "still_answered": {
+     "Q22": [
+      "P0101-00",
+      "P0110-11",
+      "P010C-00"
+     ],
+     "Q36": [
+      "P1114-00",
+      "P0425-85",
+      "P242A-84"
+     ],
+     "Q41": [
+      "P2205-00",
+      "P22A3-00",
+      "P0119-00"
+     ],
+     "Q43": [
+      "P0110-11",
+      "P0110-12",
+      "P0100-9C"
+     ],
+     "Q45": [
+      "P2458-09",
+      "P2458-00",
+      "P0336-00"
+     ],
+     "Q60": [
+      "P242A-84",
+      "P242A-85",
+      "P0425-84"
+     ]
+    }
+   },
+   "rows": [
+    {
+     "id": "Q01",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 1,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0336-00",
+      "P0335-00",
+      "P0627-11",
+      "P0627-12",
+      "P018F-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q02",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 5,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P061C-00",
+      "P0500-1F",
+      "P0219-00",
+      "P0500-1C",
+      "P0336-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q03",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "declined": true,
+     "decline_by": "no_dtc_match",
+     "codes": [],
+     "areas": [
+      "the valve train"
+     ]
+    },
+    {
+     "id": "Q04",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "declined": true,
+     "decline_by": "no_dtc_match",
+     "codes": [],
+     "areas": [
+      "the wet area and the joint above it",
+      "the area the smell comes from"
+     ]
+    },
+    {
+     "id": "Q05",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0335-00",
+      "P0336-00",
+      "P0089-00",
+      "P00C6-00",
+      "P018F-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q06",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": 1,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0101-00",
+      "P2458-00",
+      "P242F-00",
+      "P259F-00",
+      "P0100-9B"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q07",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "declined": true,
+     "decline_by": "no_dtc_match",
+     "codes": [],
+     "areas": [
+      "the area the smell comes from"
+     ]
+    },
+    {
+     "id": "Q08",
+     "mode": "symptom",
+     "confidence": "high",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P042A-85",
+      "P042A-84",
+      "P042C-00",
+      "P042D-00",
+      "P0421-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q09",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 2,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P2043-85",
+      "P042A-85",
+      "P242A-85",
+      "P242A-84",
+      "P0425-85"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q10",
+     "mode": "symptom",
+     "confidence": "high",
+     "rank": 1,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P203F-00",
+      "P2BA9-00",
+      "P203B-84",
+      "P203B-85",
+      "P206A-F1"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q11",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "declined": true,
+     "decline_by": "no_dtc_match",
+     "codes": [],
+     "areas": [
+      "under the vehicle, at the source",
+      "the area the smell comes from",
+      "the fluid level and for leaks"
+     ]
+    },
+    {
+     "id": "Q12",
+     "mode": "symptom",
+     "confidence": "high",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0425-84",
+      "P0425-85",
+      "P242A-84",
+      "P242A-85",
+      "P0427-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q13",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0219-00",
+      "P061C-00",
+      "P0336-00",
+      "P166E-00",
+      "P0335-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q14",
+     "mode": "symptom",
+     "confidence": "high",
+     "rank": 2,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0504-00",
+      "P0120-12",
+      "P0120-11",
+      "P0220-11",
+      "P0220-12"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q15",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 4,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0504-00",
+      "P0220-11",
+      "P0120-11",
+      "P0220-12",
+      "P0120-12"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q16",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "declined": true,
+     "decline_by": "no_dtc_match",
+     "codes": [],
+     "areas": [
+      "exhaust smoke colour"
+     ]
+    },
+    {
+     "id": "Q17",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0004-00",
+      "P0336-00",
+      "P0003-00",
+      "P0335-00",
+      "P0627-12"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q18",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0120-12",
+      "P0504-00",
+      "P0120-11",
+      "P0220-11",
+      "P0220-12"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q19",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "declined": true,
+     "decline_by": "no_dtc_match",
+     "codes": [],
+     "areas": [
+      "the fluid level and for leaks"
+     ]
+    },
+    {
+     "id": "Q20",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "declined": true,
+     "decline_by": "no_dtc_match",
+     "codes": [],
+     "areas": [
+      "the leaking joint, hose or housing",
+      "the area the smell comes from",
+      "fuel or oil consumption and for leaks"
+     ]
+    },
+    {
+     "id": "Q21",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0120-11",
+      "P0120-12",
+      "P0504-00",
+      "P203A-29",
+      "P2200-01"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q22",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0101-00",
+      "P0110-11",
+      "P010C-00",
+      "P0102-00",
+      "P0100-9B"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q23",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "declined": true,
+     "decline_by": "no_dtc_match",
+     "codes": [],
+     "areas": [
+      "mountings, balance and the drivetrain"
+     ]
+    },
+    {
+     "id": "Q24",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 4,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0A1B-12",
+      "P0A1B-13",
+      "P0627-12",
+      "P0180-12",
+      "P0627-11"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q25",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0219-00",
+      "P061C-00",
+      "P0336-00",
+      "P0335-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q26",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "declined": true,
+     "decline_by": "no_dtc_match",
+     "codes": [],
+     "areas": [
+      "exhaust smoke colour"
+     ]
+    },
+    {
+     "id": "Q27",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "declined": true,
+     "decline_by": "no_dtc_match",
+     "codes": [],
+     "areas": [
+      "the rattling component and its mountings"
+     ]
+    },
+    {
+     "id": "Q28",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 1,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0117-00",
+      "P0118-00",
+      "P0116-00",
+      "P0119-00",
+      "P0100-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q29",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "declined": true,
+     "decline_by": "no_dtc_match",
+     "codes": [],
+     "areas": [
+      "the oily joint or seal"
+     ]
+    },
+    {
+     "id": "Q30",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "declined": true,
+     "decline_by": "no_dtc_match",
+     "codes": [],
+     "areas": [
+      "the turbo, its hoses and the air path"
+     ]
+    },
+    {
+     "id": "Q31",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P1204-00",
+      "P1202-00",
+      "P2147-00",
+      "P1201-00",
+      "P0204-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q32",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "declined": true,
+     "decline_by": "no_dtc_match",
+     "codes": [],
+     "areas": [
+      "exhaust smoke colour"
+     ]
+    },
+    {
+     "id": "Q33",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0336-00",
+      "P0335-00",
+      "P0119-00",
+      "P061C-00",
+      "P0048-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q34",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0219-00",
+      "P0336-00",
+      "P061C-00",
+      "P0120-11",
+      "P062B-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q35",
+     "mode": "symptom",
+     "confidence": "high",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P042C-00",
+      "P2458-09",
+      "P042D-00",
+      "P042A-84",
+      "P042A-85"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q36",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P1114-00",
+      "P0425-85",
+      "P242A-84",
+      "P242A-85",
+      "P0425-84"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q37",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "declined": true,
+     "decline_by": "no_dtc_match",
+     "codes": [],
+     "areas": [
+      "the area the smell comes from"
+     ]
+    },
+    {
+     "id": "Q38",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P206A-F2",
+      "P2BA9-00",
+      "P206A-F1",
+      "P206A-86",
+      "P206A-F3"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q39",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 2,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P203F-00",
+      "P2BA9-00",
+      "P206A-F2",
+      "P203B-84",
+      "P203B-85"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q40",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P1083-00",
+      "P242F-00",
+      "P2205-29",
+      "P22A3-29",
+      "P2455-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q41",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P2205-00",
+      "P22A3-00",
+      "P0119-00",
+      "P0110-12",
+      "P0118-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q42",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "declined": true,
+     "decline_by": "no_dtc_match",
+     "codes": [],
+     "areas": [
+      "under the vehicle, at the source",
+      "the area the smell comes from"
+     ]
+    },
+    {
+     "id": "Q43",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0110-11",
+      "P0110-12",
+      "P0100-9C",
+      "P0100-9B",
+      "P0109-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q44",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": 4,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0118-00",
+      "P0117-00",
+      "P0119-00",
+      "P0116-00",
+      "P22A3-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q45",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P2458-09",
+      "P2458-00",
+      "P0336-00",
+      "P2452-85",
+      "P2454-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q46",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "declined": true,
+     "decline_by": "no_dtc_match",
+     "codes": [],
+     "areas": [
+      "the area the smell comes from",
+      "the fluid level and for leaks"
+     ]
+    },
+    {
+     "id": "Q47",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "declined": true,
+     "decline_by": "no_dtc_match",
+     "codes": [],
+     "areas": [
+      "where the fluid is dripping from"
+     ]
+    },
+    {
+     "id": "Q48",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "declined": true,
+     "decline_by": "no_dtc_match",
+     "codes": [],
+     "areas": [
+      "the wet area and the joint above it",
+      "the belt, tensioner and pulleys"
+     ]
+    },
+    {
+     "id": "Q49",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P061C-00",
+      "P0219-00",
+      "P0336-00",
+      "P0335-00",
+      "P018F-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q50",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P061C-00",
+      "P018F-00",
+      "P1083-00",
+      "P00C6-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q51",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": 2,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0219-00",
+      "P0336-00",
+      "P0335-00",
+      "P00C6-00",
+      "P061C-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q52",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 6,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0504-00",
+      "P0220-11",
+      "P0120-11",
+      "P0120-12",
+      "P0220-12",
+      "P2135-00",
+      "P0704-29",
+      "P061E-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q53",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": 3,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0500-1C",
+      "P0215-00",
+      "P0500-1F",
+      "P003A-00",
+      "P062B-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q54",
+     "mode": "symptom",
+     "confidence": "high",
+     "rank": 3,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P2463-85",
+      "P2458-00",
+      "P2264-00",
+      "P2458-09",
+      "P242F-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q55",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0220-11",
+      "P0120-11",
+      "P0120-12",
+      "P0220-12",
+      "P0504-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q56",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": 4,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P242F-00",
+      "P0103-00",
+      "P010D-00",
+      "P0101-00",
+      "P0045-13"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q57",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "declined": true,
+     "decline_by": "no_dtc_match",
+     "codes": [],
+     "areas": [
+      "the area the smell comes from"
+     ]
+    },
+    {
+     "id": "Q58",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P061C-00",
+      "P0336-00",
+      "P0335-00",
+      "P0219-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q59",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": 1,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0A1B-13",
+      "P0A1B-12",
+      "P0335-00",
+      "P0336-00",
+      "P0563-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q60",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P242A-84",
+      "P242A-85",
+      "P0425-84",
+      "P0425-85",
+      "P0427-00"
+     ],
+     "areas": null
+    }
+   ]
+  },
+  "B": {
+   "description": "+ subsystem prior (w=0.5)",
+   "cfg": {
+    "no_dtc": false,
+    "prior": 0.5
+   },
+   "symptom": {
+    "n": 41,
+    "hit@1": 0.14634146341463414,
+    "hit@3": 0.2926829268292683,
+    "hit@5": 0.4146341463414634,
+    "MRR": 0.24471544715447155,
+    "false_declines": 0,
+    "false_decline_ids": []
+   },
+   "no_dtc": {
+    "n": 19,
+    "declined": 0,
+    "decline_rate": 0.0,
+    "declined_ids": [],
+    "still_answered": {
+     "Q04": [
+      "P2264-00",
+      "P2264-11",
+      "P2264-12"
+     ],
+     "Q11": [
+      "P0118-00",
+      "P0119-00",
+      "P0117-00"
+     ],
+     "Q20": [
+      "P2463-85",
+      "P242F-00",
+      "P2458-00"
+     ],
+     "Q22": [
+      "P0101-00",
+      "P0110-11",
+      "P010C-00"
+     ],
+     "Q27": [
+      "P0219-00",
+      "P061C-00",
+      "P0336-00"
+     ],
+     "Q29": [
+      "P026A-00",
+      "P0101-00",
+      "P0109-00"
+     ],
+     "Q30": [
+      "P0048-00",
+      "P0047-00",
+      "P003A-00"
+     ],
+     "Q32": [
+      "P0504-00",
+      "P0110-11",
+      "P0110-12"
+     ],
+     "Q36": [
+      "P0425-85",
+      "P0425-84",
+      "P042A-85"
+     ],
+     "Q37": [
+      "P242F-00",
+      "P2463-85",
+      "P243C-00"
+     ],
+     "Q41": [
+      "P2205-00",
+      "P22A3-00",
+      "P0119-00"
+     ],
+     "Q42": [
+      "P0117-00",
+      "P0119-00",
+      "P0118-00"
+     ],
+     "Q43": [
+      "P0110-11",
+      "P0110-12",
+      "P0100-9C"
+     ],
+     "Q45": [
+      "P2458-09",
+      "P2458-00",
+      "P0336-00"
+     ],
+     "Q46": [
+      "P2463-85",
+      "P243F-F0",
+      "P242F-00"
+     ],
+     "Q47": [
+      "P2458-09",
+      "P20A2-00",
+      "P208C-00"
+     ],
+     "Q48": [
+      "P0110-12",
+      "P0110-11",
+      "P0A1B-12"
+     ],
+     "Q57": [
+      "P0219-00",
+      "P2463-85",
+      "P00C6-00"
+     ],
+     "Q60": [
+      "P242A-84",
+      "P242A-85",
+      "P0425-84"
+     ]
+    }
+   },
+   "rows": [
+    {
+     "id": "Q01",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 1,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0336-00",
+      "P0335-00",
+      "P0627-11",
+      "P0627-12",
+      "P018F-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q02",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 5,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0500-1F",
+      "P0500-1C",
+      "P061C-00",
+      "P0219-00",
+      "P0336-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q03",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": 1,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P2150-00",
+      "P2147-00",
+      "P1201-00",
+      "P0201-00",
+      "P1202-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q04",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P2264-00",
+      "P2264-11",
+      "P2264-12",
+      "P018F-00",
+      "P244A-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q05",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0335-00",
+      "P0336-00",
+      "P0089-00",
+      "P00C6-00",
+      "P018F-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q06",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": 1,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0101-00",
+      "P2458-00",
+      "P242F-00",
+      "P259F-00",
+      "P0100-9B"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q07",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P244A-00",
+      "P0219-00",
+      "P206A-86",
+      "P2BA9-00",
+      "P259E-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q08",
+     "mode": "symptom",
+     "confidence": "high",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P042A-85",
+      "P042A-84",
+      "P042C-00",
+      "P042D-00",
+      "P0421-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q09",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 2,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P2043-85",
+      "P042A-85",
+      "P242A-85",
+      "P242A-84",
+      "P0425-85"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q10",
+     "mode": "symptom",
+     "confidence": "high",
+     "rank": 1,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P203F-00",
+      "P2BA9-00",
+      "P203B-84",
+      "P203B-85",
+      "P206A-F1"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q11",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0118-00",
+      "P0119-00",
+      "P0117-00",
+      "P0116-00",
+      "P2228-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q12",
+     "mode": "symptom",
+     "confidence": "high",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0500-1F",
+      "P0425-84",
+      "P0425-85",
+      "P242A-84",
+      "P242A-85"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q13",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0219-00",
+      "P061C-00",
+      "P0336-00",
+      "P166E-00",
+      "P0335-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q14",
+     "mode": "symptom",
+     "confidence": "high",
+     "rank": 2,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0504-00",
+      "P0120-12",
+      "P0120-11",
+      "P0220-11",
+      "P0220-12"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q15",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 4,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0504-00",
+      "P0220-11",
+      "P0120-11",
+      "P0220-12",
+      "P0120-12"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q16",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P1201-00",
+      "P242F-00",
+      "P244B-00",
+      "P2463-85",
+      "P2150-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q17",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0336-00",
+      "P0335-00",
+      "P0004-00",
+      "P0003-00",
+      "P0627-12"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q18",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0120-12",
+      "P0504-00",
+      "P0120-11",
+      "P0220-11",
+      "P0220-12"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q19",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P206A-F1",
+      "P203F-84",
+      "P206A-F2",
+      "P0089-00",
+      "P206A-F3"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q20",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P2463-85",
+      "P242F-00",
+      "P2458-00",
+      "P244A-00",
+      "P226D-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q21",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0120-11",
+      "P0120-12",
+      "P0504-00",
+      "P203A-29",
+      "P2200-01"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q22",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0101-00",
+      "P0110-11",
+      "P010C-00",
+      "P0102-00",
+      "P0100-9B"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q23",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0119-00",
+      "P242A-84",
+      "P0110-11",
+      "P0110-12",
+      "P242D-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q24",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 4,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0A1B-12",
+      "P0A1B-13",
+      "P0627-12",
+      "P0180-12",
+      "P0627-11"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q25",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0219-00",
+      "P061C-00",
+      "P0336-00",
+      "P0335-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q26",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P242F-00",
+      "P1201-00",
+      "P2147-00",
+      "P0120-11",
+      "P243F-F0"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q27",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0219-00",
+      "P061C-00",
+      "P0336-00",
+      "P0335-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q28",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 1,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0117-00",
+      "P0118-00",
+      "P0116-00",
+      "P0119-00",
+      "P0100-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q29",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P026A-00",
+      "P0101-00",
+      "P0109-00",
+      "P0110-12",
+      "P0102-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q30",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0048-00",
+      "P0047-00",
+      "P003A-00",
+      "P0045-13",
+      "P006E-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q31",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P1204-00",
+      "P1202-00",
+      "P2147-00",
+      "P1201-00",
+      "P0204-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q32",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0504-00",
+      "P0110-11",
+      "P0110-12",
+      "P242F-00",
+      "P0120-12"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q33",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0336-00",
+      "P0335-00",
+      "P0119-00",
+      "P061C-00",
+      "P0048-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q34",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0219-00",
+      "P0336-00",
+      "P061C-00",
+      "P0120-11",
+      "P062B-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q35",
+     "mode": "symptom",
+     "confidence": "high",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P042C-00",
+      "P2458-09",
+      "P042D-00",
+      "P042A-84",
+      "P042A-85"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q36",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0425-85",
+      "P0425-84",
+      "P042A-85",
+      "P1114-00",
+      "P2458-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q37",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P242F-00",
+      "P2463-85",
+      "P243C-00",
+      "P2458-00",
+      "P2458-09"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q38",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P206A-F2",
+      "P2BA9-00",
+      "P206A-F1",
+      "P206A-86",
+      "P206A-F3"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q39",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 2,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P203F-00",
+      "P2BA9-00",
+      "P206A-F2",
+      "P203B-84",
+      "P203B-85"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q40",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P1083-00",
+      "P242F-00",
+      "P2205-29",
+      "P22A3-29",
+      "P2455-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q41",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P2205-00",
+      "P22A3-00",
+      "P0119-00",
+      "P0110-12",
+      "P0118-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q42",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0117-00",
+      "P0119-00",
+      "P0118-00",
+      "P0116-00",
+      "P0336-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q43",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0110-11",
+      "P0110-12",
+      "P0100-9C",
+      "P0100-9B",
+      "P0109-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q44",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": 4,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0118-00",
+      "P0117-00",
+      "P0119-00",
+      "P0116-00",
+      "P22A3-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q45",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P2458-09",
+      "P2458-00",
+      "P0336-00",
+      "P2452-85",
+      "P2454-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q46",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P2463-85",
+      "P243F-F0",
+      "P242F-00",
+      "P243C-00",
+      "P2458-09"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q47",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P2458-09",
+      "P20A2-00",
+      "P208C-00",
+      "P20A2-11",
+      "P2454-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q48",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0110-12",
+      "P0110-11",
+      "P0A1B-12",
+      "P0108-00",
+      "P2455-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q49",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0A1B-12",
+      "P0A1B-13",
+      "P061C-00",
+      "P0219-00",
+      "P0336-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q50",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P061C-00",
+      "P018F-00",
+      "P1083-00",
+      "P00C6-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q51",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": 2,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0219-00",
+      "P0336-00",
+      "P0335-00",
+      "P00C6-00",
+      "P061C-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q52",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 6,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0504-00",
+      "P0220-11",
+      "P0120-11",
+      "P0120-12",
+      "P0220-12",
+      "P2135-00",
+      "P0704-29",
+      "P061E-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q53",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": 3,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0500-1C",
+      "P0215-00",
+      "P0500-1F",
+      "P003A-00",
+      "P062B-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q54",
+     "mode": "symptom",
+     "confidence": "high",
+     "rank": 3,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P2463-85",
+      "P2458-00",
+      "P2264-00",
+      "P2458-09",
+      "P242F-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q55",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0220-11",
+      "P0120-11",
+      "P0120-12",
+      "P0220-12",
+      "P0504-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q56",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": 4,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P242F-00",
+      "P0103-00",
+      "P010D-00",
+      "P0101-00",
+      "P0045-13"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q57",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0219-00",
+      "P2463-85",
+      "P00C6-00",
+      "P242F-00",
+      "P243F-F0"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q58",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P061C-00",
+      "P0336-00",
+      "P0335-00",
+      "P0219-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q59",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": 1,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0A1B-13",
+      "P0A1B-12",
+      "P0335-00",
+      "P0336-00",
+      "P0563-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q60",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P242A-84",
+      "P242A-85",
+      "P0425-84",
+      "P0425-85",
+      "P0119-00"
+     ],
+     "areas": null
+    }
+   ]
+  },
+  "AB": {
+   "description": "+ both",
+   "cfg": {
+    "no_dtc": true,
+    "prior": 0.5
+   },
+   "symptom": {
+    "n": 41,
+    "hit@1": 0.12195121951219512,
+    "hit@3": 0.2682926829268293,
+    "hit@5": 0.3902439024390244,
+    "MRR": 0.22032520325203253,
+    "false_declines": 6,
+    "false_decline_ids": [
+     "Q03",
+     "Q07",
+     "Q16",
+     "Q19",
+     "Q23",
+     "Q26"
+    ]
+   },
+   "no_dtc": {
+    "n": 19,
+    "declined": 13,
+    "decline_rate": 0.6842105263157895,
+    "declined_ids": [
+     "Q04",
+     "Q11",
+     "Q20",
+     "Q27",
+     "Q29",
+     "Q30",
+     "Q32",
+     "Q37",
+     "Q42",
+     "Q46",
+     "Q47",
+     "Q48",
+     "Q57"
+    ],
+    "still_answered": {
+     "Q22": [
+      "P0101-00",
+      "P0110-11",
+      "P010C-00"
+     ],
+     "Q36": [
+      "P0425-85",
+      "P0425-84",
+      "P042A-85"
+     ],
+     "Q41": [
+      "P2205-00",
+      "P22A3-00",
+      "P0119-00"
+     ],
+     "Q43": [
+      "P0110-11",
+      "P0110-12",
+      "P0100-9C"
+     ],
+     "Q45": [
+      "P2458-09",
+      "P2458-00",
+      "P0336-00"
+     ],
+     "Q60": [
+      "P242A-84",
+      "P242A-85",
+      "P0425-84"
+     ]
+    }
+   },
+   "rows": [
+    {
+     "id": "Q01",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 1,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0336-00",
+      "P0335-00",
+      "P0627-11",
+      "P0627-12",
+      "P018F-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q02",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 5,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0500-1F",
+      "P0500-1C",
+      "P061C-00",
+      "P0219-00",
+      "P0336-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q03",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "declined": true,
+     "decline_by": "no_dtc_match",
+     "codes": [],
+     "areas": [
+      "the valve train"
+     ]
+    },
+    {
+     "id": "Q04",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "declined": true,
+     "decline_by": "no_dtc_match",
+     "codes": [],
+     "areas": [
+      "the wet area and the joint above it",
+      "the area the smell comes from"
+     ]
+    },
+    {
+     "id": "Q05",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0335-00",
+      "P0336-00",
+      "P0089-00",
+      "P00C6-00",
+      "P018F-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q06",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": 1,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0101-00",
+      "P2458-00",
+      "P242F-00",
+      "P259F-00",
+      "P0100-9B"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q07",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "declined": true,
+     "decline_by": "no_dtc_match",
+     "codes": [],
+     "areas": [
+      "the area the smell comes from"
+     ]
+    },
+    {
+     "id": "Q08",
+     "mode": "symptom",
+     "confidence": "high",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P042A-85",
+      "P042A-84",
+      "P042C-00",
+      "P042D-00",
+      "P0421-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q09",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 2,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P2043-85",
+      "P042A-85",
+      "P242A-85",
+      "P242A-84",
+      "P0425-85"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q10",
+     "mode": "symptom",
+     "confidence": "high",
+     "rank": 1,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P203F-00",
+      "P2BA9-00",
+      "P203B-84",
+      "P203B-85",
+      "P206A-F1"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q11",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "declined": true,
+     "decline_by": "no_dtc_match",
+     "codes": [],
+     "areas": [
+      "under the vehicle, at the source",
+      "the area the smell comes from",
+      "the fluid level and for leaks"
+     ]
+    },
+    {
+     "id": "Q12",
+     "mode": "symptom",
+     "confidence": "high",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0500-1F",
+      "P0425-84",
+      "P0425-85",
+      "P242A-84",
+      "P242A-85"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q13",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0219-00",
+      "P061C-00",
+      "P0336-00",
+      "P166E-00",
+      "P0335-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q14",
+     "mode": "symptom",
+     "confidence": "high",
+     "rank": 2,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0504-00",
+      "P0120-12",
+      "P0120-11",
+      "P0220-11",
+      "P0220-12"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q15",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 4,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0504-00",
+      "P0220-11",
+      "P0120-11",
+      "P0220-12",
+      "P0120-12"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q16",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "declined": true,
+     "decline_by": "no_dtc_match",
+     "codes": [],
+     "areas": [
+      "exhaust smoke colour"
+     ]
+    },
+    {
+     "id": "Q17",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0336-00",
+      "P0335-00",
+      "P0004-00",
+      "P0003-00",
+      "P0627-12"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q18",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0120-12",
+      "P0504-00",
+      "P0120-11",
+      "P0220-11",
+      "P0220-12"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q19",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "declined": true,
+     "decline_by": "no_dtc_match",
+     "codes": [],
+     "areas": [
+      "the fluid level and for leaks"
+     ]
+    },
+    {
+     "id": "Q20",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "declined": true,
+     "decline_by": "no_dtc_match",
+     "codes": [],
+     "areas": [
+      "the leaking joint, hose or housing",
+      "the area the smell comes from",
+      "fuel or oil consumption and for leaks"
+     ]
+    },
+    {
+     "id": "Q21",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0120-11",
+      "P0120-12",
+      "P0504-00",
+      "P203A-29",
+      "P2200-01"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q22",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0101-00",
+      "P0110-11",
+      "P010C-00",
+      "P0102-00",
+      "P0100-9B"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q23",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "declined": true,
+     "decline_by": "no_dtc_match",
+     "codes": [],
+     "areas": [
+      "mountings, balance and the drivetrain"
+     ]
+    },
+    {
+     "id": "Q24",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 4,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0A1B-12",
+      "P0A1B-13",
+      "P0627-12",
+      "P0180-12",
+      "P0627-11"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q25",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0219-00",
+      "P061C-00",
+      "P0336-00",
+      "P0335-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q26",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "declined": true,
+     "decline_by": "no_dtc_match",
+     "codes": [],
+     "areas": [
+      "exhaust smoke colour"
+     ]
+    },
+    {
+     "id": "Q27",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "declined": true,
+     "decline_by": "no_dtc_match",
+     "codes": [],
+     "areas": [
+      "the rattling component and its mountings"
+     ]
+    },
+    {
+     "id": "Q28",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 1,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0117-00",
+      "P0118-00",
+      "P0116-00",
+      "P0119-00",
+      "P0100-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q29",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "declined": true,
+     "decline_by": "no_dtc_match",
+     "codes": [],
+     "areas": [
+      "the oily joint or seal"
+     ]
+    },
+    {
+     "id": "Q30",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "declined": true,
+     "decline_by": "no_dtc_match",
+     "codes": [],
+     "areas": [
+      "the turbo, its hoses and the air path"
+     ]
+    },
+    {
+     "id": "Q31",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P1204-00",
+      "P1202-00",
+      "P2147-00",
+      "P1201-00",
+      "P0204-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q32",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "declined": true,
+     "decline_by": "no_dtc_match",
+     "codes": [],
+     "areas": [
+      "exhaust smoke colour"
+     ]
+    },
+    {
+     "id": "Q33",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0336-00",
+      "P0335-00",
+      "P0119-00",
+      "P061C-00",
+      "P0048-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q34",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0219-00",
+      "P0336-00",
+      "P061C-00",
+      "P0120-11",
+      "P062B-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q35",
+     "mode": "symptom",
+     "confidence": "high",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P042C-00",
+      "P2458-09",
+      "P042D-00",
+      "P042A-84",
+      "P042A-85"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q36",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0425-85",
+      "P0425-84",
+      "P042A-85",
+      "P1114-00",
+      "P2458-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q37",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "declined": true,
+     "decline_by": "no_dtc_match",
+     "codes": [],
+     "areas": [
+      "the area the smell comes from"
+     ]
+    },
+    {
+     "id": "Q38",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P206A-F2",
+      "P2BA9-00",
+      "P206A-F1",
+      "P206A-86",
+      "P206A-F3"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q39",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 2,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P203F-00",
+      "P2BA9-00",
+      "P206A-F2",
+      "P203B-84",
+      "P203B-85"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q40",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P1083-00",
+      "P242F-00",
+      "P2205-29",
+      "P22A3-29",
+      "P2455-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q41",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P2205-00",
+      "P22A3-00",
+      "P0119-00",
+      "P0110-12",
+      "P0118-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q42",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "declined": true,
+     "decline_by": "no_dtc_match",
+     "codes": [],
+     "areas": [
+      "under the vehicle, at the source",
+      "the area the smell comes from"
+     ]
+    },
+    {
+     "id": "Q43",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0110-11",
+      "P0110-12",
+      "P0100-9C",
+      "P0100-9B",
+      "P0109-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q44",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": 4,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0118-00",
+      "P0117-00",
+      "P0119-00",
+      "P0116-00",
+      "P22A3-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q45",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P2458-09",
+      "P2458-00",
+      "P0336-00",
+      "P2452-85",
+      "P2454-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q46",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "declined": true,
+     "decline_by": "no_dtc_match",
+     "codes": [],
+     "areas": [
+      "the area the smell comes from",
+      "the fluid level and for leaks"
+     ]
+    },
+    {
+     "id": "Q47",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "declined": true,
+     "decline_by": "no_dtc_match",
+     "codes": [],
+     "areas": [
+      "where the fluid is dripping from"
+     ]
+    },
+    {
+     "id": "Q48",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "declined": true,
+     "decline_by": "no_dtc_match",
+     "codes": [],
+     "areas": [
+      "the wet area and the joint above it",
+      "the belt, tensioner and pulleys"
+     ]
+    },
+    {
+     "id": "Q49",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0A1B-12",
+      "P0A1B-13",
+      "P061C-00",
+      "P0219-00",
+      "P0336-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q50",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P061C-00",
+      "P018F-00",
+      "P1083-00",
+      "P00C6-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q51",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": 2,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0219-00",
+      "P0336-00",
+      "P0335-00",
+      "P00C6-00",
+      "P061C-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q52",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": 6,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0504-00",
+      "P0220-11",
+      "P0120-11",
+      "P0120-12",
+      "P0220-12",
+      "P2135-00",
+      "P0704-29",
+      "P061E-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q53",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": 3,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0500-1C",
+      "P0215-00",
+      "P0500-1F",
+      "P003A-00",
+      "P062B-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q54",
+     "mode": "symptom",
+     "confidence": "high",
+     "rank": 3,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P2463-85",
+      "P2458-00",
+      "P2264-00",
+      "P2458-09",
+      "P242F-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q55",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0220-11",
+      "P0120-11",
+      "P0120-12",
+      "P0220-12",
+      "P0504-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q56",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": 4,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P242F-00",
+      "P0103-00",
+      "P010D-00",
+      "P0101-00",
+      "P0045-13"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q57",
+     "mode": "no_dtc",
+     "confidence": "high",
+     "rank": null,
+     "declined": true,
+     "decline_by": "no_dtc_match",
+     "codes": [],
+     "areas": [
+      "the area the smell comes from"
+     ]
+    },
+    {
+     "id": "Q58",
+     "mode": "symptom",
+     "confidence": "low",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P061C-00",
+      "P0336-00",
+      "P0335-00",
+      "P0219-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q59",
+     "mode": "symptom",
+     "confidence": "medium",
+     "rank": 1,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P0A1B-13",
+      "P0A1B-12",
+      "P0335-00",
+      "P0336-00",
+      "P0563-00"
+     ],
+     "areas": null
+    },
+    {
+     "id": "Q60",
+     "mode": "no_dtc",
+     "confidence": "medium",
+     "rank": null,
+     "declined": false,
+     "decline_by": null,
+     "codes": [
+      "P242A-84",
+      "P242A-85",
+      "P0425-84",
+      "P0425-85",
+      "P0119-00"
+     ],
+     "areas": null
+    }
+   ]
+  }
+ }
+}
