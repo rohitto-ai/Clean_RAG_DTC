@@ -1,0 +1,3011 @@
+{
+ "summary": {
+  "applied": "Phase 12.1 addendum, mechanical distinctiveness filter (removal only)",
+  "rule_1": "drop if shared with more than 10 other records at cosine >= 0.9",
+  "rule_2": "drop generic-only lines (lamp / smoke / noise / power / start) unless the record's own fields mention that behaviour",
+  "floor": "keep at least 2 expansions per record where available; restorations are recorded",
+  "embedder": "sentence-transformers/all-MiniLM-L6-v2",
+  "expansions_before": 1515,
+  "expansions_after": 608,
+  "dropped": 907,
+  "records_with_restorations": 232
+ },
+ "per_record_kept_histogram": {
+  "1": 70,
+  "2": 214,
+  "3": 15,
+  "4": 11,
+  "5": 3,
+  "6": 1
+ },
+ "dropped_per_record": {
+  "P0192-00@p8#1": 4,
+  "P0193-00@p10#1": 3,
+  "P0194-00@p12#1": 4,
+  "P0117-00@p13#1": 4,
+  "P0118-00@p16#1": 4,
+  "P0119-00@p18#1": 4,
+  "P0116-00@p20#1": 4,
+  "P0100-00@p22#1": 4,
+  "P0102-00@p25#1": 4,
+  "P0103-00@p28#1": 3,
+  "P010C-00@p31#1": 4,
+  "P010D-00@p34#1": 4,
+  "P0100-9B@p37#1": 4,
+  "P0100-9C@p40#1": 4,
+  "P0401-00@p46#1": 3,
+  "P0402-00@p47#1": 3,
+  "P0107-00@p48#1": 4,
+  "P0108-00@p51#1": 4,
+  "P0110-11@p57#1": 4,
+  "P0110-12@p60#1": 4,
+  "P0048-00@p69#1": 4,
+  "P004D-00@p72#1": 3,
+  "P0047-00@p75#1": 2,
+  "P004C-00@p78#1": 2,
+  "P0087-00@p81#1": 4,
+  "P0088-00@p83#1": 4,
+  "P0089-92@p85#1": 3,
+  "P00C6-00@p86#1": 4,
+  "P0089-00@p88#1": 4,
+  "P018F-00@p89#1": 4,
+  "P0120-11@p90#1": 4,
+  "P0220-11@p94#1": 4,
+  "P0220-12@p96#1": 4,
+  "P2135-00@p98#1": 4,
+  "P0180-11@p100#1": 3,
+  "P0180-12@p102#1": 4,
+  "P0202-00@p107#1": 4,
+  "P1204-00@p125#1": 2,
+  "P0001-00@p128#1": 2,
+  "P0003-00@p131#1": 4,
+  "P0004-00@p134#1": 4,
+  "P0335-00@p137#1": 2,
+  "P0340-00@p143#1": 4,
+  "P0341-00@p146#1": 4,
+  "P042F-00@p155#1": 2,
+  "P042E-00@p158#1": 3,
+  "P045D-00@p170#1": 4,
+  "P0403-00@p173#1": 4,
+  "P0500-1C@p179#1": 2,
+  "P259F-00@p182#1": 3,
+  "P259E-00@p183#1": 3,
+  "P0627-11@p184#1": 4,
+  "P0627-13@p186#1": 4,
+  "P0627-12@p188#1": 3,
+  "P2264-12@p190#1": 1,
+  "P2264-11@p192#1": 1,
+  "P0180-11@p195#2": 4,
+  "P0180-12@p197#2": 4,
+  "P0504-00@p203#1": 3,
+  "P0704-29@p205#1": 4,
+  "P0A1B-13@p208#1": 4,
+  "P0A1B-12@p211#1": 4,
+  "P2229-00@p214#1": 4,
+  "P2228-00@p215#1": 4,
+  "P0219-00@p216#1": 4,
+  "P061C-00@p217#1": 4,
+  "P062B-00@p218#1": 4,
+  "P061A-00@p219#1": 1,
+  "P060A-49@p220#1": 4,
+  "U011A-89@p223#1": 4,
+  "P0425-85@p224#1": 4,
+  "P0425-84@p226#1": 4,
+  "P0428-00@p228#1": 4,
+  "P0427-00@p230#1": 4,
+  "P042A-85@p232#1": 4,
+  "P042A-84@p234#1": 4,
+  "P042D-00@p236#1": 4,
+  "P042C-00@p238#1": 4,
+  "P242A-85@p240#1": 4,
+  "P242A-84@p242#1": 3,
+  "P242D-00@p244#1": 4,
+  "P242C-00@p246#1": 4,
+  "P2452-85@p248#1": 4,
+  "P2452-84@p251#1": 4,
+  "P2455-00@p254#1": 4,
+  "P2454-00@p257#1": 4,
+  "P203B-85@p266#1": 4,
+  "P2043-85@p272#1": 3,
+  "P2043-84@p274#1": 3,
+  "P203A-24@p276#1": 4,
+  "P2BA9-00@p282#1": 2,
+  "P244B-00@p283#1": 4,
+  "P244A-00@p286#1": 4,
+  "P226D-00@p289#1": 4,
+  "P0421-00@p292#1": 4,
+  "P20F5-7A@p313#1": 2,
+  "P20F5-00@p314#1": 4,
+  "P20F4-9B@p315#1": 2,
+  "P048B-11@p319#1": 4,
+  "P048B-12@p322#1": 4,
+  "P04A5-00@p325#1": 3,
+  "P04A4-00@p328#1": 3,
+  "P048D-00@p331#1": 4,
+  "P048E-00@p334#1": 4,
+  "P04A8-00@p337#1": 4,
+  "P04A9-00@p340#1": 3,
+  "P04A0-00@p343#1": 3,
+  "P040C-00@p346#1": 2,
+  "P040D-00@p349#1": 3,
+  "P2457-00@p355#1": 4,
+  "P0562-00@p359#1": 4,
+  "P0563-00@p360#1": 4,
+  "P0072-00@p363#1": 4,
+  "P0073-00@p366#1": 3,
+  "P0071-00@p369#1": 4,
+  "P1000-00@p370#1": 4,
+  "P1001-00@p371#1": 4,
+  "P1002-00@p372#1": 3,
+  "P1003-00@p373#1": 4,
+  "P1004-00@p374#1": 4,
+  "P2150-00@p378#1": 4,
+  "P0045-13@p387#1": 4,
+  "P22CF-73@p390#1": 3,
+  "P22CF-72@p393#1": 3,
+  "P003A-00@p396#1": 4,
+  "P003B-00@p399#1": 3,
+  "P2453-64@p404#1": 4,
+  "P2205-00@p405#1": 4,
+  "P2205-29@p406#1": 4,
+  "P2200-F0@p407#1": 4,
+  "P2200-85@p408#1": 4,
+  "P2200-84@p409#1": 4,
+  "P2200-0D@p410#1": 4,
+  "P2200-01@p411#1": 4,
+  "P2200-29@p412#1": 4,
+  "P2200-22@p413#1": 4,
+  "P2200-21@p414#1": 4,
+  "P2200-0A@p415#1": 4,
+  "P2200-26@p417#1": 4,
+  "P22A3-00@p418#1": 4,
+  "P22A3-29@p419#1": 4,
+  "P229E-F0@p420#1": 4,
+  "P229E-85@p421#1": 4,
+  "P229E-84@p422#1": 4,
+  "P229E-0D@p423#1": 4,
+  "P229E-01@p424#1": 4,
+  "P229E-29@p425#1": 4,
+  "P229E-22@p426#1": 4,
+  "P229E-21@p427#1": 4,
+  "P229E-0A@p428#1": 4,
+  "P229E-27@p429#1": 4,
+  "P229E-26@p430#1": 4,
+  "P203A-29@p431#1": 4,
+  "P203F-84@p432#1": 4,
+  "P203F-7B@p433#1": 4,
+  "P206A-F1@p434#1": 4,
+  "P206A-F2@p435#1": 4,
+  "P206A-F3@p436#1": 4,
+  "P2463-85@p437#1": 4,
+  "P243F-F0@p440#1": 4,
+  "P242F-00@p443#1": 4,
+  "P2458-00@p446#1": 4,
+  "P243C-00@p449#1": 3,
+  "P2458-09@p452#1": 4,
+  "P0215-00@p467#1": 3,
+  "P0611-F5@p468#1": 4,
+  "P0611-F8@p469#1": 4,
+  "P060B-00@p470#1": 4,
+  "P061E-00@p471#1": 4,
+  "P061C-00@p472#2": 4,
+  "P1014-00@p473#1": 2,
+  "P1015-00@p474#1": 4,
+  "P1111-00@p475#1": 4,
+  "P1112-00@p476#1": 4,
+  "P1113-00@p477#1": 4,
+  "P1018-00@p478#1": 2,
+  "P1019-00@p479#1": 4,
+  "P1080-00@p480#1": 4,
+  "P1081-00@p481#1": 4,
+  "P101B-00@p482#1": 4,
+  "P101C-00@p483#1": 4,
+  "P1082-00@p484#1": 4,
+  "P1083-00@p485#1": 4,
+  "P0184-00@p486#1": 4,
+  "P1114-00@p487#1": 3,
+  "P1085-00@p488#1": 4,
+  "P060C-00@p489#1": 4,
+  "P1668-00@p490#1": 3,
+  "P165D-00@p491#1": 4,
+  "P1656-00@p492#1": 4,
+  "P164E-00@p493#1": 4,
+  "P1646-00@p494#1": 4,
+  "P1652-00@p495#1": 4,
+  "P1647-00@p496#1": 4,
+  "P164D-00@p497#1": 4,
+  "P1666-00@p498#1": 4,
+  "P164B-00@p499#1": 4,
+  "P1675-00@p500#1": 4,
+  "P166F-00@p501#1": 4,
+  "P1673-00@p502#1": 4,
+  "P1641-00@p503#1": 4,
+  "P1650-00@p504#1": 4,
+  "P165C-00@p505#1": 4,
+  "P1667-00@p506#1": 4,
+  "P1664-00@p507#1": 4,
+  "P1665-00@p508#1": 4,
+  "P1669-00@p509#1": 4,
+  "P1642-00@p510#1": 4,
+  "P164C-00@p511#1": 4,
+  "P1648-00@p512#1": 4,
+  "P164A-00@p513#1": 4,
+  "P165A-00@p514#1": 4,
+  "P166C-00@p515#1": 4,
+  "P1655-00@p516#1": 4,
+  "P1670-00@p517#1": 4,
+  "P1649-00@p518#1": 4,
+  "P1658-00@p519#1": 4,
+  "P165F-00@p520#1": 3,
+  "P1654-00@p521#1": 4,
+  "P1643-00@p522#1": 4,
+  "P1653-00@p523#1": 4,
+  "P1672-00@p524#1": 4,
+  "P164F-00@p525#1": 4,
+  "P1674-00@p526#1": 4,
+  "P1657-00@p527#1": 4,
+  "P1644-00@p528#1": 4,
+  "P166D-00@p529#1": 4,
+  "P1671-00@p530#1": 4,
+  "P1660-00@p531#1": 4,
+  "P1677-00@p532#1": 4,
+  "P1640-00@p533#1": 4,
+  "P166B-00@p534#1": 4,
+  "P1676-00@p535#1": 4,
+  "P165E-00@p536#1": 4,
+  "P1661-00@p537#1": 4,
+  "P165B-00@p538#1": 4,
+  "P1651-00@p539#1": 4,
+  "P1663-00@p540#1": 4,
+  "P166E-00@p541#1": 4,
+  "P1645-00@p542#1": 4,
+  "P1662-00@p543#1": 4,
+  "P1659-00@p544#1": 4,
+  "P166A-00@p545#1": 4
+ },
+ "top_20_most_shared_removed": [
+  {
+   "shared_with_other_records": 130,
+   "text": "Warning light is off",
+   "example_record": "P060A-49@p220#1",
+   "removed_from_n_records": 43
+  },
+  {
+   "shared_with_other_records": 118,
+   "text": "Pulling power is weak",
+   "example_record": "P0088-00@p83#1",
+   "removed_from_n_records": 46
+  },
+  {
+   "shared_with_other_records": 118,
+   "text": "Warning light stays off",
+   "example_record": "P0120-11@p90#1",
+   "removed_from_n_records": 46
+  },
+  {
+   "shared_with_other_records": 115,
+   "text": "Smoke pours out of the exhaust",
+   "example_record": "P0193-00@p10#1",
+   "removed_from_n_records": 9
+  },
+  {
+   "shared_with_other_records": 115,
+   "text": "Pulling power weak",
+   "example_record": "P0100-00@p22#1",
+   "removed_from_n_records": 65
+  },
+  {
+   "shared_with_other_records": 115,
+   "text": "Weak pulling power",
+   "example_record": "P0504-00@p203#1",
+   "removed_from_n_records": 5
+  },
+  {
+   "shared_with_other_records": 112,
+   "text": "Warning light stays on",
+   "example_record": "P0103-00@p28#1",
+   "removed_from_n_records": 24
+  },
+  {
+   "shared_with_other_records": 105,
+   "text": "Warning light off",
+   "example_record": "P0220-11@p94#1",
+   "removed_from_n_records": 6
+  },
+  {
+   "shared_with_other_records": 102,
+   "text": "Smoke coming out of exhaust",
+   "example_record": "P0180-12@p197#2",
+   "removed_from_n_records": 6
+  },
+  {
+   "shared_with_other_records": 97,
+   "text": "Smoke pours out of exhaust",
+   "example_record": "P0401-00@p46#1",
+   "removed_from_n_records": 47
+  },
+  {
+   "shared_with_other_records": 91,
+   "text": "Smoke pours from exhaust",
+   "example_record": "P0192-00@p8#1",
+   "removed_from_n_records": 35
+  },
+  {
+   "shared_with_other_records": 91,
+   "text": "Smoke pours from the exhaust",
+   "example_record": "P0194-00@p12#1",
+   "removed_from_n_records": 1
+  },
+  {
+   "shared_with_other_records": 87,
+   "text": "Warning light on dashboard",
+   "example_record": "P0117-00@p13#1",
+   "removed_from_n_records": 83
+  },
+  {
+   "shared_with_other_records": 86,
+   "text": "Warning light flashes on dashboard",
+   "example_record": "P0194-00@p12#1",
+   "removed_from_n_records": 4
+  },
+  {
+   "shared_with_other_records": 84,
+   "text": "Warning light on dashboard stays on",
+   "example_record": "P2458-00@p446#1",
+   "removed_from_n_records": 1
+  },
+  {
+   "shared_with_other_records": 72,
+   "text": "Car won't start",
+   "example_record": "P0220-11@p94#1",
+   "removed_from_n_records": 3
+  },
+  {
+   "shared_with_other_records": 72,
+   "text": "Vehicle won't start",
+   "example_record": "P0004-00@p134#1",
+   "removed_from_n_records": 70
+  },
+  {
+   "shared_with_other_records": 60,
+   "text": "Warning light comes on",
+   "example_record": "P0116-00@p20#1",
+   "removed_from_n_records": 6
+  },
+  {
+   "shared_with_other_records": 59,
+   "text": "Warning light on",
+   "example_record": "P0110-12@p60#1",
+   "removed_from_n_records": 5
+  },
+  {
+   "shared_with_other_records": 56,
+   "text": "Smoke comes out of the exhaust",
+   "example_record": "P0048-00@p69#1",
+   "removed_from_n_records": 8
+  }
+ ],
+ "restorations": {
+  "P0192-00@p8#1": [
+   {
+    "text": "Noise from engine increases",
+    "shared": 11,
+    "reasons": [
+     "shared with 11 other records (cosine >= 0.9)",
+     "generic-only (noise) and the record's own fields do not mention noise"
+    ]
+   }
+  ],
+  "P0117-00@p13#1": [
+   {
+    "text": "Idle rough, stutters",
+    "shared": 12,
+    "reasons": [
+     "shared with 12 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P0116-00@p20#1": [
+   {
+    "text": "Engine noise increases",
+    "shared": 11,
+    "reasons": [
+     "shared with 11 other records (cosine >= 0.9)",
+     "generic-only (noise) and the record's own fields do not mention noise"
+    ]
+   }
+  ],
+  "P0100-00@p22#1": [
+   {
+    "text": "Idle unstable",
+    "shared": 23,
+    "reasons": [
+     "shared with 23 other records (cosine >= 0.9)"
+    ]
+   },
+   {
+    "text": "Engine makes unusual noise",
+    "shared": 38,
+    "reasons": [
+     "shared with 38 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P0102-00@p25#1": [
+   {
+    "text": "Idle unstable, stutters",
+    "shared": 11,
+    "reasons": [
+     "shared with 11 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P0103-00@p28#1": [
+   {
+    "text": "Noises from engine area",
+    "shared": 22,
+    "reasons": [
+     "shared with 22 other records (cosine >= 0.9)",
+     "generic-only (noise) and the record's own fields do not mention noise"
+    ]
+   }
+  ],
+  "P010C-00@p31#1": [
+   {
+    "text": "Idle unstable, stutters",
+    "shared": 11,
+    "reasons": [
+     "shared with 11 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P010D-00@p34#1": [
+   {
+    "text": "Engine makes rough noise",
+    "shared": 14,
+    "reasons": [
+     "shared with 14 other records (cosine >= 0.9)"
+    ]
+   },
+   {
+    "text": "Idle unstable",
+    "shared": 23,
+    "reasons": [
+     "shared with 23 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P0100-9B@p37#1": [
+   {
+    "text": "Engine starts rough",
+    "shared": 3,
+    "reasons": [
+     "generic-only (start) and the record's own fields do not mention start"
+    ]
+   },
+   {
+    "text": "Smoke pours out",
+    "shared": 13,
+    "reasons": [
+     "shared with 13 other records (cosine >= 0.9)",
+     "generic-only (smoke) and the record's own fields do not mention smoke"
+    ]
+   }
+  ],
+  "P0100-9C@p40#1": [
+   {
+    "text": "Idling rough",
+    "shared": 11,
+    "reasons": [
+     "shared with 11 other records (cosine >= 0.9)"
+    ]
+   },
+   {
+    "text": "Engine makes unusual noise",
+    "shared": 38,
+    "reasons": [
+     "shared with 38 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P0101-00@p43#1": [
+   {
+    "text": "Engine starts but stalls quickly",
+    "shared": 30,
+    "reasons": [
+     "shared with 30 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P0401-00@p46#1": [
+   {
+    "text": "Idle unstable, jerky",
+    "shared": 14,
+    "reasons": [
+     "shared with 14 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P0402-00@p47#1": [
+   {
+    "text": "Idle unstable, jerky",
+    "shared": 14,
+    "reasons": [
+     "shared with 14 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P0107-00@p48#1": [
+   {
+    "text": "Idle unstable, stutters",
+    "shared": 11,
+    "reasons": [
+     "shared with 11 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P0108-00@p51#1": [
+   {
+    "text": "Idle unstable",
+    "shared": 23,
+    "reasons": [
+     "shared with 23 other records (cosine >= 0.9)"
+    ]
+   },
+   {
+    "text": "Engine makes unusual noise",
+    "shared": 38,
+    "reasons": [
+     "shared with 38 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P0110-12@p60#1": [
+   {
+    "text": "Strange noises",
+    "shared": 1,
+    "reasons": [
+     "generic-only (noise) and the record's own fields do not mention noise"
+    ]
+   }
+  ],
+  "P006E-00@p63#1": [
+   {
+    "text": "Engine starts but pulls weakly",
+    "shared": 38,
+    "reasons": [
+     "shared with 38 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P0087-00@p81#1": [
+   {
+    "text": "Engine makes unusual noise",
+    "shared": 38,
+    "reasons": [
+     "shared with 38 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P0088-00@p83#1": [
+   {
+    "text": "Engine makes a rough noise",
+    "shared": 14,
+    "reasons": [
+     "shared with 14 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P00C6-00@p86#1": [
+   {
+    "text": "Noisy when starting",
+    "shared": 7,
+    "reasons": [
+     "generic-only (noise, start) and the record's own fields do not mention noise, start"
+    ]
+   },
+   {
+    "text": "Engine won't start",
+    "shared": 22,
+    "reasons": [
+     "shared with 22 other records (cosine >= 0.9)",
+     "generic-only (start) and the record's own fields do not mention start"
+    ]
+   }
+  ],
+  "P0089-00@p88#1": [
+   {
+    "text": "Strange noise",
+    "shared": 1,
+    "reasons": [
+     "generic-only (noise) and the record's own fields do not mention noise"
+    ]
+   }
+  ],
+  "P0220-11@p94#1": [
+   {
+    "text": "Smoke coming out",
+    "shared": 3,
+    "reasons": [
+     "generic-only (smoke) and the record's own fields do not mention smoke"
+    ]
+   }
+  ],
+  "P0220-12@p96#1": [
+   {
+    "text": "Noises from engine bay",
+    "shared": 1,
+    "reasons": [
+     "generic-only (noise) and the record's own fields do not mention noise"
+    ]
+   }
+  ],
+  "P0180-12@p102#1": [
+   {
+    "text": "Idle is rough",
+    "shared": 14,
+    "reasons": [
+     "shared with 14 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P0201-00@p104#1": [
+   {
+    "text": "Engine starts but stalls quickly",
+    "shared": 30,
+    "reasons": [
+     "shared with 30 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P0202-00@p107#1": [
+   {
+    "text": "Noises from engine bay",
+    "shared": 1,
+    "reasons": [
+     "generic-only (noise) and the record's own fields do not mention noise"
+    ]
+   }
+  ],
+  "P0203-00@p110#1": [
+   {
+    "text": "Engine pulls weakly at start",
+    "shared": 38,
+    "reasons": [
+     "shared with 38 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P0204-00@p113#1": [
+   {
+    "text": "Engine pulls weakly at start",
+    "shared": 38,
+    "reasons": [
+     "shared with 38 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P1201-00@p116#1": [
+   {
+    "text": "Engine pulls weakly at start",
+    "shared": 38,
+    "reasons": [
+     "shared with 38 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P1202-00@p119#1": [
+   {
+    "text": "Engine pulls weakly at start",
+    "shared": 38,
+    "reasons": [
+     "shared with 38 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P1203-00@p122#1": [
+   {
+    "text": "Engine pulls weakly at start",
+    "shared": 38,
+    "reasons": [
+     "shared with 38 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P1204-00@p125#1": [
+   {
+    "text": "Engine pulls weakly at start",
+    "shared": 38,
+    "reasons": [
+     "shared with 38 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P0003-00@p131#1": [
+   {
+    "text": "Warning light flashes",
+    "shared": 19,
+    "reasons": [
+     "shared with 19 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P0004-00@p134#1": [
+   {
+    "text": "Idling rough",
+    "shared": 11,
+    "reasons": [
+     "shared with 11 other records (cosine >= 0.9)"
+    ]
+   },
+   {
+    "text": "Smoke pours out",
+    "shared": 13,
+    "reasons": [
+     "shared with 13 other records (cosine >= 0.9)",
+     "generic-only (smoke) and the record's own fields do not mention smoke"
+    ]
+   }
+  ],
+  "P0336-00@p140#1": [
+   {
+    "text": "Engine starts but stalls quickly",
+    "shared": 30,
+    "reasons": [
+     "shared with 30 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P0340-00@p143#1": [
+   {
+    "text": "Noisy when trying to start",
+    "shared": 51,
+    "reasons": [
+     "shared with 51 other records (cosine >= 0.9)",
+     "generic-only (noise, start) and the record's own fields do not mention noise"
+    ]
+   }
+  ],
+  "P0341-00@p146#1": [
+   {
+    "text": "Black smoke coming out of exhaust",
+    "shared": 21,
+    "reasons": [
+     "shared with 21 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P0405-00@p149#1": [
+   {
+    "text": "Engine starts but stalls quickly",
+    "shared": 30,
+    "reasons": [
+     "shared with 30 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P0406-00@p152#1": [
+   {
+    "text": "Engine starts but stalls quickly",
+    "shared": 30,
+    "reasons": [
+     "shared with 30 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P042F-00@p155#1": [
+   {
+    "text": "Warning light flashes",
+    "shared": 19,
+    "reasons": [
+     "shared with 19 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P042E-00@p158#1": [
+   {
+    "text": "Idle unstable, jerky",
+    "shared": 14,
+    "reasons": [
+     "shared with 14 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P0489-00@p161#1": [
+   {
+    "text": "Engine starts with difficulty",
+    "shared": 32,
+    "reasons": [
+     "shared with 32 other records (cosine >= 0.9)",
+     "generic-only (start) and the record's own fields do not mention start"
+    ]
+   }
+  ],
+  "P048A-00@p164#1": [
+   {
+    "text": "Engine starts with difficulty",
+    "shared": 32,
+    "reasons": [
+     "shared with 32 other records (cosine >= 0.9)",
+     "generic-only (start) and the record's own fields do not mention start"
+    ]
+   }
+  ],
+  "P045C-00@p167#1": [
+   {
+    "text": "Engine starts with difficulty",
+    "shared": 32,
+    "reasons": [
+     "shared with 32 other records (cosine >= 0.9)",
+     "generic-only (start) and the record's own fields do not mention start"
+    ]
+   }
+  ],
+  "P0403-00@p173#1": [
+   {
+    "text": "Idle unstable, stutters",
+    "shared": 11,
+    "reasons": [
+     "shared with 11 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P259E-00@p183#1": [
+   {
+    "text": "Idle is rough",
+    "shared": 14,
+    "reasons": [
+     "shared with 14 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P0627-11@p184#1": [
+   {
+    "text": "Weak pulling power at start",
+    "shared": 5,
+    "reasons": [
+     "generic-only (power, start) and the record's own fields do not mention power, start"
+    ]
+   },
+   {
+    "text": "Noisy when accelerating",
+    "shared": 5,
+    "reasons": [
+     "generic-only (noise) and the record's own fields do not mention noise"
+    ]
+   }
+  ],
+  "P0627-13@p186#1": [
+   {
+    "text": "Weak pulling power at start",
+    "shared": 5,
+    "reasons": [
+     "generic-only (power, start) and the record's own fields do not mention power, start"
+    ]
+   },
+   {
+    "text": "Noisy when accelerating",
+    "shared": 5,
+    "reasons": [
+     "generic-only (noise) and the record's own fields do not mention noise"
+    ]
+   }
+  ],
+  "P0180-11@p195#2": [
+   {
+    "text": "Weak pulling power at start",
+    "shared": 5,
+    "reasons": [
+     "generic-only (power, start) and the record's own fields do not mention start"
+    ]
+   },
+   {
+    "text": "Noisy when accelerating",
+    "shared": 5,
+    "reasons": [
+     "generic-only (noise) and the record's own fields do not mention noise"
+    ]
+   }
+  ],
+  "P0180-12@p197#2": [
+   {
+    "text": "Rumbling noise from engine",
+    "shared": 4,
+    "reasons": [
+     "generic-only (noise) and the record's own fields do not mention noise"
+    ]
+   },
+   {
+    "text": "Weak pulling power at start",
+    "shared": 5,
+    "reasons": [
+     "generic-only (power, start) and the record's own fields do not mention start"
+    ]
+   }
+  ],
+  "P0180-1C@p199#1": [
+   {
+    "text": "Engine starts but stalls quickly",
+    "shared": 30,
+    "reasons": [
+     "shared with 30 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P0180-1F@p201#1": [
+   {
+    "text": "Engine starts but stalls quickly",
+    "shared": 30,
+    "reasons": [
+     "shared with 30 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P0504-00@p203#1": [
+   {
+    "text": "Idling rough",
+    "shared": 11,
+    "reasons": [
+     "shared with 11 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P0704-29@p205#1": [
+   {
+    "text": "Smoke coming out",
+    "shared": 3,
+    "reasons": [
+     "generic-only (smoke) and the record's own fields do not mention smoke"
+    ]
+   },
+   {
+    "text": "Idling rough",
+    "shared": 11,
+    "reasons": [
+     "shared with 11 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P0A1B-13@p208#1": [
+   {
+    "text": "Idle rough, stutters",
+    "shared": 12,
+    "reasons": [
+     "shared with 12 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P0A1B-12@p211#1": [
+   {
+    "text": "Noises from starter motor",
+    "shared": 0,
+    "reasons": [
+     "generic-only (noise, start) and the record's own fields do not mention noise"
+    ]
+   }
+  ],
+  "P2229-00@p214#1": [
+   {
+    "text": "Idle is rough",
+    "shared": 14,
+    "reasons": [
+     "shared with 14 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P061C-00@p217#1": [
+   {
+    "text": "Black smoke coming out of exhaust",
+    "shared": 21,
+    "reasons": [
+     "shared with 21 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "U0102-00@p221#1": [
+   {
+    "text": "Engine starts but pulls weakly",
+    "shared": 38,
+    "reasons": [
+     "shared with 38 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "U011A-00@p222#1": [
+   {
+    "text": "Engine pulls weakly at start",
+    "shared": 38,
+    "reasons": [
+     "shared with 38 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "U011A-89@p223#1": [
+   {
+    "text": "Noise from engine increases",
+    "shared": 11,
+    "reasons": [
+     "shared with 11 other records (cosine >= 0.9)",
+     "generic-only (noise) and the record's own fields do not mention noise"
+    ]
+   }
+  ],
+  "P0425-85@p224#1": [
+   {
+    "text": "Engine makes unusual noise",
+    "shared": 38,
+    "reasons": [
+     "shared with 38 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P0425-84@p226#1": [
+   {
+    "text": "Hard to start",
+    "shared": 4,
+    "reasons": [
+     "generic-only (start) and the record's own fields do not mention start"
+    ]
+   }
+  ],
+  "P0428-00@p228#1": [
+   {
+    "text": "Engine makes a rough noise",
+    "shared": 14,
+    "reasons": [
+     "shared with 14 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P0427-00@p230#1": [
+   {
+    "text": "Poor pulling power, sluggish",
+    "shared": 19,
+    "reasons": [
+     "shared with 19 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P042A-85@p232#1": [
+   {
+    "text": "Engine makes unusual noise",
+    "shared": 38,
+    "reasons": [
+     "shared with 38 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P042A-84@p234#1": [
+   {
+    "text": "Engine makes rough noise",
+    "shared": 14,
+    "reasons": [
+     "shared with 14 other records (cosine >= 0.9)"
+    ]
+   },
+   {
+    "text": "Idle unstable",
+    "shared": 23,
+    "reasons": [
+     "shared with 23 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P042D-00@p236#1": [
+   {
+    "text": "Engine noise increases",
+    "shared": 11,
+    "reasons": [
+     "shared with 11 other records (cosine >= 0.9)",
+     "generic-only (noise) and the record's own fields do not mention noise"
+    ]
+   }
+  ],
+  "P042C-00@p238#1": [
+   {
+    "text": "Engine noise increases",
+    "shared": 11,
+    "reasons": [
+     "shared with 11 other records (cosine >= 0.9)",
+     "generic-only (noise) and the record's own fields do not mention noise"
+    ]
+   }
+  ],
+  "P242A-85@p240#1": [
+   {
+    "text": "Engine makes unusual noise",
+    "shared": 38,
+    "reasons": [
+     "shared with 38 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P242D-00@p244#1": [
+   {
+    "text": "Poor pulling power, feels sluggish",
+    "shared": 18,
+    "reasons": [
+     "shared with 18 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P242C-00@p246#1": [
+   {
+    "text": "Poor pulling power, feels sluggish",
+    "shared": 18,
+    "reasons": [
+     "shared with 18 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P2452-85@p248#1": [
+   {
+    "text": "Engine makes unusual noise",
+    "shared": 38,
+    "reasons": [
+     "shared with 38 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P2452-84@p251#1": [
+   {
+    "text": "Engine makes unusual noise",
+    "shared": 38,
+    "reasons": [
+     "shared with 38 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P2455-00@p254#1": [
+   {
+    "text": "Smoke coming out",
+    "shared": 3,
+    "reasons": [
+     "generic-only (smoke) and the record's own fields do not mention smoke"
+    ]
+   }
+  ],
+  "P2454-00@p257#1": [
+   {
+    "text": "Idle unstable",
+    "shared": 23,
+    "reasons": [
+     "shared with 23 other records (cosine >= 0.9)"
+    ]
+   },
+   {
+    "text": "Engine makes unusual noise",
+    "shared": 38,
+    "reasons": [
+     "shared with 38 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P2200-86@p260#1": [
+   {
+    "text": "Engine starts with difficulty",
+    "shared": 32,
+    "reasons": [
+     "shared with 32 other records (cosine >= 0.9)",
+     "generic-only (start) and the record's own fields do not mention start"
+    ]
+   }
+  ],
+  "P2200-13@p261#1": [
+   {
+    "text": "Engine starts but pulls weakly",
+    "shared": 38,
+    "reasons": [
+     "shared with 38 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P2201-76@p262#1": [
+   {
+    "text": "Engine starts with difficulty",
+    "shared": 32,
+    "reasons": [
+     "shared with 32 other records (cosine >= 0.9)",
+     "generic-only (start) and the record's own fields do not mention start"
+    ]
+   }
+  ],
+  "P229E-86@p263#1": [
+   {
+    "text": "Engine starts with difficulty",
+    "shared": 32,
+    "reasons": [
+     "shared with 32 other records (cosine >= 0.9)",
+     "generic-only (start) and the record's own fields do not mention start"
+    ]
+   }
+  ],
+  "P229E-13@p264#1": [
+   {
+    "text": "Engine starts with difficulty",
+    "shared": 32,
+    "reasons": [
+     "shared with 32 other records (cosine >= 0.9)",
+     "generic-only (start) and the record's own fields do not mention start"
+    ]
+   }
+  ],
+  "P229F-76@p265#1": [
+   {
+    "text": "Engine starts with difficulty",
+    "shared": 32,
+    "reasons": [
+     "shared with 32 other records (cosine >= 0.9)",
+     "generic-only (start) and the record's own fields do not mention start"
+    ]
+   }
+  ],
+  "P203B-85@p266#1": [
+   {
+    "text": "Noise is unusual",
+    "shared": 0,
+    "reasons": [
+     "generic-only (noise) and the record's own fields do not mention noise"
+    ]
+   },
+   {
+    "text": "Idle is rough",
+    "shared": 14,
+    "reasons": [
+     "shared with 14 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P203B-84@p268#1": [
+   {
+    "text": "Engine starts with difficulty",
+    "shared": 32,
+    "reasons": [
+     "shared with 32 other records (cosine >= 0.9)",
+     "generic-only (start) and the record's own fields do not mention start"
+    ]
+   }
+  ],
+  "P206A-86@p280#1": [
+   {
+    "text": "Engine pulls weakly at start",
+    "shared": 38,
+    "reasons": [
+     "shared with 38 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P244B-00@p283#1": [
+   {
+    "text": "Hard to start engine",
+    "shared": 4,
+    "reasons": [
+     "generic-only (start) and the record's own fields do not mention start"
+    ]
+   },
+   {
+    "text": "Poor pulling power",
+    "shared": 10,
+    "reasons": [
+     "generic-only (power) and the record's own fields do not mention power"
+    ]
+   }
+  ],
+  "P244A-00@p286#1": [
+   {
+    "text": "Engine makes unusual noise",
+    "shared": 38,
+    "reasons": [
+     "shared with 38 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P226D-00@p289#1": [
+   {
+    "text": "Hard to start engine",
+    "shared": 4,
+    "reasons": [
+     "generic-only (start) and the record's own fields do not mention start"
+    ]
+   }
+  ],
+  "P0421-00@p292#1": [
+   {
+    "text": "Engine makes unusual noise",
+    "shared": 38,
+    "reasons": [
+     "shared with 38 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P2047-00@p295#1": [
+   {
+    "text": "Engine starts with difficulty",
+    "shared": 32,
+    "reasons": [
+     "shared with 32 other records (cosine >= 0.9)",
+     "generic-only (start) and the record's own fields do not mention start"
+    ]
+   }
+  ],
+  "P2047-4B@p297#1": [
+   {
+    "text": "Engine starts with difficulty",
+    "shared": 32,
+    "reasons": [
+     "shared with 32 other records (cosine >= 0.9)",
+     "generic-only (start) and the record's own fields do not mention start"
+    ]
+   }
+  ],
+  "P2049-00@p299#1": [
+   {
+    "text": "Engine starts with difficulty",
+    "shared": 32,
+    "reasons": [
+     "shared with 32 other records (cosine >= 0.9)",
+     "generic-only (start) and the record's own fields do not mention start"
+    ]
+   }
+  ],
+  "P2048-00@p301#1": [
+   {
+    "text": "Engine starts with difficulty",
+    "shared": 32,
+    "reasons": [
+     "shared with 32 other records (cosine >= 0.9)",
+     "generic-only (start) and the record's own fields do not mention start"
+    ]
+   }
+  ],
+  "P20A0-00@p305#1": [
+   {
+    "text": "Engine starts but pulls weakly",
+    "shared": 38,
+    "reasons": [
+     "shared with 38 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P20A0-4B@p306#1": [
+   {
+    "text": "Engine starts with difficulty",
+    "shared": 32,
+    "reasons": [
+     "shared with 32 other records (cosine >= 0.9)",
+     "generic-only (start) and the record's own fields do not mention start"
+    ]
+   }
+  ],
+  "P20A3-00@p307#1": [
+   {
+    "text": "Engine pulls weakly at start",
+    "shared": 38,
+    "reasons": [
+     "shared with 38 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P20A2-00@p308#1": [
+   {
+    "text": "Engine starts with difficulty",
+    "shared": 32,
+    "reasons": [
+     "shared with 32 other records (cosine >= 0.9)",
+     "generic-only (start) and the record's own fields do not mention start"
+    ]
+   }
+  ],
+  "P208A-00@p309#1": [
+   {
+    "text": "Engine starts with difficulty",
+    "shared": 32,
+    "reasons": [
+     "shared with 32 other records (cosine >= 0.9)",
+     "generic-only (start) and the record's own fields do not mention start"
+    ]
+   }
+  ],
+  "P208A-4B@p310#1": [
+   {
+    "text": "Engine starts with difficulty",
+    "shared": 32,
+    "reasons": [
+     "shared with 32 other records (cosine >= 0.9)",
+     "generic-only (start) and the record's own fields do not mention start"
+    ]
+   }
+  ],
+  "P208D-00@p311#1": [
+   {
+    "text": "Engine pulls weakly at start",
+    "shared": 38,
+    "reasons": [
+     "shared with 38 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P208C-00@p312#1": [
+   {
+    "text": "Engine pulls weakly at start",
+    "shared": 38,
+    "reasons": [
+     "shared with 38 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P20F4-00@p316#1": [
+   {
+    "text": "Engine starts with difficulty",
+    "shared": 32,
+    "reasons": [
+     "shared with 32 other records (cosine >= 0.9)",
+     "generic-only (start) and the record's own fields do not mention start"
+    ]
+   }
+  ],
+  "P05EE-00@p318#1": [
+   {
+    "text": "Engine starts but pulls weakly",
+    "shared": 38,
+    "reasons": [
+     "shared with 38 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P048B-12@p322#1": [
+   {
+    "text": "Idle unstable, stutters",
+    "shared": 11,
+    "reasons": [
+     "shared with 11 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P04A4-00@p328#1": [
+   {
+    "text": "Idle is rough",
+    "shared": 14,
+    "reasons": [
+     "shared with 14 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P048D-00@p331#1": [
+   {
+    "text": "Engine makes unusual noise",
+    "shared": 38,
+    "reasons": [
+     "shared with 38 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P048E-00@p334#1": [
+   {
+    "text": "Smoke pours out",
+    "shared": 13,
+    "reasons": [
+     "shared with 13 other records (cosine >= 0.9)",
+     "generic-only (smoke) and the record's own fields do not mention smoke"
+    ]
+   }
+  ],
+  "P04A8-00@p337#1": [
+   {
+    "text": "Noise from engine increases",
+    "shared": 11,
+    "reasons": [
+     "shared with 11 other records (cosine >= 0.9)",
+     "generic-only (noise) and the record's own fields do not mention noise"
+    ]
+   }
+  ],
+  "P04A9-00@p340#1": [
+   {
+    "text": "Smoke pours out",
+    "shared": 13,
+    "reasons": [
+     "shared with 13 other records (cosine >= 0.9)",
+     "generic-only (smoke) and the record's own fields do not mention smoke"
+    ]
+   },
+   {
+    "text": "Engine starts with difficulty",
+    "shared": 32,
+    "reasons": [
+     "shared with 32 other records (cosine >= 0.9)",
+     "generic-only (start) and the record's own fields do not mention start"
+    ]
+   }
+  ],
+  "P04A0-00@p343#1": [
+   {
+    "text": "Idle unstable, jerky",
+    "shared": 14,
+    "reasons": [
+     "shared with 14 other records (cosine >= 0.9)"
+    ]
+   },
+   {
+    "text": "Noises from engine",
+    "shared": 24,
+    "reasons": [
+     "shared with 24 other records (cosine >= 0.9)",
+     "generic-only (noise) and the record's own fields do not mention noise"
+    ]
+   }
+  ],
+  "P2457-00@p355#1": [
+   {
+    "text": "Engine noise increases",
+    "shared": 11,
+    "reasons": [
+     "shared with 11 other records (cosine >= 0.9)",
+     "generic-only (noise) and the record's own fields do not mention noise"
+    ]
+   }
+  ],
+  "P0562-00@p359#1": [
+   {
+    "text": "Smoke coming out",
+    "shared": 3,
+    "reasons": [
+     "generic-only (smoke) and the record's own fields do not mention smoke"
+    ]
+   },
+   {
+    "text": "Idling rough",
+    "shared": 11,
+    "reasons": [
+     "shared with 11 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P0563-00@p360#1": [
+   {
+    "text": "Idle unstable",
+    "shared": 23,
+    "reasons": [
+     "shared with 23 other records (cosine >= 0.9)"
+    ]
+   },
+   {
+    "text": "Engine makes unusual noise",
+    "shared": 38,
+    "reasons": [
+     "shared with 38 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P0072-00@p363#1": [
+   {
+    "text": "Idle unstable, stutters",
+    "shared": 11,
+    "reasons": [
+     "shared with 11 other records (cosine >= 0.9)"
+    ]
+   },
+   {
+    "text": "Noises from engine area",
+    "shared": 22,
+    "reasons": [
+     "shared with 22 other records (cosine >= 0.9)",
+     "generic-only (noise) and the record's own fields do not mention noise"
+    ]
+   }
+  ],
+  "P0073-00@p366#1": [
+   {
+    "text": "Engine won't start",
+    "shared": 22,
+    "reasons": [
+     "shared with 22 other records (cosine >= 0.9)",
+     "generic-only (start) and the record's own fields do not mention start"
+    ]
+   },
+   {
+    "text": "Black smoke coming out",
+    "shared": 34,
+    "reasons": [
+     "shared with 34 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P0071-00@p369#1": [
+   {
+    "text": "Idle unstable, stutters",
+    "shared": 11,
+    "reasons": [
+     "shared with 11 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P1000-00@p370#1": [
+   {
+    "text": "Idle unstable, stutters",
+    "shared": 11,
+    "reasons": [
+     "shared with 11 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P1001-00@p371#1": [
+   {
+    "text": "Idle is rough",
+    "shared": 14,
+    "reasons": [
+     "shared with 14 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P1002-00@p372#1": [
+   {
+    "text": "Smoke pours out",
+    "shared": 13,
+    "reasons": [
+     "shared with 13 other records (cosine >= 0.9)",
+     "generic-only (smoke) and the record's own fields do not mention smoke"
+    ]
+   },
+   {
+    "text": "Engine starts with difficulty",
+    "shared": 32,
+    "reasons": [
+     "shared with 32 other records (cosine >= 0.9)",
+     "generic-only (start) and the record's own fields do not mention start"
+    ]
+   }
+  ],
+  "P1003-00@p373#1": [
+   {
+    "text": "Engine makes unusual noise",
+    "shared": 38,
+    "reasons": [
+     "shared with 38 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P1004-00@p374#1": [
+   {
+    "text": "Idle unstable, stutters",
+    "shared": 11,
+    "reasons": [
+     "shared with 11 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P2147-00@p375#1": [
+   {
+    "text": "Engine pulls weakly at start",
+    "shared": 38,
+    "reasons": [
+     "shared with 38 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P2150-00@p378#1": [
+   {
+    "text": "Idling rough",
+    "shared": 11,
+    "reasons": [
+     "shared with 11 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P2153-00@p381#1": [
+   {
+    "text": "Engine pulls weakly at start",
+    "shared": 38,
+    "reasons": [
+     "shared with 38 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P2156-00@p384#1": [
+   {
+    "text": "Engine pulls weak at start",
+    "shared": 38,
+    "reasons": [
+     "shared with 38 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P0045-13@p387#1": [
+   {
+    "text": "Idle unstable",
+    "shared": 23,
+    "reasons": [
+     "shared with 23 other records (cosine >= 0.9)"
+    ]
+   },
+   {
+    "text": "Engine makes unusual noise",
+    "shared": 38,
+    "reasons": [
+     "shared with 38 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P003A-00@p396#1": [
+   {
+    "text": "Engine starts rough",
+    "shared": 3,
+    "reasons": [
+     "generic-only (start) and the record's own fields do not mention start"
+    ]
+   }
+  ],
+  "P003B-00@p399#1": [
+   {
+    "text": "Smoke pours out",
+    "shared": 13,
+    "reasons": [
+     "shared with 13 other records (cosine >= 0.9)",
+     "generic-only (smoke) and the record's own fields do not mention smoke"
+    ]
+   }
+  ],
+  "P204F-73@p402#1": [
+   {
+    "text": "Engine starts with difficulty",
+    "shared": 32,
+    "reasons": [
+     "shared with 32 other records (cosine >= 0.9)",
+     "generic-only (start) and the record's own fields do not mention start"
+    ]
+   }
+  ],
+  "P2453-64@p404#1": [
+   {
+    "text": "Idle unstable",
+    "shared": 23,
+    "reasons": [
+     "shared with 23 other records (cosine >= 0.9)"
+    ]
+   },
+   {
+    "text": "Black smoke coming out",
+    "shared": 34,
+    "reasons": [
+     "shared with 34 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P2205-00@p405#1": [
+   {
+    "text": "Poor pulling power, sluggish",
+    "shared": 19,
+    "reasons": [
+     "shared with 19 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P2205-29@p406#1": [
+   {
+    "text": "Hard to start",
+    "shared": 4,
+    "reasons": [
+     "generic-only (start) and the record's own fields do not mention start"
+    ]
+   }
+  ],
+  "P2200-85@p408#1": [
+   {
+    "text": "Engine makes a rough, unsteady idle",
+    "shared": 14,
+    "reasons": [
+     "shared with 14 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P2200-84@p409#1": [
+   {
+    "text": "Engine makes a rough noise",
+    "shared": 14,
+    "reasons": [
+     "shared with 14 other records (cosine >= 0.9)"
+    ]
+   },
+   {
+    "text": "Idle unstable",
+    "shared": 23,
+    "reasons": [
+     "shared with 23 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P2200-0D@p410#1": [
+   {
+    "text": "Noisy when accelerating",
+    "shared": 5,
+    "reasons": [
+     "generic-only (noise) and the record's own fields do not mention noise"
+    ]
+   },
+   {
+    "text": "Poor pulling power, feels sluggish",
+    "shared": 18,
+    "reasons": [
+     "shared with 18 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P2200-01@p411#1": [
+   {
+    "text": "Poor pulling power, sluggish",
+    "shared": 19,
+    "reasons": [
+     "shared with 19 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P2200-29@p412#1": [
+   {
+    "text": "Poor pulling power, feels sluggish",
+    "shared": 18,
+    "reasons": [
+     "shared with 18 other records (cosine >= 0.9)"
+    ]
+   },
+   {
+    "text": "Black smoke coming out of exhaust",
+    "shared": 21,
+    "reasons": [
+     "shared with 21 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P2200-22@p413#1": [
+   {
+    "text": "Poor pulling power, feels sluggish",
+    "shared": 18,
+    "reasons": [
+     "shared with 18 other records (cosine >= 0.9)"
+    ]
+   },
+   {
+    "text": "Black smoke coming out of exhaust",
+    "shared": 21,
+    "reasons": [
+     "shared with 21 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P2200-21@p414#1": [
+   {
+    "text": "Poor pulling power, sluggish",
+    "shared": 19,
+    "reasons": [
+     "shared with 19 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P2200-0A@p415#1": [
+   {
+    "text": "Engine makes a rough noise",
+    "shared": 14,
+    "reasons": [
+     "shared with 14 other records (cosine >= 0.9)"
+    ]
+   },
+   {
+    "text": "Idle unstable",
+    "shared": 23,
+    "reasons": [
+     "shared with 23 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P2200-26@p417#1": [
+   {
+    "text": "Poor pulling power, feels sluggish",
+    "shared": 18,
+    "reasons": [
+     "shared with 18 other records (cosine >= 0.9)"
+    ]
+   },
+   {
+    "text": "Black smoke coming out of exhaust",
+    "shared": 21,
+    "reasons": [
+     "shared with 21 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P22A3-00@p418#1": [
+   {
+    "text": "Poor pulling power, feels sluggish",
+    "shared": 18,
+    "reasons": [
+     "shared with 18 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P22A3-29@p419#1": [
+   {
+    "text": "Hard to start engine",
+    "shared": 4,
+    "reasons": [
+     "generic-only (start) and the record's own fields do not mention start"
+    ]
+   }
+  ],
+  "P229E-85@p421#1": [
+   {
+    "text": "Idle unstable, jerky and bumpy",
+    "shared": 14,
+    "reasons": [
+     "shared with 14 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P229E-84@p422#1": [
+   {
+    "text": "Smoke pours out",
+    "shared": 13,
+    "reasons": [
+     "shared with 13 other records (cosine >= 0.9)",
+     "generic-only (smoke) and the record's own fields do not mention smoke"
+    ]
+   },
+   {
+    "text": "Idle unstable",
+    "shared": 23,
+    "reasons": [
+     "shared with 23 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P229E-01@p424#1": [
+   {
+    "text": "Poor pulling power, feels sluggish",
+    "shared": 18,
+    "reasons": [
+     "shared with 18 other records (cosine >= 0.9)"
+    ]
+   },
+   {
+    "text": "Black smoke coming out of exhaust",
+    "shared": 21,
+    "reasons": [
+     "shared with 21 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P229E-29@p425#1": [
+   {
+    "text": "Poor pulling power, feels sluggish",
+    "shared": 18,
+    "reasons": [
+     "shared with 18 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P229E-22@p426#1": [
+   {
+    "text": "Black smoke coming out of exhaust",
+    "shared": 21,
+    "reasons": [
+     "shared with 21 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P229E-21@p427#1": [
+   {
+    "text": "Engine makes a rough noise",
+    "shared": 14,
+    "reasons": [
+     "shared with 14 other records (cosine >= 0.9)"
+    ]
+   },
+   {
+    "text": "Idle unstable",
+    "shared": 23,
+    "reasons": [
+     "shared with 23 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P229E-0A@p428#1": [
+   {
+    "text": "Poor pulling power, feels sluggish",
+    "shared": 18,
+    "reasons": [
+     "shared with 18 other records (cosine >= 0.9)"
+    ]
+   },
+   {
+    "text": "Black smoke coming out of exhaust",
+    "shared": 21,
+    "reasons": [
+     "shared with 21 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P229E-26@p430#1": [
+   {
+    "text": "Idle unstable, jerky and choppy",
+    "shared": 14,
+    "reasons": [
+     "shared with 14 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P203A-29@p431#1": [
+   {
+    "text": "Smoke pours out",
+    "shared": 13,
+    "reasons": [
+     "shared with 13 other records (cosine >= 0.9)",
+     "generic-only (smoke) and the record's own fields do not mention smoke"
+    ]
+   }
+  ],
+  "P203F-84@p432#1": [
+   {
+    "text": "Engine makes a rough noise",
+    "shared": 14,
+    "reasons": [
+     "shared with 14 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P203F-7B@p433#1": [
+   {
+    "text": "Engine makes unusual noise",
+    "shared": 38,
+    "reasons": [
+     "shared with 38 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P206A-F1@p434#1": [
+   {
+    "text": "Engine noise increases",
+    "shared": 11,
+    "reasons": [
+     "shared with 11 other records (cosine >= 0.9)",
+     "generic-only (noise) and the record's own fields do not mention noise"
+    ]
+   }
+  ],
+  "P206A-F2@p435#1": [
+   {
+    "text": "Engine noise increases",
+    "shared": 11,
+    "reasons": [
+     "shared with 11 other records (cosine >= 0.9)",
+     "generic-only (noise) and the record's own fields do not mention noise"
+    ]
+   }
+  ],
+  "P206A-F3@p436#1": [
+   {
+    "text": "Smoke pours out",
+    "shared": 13,
+    "reasons": [
+     "shared with 13 other records (cosine >= 0.9)",
+     "generic-only (smoke) and the record's own fields do not mention smoke"
+    ]
+   }
+  ],
+  "P242F-00@p443#1": [
+   {
+    "text": "Pulling power weakens",
+    "shared": 4,
+    "reasons": [
+     "generic-only (power) and the record's own fields do not mention power"
+    ]
+   }
+  ],
+  "P243C-00@p449#1": [
+   {
+    "text": "Engine starts with hesitation",
+    "shared": 54,
+    "reasons": [
+     "shared with 54 other records (cosine >= 0.9)",
+     "generic-only (start) and the record's own fields do not mention start"
+    ]
+   }
+  ],
+  "P2458-09@p452#1": [
+   {
+    "text": "Hard to start",
+    "shared": 4,
+    "reasons": [
+     "generic-only (start) and the record's own fields do not mention start"
+    ]
+   }
+  ],
+  "P24FE-85@p455#1": [
+   {
+    "text": "Engine pulls weakly at start",
+    "shared": 38,
+    "reasons": [
+     "shared with 38 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P0425-64@p457#1": [
+   {
+    "text": "Engine starts with difficulty",
+    "shared": 32,
+    "reasons": [
+     "shared with 32 other records (cosine >= 0.9)",
+     "generic-only (start) and the record's own fields do not mention start"
+    ]
+   }
+  ],
+  "P042A-64@p458#1": [
+   {
+    "text": "Engine starts but pulls weakly",
+    "shared": 38,
+    "reasons": [
+     "shared with 38 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P242A-64@p459#1": [
+   {
+    "text": "Engine starts with difficulty",
+    "shared": 32,
+    "reasons": [
+     "shared with 32 other records (cosine >= 0.9)",
+     "generic-only (start) and the record's own fields do not mention start"
+    ]
+   }
+  ],
+  "P202E-84@p461#1": [
+   {
+    "text": "Engine starts with difficulty",
+    "shared": 32,
+    "reasons": [
+     "shared with 32 other records (cosine >= 0.9)",
+     "generic-only (start) and the record's own fields do not mention start"
+    ]
+   }
+  ],
+  "P20A1-4B@p463#1": [
+   {
+    "text": "Engine starts but pulls weakly",
+    "shared": 38,
+    "reasons": [
+     "shared with 38 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P20A3-12@p464#1": [
+   {
+    "text": "Engine pulls weakly at start",
+    "shared": 38,
+    "reasons": [
+     "shared with 38 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P20A2-11@p465#1": [
+   {
+    "text": "Engine pulls weakly at start",
+    "shared": 38,
+    "reasons": [
+     "shared with 38 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P10FF-00@p466#1": [
+   {
+    "text": "Engine starts with difficulty",
+    "shared": 32,
+    "reasons": [
+     "shared with 32 other records (cosine >= 0.9)",
+     "generic-only (start) and the record's own fields do not mention start"
+    ]
+   }
+  ],
+  "P0611-F5@p468#1": [
+   {
+    "text": "Engine makes no noise",
+    "shared": 14,
+    "reasons": [
+     "shared with 14 other records (cosine >= 0.9)",
+     "generic-only (noise) and the record's own fields do not mention noise"
+    ]
+   }
+  ],
+  "P0611-F8@p469#1": [
+   {
+    "text": "Engine stalls immediately",
+    "shared": 30,
+    "reasons": [
+     "shared with 30 other records (cosine >= 0.9)"
+    ]
+   },
+   {
+    "text": "Noises when trying to start",
+    "shared": 49,
+    "reasons": [
+     "shared with 49 other records (cosine >= 0.9)",
+     "generic-only (noise, start) and the record's own fields do not mention noise, start"
+    ]
+   }
+  ],
+  "P060B-00@p470#1": [
+   {
+    "text": "Engine makes no noise",
+    "shared": 14,
+    "reasons": [
+     "shared with 14 other records (cosine >= 0.9)",
+     "generic-only (noise) and the record's own fields do not mention noise"
+    ]
+   }
+  ],
+  "P061E-00@p471#1": [
+   {
+    "text": "Noisy when pulling away",
+    "shared": 0,
+    "reasons": [
+     "generic-only (noise, power) and the record's own fields do not mention noise"
+    ]
+   }
+  ],
+  "P061C-00@p472#2": [
+   {
+    "text": "Idle unstable, stutters",
+    "shared": 11,
+    "reasons": [
+     "shared with 11 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P1015-00@p474#1": [
+   {
+    "text": "No smoke from exhaust",
+    "shared": 0,
+    "reasons": [
+     "generic-only (smoke) and the record's own fields do not mention smoke"
+    ]
+   }
+  ],
+  "P1111-00@p475#1": [
+   {
+    "text": "Engine makes no noise",
+    "shared": 14,
+    "reasons": [
+     "shared with 14 other records (cosine >= 0.9)",
+     "generic-only (noise) and the record's own fields do not mention noise"
+    ]
+   }
+  ],
+  "P1112-00@p476#1": [
+   {
+    "text": "Engine idle is rough",
+    "shared": 23,
+    "reasons": [
+     "shared with 23 other records (cosine >= 0.9)"
+    ]
+   },
+   {
+    "text": "Smoke coming from exhaust",
+    "shared": 46,
+    "reasons": [
+     "shared with 46 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P1113-00@p477#1": [
+   {
+    "text": "Engine makes no noise",
+    "shared": 14,
+    "reasons": [
+     "shared with 14 other records (cosine >= 0.9)",
+     "generic-only (noise) and the record's own fields do not mention noise"
+    ]
+   }
+  ],
+  "P1019-00@p479#1": [
+   {
+    "text": "Black smoke coming out of exhaust",
+    "shared": 21,
+    "reasons": [
+     "shared with 21 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P1080-00@p480#1": [
+   {
+    "text": "Engine idles poorly",
+    "shared": 13,
+    "reasons": [
+     "shared with 13 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P1081-00@p481#1": [
+   {
+    "text": "Smoke coming from exhaust",
+    "shared": 46,
+    "reasons": [
+     "shared with 46 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P101B-00@p482#1": [
+   {
+    "text": "Engine stalls immediately",
+    "shared": 30,
+    "reasons": [
+     "shared with 30 other records (cosine >= 0.9)"
+    ]
+   },
+   {
+    "text": "Noises when trying to start",
+    "shared": 49,
+    "reasons": [
+     "shared with 49 other records (cosine >= 0.9)",
+     "generic-only (noise, start) and the record's own fields do not mention noise, start"
+    ]
+   }
+  ],
+  "P101C-00@p483#1": [
+   {
+    "text": "Noisy engine at idle",
+    "shared": 0,
+    "reasons": [
+     "generic-only (noise) and the record's own fields do not mention noise"
+    ]
+   }
+  ],
+  "P1083-00@p485#1": [
+   {
+    "text": "Idle is rough and unstable",
+    "shared": 24,
+    "reasons": [
+     "shared with 24 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P1085-00@p488#1": [
+   {
+    "text": "Engine idles poorly",
+    "shared": 13,
+    "reasons": [
+     "shared with 13 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P060C-00@p489#1": [
+   {
+    "text": "Engine makes no noise",
+    "shared": 14,
+    "reasons": [
+     "shared with 14 other records (cosine >= 0.9)",
+     "generic-only (noise) and the record's own fields do not mention noise"
+    ]
+   }
+  ],
+  "P165D-00@p491#1": [
+   {
+    "text": "Engine stalls immediately",
+    "shared": 30,
+    "reasons": [
+     "shared with 30 other records (cosine >= 0.9)"
+    ]
+   },
+   {
+    "text": "Noises when trying to start",
+    "shared": 49,
+    "reasons": [
+     "shared with 49 other records (cosine >= 0.9)",
+     "generic-only (noise, start) and the record's own fields do not mention noise, start"
+    ]
+   }
+  ],
+  "P1656-00@p492#1": [
+   {
+    "text": "Engine idles poorly",
+    "shared": 13,
+    "reasons": [
+     "shared with 13 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P164E-00@p493#1": [
+   {
+    "text": "Engine stalls immediately",
+    "shared": 30,
+    "reasons": [
+     "shared with 30 other records (cosine >= 0.9)"
+    ]
+   },
+   {
+    "text": "Noises when trying to start",
+    "shared": 49,
+    "reasons": [
+     "shared with 49 other records (cosine >= 0.9)",
+     "generic-only (noise, start) and the record's own fields do not mention noise, start"
+    ]
+   }
+  ],
+  "P1646-00@p494#1": [
+   {
+    "text": "Engine idles poorly",
+    "shared": 13,
+    "reasons": [
+     "shared with 13 other records (cosine >= 0.9)"
+    ]
+   },
+   {
+    "text": "Smoke coming from exhaust",
+    "shared": 46,
+    "reasons": [
+     "shared with 46 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P1652-00@p495#1": [
+   {
+    "text": "Engine idles rough",
+    "shared": 23,
+    "reasons": [
+     "shared with 23 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P1647-00@p496#1": [
+   {
+    "text": "Black smoke coming out",
+    "shared": 34,
+    "reasons": [
+     "shared with 34 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P1666-00@p498#1": [
+   {
+    "text": "Engine makes no noise",
+    "shared": 14,
+    "reasons": [
+     "shared with 14 other records (cosine >= 0.9)",
+     "generic-only (noise) and the record's own fields do not mention noise"
+    ]
+   }
+  ],
+  "P164B-00@p499#1": [
+   {
+    "text": "Engine stalls immediately",
+    "shared": 30,
+    "reasons": [
+     "shared with 30 other records (cosine >= 0.9)"
+    ]
+   },
+   {
+    "text": "Noises when trying to start",
+    "shared": 49,
+    "reasons": [
+     "shared with 49 other records (cosine >= 0.9)",
+     "generic-only (noise, start) and the record's own fields do not mention noise, start"
+    ]
+   }
+  ],
+  "P1675-00@p500#1": [
+   {
+    "text": "Engine idle is rough",
+    "shared": 23,
+    "reasons": [
+     "shared with 23 other records (cosine >= 0.9)"
+    ]
+   },
+   {
+    "text": "Black smoke coming out",
+    "shared": 34,
+    "reasons": [
+     "shared with 34 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P166F-00@p501#1": [
+   {
+    "text": "Engine stalls immediately",
+    "shared": 30,
+    "reasons": [
+     "shared with 30 other records (cosine >= 0.9)"
+    ]
+   },
+   {
+    "text": "Noises when trying to start",
+    "shared": 49,
+    "reasons": [
+     "shared with 49 other records (cosine >= 0.9)",
+     "generic-only (noise, start) and the record's own fields do not mention noise, start"
+    ]
+   }
+  ],
+  "P1673-00@p502#1": [
+   {
+    "text": "Engine idles roughly",
+    "shared": 13,
+    "reasons": [
+     "shared with 13 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P1641-00@p503#1": [
+   {
+    "text": "Engine idles poorly",
+    "shared": 13,
+    "reasons": [
+     "shared with 13 other records (cosine >= 0.9)"
+    ]
+   },
+   {
+    "text": "Smoke coming from exhaust",
+    "shared": 46,
+    "reasons": [
+     "shared with 46 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P1650-00@p504#1": [
+   {
+    "text": "Engine idles poorly",
+    "shared": 13,
+    "reasons": [
+     "shared with 13 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P165C-00@p505#1": [
+   {
+    "text": "Noisy when starting",
+    "shared": 7,
+    "reasons": [
+     "generic-only (noise, start) and the record's own fields do not mention noise, start"
+    ]
+   }
+  ],
+  "P1667-00@p506#1": [
+   {
+    "text": "Engine idles poorly",
+    "shared": 13,
+    "reasons": [
+     "shared with 13 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P1664-00@p507#1": [
+   {
+    "text": "Pulling power weak at start",
+    "shared": 5,
+    "reasons": [
+     "generic-only (power, start) and the record's own fields do not mention start"
+    ]
+   },
+   {
+    "text": "Engine stalls immediately",
+    "shared": 30,
+    "reasons": [
+     "shared with 30 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P1669-00@p509#1": [
+   {
+    "text": "Engine stalls immediately",
+    "shared": 30,
+    "reasons": [
+     "shared with 30 other records (cosine >= 0.9)"
+    ]
+   },
+   {
+    "text": "Noises when trying to start",
+    "shared": 49,
+    "reasons": [
+     "shared with 49 other records (cosine >= 0.9)",
+     "generic-only (noise, start) and the record's own fields do not mention noise, start"
+    ]
+   }
+  ],
+  "P1642-00@p510#1": [
+   {
+    "text": "Engine stalls immediately",
+    "shared": 30,
+    "reasons": [
+     "shared with 30 other records (cosine >= 0.9)"
+    ]
+   },
+   {
+    "text": "Noises when trying to start",
+    "shared": 49,
+    "reasons": [
+     "shared with 49 other records (cosine >= 0.9)",
+     "generic-only (noise, start) and the record's own fields do not mention noise, start"
+    ]
+   }
+  ],
+  "P164C-00@p511#1": [
+   {
+    "text": "Engine idles poorly",
+    "shared": 13,
+    "reasons": [
+     "shared with 13 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P1648-00@p512#1": [
+   {
+    "text": "Noisy when starting",
+    "shared": 7,
+    "reasons": [
+     "generic-only (noise, start) and the record's own fields do not mention noise, start"
+    ]
+   },
+   {
+    "text": "Idling rough",
+    "shared": 11,
+    "reasons": [
+     "shared with 11 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P164A-00@p513#1": [
+   {
+    "text": "Idle rough, stutters",
+    "shared": 12,
+    "reasons": [
+     "shared with 12 other records (cosine >= 0.9)"
+    ]
+   },
+   {
+    "text": "Black smoke coming out",
+    "shared": 34,
+    "reasons": [
+     "shared with 34 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P165A-00@p514#1": [
+   {
+    "text": "Engine idles roughly",
+    "shared": 13,
+    "reasons": [
+     "shared with 13 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P1655-00@p516#1": [
+   {
+    "text": "Engine idles roughly",
+    "shared": 13,
+    "reasons": [
+     "shared with 13 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P1670-00@p517#1": [
+   {
+    "text": "Idling rough",
+    "shared": 11,
+    "reasons": [
+     "shared with 11 other records (cosine >= 0.9)"
+    ]
+   },
+   {
+    "text": "Black smoke coming out",
+    "shared": 34,
+    "reasons": [
+     "shared with 34 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P1649-00@p518#1": [
+   {
+    "text": "Engine stalls immediately",
+    "shared": 30,
+    "reasons": [
+     "shared with 30 other records (cosine >= 0.9)"
+    ]
+   },
+   {
+    "text": "Noises when trying to start",
+    "shared": 49,
+    "reasons": [
+     "shared with 49 other records (cosine >= 0.9)",
+     "generic-only (noise, start) and the record's own fields do not mention noise, start"
+    ]
+   }
+  ],
+  "P1658-00@p519#1": [
+   {
+    "text": "Engine idles rough",
+    "shared": 23,
+    "reasons": [
+     "shared with 23 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P1654-00@p521#1": [
+   {
+    "text": "Black smoke coming out",
+    "shared": 34,
+    "reasons": [
+     "shared with 34 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P1643-00@p522#1": [
+   {
+    "text": "Idling rough",
+    "shared": 11,
+    "reasons": [
+     "shared with 11 other records (cosine >= 0.9)"
+    ]
+   },
+   {
+    "text": "Black smoke coming out",
+    "shared": 34,
+    "reasons": [
+     "shared with 34 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P1653-00@p523#1": [
+   {
+    "text": "Engine stalls immediately",
+    "shared": 30,
+    "reasons": [
+     "shared with 30 other records (cosine >= 0.9)"
+    ]
+   },
+   {
+    "text": "Noises when trying to start",
+    "shared": 49,
+    "reasons": [
+     "shared with 49 other records (cosine >= 0.9)",
+     "generic-only (noise, start) and the record's own fields do not mention noise, start"
+    ]
+   }
+  ],
+  "P1672-00@p524#1": [
+   {
+    "text": "Engine stalls immediately",
+    "shared": 30,
+    "reasons": [
+     "shared with 30 other records (cosine >= 0.9)"
+    ]
+   },
+   {
+    "text": "Noises when trying to start",
+    "shared": 49,
+    "reasons": [
+     "shared with 49 other records (cosine >= 0.9)",
+     "generic-only (noise, start) and the record's own fields do not mention noise, start"
+    ]
+   }
+  ],
+  "P164F-00@p525#1": [
+   {
+    "text": "Engine stalls immediately",
+    "shared": 30,
+    "reasons": [
+     "shared with 30 other records (cosine >= 0.9)"
+    ]
+   },
+   {
+    "text": "Noises when trying to start",
+    "shared": 49,
+    "reasons": [
+     "shared with 49 other records (cosine >= 0.9)",
+     "generic-only (noise, start) and the record's own fields do not mention noise, start"
+    ]
+   }
+  ],
+  "P1674-00@p526#1": [
+   {
+    "text": "Engine stalls immediately",
+    "shared": 30,
+    "reasons": [
+     "shared with 30 other records (cosine >= 0.9)"
+    ]
+   },
+   {
+    "text": "Noises when trying to start",
+    "shared": 49,
+    "reasons": [
+     "shared with 49 other records (cosine >= 0.9)",
+     "generic-only (noise, start) and the record's own fields do not mention noise, start"
+    ]
+   }
+  ],
+  "P1657-00@p527#1": [
+   {
+    "text": "Engine stalls immediately",
+    "shared": 30,
+    "reasons": [
+     "shared with 30 other records (cosine >= 0.9)"
+    ]
+   },
+   {
+    "text": "Noises when trying to start",
+    "shared": 49,
+    "reasons": [
+     "shared with 49 other records (cosine >= 0.9)",
+     "generic-only (noise, start) and the record's own fields do not mention noise, start"
+    ]
+   }
+  ],
+  "P166D-00@p529#1": [
+   {
+    "text": "Engine stalls immediately",
+    "shared": 30,
+    "reasons": [
+     "shared with 30 other records (cosine >= 0.9)"
+    ]
+   },
+   {
+    "text": "Noises when trying to start",
+    "shared": 49,
+    "reasons": [
+     "shared with 49 other records (cosine >= 0.9)",
+     "generic-only (noise, start) and the record's own fields do not mention noise, start"
+    ]
+   }
+  ],
+  "P1671-00@p530#1": [
+   {
+    "text": "Black smoke coming out",
+    "shared": 34,
+    "reasons": [
+     "shared with 34 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P1677-00@p532#1": [
+   {
+    "text": "Engine idles poorly",
+    "shared": 13,
+    "reasons": [
+     "shared with 13 other records (cosine >= 0.9)"
+    ]
+   },
+   {
+    "text": "Noises when trying to start",
+    "shared": 49,
+    "reasons": [
+     "shared with 49 other records (cosine >= 0.9)",
+     "generic-only (noise, start) and the record's own fields do not mention noise, start"
+    ]
+   }
+  ],
+  "P1640-00@p533#1": [
+   {
+    "text": "Engine idles rough",
+    "shared": 23,
+    "reasons": [
+     "shared with 23 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P166B-00@p534#1": [
+   {
+    "text": "Engine idles poorly",
+    "shared": 13,
+    "reasons": [
+     "shared with 13 other records (cosine >= 0.9)"
+    ]
+   },
+   {
+    "text": "Noises when trying to start",
+    "shared": 49,
+    "reasons": [
+     "shared with 49 other records (cosine >= 0.9)",
+     "generic-only (noise, start) and the record's own fields do not mention noise, start"
+    ]
+   }
+  ],
+  "P165E-00@p536#1": [
+   {
+    "text": "Engine stalls immediately",
+    "shared": 30,
+    "reasons": [
+     "shared with 30 other records (cosine >= 0.9)"
+    ]
+   },
+   {
+    "text": "Noises when trying to start",
+    "shared": 49,
+    "reasons": [
+     "shared with 49 other records (cosine >= 0.9)",
+     "generic-only (noise, start) and the record's own fields do not mention noise, start"
+    ]
+   }
+  ],
+  "P1661-00@p537#1": [
+   {
+    "text": "Engine idles rough",
+    "shared": 23,
+    "reasons": [
+     "shared with 23 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P165B-00@p538#1": [
+   {
+    "text": "Engine makes no noise",
+    "shared": 14,
+    "reasons": [
+     "shared with 14 other records (cosine >= 0.9)",
+     "generic-only (noise) and the record's own fields do not mention noise"
+    ]
+   }
+  ],
+  "P1651-00@p539#1": [
+   {
+    "text": "Idle is rough and jerky",
+    "shared": 14,
+    "reasons": [
+     "shared with 14 other records (cosine >= 0.9)"
+    ]
+   },
+   {
+    "text": "Noises when trying to start",
+    "shared": 49,
+    "reasons": [
+     "shared with 49 other records (cosine >= 0.9)",
+     "generic-only (noise, start) and the record's own fields do not mention noise, start"
+    ]
+   }
+  ],
+  "P1663-00@p540#1": [
+   {
+    "text": "Engine stalls immediately",
+    "shared": 30,
+    "reasons": [
+     "shared with 30 other records (cosine >= 0.9)"
+    ]
+   },
+   {
+    "text": "Noises when trying to start",
+    "shared": 49,
+    "reasons": [
+     "shared with 49 other records (cosine >= 0.9)",
+     "generic-only (noise, start) and the record's own fields do not mention noise, start"
+    ]
+   }
+  ],
+  "P1645-00@p542#1": [
+   {
+    "text": "Engine idles rough",
+    "shared": 23,
+    "reasons": [
+     "shared with 23 other records (cosine >= 0.9)"
+    ]
+   }
+  ],
+  "P1662-00@p543#1": [
+   {
+    "text": "Engine stalls immediately",
+    "shared": 30,
+    "reasons": [
+     "shared with 30 other records (cosine >= 0.9)"
+    ]
+   },
+   {
+    "text": "Noises when trying to start",
+    "shared": 49,
+    "reasons": [
+     "shared with 49 other records (cosine >= 0.9)",
+     "generic-only (noise, start) and the record's own fields do not mention noise, start"
+    ]
+   }
+  ],
+  "P1659-00@p544#1": [
+   {
+    "text": "Black smoke coming out",
+    "shared": 34,
+    "reasons": [
+     "shared with 34 other records (cosine >= 0.9)"
+    ]
+   }
+  ]
+ }
+}

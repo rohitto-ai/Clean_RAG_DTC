@@ -1,0 +1,4413 @@
+{
+ "_label": "index-only, never shown to users",
+ "purpose": "symptom-side document expansion (doc2query) for retrieval only",
+ "model": "Qwen/Qwen2.5-3B-Instruct-GGUF (q4_k_m)",
+ "seed": 12101,
+ "temperature": 0.0,
+ "max_tokens": 220,
+ "n_ctx": 2048,
+ "prompt_template": "You are a service advisor writing search aids for a workshop diagnostic tool.\n\nBelow is one diagnostic trouble code from a heavy diesel engine manual.\n\nFault: {description}\nSubsystem: {system}\nEffect on vehicle: {effect}\nWarning lamp (MIL): {mil}\nLikely causes: {causes}\nWhat a technician checks: {checkpoints}\n\nWrite exactly {want} SHORT lines describing how this fault SHOWS UP to a driver or a technician in ordinary workshop English.\n\nRules:\n- Put each symptom on its OWN line. Never join them into a paragraph.\n- One symptom per line, 6 to 16 words, no numbering, no bullet characters.\n- Describe what is SEEN, HEARD or FELT: behaviour on the road, starting, pulling power, idle, smoke, noise, a gauge reading or a warning lamp.\n- Use plain words a driver would use. Do not use the manual's wording.\n- Never mention a fault code, a pin number or a wire colour.\n- Do not invent a symptom that this fault could not cause.\n\nLines only, nothing else.",
+ "post_filter": "mechanical only: drop fault codes, empty, too short/long, headings and duplicates. No hand-editing.",
+ "inputs_used": [
+  "description",
+  "system",
+  "effect",
+  "MIL",
+  "cause",
+  "checkpoints"
+ ],
+ "no_gold_read": "no DEV/TEST/independent/R2 file is opened by this script",
+ "records": {
+  "P0192-00@p8#1": {
+   "code_full": "P0192-00",
+   "system": "rail_pressure",
+   "expansions": [
+    "Engine pulls weakly at start",
+    "Smoke pours from exhaust",
+    "Idle unstable, jerky",
+    "Warning light flashes",
+    "Pulling power drops",
+    "Noise from engine increases"
+   ],
+   "dropped": [],
+   "completion_tokens": 32,
+   "seconds": 17.92
+  },
+  "P0193-00@p10#1": {
+   "code_full": "P0193-00",
+   "system": "rail_pressure",
+   "expansions": [
+    "Torque feels weak when trying to accelerate",
+    "Smoke pours out of the exhaust",
+    "Engine starts with difficulty",
+    "Idle speed is low",
+    "Warning light flashes on",
+    "Pulling power is reduced"
+   ],
+   "dropped": [],
+   "completion_tokens": 37,
+   "seconds": 15.95
+  },
+  "P0194-00@p12#1": {
+   "code_full": "P0194-00",
+   "system": "rail_pressure",
+   "expansions": [
+    "Torque feels sluggish when trying to accelerate",
+    "Smoke pours from the exhaust",
+    "Warning light flashes on dashboard",
+    "Engine starts with difficulty",
+    "Idle speed is low",
+    "Noise from engine increases"
+   ],
+   "dropped": [],
+   "completion_tokens": 36,
+   "seconds": 15.2
+  },
+  "P0117-00@p13#1": {
+   "code_full": "P0117-00",
+   "system": "coolant",
+   "expansions": [
+    "Warning light on dashboard",
+    "Engine starts with difficulty",
+    "Idle rough, stutters",
+    "Smoke pours from exhaust",
+    "Engine makes unusual noise",
+    "Temperature gauge climbs"
+   ],
+   "dropped": [],
+   "completion_tokens": 30,
+   "seconds": 14.54
+  },
+  "P0118-00@p16#1": {
+   "code_full": "P0118-00",
+   "system": "coolant",
+   "expansions": [
+    "Warning light on dashboard",
+    "Engine starts with difficulty",
+    "Rough idle, stutters",
+    "Noisy engine, ticking sound",
+    "Coolant temperature gauge shows high",
+    "Smoke coming from engine"
+   ],
+   "dropped": [],
+   "completion_tokens": 35,
+   "seconds": 15.12
+  },
+  "P0119-00@p18#1": {
+   "code_full": "P0119-00",
+   "system": "coolant",
+   "expansions": [
+    "Warning light on dashboard",
+    "Engine starts with hesitation",
+    "Rough idle, stutters",
+    "Noisy engine, unusual sounds",
+    "Coolant temperature gauge fluctuates wildly",
+    "Smoke pours from exhaust, blackish"
+   ],
+   "dropped": [],
+   "completion_tokens": 39,
+   "seconds": 15.26
+  },
+  "P0116-00@p20#1": {
+   "code_full": "P0116-00",
+   "system": "coolant",
+   "expansions": [
+    "Warning light comes on",
+    "Engine starts with hesitation",
+    "Idle rough, stutters",
+    "Smoke pours from exhaust",
+    "Engine noise increases",
+    "Gauge shows high temp"
+   ],
+   "dropped": [],
+   "completion_tokens": 30,
+   "seconds": 14.46
+  },
+  "P0100-00@p22#1": {
+   "code_full": "P0100-00",
+   "system": "intake_air",
+   "expansions": [
+    "Warning light on dashboard",
+    "Engine starts with hesitation",
+    "Pulling power weak",
+    "Idle unstable",
+    "Smoke comes out of exhaust",
+    "Engine makes unusual noise"
+   ],
+   "dropped": [],
+   "completion_tokens": 29,
+   "seconds": 14.76
+  },
+  "P0102-00@p25#1": {
+   "code_full": "P0102-00",
+   "system": "sensor_generic",
+   "expansions": [
+    "Warning light on dashboard",
+    "Engine starts with hesitation",
+    "Pulling power weak",
+    "Idle unstable, stutters",
+    "Exhaust smells faintly",
+    "Engine makes rough noises"
+   ],
+   "dropped": [],
+   "completion_tokens": 31,
+   "seconds": 15.3
+  },
+  "P0103-00@p28#1": {
+   "code_full": "P0103-00",
+   "system": "sensor_generic",
+   "expansions": [
+    "Warning light stays on",
+    "Engine starts but stalls quickly",
+    "Hard to accelerate",
+    "Black smoke coming out",
+    "Noises from engine area"
+   ],
+   "dropped": [
+    {
+     "text": "Idle rough",
+     "reason": "too short"
+    }
+   ],
+   "completion_tokens": 29,
+   "seconds": 13.97
+  },
+  "P010C-00@p31#1": {
+   "code_full": "P010C-00",
+   "system": "sensor_generic",
+   "expansions": [
+    "Warning light on dashboard",
+    "Engine starts with hesitation",
+    "Pulling power weak",
+    "Idle unstable, stutters",
+    "Exhaust smells faintly",
+    "Engine makes rough noises"
+   ],
+   "dropped": [],
+   "completion_tokens": 31,
+   "seconds": 14.64
+  },
+  "P010D-00@p34#1": {
+   "code_full": "P010D-00",
+   "system": "sensor_generic",
+   "expansions": [
+    "Warning light stays on",
+    "Engine starts with hesitation",
+    "Pulling power weak",
+    "Idle unstable",
+    "Smoke pours from exhaust",
+    "Engine makes rough noise"
+   ],
+   "dropped": [],
+   "completion_tokens": 28,
+   "seconds": 13.93
+  },
+  "P0100-9B@p37#1": {
+   "code_full": "P0100-9B",
+   "system": "intake_air",
+   "expansions": [
+    "Warning light on dashboard",
+    "Engine starts rough",
+    "Pulling power weak",
+    "Smoke pours out",
+    "Idle unstable",
+    "Engine makes a rough noise"
+   ],
+   "dropped": [],
+   "completion_tokens": 27,
+   "seconds": 15.69
+  },
+  "P0100-9C@p40#1": {
+   "code_full": "P0100-9C",
+   "system": "intake_air",
+   "expansions": [
+    "Warning light on dashboard",
+    "Engine starts with hesitation",
+    "Pulling power weak",
+    "Smoke pours from exhaust",
+    "Engine makes unusual noise",
+    "Idling rough"
+   ],
+   "dropped": [],
+   "completion_tokens": 29,
+   "seconds": 15.3
+  },
+  "P0101-00@p43#1": {
+   "code_full": "P0101-00",
+   "system": "intake_air",
+   "expansions": [
+    "Engine starts but stalls quickly"
+   ],
+   "dropped": [],
+   "completion_tokens": 6,
+   "seconds": 13.6
+  },
+  "P0401-00@p46#1": {
+   "code_full": "P0401-00",
+   "system": "intake_air",
+   "expansions": [
+    "Engine pulls weakly at start",
+    "Smoke pours out of exhaust",
+    "Idle unstable, jerky",
+    "Warning light flashes",
+    "Pulling power drops off quickly"
+   ],
+   "dropped": [],
+   "completion_tokens": 30,
+   "seconds": 14.22
+  },
+  "P0402-00@p47#1": {
+   "code_full": "P0402-00",
+   "system": "intake_air",
+   "expansions": [
+    "Engine pulls weakly at start",
+    "Smoke pours out of exhaust",
+    "Idle unstable, jerky",
+    "Warning light flashes",
+    "Pulling power drops"
+   ],
+   "dropped": [],
+   "completion_tokens": 28,
+   "seconds": 13.9
+  },
+  "P0107-00@p48#1": {
+   "code_full": "P0107-00",
+   "system": "electrical",
+   "expansions": [
+    "Warning light on dashboard",
+    "Engine starts with hesitation",
+    "Pulling power weak",
+    "Idle unstable, stutters",
+    "Exhaust smells faintly",
+    "Engine makes rough noise"
+   ],
+   "dropped": [],
+   "completion_tokens": 31,
+   "seconds": 14.87
+  },
+  "P0108-00@p51#1": {
+   "code_full": "P0108-00",
+   "system": "electrical",
+   "expansions": [
+    "Warning light on dashboard",
+    "Engine starts with hesitation",
+    "Pulling power weak",
+    "Idle unstable",
+    "Smoke pours from exhaust",
+    "Engine makes unusual noise"
+   ],
+   "dropped": [],
+   "completion_tokens": 28,
+   "seconds": 14.62
+  },
+  "P0109-00@p54#1": {
+   "code_full": "P0109-00",
+   "system": "sensor_generic",
+   "expansions": [
+    "Engine doesn't start easily"
+   ],
+   "dropped": [],
+   "completion_tokens": 6,
+   "seconds": 12.37
+  },
+  "P0110-11@p57#1": {
+   "code_full": "P0110-11",
+   "system": "intake_air",
+   "expansions": [
+    "Warning light on dashboard",
+    "Engine starts with hesitation",
+    "Pulling power weak",
+    "Idle unstable, stutters",
+    "Exhaust smells faintly",
+    "Engine makes rough knocking sound"
+   ],
+   "dropped": [],
+   "completion_tokens": 32,
+   "seconds": 15.73
+  },
+  "P0110-12@p60#1": {
+   "code_full": "P0110-12",
+   "system": "intake_air",
+   "expansions": [
+    "Warning light on",
+    "Hard to start",
+    "Poor pulling power",
+    "Smoke from exhaust",
+    "Strange noises",
+    "Gauge shows low temp"
+   ],
+   "dropped": [],
+   "completion_tokens": 24,
+   "seconds": 14.66
+  },
+  "P006E-00@p63#1": {
+   "code_full": "P006E-00",
+   "system": "turbo_boost",
+   "expansions": [
+    "Engine starts but pulls weakly"
+   ],
+   "dropped": [],
+   "completion_tokens": 7,
+   "seconds": 11.95
+  },
+  "P006F-00@p66#1": {
+   "code_full": "P006F-00",
+   "system": "turbo_boost",
+   "expansions": [
+    "Engine starts but runs weakly"
+   ],
+   "dropped": [],
+   "completion_tokens": 7,
+   "seconds": 11.63
+  },
+  "P0048-00@p69#1": {
+   "code_full": "P0048-00",
+   "system": "turbo_boost",
+   "expansions": [
+    "Engine doesn't reach full power easily",
+    "Starting is slow and rough",
+    "Pulling power is noticeably weak",
+    "Idle is unstable and jerky",
+    "Smoke comes out of the exhaust",
+    "Warning light stays on"
+   ],
+   "dropped": [],
+   "completion_tokens": 41,
+   "seconds": 14.92
+  },
+  "P004D-00@p72#1": {
+   "code_full": "P004D-00",
+   "system": "turbo_boost",
+   "expansions": [
+    "Engine doesn't pull as strong as usual",
+    "Warning light on dashboard",
+    "Hard to start, especially cold",
+    "Idling rough",
+    "Smoke pours out of exhaust"
+   ],
+   "dropped": [],
+   "completion_tokens": 31,
+   "seconds": 14.07
+  },
+  "P0047-00@p75#1": {
+   "code_full": "P0047-00",
+   "system": "turbo_boost",
+   "expansions": [
+    "Engine doesn't pull as strong as usual",
+    "Warning light comes on",
+    "Starting is a bit harder",
+    "Idle is rougher than normal",
+    "Smoke comes out of the exhaust",
+    "Noise from the turbocharger is louder"
+   ],
+   "dropped": [],
+   "completion_tokens": 47,
+   "seconds": 15.42
+  },
+  "P004C-00@p78#1": {
+   "code_full": "P004C-00",
+   "system": "turbo_boost",
+   "expansions": [
+    "Engine doesn't pull as strong as usual",
+    "Warning light on dashboard",
+    "Idling rougher than normal",
+    "Smoke coming from exhaust",
+    "Starting takes longer than usual",
+    "RPM feels lower than usual"
+   ],
+   "dropped": [],
+   "completion_tokens": 44,
+   "seconds": 14.9
+  },
+  "P0087-00@p81#1": {
+   "code_full": "P0087-00",
+   "system": "rail_pressure",
+   "expansions": [
+    "Warning light on dashboard",
+    "Engine starts with hesitation",
+    "Pulling power weak",
+    "Smoke pours out of exhaust",
+    "Engine makes unusual noise",
+    "Gauge shows high fuel pressure"
+   ],
+   "dropped": [],
+   "completion_tokens": 32,
+   "seconds": 14.7
+  },
+  "P0088-00@p83#1": {
+   "code_full": "P0088-00",
+   "system": "rail_pressure",
+   "expansions": [
+    "Warning light comes on",
+    "Engine starts with hesitation",
+    "Pulling power is weak",
+    "Smoke pours out of exhaust",
+    "Engine makes a rough noise",
+    "Gauge shows low pressure"
+   ],
+   "dropped": [],
+   "completion_tokens": 33,
+   "seconds": 16.02
+  },
+  "P0089-92@p85#1": {
+   "code_full": "P0089-92",
+   "system": "fuel_supply",
+   "expansions": [
+    "Warning light on dashboard",
+    "Engine starts but stalls quickly",
+    "Hard to pull away from a stop",
+    "Smoke pours out of exhaust",
+    "Engine makes a rough, backfiring sound",
+    "Gauge shows high fuel pressure"
+   ],
+   "dropped": [],
+   "completion_tokens": 41,
+   "seconds": 15.9
+  },
+  "P00C6-00@p86#1": {
+   "code_full": "P00C6-00",
+   "system": "rail_pressure",
+   "expansions": [
+    "Engine won't start",
+    "Hard to start, takes a long time",
+    "Noisy when starting",
+    "Smoke comes out of exhaust",
+    "Warning light stays on",
+    "Pulling power is weak"
+   ],
+   "dropped": [],
+   "completion_tokens": 37,
+   "seconds": 16.59
+  },
+  "P0089-00@p88#1": {
+   "code_full": "P0089-00",
+   "system": "fuel_supply",
+   "expansions": [
+    "Warning light on",
+    "Hard to start",
+    "Poor pulling power",
+    "Smoke from exhaust",
+    "Strange noise",
+    "Gauge shows low fuel"
+   ],
+   "dropped": [],
+   "completion_tokens": 24,
+   "seconds": 15.17
+  },
+  "P018F-00@p89#1": {
+   "code_full": "P018F-00",
+   "system": "fuel_supply",
+   "expansions": [
+    "Warning light stays on",
+    "Engine starts with hesitation",
+    "Pulling power weakens quickly",
+    "Idle becomes rough and unstable",
+    "Smoke pours from exhaust",
+    "Engine makes a rough, persistent knocking sound"
+   ],
+   "dropped": [],
+   "completion_tokens": 37,
+   "seconds": 15.68
+  },
+  "P0120-11@p90#1": {
+   "code_full": "P0120-11",
+   "system": "pedal_clutch_brake",
+   "expansions": [
+    "Engine won't start",
+    "Weak pulling power when moving",
+    "Rough idle, stalling easily",
+    "Black smoke coming out",
+    "Noisy when accelerating",
+    "Warning light stays off"
+   ],
+   "dropped": [],
+   "completion_tokens": 35,
+   "seconds": 16.08
+  },
+  "P0120-12@p92#1": {
+   "code_full": "P0120-12",
+   "system": "pedal_clutch_brake",
+   "expansions": [
+    "Car feels sluggish when trying to start"
+   ],
+   "dropped": [],
+   "completion_tokens": 8,
+   "seconds": 13.28
+  },
+  "P0220-11@p94#1": {
+   "code_full": "P0220-11",
+   "system": "pedal_clutch_brake",
+   "expansions": [
+    "Car won't start",
+    "Pulling power weak",
+    "Idling rough",
+    "Smoke coming out",
+    "Warning light off",
+    "Gauge reading low"
+   ],
+   "dropped": [],
+   "completion_tokens": 28,
+   "seconds": 15.29
+  },
+  "P0220-12@p96#1": {
+   "code_full": "P0220-12",
+   "system": "pedal_clutch_brake",
+   "expansions": [
+    "Engine pulls weakly at start",
+    "Smoke pours from exhaust",
+    "Idle unstable, jerky",
+    "Noises from engine bay",
+    "Gauge shows low power",
+    "Warning light stays off"
+   ],
+   "dropped": [],
+   "completion_tokens": 34,
+   "seconds": 15.3
+  },
+  "P2135-00@p98#1": {
+   "code_full": "P2135-00",
+   "system": "pedal_clutch_brake",
+   "expansions": [
+    "Engine won't start",
+    "Weak pulling power when moving",
+    "Rough idle, stutters",
+    "Black smoke coming out",
+    "Warning light stays off",
+    "Hard to accelerate"
+   ],
+   "dropped": [],
+   "completion_tokens": 33,
+   "seconds": 14.83
+  },
+  "P0180-11@p100#1": {
+   "code_full": "P0180-11",
+   "system": "fuel_supply",
+   "expansions": [
+    "Engine won't start",
+    "Starter motor whines but doesn't turn",
+    "Rough idle, stumbles",
+    "Black smoke pours out",
+    "Noises when accelerating",
+    "Warning light stays off"
+   ],
+   "dropped": [],
+   "completion_tokens": 38,
+   "seconds": 15.93
+  },
+  "P0180-12@p102#1": {
+   "code_full": "P0180-12",
+   "system": "fuel_supply",
+   "expansions": [
+    "Engine won't start",
+    "Fumes come out when starting",
+    "Pulling power is weak",
+    "Idle is rough",
+    "Smoke pours out of exhaust",
+    "Warning light stays on"
+   ],
+   "dropped": [],
+   "completion_tokens": 34,
+   "seconds": 15.85
+  },
+  "P0201-00@p104#1": {
+   "code_full": "P0201-00",
+   "system": "injector",
+   "expansions": [
+    "Engine starts but stalls quickly"
+   ],
+   "dropped": [],
+   "completion_tokens": 6,
+   "seconds": 13.7
+  },
+  "P0202-00@p107#1": {
+   "code_full": "P0202-00",
+   "system": "injector",
+   "expansions": [
+    "Engine pulls weakly at start",
+    "Idle unstable, jerky",
+    "Smoke pours from exhaust",
+    "Noises from engine bay",
+    "Warning light on dashboard",
+    "Pulling power drops at higher speeds"
+   ],
+   "dropped": [],
+   "completion_tokens": 37,
+   "seconds": 15.84
+  },
+  "P0203-00@p110#1": {
+   "code_full": "P0203-00",
+   "system": "injector",
+   "expansions": [
+    "Engine pulls weakly at start"
+   ],
+   "dropped": [],
+   "completion_tokens": 7,
+   "seconds": 13.28
+  },
+  "P0204-00@p113#1": {
+   "code_full": "P0204-00",
+   "system": "injector",
+   "expansions": [
+    "Engine pulls weakly at start"
+   ],
+   "dropped": [],
+   "completion_tokens": 7,
+   "seconds": 13.36
+  },
+  "P1201-00@p116#1": {
+   "code_full": "P1201-00",
+   "system": "injector",
+   "expansions": [
+    "Engine pulls weakly at start"
+   ],
+   "dropped": [],
+   "completion_tokens": 7,
+   "seconds": 13.69
+  },
+  "P1202-00@p119#1": {
+   "code_full": "P1202-00",
+   "system": "injector",
+   "expansions": [
+    "Engine pulls weakly at start"
+   ],
+   "dropped": [],
+   "completion_tokens": 7,
+   "seconds": 13.1
+  },
+  "P1203-00@p122#1": {
+   "code_full": "P1203-00",
+   "system": "injector",
+   "expansions": [
+    "Engine pulls weakly at start"
+   ],
+   "dropped": [],
+   "completion_tokens": 7,
+   "seconds": 12.9
+  },
+  "P1204-00@p125#1": {
+   "code_full": "P1204-00",
+   "system": "injector",
+   "expansions": [
+    "Engine pulls weakly at start",
+    "Smoke pours out of exhaust",
+    "Warning light stays on",
+    "Pulling power drops"
+   ],
+   "dropped": [
+    {
+     "text": "Idle rough",
+     "reason": "too short"
+    }
+   ],
+   "completion_tokens": 26,
+   "seconds": 14.52
+  },
+  "P0001-00@p128#1": {
+   "code_full": "P0001-00",
+   "system": "fuel_supply",
+   "expansions": [
+    "Engine won't pull away from the start",
+    "Idle is very weak and shaky",
+    "Warning light flashes on dashboard",
+    "Smoke pours out of exhaust",
+    "Pulling power is poor at low speeds",
+    "Rough idle and stalling is common"
+   ],
+   "dropped": [],
+   "completion_tokens": 47,
+   "seconds": 16.04
+  },
+  "P0003-00@p131#1": {
+   "code_full": "P0003-00",
+   "system": "fuel_supply",
+   "expansions": [
+    "Engine won't start",
+    "Warning light flashes",
+    "Noisy when trying to start",
+    "Smoke pours from exhaust",
+    "Pulling power weak",
+    "Fuel gauge reads empty"
+   ],
+   "dropped": [],
+   "completion_tokens": 36,
+   "seconds": 14.62
+  },
+  "P0004-00@p134#1": {
+   "code_full": "P0004-00",
+   "system": "fuel_supply",
+   "expansions": [
+    "Vehicle won't start",
+    "Warning light stays on",
+    "Pulling power weak",
+    "Idling rough",
+    "Smoke pours out",
+    "Engine makes a strange noise"
+   ],
+   "dropped": [],
+   "completion_tokens": 34,
+   "seconds": 14.47
+  },
+  "P0335-00@p137#1": {
+   "code_full": "P0335-00",
+   "system": "engine_position",
+   "expansions": [
+    "Engine won't turn over",
+    "Starter motor spins fast",
+    "Warning light stays on",
+    "Smoke pours out",
+    "Hard to pull away",
+    "RPM drops quickly"
+   ],
+   "dropped": [],
+   "completion_tokens": 29,
+   "seconds": 14.51
+  },
+  "P0336-00@p140#1": {
+   "code_full": "P0336-00",
+   "system": "engine_position",
+   "expansions": [
+    "Engine starts but stalls quickly"
+   ],
+   "dropped": [],
+   "completion_tokens": 6,
+   "seconds": 12.44
+  },
+  "P0340-00@p143#1": {
+   "code_full": "P0340-00",
+   "system": "engine_position",
+   "expansions": [
+    "Vehicle won't start",
+    "Warning light stays on",
+    "Noisy when trying to start",
+    "Smoke comes out of exhaust",
+    "Pulling power is weak",
+    "Idling is shaky and rough"
+   ],
+   "dropped": [],
+   "completion_tokens": 41,
+   "seconds": 16.79
+  },
+  "P0341-00@p146#1": {
+   "code_full": "P0341-00",
+   "system": "engine_position",
+   "expansions": [
+    "Vehicle won't start",
+    "Noises when trying to start",
+    "Weak pulling power at idle",
+    "Black smoke coming out of exhaust",
+    "Warning light stays off",
+    "Engine makes unusual noises"
+   ],
+   "dropped": [],
+   "completion_tokens": 36,
+   "seconds": 16.02
+  },
+  "P0405-00@p149#1": {
+   "code_full": "P0405-00",
+   "system": "egr",
+   "expansions": [
+    "Engine starts but stalls quickly"
+   ],
+   "dropped": [],
+   "completion_tokens": 6,
+   "seconds": 13.58
+  },
+  "P0406-00@p152#1": {
+   "code_full": "P0406-00",
+   "system": "egr",
+   "expansions": [
+    "Engine starts but stalls quickly"
+   ],
+   "dropped": [],
+   "completion_tokens": 6,
+   "seconds": 13.88
+  },
+  "P042F-00@p155#1": {
+   "code_full": "P042F-00",
+   "system": "egr",
+   "expansions": [
+    "Engine pulls weak at start",
+    "Smoke pours out of exhaust",
+    "Warning light flashes",
+    "Pulling power low"
+   ],
+   "dropped": [
+    {
+     "text": "Idle rough",
+     "reason": "too short"
+    }
+   ],
+   "completion_tokens": 24,
+   "seconds": 14.05
+  },
+  "P042E-00@p158#1": {
+   "code_full": "P042E-00",
+   "system": "egr",
+   "expansions": [
+    "Engine pulls weakly at start",
+    "Smoke pours from exhaust",
+    "Idle unstable, jerky",
+    "Warning light flashes",
+    "Pulling power drops"
+   ],
+   "dropped": [],
+   "completion_tokens": 27,
+   "seconds": 14.1
+  },
+  "P0489-00@p161#1": {
+   "code_full": "P0489-00",
+   "system": "egr",
+   "expansions": [
+    "Engine starts with difficulty"
+   ],
+   "dropped": [],
+   "completion_tokens": 5,
+   "seconds": 13.52
+  },
+  "P048A-00@p164#1": {
+   "code_full": "P048A-00",
+   "system": "egr",
+   "expansions": [
+    "Engine starts with difficulty"
+   ],
+   "dropped": [],
+   "completion_tokens": 5,
+   "seconds": 13.31
+  },
+  "P045C-00@p167#1": {
+   "code_full": "P045C-00",
+   "system": "egr",
+   "expansions": [
+    "Engine starts with difficulty"
+   ],
+   "dropped": [],
+   "completion_tokens": 5,
+   "seconds": 13.61
+  },
+  "P045D-00@p170#1": {
+   "code_full": "P045D-00",
+   "system": "egr",
+   "expansions": [
+    "Engine pulls weakly at start",
+    "Smoke pours from exhaust",
+    "Warning light flashes",
+    "Idle unstable",
+    "Pulling power drops",
+    "RPM drops quickly"
+   ],
+   "dropped": [],
+   "completion_tokens": 28,
+   "seconds": 15.46
+  },
+  "P0403-00@p173#1": {
+   "code_full": "P0403-00",
+   "system": "egr",
+   "expansions": [
+    "Engine pulls weakly at start",
+    "Idle unstable, stutters",
+    "Smoke pours from exhaust",
+    "Engine noise increases",
+    "Torque meter shows low",
+    "Warning light flashes"
+   ],
+   "dropped": [],
+   "completion_tokens": 32,
+   "seconds": 15.68
+  },
+  "P0500-1F@p176#1": {
+   "code_full": "P0500-1F",
+   "system": "vehicle_speed",
+   "expansions": [
+    "Car won't start or runs very weak"
+   ],
+   "dropped": [],
+   "completion_tokens": 9,
+   "seconds": 12.89
+  },
+  "P0500-1C@p179#1": {
+   "code_full": "P0500-1C",
+   "system": "vehicle_speed",
+   "expansions": [
+    "Vehicle speed drops suddenly",
+    "Engine starts with hesitation",
+    "Idle rough, harder to hold steady",
+    "Black smoke pours from exhaust",
+    "Engine makes a clanking sound",
+    "Warning light stays off"
+   ],
+   "dropped": [],
+   "completion_tokens": 36,
+   "seconds": 15.11
+  },
+  "P259F-00@p182#1": {
+   "code_full": "P259F-00",
+   "system": "turbo_boost",
+   "expansions": [
+    "Warning light on dashboard",
+    "Engine starts with hesitation",
+    "Pulling power weak",
+    "Exhaust smells burnt",
+    "Engine makes loud ticking"
+   ],
+   "dropped": [
+    {
+     "text": "Idle rough",
+     "reason": "too short"
+    }
+   ],
+   "completion_tokens": 27,
+   "seconds": 14.64
+  },
+  "P259E-00@p183#1": {
+   "code_full": "P259E-00",
+   "system": "turbo_boost",
+   "expansions": [
+    "Engine starts but pulls weakly",
+    "Smoke pours out of exhaust",
+    "Idle is rough",
+    "Warning light flashes",
+    "Pulling power is low"
+   ],
+   "dropped": [],
+   "completion_tokens": 27,
+   "seconds": 14.5
+  },
+  "P0627-11@p184#1": {
+   "code_full": "P0627-11",
+   "system": "fuel_supply",
+   "expansions": [
+    "Engine won't start",
+    "Weak pulling power at start",
+    "Rough idle, stutters",
+    "Black smoke coming out",
+    "Noisy when accelerating",
+    "Warning light stays on"
+   ],
+   "dropped": [],
+   "completion_tokens": 34,
+   "seconds": 16.07
+  },
+  "P0627-13@p186#1": {
+   "code_full": "P0627-13",
+   "system": "fuel_supply",
+   "expansions": [
+    "Engine won't start",
+    "Weak pulling power at start",
+    "Rough idle, stutters",
+    "Black smoke coming out",
+    "Noisy when accelerating",
+    "Warning light stays off"
+   ],
+   "dropped": [],
+   "completion_tokens": 34,
+   "seconds": 15.51
+  },
+  "P0627-12@p188#1": {
+   "code_full": "P0627-12",
+   "system": "fuel_supply",
+   "expansions": [
+    "Engine won't start",
+    "Weak pullaway when it does start",
+    "Rough idle, stutters",
+    "Black smoke coming out",
+    "Warning light flickers on start",
+    "Hard to maintain speed"
+   ],
+   "dropped": [],
+   "completion_tokens": 38,
+   "seconds": 16.1
+  },
+  "P2264-12@p190#1": {
+   "code_full": "P2264-12",
+   "system": "fuel_supply",
+   "expansions": [
+    "Engine starts but stalls quickly",
+    "Pulling power weak, especially at stoplights",
+    "Idle rough, engine stutters",
+    "Smoke pours from exhaust, especially blue",
+    "Noises from engine, ticking or clunking",
+    "Warning light stays off, but engine feels sluggish"
+   ],
+   "dropped": [],
+   "completion_tokens": 57,
+   "seconds": 17.59
+  },
+  "P2264-11@p192#1": {
+   "code_full": "P2264-11",
+   "system": "fuel_supply",
+   "expansions": [
+    "Engine starts but stalls quickly",
+    "Pulling power is weak, especially at stoplights",
+    "Idle is rough, engine shakes",
+    "Smoke pours from exhaust, especially blue",
+    "Noise is a low rumble, not a ticking",
+    "Warning light stays off, no dashboard alert"
+   ],
+   "dropped": [],
+   "completion_tokens": 57,
+   "seconds": 16.98
+  },
+  "P0180-11@p195#2": {
+   "code_full": "P0180-11",
+   "system": "fuel_supply",
+   "expansions": [
+    "Engine won't start",
+    "Weak pulling power at start",
+    "Rough idle, stutters",
+    "Black smoke coming out",
+    "Noisy when accelerating",
+    "Warning light stays off"
+   ],
+   "dropped": [],
+   "completion_tokens": 34,
+   "seconds": 14.93
+  },
+  "P0180-12@p197#2": {
+   "code_full": "P0180-12",
+   "system": "fuel_supply",
+   "expansions": [
+    "Engine won't start",
+    "Weak pulling power at start",
+    "Rumbling noise from engine",
+    "Smoke coming out of exhaust",
+    "Warning light stays off",
+    "Idle is very rough"
+   ],
+   "dropped": [],
+   "completion_tokens": 34,
+   "seconds": 14.92
+  },
+  "P0180-1C@p199#1": {
+   "code_full": "P0180-1C",
+   "system": "fuel_supply",
+   "expansions": [
+    "Engine starts but stalls quickly"
+   ],
+   "dropped": [],
+   "completion_tokens": 6,
+   "seconds": 12.43
+  },
+  "P0180-1F@p201#1": {
+   "code_full": "P0180-1F",
+   "system": "fuel_supply",
+   "expansions": [
+    "Engine starts but stalls quickly"
+   ],
+   "dropped": [],
+   "completion_tokens": 6,
+   "seconds": 12.45
+  },
+  "P0504-00@p203#1": {
+   "code_full": "P0504-00",
+   "system": "pedal_clutch_brake",
+   "expansions": [
+    "Car won't start",
+    "Weak pulling power",
+    "Idling rough",
+    "Warning light off",
+    "Stalling easily"
+   ],
+   "dropped": [
+    {
+     "text": "No smoke",
+     "reason": "too short"
+    }
+   ],
+   "completion_tokens": 25,
+   "seconds": 14.92
+  },
+  "P0704-29@p205#1": {
+   "code_full": "P0704-29",
+   "system": "pedal_clutch_brake",
+   "expansions": [
+    "Car won't start",
+    "Pulling power weak",
+    "Idling rough",
+    "Smoke coming out",
+    "Warning light off",
+    "Engine makes a strange noise"
+   ],
+   "dropped": [],
+   "completion_tokens": 29,
+   "seconds": 13.48
+  },
+  "P0A1B-13@p208#1": {
+   "code_full": "P0A1B-13",
+   "system": "electrical",
+   "expansions": [
+    "Engine won't start",
+    "Weak pulling power when moving",
+    "Idle rough, stutters",
+    "Black smoke coming out",
+    "Noises when starting",
+    "Warning light stays off"
+   ],
+   "dropped": [],
+   "completion_tokens": 33,
+   "seconds": 14.22
+  },
+  "P0A1B-12@p211#1": {
+   "code_full": "P0A1B-12",
+   "system": "electrical",
+   "expansions": [
+    "Engine won't start",
+    "Weak pulling power when moving",
+    "Idle rough, stutters",
+    "Black smoke coming out",
+    "Noises from starter motor",
+    "Warning light stays on"
+   ],
+   "dropped": [],
+   "completion_tokens": 34,
+   "seconds": 13.97
+  },
+  "P2229-00@p214#1": {
+   "code_full": "P2229-00",
+   "system": "electrical",
+   "expansions": [
+    "Warning light comes on",
+    "Engine starts with hesitation",
+    "Pulling power is weak",
+    "Idle is rough",
+    "Smoke pours out of exhaust",
+    "Engine makes a rough knocking sound"
+   ],
+   "dropped": [],
+   "completion_tokens": 33,
+   "seconds": 14.22
+  },
+  "P2228-00@p215#1": {
+   "code_full": "P2228-00",
+   "system": "electrical",
+   "expansions": [
+    "Warning light on dashboard",
+    "Hard to start, takes longer",
+    "Noisy engine, unusual sounds",
+    "Smoke coming from exhaust",
+    "Pulling power weak, sluggish",
+    "Idling rough, jerky"
+   ],
+   "dropped": [],
+   "completion_tokens": 37,
+   "seconds": 14.48
+  },
+  "P0219-00@p216#1": {
+   "code_full": "P0219-00",
+   "system": "level2_monitoring",
+   "expansions": [
+    "Engine won't start",
+    "Weak pulling power at high speeds",
+    "Black smoke coming out of exhaust",
+    "Rumbling noise from engine area",
+    "Warning light stays off",
+    "Engine runs rough at idle"
+   ],
+   "dropped": [],
+   "completion_tokens": 38,
+   "seconds": 13.77
+  },
+  "P061C-00@p217#1": {
+   "code_full": "P061C-00",
+   "system": "level2_monitoring",
+   "expansions": [
+    "Engine won't start",
+    "Weak pulling power at any speed",
+    "Idle is rough and unstable",
+    "Black smoke coming out of exhaust",
+    "Warning light stays on",
+    "Noises from engine area"
+   ],
+   "dropped": [],
+   "completion_tokens": 37,
+   "seconds": 13.91
+  },
+  "P062B-00@p218#1": {
+   "code_full": "P062B-00",
+   "system": "fuel_supply",
+   "expansions": [
+    "Engine won't start",
+    "Starter motor runs but engine doesn't turn over",
+    "Pulling power is weak",
+    "Smoke pours out of exhaust",
+    "Engine runs rough",
+    "Warning light stays off"
+   ],
+   "dropped": [],
+   "completion_tokens": 38,
+   "seconds": 13.8
+  },
+  "P061A-00@p219#1": {
+   "code_full": "P061A-00",
+   "system": "level2_monitoring",
+   "expansions": [
+    "Engine doesn't seem to pull as strong as usual",
+    "Starting is a bit sluggish, harder than normal",
+    "Idle is rough, not smooth and steady",
+    "Smoke comes out of the exhaust, especially black",
+    "Noises are louder and more frequent than usual",
+    "Warning light is not on, but engine feels weak"
+   ],
+   "dropped": [],
+   "completion_tokens": 62,
+   "seconds": 15.73
+  },
+  "P060A-49@p220#1": {
+   "code_full": "P060A-49",
+   "system": "level2_monitoring",
+   "expansions": [
+    "Engine won't start",
+    "Starter motor whines but doesn't turn",
+    "Pulling power is weak",
+    "Smoke pours from exhaust",
+    "Warning light is off",
+    "Idling is shaky and rough"
+   ],
+   "dropped": [],
+   "completion_tokens": 39,
+   "seconds": 14.05
+  },
+  "U0102-00@p221#1": {
+   "code_full": "U0102-00",
+   "system": "can_network",
+   "expansions": [
+    "Engine starts but pulls weakly"
+   ],
+   "dropped": [],
+   "completion_tokens": 7,
+   "seconds": 12.9
+  },
+  "U011A-00@p222#1": {
+   "code_full": "U011A-00",
+   "system": "can_network",
+   "expansions": [
+    "Engine pulls weakly at start"
+   ],
+   "dropped": [],
+   "completion_tokens": 7,
+   "seconds": 13.04
+  },
+  "U011A-89@p223#1": {
+   "code_full": "U011A-89",
+   "system": "can_network",
+   "expansions": [
+    "Engine starts with difficulty",
+    "Pulling power is weak",
+    "Idle is sluggish",
+    "Smoke pours from exhaust",
+    "Noise from engine increases",
+    "Warning light flashes on"
+   ],
+   "dropped": [],
+   "completion_tokens": 35,
+   "seconds": 15.66
+  },
+  "P0425-85@p224#1": {
+   "code_full": "P0425-85",
+   "system": "dpf_regen",
+   "expansions": [
+    "Warning light on dashboard",
+    "Engine starts with hesitation",
+    "Pulling power weak",
+    "Smoke pours out of exhaust",
+    "Engine makes unusual noise",
+    "Gauge shows high temperature"
+   ],
+   "dropped": [],
+   "completion_tokens": 31,
+   "seconds": 14.02
+  },
+  "P0425-84@p226#1": {
+   "code_full": "P0425-84",
+   "system": "dpf_regen",
+   "expansions": [
+    "Warning light on",
+    "Hard to start",
+    "Poor pulling power",
+    "Smoke from exhaust",
+    "Engine noise",
+    "Gauge shows low temperature"
+   ],
+   "dropped": [],
+   "completion_tokens": 24,
+   "seconds": 13.26
+  },
+  "P0428-00@p228#1": {
+   "code_full": "P0428-00",
+   "system": "dpf_regen",
+   "expansions": [
+    "Warning light on dashboard",
+    "Engine starts with hesitation",
+    "Pulling power weak",
+    "Idle unstable",
+    "Black smoke billows out",
+    "Engine makes a rough noise"
+   ],
+   "dropped": [],
+   "completion_tokens": 30,
+   "seconds": 14.14
+  },
+  "P0427-00@p230#1": {
+   "code_full": "P0427-00",
+   "system": "dpf_regen",
+   "expansions": [
+    "Warning light on dashboard",
+    "Hard to start, takes longer",
+    "Poor pulling power, sluggish",
+    "Black smoke coming out",
+    "Noises from engine area",
+    "Temperature gauge shows high"
+   ],
+   "dropped": [],
+   "completion_tokens": 33,
+   "seconds": 14.2
+  },
+  "P042A-85@p232#1": {
+   "code_full": "P042A-85",
+   "system": "dpf_regen",
+   "expansions": [
+    "Warning light on dashboard",
+    "Engine starts with hesitation",
+    "Pulling power weak",
+    "Smoke pours out of exhaust",
+    "Engine makes unusual noise",
+    "Gauge shows high temperature"
+   ],
+   "dropped": [],
+   "completion_tokens": 31,
+   "seconds": 14.11
+  },
+  "P042A-84@p234#1": {
+   "code_full": "P042A-84",
+   "system": "dpf_regen",
+   "expansions": [
+    "Warning light on dashboard",
+    "Engine starts with hesitation",
+    "Pulling power weak",
+    "Idle unstable",
+    "Smoke pours from exhaust",
+    "Engine makes rough noise"
+   ],
+   "dropped": [],
+   "completion_tokens": 28,
+   "seconds": 13.61
+  },
+  "P042D-00@p236#1": {
+   "code_full": "P042D-00",
+   "system": "dpf_regen",
+   "expansions": [
+    "Warning light on dashboard",
+    "Engine starts with hesitation",
+    "Pulling power weak",
+    "Smoke pours out",
+    "Engine noise increases",
+    "Idling unstable"
+   ],
+   "dropped": [],
+   "completion_tokens": 27,
+   "seconds": 14.02
+  },
+  "P042C-00@p238#1": {
+   "code_full": "P042C-00",
+   "system": "dpf_regen",
+   "expansions": [
+    "Warning light on dashboard",
+    "Engine starts with hesitation",
+    "Pulling power weak",
+    "Smoke pours out",
+    "Engine noise increases",
+    "Idling unstable"
+   ],
+   "dropped": [],
+   "completion_tokens": 27,
+   "seconds": 13.85
+  },
+  "P242A-85@p240#1": {
+   "code_full": "P242A-85",
+   "system": "scr_def",
+   "expansions": [
+    "Warning light on dashboard",
+    "Engine starts with hesitation",
+    "Pulling power weak",
+    "Smoke pours out of exhaust",
+    "Engine makes unusual noise",
+    "Gauge shows high temperature"
+   ],
+   "dropped": [],
+   "completion_tokens": 31,
+   "seconds": 13.83
+  },
+  "P242A-84@p242#1": {
+   "code_full": "P242A-84",
+   "system": "scr_def",
+   "expansions": [
+    "Warning light on",
+    "Hard to start, takes longer than usual",
+    "Poor pulling power, feels sluggish",
+    "White smoke coming out of exhaust",
+    "Noises from engine, especially when idling",
+    "Gauge shows low temperature, especially in cold weather"
+   ],
+   "dropped": [],
+   "completion_tokens": 47,
+   "seconds": 15.57
+  },
+  "P242D-00@p244#1": {
+   "code_full": "P242D-00",
+   "system": "scr_def",
+   "expansions": [
+    "Warning light on dashboard",
+    "Hard to start, takes longer than usual",
+    "Poor pulling power, feels sluggish",
+    "Black smoke coming out of exhaust",
+    "Engine makes a rough idle",
+    "Noises from engine, ticking or rumbling"
+   ],
+   "dropped": [],
+   "completion_tokens": 43,
+   "seconds": 15.34
+  },
+  "P242C-00@p246#1": {
+   "code_full": "P242C-00",
+   "system": "scr_def",
+   "expansions": [
+    "Warning light on dashboard",
+    "Hard to start, takes longer than usual",
+    "Poor pulling power, feels sluggish",
+    "Black smoke coming from exhaust",
+    "Engine makes a rough idle",
+    "Noises from engine, ticking or rumbling"
+   ],
+   "dropped": [],
+   "completion_tokens": 42,
+   "seconds": 14.86
+  },
+  "P2452-85@p248#1": {
+   "code_full": "P2452-85",
+   "system": "sensor_generic",
+   "expansions": [
+    "Warning light on dashboard",
+    "Engine starts with hesitation",
+    "Pulling power weak",
+    "Smoke pours out of exhaust",
+    "Engine makes unusual noise",
+    "Gauge shows high pressure"
+   ],
+   "dropped": [],
+   "completion_tokens": 31,
+   "seconds": 14.18
+  },
+  "P2452-84@p251#1": {
+   "code_full": "P2452-84",
+   "system": "sensor_generic",
+   "expansions": [
+    "Warning light on dashboard",
+    "Engine starts with hesitation",
+    "Pulling power weak",
+    "Smoke pours from exhaust",
+    "Engine makes unusual noise",
+    "Gauge shows low pressure"
+   ],
+   "dropped": [],
+   "completion_tokens": 30,
+   "seconds": 13.82
+  },
+  "P2455-00@p254#1": {
+   "code_full": "P2455-00",
+   "system": "electrical",
+   "expansions": [
+    "Warning light on dashboard",
+    "Engine won't start",
+    "Pulling power weak",
+    "Smoke coming out",
+    "Engine makes unusual noise",
+    "Gauge shows high pressure"
+   ],
+   "dropped": [],
+   "completion_tokens": 29,
+   "seconds": 13.56
+  },
+  "P2454-00@p257#1": {
+   "code_full": "P2454-00",
+   "system": "electrical",
+   "expansions": [
+    "Warning light on dashboard",
+    "Engine starts with hesitation",
+    "Pulling power weak",
+    "Idle unstable",
+    "Smoke pours from exhaust",
+    "Engine makes unusual noise"
+   ],
+   "dropped": [],
+   "completion_tokens": 28,
+   "seconds": 14.08
+  },
+  "P2200-86@p260#1": {
+   "code_full": "P2200-86",
+   "system": "o2_exhaust",
+   "expansions": [
+    "Engine starts with difficulty"
+   ],
+   "dropped": [],
+   "completion_tokens": 5,
+   "seconds": 13.57
+  },
+  "P2200-13@p261#1": {
+   "code_full": "P2200-13",
+   "system": "o2_exhaust",
+   "expansions": [
+    "Engine starts but pulls weakly"
+   ],
+   "dropped": [],
+   "completion_tokens": 7,
+   "seconds": 13.39
+  },
+  "P2201-76@p262#1": {
+   "code_full": "P2201-76",
+   "system": "o2_exhaust",
+   "expansions": [
+    "Engine starts with difficulty"
+   ],
+   "dropped": [],
+   "completion_tokens": 5,
+   "seconds": 13.25
+  },
+  "P229E-86@p263#1": {
+   "code_full": "P229E-86",
+   "system": "o2_exhaust",
+   "expansions": [
+    "Engine starts with difficulty"
+   ],
+   "dropped": [],
+   "completion_tokens": 5,
+   "seconds": 13.33
+  },
+  "P229E-13@p264#1": {
+   "code_full": "P229E-13",
+   "system": "o2_exhaust",
+   "expansions": [
+    "Engine starts with difficulty"
+   ],
+   "dropped": [],
+   "completion_tokens": 5,
+   "seconds": 13.26
+  },
+  "P229F-76@p265#1": {
+   "code_full": "P229F-76",
+   "system": "o2_exhaust",
+   "expansions": [
+    "Engine starts with difficulty"
+   ],
+   "dropped": [],
+   "completion_tokens": 5,
+   "seconds": 13.03
+  },
+  "P203B-85@p266#1": {
+   "code_full": "P203B-85",
+   "system": "scr_def",
+   "expansions": [
+    "Engine starts with difficulty",
+    "Pulling power is weak",
+    "Idle is rough",
+    "Smoke pours from exhaust",
+    "Noise is unusual",
+    "Warning light flashes"
+   ],
+   "dropped": [],
+   "completion_tokens": 33,
+   "seconds": 15.88
+  },
+  "P203B-84@p268#1": {
+   "code_full": "P203B-84",
+   "system": "scr_def",
+   "expansions": [
+    "Engine starts with difficulty"
+   ],
+   "dropped": [],
+   "completion_tokens": 5,
+   "seconds": 12.93
+  },
+  "P203F-00@p270#1": {
+   "code_full": "P203F-00",
+   "system": "scr_def",
+   "expansions": [
+    "Torque drops, car feels sluggish. Smoke pours out. Engine whines. Warning light flashes. Idle rough"
+   ],
+   "dropped": [],
+   "completion_tokens": 23,
+   "seconds": 14.95
+  },
+  "P2043-85@p272#1": {
+   "code_full": "P2043-85",
+   "system": "scr_def",
+   "expansions": [
+    "Torque drops, car feels sluggish",
+    "Engine starts with hesitation",
+    "Pulling power weakens",
+    "Smoke pours from exhaust",
+    "Warning light flashes",
+    "Idle becomes shaky"
+   ],
+   "dropped": [],
+   "completion_tokens": 37,
+   "seconds": 15.88
+  },
+  "P2043-84@p274#1": {
+   "code_full": "P2043-84",
+   "system": "scr_def",
+   "expansions": [
+    "Torque drops, car feels sluggish",
+    "Engine starts with hesitation",
+    "Pulling power weakens",
+    "Smoke pours from exhaust",
+    "Warning light flashes",
+    "Idle speed drops"
+   ],
+   "dropped": [],
+   "completion_tokens": 37,
+   "seconds": 16.01
+  },
+  "P203A-24@p276#1": {
+   "code_full": "P203A-24",
+   "system": "scr_def",
+   "expansions": [
+    "Torque drops, car feels sluggish",
+    "Engine starts with hesitation",
+    "Pulling power weakens",
+    "Smoke pours from exhaust",
+    "Warning light flashes",
+    "Idle becomes unstable"
+   ],
+   "dropped": [],
+   "completion_tokens": 37,
+   "seconds": 16.35
+  },
+  "P203A-23@p278#1": {
+   "code_full": "P203A-23",
+   "system": "scr_def",
+   "expansions": [
+    "Torque drops, car feels sluggish",
+    "Starts with difficulty, engine sputters",
+    "Idle rough, engine struggles to settle",
+    "Smoke pours from exhaust, black and thick",
+    "Warning light flashes, engine warning",
+    "Pulling power weak, max speed barely 20"
+   ],
+   "dropped": [],
+   "completion_tokens": 68,
+   "seconds": 18.75
+  },
+  "P206A-86@p280#1": {
+   "code_full": "P206A-86",
+   "system": "scr_def",
+   "expansions": [
+    "Engine pulls weakly at start"
+   ],
+   "dropped": [],
+   "completion_tokens": 7,
+   "seconds": 13.93
+  },
+  "P206A-13@p281#1": {
+   "code_full": "P206A-13",
+   "system": "scr_def",
+   "expansions": [
+    "Starting rough, harder than usual"
+   ],
+   "dropped": [],
+   "completion_tokens": 7,
+   "seconds": 13.32
+  },
+  "P2BA9-00@p282#1": {
+   "code_full": "P2BA9-00",
+   "system": "scr_def",
+   "expansions": [
+    "Torque drops, car feels sluggish",
+    "Starts with difficulty, pulls weakly",
+    "Idle rough, engine idles poorly",
+    "Smoke pours from exhaust, black",
+    "Warning light flashes, on and off",
+    "Speed drops, max 20 mph"
+   ],
+   "dropped": [],
+   "completion_tokens": 54,
+   "seconds": 17.68
+  },
+  "P244B-00@p283#1": {
+   "code_full": "P244B-00",
+   "system": "dpf_regen",
+   "expansions": [
+    "Warning light on dashboard",
+    "Hard to start engine",
+    "Poor pulling power",
+    "Smoke coming out of exhaust",
+    "Engine makes unusual noise",
+    "Idling rough"
+   ],
+   "dropped": [],
+   "completion_tokens": 29,
+   "seconds": 14.28
+  },
+  "P244A-00@p286#1": {
+   "code_full": "P244A-00",
+   "system": "dpf_regen",
+   "expansions": [
+    "Warning light on dashboard",
+    "Engine starts with hesitation",
+    "Pulling power weak",
+    "Smoke pours from exhaust",
+    "Engine makes unusual noise",
+    "Gauge shows high particulate count"
+   ],
+   "dropped": [],
+   "completion_tokens": 32,
+   "seconds": 13.87
+  },
+  "P226D-00@p289#1": {
+   "code_full": "P226D-00",
+   "system": "dpf_regen",
+   "expansions": [
+    "Warning light on dashboard",
+    "Hard to start engine",
+    "Poor pulling power",
+    "Smoke coming out of exhaust",
+    "Engine idle rough",
+    "Gauge shows high particulate count"
+   ],
+   "dropped": [],
+   "completion_tokens": 31,
+   "seconds": 14.27
+  },
+  "P0421-00@p292#1": {
+   "code_full": "P0421-00",
+   "system": "dpf_regen",
+   "expansions": [
+    "Warning light on dashboard",
+    "Engine starts with hesitation",
+    "Pulling power weak",
+    "Smoke pours out of exhaust",
+    "Engine makes unusual noise",
+    "Gauge shows high temperature"
+   ],
+   "dropped": [],
+   "completion_tokens": 31,
+   "seconds": 14.53
+  },
+  "P20EE-00@p294#1": {
+   "code_full": "P20EE-00",
+   "system": "scr_def",
+   "expansions": [
+    "Torque drops, car feels sluggish. Smoke pours out. Engine whines. Warning light flashes. Idling rough"
+   ],
+   "dropped": [],
+   "completion_tokens": 24,
+   "seconds": 15.7
+  },
+  "P2047-00@p295#1": {
+   "code_full": "P2047-00",
+   "system": "scr_def",
+   "expansions": [
+    "Engine starts with difficulty"
+   ],
+   "dropped": [],
+   "completion_tokens": 5,
+   "seconds": 13.25
+  },
+  "P2047-4B@p297#1": {
+   "code_full": "P2047-4B",
+   "system": "scr_def",
+   "expansions": [
+    "Engine starts with difficulty"
+   ],
+   "dropped": [],
+   "completion_tokens": 5,
+   "seconds": 13.03
+  },
+  "P2049-00@p299#1": {
+   "code_full": "P2049-00",
+   "system": "scr_def",
+   "expansions": [
+    "Engine starts with difficulty"
+   ],
+   "dropped": [],
+   "completion_tokens": 5,
+   "seconds": 13.27
+  },
+  "P2048-00@p301#1": {
+   "code_full": "P2048-00",
+   "system": "scr_def",
+   "expansions": [
+    "Engine starts with difficulty"
+   ],
+   "dropped": [],
+   "completion_tokens": 5,
+   "seconds": 13.21
+  },
+  "P2047-7F@p303#1": {
+   "code_full": "P2047-7F",
+   "system": "scr_def",
+   "expansions": [
+    "Torque drops, car feels sluggish. Smoke pours out. Engine whines. Warning light flashes. Idle rough"
+   ],
+   "dropped": [],
+   "completion_tokens": 23,
+   "seconds": 14.55
+  },
+  "P20A0-00@p305#1": {
+   "code_full": "P20A0-00",
+   "system": "scr_def",
+   "expansions": [
+    "Engine starts but pulls weakly"
+   ],
+   "dropped": [],
+   "completion_tokens": 7,
+   "seconds": 13.97
+  },
+  "P20A0-4B@p306#1": {
+   "code_full": "P20A0-4B",
+   "system": "scr_def",
+   "expansions": [
+    "Engine starts with difficulty"
+   ],
+   "dropped": [],
+   "completion_tokens": 5,
+   "seconds": 12.96
+  },
+  "P20A3-00@p307#1": {
+   "code_full": "P20A3-00",
+   "system": "scr_def",
+   "expansions": [
+    "Engine pulls weakly at start"
+   ],
+   "dropped": [],
+   "completion_tokens": 7,
+   "seconds": 13.64
+  },
+  "P20A2-00@p308#1": {
+   "code_full": "P20A2-00",
+   "system": "scr_def",
+   "expansions": [
+    "Engine starts with difficulty"
+   ],
+   "dropped": [],
+   "completion_tokens": 5,
+   "seconds": 13.72
+  },
+  "P208A-00@p309#1": {
+   "code_full": "P208A-00",
+   "system": "scr_def",
+   "expansions": [
+    "Engine starts with difficulty"
+   ],
+   "dropped": [],
+   "completion_tokens": 5,
+   "seconds": 13.9
+  },
+  "P208A-4B@p310#1": {
+   "code_full": "P208A-4B",
+   "system": "scr_def",
+   "expansions": [
+    "Engine starts with difficulty"
+   ],
+   "dropped": [],
+   "completion_tokens": 5,
+   "seconds": 13.14
+  },
+  "P208D-00@p311#1": {
+   "code_full": "P208D-00",
+   "system": "scr_def",
+   "expansions": [
+    "Engine pulls weakly at start"
+   ],
+   "dropped": [],
+   "completion_tokens": 7,
+   "seconds": 13.06
+  },
+  "P208C-00@p312#1": {
+   "code_full": "P208C-00",
+   "system": "scr_def",
+   "expansions": [
+    "Engine pulls weakly at start"
+   ],
+   "dropped": [],
+   "completion_tokens": 7,
+   "seconds": 13.16
+  },
+  "P20F5-7A@p313#1": {
+   "code_full": "P20F5-7A",
+   "system": "scr_def",
+   "expansions": [
+    "Engine pulls weak, especially at higher speeds",
+    "Warning light flashes on dashboard",
+    "Starts with difficulty, sputters",
+    "Idle rough, stutters",
+    "Smoke pours from exhaust, especially blue",
+    "RPM drops, feels sluggish"
+   ],
+   "dropped": [],
+   "completion_tokens": 50,
+   "seconds": 18.86
+  },
+  "P20F5-00@p314#1": {
+   "code_full": "P20F5-00",
+   "system": "scr_def",
+   "expansions": [
+    "Engine pulls weakly at start",
+    "Idle unstable, jerky",
+    "Smoke pours from exhaust",
+    "Warning light flashes",
+    "Torque barely there",
+    "Speed drops to 20 mph"
+   ],
+   "dropped": [],
+   "completion_tokens": 35,
+   "seconds": 17.31
+  },
+  "P20F4-9B@p315#1": {
+   "code_full": "P20F4-9B",
+   "system": "scr_def",
+   "expansions": [
+    "Engine starts with difficulty",
+    "Pulling power weak, especially at higher speeds",
+    "Idle rough, engine stutters",
+    "Smoke pours from exhaust, especially when idling",
+    "Warning light flashes on dashboard",
+    "RPM drops to 20Kmph at max throttle"
+   ],
+   "dropped": [],
+   "completion_tokens": 56,
+   "seconds": 18.23
+  },
+  "P20F4-00@p316#1": {
+   "code_full": "P20F4-00",
+   "system": "scr_def",
+   "expansions": [
+    "Engine starts with difficulty"
+   ],
+   "dropped": [],
+   "completion_tokens": 5,
+   "seconds": 13.75
+  },
+  "P204F-7C@p317#1": {
+   "code_full": "P204F-7C",
+   "system": "scr_def",
+   "expansions": [
+    "Engine starts with difficulty, sputtering"
+   ],
+   "dropped": [],
+   "completion_tokens": 9,
+   "seconds": 15.27
+  },
+  "P05EE-00@p318#1": {
+   "code_full": "P05EE-00",
+   "system": "scr_def",
+   "expansions": [
+    "Engine starts but pulls weakly"
+   ],
+   "dropped": [],
+   "completion_tokens": 7,
+   "seconds": 13.57
+  },
+  "P048B-11@p319#1": {
+   "code_full": "P048B-11",
+   "system": "exhaust_throttle",
+   "expansions": [
+    "Warning light on dashboard",
+    "Engine starts with hesitation",
+    "Pulling power weak",
+    "Idle unstable, stutters",
+    "Exhaust emits a little smoke",
+    "Engine makes a rough idle noise"
+   ],
+   "dropped": [],
+   "completion_tokens": 34,
+   "seconds": 15.7
+  },
+  "P048B-12@p322#1": {
+   "code_full": "P048B-12",
+   "system": "exhaust_throttle",
+   "expansions": [
+    "Warning light on dashboard",
+    "Engine starts with hesitation",
+    "Pulling power weak",
+    "Idle unstable, stutters",
+    "Exhaust emits a little smoke",
+    "Engine makes a rough noise"
+   ],
+   "dropped": [],
+   "completion_tokens": 33,
+   "seconds": 15.26
+  },
+  "P04A5-00@p325#1": {
+   "code_full": "P04A5-00",
+   "system": "exhaust_throttle",
+   "expansions": [
+    "Engine won't start easily",
+    "Pulling power is weak",
+    "Idle is rough and unstable",
+    "Black smoke pours out",
+    "Warning light flashes on",
+    "RPM gauge shows low"
+   ],
+   "dropped": [],
+   "completion_tokens": 35,
+   "seconds": 14.82
+  },
+  "P04A4-00@p328#1": {
+   "code_full": "P04A4-00",
+   "system": "exhaust_throttle",
+   "expansions": [
+    "Engine starts but pulls weakly",
+    "Smoke pours out of exhaust",
+    "Idle is rough",
+    "Warning light flashes",
+    "Pulling power is low"
+   ],
+   "dropped": [],
+   "completion_tokens": 27,
+   "seconds": 14.03
+  },
+  "P048D-00@p331#1": {
+   "code_full": "P048D-00",
+   "system": "exhaust_throttle",
+   "expansions": [
+    "Warning light on dashboard",
+    "Engine starts with hesitation",
+    "Pulling power weak",
+    "Smoke pours from exhaust",
+    "Engine makes unusual noise",
+    "Gauge shows high fuel consumption"
+   ],
+   "dropped": [],
+   "completion_tokens": 31,
+   "seconds": 15.58
+  },
+  "P048E-00@p334#1": {
+   "code_full": "P048E-00",
+   "system": "exhaust_throttle",
+   "expansions": [
+    "Warning light stays on",
+    "Engine won't start",
+    "Pulling power weak",
+    "Smoke pours out",
+    "Engine makes unusual noise",
+    "Gauge shows high fuel consumption"
+   ],
+   "dropped": [],
+   "completion_tokens": 30,
+   "seconds": 15.69
+  },
+  "P04A8-00@p337#1": {
+   "code_full": "P04A8-00",
+   "system": "exhaust_throttle",
+   "expansions": [
+    "Engine pulls weakly at start",
+    "Smoke pours from exhaust",
+    "Warning light flashes",
+    "Idle unstable",
+    "Pulling power drops",
+    "Noise from engine increases"
+   ],
+   "dropped": [],
+   "completion_tokens": 29,
+   "seconds": 15.45
+  },
+  "P04A9-00@p340#1": {
+   "code_full": "P04A9-00",
+   "system": "exhaust_throttle",
+   "expansions": [
+    "Warning light stays on",
+    "Engine starts with difficulty",
+    "Pulling power weak",
+    "Smoke pours out",
+    "Engine makes a loud noise"
+   ],
+   "dropped": [
+    {
+     "text": "Idle rough",
+     "reason": "too short"
+    }
+   ],
+   "completion_tokens": 28,
+   "seconds": 15.29
+  },
+  "P04A0-00@p343#1": {
+   "code_full": "P04A0-00",
+   "system": "exhaust_throttle",
+   "expansions": [
+    "Engine pulls weakly at start",
+    "Smoke pours from exhaust",
+    "Idle unstable, jerky",
+    "Noises from engine",
+    "Warning light on dashboard"
+   ],
+   "dropped": [],
+   "completion_tokens": 28,
+   "seconds": 15.26
+  },
+  "P040C-00@p346#1": {
+   "code_full": "P040C-00",
+   "system": "egr",
+   "expansions": [
+    "Warning light on dashboard",
+    "Hard to start, takes longer than usual",
+    "Poor pulling power, feels weak",
+    "Smoke coming from exhaust, especially blue",
+    "Engine makes a rough idle, stutters",
+    "Rough running, jerky acceleration"
+   ],
+   "dropped": [],
+   "completion_tokens": 45,
+   "seconds": 16.03
+  },
+  "P040D-00@p349#1": {
+   "code_full": "P040D-00",
+   "system": "egr",
+   "expansions": [
+    "Engine won't start",
+    "Poor pulling power at any speed",
+    "Rough idle, stalling easily",
+    "Black smoke coming out",
+    "Warning light stays on",
+    "Noisy engine, especially when cold"
+   ],
+   "dropped": [],
+   "completion_tokens": 39,
+   "seconds": 15.01
+  },
+  "P040B-00@p352#1": {
+   "code_full": "P040B-00",
+   "system": "egr",
+   "expansions": [
+    "Engine starts but runs rough"
+   ],
+   "dropped": [],
+   "completion_tokens": 6,
+   "seconds": 13.0
+  },
+  "P2457-00@p355#1": {
+   "code_full": "P2457-00",
+   "system": "egr",
+   "expansions": [
+    "Engine pulls weakly at start",
+    "Idle unstable, jerky",
+    "Smoke pours from exhaust",
+    "Engine noise increases",
+    "Torque meter shows low",
+    "Warning light stays off"
+   ],
+   "dropped": [],
+   "completion_tokens": 33,
+   "seconds": 15.52
+  },
+  "P026A-00@p358#1": {
+   "code_full": "P026A-00",
+   "system": "turbo_boost",
+   "expansions": [
+    "Engine starts but dies quickly"
+   ],
+   "dropped": [],
+   "completion_tokens": 6,
+   "seconds": 13.24
+  },
+  "P0562-00@p359#1": {
+   "code_full": "P0562-00",
+   "system": "electrical",
+   "expansions": [
+    "Warning light on dashboard",
+    "Engine won't start",
+    "Pulling power weak",
+    "Idling rough",
+    "Smoke coming out",
+    "Engine makes a strange noise"
+   ],
+   "dropped": [],
+   "completion_tokens": 29,
+   "seconds": 14.13
+  },
+  "P0563-00@p360#1": {
+   "code_full": "P0563-00",
+   "system": "electrical",
+   "expansions": [
+    "Warning light on dashboard",
+    "Engine starts with hesitation",
+    "Pulling power weak",
+    "Idle unstable",
+    "Smoke pours from exhaust",
+    "Engine makes unusual noise"
+   ],
+   "dropped": [],
+   "completion_tokens": 28,
+   "seconds": 13.59
+  },
+  "P2264-00@p361#1": {
+   "code_full": "P2264-00",
+   "system": "fuel_supply",
+   "expansions": [
+    "Engine starts with difficulty, sputtering"
+   ],
+   "dropped": [],
+   "completion_tokens": 9,
+   "seconds": 12.91
+  },
+  "P0072-00@p363#1": {
+   "code_full": "P0072-00",
+   "system": "intake_air",
+   "expansions": [
+    "Warning light on dashboard",
+    "Engine starts with difficulty",
+    "Pulling power weak",
+    "Idle unstable, stutters",
+    "Black smoke coming out",
+    "Noises from engine area"
+   ],
+   "dropped": [],
+   "completion_tokens": 31,
+   "seconds": 14.7
+  },
+  "P0073-00@p366#1": {
+   "code_full": "P0073-00",
+   "system": "intake_air",
+   "expansions": [
+    "Warning light on dashboard",
+    "Engine won't start",
+    "Pulling power weak",
+    "Black smoke coming out",
+    "Engine makes unusual noise"
+   ],
+   "dropped": [
+    {
+     "text": "Idle rough",
+     "reason": "too short"
+    }
+   ],
+   "completion_tokens": 28,
+   "seconds": 14.08
+  },
+  "P0071-00@p369#1": {
+   "code_full": "P0071-00",
+   "system": "intake_air",
+   "expansions": [
+    "Warning light on dashboard",
+    "Engine starts with hesitation",
+    "Pulling power weak",
+    "Idle unstable, stutters",
+    "Exhaust smells faintly",
+    "Engine makes rough noises"
+   ],
+   "dropped": [],
+   "completion_tokens": 31,
+   "seconds": 14.38
+  },
+  "P1000-00@p370#1": {
+   "code_full": "P1000-00",
+   "system": "intake_air",
+   "expansions": [
+    "Warning light on dashboard",
+    "Engine starts with hesitation",
+    "Pulling power weak",
+    "Idle unstable, stutters",
+    "Exhaust smells faintly",
+    "Engine makes rough noises"
+   ],
+   "dropped": [],
+   "completion_tokens": 31,
+   "seconds": 14.62
+  },
+  "P1001-00@p371#1": {
+   "code_full": "P1001-00",
+   "system": "intake_air",
+   "expansions": [
+    "Warning light comes on",
+    "Engine starts with hesitation",
+    "Pulling power is weak",
+    "Idle is rough",
+    "Smoke pours from exhaust",
+    "Engine makes a rough knocking sound"
+   ],
+   "dropped": [],
+   "completion_tokens": 32,
+   "seconds": 14.52
+  },
+  "P1002-00@p372#1": {
+   "code_full": "P1002-00",
+   "system": "turbo_boost",
+   "expansions": [
+    "Warning light stays on",
+    "Engine starts with difficulty",
+    "Pulling power weak",
+    "Smoke pours out",
+    "Engine makes a loud noise"
+   ],
+   "dropped": [
+    {
+     "text": "Idle rough",
+     "reason": "too short"
+    }
+   ],
+   "completion_tokens": 28,
+   "seconds": 14.27
+  },
+  "P1003-00@p373#1": {
+   "code_full": "P1003-00",
+   "system": "egr",
+   "expansions": [
+    "Warning light on dashboard",
+    "Engine starts with hesitation",
+    "Pulling power weak",
+    "Smoke comes out of exhaust",
+    "Engine makes unusual noise",
+    "Idling is rough"
+   ],
+   "dropped": [],
+   "completion_tokens": 31,
+   "seconds": 14.25
+  },
+  "P1004-00@p374#1": {
+   "code_full": "P1004-00",
+   "system": "intake_air",
+   "expansions": [
+    "Warning light on dashboard",
+    "Engine starts with hesitation",
+    "Pulling power weak",
+    "Idle unstable, stutters",
+    "Exhaust smells faintly",
+    "Noises from engine area"
+   ],
+   "dropped": [],
+   "completion_tokens": 32,
+   "seconds": 14.28
+  },
+  "P2147-00@p375#1": {
+   "code_full": "P2147-00",
+   "system": "injector",
+   "expansions": [
+    "Engine pulls weakly at start"
+   ],
+   "dropped": [],
+   "completion_tokens": 7,
+   "seconds": 13.49
+  },
+  "P2150-00@p378#1": {
+   "code_full": "P2150-00",
+   "system": "injector",
+   "expansions": [
+    "Engine won't start",
+    "Pulling power weak",
+    "Idling rough",
+    "Black smoke coming out",
+    "Warning light stays on",
+    "Rough idle and stalling"
+   ],
+   "dropped": [],
+   "completion_tokens": 32,
+   "seconds": 15.09
+  },
+  "P2153-00@p381#1": {
+   "code_full": "P2153-00",
+   "system": "injector",
+   "expansions": [
+    "Engine pulls weakly at start"
+   ],
+   "dropped": [],
+   "completion_tokens": 7,
+   "seconds": 12.95
+  },
+  "P2156-00@p384#1": {
+   "code_full": "P2156-00",
+   "system": "injector",
+   "expansions": [
+    "Engine pulls weak at start"
+   ],
+   "dropped": [],
+   "completion_tokens": 6,
+   "seconds": 12.89
+  },
+  "P0045-13@p387#1": {
+   "code_full": "P0045-13",
+   "system": "turbo_boost",
+   "expansions": [
+    "Warning light on dashboard",
+    "Engine starts with hesitation",
+    "Pulling power weak",
+    "Idle unstable",
+    "Smoke pours from exhaust",
+    "Engine makes unusual noise"
+   ],
+   "dropped": [],
+   "completion_tokens": 28,
+   "seconds": 13.45
+  },
+  "P22CF-73@p390#1": {
+   "code_full": "P22CF-73",
+   "system": "turbo_boost",
+   "expansions": [
+    "Warning light stays on",
+    "Hard to start, takes forever",
+    "Idle rough, jerky",
+    "Engine coughs at idle",
+    "Smoke pours out",
+    "Pulling power weak"
+   ],
+   "dropped": [],
+   "completion_tokens": 33,
+   "seconds": 14.11
+  },
+  "P22CF-72@p393#1": {
+   "code_full": "P22CF-72",
+   "system": "turbo_boost",
+   "expansions": [
+    "Warning light stays on",
+    "Engine starts but stalls quickly",
+    "Hard to pull away from a stop",
+    "Idle is rough and jerky",
+    "Exhaust smells like oil",
+    "Engine makes a rough knocking sound"
+   ],
+   "dropped": [],
+   "completion_tokens": 38,
+   "seconds": 14.19
+  },
+  "P003A-00@p396#1": {
+   "code_full": "P003A-00",
+   "system": "turbo_boost",
+   "expansions": [
+    "Warning light on",
+    "Engine starts rough",
+    "Pulling power weak",
+    "Idle unstable",
+    "Smoke pours out",
+    "Engine makes a whining noise"
+   ],
+   "dropped": [],
+   "completion_tokens": 27,
+   "seconds": 13.62
+  },
+  "P003B-00@p399#1": {
+   "code_full": "P003B-00",
+   "system": "turbo_boost",
+   "expansions": [
+    "Warning light stays on",
+    "Engine starts with hesitation",
+    "Pulling power weak",
+    "Smoke pours out",
+    "Engine makes a whining noise"
+   ],
+   "dropped": [
+    {
+     "text": "Idle rough",
+     "reason": "too short"
+    }
+   ],
+   "completion_tokens": 29,
+   "seconds": 13.53
+  },
+  "P204F-73@p402#1": {
+   "code_full": "P204F-73",
+   "system": "scr_def",
+   "expansions": [
+    "Engine starts with difficulty"
+   ],
+   "dropped": [],
+   "completion_tokens": 5,
+   "seconds": 13.67
+  },
+  "P2452-95@p403#1": {
+   "code_full": "P2452-95",
+   "system": "fuel_supply",
+   "expansions": [
+    "Warning light on. Hard to start. Poor pulling power. Smoke coming out. Engine noise. Idling rough"
+   ],
+   "dropped": [],
+   "completion_tokens": 23,
+   "seconds": 12.51
+  },
+  "P2453-64@p404#1": {
+   "code_full": "P2453-64",
+   "system": "level2_monitoring",
+   "expansions": [
+    "Warning light on dashboard",
+    "Engine starts with hesitation",
+    "Pulling power weak",
+    "Idle unstable",
+    "Black smoke coming out",
+    "Engine makes unusual noise"
+   ],
+   "dropped": [],
+   "completion_tokens": 28,
+   "seconds": 13.09
+  },
+  "P2205-00@p405#1": {
+   "code_full": "P2205-00",
+   "system": "o2_exhaust",
+   "expansions": [
+    "Warning light on dashboard",
+    "Hard to start, takes longer",
+    "Poor pulling power, sluggish",
+    "Black smoke coming out",
+    "Noises from engine area",
+    "Temperature gauge shows high"
+   ],
+   "dropped": [],
+   "completion_tokens": 33,
+   "seconds": 16.82
+  },
+  "P2205-29@p406#1": {
+   "code_full": "P2205-29",
+   "system": "o2_exhaust",
+   "expansions": [
+    "Warning light stays on",
+    "Hard to start",
+    "Poor pulling power",
+    "Smoke from exhaust",
+    "Engine makes unusual noise",
+    "Gauge shows high NOx"
+   ],
+   "dropped": [],
+   "completion_tokens": 28,
+   "seconds": 13.58
+  },
+  "P2200-F0@p407#1": {
+   "code_full": "P2200-F0",
+   "system": "o2_exhaust",
+   "expansions": [
+    "Warning light on dashboard",
+    "Hard to start, takes time",
+    "Poor acceleration, feels sluggish",
+    "Black smoke coming out",
+    "Noises from engine area",
+    "Idle unstable, jerky"
+   ],
+   "dropped": [],
+   "completion_tokens": 34,
+   "seconds": 14.46
+  },
+  "P2200-85@p408#1": {
+   "code_full": "P2200-85",
+   "system": "o2_exhaust",
+   "expansions": [
+    "Warning light on dashboard",
+    "Hard to start, takes longer than usual",
+    "Poor pulling power, feels sluggish",
+    "Black smoke coming out of exhaust",
+    "Engine makes a rough, unsteady idle",
+    "Noises from the engine bay, ticking or rattling"
+   ],
+   "dropped": [],
+   "completion_tokens": 49,
+   "seconds": 16.41
+  },
+  "P2200-84@p409#1": {
+   "code_full": "P2200-84",
+   "system": "o2_exhaust",
+   "expansions": [
+    "Warning light on dashboard",
+    "Engine starts with hesitation",
+    "Pulling power weak",
+    "Idle unstable",
+    "Black smoke coming out",
+    "Engine makes a rough noise"
+   ],
+   "dropped": [],
+   "completion_tokens": 29,
+   "seconds": 14.78
+  },
+  "P2200-0D@p410#1": {
+   "code_full": "P2200-0D",
+   "system": "o2_exhaust",
+   "expansions": [
+    "Warning light on dashboard",
+    "Hard to start, takes longer than usual",
+    "Poor pulling power, feels sluggish",
+    "Black smoke coming out of exhaust",
+    "Engine makes a rough idle",
+    "Noisy when accelerating"
+   ],
+   "dropped": [],
+   "completion_tokens": 38,
+   "seconds": 14.4
+  },
+  "P2200-01@p411#1": {
+   "code_full": "P2200-01",
+   "system": "o2_exhaust",
+   "expansions": [
+    "Warning light on dashboard",
+    "Hard to start, takes longer",
+    "Poor pulling power, sluggish",
+    "Black smoke coming out",
+    "Engine makes a rough idle",
+    "Trip meter shows high fuel consumption"
+   ],
+   "dropped": [],
+   "completion_tokens": 35,
+   "seconds": 14.54
+  },
+  "P2200-29@p412#1": {
+   "code_full": "P2200-29",
+   "system": "o2_exhaust",
+   "expansions": [
+    "Warning light on dashboard",
+    "Hard to start, takes longer than usual",
+    "Poor pulling power, feels sluggish",
+    "Black smoke coming out of exhaust",
+    "Engine makes a rough idle",
+    "Noises from the engine area"
+   ],
+   "dropped": [],
+   "completion_tokens": 40,
+   "seconds": 15.21
+  },
+  "P2200-22@p413#1": {
+   "code_full": "P2200-22",
+   "system": "o2_exhaust",
+   "expansions": [
+    "Warning light on dashboard",
+    "Hard to start, takes longer than usual",
+    "Poor pulling power, feels sluggish",
+    "Black smoke coming out of exhaust",
+    "Engine makes a rough idle",
+    "Noises from the engine area"
+   ],
+   "dropped": [],
+   "completion_tokens": 40,
+   "seconds": 15.43
+  },
+  "P2200-21@p414#1": {
+   "code_full": "P2200-21",
+   "system": "o2_exhaust",
+   "expansions": [
+    "Warning light on dashboard",
+    "Hard to start, takes longer",
+    "Poor pulling power, sluggish",
+    "Black smoke coming out",
+    "Engine makes a rough idle",
+    "Trip meter shows lower fuel economy"
+   ],
+   "dropped": [],
+   "completion_tokens": 35,
+   "seconds": 13.83
+  },
+  "P2200-0A@p415#1": {
+   "code_full": "P2200-0A",
+   "system": "o2_exhaust",
+   "expansions": [
+    "Warning light on dashboard",
+    "Engine starts with hesitation",
+    "Pulling power weak",
+    "Idle unstable",
+    "Black smoke coming out",
+    "Engine makes a rough noise"
+   ],
+   "dropped": [],
+   "completion_tokens": 29,
+   "seconds": 14.41
+  },
+  "P2200-27@p416#1": {
+   "code_full": "P2200-27",
+   "system": "o2_exhaust",
+   "expansions": [
+    "Warning light stays on. Engine starts with hesitation. Pulling power weakens. Smoke pours out. Idle roughens"
+   ],
+   "dropped": [],
+   "completion_tokens": 24,
+   "seconds": 13.18
+  },
+  "P2200-26@p417#1": {
+   "code_full": "P2200-26",
+   "system": "o2_exhaust",
+   "expansions": [
+    "Warning light on dashboard",
+    "Hard to start, takes longer than usual",
+    "Poor pulling power, feels sluggish",
+    "Black smoke coming out of exhaust",
+    "Engine makes a rough idle",
+    "Noises from the engine area"
+   ],
+   "dropped": [],
+   "completion_tokens": 41,
+   "seconds": 14.98
+  },
+  "P22A3-00@p418#1": {
+   "code_full": "P22A3-00",
+   "system": "o2_exhaust",
+   "expansions": [
+    "Warning light on dashboard",
+    "Hard to start, takes longer than usual",
+    "Poor pulling power, feels sluggish",
+    "Black smoke coming out of exhaust",
+    "Engine makes a rough idle",
+    "Trip meter shows lower fuel consumption"
+   ],
+   "dropped": [],
+   "completion_tokens": 40,
+   "seconds": 14.73
+  },
+  "P22A3-29@p419#1": {
+   "code_full": "P22A3-29",
+   "system": "o2_exhaust",
+   "expansions": [
+    "Warning light on dashboard",
+    "Hard to start engine",
+    "Poor pulling power",
+    "Smoke coming out of exhaust",
+    "Engine makes unusual noise",
+    "Gauge shows high NOx levels"
+   ],
+   "dropped": [],
+   "completion_tokens": 32,
+   "seconds": 13.99
+  },
+  "P229E-F0@p420#1": {
+   "code_full": "P229E-F0",
+   "system": "o2_exhaust",
+   "expansions": [
+    "Warning light on dashboard",
+    "Hard to start, takes time",
+    "Poor acceleration, feels sluggish",
+    "Black smoke coming out",
+    "Noises from engine area",
+    "Idle unstable, jerky"
+   ],
+   "dropped": [],
+   "completion_tokens": 34,
+   "seconds": 14.3
+  },
+  "P229E-85@p421#1": {
+   "code_full": "P229E-85",
+   "system": "o2_exhaust",
+   "expansions": [
+    "Warning light on dashboard",
+    "Hard to start, takes longer than usual",
+    "Poor pulling power, feels sluggish",
+    "Black smoke coming out of exhaust",
+    "Engine makes a rough, backfiring sound",
+    "Idle unstable, jerky and bumpy"
+   ],
+   "dropped": [],
+   "completion_tokens": 47,
+   "seconds": 16.57
+  },
+  "P229E-84@p422#1": {
+   "code_full": "P229E-84",
+   "system": "o2_exhaust",
+   "expansions": [
+    "Warning light on dashboard",
+    "Engine starts with hesitation",
+    "Pulling power weak",
+    "Idle unstable",
+    "Smoke pours out",
+    "Engine makes unusual noise"
+   ],
+   "dropped": [],
+   "completion_tokens": 27,
+   "seconds": 14.22
+  },
+  "P229E-0D@p423#1": {
+   "code_full": "P229E-0D",
+   "system": "o2_exhaust",
+   "expansions": [
+    "Warning light on dashboard",
+    "Hard to start, takes longer than usual",
+    "Poor pulling power, feels weak",
+    "Black smoke coming out of exhaust",
+    "Engine makes a rough idle",
+    "Trip meter shows less fuel consumption"
+   ],
+   "dropped": [],
+   "completion_tokens": 40,
+   "seconds": 15.04
+  },
+  "P229E-01@p424#1": {
+   "code_full": "P229E-01",
+   "system": "o2_exhaust",
+   "expansions": [
+    "Warning light on dashboard",
+    "Hard to start, takes longer than usual",
+    "Poor pulling power, feels sluggish",
+    "Black smoke coming out of exhaust",
+    "Engine makes a rough idle",
+    "Noises from the engine area"
+   ],
+   "dropped": [],
+   "completion_tokens": 40,
+   "seconds": 14.63
+  },
+  "P229E-29@p425#1": {
+   "code_full": "P229E-29",
+   "system": "o2_exhaust",
+   "expansions": [
+    "Warning light on dashboard",
+    "Hard to start, takes longer than usual",
+    "Poor pulling power, feels sluggish",
+    "Black smoke coming out of exhaust",
+    "Engine makes a rough idle",
+    "Trip meter shows higher fuel consumption"
+   ],
+   "dropped": [],
+   "completion_tokens": 40,
+   "seconds": 15.24
+  },
+  "P229E-22@p426#1": {
+   "code_full": "P229E-22",
+   "system": "o2_exhaust",
+   "expansions": [
+    "Warning light on dashboard",
+    "Hard to start, takes longer than usual",
+    "Poor pulling power, feels weak",
+    "Black smoke coming out of exhaust",
+    "Engine makes a rough idle",
+    "Noises from the engine area"
+   ],
+   "dropped": [],
+   "completion_tokens": 40,
+   "seconds": 15.25
+  },
+  "P229E-21@p427#1": {
+   "code_full": "P229E-21",
+   "system": "o2_exhaust",
+   "expansions": [
+    "Warning light on dashboard",
+    "Engine starts with hesitation",
+    "Pulling power weak",
+    "Idle unstable",
+    "Black smoke coming out",
+    "Engine makes a rough noise"
+   ],
+   "dropped": [],
+   "completion_tokens": 29,
+   "seconds": 13.39
+  },
+  "P229E-0A@p428#1": {
+   "code_full": "P229E-0A",
+   "system": "o2_exhaust",
+   "expansions": [
+    "Warning light on dashboard",
+    "Hard to start, takes longer than usual",
+    "Poor pulling power, feels sluggish",
+    "Black smoke coming out of exhaust",
+    "Engine makes a rough idle",
+    "Noises from the engine area"
+   ],
+   "dropped": [],
+   "completion_tokens": 40,
+   "seconds": 15.45
+  },
+  "P229E-27@p429#1": {
+   "code_full": "P229E-27",
+   "system": "o2_exhaust",
+   "expansions": [
+    "Warning light on dashboard",
+    "Hard to start, takes longer than usual",
+    "Poor pulling power, feels sluggish",
+    "Black smoke coming out of exhaust",
+    "Engine makes a rough, pungent sound",
+    "Temperature gauge shows high"
+   ],
+   "dropped": [],
+   "completion_tokens": 43,
+   "seconds": 14.79
+  },
+  "P229E-26@p430#1": {
+   "code_full": "P229E-26",
+   "system": "o2_exhaust",
+   "expansions": [
+    "Warning light on dashboard",
+    "Hard to start, takes longer than usual",
+    "Poor pulling power, feels sluggish",
+    "Black smoke coming out of exhaust",
+    "Engine makes a rough, pungent sound",
+    "Idle unstable, jerky and choppy"
+   ],
+   "dropped": [],
+   "completion_tokens": 47,
+   "seconds": 15.06
+  },
+  "P203A-29@p431#1": {
+   "code_full": "P203A-29",
+   "system": "scr_def",
+   "expansions": [
+    "Warning light on dashboard",
+    "Engine starts with hesitation",
+    "Pulling power weak",
+    "Smoke pours out",
+    "Engine makes unusual noise",
+    "Gauge shows low urea level"
+   ],
+   "dropped": [],
+   "completion_tokens": 31,
+   "seconds": 13.82
+  },
+  "P203F-84@p432#1": {
+   "code_full": "P203F-84",
+   "system": "scr_def",
+   "expansions": [
+    "Warning light stays on",
+    "Engine starts with hesitation",
+    "Pulling power is weak",
+    "Smoke pours out of exhaust",
+    "Engine makes a rough noise",
+    "Gauge shows low fluid level"
+   ],
+   "dropped": [],
+   "completion_tokens": 34,
+   "seconds": 13.89
+  },
+  "P203F-7B@p433#1": {
+   "code_full": "P203F-7B",
+   "system": "scr_def",
+   "expansions": [
+    "Warning light on dashboard",
+    "Engine starts with hesitation",
+    "Pulling power weak",
+    "Smoke pours out of exhaust",
+    "Engine makes unusual noise",
+    "Gauge shows low fuel"
+   ],
+   "dropped": [],
+   "completion_tokens": 31,
+   "seconds": 13.65
+  },
+  "P206A-F1@p434#1": {
+   "code_full": "P206A-F1",
+   "system": "scr_def",
+   "expansions": [
+    "Warning light on dashboard",
+    "Engine starts with hesitation",
+    "Pulling power weak",
+    "Smoke pours from exhaust",
+    "Engine noise increases",
+    "Gauge shows DEF low"
+   ],
+   "dropped": [],
+   "completion_tokens": 29,
+   "seconds": 13.55
+  },
+  "P206A-F2@p435#1": {
+   "code_full": "P206A-F2",
+   "system": "scr_def",
+   "expansions": [
+    "Warning light on dashboard",
+    "Engine starts with hesitation",
+    "Pulling power weak",
+    "Smoke pours from exhaust",
+    "Engine noise increases",
+    "Gauge shows DEF low"
+   ],
+   "dropped": [],
+   "completion_tokens": 29,
+   "seconds": 13.31
+  },
+  "P206A-F3@p436#1": {
+   "code_full": "P206A-F3",
+   "system": "scr_def",
+   "expansions": [
+    "Warning light on dashboard",
+    "Engine starts with hesitation",
+    "Pulling power weak",
+    "Smoke pours out",
+    "Engine makes unusual noise",
+    "Gauge shows DEF low"
+   ],
+   "dropped": [],
+   "completion_tokens": 29,
+   "seconds": 14.11
+  },
+  "P2463-85@p437#1": {
+   "code_full": "P2463-85",
+   "system": "dpf_regen",
+   "expansions": [
+    "Warning light on dashboard",
+    "Hard to start, takes longer than usual",
+    "Smoke coming out of exhaust",
+    "Engine makes a rumbling noise",
+    "Gauge shows high soot mass",
+    "Pulling power feels weak"
+   ],
+   "dropped": [],
+   "completion_tokens": 40,
+   "seconds": 14.85
+  },
+  "P243F-F0@p440#1": {
+   "code_full": "P243F-F0",
+   "system": "dpf_regen",
+   "expansions": [
+    "Warning light on dashboard",
+    "Hard to start, takes longer",
+    "Black smoke coming out",
+    "Engine makes a rumbling sound",
+    "Gauge shows high soot mass",
+    "Pulling power feels weak"
+   ],
+   "dropped": [],
+   "completion_tokens": 37,
+   "seconds": 14.8
+  },
+  "P242F-00@p443#1": {
+   "code_full": "P242F-00",
+   "system": "dpf_regen",
+   "expansions": [
+    "Warning light comes on",
+    "Engine starts with hesitation",
+    "Pulling power weakens",
+    "Smoke pours from exhaust",
+    "Engine makes unusual noise",
+    "Gauge shows high ash load"
+   ],
+   "dropped": [],
+   "completion_tokens": 32,
+   "seconds": 14.42
+  },
+  "P2458-00@p446#1": {
+   "code_full": "P2458-00",
+   "system": "dpf_regen",
+   "expansions": [
+    "Warning light on dashboard stays on",
+    "Hard to start the engine",
+    "Pulling power weak, especially uphill",
+    "Smoke coming out of exhaust",
+    "Engine makes a rumbling noise",
+    "Idle unstable, jerky"
+   ],
+   "dropped": [],
+   "completion_tokens": 41,
+   "seconds": 15.03
+  },
+  "P243C-00@p449#1": {
+   "code_full": "P243C-00",
+   "system": "dpf_regen",
+   "expansions": [
+    "Warning light on dashboard",
+    "Engine starts with hesitation",
+    "Pulling power weak",
+    "Smoke pours from exhaust",
+    "Gauge shows high fuel consumption"
+   ],
+   "dropped": [
+    {
+     "text": "Idle rough",
+     "reason": "too short"
+    }
+   ],
+   "completion_tokens": 29,
+   "seconds": 14.22
+  },
+  "P2458-09@p452#1": {
+   "code_full": "P2458-09",
+   "system": "dpf_regen",
+   "expansions": [
+    "Warning light stays on",
+    "Hard to start",
+    "Poor pulling power",
+    "Smoke from exhaust",
+    "Engine noise increases",
+    "Idling shaky"
+   ],
+   "dropped": [],
+   "completion_tokens": 25,
+   "seconds": 13.74
+  },
+  "P24FE-85@p455#1": {
+   "code_full": "P24FE-85",
+   "system": "scr_def",
+   "expansions": [
+    "Engine pulls weakly at start"
+   ],
+   "dropped": [],
+   "completion_tokens": 7,
+   "seconds": 14.11
+  },
+  "P24FE-84@p456#1": {
+   "code_full": "P24FE-84",
+   "system": "scr_def",
+   "expansions": [
+    "Starting rough, harder to get engine going"
+   ],
+   "dropped": [],
+   "completion_tokens": 9,
+   "seconds": 13.99
+  },
+  "P0425-64@p457#1": {
+   "code_full": "P0425-64",
+   "system": "o2_exhaust",
+   "expansions": [
+    "Engine starts with difficulty"
+   ],
+   "dropped": [],
+   "completion_tokens": 5,
+   "seconds": 14.09
+  },
+  "P042A-64@p458#1": {
+   "code_full": "P042A-64",
+   "system": "o2_exhaust",
+   "expansions": [
+    "Engine starts but pulls weakly"
+   ],
+   "dropped": [],
+   "completion_tokens": 7,
+   "seconds": 13.6
+  },
+  "P242A-64@p459#1": {
+   "code_full": "P242A-64",
+   "system": "o2_exhaust",
+   "expansions": [
+    "Engine starts with difficulty"
+   ],
+   "dropped": [],
+   "completion_tokens": 5,
+   "seconds": 13.5
+  },
+  "P202E-85@p460#1": {
+   "code_full": "P202E-85",
+   "system": "scr_def",
+   "expansions": [
+    "Starting rough, harder to get engine going"
+   ],
+   "dropped": [],
+   "completion_tokens": 9,
+   "seconds": 14.13
+  },
+  "P202E-84@p461#1": {
+   "code_full": "P202E-84",
+   "system": "scr_def",
+   "expansions": [
+    "Engine starts with difficulty"
+   ],
+   "dropped": [],
+   "completion_tokens": 5,
+   "seconds": 13.35
+  },
+  "P20A0-13@p462#1": {
+   "code_full": "P20A0-13",
+   "system": "scr_def",
+   "expansions": [
+    "Starting rough, harder to get engine going"
+   ],
+   "dropped": [],
+   "completion_tokens": 9,
+   "seconds": 13.89
+  },
+  "P20A1-4B@p463#1": {
+   "code_full": "P20A1-4B",
+   "system": "scr_def",
+   "expansions": [
+    "Engine starts but pulls weakly"
+   ],
+   "dropped": [],
+   "completion_tokens": 7,
+   "seconds": 13.73
+  },
+  "P20A3-12@p464#1": {
+   "code_full": "P20A3-12",
+   "system": "scr_def",
+   "expansions": [
+    "Engine pulls weakly at start"
+   ],
+   "dropped": [],
+   "completion_tokens": 7,
+   "seconds": 13.87
+  },
+  "P20A2-11@p465#1": {
+   "code_full": "P20A2-11",
+   "system": "scr_def",
+   "expansions": [
+    "Engine pulls weakly at start"
+   ],
+   "dropped": [],
+   "completion_tokens": 7,
+   "seconds": 13.59
+  },
+  "P10FF-00@p466#1": {
+   "code_full": "P10FF-00",
+   "system": "scr_def",
+   "expansions": [
+    "Engine starts with difficulty"
+   ],
+   "dropped": [],
+   "completion_tokens": 5,
+   "seconds": 13.35
+  },
+  "P0215-00@p467#1": {
+   "code_full": "P0215-00",
+   "system": "level2_monitoring",
+   "expansions": [
+    "Vehicle stops suddenly on the road",
+    "Engine doesn't start easily",
+    "Idle is rough and unstable",
+    "Black smoke pours from exhaust",
+    "Noises from engine area",
+    "Warning light is off"
+   ],
+   "dropped": [],
+   "completion_tokens": 36,
+   "seconds": 13.5
+  },
+  "P0611-F5@p468#1": {
+   "code_full": "P0611-F5",
+   "system": "injector",
+   "expansions": [
+    "Vehicle won't start",
+    "Engine makes no noise",
+    "No power when trying to move",
+    "Smoke pours out of exhaust",
+    "Warning light is off",
+    "Idle is very rough"
+   ],
+   "dropped": [],
+   "completion_tokens": 34,
+   "seconds": 13.54
+  },
+  "P0611-F8@p469#1": {
+   "code_full": "P0611-F8",
+   "system": "injector",
+   "expansions": [
+    "Vehicle won't start",
+    "Noises when trying to start",
+    "Engine stalls immediately",
+    "Smoke pours out of exhaust",
+    "Warning light stays off",
+    "Pulling power is weak"
+   ],
+   "dropped": [],
+   "completion_tokens": 34,
+   "seconds": 13.17
+  },
+  "P060B-00@p470#1": {
+   "code_full": "P060B-00",
+   "system": "ecu_internal",
+   "expansions": [
+    "Vehicle won't start",
+    "Engine makes no noise",
+    "No power when trying to move",
+    "Idle is very rough",
+    "Smoke pours out of exhaust",
+    "Warning light is off"
+   ],
+   "dropped": [],
+   "completion_tokens": 34,
+   "seconds": 13.42
+  },
+  "P061E-00@p471#1": {
+   "code_full": "P061E-00",
+   "system": "pedal_clutch_brake",
+   "expansions": [
+    "Vehicle stops suddenly on the road",
+    "Hard to start the engine",
+    "Noisy when pulling away",
+    "Smoke comes out of the exhaust",
+    "Warning light is off",
+    "Pulling power is weak"
+   ],
+   "dropped": [],
+   "completion_tokens": 37,
+   "seconds": 13.91
+  },
+  "P061C-00@p472#2": {
+   "code_full": "P061C-00",
+   "system": "ecu_internal",
+   "expansions": [
+    "Vehicle won't start",
+    "Engine runs rough when starts",
+    "Pulling power weak",
+    "Idle unstable, stutters",
+    "Black smoke coming out",
+    "Warning light stays off"
+   ],
+   "dropped": [],
+   "completion_tokens": 33,
+   "seconds": 13.3
+  },
+  "P1014-00@p473#1": {
+   "code_full": "P1014-00",
+   "system": "level2_monitoring",
+   "expansions": [
+    "Vehicle won't start",
+    "Starter motor whines but doesn't turn",
+    "Engine runs weakly when it does start",
+    "Black smoke pours from exhaust",
+    "Noises are unusual, ticking or clunking",
+    "Warning light stays off"
+   ],
+   "dropped": [],
+   "completion_tokens": 47,
+   "seconds": 15.32
+  },
+  "P1015-00@p474#1": {
+   "code_full": "P1015-00",
+   "system": "level2_monitoring",
+   "expansions": [
+    "Vehicle won't start",
+    "Engine makes no noise",
+    "No smoke from exhaust",
+    "Warning light stays off",
+    "Pulling power is weak",
+    "Idle is very slow"
+   ],
+   "dropped": [],
+   "completion_tokens": 32,
+   "seconds": 13.73
+  },
+  "P1111-00@p475#1": {
+   "code_full": "P1111-00",
+   "system": "level2_monitoring",
+   "expansions": [
+    "Vehicle won't start",
+    "Engine makes no noise",
+    "No power when pedaled",
+    "Smoke pours out of exhaust",
+    "Warning light stays off",
+    "Idle is very rough"
+   ],
+   "dropped": [],
+   "completion_tokens": 33,
+   "seconds": 13.75
+  },
+  "P1112-00@p476#1": {
+   "code_full": "P1112-00",
+   "system": "level2_monitoring",
+   "expansions": [
+    "Vehicle won't start",
+    "Noises when trying to start",
+    "Weak pulling power",
+    "Smoke coming from exhaust",
+    "Warning light is off",
+    "Engine idle is rough"
+   ],
+   "dropped": [],
+   "completion_tokens": 32,
+   "seconds": 13.56
+  },
+  "P1113-00@p477#1": {
+   "code_full": "P1113-00",
+   "system": "level2_monitoring",
+   "expansions": [
+    "Vehicle won't start",
+    "Engine makes no noise",
+    "No power when you try to move",
+    "Smoke pours out of exhaust",
+    "Warning light is off",
+    "Idle is very rough"
+   ],
+   "dropped": [],
+   "completion_tokens": 35,
+   "seconds": 13.71
+  },
+  "P1018-00@p478#1": {
+   "code_full": "P1018-00",
+   "system": "level2_monitoring",
+   "expansions": [
+    "Vehicle stops suddenly on the road",
+    "Warning light is off",
+    "Engine doesn't pull power well",
+    "Smoke pours out of exhaust",
+    "Noises are unusual and harsh",
+    "Gauge for fuel level drops"
+   ],
+   "dropped": [],
+   "completion_tokens": 39,
+   "seconds": 14.42
+  },
+  "P1019-00@p479#1": {
+   "code_full": "P1019-00",
+   "system": "level2_monitoring",
+   "expansions": [
+    "Vehicle won't start",
+    "Noises when trying to start",
+    "Black smoke coming out of exhaust",
+    "Pulling power is weak",
+    "Warning light is off",
+    "Engine is hot"
+   ],
+   "dropped": [],
+   "completion_tokens": 35,
+   "seconds": 13.68
+  },
+  "P1080-00@p480#1": {
+   "code_full": "P1080-00",
+   "system": "level2_monitoring",
+   "expansions": [
+    "Vehicle stops suddenly on the road",
+    "Warning light stays off",
+    "Noises from the engine area",
+    "Smoke pours out of the exhaust",
+    "Pulling power is weak",
+    "Engine idles poorly"
+   ],
+   "dropped": [],
+   "completion_tokens": 37,
+   "seconds": 14.54
+  },
+  "P1081-00@p481#1": {
+   "code_full": "P1081-00",
+   "system": "level2_monitoring",
+   "expansions": [
+    "Vehicle won't start",
+    "Noises when trying to start",
+    "Weak pulling power",
+    "Smoke coming from exhaust",
+    "Warning light is off",
+    "Idle rough and unstable"
+   ],
+   "dropped": [],
+   "completion_tokens": 32,
+   "seconds": 13.83
+  },
+  "P101B-00@p482#1": {
+   "code_full": "P101B-00",
+   "system": "level2_monitoring",
+   "expansions": [
+    "Vehicle won't start",
+    "Noises when trying to start",
+    "Engine stalls immediately",
+    "Smoke pours out of exhaust",
+    "Warning light stays off",
+    "Pulling power is weak"
+   ],
+   "dropped": [],
+   "completion_tokens": 34,
+   "seconds": 14.08
+  },
+  "P101C-00@p483#1": {
+   "code_full": "P101C-00",
+   "system": "rail_pressure",
+   "expansions": [
+    "Vehicle won't start",
+    "Weak pulling power when moving",
+    "Noisy engine at idle",
+    "Black smoke coming out",
+    "Warning light is off",
+    "Engine makes unusual sounds"
+   ],
+   "dropped": [],
+   "completion_tokens": 33,
+   "seconds": 13.41
+  },
+  "P1082-00@p484#1": {
+   "code_full": "P1082-00",
+   "system": "level2_monitoring",
+   "expansions": [
+    "Vehicle stops suddenly on the road",
+    "Warning light stays off",
+    "Noises from the engine area",
+    "Smoke pours out of the exhaust",
+    "Pulling power is weak",
+    "Engine temperature rises"
+   ],
+   "dropped": [],
+   "completion_tokens": 36,
+   "seconds": 13.83
+  },
+  "P1083-00@p485#1": {
+   "code_full": "P1083-00",
+   "system": "level2_monitoring",
+   "expansions": [
+    "Vehicle won't start",
+    "Noises when trying to start",
+    "Pulls weakly after starting",
+    "Warning light stays off",
+    "Smoke comes out of exhaust",
+    "Idle is rough and unstable"
+   ],
+   "dropped": [],
+   "completion_tokens": 37,
+   "seconds": 14.38
+  },
+  "P0184-00@p486#1": {
+   "code_full": "P0184-00",
+   "system": "ecu_internal",
+   "expansions": [
+    "Vehicle won't start",
+    "Engine makes no noise",
+    "No power at all",
+    "Smoke pours out of exhaust",
+    "Warning light stays off",
+    "Idle is very weak"
+   ],
+   "dropped": [],
+   "completion_tokens": 32,
+   "seconds": 13.52
+  },
+  "P1114-00@p487#1": {
+   "code_full": "P1114-00",
+   "system": "level2_monitoring",
+   "expansions": [
+    "Vehicle stops suddenly when trying to start",
+    "Noises from engine when idling",
+    "Smoke coming from exhaust",
+    "Warning light doesn't come on",
+    "Pulling power weak when driving",
+    "Engine temperature gauge shows high"
+   ],
+   "dropped": [],
+   "completion_tokens": 42,
+   "seconds": 14.4
+  },
+  "P1085-00@p488#1": {
+   "code_full": "P1085-00",
+   "system": "level2_monitoring",
+   "expansions": [
+    "Vehicle stops suddenly on the road",
+    "Warning light stays off",
+    "Noises from the engine area",
+    "Smoke pours out of the exhaust",
+    "Pulling power is weak",
+    "Engine idles poorly"
+   ],
+   "dropped": [],
+   "completion_tokens": 37,
+   "seconds": 14.03
+  },
+  "P060C-00@p489#1": {
+   "code_full": "P060C-00",
+   "system": "ecu_internal",
+   "expansions": [
+    "Vehicle won't start",
+    "Engine makes no noise",
+    "Warning light stays off",
+    "Smoke pours out of exhaust",
+    "Pulling power is weak",
+    "Idling is shaky and slow"
+   ],
+   "dropped": [],
+   "completion_tokens": 35,
+   "seconds": 13.65
+  },
+  "P1668-00@p490#1": {
+   "code_full": "P1668-00",
+   "system": "ecu_internal",
+   "expansions": [
+    "Vehicle won't start",
+    "Starter motor whines but doesn't turn",
+    "Engine runs rough and dies",
+    "Black smoke pours out",
+    "Warning light stays off",
+    "Pulling power is weak"
+   ],
+   "dropped": [],
+   "completion_tokens": 38,
+   "seconds": 14.44
+  },
+  "P165D-00@p491#1": {
+   "code_full": "P165D-00",
+   "system": "ecu_internal",
+   "expansions": [
+    "Vehicle won't start",
+    "Noises when trying to start",
+    "Engine stalls immediately",
+    "Smoke pours out of exhaust",
+    "Warning light is off",
+    "Pulling power is weak"
+   ],
+   "dropped": [],
+   "completion_tokens": 34,
+   "seconds": 13.78
+  },
+  "P1656-00@p492#1": {
+   "code_full": "P1656-00",
+   "system": "ecu_internal",
+   "expansions": [
+    "Vehicle stops suddenly",
+    "Noises from engine area",
+    "Warning light is off",
+    "Smoke pours out of exhaust",
+    "Pulling power is weak",
+    "Engine idles poorly"
+   ],
+   "dropped": [],
+   "completion_tokens": 37,
+   "seconds": 13.78
+  },
+  "P164E-00@p493#1": {
+   "code_full": "P164E-00",
+   "system": "ecu_internal",
+   "expansions": [
+    "Vehicle won't start",
+    "Noises when trying to start",
+    "Engine stalls immediately",
+    "Smoke pours out of exhaust",
+    "Warning light stays off",
+    "Pulling power weak"
+   ],
+   "dropped": [],
+   "completion_tokens": 33,
+   "seconds": 13.54
+  },
+  "P1646-00@p494#1": {
+   "code_full": "P1646-00",
+   "system": "ecu_internal",
+   "expansions": [
+    "Vehicle won't start",
+    "Noises when trying to start",
+    "Weak pulling power",
+    "Smoke coming from exhaust",
+    "Warning light is off",
+    "Engine idles poorly"
+   ],
+   "dropped": [],
+   "completion_tokens": 32,
+   "seconds": 13.64
+  },
+  "P1652-00@p495#1": {
+   "code_full": "P1652-00",
+   "system": "ecu_internal",
+   "expansions": [
+    "Vehicle won't start",
+    "Noises when trying to start",
+    "Poor pulling power once running",
+    "Smoke coming from exhaust",
+    "Warning light is off",
+    "Engine idles rough"
+   ],
+   "dropped": [],
+   "completion_tokens": 34,
+   "seconds": 13.6
+  },
+  "P1647-00@p496#1": {
+   "code_full": "P1647-00",
+   "system": "ecu_internal",
+   "expansions": [
+    "Vehicle won't start",
+    "Noises when trying to start",
+    "Black smoke coming out",
+    "Pulling power is weak",
+    "Warning light is off",
+    "Engine is hot"
+   ],
+   "dropped": [],
+   "completion_tokens": 33,
+   "seconds": 13.55
+  },
+  "P164D-00@p497#1": {
+   "code_full": "P164D-00",
+   "system": "ecu_internal",
+   "expansions": [
+    "Vehicle won't start",
+    "Engine makes no noise",
+    "No power when you try to move",
+    "Smoke pours out of the exhaust",
+    "Warning light is off",
+    "Idle is very weak and sluggish"
+   ],
+   "dropped": [],
+   "completion_tokens": 38,
+   "seconds": 14.0
+  },
+  "P1666-00@p498#1": {
+   "code_full": "P1666-00",
+   "system": "ecu_internal",
+   "expansions": [
+    "Vehicle won't start",
+    "Engine makes no noise",
+    "No power when you try to move",
+    "Warning light is off",
+    "Smoke comes out of the exhaust",
+    "Idle is very rough"
+   ],
+   "dropped": [],
+   "completion_tokens": 36,
+   "seconds": 13.93
+  },
+  "P164B-00@p499#1": {
+   "code_full": "P164B-00",
+   "system": "ecu_internal",
+   "expansions": [
+    "Vehicle won't start",
+    "Noises when trying to start",
+    "Engine stalls immediately",
+    "Smoke pours out of exhaust",
+    "Warning light stays off",
+    "Pulling power weak"
+   ],
+   "dropped": [],
+   "completion_tokens": 33,
+   "seconds": 13.51
+  },
+  "P1675-00@p500#1": {
+   "code_full": "P1675-00",
+   "system": "ecu_internal",
+   "expansions": [
+    "Vehicle won't start",
+    "Noises when trying to start",
+    "Black smoke coming out",
+    "Engine idle is rough",
+    "Warning light is off",
+    "Pulling power is weak"
+   ],
+   "dropped": [],
+   "completion_tokens": 34,
+   "seconds": 14.0
+  },
+  "P166F-00@p501#1": {
+   "code_full": "P166F-00",
+   "system": "ecu_internal",
+   "expansions": [
+    "Vehicle won't start",
+    "Noises when trying to start",
+    "Engine stalls immediately",
+    "Smoke pours out of exhaust",
+    "Warning light stays off",
+    "Pulling power is weak"
+   ],
+   "dropped": [],
+   "completion_tokens": 34,
+   "seconds": 13.5
+  },
+  "P1673-00@p502#1": {
+   "code_full": "P1673-00",
+   "system": "ecu_internal",
+   "expansions": [
+    "Vehicle won't start",
+    "Noises when trying to start",
+    "Poor pulling power",
+    "Smoke coming from exhaust",
+    "Warning light is off",
+    "Engine idles roughly"
+   ],
+   "dropped": [],
+   "completion_tokens": 32,
+   "seconds": 13.58
+  },
+  "P1641-00@p503#1": {
+   "code_full": "P1641-00",
+   "system": "ecu_internal",
+   "expansions": [
+    "Vehicle won't start",
+    "Noises when trying to start",
+    "Weak pulling power",
+    "Smoke coming from exhaust",
+    "Warning light is off",
+    "Engine idles poorly"
+   ],
+   "dropped": [],
+   "completion_tokens": 32,
+   "seconds": 13.7
+  },
+  "P1650-00@p504#1": {
+   "code_full": "P1650-00",
+   "system": "ecu_internal",
+   "expansions": [
+    "Vehicle won't start",
+    "Noises when trying to start",
+    "Poor pulling power",
+    "Smoke coming from exhaust",
+    "Warning light is off",
+    "Engine idles poorly"
+   ],
+   "dropped": [],
+   "completion_tokens": 32,
+   "seconds": 13.62
+  },
+  "P165C-00@p505#1": {
+   "code_full": "P165C-00",
+   "system": "ecu_internal",
+   "expansions": [
+    "Vehicle won't start",
+    "Noisy when starting",
+    "Poor pulling power",
+    "Smoke coming from exhaust",
+    "Warning light is off",
+    "Engine idles poorly"
+   ],
+   "dropped": [],
+   "completion_tokens": 30,
+   "seconds": 13.23
+  },
+  "P1667-00@p506#1": {
+   "code_full": "P1667-00",
+   "system": "ecu_internal",
+   "expansions": [
+    "Vehicle stops suddenly on the road",
+    "Warning light stays off",
+    "Noises from the engine area",
+    "Smoke pours out of the exhaust",
+    "Pulling power is weak",
+    "Engine idles poorly"
+   ],
+   "dropped": [],
+   "completion_tokens": 37,
+   "seconds": 14.17
+  },
+  "P1664-00@p507#1": {
+   "code_full": "P1664-00",
+   "system": "ecu_internal",
+   "expansions": [
+    "Vehicle won't start",
+    "Noises when trying to start",
+    "Engine stalls immediately",
+    "Smoke pours out of exhaust",
+    "Warning light stays off",
+    "Pulling power weak at start"
+   ],
+   "dropped": [],
+   "completion_tokens": 35,
+   "seconds": 13.71
+  },
+  "P1665-00@p508#1": {
+   "code_full": "P1665-00",
+   "system": "ecu_internal",
+   "expansions": [
+    "Vehicle stops suddenly on the road",
+    "Warning light stays off",
+    "Noises from the engine area",
+    "Smoke pours out of exhaust",
+    "Pulling power weak when starting",
+    "Engine idles poorly, shakes"
+   ],
+   "dropped": [],
+   "completion_tokens": 39,
+   "seconds": 13.95
+  },
+  "P1669-00@p509#1": {
+   "code_full": "P1669-00",
+   "system": "ecu_internal",
+   "expansions": [
+    "Vehicle won't start",
+    "Noises when trying to start",
+    "Engine stalls immediately",
+    "Smoke comes out of exhaust",
+    "Warning light stays off",
+    "Pulling power is weak"
+   ],
+   "dropped": [],
+   "completion_tokens": 34,
+   "seconds": 13.77
+  },
+  "P1642-00@p510#1": {
+   "code_full": "P1642-00",
+   "system": "ecu_internal",
+   "expansions": [
+    "Vehicle won't start",
+    "Noises when trying to start",
+    "Engine stalls immediately",
+    "Smoke pours out of exhaust",
+    "Warning light stays off",
+    "Pulling power is weak"
+   ],
+   "dropped": [],
+   "completion_tokens": 34,
+   "seconds": 13.65
+  },
+  "P164C-00@p511#1": {
+   "code_full": "P164C-00",
+   "system": "ecu_internal",
+   "expansions": [
+    "Vehicle won't start",
+    "Engine makes no noise",
+    "No power when you try to move",
+    "Warning light is off",
+    "Smoke comes out of the exhaust",
+    "Engine idles poorly"
+   ],
+   "dropped": [],
+   "completion_tokens": 36,
+   "seconds": 13.9
+  },
+  "P1648-00@p512#1": {
+   "code_full": "P1648-00",
+   "system": "ecu_internal",
+   "expansions": [
+    "Vehicle won't start",
+    "Noisy when starting",
+    "Pulling power weak",
+    "Smoke coming from exhaust",
+    "Warning light off",
+    "Idling rough"
+   ],
+   "dropped": [],
+   "completion_tokens": 29,
+   "seconds": 13.3
+  },
+  "P164A-00@p513#1": {
+   "code_full": "P164A-00",
+   "system": "ecu_internal",
+   "expansions": [
+    "Vehicle won't start",
+    "Noises when trying to start",
+    "Idle rough, stutters",
+    "Black smoke coming out",
+    "Warning light is off",
+    "Pulling power is weak"
+   ],
+   "dropped": [],
+   "completion_tokens": 35,
+   "seconds": 13.8
+  },
+  "P165A-00@p514#1": {
+   "code_full": "P165A-00",
+   "system": "ecu_internal",
+   "expansions": [
+    "Vehicle won't start",
+    "Noises when trying to start",
+    "Poor pulling power once running",
+    "Smoke coming from exhaust",
+    "Warning light is off",
+    "Engine idles roughly"
+   ],
+   "dropped": [],
+   "completion_tokens": 34,
+   "seconds": 13.55
+  },
+  "P166C-00@p515#1": {
+   "code_full": "P166C-00",
+   "system": "ecu_internal",
+   "expansions": [
+    "Vehicle won't start",
+    "Engine makes no noise",
+    "No power when you try to move",
+    "Smoke pours out of the exhaust",
+    "Warning light is off",
+    "Gauge for fuel or oil is low"
+   ],
+   "dropped": [],
+   "completion_tokens": 40,
+   "seconds": 14.27
+  },
+  "P1655-00@p516#1": {
+   "code_full": "P1655-00",
+   "system": "ecu_internal",
+   "expansions": [
+    "Vehicle won't start",
+    "Noises when trying to start",
+    "Poor pulling power once running",
+    "Smoke coming from exhaust",
+    "Warning light is off",
+    "Engine idles roughly"
+   ],
+   "dropped": [],
+   "completion_tokens": 34,
+   "seconds": 13.63
+  },
+  "P1670-00@p517#1": {
+   "code_full": "P1670-00",
+   "system": "ecu_internal",
+   "expansions": [
+    "Vehicle won't start",
+    "Noisy when trying to start",
+    "Idling rough",
+    "Black smoke coming out",
+    "Warning light off",
+    "Pulling power weak"
+   ],
+   "dropped": [],
+   "completion_tokens": 31,
+   "seconds": 13.57
+  },
+  "P1649-00@p518#1": {
+   "code_full": "P1649-00",
+   "system": "ecu_internal",
+   "expansions": [
+    "Vehicle won't start",
+    "Noises when trying to start",
+    "Engine stalls immediately",
+    "Smoke pours out of exhaust",
+    "Warning light stays off",
+    "Pulling power is weak"
+   ],
+   "dropped": [],
+   "completion_tokens": 34,
+   "seconds": 13.65
+  },
+  "P1658-00@p519#1": {
+   "code_full": "P1658-00",
+   "system": "ecu_internal",
+   "expansions": [
+    "Vehicle won't start",
+    "Noises when trying to start",
+    "Poor pulling power once running",
+    "Smoke coming from exhaust",
+    "Warning light is off",
+    "Engine idles rough"
+   ],
+   "dropped": [],
+   "completion_tokens": 34,
+   "seconds": 13.84
+  },
+  "P165F-00@p520#1": {
+   "code_full": "P165F-00",
+   "system": "ecu_internal",
+   "expansions": [
+    "Vehicle stops suddenly on the road",
+    "Warning light stays off",
+    "Noises from the engine when starting",
+    "Smoke pours out of the exhaust",
+    "Pulling power weak when trying to accelerate",
+    "Engine idles poorly and shudders"
+   ],
+   "dropped": [],
+   "completion_tokens": 45,
+   "seconds": 14.47
+  },
+  "P1654-00@p521#1": {
+   "code_full": "P1654-00",
+   "system": "ecu_internal",
+   "expansions": [
+    "Vehicle won't start",
+    "Noises when trying to start",
+    "Idling rough, shaking",
+    "Black smoke coming out",
+    "Warning light is off",
+    "Pulling power is weak"
+   ],
+   "dropped": [],
+   "completion_tokens": 35,
+   "seconds": 13.97
+  },
+  "P1643-00@p522#1": {
+   "code_full": "P1643-00",
+   "system": "ecu_internal",
+   "expansions": [
+    "Vehicle won't start",
+    "Noisy when trying to start",
+    "Idling rough",
+    "Black smoke coming out",
+    "Warning light off",
+    "Pulling power weak"
+   ],
+   "dropped": [],
+   "completion_tokens": 31,
+   "seconds": 13.42
+  },
+  "P1653-00@p523#1": {
+   "code_full": "P1653-00",
+   "system": "ecu_internal",
+   "expansions": [
+    "Vehicle won't start",
+    "Noises when trying to start",
+    "Engine stalls immediately",
+    "Smoke pours out of exhaust",
+    "Warning light stays off",
+    "Pulling power is weak"
+   ],
+   "dropped": [],
+   "completion_tokens": 34,
+   "seconds": 13.76
+  },
+  "P1672-00@p524#1": {
+   "code_full": "P1672-00",
+   "system": "ecu_internal",
+   "expansions": [
+    "Vehicle won't start",
+    "Noises when trying to start",
+    "Engine stalls immediately",
+    "Smoke comes out of exhaust",
+    "Warning light stays off",
+    "Pulling power is weak"
+   ],
+   "dropped": [],
+   "completion_tokens": 34,
+   "seconds": 13.94
+  },
+  "P164F-00@p525#1": {
+   "code_full": "P164F-00",
+   "system": "ecu_internal",
+   "expansions": [
+    "Vehicle won't start",
+    "Noises when trying to start",
+    "Engine stalls immediately",
+    "Smoke comes out of exhaust",
+    "Warning light is off",
+    "Pulling power is weak"
+   ],
+   "dropped": [],
+   "completion_tokens": 34,
+   "seconds": 13.79
+  },
+  "P1674-00@p526#1": {
+   "code_full": "P1674-00",
+   "system": "ecu_internal",
+   "expansions": [
+    "Vehicle won't start",
+    "Noises when trying to start",
+    "Engine stalls immediately",
+    "Smoke pours out of exhaust",
+    "Warning light stays off",
+    "Pulling power weak"
+   ],
+   "dropped": [],
+   "completion_tokens": 33,
+   "seconds": 13.5
+  },
+  "P1657-00@p527#1": {
+   "code_full": "P1657-00",
+   "system": "ecu_internal",
+   "expansions": [
+    "Vehicle won't start",
+    "Noises when trying to start",
+    "Engine stalls immediately",
+    "Smoke pours out of exhaust",
+    "Warning light stays off",
+    "Pulling power is weak"
+   ],
+   "dropped": [],
+   "completion_tokens": 34,
+   "seconds": 13.88
+  },
+  "P1644-00@p528#1": {
+   "code_full": "P1644-00",
+   "system": "ecu_internal",
+   "expansions": [
+    "Vehicle won't start",
+    "Engine makes no noise",
+    "No power when trying to move",
+    "Smoke pours out of exhaust",
+    "Warning light stays off",
+    "Gauge shows no fuel"
+   ],
+   "dropped": [],
+   "completion_tokens": 35,
+   "seconds": 13.65
+  },
+  "P166D-00@p529#1": {
+   "code_full": "P166D-00",
+   "system": "ecu_internal",
+   "expansions": [
+    "Vehicle won't start",
+    "Noises when trying to start",
+    "Engine stalls immediately",
+    "Smoke comes out of exhaust",
+    "Warning light is off",
+    "Pulling power is weak"
+   ],
+   "dropped": [],
+   "completion_tokens": 34,
+   "seconds": 13.49
+  },
+  "P1671-00@p530#1": {
+   "code_full": "P1671-00",
+   "system": "ecu_internal",
+   "expansions": [
+    "Vehicle won't start",
+    "Noises when trying to start",
+    "Idling rough, shaking",
+    "Black smoke coming out",
+    "Warning light is off",
+    "Pulling power is weak"
+   ],
+   "dropped": [],
+   "completion_tokens": 35,
+   "seconds": 13.88
+  },
+  "P1660-00@p531#1": {
+   "code_full": "P1660-00",
+   "system": "ecu_internal",
+   "expansions": [
+    "Vehicle won't start",
+    "Noises when trying to start",
+    "Black smoke coming out",
+    "Engine feels weak at idle",
+    "Warning light is off",
+    "Pulling power is low"
+   ],
+   "dropped": [],
+   "completion_tokens": 35,
+   "seconds": 13.72
+  },
+  "P1677-00@p532#1": {
+   "code_full": "P1677-00",
+   "system": "ecu_internal",
+   "expansions": [
+    "Vehicle won't start",
+    "Noises when trying to start",
+    "Pulling power is weak",
+    "Smoke comes out of the exhaust",
+    "Warning light is off",
+    "Engine idles poorly"
+   ],
+   "dropped": [],
+   "completion_tokens": 36,
+   "seconds": 13.75
+  },
+  "P1640-00@p533#1": {
+   "code_full": "P1640-00",
+   "system": "ecu_internal",
+   "expansions": [
+    "Vehicle won't start",
+    "Noises when trying to start",
+    "Poor pulling power once running",
+    "Smoke coming from exhaust",
+    "Warning light is off",
+    "Engine idles rough"
+   ],
+   "dropped": [],
+   "completion_tokens": 34,
+   "seconds": 13.83
+  },
+  "P166B-00@p534#1": {
+   "code_full": "P166B-00",
+   "system": "ecu_internal",
+   "expansions": [
+    "Vehicle won't start",
+    "Noises when trying to start",
+    "Pulling power is weak",
+    "Smoke comes out of the exhaust",
+    "Warning light is off",
+    "Engine idles poorly"
+   ],
+   "dropped": [],
+   "completion_tokens": 36,
+   "seconds": 17.5
+  },
+  "P1676-00@p535#1": {
+   "code_full": "P1676-00",
+   "system": "ecu_internal",
+   "expansions": [
+    "Vehicle stops suddenly on the road",
+    "Engine doesn't start easily",
+    "Idle is rough and unstable",
+    "Black smoke pours out of exhaust",
+    "Noises from the engine area",
+    "Warning light is off"
+   ],
+   "dropped": [],
+   "completion_tokens": 38,
+   "seconds": 14.13
+  },
+  "P165E-00@p536#1": {
+   "code_full": "P165E-00",
+   "system": "ecu_internal",
+   "expansions": [
+    "Vehicle won't start",
+    "Noises when trying to start",
+    "Engine stalls immediately",
+    "Smoke pours out of exhaust",
+    "Warning light stays off",
+    "Pulling power is weak"
+   ],
+   "dropped": [],
+   "completion_tokens": 34,
+   "seconds": 13.93
+  },
+  "P1661-00@p537#1": {
+   "code_full": "P1661-00",
+   "system": "ecu_internal",
+   "expansions": [
+    "Vehicle won't start",
+    "Noises when trying to start",
+    "Poor pulling power once running",
+    "Smoke coming from exhaust",
+    "Warning light is off",
+    "Engine idles rough"
+   ],
+   "dropped": [],
+   "completion_tokens": 34,
+   "seconds": 13.92
+  },
+  "P165B-00@p538#1": {
+   "code_full": "P165B-00",
+   "system": "ecu_internal",
+   "expansions": [
+    "Vehicle won't start",
+    "Engine makes no noise",
+    "No power when you try to move",
+    "Warning light is off",
+    "Smoke comes out of the exhaust",
+    "Idle is very rough"
+   ],
+   "dropped": [],
+   "completion_tokens": 36,
+   "seconds": 14.08
+  },
+  "P1651-00@p539#1": {
+   "code_full": "P1651-00",
+   "system": "ecu_internal",
+   "expansions": [
+    "Vehicle won't start",
+    "Noises when trying to start",
+    "Idle is rough and jerky",
+    "Smoke pours out of exhaust",
+    "Pulling power is weak",
+    "Warning light is off"
+   ],
+   "dropped": [],
+   "completion_tokens": 37,
+   "seconds": 14.18
+  },
+  "P1663-00@p540#1": {
+   "code_full": "P1663-00",
+   "system": "ecu_internal",
+   "expansions": [
+    "Vehicle won't start",
+    "Noises when trying to start",
+    "Engine stalls immediately",
+    "Smoke comes out of exhaust",
+    "Warning light stays off",
+    "Pulling power is weak"
+   ],
+   "dropped": [],
+   "completion_tokens": 34,
+   "seconds": 13.8
+  },
+  "P166E-00@p541#1": {
+   "code_full": "P166E-00",
+   "system": "ecu_internal",
+   "expansions": [
+    "Vehicle won't start",
+    "Engine makes no noise",
+    "No power when you try to move",
+    "Smoke pours out of exhaust",
+    "Warning light stays off",
+    "Gauge for fuel or oil shows low"
+   ],
+   "dropped": [],
+   "completion_tokens": 39,
+   "seconds": 14.19
+  },
+  "P1645-00@p542#1": {
+   "code_full": "P1645-00",
+   "system": "ecu_internal",
+   "expansions": [
+    "Vehicle won't start",
+    "Noises when trying to start",
+    "Poor pulling power once running",
+    "Smoke coming from exhaust",
+    "Warning light is off",
+    "Engine idles rough"
+   ],
+   "dropped": [],
+   "completion_tokens": 34,
+   "seconds": 13.75
+  },
+  "P1662-00@p543#1": {
+   "code_full": "P1662-00",
+   "system": "ecu_internal",
+   "expansions": [
+    "Vehicle won't start",
+    "Noises when trying to start",
+    "Engine stalls immediately",
+    "Smoke pours out of exhaust",
+    "Warning light stays off",
+    "Pulling power is weak"
+   ],
+   "dropped": [],
+   "completion_tokens": 34,
+   "seconds": 16.23
+  },
+  "P1659-00@p544#1": {
+   "code_full": "P1659-00",
+   "system": "ecu_internal",
+   "expansions": [
+    "Vehicle won't start",
+    "Noises when trying to start",
+    "Black smoke coming out",
+    "Pulling power is weak",
+    "Warning light is off",
+    "Engine is hot"
+   ],
+   "dropped": [],
+   "completion_tokens": 33,
+   "seconds": 15.27
+  },
+  "P166A-00@p545#1": {
+   "code_full": "P166A-00",
+   "system": "ecu_internal",
+   "expansions": [
+    "Vehicle won't start",
+    "Engine makes no noise",
+    "No power when you try to move",
+    "Smoke pours out of the exhaust",
+    "Warning light stays off",
+    "Gauge for fuel level drops"
+   ],
+   "dropped": [],
+   "completion_tokens": 38,
+   "seconds": 14.04
+  }
+ }
+}

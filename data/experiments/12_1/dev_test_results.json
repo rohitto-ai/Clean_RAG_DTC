@@ -1,0 +1,276 @@
+{
+ "configs": {
+  "base": {
+   "DEV": {
+    "symptom": {
+     "n": 12,
+     "hit@1": 0.5833333333333334,
+     "hit@3": 0.8333333333333334,
+     "hit@5": 0.9166666666666666,
+     "MRR": 0.7111111111111111,
+     "declines": 0,
+     "decline_ids": []
+    },
+    "near_duplicate": {
+     "n": 7,
+     "hit@1": 1.0,
+     "hit@3": 1.0,
+     "hit@5": 1.0,
+     "MRR": 1.0,
+     "declines": 0,
+     "decline_ids": []
+    },
+    "exact_code": {
+     "n": 6,
+     "hit@1": 1.0,
+     "hit@3": 1.0,
+     "hit@5": 1.0,
+     "MRR": 1.0,
+     "declines": 0,
+     "decline_ids": []
+    },
+    "overall": {
+     "n": 25,
+     "hit@1": 0.8,
+     "hit@3": 0.92,
+     "hit@5": 0.96,
+     "MRR": 0.8613333333333334,
+     "declines": 0,
+     "decline_ids": []
+    },
+    "groups": "3/3",
+    "oos": "6/6",
+    "in_scope": "28/28"
+   },
+   "TEST_post_hoc": {
+    "symptom": {
+     "n": 13,
+     "hit@1": 0.5384615384615384,
+     "hit@3": 0.6923076923076923,
+     "hit@5": 0.8461538461538461,
+     "MRR": 0.6282051282051282,
+     "declines": 0,
+     "decline_ids": []
+    },
+    "near_duplicate": {
+     "n": 7,
+     "hit@1": 0.42857142857142855,
+     "hit@3": 0.8571428571428571,
+     "hit@5": 1.0,
+     "MRR": 0.6785714285714286,
+     "declines": 0,
+     "decline_ids": []
+    },
+    "exact_code": {
+     "n": 6,
+     "hit@1": 1.0,
+     "hit@3": 1.0,
+     "hit@5": 1.0,
+     "MRR": 1.0,
+     "declines": 0,
+     "decline_ids": []
+    },
+    "overall": {
+     "n": 26,
+     "hit@1": 0.6153846153846154,
+     "hit@3": 0.8076923076923077,
+     "hit@5": 0.9230769230769231,
+     "MRR": 0.7275641025641026,
+     "declines": 0,
+     "decline_ids": []
+    },
+    "groups": "4/4",
+    "oos": "6/6",
+    "in_scope": "30/30"
+   },
+   "guardrails": "14/14",
+   "guardrails_failing": []
+  },
+  "sympexp": {
+   "DEV": {
+    "symptom": {
+     "n": 12,
+     "hit@1": 0.16666666666666666,
+     "hit@3": 0.5,
+     "hit@5": 0.5833333333333334,
+     "MRR": 0.34027777777777773,
+     "declines": 0,
+     "decline_ids": []
+    },
+    "near_duplicate": {
+     "n": 7,
+     "hit@1": 0.42857142857142855,
+     "hit@3": 0.42857142857142855,
+     "hit@5": 0.7142857142857143,
+     "MRR": 0.4857142857142857,
+     "declines": 0,
+     "decline_ids": []
+    },
+    "exact_code": {
+     "n": 6,
+     "hit@1": 1.0,
+     "hit@3": 1.0,
+     "hit@5": 1.0,
+     "MRR": 1.0,
+     "declines": 0,
+     "decline_ids": []
+    },
+    "overall": {
+     "n": 25,
+     "hit@1": 0.44,
+     "hit@3": 0.6,
+     "hit@5": 0.72,
+     "MRR": 0.5393333333333333,
+     "declines": 0,
+     "decline_ids": []
+    },
+    "groups": "3/3",
+    "oos": "6/6",
+    "in_scope": "28/28"
+   },
+   "TEST_post_hoc": {
+    "symptom": {
+     "n": 13,
+     "hit@1": 0.23076923076923078,
+     "hit@3": 0.38461538461538464,
+     "hit@5": 0.6923076923076923,
+     "MRR": 0.37692307692307697,
+     "declines": 0,
+     "decline_ids": []
+    },
+    "near_duplicate": {
+     "n": 7,
+     "hit@1": 0.0,
+     "hit@3": 0.14285714285714285,
+     "hit@5": 0.5714285714285714,
+     "MRR": 0.14047619047619048,
+     "declines": 0,
+     "decline_ids": []
+    },
+    "exact_code": {
+     "n": 6,
+     "hit@1": 1.0,
+     "hit@3": 1.0,
+     "hit@5": 1.0,
+     "MRR": 1.0,
+     "declines": 0,
+     "decline_ids": []
+    },
+    "overall": {
+     "n": 26,
+     "hit@1": 0.34615384615384615,
+     "hit@3": 0.46153846153846156,
+     "hit@5": 0.7307692307692307,
+     "MRR": 0.45705128205128204,
+     "declines": 0,
+     "decline_ids": []
+    },
+    "groups": "4/4",
+    "oos": "6/6",
+    "in_scope": "30/30"
+   },
+   "guardrails": "7/14",
+   "guardrails_failing": [
+    "injector open circuit cylinder 1",
+    "cylinder 1 injector has a broken wire",
+    "injector open circuit cylinder 2",
+    "injector short circuit high and low side cylinder 2",
+    "injector open circuit cylinder 3",
+    "injector short circuit high and low side cylinder 3",
+    "injector open circuit cylinder 4"
+   ]
+  },
+  "sympexp_filtered": {
+   "DEV": {
+    "symptom": {
+     "n": 12,
+     "hit@1": 0.08333333333333333,
+     "hit@3": 0.4166666666666667,
+     "hit@5": 0.5833333333333334,
+     "MRR": 0.2638888888888889,
+     "declines": 0,
+     "decline_ids": []
+    },
+    "near_duplicate": {
+     "n": 7,
+     "hit@1": 0.2857142857142857,
+     "hit@3": 0.7142857142857143,
+     "hit@5": 1.0,
+     "MRR": 0.4928571428571429,
+     "declines": 0,
+     "decline_ids": []
+    },
+    "exact_code": {
+     "n": 6,
+     "hit@1": 1.0,
+     "hit@3": 1.0,
+     "hit@5": 1.0,
+     "MRR": 1.0,
+     "declines": 0,
+     "decline_ids": []
+    },
+    "overall": {
+     "n": 25,
+     "hit@1": 0.36,
+     "hit@3": 0.64,
+     "hit@5": 0.8,
+     "MRR": 0.5046666666666667,
+     "declines": 0,
+     "decline_ids": []
+    },
+    "groups": "3/3",
+    "oos": "6/6",
+    "in_scope": "28/28"
+   },
+   "TEST_post_hoc": {
+    "symptom": {
+     "n": 13,
+     "hit@1": 0.23076923076923078,
+     "hit@3": 0.46153846153846156,
+     "hit@5": 0.6923076923076923,
+     "MRR": 0.38333333333333336,
+     "declines": 0,
+     "decline_ids": []
+    },
+    "near_duplicate": {
+     "n": 7,
+     "hit@1": 0.14285714285714285,
+     "hit@3": 0.2857142857142857,
+     "hit@5": 0.7142857142857143,
+     "MRR": 0.2833333333333333,
+     "declines": 0,
+     "decline_ids": []
+    },
+    "exact_code": {
+     "n": 6,
+     "hit@1": 1.0,
+     "hit@3": 1.0,
+     "hit@5": 1.0,
+     "MRR": 1.0,
+     "declines": 0,
+     "decline_ids": []
+    },
+    "overall": {
+     "n": 26,
+     "hit@1": 0.38461538461538464,
+     "hit@3": 0.5384615384615384,
+     "hit@5": 0.7692307692307693,
+     "MRR": 0.4987179487179487,
+     "declines": 0,
+     "decline_ids": []
+    },
+    "groups": "4/4",
+    "oos": "6/6",
+    "in_scope": "30/30"
+   },
+   "guardrails": "9/14",
+   "guardrails_failing": [
+    "camshaft no signal",
+    "injector open circuit cylinder 1",
+    "cylinder 1 injector has a broken wire",
+    "injector open circuit cylinder 2",
+    "cylinder 2 injector has a broken wire"
+   ]
+  }
+ }
+}

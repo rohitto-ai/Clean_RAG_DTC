@@ -1,0 +1,68 @@
+{
+ "phase": "12.1",
+ "frozen_utc": "2026-10-28T02:44:54+00:00",
+ "git_commit": "905a1d7c6b29113404d2e2b189772ff45600db6c",
+ "chosen_variant": null,
+ "gate_verdict": "NEITHER variant passed the DEV no-regression gate. The gate required guardrails 14/14; the unfiltered variant scored 7/14 and the filtered one 9/14, and both collapsed DEV symptom and near-duplicate retrieval. No variant is a candidate for adoption, and none is promoted.",
+ "statement": "Frozen for reproducibility, not as a candidate. The artefacts below are exactly what produced the reported numbers. The post-hoc measurement on the spent sets runs after this freeze and is labelled POST-HOC.",
+ "generation": {
+  "model": "Qwen/Qwen2.5-3B-Instruct-GGUF (q4_k_m)",
+  "seed": 12101,
+  "temperature": 0.0,
+  "records": 314,
+  "expansions": 1515,
+  "mean_per_record": 4.8,
+  "prompt_inputs": [
+   "description",
+   "system",
+   "effect",
+   "MIL",
+   "cause",
+   "checkpoints"
+  ],
+  "no_gold_read": true,
+  "post_filter": "mechanical only"
+ },
+ "distinctiveness_filter": {
+  "rule_1": "drop if shared with >10 other records at cosine >= 0.90",
+  "rule_2": "drop generic-only lines unless the record's own fields mention that behaviour",
+  "floor": 2,
+  "expansions_before": 1515,
+  "expansions_after": 608,
+  "dropped_pct": 60,
+  "records_restored_to_floor": 232
+ },
+ "dev_gate": {
+  "base": {
+   "symptom_MRR": 0.7111,
+   "near_dup_MRR": 1.0,
+   "guardrails": "14/14"
+  },
+  "sympexp": {
+   "symptom_MRR": 0.3403,
+   "near_dup_MRR": 0.4857,
+   "guardrails": "7/14"
+  },
+  "sympexp_filtered": {
+   "symptom_MRR": 0.2639,
+   "near_dup_MRR": 0.4929,
+   "guardrails": "9/14"
+  }
+ },
+ "production_unchanged": {
+  "suite": "44 passed / 1 xfail / 0 failed",
+  "determinism_hash_dev_defaults": "ffff9bc707d8754d",
+  "index_dir": "index/ untouched"
+ },
+ "sha256": {
+  "data/symptom_expansions.json": "ee7e863038695198e4ea08a018de003f58402603c5b783f09e2919af690336d9",
+  "data/symptom_expansions_filtered.json": "5b9d722966f9ba8a88ab64c2b3b7e726513d4e99e7ee3e318c74fb587a39f41c",
+  "scripts/gen_symptom_expansions.py": "782374c3aff5c9d9ba674f9f0986285f48692d5ffd7888326dbd1c54e7c5cbbe",
+  "scripts/filter_expansions.py": "cb0b2c6a985c4909eaedbd4c51924dd4e53495b67891c03a32bbe5ee2308d3e2",
+  "scripts/build_symptom_index.py": "8375b9cb2c85bb1117264a396369e6be20112d1a4afd657a916b6b388e794a48",
+  "src/symptom_retriever.py": "b443edfbc9d94ed4dc2e95900f3b436e967c621897707cc0010fa93760807776",
+  "scripts/eval_12_1.py": "afe51d056dff7f505c76482fa434f6759e93e2696a7281b3309cc11478e6bd13",
+  "index_exp/minilm_sympexp/bm25_corpus.json": "8bbe083223dc13ff5ba2c3c8598136033a68927cac9c13c10ddfe2b9d7d96ecf",
+  "index_exp/minilm_sympexp_filtered/bm25_corpus.json": "bdb7ef010fa424d7531776bae4f71384d0fd02100aa471ee951c3a974d2c0c6a"
+ }
+}
