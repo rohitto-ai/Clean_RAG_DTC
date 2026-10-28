@@ -1,6 +1,6 @@
 # RESUME — Clean RAG for the 3.3L DTC Manual
 
-**State: PHASE 8 COMPLETE; Phase 9.1 (advise mode) + 9.1b (step column-bleed fix) + 9.2 (baseline comparison) + 9.3 (noisy-input robustness) + 9.3b (code-handling hardening, adopted) + 9.4 (synthetic SPN/FMI normalization demo) DONE; Phase 10.1 + 10.1b (lexicon v2, lamp reachability) DONE and FROZEN, NOT adopted; Phase 10.2 (synthetic demo data + telematics pipeline) + 10.3 (FastAPI service + audit log) + 10.4 (demo website) + 10.5 (demo hardening) + 10.5b (one-click launchers) + 10.6 (INDEPENDENT one-shot evaluation) DONE — on branch `phase10-demo`.** All phases 0–8 are done on branch `phase8-limitations`. The
+**State: PHASE 8 COMPLETE; Phase 9.1 (advise mode) + 9.1b (step column-bleed fix) + 9.2 (baseline comparison) + 9.3 (noisy-input robustness) + 9.3b (code-handling hardening, adopted) + 9.4 (synthetic SPN/FMI normalization demo) DONE; Phase 10.1 + 10.1b (lexicon v2, lamp reachability) DONE and FROZEN, NOT adopted; Phase 10.2 (synthetic demo data + telematics pipeline) + 10.3 (FastAPI service + audit log) + 10.4 (demo website) + 10.5 (demo hardening) + 10.5b (one-click launchers) + 10.6 (INDEPENDENT one-shot evaluation) DONE — on branch `phase10-demo`; Phase 11.1 + 11.2 (no-DTC-match refinement, A-narrow frozen, pre-registered one-shot on the colleague-written R2 set) and Phase 12.1 + 12.2 (symptom-side document expansion: model-generated, then authored) DONE on branch `phase12-symptom-bridge` — **nothing from 11.1 onwards is adopted; production is still C4b + gate v2 + 9.3b**.** All phases 0–8 are done on branch `phase8-limitations`. The
 Phase 8 configuration is adopted as the production default. The frozen TEST split has been
 evaluated once and is now spent. The previous system is preserved as tag `v1-phase7`.
 
@@ -57,6 +57,49 @@ Details, including the offline install: `docs/report/phase10_5_demo_runbook.md`.
 **Phase 10.4 (demo website):** `web/` — plain HTML + CSS + vanilla JS, **no build step, no CDN, no web fonts, works offline**, served by `app.py` at `/` and consuming only the 10.3 endpoints. Four tabs: **Fleet** (counters, severity badges CRITICAL/HIGH/MEDIUM/LOW, severity+region+outcome filters, replay Start/Stop/Reset with `/fleet` polled every 3 s *only* while replaying, click-through to a vehicle), **Vehicle** (per-episode chain SPN/FMI → P-code → outcome badge, severity + reasons, fix blocks with manual pages, candidates marked "Not auto-advised — confirm with technician", refusals with no steps, a separate grey dashed **illustrative cost/TAT** panel, and the technician-reported-code cross-check showing MISMATCH + possible transposition, never auto-replaced), **Service query** (top-3 + cost, refusals rendered as refusals with the reason), **Audit** (latest 50 entries). Every result has a collapsible **"Why this answer?"** panel: route, ladder rungs, retrieval ranks, gate decision + signals, citations, severity reasons, and steps badged **RULE (green) / AI (purple)**. A **Demo presets** menu is built from `/scenarios` (all 14 scenarios + 3 symptom presets + both transposition cases). `scripts/demo_smoke.py` drives every preset: **43/43**. 11 screenshots captured from the real UI at 1280×720 by `scripts/capture_screens.py` (Playwright, dev-only, not in requirements) into `docs/report/img/`. `src/test_api.py` **56/56**, suite **44/1/0**, determinism **`ffff9bc707d8754d`**. Includes a 10-minute demo script. Details: `docs/report/phase10_4_website.md`.
 
 **Phase 10.5 (demo hardening; retrieval, gate, index and records UNCHANGED):** `run.sh` gained a `demo` target — rebuilds `index/` and `data/demo/` if missing, starts uvicorn on `0.0.0.0:8000`, polls `GET /health` until ok (tailing the log and failing clearly if start-up dies), **warms the models** with one `/symptom` + one `/vehicle` call, then prints the local and Codespace URLs, the log path and the pre-flight command. `./run.sh demo --check` runs `scripts/demo_smoke.py` against the live server, stops the server it started, and **exits non-zero on any FAIL**; an unreachable server now reads as a clean FAIL instead of a traceback. `--port N` supported; a healthy server already on the port is reused. Verified **twice from a clean shell** (`env -i`): 43/43, exit 0 both times; failure path exits 1. The demo runs **without the LLM** (every demo path is rule-based; `llama_cpp` is imported lazily), and `run.sh demo` says so rather than blocking. New runbook `docs/report/phase10_5_demo_runbook.md`: offline Windows fallback (Python 3.12, venv, wheel cache, CPU-only torch, optional llama-cpp build, what to copy incl. the Hugging Face cache for the embedder), Codespace checklist (port visibility public→private, idle timeout, keep-alive, dropped-URL recovery), and a 2-minute panic section (<60 s restart, the 9 screenshots to fall back on, and the behaviours that look like failures but are not). `src/test_api.py` **61/61**, suite **44/1/0**, determinism **`ffff9bc707d8754d`**.
+
+**Phase 12.1 (branch `phase12-symptom-bridge`; additive, production UNCHANGED):** symptom-side
+document expansion ("doc2query") with Qwen2.5-3B-Instruct Q4 (temp 0, seed 12101) as an
+index-only third ranker. **A negative result.** On a corpus of 314 faults that differ by one
+sensor or one cylinder, the model wrote near-identical symptom text for every record — the same
+six lines for rail pressure, coolant, camshaft and urea — which **erased** the distinctions
+retrieval depends on: DEV near-duplicate MRR **1.000 → 0.486**, DEV symptom MRR 0.711 → 0.340,
+guardrails **7/14** (9/14 after a mechanical distinctiveness filter). Gate failed for both
+variants, `chosen_variant: null`. Details: `docs/report/phase12_1_symptom_bridge.md`.
+
+**Phase 12.2 (same branch; additive, production UNCHANGED):** the 12.1 diagnosis said the thing
+to change was the *source* of the text, so the expansions were **authored** instead of generated
+— composed from 52 author-written component phrasings (which gauge, which behaviour, a
+driver-voice complaint per part), 20 failure-mode phrasings in **opposed pairs** (short-to-ground
+pins a reading at the bottom, short-to-battery at the top, open circuit kills it, stuck-open will
+not close), and each record's own marker (cylinder, track, bank, upstream/downstream, sensor A/B,
+T4/T5/T6, FCCU id) and own effect field. 1310 lines (4.17/record), four self-checks all passing
+(no fault codes, no bare lamp/smoke/noise/power line, every line names a part or a marker, **no
+line shared verbatim with a family sibling**), then family-level collision removal (39 lines) and
+the specified cosine filter (> 5 other records at ≥ 0.90, no floor) → **988 indexed lines**.
+**Authoring beat generation on exactly what 12.1 broke:** near-dup MRR **0.486 → 0.9286**,
+guardrails **7/14 → 14/14**. But it still regresses the target metric: DEV symptom MRR 0.7111 →
+**0.5208** and hit@1 0.583 → 0.250, while hit@5 *improves* 0.917 → **1.000** — it re-ranks rather
+than retrieves better. `v2_half` (symptom RRF weight 0.5) **passes** the pre-specified gate
+(14/14, 28/28, 6/6) and `v2_equal` fails it (12/14, both injector cylinder 3 + 4), so v2_half is
+frozen in `data/experiments/12_2/freeze.json` with an explicit **do-not-adopt** recommendation:
+the gate carried no DEV-metric floor. POST-HOC on the spent sets (optimistic; the lines were
+authored blind to both) **+0.0496** MRR on Round-1 (CI [−0.048, +0.152], 8 better / 8 worse) and
+**+0.1167** on R2 (CI [−0.017, +0.283]) — both **include zero**. `no_dtc` declines still 0/19 and
+0/4; latency p50 29.5 → 55.3 ms. **62 records end with no symptom text**, 56 of them the
+`EMM alarm FCCUnn` ECU-internal faults, which differ only by an internal alarm number no driver
+can perceive. Suite **44/1/0**. Details: `docs/report/phase12_2_specific_expansions.md`.
+
+**⚠ Two verification footguns, both found in Phase 12.2 (nothing is wrong with production).**
+(1) `scripts/determinism_proof.py --defaults` defaults to `--index-dir
+index_exp/minilm_alias_bm25_cyl`, a **stale experimental index built 2026-09-16**, and against it
+prints the *pre-9.1b* hash **`76b16c2b9ab8f9f2`** — because 9.1b fixed garbled troubleshooting
+steps and the BM25 text includes step **condition** clauses. Run it as
+`scripts/determinism_proof.py --defaults --index-dir index` and it prints
+**`ffff9bc707d8754d`**, as recorded. Either pass `--index-dir index` or rebuild that experimental
+index. (2) The "suite 44 passed / 1 xfail / 0 failed" figure comes from `PYTHONPATH=src
+.venv/bin/python src/smoke_index.py` — **not** pytest, which is not a dependency and collects
+nothing from the hand-rolled test scripts in `src/`.
 
 ## How to run the demo
 
@@ -338,3 +381,7 @@ exact dense, cylinder token) + gate v2 by default (`data/production_config.json`
 - [phase8_4_image_pins.md](phase8_4_image_pins.md) — composition OCR: recall, audited precision, verdict
 - [phase8_5_final_eval.md](phase8_5_final_eval.md) — **the Phase 8 results chapter**: one-shot TEST, ablations, adoption
 - [phase9_1_advise_mode.md](phase9_1_advise_mode.md) — top-3 DTCs with fix steps; the step/spec column parse defect
+- [phase11_1_refine.md](phase11_1_refine.md) — no-DTC-match rule + subsystem prior, measured then frozen
+- [phase11_2_narrow_and_r2.md](phase11_2_narrow_and_r2.md) — A-narrow, pre-registered one-shot on the R2 colleague set
+- [phase12_1_symptom_bridge.md](phase12_1_symptom_bridge.md) — doc2query with a 3B model: **a negative result**
+- [phase12_2_specific_expansions.md](phase12_2_specific_expansions.md) — authored expansions: near-duplicates repaired, target metric still down

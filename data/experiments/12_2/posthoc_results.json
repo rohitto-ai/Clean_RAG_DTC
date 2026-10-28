@@ -1,0 +1,2000 @@
+{
+ "label": "POST-HOC (development) - both sets were spent before this run. Optimistic; not an independent measurement.",
+ "configs": {
+  "base": {
+   "ROUND1_independent": {
+    "symptom": {
+     "n": 41,
+     "hit@1": 0.14634146341463414,
+     "hit@3": 0.2926829268292683,
+     "hit@5": 0.4146341463414634,
+     "MRR": 0.24471544715447155,
+     "declines": 0,
+     "decline_ids": []
+    },
+    "no_dtc": {
+     "n": 19,
+     "declined": 0,
+     "decline_rate": 0.0
+    },
+    "latency_ms": {
+     "p50": 29.5,
+     "p95": 39.1
+    },
+    "rows": {
+     "symptom": [
+      {
+       "id": "Q01",
+       "rank": 1,
+       "declined": false,
+       "codes": [
+        "P0336-00",
+        "P0335-00",
+        "P0627-11",
+        "P0627-12",
+        "P018F-00"
+       ]
+      },
+      {
+       "id": "Q02",
+       "rank": 5,
+       "declined": false,
+       "codes": [
+        "P061C-00",
+        "P0500-1F",
+        "P0219-00",
+        "P0500-1C",
+        "P0336-00"
+       ]
+      },
+      {
+       "id": "Q03",
+       "rank": 1,
+       "declined": false,
+       "codes": [
+        "P2150-00",
+        "P2147-00",
+        "P1201-00",
+        "P0201-00",
+        "P1202-00"
+       ]
+      },
+      {
+       "id": "Q05",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P0335-00",
+        "P0336-00",
+        "P0089-00",
+        "P00C6-00",
+        "P018F-00"
+       ]
+      },
+      {
+       "id": "Q06",
+       "rank": 1,
+       "declined": false,
+       "codes": [
+        "P0101-00",
+        "P2458-00",
+        "P242F-00",
+        "P259F-00",
+        "P0100-9B"
+       ]
+      },
+      {
+       "id": "Q07",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P244A-00",
+        "P0219-00",
+        "P206A-86",
+        "P2BA9-00",
+        "P259E-00"
+       ]
+      },
+      {
+       "id": "Q08",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P042A-85",
+        "P042A-84",
+        "P042C-00",
+        "P042D-00",
+        "P0421-00"
+       ]
+      },
+      {
+       "id": "Q09",
+       "rank": 2,
+       "declined": false,
+       "codes": [
+        "P2043-85",
+        "P042A-85",
+        "P242A-85",
+        "P242A-84",
+        "P0425-85"
+       ]
+      },
+      {
+       "id": "Q10",
+       "rank": 1,
+       "declined": false,
+       "codes": [
+        "P203F-00",
+        "P2BA9-00",
+        "P203B-84",
+        "P203B-85",
+        "P206A-F1"
+       ]
+      },
+      {
+       "id": "Q12",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P0425-84",
+        "P0425-85",
+        "P242A-84",
+        "P242A-85",
+        "P0427-00"
+       ]
+      },
+      {
+       "id": "Q13",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P0219-00",
+        "P061C-00",
+        "P0336-00",
+        "P166E-00",
+        "P0335-00"
+       ]
+      },
+      {
+       "id": "Q14",
+       "rank": 2,
+       "declined": false,
+       "codes": [
+        "P0504-00",
+        "P0120-12",
+        "P0120-11",
+        "P0220-11",
+        "P0220-12"
+       ]
+      },
+      {
+       "id": "Q15",
+       "rank": 4,
+       "declined": false,
+       "codes": [
+        "P0504-00",
+        "P0220-11",
+        "P0120-11",
+        "P0220-12",
+        "P0120-12"
+       ]
+      },
+      {
+       "id": "Q16",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P1201-00",
+        "P242F-00",
+        "P244B-00",
+        "P2463-85",
+        "P2150-00"
+       ]
+      },
+      {
+       "id": "Q17",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P0004-00",
+        "P0336-00",
+        "P0003-00",
+        "P0335-00",
+        "P0627-12"
+       ]
+      },
+      {
+       "id": "Q18",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P0120-12",
+        "P0504-00",
+        "P0120-11",
+        "P0220-11",
+        "P0220-12"
+       ]
+      },
+      {
+       "id": "Q19",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P206A-F1",
+        "P203F-84",
+        "P206A-F2",
+        "P0089-00",
+        "P206A-F3"
+       ]
+      },
+      {
+       "id": "Q21",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P0120-11",
+        "P0120-12",
+        "P0504-00",
+        "P203A-29",
+        "P2200-01"
+       ]
+      },
+      {
+       "id": "Q23",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P0119-00",
+        "P242A-84",
+        "P0110-11",
+        "P0110-12",
+        "P242D-00"
+       ]
+      },
+      {
+       "id": "Q24",
+       "rank": 4,
+       "declined": false,
+       "codes": [
+        "P0A1B-12",
+        "P0A1B-13",
+        "P0627-12",
+        "P0180-12",
+        "P0627-11"
+       ]
+      },
+      {
+       "id": "Q25",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P0219-00",
+        "P061C-00",
+        "P0336-00",
+        "P0335-00"
+       ]
+      },
+      {
+       "id": "Q26",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P242F-00",
+        "P1201-00",
+        "P2147-00",
+        "P0120-11",
+        "P243F-F0"
+       ]
+      },
+      {
+       "id": "Q28",
+       "rank": 1,
+       "declined": false,
+       "codes": [
+        "P0117-00",
+        "P0118-00",
+        "P0116-00",
+        "P0119-00",
+        "P0100-00"
+       ]
+      },
+      {
+       "id": "Q31",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P1204-00",
+        "P1202-00",
+        "P2147-00",
+        "P1201-00",
+        "P0204-00"
+       ]
+      },
+      {
+       "id": "Q33",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P0336-00",
+        "P0335-00",
+        "P0119-00",
+        "P061C-00",
+        "P0048-00"
+       ]
+      },
+      {
+       "id": "Q34",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P0219-00",
+        "P0336-00",
+        "P061C-00",
+        "P0120-11",
+        "P062B-00"
+       ]
+      },
+      {
+       "id": "Q35",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P042C-00",
+        "P2458-09",
+        "P042D-00",
+        "P042A-84",
+        "P042A-85"
+       ]
+      },
+      {
+       "id": "Q38",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P206A-F2",
+        "P2BA9-00",
+        "P206A-F1",
+        "P206A-86",
+        "P206A-F3"
+       ]
+      },
+      {
+       "id": "Q39",
+       "rank": 2,
+       "declined": false,
+       "codes": [
+        "P203F-00",
+        "P2BA9-00",
+        "P206A-F2",
+        "P203B-84",
+        "P203B-85"
+       ]
+      },
+      {
+       "id": "Q40",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P1083-00",
+        "P242F-00",
+        "P2205-29",
+        "P22A3-29",
+        "P2455-00"
+       ]
+      },
+      {
+       "id": "Q44",
+       "rank": 4,
+       "declined": false,
+       "codes": [
+        "P0118-00",
+        "P0117-00",
+        "P0119-00",
+        "P0116-00",
+        "P22A3-00"
+       ]
+      },
+      {
+       "id": "Q49",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P061C-00",
+        "P0219-00",
+        "P0336-00",
+        "P0335-00",
+        "P018F-00"
+       ]
+      },
+      {
+       "id": "Q50",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P061C-00",
+        "P018F-00",
+        "P1083-00",
+        "P00C6-00"
+       ]
+      },
+      {
+       "id": "Q51",
+       "rank": 2,
+       "declined": false,
+       "codes": [
+        "P0219-00",
+        "P0336-00",
+        "P0335-00",
+        "P00C6-00",
+        "P061C-00"
+       ]
+      },
+      {
+       "id": "Q52",
+       "rank": 6,
+       "declined": false,
+       "codes": [
+        "P0504-00",
+        "P0220-11",
+        "P0120-11",
+        "P0120-12",
+        "P0220-12"
+       ]
+      },
+      {
+       "id": "Q53",
+       "rank": 3,
+       "declined": false,
+       "codes": [
+        "P0500-1C",
+        "P0215-00",
+        "P0500-1F",
+        "P003A-00",
+        "P062B-00"
+       ]
+      },
+      {
+       "id": "Q54",
+       "rank": 3,
+       "declined": false,
+       "codes": [
+        "P2463-85",
+        "P2458-00",
+        "P2264-00",
+        "P2458-09",
+        "P242F-00"
+       ]
+      },
+      {
+       "id": "Q55",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P0220-11",
+        "P0120-11",
+        "P0120-12",
+        "P0220-12",
+        "P0504-00"
+       ]
+      },
+      {
+       "id": "Q56",
+       "rank": 4,
+       "declined": false,
+       "codes": [
+        "P242F-00",
+        "P0103-00",
+        "P010D-00",
+        "P0101-00",
+        "P0045-13"
+       ]
+      },
+      {
+       "id": "Q58",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P061C-00",
+        "P0336-00",
+        "P0335-00",
+        "P0219-00"
+       ]
+      },
+      {
+       "id": "Q59",
+       "rank": 1,
+       "declined": false,
+       "codes": [
+        "P0A1B-13",
+        "P0A1B-12",
+        "P0335-00",
+        "P0336-00",
+        "P0563-00"
+       ]
+      }
+     ],
+     "no_dtc": [
+      {
+       "id": "Q04",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P244A-00",
+        "P243C-00",
+        "P226D-00",
+        "P244B-00",
+        "P2463-85"
+       ]
+      },
+      {
+       "id": "Q11",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P0118-00",
+        "P0119-00",
+        "P2228-00",
+        "P22A3-29",
+        "P2205-29"
+       ]
+      },
+      {
+       "id": "Q20",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P2463-85",
+        "P242F-00",
+        "P2458-00",
+        "P244A-00",
+        "P226D-00"
+       ]
+      },
+      {
+       "id": "Q22",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P0101-00",
+        "P0110-11",
+        "P010C-00",
+        "P0102-00",
+        "P0100-9B"
+       ]
+      },
+      {
+       "id": "Q27",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P0219-00",
+        "P061C-00",
+        "P0336-00",
+        "P0335-00"
+       ]
+      },
+      {
+       "id": "Q29",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P026A-00",
+        "P0101-00",
+        "P0109-00",
+        "P0110-12",
+        "P0102-00"
+       ]
+      },
+      {
+       "id": "Q30",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P0048-00",
+        "P0047-00",
+        "P003A-00",
+        "P0045-13",
+        "P006E-00"
+       ]
+      },
+      {
+       "id": "Q32",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P0110-11",
+        "P0504-00",
+        "P0110-12",
+        "P242F-00",
+        "P2458-09"
+       ]
+      },
+      {
+       "id": "Q36",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P1114-00",
+        "P0425-85",
+        "P242A-84",
+        "P242A-85",
+        "P0425-84"
+       ]
+      },
+      {
+       "id": "Q37",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P242F-00",
+        "P2463-85",
+        "P243C-00",
+        "P2458-00",
+        "P2458-09"
+       ]
+      },
+      {
+       "id": "Q41",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P2205-00",
+        "P22A3-00",
+        "P0119-00",
+        "P0110-12",
+        "P0118-00"
+       ]
+      },
+      {
+       "id": "Q42",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P0117-00",
+        "P0119-00",
+        "P0118-00",
+        "P0116-00",
+        "P0336-00"
+       ]
+      },
+      {
+       "id": "Q43",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P0110-11",
+        "P0110-12",
+        "P0100-9C",
+        "P0100-9B",
+        "P0109-00"
+       ]
+      },
+      {
+       "id": "Q45",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P2458-09",
+        "P2458-00",
+        "P0336-00",
+        "P2452-85",
+        "P2454-00"
+       ]
+      },
+      {
+       "id": "Q46",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P2463-85",
+        "P243F-F0",
+        "P242F-00",
+        "P243C-00",
+        "P2458-09"
+       ]
+      },
+      {
+       "id": "Q47",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P2458-09",
+        "P20A2-00",
+        "P208C-00",
+        "P20A2-11",
+        "P2454-00"
+       ]
+      },
+      {
+       "id": "Q48",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P0110-12",
+        "P0110-11",
+        "P0A1B-12",
+        "P0108-00",
+        "P2455-00"
+       ]
+      },
+      {
+       "id": "Q57",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P0219-00",
+        "P2463-85",
+        "P00C6-00",
+        "P242F-00",
+        "P243F-F0"
+       ]
+      },
+      {
+       "id": "Q60",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P242A-84",
+        "P242A-85",
+        "P0425-84",
+        "P0425-85",
+        "P0427-00"
+       ]
+      }
+     ]
+    }
+   },
+   "R2_colleague": {
+    "symptom": {
+     "n": 15,
+     "hit@1": 0.13333333333333333,
+     "hit@3": 0.3333333333333333,
+     "hit@5": 0.4,
+     "MRR": 0.24666666666666667,
+     "declines": 0,
+     "decline_ids": []
+    },
+    "no_dtc": {
+     "n": 4,
+     "declined": 0,
+     "decline_rate": 0.0
+    },
+    "latency_ms": {
+     "p50": 24.3,
+     "p95": 28.5
+    },
+    "rows": {
+     "symptom": [
+      {
+       "id": "R01",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P0A1B-13",
+        "P0A1B-12",
+        "P1083-00",
+        "P060A-49",
+        "P1203-00"
+       ]
+      },
+      {
+       "id": "R02",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P0194-00",
+        "P20A3-00",
+        "P0045-13",
+        "P1203-00",
+        "P0048-00"
+       ]
+      },
+      {
+       "id": "R03",
+       "rank": 2,
+       "declined": false,
+       "codes": [
+        "P1203-00",
+        "P0201-00",
+        "P0203-00",
+        "P2153-00",
+        "P0202-00"
+       ]
+      },
+      {
+       "id": "R04",
+       "rank": 2,
+       "declined": false,
+       "codes": [
+        "P0116-00",
+        "P0119-00",
+        "P0118-00",
+        "P0117-00",
+        "P0180-12"
+       ]
+      },
+      {
+       "id": "R05",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P0627-11",
+        "P0627-12",
+        "P0180-11",
+        "P1204-00",
+        "P1202-00"
+       ]
+      },
+      {
+       "id": "R06",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P0219-00",
+        "P061C-00",
+        "P0504-00",
+        "P0336-00",
+        "P1114-00"
+       ]
+      },
+      {
+       "id": "R07",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P0504-00",
+        "P0220-11",
+        "P0120-11",
+        "P0220-12",
+        "P0120-12"
+       ]
+      },
+      {
+       "id": "R08",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P0219-00",
+        "P061C-00",
+        "P2BA9-00",
+        "P206A-86",
+        "P206A-13"
+       ]
+      },
+      {
+       "id": "R09",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P0219-00",
+        "P061C-00",
+        "P2153-00",
+        "P1114-00"
+       ]
+      },
+      {
+       "id": "R10",
+       "rank": 5,
+       "declined": false,
+       "codes": [
+        "P0A1B-12",
+        "P0A1B-13",
+        "P0335-00",
+        "P0336-00",
+        "P0341-00"
+       ]
+      },
+      {
+       "id": "R11",
+       "rank": 1,
+       "declined": false,
+       "codes": [
+        "P0500-1F",
+        "P0500-1C",
+        "P0336-00",
+        "P2048-00",
+        "P20F4-00"
+       ]
+      },
+      {
+       "id": "R12",
+       "rank": 1,
+       "declined": false,
+       "codes": [
+        "P0A1B-13",
+        "P0A1B-12",
+        "P0340-00",
+        "P0704-29",
+        "P2229-00"
+       ]
+      },
+      {
+       "id": "R13",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P242F-00",
+        "P2458-09",
+        "P0001-00",
+        "P0627-11",
+        "P206A-F3"
+       ]
+      },
+      {
+       "id": "R14",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P042A-84",
+        "P042A-85",
+        "P042C-00",
+        "P042D-00",
+        "P243F-F0"
+       ]
+      },
+      {
+       "id": "R15",
+       "rank": 2,
+       "declined": false,
+       "codes": [
+        "P1014-00",
+        "P2458-00",
+        "P2458-09",
+        "P1080-00",
+        "P243C-00"
+       ]
+      }
+     ],
+     "no_dtc": [
+      {
+       "id": "R16",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P226D-00",
+        "P244A-00",
+        "P242F-00",
+        "P2463-85",
+        "P243F-F0"
+       ]
+      },
+      {
+       "id": "R17",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P0119-00",
+        "P1114-00",
+        "P0219-00",
+        "P242A-64",
+        "P0425-85"
+       ]
+      },
+      {
+       "id": "R18",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P2228-00",
+        "P0047-00",
+        "P0048-00",
+        "P0220-11",
+        "P0102-00"
+       ]
+      },
+      {
+       "id": "R19",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P2200-85",
+        "P1645-00",
+        "P2228-00",
+        "P1672-00",
+        "P1083-00"
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "v2_half": {
+   "ROUND1_independent": {
+    "symptom": {
+     "n": 41,
+     "hit@1": 0.24390243902439024,
+     "hit@3": 0.3170731707317073,
+     "hit@5": 0.4146341463414634,
+     "MRR": 0.2943089430894309,
+     "declines": 0,
+     "decline_ids": []
+    },
+    "no_dtc": {
+     "n": 19,
+     "declined": 0,
+     "decline_rate": 0.0
+    },
+    "latency_ms": {
+     "p50": 55.3,
+     "p95": 64.5
+    },
+    "rows": {
+     "symptom": [
+      {
+       "id": "Q01",
+       "rank": 1,
+       "declined": false,
+       "codes": [
+        "P0336-00",
+        "P0335-00",
+        "P22CF-73",
+        "P22CF-72",
+        "P0627-11"
+       ]
+      },
+      {
+       "id": "Q02",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P061C-00",
+        "P0219-00",
+        "P0500-1F",
+        "P0500-1C",
+        "P20F4-00"
+       ]
+      },
+      {
+       "id": "Q03",
+       "rank": 1,
+       "declined": false,
+       "codes": [
+        "P2150-00",
+        "P2147-00",
+        "P0201-00",
+        "P1201-00",
+        "P0202-00"
+       ]
+      },
+      {
+       "id": "Q05",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P0089-00",
+        "P22CF-72",
+        "P22CF-73",
+        "P018F-00",
+        "P0045-13"
+       ]
+      },
+      {
+       "id": "Q06",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P0109-00",
+        "P0110-12",
+        "P0110-11",
+        "P1001-00",
+        "P0107-00"
+       ]
+      },
+      {
+       "id": "Q07",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P244B-00",
+        "P244A-00",
+        "P0219-00",
+        "P2458-00",
+        "P20A0-4B"
+       ]
+      },
+      {
+       "id": "Q08",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P042A-85",
+        "P042A-84",
+        "P042C-00",
+        "P042D-00",
+        "P040D-00"
+       ]
+      },
+      {
+       "id": "Q09",
+       "rank": 3,
+       "declined": false,
+       "codes": [
+        "P2047-4B",
+        "P20A0-4B",
+        "P0425-85",
+        "P242C-00",
+        "P22A3-29"
+       ]
+      },
+      {
+       "id": "Q10",
+       "rank": 1,
+       "declined": false,
+       "codes": [
+        "P203F-00",
+        "P2BA9-00",
+        "P206A-F2",
+        "P203B-84",
+        "P203A-29"
+       ]
+      },
+      {
+       "id": "Q12",
+       "rank": 1,
+       "declined": false,
+       "codes": [
+        "P0119-00",
+        "P040C-00",
+        "P0117-00",
+        "P2043-85",
+        "P0072-00"
+       ]
+      },
+      {
+       "id": "Q13",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P2047-4B",
+        "P1114-00",
+        "P0336-00",
+        "P20A0-4B",
+        "P20F5-7A"
+       ]
+      },
+      {
+       "id": "Q14",
+       "rank": 1,
+       "declined": false,
+       "codes": [
+        "P0120-12",
+        "P2135-00",
+        "P0504-00",
+        "P0120-11",
+        "P0220-12"
+       ]
+      },
+      {
+       "id": "Q15",
+       "rank": 3,
+       "declined": false,
+       "codes": [
+        "P0220-11",
+        "P0120-11",
+        "P0220-12",
+        "P0120-12",
+        "P2135-00"
+       ]
+      },
+      {
+       "id": "Q16",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P018F-00",
+        "P2463-85",
+        "P244B-00",
+        "P243C-00",
+        "P1114-00"
+       ]
+      },
+      {
+       "id": "Q17",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P0336-00",
+        "P0004-00",
+        "P0003-00",
+        "P0335-00",
+        "P0627-12"
+       ]
+      },
+      {
+       "id": "Q18",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P0120-12",
+        "P0220-11",
+        "P0120-11",
+        "P0220-12",
+        "P2135-00"
+       ]
+      },
+      {
+       "id": "Q19",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P206A-F1",
+        "P203F-7B",
+        "P203F-84",
+        "P0089-00",
+        "P203A-23"
+       ]
+      },
+      {
+       "id": "Q21",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P0045-13",
+        "P0120-11",
+        "P22CF-73",
+        "P22CF-72",
+        "U0102-00"
+       ]
+      },
+      {
+       "id": "Q23",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P0110-12",
+        "P0110-11",
+        "P0119-00",
+        "P2047-4B",
+        "P1003-00"
+       ]
+      },
+      {
+       "id": "Q24",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P0A1B-12",
+        "P0A1B-13",
+        "P2047-4B",
+        "P0627-11",
+        "P0627-12"
+       ]
+      },
+      {
+       "id": "Q25",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P0219-00",
+        "P061C-00",
+        "P0336-00",
+        "P04A5-00"
+       ]
+      },
+      {
+       "id": "Q26",
+       "rank": 1,
+       "declined": false,
+       "codes": [
+        "P259F-00",
+        "P242F-00",
+        "P0489-00",
+        "P010C-00",
+        "P045C-00"
+       ]
+      },
+      {
+       "id": "Q28",
+       "rank": 1,
+       "declined": false,
+       "codes": [
+        "P0118-00",
+        "P0117-00",
+        "P0116-00",
+        "P0119-00",
+        "P0110-12"
+       ]
+      },
+      {
+       "id": "Q31",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P0089-00",
+        "P20EE-00",
+        "P20F4-00",
+        "P20F4-9B",
+        "P0204-00"
+       ]
+      },
+      {
+       "id": "Q33",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P0336-00",
+        "P0120-11",
+        "P0120-12",
+        "P0335-00",
+        "P0220-11"
+       ]
+      },
+      {
+       "id": "Q34",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P0120-11",
+        "P0336-00",
+        "P048B-11",
+        "P0220-11",
+        "P0194-00"
+       ]
+      },
+      {
+       "id": "Q35",
+       "rank": 5,
+       "declined": false,
+       "codes": [
+        "P2458-09",
+        "P042A-84",
+        "P042A-85",
+        "P2458-00",
+        "P243C-00"
+       ]
+      },
+      {
+       "id": "Q38",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P206A-F2",
+        "P2BA9-00",
+        "P206A-86",
+        "P206A-F1",
+        "P206A-13"
+       ]
+      },
+      {
+       "id": "Q39",
+       "rank": 4,
+       "declined": false,
+       "codes": [
+        "P203F-00",
+        "P203A-29",
+        "P206A-F2",
+        "P2BA9-00",
+        "P203B-84"
+       ]
+      },
+      {
+       "id": "Q40",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P1083-00",
+        "P22A3-29",
+        "P229E-0A",
+        "P226D-00",
+        "P244A-00"
+       ]
+      },
+      {
+       "id": "Q44",
+       "rank": 5,
+       "declined": false,
+       "codes": [
+        "P0118-00",
+        "P0119-00",
+        "P2205-29",
+        "P22A3-29",
+        "P0116-00"
+       ]
+      },
+      {
+       "id": "Q49",
+       "rank": 4,
+       "declined": false,
+       "codes": [
+        "P0336-00",
+        "P018F-00",
+        "P0219-00",
+        "P0562-00",
+        "P0563-00"
+       ]
+      },
+      {
+       "id": "Q50",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P1114-00",
+        "P2047-4B",
+        "P061C-00",
+        "P20A0-4B",
+        "P0184-00"
+       ]
+      },
+      {
+       "id": "Q51",
+       "rank": 3,
+       "declined": false,
+       "codes": [
+        "P0219-00",
+        "P061C-00",
+        "P0335-00",
+        "P0336-00"
+       ]
+      },
+      {
+       "id": "Q52",
+       "rank": 6,
+       "declined": false,
+       "codes": [
+        "P0504-00",
+        "P0220-11",
+        "P0120-11",
+        "P0120-12",
+        "P0220-12"
+       ]
+      },
+      {
+       "id": "Q53",
+       "rank": 1,
+       "declined": false,
+       "codes": [
+        "P061E-00",
+        "P10FF-00",
+        "P0500-1C",
+        "P0215-00",
+        "P060C-00"
+       ]
+      },
+      {
+       "id": "Q54",
+       "rank": 1,
+       "declined": false,
+       "codes": [
+        "P2264-00",
+        "P2264-12",
+        "P2264-11",
+        "P2463-85",
+        "P0001-00"
+       ]
+      },
+      {
+       "id": "Q55",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P0120-11",
+        "P0220-11",
+        "P0120-12",
+        "P0220-12",
+        "P2135-00"
+       ]
+      },
+      {
+       "id": "Q56",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P0103-00",
+        "P010D-00",
+        "P0109-00",
+        "P0045-13",
+        "P242F-00"
+       ]
+      },
+      {
+       "id": "Q58",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P061C-00",
+        "P0336-00",
+        "P0335-00",
+        "P0120-11"
+       ]
+      },
+      {
+       "id": "Q59",
+       "rank": 1,
+       "declined": false,
+       "codes": [
+        "P0A1B-12",
+        "P0A1B-13",
+        "P018F-00",
+        "P0627-12",
+        "P0089-00"
+       ]
+      }
+     ],
+     "no_dtc": [
+      {
+       "id": "Q04",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P244A-00",
+        "P226D-00",
+        "P244B-00",
+        "P243C-00",
+        "P2463-85"
+       ]
+      },
+      {
+       "id": "Q11",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P040D-00",
+        "P040C-00",
+        "P0119-00",
+        "P22A3-29",
+        "P2205-29"
+       ]
+      },
+      {
+       "id": "Q20",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P226D-00",
+        "P244A-00",
+        "P0421-00",
+        "P244B-00",
+        "P2463-85"
+       ]
+      },
+      {
+       "id": "Q22",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P0110-11",
+        "P0110-12",
+        "P0101-00",
+        "P0109-00",
+        "P0100-9C"
+       ]
+      },
+      {
+       "id": "Q27",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P0219-00",
+        "P061C-00",
+        "P0336-00",
+        "P2BA9-00"
+       ]
+      },
+      {
+       "id": "Q29",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P026A-00",
+        "P0101-00",
+        "P0110-12",
+        "P1003-00",
+        "P0100-00"
+       ]
+      },
+      {
+       "id": "Q30",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P0048-00",
+        "P0045-13",
+        "P0047-00",
+        "P22CF-72",
+        "P003A-00"
+       ]
+      },
+      {
+       "id": "Q32",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P2458-09",
+        "P243C-00",
+        "P0504-00",
+        "P2458-00",
+        "P0120-11"
+       ]
+      },
+      {
+       "id": "Q36",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P0119-00",
+        "P0117-00",
+        "P0118-00",
+        "P040B-00",
+        "P0116-00"
+       ]
+      },
+      {
+       "id": "Q37",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P243C-00",
+        "P226D-00",
+        "P2463-85",
+        "P243F-F0",
+        "P244B-00"
+       ]
+      },
+      {
+       "id": "Q41",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P0117-00",
+        "P0110-11",
+        "P0118-00",
+        "P0110-12",
+        "P0119-00"
+       ]
+      },
+      {
+       "id": "Q42",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P0119-00",
+        "P0117-00",
+        "P0118-00",
+        "P22A3-29",
+        "P0116-00"
+       ]
+      },
+      {
+       "id": "Q43",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P1002-00",
+        "P1000-00",
+        "P0110-11",
+        "P0071-00",
+        "P1001-00"
+       ]
+      },
+      {
+       "id": "Q45",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P2452-85",
+        "P0194-00",
+        "P2452-84",
+        "P2228-00",
+        "P2454-00"
+       ]
+      },
+      {
+       "id": "Q46",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P243F-F0",
+        "P2463-85",
+        "P226D-00",
+        "P244B-00",
+        "P243C-00"
+       ]
+      },
+      {
+       "id": "Q47",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P20A2-11",
+        "P2458-09",
+        "P226D-00",
+        "P20A2-00",
+        "P208C-00"
+       ]
+      },
+      {
+       "id": "Q48",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P1114-00",
+        "P0341-00",
+        "P0340-00",
+        "P0004-00",
+        "P0107-00"
+       ]
+      },
+      {
+       "id": "Q57",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P226D-00",
+        "P0219-00",
+        "P0203-00",
+        "P00C6-00",
+        "P244B-00"
+       ]
+      },
+      {
+       "id": "Q60",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P203F-7B",
+        "P042C-00",
+        "P042A-85",
+        "P042A-84",
+        "P040C-00"
+       ]
+      }
+     ]
+    }
+   },
+   "R2_colleague": {
+    "symptom": {
+     "n": 15,
+     "hit@1": 0.3333333333333333,
+     "hit@3": 0.3333333333333333,
+     "hit@5": 0.4666666666666667,
+     "MRR": 0.36333333333333334,
+     "declines": 0,
+     "decline_ids": []
+    },
+    "no_dtc": {
+     "n": 4,
+     "declined": 0,
+     "decline_rate": 0.0
+    },
+    "latency_ms": {
+     "p50": 48.2,
+     "p95": 62.8
+    },
+    "rows": {
+     "symptom": [
+      {
+       "id": "R01",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P0A1B-12",
+        "P0A1B-13",
+        "P1114-00",
+        "P0001-00",
+        "P0340-00"
+       ]
+      },
+      {
+       "id": "R02",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P259F-00",
+        "P0194-00",
+        "P0045-13",
+        "P2229-00",
+        "P2228-00"
+       ]
+      },
+      {
+       "id": "R03",
+       "rank": 1,
+       "declined": false,
+       "codes": [
+        "P0201-00",
+        "P0203-00",
+        "P0202-00",
+        "P2150-00",
+        "P04A5-00"
+       ]
+      },
+      {
+       "id": "R04",
+       "rank": 1,
+       "declined": false,
+       "codes": [
+        "P0119-00",
+        "P0116-00",
+        "P0117-00",
+        "P0118-00",
+        "P0180-11"
+       ]
+      },
+      {
+       "id": "R05",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P0627-11",
+        "P0627-12",
+        "P0180-11",
+        "P242A-84",
+        "P0425-84"
+       ]
+      },
+      {
+       "id": "R06",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P0219-00",
+        "P061C-00",
+        "P0504-00",
+        "P04A0-00",
+        "P1114-00"
+       ]
+      },
+      {
+       "id": "R07",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P0220-11",
+        "P0120-11",
+        "P0120-12",
+        "P0220-12",
+        "P0204-00"
+       ]
+      },
+      {
+       "id": "R08",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P0219-00",
+        "P0100-00",
+        "P0180-1C",
+        "P0180-1F",
+        "P2047-4B"
+       ]
+      },
+      {
+       "id": "R09",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P1114-00",
+        "P2047-4B",
+        "P0341-00",
+        "P060C-00",
+        "P0219-00"
+       ]
+      },
+      {
+       "id": "R10",
+       "rank": 5,
+       "declined": false,
+       "codes": [
+        "P0336-00",
+        "P0335-00",
+        "P0A1B-13",
+        "P0A1B-12",
+        "P0341-00"
+       ]
+      },
+      {
+       "id": "R11",
+       "rank": 1,
+       "declined": false,
+       "codes": [
+        "P0500-1F",
+        "P0500-1C",
+        "P0336-00",
+        "P0117-00",
+        "P2043-84"
+       ]
+      },
+      {
+       "id": "R12",
+       "rank": 1,
+       "declined": false,
+       "codes": [
+        "P0A1B-13",
+        "P0A1B-12",
+        "P0340-00",
+        "P0627-13",
+        "P0704-29"
+       ]
+      },
+      {
+       "id": "R13",
+       "rank": 1,
+       "declined": false,
+       "codes": [
+        "P2264-00",
+        "P0087-00",
+        "P204F-7C",
+        "P0088-00",
+        "P206A-F2"
+       ]
+      },
+      {
+       "id": "R14",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P042A-84",
+        "P042A-85",
+        "P20F4-00",
+        "P20F4-9B",
+        "P042C-00"
+       ]
+      },
+      {
+       "id": "R15",
+       "rank": 4,
+       "declined": false,
+       "codes": [
+        "P1014-00",
+        "P1019-00",
+        "P1083-00",
+        "P2458-00",
+        "P2458-09"
+       ]
+      }
+     ],
+     "no_dtc": [
+      {
+       "id": "R16",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P2BA9-00",
+        "P226D-00",
+        "P244A-00",
+        "P243F-F0",
+        "P2463-85"
+       ]
+      },
+      {
+       "id": "R17",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P0071-00",
+        "P026A-00",
+        "P0425-85",
+        "P2043-85",
+        "P242A-64"
+       ]
+      },
+      {
+       "id": "R18",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P0109-00",
+        "P2228-00",
+        "P22CF-73",
+        "P0107-00",
+        "P22CF-72"
+       ]
+      },
+      {
+       "id": "R19",
+       "rank": null,
+       "declined": false,
+       "codes": [
+        "P2200-85",
+        "P00C6-00",
+        "P0109-00",
+        "P2135-00",
+        "P242F-00"
+       ]
+      }
+     ]
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,25 @@
+{
+ "phase": "12.2",
+ "frozen_utc": "2026-10-28T03:28:11+00:00",
+ "git_commit": "8f8eb048b0aa4811c4fd273f1a4a2aa75177e826",
+ "chosen_variant": "v2_half",
+ "gate_verdict": "v2_half PASSES the pre-specified gate: guardrails 14/14, DEV in-scope 28/28, DEV out-of-scope 6/6. v2_equal FAILS it at guardrails 12/14 (injector cylinder 3 and cylinder 4). v2_half is therefore the frozen variant and the only one the post-hoc stage may measure.",
+ "adoption_recommendation": "DO NOT ADOPT, despite the gate pass. The gate as pre-specified contains no DEV-metric floor, and v2_half regresses DEV retrieval against base: symptom hit@1 0.583 -> 0.250 and symptom MRR 0.7111 -> 0.5208, near-duplicate MRR 1.0000 -> 0.9286. It does improve DEV symptom hit@5, 0.917 -> 1.000: the ranker brings the right record into the top five more often but demotes it from rank 1. On n=12 DEV symptom queries that is four queries moving off rank 1, which is small in absolute terms; it is nonetheless a measured regression in the metric the phase set out to improve, so production stays unchanged.",
+ "vs_phase_12_1": "Authoring beat generation by a wide margin on the thing 12.1 broke: near-duplicate MRR 0.9286 here against 0.4857/0.4929 in 12.1, and guardrails 14/14 against 7/14 and 9/14. The near-duplicate collapse is essentially repaired; the symptom-side gain that would justify adoption is still absent.",
+ "statement": "Frozen for reproducibility. The artefacts below are exactly what produced the reported numbers. Production retrieval, gate, indexes and records are unchanged by this phase; the expansions are index-only and are never shown to users or cited.",
+ "variants": {
+  "base": "production C4b + gate v2 (dense + BM25)",
+  "v2_equal": "index_exp/minilm_sympexp_v2, symptom ranking at RRF weight 1.0",
+  "v2_half": "index_exp/minilm_sympexp_v2, symptom ranking at RRF weight 0.5"
+ },
+ "sha256": {
+  "data/symptom_expansions_v2.json": "b4ae09a901a08b4e2aa3f8d0f23b4b9eb1f654eefb46aee167ab0688d919cc28",
+  "data/symptom_expansions_v2_filtered.json": "edbd89b31095eb6ce7428b79f6da32435fbeed0366c451e9f65a100ef097b62a",
+  "scripts/author_expansions_v2.py": "01c60a97f9adc88aebc38c9308f31cd7efe6b34566220de765e307426e696c2f",
+  "scripts/filter_expansions_v2.py": "689848fcdcd16b2fd761c2c20ab2a5ae9872b40b2ee4618c715f0f23cc719312",
+  "src/symptom_retriever_w.py": "b2e7b26a199b41eb1e7e4165aa8bc6028273755668a52120716d12a9a1164d95",
+  "scripts/eval_12_2.py": "cf2acdaaa4db5d31ae22552481d2473f21e9c62ff91a834e2535a8b9f302226c",
+  "index_exp/minilm_sympexp_v2/bm25_corpus.json": "587017f1ea977da50cf96ac5fc037c9dd27e4a30e741170fdebee1a2858c2661",
+  "index_exp/minilm_sympexp_v2/symptom_meta.json": "6a1b56f5bd1d07c06fc73414349ad4497974c9a0f46d2b9beee5723a4617535f"
+ }
+}

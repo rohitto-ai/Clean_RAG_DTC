@@ -1,0 +1,291 @@
+{
+ "configs": {
+  "base": {
+   "DEV": {
+    "symptom": {
+     "n": 12,
+     "hit@1": 0.5833333333333334,
+     "hit@3": 0.8333333333333334,
+     "hit@5": 0.9166666666666666,
+     "MRR": 0.7111111111111111,
+     "declines": 0,
+     "decline_ids": []
+    },
+    "near_duplicate": {
+     "n": 7,
+     "hit@1": 1.0,
+     "hit@3": 1.0,
+     "hit@5": 1.0,
+     "MRR": 1.0,
+     "declines": 0,
+     "decline_ids": []
+    },
+    "exact_code": {
+     "n": 6,
+     "hit@1": 1.0,
+     "hit@3": 1.0,
+     "hit@5": 1.0,
+     "MRR": 1.0,
+     "declines": 0,
+     "decline_ids": []
+    },
+    "overall": {
+     "n": 25,
+     "hit@1": 0.8,
+     "hit@3": 0.92,
+     "hit@5": 0.96,
+     "MRR": 0.8613333333333334,
+     "declines": 0,
+     "decline_ids": []
+    },
+    "groups": "3/3",
+    "oos": "6/6",
+    "in_scope": "28/28"
+   },
+   "TEST_post_hoc": {
+    "symptom": {
+     "n": 13,
+     "hit@1": 0.5384615384615384,
+     "hit@3": 0.6923076923076923,
+     "hit@5": 0.8461538461538461,
+     "MRR": 0.6282051282051282,
+     "declines": 0,
+     "decline_ids": []
+    },
+    "near_duplicate": {
+     "n": 7,
+     "hit@1": 0.42857142857142855,
+     "hit@3": 0.8571428571428571,
+     "hit@5": 1.0,
+     "MRR": 0.6785714285714286,
+     "declines": 0,
+     "decline_ids": []
+    },
+    "exact_code": {
+     "n": 6,
+     "hit@1": 1.0,
+     "hit@3": 1.0,
+     "hit@5": 1.0,
+     "MRR": 1.0,
+     "declines": 0,
+     "decline_ids": []
+    },
+    "overall": {
+     "n": 26,
+     "hit@1": 0.6153846153846154,
+     "hit@3": 0.8076923076923077,
+     "hit@5": 0.9230769230769231,
+     "MRR": 0.7275641025641026,
+     "declines": 0,
+     "decline_ids": []
+    },
+    "groups": "4/4",
+    "oos": "6/6",
+    "in_scope": "30/30"
+   },
+   "guardrails": "14/14",
+   "guardrails_failing": []
+  },
+  "v2_equal": {
+   "DEV": {
+    "symptom": {
+     "n": 12,
+     "hit@1": 0.25,
+     "hit@3": 0.75,
+     "hit@5": 1.0,
+     "MRR": 0.5347222222222222,
+     "declines": 0,
+     "decline_ids": []
+    },
+    "near_duplicate": {
+     "n": 7,
+     "hit@1": 0.8571428571428571,
+     "hit@3": 1.0,
+     "hit@5": 1.0,
+     "MRR": 0.9285714285714286,
+     "declines": 0,
+     "decline_ids": []
+    },
+    "exact_code": {
+     "n": 6,
+     "hit@1": 1.0,
+     "hit@3": 1.0,
+     "hit@5": 1.0,
+     "MRR": 1.0,
+     "declines": 0,
+     "decline_ids": []
+    },
+    "overall": {
+     "n": 25,
+     "hit@1": 0.6,
+     "hit@3": 0.88,
+     "hit@5": 1.0,
+     "MRR": 0.7566666666666667,
+     "declines": 0,
+     "decline_ids": []
+    },
+    "groups": "3/3",
+    "oos": "6/6",
+    "in_scope": "28/28"
+   },
+   "TEST_post_hoc": {
+    "symptom": {
+     "n": 13,
+     "hit@1": 0.5384615384615384,
+     "hit@3": 0.6153846153846154,
+     "hit@5": 0.7692307692307693,
+     "MRR": 0.6115384615384616,
+     "declines": 0,
+     "decline_ids": []
+    },
+    "near_duplicate": {
+     "n": 7,
+     "hit@1": 0.42857142857142855,
+     "hit@3": 0.8571428571428571,
+     "hit@5": 1.0,
+     "MRR": 0.6547619047619048,
+     "declines": 0,
+     "decline_ids": []
+    },
+    "exact_code": {
+     "n": 6,
+     "hit@1": 1.0,
+     "hit@3": 1.0,
+     "hit@5": 1.0,
+     "MRR": 1.0,
+     "declines": 0,
+     "decline_ids": []
+    },
+    "overall": {
+     "n": 26,
+     "hit@1": 0.6153846153846154,
+     "hit@3": 0.7692307692307693,
+     "hit@5": 0.8846153846153846,
+     "MRR": 0.7128205128205128,
+     "declines": 0,
+     "decline_ids": []
+    },
+    "groups": "4/4",
+    "oos": "6/6",
+    "in_scope": "30/30"
+   },
+   "guardrails": "12/14",
+   "guardrails_failing": [
+    "injector short circuit high and low side cylinder 3",
+    "injector short circuit high and low side cylinder 4"
+   ]
+  },
+  "v2_half": {
+   "DEV": {
+    "symptom": {
+     "n": 12,
+     "hit@1": 0.25,
+     "hit@3": 0.75,
+     "hit@5": 1.0,
+     "MRR": 0.5208333333333334,
+     "declines": 0,
+     "decline_ids": []
+    },
+    "near_duplicate": {
+     "n": 7,
+     "hit@1": 0.8571428571428571,
+     "hit@3": 1.0,
+     "hit@5": 1.0,
+     "MRR": 0.9285714285714286,
+     "declines": 0,
+     "decline_ids": []
+    },
+    "exact_code": {
+     "n": 6,
+     "hit@1": 1.0,
+     "hit@3": 1.0,
+     "hit@5": 1.0,
+     "MRR": 1.0,
+     "declines": 0,
+     "decline_ids": []
+    },
+    "overall": {
+     "n": 25,
+     "hit@1": 0.6,
+     "hit@3": 0.88,
+     "hit@5": 1.0,
+     "MRR": 0.75,
+     "declines": 0,
+     "decline_ids": []
+    },
+    "groups": "3/3",
+    "oos": "6/6",
+    "in_scope": "28/28"
+   },
+   "TEST_post_hoc": {
+    "symptom": {
+     "n": 13,
+     "hit@1": 0.5384615384615384,
+     "hit@3": 0.6923076923076923,
+     "hit@5": 0.8461538461538461,
+     "MRR": 0.6499999999999999,
+     "declines": 0,
+     "decline_ids": []
+    },
+    "near_duplicate": {
+     "n": 7,
+     "hit@1": 0.42857142857142855,
+     "hit@3": 0.8571428571428571,
+     "hit@5": 1.0,
+     "MRR": 0.6547619047619048,
+     "declines": 0,
+     "decline_ids": []
+    },
+    "exact_code": {
+     "n": 6,
+     "hit@1": 1.0,
+     "hit@3": 1.0,
+     "hit@5": 1.0,
+     "MRR": 1.0,
+     "declines": 0,
+     "decline_ids": []
+    },
+    "overall": {
+     "n": 26,
+     "hit@1": 0.6153846153846154,
+     "hit@3": 0.8076923076923077,
+     "hit@5": 0.9230769230769231,
+     "MRR": 0.7320512820512821,
+     "declines": 0,
+     "decline_ids": []
+    },
+    "groups": "4/4",
+    "oos": "6/6",
+    "in_scope": "30/30"
+   },
+   "guardrails": "14/14",
+   "guardrails_failing": []
+  }
+ },
+ "gate": {
+  "base": {
+   "passes": true,
+   "checks": {
+    "guardrails_14_of_14": true,
+    "dev_in_scope_28_of_28": true,
+    "dev_oos_6_of_6": true
+   }
+  },
+  "v2_equal": {
+   "passes": false,
+   "checks": {
+    "guardrails_14_of_14": false,
+    "dev_in_scope_28_of_28": true,
+    "dev_oos_6_of_6": true
+   }
+  },
+  "v2_half": {
+   "passes": true,
+   "checks": {
+    "guardrails_14_of_14": true,
+    "dev_in_scope_28_of_28": true,
+    "dev_oos_6_of_6": true
+   }
+  }
+ }
+}
