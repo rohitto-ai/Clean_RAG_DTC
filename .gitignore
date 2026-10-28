@@ -26,3 +26,4 @@ index_naive/
 # Phase 10.3 audit log (runtime artifact)
 data/demo/audit.jsonl
 data/demo/audit.jsonl.1
+data/demo/gold_r3_dummy.json

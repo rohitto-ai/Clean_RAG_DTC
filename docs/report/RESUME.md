@@ -90,6 +90,24 @@ authored blind to both) **+0.0496** MRR on Round-1 (CI [−0.048, +0.152], 8 bet
 `EMM alarm FCCUnn` ECU-internal faults, which differ only by an internal alarm number no driver
 can perceive. Suite **44/1/0**. Details: `docs/report/phase12_2_specific_expansions.md`.
 
+**Phase 12.3-prereg (same branch; no production change, no Round-3 data yet):** the Round-3
+protocol, fixed **before** the gold file exists. `docs/report/phase12_3_prereg.md` (committed alone,
+first, as `e8b5c7d`) pins three configurations — (a) production as preserved at tag `v3-final-eval`,
+(b) the 12.2 frozen `v2_half`, (c) production + A-narrow **for `no_dtc` rows only** — the data
+contract (`data/eval/gold_r3.json`, the `gold_r2_colleague.json` schema, **lenient** scoring as in
+Round 1, depth 5), the metrics (symptom Hit@1/3/5 and MRR; **10,000**-resample paired bootstrap of
+**(b − a)** MRR at **seed 0** with shared indices and a 2.5/97.5 percentile interval; per-query
+better/worse/tied; `no_dtc` declines and symptom-row false declines), and the only permitted
+verdicts: **"replicated"** needs Δ > 0 **and** better > worse, **"confirmed"** additionally needs the
+CI to exclude 0, anything else is **"not replicated"**. **No adoption decision follows from the run,
+whatever it says.** `scripts/eval_12_3.py` implements exactly that and refuses to proceed unless
+every sha256 in the 12.2 freeze still matches, `subsystem_prior == 0.0`, the DEV determinism hash is
+`ffff9bc707d8754d` (so config (a) is demonstrably the tagged system's behaviour) and the gold
+schema matches; `--run` refuses once `data/experiments/12_3/r3_results.json` exists, so a second run
+means deleting a committed result. Dry-run verified on a 3-row synthetic dummy
+(`data/demo/gold_r3_dummy.json`, gitignored): all three configs execute, (c) declines the leak row
+that (a) and (b) do not. Suite **44/1/0**, determinism **`ffff9bc707d8754d`**.
+
 **⚠ Two verification footguns, both found in Phase 12.2 (nothing is wrong with production).**
 (1) `scripts/determinism_proof.py --defaults` defaults to `--index-dir
 index_exp/minilm_alias_bm25_cyl`, a **stale experimental index built 2026-09-16**, and against it
@@ -385,3 +403,4 @@ exact dense, cylinder token) + gate v2 by default (`data/production_config.json`
 - [phase11_2_narrow_and_r2.md](phase11_2_narrow_and_r2.md) — A-narrow, pre-registered one-shot on the R2 colleague set
 - [phase12_1_symptom_bridge.md](phase12_1_symptom_bridge.md) — doc2query with a 3B model: **a negative result**
 - [phase12_2_specific_expansions.md](phase12_2_specific_expansions.md) — authored expansions: near-duplicates repaired, target metric still down
+- [phase12_3_prereg.md](phase12_3_prereg.md) — Round-3 protocol, pre-registered before the data exists
