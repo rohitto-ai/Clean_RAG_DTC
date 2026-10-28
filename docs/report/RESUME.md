@@ -104,7 +104,7 @@ whatever it says.** `scripts/eval_12_3.py` implements exactly that and refuses t
 every sha256 in the 12.2 freeze still matches, `subsystem_prior == 0.0`, the DEV determinism hash is
 `ffff9bc707d8754d` (so config (a) is demonstrably the tagged system's behaviour) and the gold
 schema matches; `--run` refuses once `data/experiments/12_3/r3_results.json` exists, so a second run
-means deleting a committed result. Dry-run verified on a 3-row synthetic dummy
+means deleting a committed result. **Addendum** (`docs/report/phase12_3_prereg_addendum.md`, `4f9dfd6`, the original prereg left unedited): blindness means the labeller reads the queries to assign codes and may correct labels against the **manual**, but nobody sees any **system output** for a Round-3 query, and nobody runs retrieval on one, before the scoring run. Three eligibility checks run **before** scoring and abort on failure — (i) mean symptom word overlap with the record vocabulary **≤ 0.15** using the Phase 8 `src/gold_overlap.py` function and ceiling, unchanged; (ii) any row at MiniLM cosine **≥ 0.85** to a Round-1 or R2 query is **excluded and reported** (exclusions applied first, so the ceiling is judged on the rows actually scored; nothing left to score is an abort); (iii) provenance must name the author **and** state that no AI tool was used — a check on the *claim*, which is all a program can do. Dry-run verified on a 3-row synthetic dummy
 (`data/demo/gold_r3_dummy.json`, gitignored): all three configs execute, (c) declines the leak row
 that (a) and (b) do not. Suite **44/1/0**, determinism **`ffff9bc707d8754d`**.
 
@@ -404,3 +404,4 @@ exact dense, cylinder token) + gate v2 by default (`data/production_config.json`
 - [phase12_1_symptom_bridge.md](phase12_1_symptom_bridge.md) — doc2query with a 3B model: **a negative result**
 - [phase12_2_specific_expansions.md](phase12_2_specific_expansions.md) — authored expansions: near-duplicates repaired, target metric still down
 - [phase12_3_prereg.md](phase12_3_prereg.md) — Round-3 protocol, pre-registered before the data exists
+- [phase12_3_prereg_addendum.md](phase12_3_prereg_addendum.md) — blindness clarified, eligibility gates on the Round-3 input

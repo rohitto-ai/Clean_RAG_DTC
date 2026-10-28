@@ -16,6 +16,14 @@ outside it.
              `data/experiments/12_3/r3_results.json` and REFUSES if that file
              already exists.
 
+ELIGIBILITY (addendum section 2), checked BEFORE any query is scored:
+  (i)   mean query overlap with the record vocabulary <= 0.15, using the Phase 8
+        function and ceiling imported unchanged from src/gold_overlap.py
+  (ii)  rows at MiniLM cosine >= 0.85 to a Round-1 or R2 query are EXCLUDED and
+        reported; exclusions are applied first, so (i) is judged on the rows that
+        will actually be scored; no symptom rows left is an abort
+  (iii) provenance must name the author AND state that no AI tool was used
+
 CONFIGURATIONS (prereg section 1), and no others:
   a  production      Retriever() on index/ + answer.default_gate()
   b  12.2 v2_half    WeightedSymptomRetriever(index_exp/minilm_sympexp_v2, 0.5)
@@ -39,6 +47,7 @@ import hashlib
 import json
 import os
 import random
+import re
 import statistics
 import sys
 import time
@@ -58,6 +67,12 @@ K = 5
 RESAMPLES = 10_000
 SEED = 0
 SCHEMA_REF = "data/gold_r2_colleague.json"
+PRIOR_SETS = ["data/gold_independent.json", "data/gold_r2_colleague.json"]
+PARAPHRASE_SIM = 0.85
+EMBEDDER = "sentence-transformers/all-MiniLM-L6-v2"
+AUTHOR_RE = re.compile(r"\b(written|authored|composed)\s+by\s+[A-Za-z]", re.I)
+NO_AI_RE = re.compile(r"\bno\s+(ai|a\.i\.|llm|llms|language model|language models|"
+                      r"generative(?:\s+ai)?)\b|\bwithout\s+(ai|llm|generative)\b", re.I)
 QUERY_FIELDS = {"id", "query", "mode", "expected", "notes", "split"}
 TOP_FIELDS = {"version", "created", "provenance", "queries"}
 SCORED_MODES = ("symptom", "no_dtc")
@@ -128,6 +143,95 @@ def check_schema(path):
         if not isinstance(q["expected"], list):
             raise SystemExit(f"ABORT: query {q['id']!r} 'expected' is not a list.")
     return d
+
+
+class EligibilityError(Exception):
+    """A pre-registered eligibility failure (addendum section 2)."""
+
+
+def check_provenance(gold):
+    """(iii) The claim must be made, by a named person. No program can verify how a
+    sentence was produced; this puts the claim on the record and makes it falsifiable."""
+    prov = (gold.get("provenance") or "").strip()
+    if not prov:
+        raise EligibilityError("provenance is empty; it must name who wrote the queries "
+                               "and state that no AI tool was used (addendum 2.iii).")
+    named, no_ai = bool(AUTHOR_RE.search(prov)), bool(NO_AI_RE.search(prov))
+    if not (named and no_ai):
+        missing = []
+        if not named:
+            missing.append("who wrote the queries ('written by <name>')")
+        if not no_ai:
+            missing.append("that no AI tool was used ('no AI tool was used')")
+        raise EligibilityError("provenance does not state " + " and ".join(missing)
+                               + f". Got: {prov[:160]!r}")
+    return {"names_author": True, "disclaims_ai": True,
+            "checked": "the CLAIM, not the fact - no program can verify how text was written",
+            "provenance": prov}
+
+
+def check_paraphrases(queries):
+    """(ii) Exclude rows that merely restate an already-spent Round-1 or R2 query."""
+    prior = []
+    for path in PRIOR_SETS:
+        for q in json.load(open(path))["queries"]:
+            prior.append({"set": os.path.basename(path), "id": q["id"], "query": q["query"]})
+    from sentence_transformers import SentenceTransformer
+    model = SentenceTransformer(EMBEDDER, device="cpu")
+    new_v = model.encode([q["query"] for q in queries], normalize_embeddings=True,
+                         convert_to_numpy=True, show_progress_bar=False)
+    old_v = model.encode([p["query"] for p in prior], normalize_embeddings=True,
+                         convert_to_numpy=True, show_progress_bar=False)
+    del model
+    sims = new_v @ old_v.T
+    excluded, kept = [], []
+    for i, q in enumerate(queries):
+        j = int(sims[i].argmax())
+        best = float(sims[i][j])
+        if best >= PARAPHRASE_SIM:
+            excluded.append({"id": q["id"], "mode": q["mode"], "cosine": round(best, 4),
+                             "nearest_prior_set": prior[j]["set"],
+                             "nearest_prior_id": prior[j]["id"]})
+        else:
+            kept.append(q)
+    return kept, {"threshold": PARAPHRASE_SIM, "embedder": EMBEDDER,
+                  "prior_queries_compared": len(prior),
+                  "excluded_count": len(excluded), "excluded": excluded}
+
+
+def check_overlap(symptom_queries):
+    """(i) The Phase 8 word-overlap ceiling, on the rows that will be scored."""
+    from gold_overlap import CEILING, load_descriptions, overlap, symptom_stats
+    desc = load_descriptions()
+    stats, rows = symptom_stats(symptom_queries, desc)
+    worst = sorted(((q["id"], round(sc, 4), sorted(sh)) for q, sc, sh, _ in rows),
+                   key=lambda r: -r[1])[:5]
+    report = {"ceiling": CEILING, "mean": stats["mean"], "max": stats["max"],
+              "zero_overlap": stats["zero_overlap"], "over_ceiling": stats["over_ceiling"],
+              "n": stats["n"], "worst_rows": worst,
+              "function": "src/gold_overlap.overlap (Phase 8.0), imported unchanged"}
+    if stats["mean"] > CEILING:
+        raise EligibilityError(
+            f"mean symptom query overlap {stats['mean']:.4f} > ceiling {CEILING}: the queries "
+            f"reuse the manual's own vocabulary, so the set cannot measure technician language "
+            f"(addendum 2.i). Worst rows: {worst}")
+    return report
+
+
+def check_eligibility(gold):
+    """All three checks, in the pre-registered order of operations."""
+    prov = check_provenance(gold)
+    kept, para = check_paraphrases(gold["queries"])
+    sym_all = [q for q in gold["queries"] if q["mode"] == "symptom"]
+    sym_kept = [q for q in kept if q["mode"] == "symptom"]
+    if not sym_kept:
+        raise EligibilityError("no symptom rows survive the paraphrase exclusion; there is "
+                               "nothing left to measure (addendum 2.ii).")
+    ov = check_overlap(sym_kept)
+    from gold_overlap import load_descriptions, symptom_stats
+    all_stats, _ = symptom_stats(sym_all, load_descriptions())
+    ov["mean_before_exclusions"] = all_stats["mean"]
+    return kept, {"provenance": prov, "paraphrases": para, "overlap": ov}
 
 
 # --------------------------------------------------------------------------
@@ -262,7 +366,15 @@ def verdict(bs):
 # --------------------------------------------------------------------------
 def score(path, guards):
     gold = check_schema(path)
-    qs = gold["queries"]
+    qs, eligibility = check_eligibility(gold)   # aborts before anything is scored
+    print(f"   provenance: author named, no-AI claim present")
+    print(f"   paraphrase exclusions: {eligibility['paraphrases']['excluded_count']} "
+          f"(cosine >= {PARAPHRASE_SIM} vs {eligibility['paraphrases']['prior_queries_compared']} "
+          f"spent queries)")
+    print(f"   word overlap: mean {eligibility['overlap']['mean']:.4f} "
+          f"<= ceiling {eligibility['overlap']['ceiling']} "
+          f"(max {eligibility['overlap']['max']:.4f}, "
+          f"{eligibility['overlap']['over_ceiling']} row(s) over ceiling)")
     by_mode = {}
     for q in qs:
         by_mode.setdefault(q["mode"], []).append(q)
@@ -270,11 +382,15 @@ def score(path, guards):
 
     out = {"gold_file": path, "gold_provenance": gold.get("provenance"),
            "gold_version": gold.get("version"), "gold_created": gold.get("created"),
-           "queries_total": len(qs),
+           "queries_total": len(gold["queries"]),
+           "queries_scored": len(qs),
+           "eligibility": eligibility,
            "modes": {m: len(v) for m, v in sorted(by_mode.items())},
            "unscored_modes": unscored,
            "scoring": "lenient (any code in 'expected' counts), depth 5, as in Round 1",
            "guards": guards, "configs": {}}
+    out["modes_scored_after_exclusions"] = {m: len([q for q in qs if q["mode"] == m])
+                                            for m in sorted({q["mode"] for q in qs})}
 
     rows_by_config = {}
     for kind, narrow, modes in (("a_production", False, SCORED_MODES),
@@ -329,6 +445,80 @@ def score(path, guards):
     return out
 
 
+def abort_demos():
+    """
+    Show every eligibility abort path firing, on variants built IN MEMORY so that no
+    gold text is ever written to disk. Each case is a deliberate failure: the dry run
+    is only honest if the guards are seen refusing, not merely seen passing.
+    """
+    base = json.load(open(DUMMY))
+    ok_prov = base["provenance"]
+    cases = []
+
+    # (iii) provenance: no author named, and no AI disclaimer
+    v = dict(base, provenance="Collected from the service desk.")
+    cases.append(("(iii) provenance names no author and makes no AI claim", v))
+
+    # (iii) provenance: author named but the AI claim missing
+    v = dict(base, provenance="Written by A. Mehta, workshop foreman.")
+    cases.append(("(iii) provenance names an author but omits the no-AI claim", v))
+
+    # (i) overlap: queries lifted straight out of the manual's own descriptions
+    recs = [json.loads(l) for l in open("data/dtc_records.jsonl")]
+    by_code = {r["code_full"]: r["description"] for r in recs}
+    picked = ["P0192-00", "P0117-00", "P0340-00"]
+    v = dict(base, provenance=ok_prov, queries=[
+        {"id": f"o{i}", "query": by_code[c], "mode": "symptom", "expected": [c],
+         "notes": "synthetic - illustrative", "split": "R3_DUMMY"}
+        for i, c in enumerate(picked, 1)])
+    cases.append(("(i) queries copied from the manual's own descriptions", v))
+
+    # (ii) every row is a verbatim already-spent query -> nothing left to score
+    prior = [q["query"] for q in json.load(open(PRIOR_SETS[1]))["queries"]
+             if q["mode"] == "symptom"][:3]
+    v = dict(base, provenance=ok_prov, queries=[
+        {"id": f"p{i}", "query": q, "mode": "symptom", "expected": ["P0192-00"],
+         "notes": "synthetic - illustrative", "split": "R3_DUMMY"}
+        for i, q in enumerate(prior, 1)])
+    cases.append(("(ii) every row is an already-spent query", v))
+
+    print("\n=== abort paths (deliberate failures, in-memory variants) ===")
+    for label, variant in cases:
+        try:
+            check_eligibility(variant)
+            print(f"  [!!] {label}: NO ABORT - the guard did not fire")
+        except EligibilityError as e:
+            print(f"  [ABORT as designed] {label}\n        {str(e)[:150]}")
+
+    # (ii) again, as an EXCLUSION rather than an abort: one spent query among good ones
+    mixed = dict(base, provenance=ok_prov,
+                 queries=base["queries"] + [
+                     {"id": "p9", "query": prior[0], "mode": "symptom",
+                      "expected": ["P0192-00"], "notes": "synthetic - illustrative",
+                      "split": "R3_DUMMY"}])
+    kept, rep = check_eligibility(mixed)
+    ex = rep["paraphrases"]["excluded"]
+    print(f"  [EXCLUDED, not aborted] one spent query among good rows: "
+          f"{len(ex)} excluded, {len(kept)} rows kept")
+    for e in ex:
+        print(f"        {e['id']} cosine {e['cosine']} vs {e['nearest_prior_set']}:"
+              f"{e['nearest_prior_id']}")
+
+    # schema guard, on a file-shaped variant
+    bad = dict(base)
+    bad["queries"] = [dict(q) for q in base["queries"]]
+    bad["queries"][0].pop("notes")
+    tmp = "data/demo/_schema_probe.json"
+    json.dump(bad, open(tmp, "w"))
+    try:
+        check_schema(tmp)
+        print("  [!!] schema guard did not fire")
+    except SystemExit as e:
+        print(f"  [ABORT as designed] schema: {str(e)[:120]}")
+    finally:
+        os.remove(tmp)
+
+
 def main():
     ap = argparse.ArgumentParser()
     g = ap.add_mutually_exclusive_group(required=True)
@@ -358,13 +548,18 @@ def main():
     print(f"   DEV determinism hash: {guards['dev_determinism_hash']} (as recorded for "
           f"v3-final-eval)")
 
-    out = score(path, guards)
+    try:
+        out = score(path, guards)
+    except EligibilityError as e:
+        print(f"\nABORT - eligibility (addendum section 2): {e}")
+        return 1
 
     if a.run:
         os.makedirs(OUT_DIR, exist_ok=True)
         json.dump(out, open(RESULTS, "w"), indent=1, default=str)
         print(f"\nwrote {RESULTS} - this file now blocks any re-run")
     else:
+        abort_demos()
         out["label"] = ("DRY RUN on synthetic dummy data - NOT a result, NOT Round 3. "
                         "Nothing is written to data/experiments/.")
         print("\nDRY RUN complete; nothing written. Dummy rows are synthetic - illustrative.")
