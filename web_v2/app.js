@@ -575,14 +575,19 @@ async function runSymptom(q) {
           el('span', { class: 'msg-label', text: `conversational · ${res.conversational}` })),
         el('div', { text: res.message }),
         el('div', { class: 'small', text: 'Not a fault report, so nothing was retrieved and the manual was not consulted.' }))));
-    } else if (res.mode === 'incomplete_code') {
+    } else if (res.mode === 'incomplete_code' || res.mode === 'invalid_code') {
+      /* 13.3 and 13.4 are the same kind of answer — "that is not a usable code,
+         here is what one looks like" — so they share one style. */
       const box = el('div', { class: 'msg clarify' }, el('div', {},
         el('div', { class: 'row' }, el('span', { class: 'tag RULE', text: 'RULE' }),
-          el('span', { class: 'msg-label', text: 'incomplete code' })),
+          el('span', { class: 'msg-label',
+            text: res.mode === 'invalid_code' ? 'invalid code' : 'incomplete code' })),
         el('div', { text: res.message })));
       const inner = box.firstChild;
       if ((res.candidates || []).length) {
-        inner.append(el('div', { class: 'small', text: 'Codes in this manual that start that way — not selected, enter the full code:' }),
+        inner.append(el('div', { class: 'small',
+          text: res.candidates_note
+            || 'Codes in this manual that start that way — not selected, enter the full code:' }),
           el('ul', { class: 'small' }, res.candidates.map((c) => el('li', {},
             el('code', { text: c.code }), ` (page ${c.page}) — ${c.description}`)),
           res.more_note ? el('li', { class: 'muted', text: res.more_note }) : null));
@@ -676,6 +681,8 @@ const SYMPTOM_PRESETS = [
   ['P-10', 'incomplete code — candidates, no retrieval'],
   ['P019', 'incomplete code — dropped digit'],
   ['P1', 'incomplete code — one digit, format hint only'],
+  ['P1023473efa234rgddhdhdfgddhy', 'invalid code — over-long token, no retrieval'],
+  ['U0100zzzz', 'invalid code — illegal characters'],
 ];
 const VERIFY_PRESETS = [
   ['transposition_P1000', 'P0100-00', 'telemetry P1000-00, technician types P0100-00'],

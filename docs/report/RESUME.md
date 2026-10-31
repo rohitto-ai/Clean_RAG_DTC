@@ -117,8 +117,9 @@ than added — true replay pause/resume (`/replay/start` restarts from row 0), `
 `/fleet.per_vehicle` (the column was removed rather than left blank), server-side sort/pagination.
 19 Playwright screenshots (desktop + tablet, both UIs, plus dark) in `docs/report/img/ui_v2/`;
 three real bugs were caught by *looking* at them — a wrapping stepper, an `ADVISORY` styled "needs
-confirmation", and a grid `min-width: auto` overflow. `./run.sh demo --check` **55 → 83**, **DEMO
-CHECK PASSED**. Suite **44/1/0**, determinism **`ffff9bc707d8754d`**. Details:
+confirmation", and a grid `min-width: auto` overflow. `./run.sh demo --check` **94 checks**, **DEMO CHECK PASSED**
+(the `/v2` block also covers the 13.4 invalid-code presets, which v2 renders in the same style as
+incomplete codes). Suite **44/1/0**, determinism **`ffff9bc707d8754d`**. Details:
 `docs/report/phase13_2_ui_v2.md`.
 **Phase 13.4 (branch `phase10-demo`; retrieval scoring, gate, indexes and records UNCHANGED):**
 over-long / garbage code tokens. Reported bug: `P1023473efa234rgddhdhdfgddhy` returned

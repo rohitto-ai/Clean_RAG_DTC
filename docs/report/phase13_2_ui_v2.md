@@ -37,6 +37,7 @@ colour bar as a secondary cue, never the only one.
 |---|---|---|
 | **conversational** (13.1) | green, `RULE` tag, label `conversational · GREETING/THANKS/NO_PROBLEM` | "hi", "thanks", "no issue, the vehicle is running fine" |
 | **incomplete code** (13.3) | amber, `RULE` tag, candidate list with pages | `P-10`, `P019`, `P1` |
+| **invalid code** (13.4) | the same amber style, labelled `invalid code` | `P1023473efa…`, `U0100zzzz` |
 | **refusal** | blue, "Not covered in this manual" + the gate's reason | out-of-scope questions |
 | **clarification** | amber, "Needs clarification" + did-you-mean | known base, unknown suffix |
 
@@ -106,11 +107,11 @@ not an open question), and the cards overflowed the viewport. All three are fixe
 
 ## Verification
 
-`./run.sh demo --check` extended from 55 to **83 checks**, **DEMO CHECK PASSED**. The new block
+`./run.sh demo --check` extended to **94 checks**, **DEMO CHECK PASSED**. The new block
 asserts that `/v2/`, `/v2/index.html`, `/v2/style.css` and `/v2/app.js` are served; that the bundle
 fetches nothing external; that both UIs link to each other; that v2 calls only existing endpoints;
-that **every** classic preset — 3 symptom, 3 conversational, 3 incomplete-code, 2 transposition — is
-present in the v2 bundle; and that the API returns the same decision for each preset when driven
+that **every** classic preset — 3 symptom, 3 conversational, 3 incomplete-code, 2 invalid-code,
+2 transposition — is present in the v2 bundle; and that the API returns the same decision for each preset when driven
 from v2.
 
 Suite `src/smoke_index.py` **44 passed / 1 xfail / 0 failed**; determinism
@@ -170,5 +171,7 @@ The branch is not merged, so `phase10-demo` is already the rollback. On this bra
    be checked on a real printer before anyone relies on it.
 6. **Two front ends now exist**, which is a maintenance cost: a change to a response shape must be
    made twice. If v2 is adopted, the classic UI should be retired rather than kept forever.
-7. **13.2 was finished after 13.3**, so the branch carries 13.1 and 13.3 behaviour; it has not been
+7. **The screenshots predate 13.4.** They were captured before `invalid_code` existed, so no image
+   shows that reply; it uses the same style as the incomplete-code shot, which is included.
+8. **13.2 was finished after 13.3**, so the branch carries 13.1 and 13.3 behaviour; it has not been
    re-based onto anything later, and `ui-v2` must be rebased again before it is merged.

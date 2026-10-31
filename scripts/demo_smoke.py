@@ -377,6 +377,8 @@ def main():
             check(f"v2 offers the preset {q!r}", q in v2["/v2/app.js"])
         for q, _c in INCOMPLETE_PRESETS:
             check(f"v2 offers the preset {q!r}", q in v2["/v2/app.js"])
+        for q, _c in INVALID_PRESETS:
+            check(f"v2 offers the preset {q[:28]!r}", q in v2["/v2/app.js"])
         for key, typed, _n in VERIFY_PRESETS:
             check(f"v2 offers the transposition preset {typed}",
                   key in v2["/v2/app.js"] and typed in v2["/v2/app.js"])
@@ -395,6 +397,13 @@ def main():
             check(f"v2 preset {q!r} -> incomplete_code",
                   sts == 200 and res.get("mode") == "incomplete_code"
                   and bool(res.get("candidates")) == want_cands, str(res.get("mode")))
+        for q, want_cands in INVALID_PRESETS:
+            sts, res = c.post("/symptom", {"query": q, "summary": False})
+            check(f"v2 preset {q[:28]!r} -> invalid_code",
+                  sts == 200 and res.get("mode") == "invalid_code"
+                  and bool(res.get("candidates")) == want_cands, str(res.get("mode")))
+        check("v2 renders invalid_code in the same style as incomplete_code",
+              "invalid_code" in v2["/v2/app.js"] and "invalid code" in v2["/v2/app.js"])
         check("v2 renders a distinct style for each message class",
               all(k in v2["/v2/app.js"] for k in ("msg friendly", "msg clarify", "msg refusal"))
               and "incomplete_code" in v2["/v2/app.js"] and "conversational" in v2["/v2/app.js"])
