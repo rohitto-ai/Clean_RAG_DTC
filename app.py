@@ -21,6 +21,9 @@ Endpoints
     GET  /v2                           static files from web_v2/ (optional new UI)
     GET  /                             static files from web/
 
+Phase 13.4 adds decision "invalid_code": a code-SHAPED token that cannot be a code
+("P1023473efa...", "P99999999") never reaches symptom retrieval either.
+
 Phase 13.3 adds decision "incomplete_code": a half-typed code ("P10", "P-10",
 "p 019") never reaches symptom retrieval and never auto-selects; it returns the
 format hint plus candidates taken from the code dictionary alone.
@@ -255,35 +258,52 @@ def why_conversational(label, reasons):
     }
 
 
-def why_incomplete_code(res):
+def why_code_hint(res, route):
     """
-    `why` for a Phase 13.3 incomplete-code reply. Every step is RULE: the detection
-    is a regex, the candidates come from the code dictionary, and nothing is
-    retrieved, ranked or auto-selected.
+    `why` for the two code-shaped replies, Phase 13.3 `incomplete_code` and Phase
+    13.4 `invalid_code`. Every step is RULE: the detection is a regex, any
+    candidates come from the code dictionary, and nothing is retrieved, ranked or
+    auto-selected.
     """
     t = (res.get("trace") or {}).get("retrieval_trace") or {}
+    if route == "invalid_code":
+        bad = t.get("invalid") or {}
+        detect = ("over-long or malformed code token"
+                  + (", too long" if bad.get("too_long") else "")
+                  + (f", illegal characters {','.join(bad.get('bad_characters') or [])}"
+                     if bad.get("bad_characters") else ""))
+        steps = [rule("normalise the typed code (space / underscore / letter-O forms)"),
+                 rule("extract any valid code embedded in the text (9.3) - none found"),
+                 rule(f"detect an invalid code token (13.4): {detect}"),
+                 rule("offer the dictionary's variants only when the first five "
+                      "characters are a base code this manual holds"),
+                 rule("nothing is auto-selected and no repair procedure is asserted")]
+    else:
+        steps = [rule("normalise the typed code (space / underscore / letter-O forms)"),
+                 rule("detect an incomplete code attempt: code letter + 1-3 hex digits, "
+                      "at most 3 tokens (or named by code/DTC/fault), at least one real digit"),
+                 rule("candidates from the code dictionary only: digit-prefix, "
+                      "zero-padded, one digit-insertion away"),
+                 rule("nothing is auto-selected and no repair procedure is asserted")]
     return {
-        "route": "incomplete_code",
+        "route": route,
         "ladder": [{"rung": "code-token normalisation (9.3b)", "result": "no complete code"},
-                   {"rung": "incomplete-code detection (13.3)",
-                    "result": f"letter {(t.get('partial') or {}).get('letter')}, "
-                              f"digits {(t.get('partial') or {}).get('digits')}"},
+                   {"rung": f"{route} detection",
+                    "result": (f"token {(t.get('invalid') or {}).get('token', '')[:20]}"
+                               if route == "invalid_code" else
+                               f"letter {(t.get('partial') or {}).get('letter')}, "
+                               f"digits {(t.get('partial') or {}).get('digits')}")},
                    {"rung": "dictionary candidates", "result":
                     f"{len(res.get('candidates') or [])} shown"
                     + (f", {res['candidates_more']} more" if res.get("candidates_more") else "")}],
-        "retrieval": {"used": False, "router_mode": "incomplete_code", "ranks": [],
-                      "note": "symptom retrieval is NOT run for a half-typed code"},
+        "retrieval": {"used": False, "router_mode": route, "ranks": [],
+                      "note": "symptom retrieval is NOT run for a code-shaped token"},
         "gate": {"applied": False, "decision": "not applicable",
                  "reasons": [res.get("no_candidates_reason")] if res.get("no_candidates_reason")
                             else [], "signals": {}},
         "citations": [],
         "severity_reasons": [],
-        "steps": [rule("normalise the typed code (space / underscore / letter-O forms)"),
-                  rule("detect an incomplete code attempt: code letter + 1-3 hex digits, "
-                       "at most 3 tokens, at least one real digit"),
-                  rule("candidates from the code dictionary only: digit-prefix, "
-                       "zero-padded, one digit-insertion away"),
-                  rule("nothing is auto-selected and no repair procedure is asserted")],
+        "steps": steps,
         "codes": [c["code"] for c in (res.get("candidates") or [])],
     }
 
@@ -513,16 +533,17 @@ def symptom(s: SymptomIn):
         r["illustrative_cost_tat"] = cost_for_system(fb["system"], fb["code_full"])
     res["config"] = {"index": "index (production C4b)", "gate": "v2",
                      "lexicon_v2_adopted": False}
-    if res["mode"] == "incomplete_code":
-        res["why"] = why_incomplete_code(res)
+    if res["mode"] in ("incomplete_code", "invalid_code"):
+        res["why"] = why_code_hint(res, res["mode"])
     else:
         res["why"] = why_symptom(res, summary_requested=s.summary)
     decision = {"refused": "refuse", "clarify_code": "clarify",
-                "incomplete_code": "incomplete_code"}.get(res["mode"], "answer")
+                "incomplete_code": "incomplete_code",
+                "invalid_code": "invalid_code"}.get(res["mode"], "answer")
     audit("/symptom", s.model_dump(), route=res["mode"], codes=res["why"]["codes"],
           decision=decision, latency_ms=(time.perf_counter() - t0) * 1000,
           extra={"refusal_reasons": res.get("refusal_reasons"),
-                 "incomplete_code": res.get("candidates") and
+                 "code_hint": res.get("candidates") and
                                     {"candidates": [c["code"] for c in res["candidates"]],
                                      "more": res.get("candidates_more", 0)} or None})
     return res

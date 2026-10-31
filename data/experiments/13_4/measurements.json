@@ -1,0 +1,1669 @@
+{
+ "label": "Phase 13.4. (A) synthetic garbage code-token probe. (B) POST-HOC interception count, counts only - detect_invalid() alone.",
+ "probe": {
+  "n_forms": 200,
+  "by_kind": {
+   "tail": {
+    "invalid_code": 50
+   },
+   "digits": {
+    "invalid_code": 50
+   },
+   "illegal": {
+    "invalid_code": 9,
+    "exact_code": 41
+   },
+   "nodash": {
+    "invalid_code": 50
+   }
+  },
+  "by_mode": {
+   "invalid_code": 159,
+   "exact_code": 41
+  },
+  "forms_answered_with_a_ranked_list": 41,
+  "rows": [
+   {
+    "source_code": "P165C-00",
+    "form": "P165Cyghddvagwvpzznyfk",
+    "kind": "tail",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P2205-29",
+    "form": "P634570005550",
+    "kind": "digits",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P243C-00",
+    "form": "P243Czywap",
+    "kind": "illegal",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P0109-00",
+    "form": "P010900gdfyhdyrd",
+    "kind": "nodash",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P0627-12",
+    "form": "P0627nfhhnha",
+    "kind": "tail",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P2043-84",
+    "form": "P6311662621823",
+    "kind": "digits",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P1085-00",
+    "form": "P1085zphdd",
+    "kind": "illegal",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P045C-00",
+    "form": "P045C00pamwpfven",
+    "kind": "nodash",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P1014-00",
+    "form": "P1014ddhkrddw",
+    "kind": "tail",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P1641-00",
+    "form": "P0018259369",
+    "kind": "digits",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P204F-73",
+    "form": "P204F$ddnv",
+    "kind": "illegal",
+    "mode": "exact_code",
+    "returned": [
+     "P204F-7C",
+     "P204F-73"
+    ]
+   },
+   {
+    "source_code": "P0220-12",
+    "form": "P022012xerhddvzr",
+    "kind": "nodash",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P0100-9B",
+    "form": "P0100azfdxhhg",
+    "kind": "tail",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P259E-00",
+    "form": "P02008587",
+    "kind": "digits",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P0340-00",
+    "form": "P0340@dddf",
+    "kind": "illegal",
+    "mode": "exact_code",
+    "returned": [
+     "P0340-00"
+    ]
+   },
+   {
+    "source_code": "P1645-00",
+    "form": "P164500dfwxdhdwgd",
+    "kind": "nodash",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P0215-00",
+    "form": "P0215ddmhdk",
+    "kind": "tail",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P1640-00",
+    "form": "P22429563550",
+    "kind": "digits",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P0202-00",
+    "form": "P0202@vxxh",
+    "kind": "illegal",
+    "mode": "exact_code",
+    "returned": [
+     "P0202-00"
+    ]
+   },
+   {
+    "source_code": "P0219-00",
+    "form": "P021900xawmx",
+    "kind": "nodash",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P045C-00",
+    "form": "P045Cdhdevhfmpddfh",
+    "kind": "tail",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P0201-00",
+    "form": "P89148689236",
+    "kind": "digits",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P2455-00",
+    "form": "P2455$pgdq",
+    "kind": "illegal",
+    "mode": "exact_code",
+    "returned": [
+     "P2455-00"
+    ]
+   },
+   {
+    "source_code": "P0425-64",
+    "form": "P042564dddhq",
+    "kind": "nodash",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P1650-00",
+    "form": "P1650dwkhdmpvfd",
+    "kind": "tail",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P2043-85",
+    "form": "P20718541",
+    "kind": "digits",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P042A-84",
+    "form": "P042A#hhhv",
+    "kind": "illegal",
+    "mode": "exact_code",
+    "returned": [
+     "P042A-85",
+     "P042A-84",
+     "P042A-64"
+    ]
+   },
+   {
+    "source_code": "P0102-00",
+    "form": "P010200pndadggkvg",
+    "kind": "nodash",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P1661-00",
+    "form": "P1661edkdddhzahdddfpd",
+    "kind": "tail",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P0003-00",
+    "form": "P204054843507",
+    "kind": "digits",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P2200-85",
+    "form": "P2200%gnhn",
+    "kind": "illegal",
+    "mode": "exact_code",
+    "returned": [
+     "P2200-86",
+     "P2200-13",
+     "P2200-F0",
+     "P2200-85",
+     "P2200-84",
+     "P2200-0D",
+     "P2200-01",
+     "P2200-29",
+     "P2200-22",
+     "P2200-21",
+     "P2200-0A",
+     "P2200-27",
+     "P2200-26"
+    ]
+   },
+   {
+    "source_code": "P2463-85",
+    "form": "P246385qqnhwak",
+    "kind": "nodash",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P165A-00",
+    "form": "P165Ahddfndfmqadddmy",
+    "kind": "tail",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P0118-00",
+    "form": "P266479255",
+    "kind": "digits",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P1000-00",
+    "form": "P1000@rydq",
+    "kind": "illegal",
+    "mode": "exact_code",
+    "returned": [
+     "P1000-00"
+    ]
+   },
+   {
+    "source_code": "P2200-0A",
+    "form": "P22000Adewhddd",
+    "kind": "nodash",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P2200-0A",
+    "form": "P2200dfmddydfagnvd",
+    "kind": "tail",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P0071-00",
+    "form": "P95544065",
+    "kind": "digits",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P042D-00",
+    "form": "P042D@dadv",
+    "kind": "illegal",
+    "mode": "exact_code",
+    "returned": [
+     "P042D-00"
+    ]
+   },
+   {
+    "source_code": "P0101-00",
+    "form": "P010100mhhkdad",
+    "kind": "nodash",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P04A4-00",
+    "form": "P04A4mvhhhyhkpp",
+    "kind": "tail",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P20F5-7A",
+    "form": "P81804962273",
+    "kind": "digits",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P164F-00",
+    "form": "P164F$dgnw",
+    "kind": "illegal",
+    "mode": "exact_code",
+    "returned": [
+     "P164F-00"
+    ]
+   },
+   {
+    "source_code": "P2147-00",
+    "form": "P214700ykdhpv",
+    "kind": "nodash",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P061E-00",
+    "form": "P061Ermhvhwnzqgmfe",
+    "kind": "tail",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P2452-95",
+    "form": "P69478563950",
+    "kind": "digits",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P042E-00",
+    "form": "P042Ezhahh",
+    "kind": "illegal",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P1642-00",
+    "form": "P164200dgdzdhxm",
+    "kind": "nodash",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P1668-00",
+    "form": "P1668hggdhdvdddwmddd",
+    "kind": "tail",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P0194-00",
+    "form": "P6969001294",
+    "kind": "digits",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P0425-64",
+    "form": "P0425%gdha",
+    "kind": "illegal",
+    "mode": "exact_code",
+    "returned": [
+     "P0425-85",
+     "P0425-84",
+     "P0425-64"
+    ]
+   },
+   {
+    "source_code": "P2200-27",
+    "form": "P220027zrnqvn",
+    "kind": "nodash",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P164A-00",
+    "form": "P164Agyppnep",
+    "kind": "tail",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P0102-00",
+    "form": "P6780982344376",
+    "kind": "digits",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P229E-86",
+    "form": "P229Ezdgdx",
+    "kind": "illegal",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P2452-95",
+    "form": "P245295wededkgh",
+    "kind": "nodash",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P0100-00",
+    "form": "P0100fynwhdhrdy",
+    "kind": "tail",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P1670-00",
+    "form": "P892562783113",
+    "kind": "digits",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P048E-00",
+    "form": "P048E@dzxx",
+    "kind": "illegal",
+    "mode": "exact_code",
+    "returned": [
+     "P048E-00"
+    ]
+   },
+   {
+    "source_code": "P229E-F0",
+    "form": "P229EF0qnddyxd",
+    "kind": "nodash",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P203A-29",
+    "form": "P203Axpddhwdmnmndzgdm",
+    "kind": "tail",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P0073-00",
+    "form": "P96680740760",
+    "kind": "digits",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P2153-00",
+    "form": "P2153#dhnd",
+    "kind": "illegal",
+    "mode": "exact_code",
+    "returned": [
+     "P2153-00"
+    ]
+   },
+   {
+    "source_code": "P203A-23",
+    "form": "P203A23fymhwpdkk",
+    "kind": "nodash",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P1080-00",
+    "form": "P1080ghhdfmxdvwhhwhpzev",
+    "kind": "tail",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P203B-84",
+    "form": "P830040562536",
+    "kind": "digits",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P042C-00",
+    "form": "P042C$hwya",
+    "kind": "illegal",
+    "mode": "exact_code",
+    "returned": [
+     "P042C-00"
+    ]
+   },
+   {
+    "source_code": "P2200-01",
+    "form": "P220001ddffq",
+    "kind": "nodash",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P0180-1F",
+    "form": "P0180zexzgvvn",
+    "kind": "tail",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P1677-00",
+    "form": "P63176703",
+    "kind": "digits",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P0220-12",
+    "form": "P0220%ggqg",
+    "kind": "illegal",
+    "mode": "exact_code",
+    "returned": [
+     "P0220-11",
+     "P0220-12"
+    ]
+   },
+   {
+    "source_code": "P229F-76",
+    "form": "P229F76dnkfxd",
+    "kind": "nodash",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P1667-00",
+    "form": "P1667dffffeay",
+    "kind": "tail",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P0110-11",
+    "form": "P48211256",
+    "kind": "digits",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P206A-F3",
+    "form": "P206Azfegk",
+    "kind": "illegal",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P1654-00",
+    "form": "P165400qhzvd",
+    "kind": "nodash",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P1203-00",
+    "form": "P1203kydzhkqaddydzpdqdw",
+    "kind": "tail",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P0563-00",
+    "form": "P004851119",
+    "kind": "digits",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P242A-64",
+    "form": "P242A%nhpx",
+    "kind": "illegal",
+    "mode": "exact_code",
+    "returned": [
+     "P242A-85",
+     "P242A-84",
+     "P242A-64"
+    ]
+   },
+   {
+    "source_code": "P018F-00",
+    "form": "P018F00hddgvq",
+    "kind": "nodash",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P242A-64",
+    "form": "P242Azedayhypxhgddzkgd",
+    "kind": "tail",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P242A-84",
+    "form": "P4174070520426",
+    "kind": "digits",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P2200-26",
+    "form": "P2200#rrev",
+    "kind": "illegal",
+    "mode": "exact_code",
+    "returned": [
+     "P2200-86",
+     "P2200-13",
+     "P2200-F0",
+     "P2200-85",
+     "P2200-84",
+     "P2200-0D",
+     "P2200-01",
+     "P2200-29",
+     "P2200-22",
+     "P2200-21",
+     "P2200-0A",
+     "P2200-27",
+     "P2200-26"
+    ]
+   },
+   {
+    "source_code": "P242A-85",
+    "form": "P242A85mgfdgd",
+    "kind": "nodash",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P00C6-00",
+    "form": "P00C6zaydddqymf",
+    "kind": "tail",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P0427-00",
+    "form": "P13025376322572",
+    "kind": "digits",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P1652-00",
+    "form": "P1652zdnwd",
+    "kind": "illegal",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P05EE-00",
+    "form": "P05EE00dfyyqfg",
+    "kind": "nodash",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P229E-27",
+    "form": "P229Efdqdfgghpvgmyarr",
+    "kind": "tail",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P2200-84",
+    "form": "P405831855410",
+    "kind": "digits",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P0045-13",
+    "form": "P0045$dfrz",
+    "kind": "illegal",
+    "mode": "exact_code",
+    "returned": [
+     "P0045-13"
+    ]
+   },
+   {
+    "source_code": "P2043-85",
+    "form": "P204385ngdhkf",
+    "kind": "nodash",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P1015-00",
+    "form": "P1015qyeedndhdydhz",
+    "kind": "tail",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P040D-00",
+    "form": "P32128878646",
+    "kind": "digits",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P2200-21",
+    "form": "P2200zggdw",
+    "kind": "illegal",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P1671-00",
+    "form": "P167100yhgafddw",
+    "kind": "nodash",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P242F-00",
+    "form": "P242Fkdmhxyxvgephngkwgv",
+    "kind": "tail",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P2463-85",
+    "form": "P1712351436950",
+    "kind": "digits",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P0A1B-13",
+    "form": "P0A1B$gdeg",
+    "kind": "illegal",
+    "mode": "exact_code",
+    "returned": [
+     "P0A1B-13",
+     "P0A1B-12"
+    ]
+   },
+   {
+    "source_code": "P0202-00",
+    "form": "P020200ddhrahm",
+    "kind": "nodash",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P1653-00",
+    "form": "P1653dpkhfpzadndvzd",
+    "kind": "tail",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P1112-00",
+    "form": "P249196025",
+    "kind": "digits",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P042C-00",
+    "form": "P042C#dyra",
+    "kind": "illegal",
+    "mode": "exact_code",
+    "returned": [
+     "P042C-00"
+    ]
+   },
+   {
+    "source_code": "P1658-00",
+    "form": "P165800hrzzyfhff",
+    "kind": "nodash",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P0108-00",
+    "form": "P0108dghkqdkqhhnk",
+    "kind": "tail",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P0611-F8",
+    "form": "P8386146648",
+    "kind": "digits",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P101C-00",
+    "form": "P101C@hgfr",
+    "kind": "illegal",
+    "mode": "exact_code",
+    "returned": [
+     "P101C-00"
+    ]
+   },
+   {
+    "source_code": "P0192-00",
+    "form": "P019200ndayhpk",
+    "kind": "nodash",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P1114-00",
+    "form": "P1114fqndpdddfp",
+    "kind": "tail",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P2047-4B",
+    "form": "P5382574500",
+    "kind": "digits",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P1645-00",
+    "form": "P1645#kgdd",
+    "kind": "illegal",
+    "mode": "exact_code",
+    "returned": [
+     "P1645-00"
+    ]
+   },
+   {
+    "source_code": "P0072-00",
+    "form": "P007200vvnndk",
+    "kind": "nodash",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P2049-00",
+    "form": "P2049nxfyhwgn",
+    "kind": "tail",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P1015-00",
+    "form": "P34004007118",
+    "kind": "digits",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P1083-00",
+    "form": "P1083$dyzm",
+    "kind": "illegal",
+    "mode": "exact_code",
+    "returned": [
+     "P1083-00"
+    ]
+   },
+   {
+    "source_code": "P2264-00",
+    "form": "P226400pxddxggndp",
+    "kind": "nodash",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P0425-84",
+    "form": "P0425padxrkfzdh",
+    "kind": "tail",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P003B-00",
+    "form": "P776258522902",
+    "kind": "digits",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P164F-00",
+    "form": "P164Fzxhgv",
+    "kind": "illegal",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P20A2-00",
+    "form": "P20A200rdddq",
+    "kind": "nodash",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P0107-00",
+    "form": "P0107khvrdr",
+    "kind": "tail",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P0627-12",
+    "form": "P85647200",
+    "kind": "digits",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P1657-00",
+    "form": "P1657$negd",
+    "kind": "illegal",
+    "mode": "exact_code",
+    "returned": [
+     "P1657-00"
+    ]
+   },
+   {
+    "source_code": "P208A-4B",
+    "form": "P208A4Bdfvdwgfmh",
+    "kind": "nodash",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P048D-00",
+    "form": "P048Dggqavgg",
+    "kind": "tail",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P203B-85",
+    "form": "P544002853883",
+    "kind": "digits",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P203A-23",
+    "form": "P203A%dhha",
+    "kind": "illegal",
+    "mode": "exact_code",
+    "returned": [
+     "P203A-24",
+     "P203A-23",
+     "P203A-29"
+    ]
+   },
+   {
+    "source_code": "P0004-00",
+    "form": "P000400hnayhgfa",
+    "kind": "nodash",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P0001-00",
+    "form": "P0001nheawhdzywnvwq",
+    "kind": "tail",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P026A-00",
+    "form": "P2104506406",
+    "kind": "digits",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P0118-00",
+    "form": "P0118$pwxq",
+    "kind": "illegal",
+    "mode": "exact_code",
+    "returned": [
+     "P0118-00"
+    ]
+   },
+   {
+    "source_code": "P0425-85",
+    "form": "P042585hyfeddfhyd",
+    "kind": "nodash",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P2264-11",
+    "form": "P2264fxmxhdd",
+    "kind": "tail",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "U011A-89",
+    "form": "U001343058",
+    "kind": "digits",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P0562-00",
+    "form": "P0562@kmhf",
+    "kind": "illegal",
+    "mode": "exact_code",
+    "returned": [
+     "P0562-00"
+    ]
+   },
+   {
+    "source_code": "P20A0-13",
+    "form": "P20A013adqkzz",
+    "kind": "nodash",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P20F5-7A",
+    "form": "P20F5hfwkrrgdddddh",
+    "kind": "tail",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P0220-11",
+    "form": "P97285613",
+    "kind": "digits",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P0611-F8",
+    "form": "P0611%yyya",
+    "kind": "illegal",
+    "mode": "exact_code",
+    "returned": [
+     "P0611-F5",
+     "P0611-F8"
+    ]
+   },
+   {
+    "source_code": "P060A-49",
+    "form": "P060A49dhfqwwh",
+    "kind": "nodash",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P2452-95",
+    "form": "P2452ehddxdnhvqgped",
+    "kind": "tail",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P2047-00",
+    "form": "P5583531316328",
+    "kind": "digits",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P0103-00",
+    "form": "P0103@hhvx",
+    "kind": "illegal",
+    "mode": "exact_code",
+    "returned": [
+     "P0103-00"
+    ]
+   },
+   {
+    "source_code": "P040B-00",
+    "form": "P040B00dhzehdqkh",
+    "kind": "nodash",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P2135-00",
+    "form": "P2135ffhdkqhz",
+    "kind": "tail",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P202E-85",
+    "form": "P9939567813600",
+    "kind": "digits",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P1204-00",
+    "form": "P1204%rdma",
+    "kind": "illegal",
+    "mode": "exact_code",
+    "returned": [
+     "P1204-00"
+    ]
+   },
+   {
+    "source_code": "P0001-00",
+    "form": "P000100fddgkpgg",
+    "kind": "nodash",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P20A0-4B",
+    "form": "P20A0qrddfxqfqzdymmhd",
+    "kind": "tail",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P1641-00",
+    "form": "P874848100548",
+    "kind": "digits",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P166D-00",
+    "form": "P166D@dwzg",
+    "kind": "illegal",
+    "mode": "exact_code",
+    "returned": [
+     "P166D-00"
+    ]
+   },
+   {
+    "source_code": "P2452-85",
+    "form": "P245285dwhxyag",
+    "kind": "nodash",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P0611-F8",
+    "form": "P0611pzwhpddhhafzyhpza",
+    "kind": "tail",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P242A-64",
+    "form": "P7227155381",
+    "kind": "digits",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P2200-01",
+    "form": "P2200@rgfw",
+    "kind": "illegal",
+    "mode": "exact_code",
+    "returned": [
+     "P2200-86",
+     "P2200-13",
+     "P2200-F0",
+     "P2200-85",
+     "P2200-84",
+     "P2200-0D",
+     "P2200-01",
+     "P2200-29",
+     "P2200-22",
+     "P2200-21",
+     "P2200-0A",
+     "P2200-27",
+     "P2200-26"
+    ]
+   },
+   {
+    "source_code": "P0100-9C",
+    "form": "P01009Cfkdnehd",
+    "kind": "nodash",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P003B-00",
+    "form": "P003Bvhymhddxwvgqwedmxw",
+    "kind": "tail",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P026A-00",
+    "form": "P27049146442",
+    "kind": "digits",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P0100-9C",
+    "form": "P0100$pegd",
+    "kind": "illegal",
+    "mode": "exact_code",
+    "returned": [
+     "P0100-00",
+     "P0100-9B",
+     "P0100-9C"
+    ]
+   },
+   {
+    "source_code": "P2264-11",
+    "form": "P226411kdhddgddd",
+    "kind": "nodash",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P0611-F5",
+    "form": "P0611dqhhdqh",
+    "kind": "tail",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P0340-00",
+    "form": "P1887532243003",
+    "kind": "digits",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P206A-F3",
+    "form": "P206A$vhdk",
+    "kind": "illegal",
+    "mode": "exact_code",
+    "returned": [
+     "P206A-86",
+     "P206A-13",
+     "P206A-F1",
+     "P206A-F2",
+     "P206A-F3"
+    ]
+   },
+   {
+    "source_code": "P0403-00",
+    "form": "P040300wpdxgfgdfy",
+    "kind": "nodash",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P0204-00",
+    "form": "P0204dhggzwrqfdqddyghfa",
+    "kind": "tail",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P2200-0A",
+    "form": "P22893050718038",
+    "kind": "digits",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P20F5-7A",
+    "form": "P20F5$zydh",
+    "kind": "illegal",
+    "mode": "exact_code",
+    "returned": [
+     "P20F5-7A",
+     "P20F5-00"
+    ]
+   },
+   {
+    "source_code": "P0220-12",
+    "form": "P022012zfhmnwrm",
+    "kind": "nodash",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P1671-00",
+    "form": "P1671yvvgrdexnkqphd",
+    "kind": "tail",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P20A0-00",
+    "form": "P55208026363990",
+    "kind": "digits",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P208A-4B",
+    "form": "P208A$hgfh",
+    "kind": "illegal",
+    "mode": "exact_code",
+    "returned": [
+     "P208A-00",
+     "P208A-4B"
+    ]
+   },
+   {
+    "source_code": "U011A-00",
+    "form": "U011A00xvxfa",
+    "kind": "nodash",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P0341-00",
+    "form": "P0341fdrfzdfd",
+    "kind": "tail",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P0425-64",
+    "form": "P895090667233",
+    "kind": "digits",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P1665-00",
+    "form": "P1665@fgdq",
+    "kind": "illegal",
+    "mode": "exact_code",
+    "returned": [
+     "P1665-00"
+    ]
+   },
+   {
+    "source_code": "P0192-00",
+    "form": "P019200qgyvndrhf",
+    "kind": "nodash",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P242A-84",
+    "form": "P242Apdhdfrdxrggqkpdfd",
+    "kind": "tail",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P0219-00",
+    "form": "P41938731",
+    "kind": "digits",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P2147-00",
+    "form": "P2147$hdkh",
+    "kind": "illegal",
+    "mode": "exact_code",
+    "returned": [
+     "P2147-00"
+    ]
+   },
+   {
+    "source_code": "P010D-00",
+    "form": "P010D00mmggh",
+    "kind": "nodash",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P2201-76",
+    "form": "P2201efdgdgfhz",
+    "kind": "tail",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P0193-00",
+    "form": "P310441672",
+    "kind": "digits",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P0201-00",
+    "form": "P0201$kaqn",
+    "kind": "illegal",
+    "mode": "exact_code",
+    "returned": [
+     "P0201-00"
+    ]
+   },
+   {
+    "source_code": "P1651-00",
+    "form": "P165100dzffddgd",
+    "kind": "nodash",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P042C-00",
+    "form": "P042Cddddddzghe",
+    "kind": "tail",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P2153-00",
+    "form": "P349617778",
+    "kind": "digits",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P0073-00",
+    "form": "P0073#xadq",
+    "kind": "illegal",
+    "mode": "exact_code",
+    "returned": [
+     "P0073-00"
+    ]
+   },
+   {
+    "source_code": "P2200-84",
+    "form": "P220084hdwhmdpn",
+    "kind": "nodash",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P2463-85",
+    "form": "P2463eqrpwdg",
+    "kind": "tail",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P2458-00",
+    "form": "P493805346",
+    "kind": "digits",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P042E-00",
+    "form": "P042E@fyed",
+    "kind": "illegal",
+    "mode": "exact_code",
+    "returned": [
+     "P042E-00"
+    ]
+   },
+   {
+    "source_code": "P203A-23",
+    "form": "P203A23pvdhadvfh",
+    "kind": "nodash",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P0627-11",
+    "form": "P0627rpmkvdvn",
+    "kind": "tail",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P206A-86",
+    "form": "P239880208",
+    "kind": "digits",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P0047-00",
+    "form": "P0047@dhzr",
+    "kind": "illegal",
+    "mode": "exact_code",
+    "returned": [
+     "P0047-00"
+    ]
+   },
+   {
+    "source_code": "P166A-00",
+    "form": "P166A00gdvfm",
+    "kind": "nodash",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P2455-00",
+    "form": "P2455fmvfdwqkkk",
+    "kind": "tail",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P1081-00",
+    "form": "P0577103190004",
+    "kind": "digits",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P101C-00",
+    "form": "P101Czefmf",
+    "kind": "illegal",
+    "mode": "invalid_code",
+    "returned": []
+   },
+   {
+    "source_code": "P0072-00",
+    "form": "P007200dvddywkd",
+    "kind": "nodash",
+    "mode": "invalid_code",
+    "returned": []
+   }
+  ]
+ },
+ "interception": {
+  "DEV (gold_v2)": {
+   "rows": 34,
+   "intercepted": 0,
+   "by_mode": {
+    "exact_code": {
+     "rows": 6,
+     "intercepted": 0,
+     "intercepted_ids": []
+    },
+    "near_duplicate": {
+     "rows": 7,
+     "intercepted": 0,
+     "intercepted_ids": []
+    },
+    "out_of_scope": {
+     "rows": 6,
+     "intercepted": 0,
+     "intercepted_ids": []
+    },
+    "symptom": {
+     "rows": 12,
+     "intercepted": 0,
+     "intercepted_ids": []
+    },
+    "system_group": {
+     "rows": 3,
+     "intercepted": 0,
+     "intercepted_ids": []
+    }
+   }
+  },
+  "TEST (gold_v2, spent)": {
+   "rows": 36,
+   "intercepted": 0,
+   "by_mode": {
+    "exact_code": {
+     "rows": 6,
+     "intercepted": 0,
+     "intercepted_ids": []
+    },
+    "near_duplicate": {
+     "rows": 7,
+     "intercepted": 0,
+     "intercepted_ids": []
+    },
+    "out_of_scope": {
+     "rows": 6,
+     "intercepted": 0,
+     "intercepted_ids": []
+    },
+    "symptom": {
+     "rows": 13,
+     "intercepted": 0,
+     "intercepted_ids": []
+    },
+    "system_group": {
+     "rows": 4,
+     "intercepted": 0,
+     "intercepted_ids": []
+    }
+   }
+  },
+  "independent (spent)": {
+   "rows": 60,
+   "intercepted": 0,
+   "by_mode": {
+    "no_dtc": {
+     "rows": 19,
+     "intercepted": 0,
+     "intercepted_ids": []
+    },
+    "symptom": {
+     "rows": 41,
+     "intercepted": 0,
+     "intercepted_ids": []
+    }
+   }
+  },
+  "R2 colleague (spent)": {
+   "rows": 20,
+   "intercepted": 0,
+   "by_mode": {
+    "inconclusive": {
+     "rows": 1,
+     "intercepted": 0,
+     "intercepted_ids": []
+    },
+    "no_dtc": {
+     "rows": 4,
+     "intercepted": 0,
+     "intercepted_ids": []
+    },
+    "symptom": {
+     "rows": 15,
+     "intercepted": 0,
+     "intercepted_ids": []
+    }
+   }
+  }
+ },
+ "bugs": [],
+ "verdict": "PASS - no symptom or coded row is intercepted"
+}

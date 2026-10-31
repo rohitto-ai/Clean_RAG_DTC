@@ -1,5 +1,10 @@
 """
-Phase 13.3 — detection of an ATTEMPTED but incomplete fault code.
+Phase 13.3 / 13.4 — code-shaped input that is not a usable code.
+
+  13.3  an ATTEMPTED but incomplete code: "P10", "P-10", "p 019".
+  13.4  an over-long or malformed code token: "P1023473efa234rgddhdhdfgddhy",
+        "P99999999", "U0100zzzz". These used to reach symptom search and came
+        back with a ranked list of unrelated DTCs.
 
     from partial_code import detect_partial, candidates, message_for
     detect_partial("P-10")      -> {"letter": "P", "digits": "10", ...}
@@ -50,6 +55,12 @@ _TOKEN_RE = re.compile(
     r"^([PUBC])[\-_.]{0,2}([0-9A-F]{1,3})(?:[\-_.]{1,2}([0-9A-F]{1,2}))?[\-_.]{0,2}$", re.I)
 # a complete 4-digit body anywhere means this is NOT an incomplete attempt
 _FULL_RE = re.compile(r"\b[PUBC][0-9A-F]{4}\b", re.I)
+
+# Phase 13.4: the longest a real code can be is "P0192-00" (8 characters), and a
+# code body can only hold hex digits and the separator.
+MAX_CODE_LEN = 8
+CODE_CHARS = set("0123456789ABCDEF-_.")
+TRUNCATE_AT = 20
 
 MAX_TOKENS = 3
 # Phase 13.3b: beyond MAX_TOKENS a partial-code token counts only when the user
@@ -105,6 +116,96 @@ def detect_partial(query):
         return None                      # "CAB" is a word, not a code attempt
     return {"letter": letter, "digits": digits, "sub": (sub or "").upper() or None,
             "matched": m.group(0), "via": via}
+
+
+_GARBAGE_START_RE = re.compile(r"^([PUBC])\d", re.I)
+
+
+def _garbage_token(token):
+    """
+    The token, stripped of trailing punctuation, if it is code-SHAPED but cannot be
+    a code: it opens with a code letter and a digit, and it is either longer than
+    any real code or holds a character a code body cannot contain.
+    """
+    t = token.strip(".,;:!?()[]'\"")
+    if not _GARBAGE_START_RE.match(t):
+        return None
+    body = t[1:].upper()
+    if len(t) <= MAX_CODE_LEN and all(c in CODE_CHARS for c in body):
+        return None                      # the right shape and length - not garbage
+    return t
+
+
+def detect_invalid(query):
+    """
+    The over-long or malformed code token, or None.
+
+    The caller must already have established that the existing 9.3 logic extracts
+    NO valid code from the query - that is what keeps "DTC=P0192-00;ts=1230" and
+    "P0192-00xyz123abc" (from which a base IS extracted) on their existing paths.
+    Scope is the same as Phase 13.3: at most 3 tokens, or the token sits directly
+    beside code / DTC / fault.
+    """
+    if not query or not query.strip():
+        return None
+    q = query.strip()
+    tokens = q.split()
+    hits = [i for i, t in enumerate(tokens) if _garbage_token(t)]
+    if len(hits) != 1:
+        return None
+    i = hits[0]
+    if len(tokens) > MAX_TOKENS:
+        neighbours = [tokens[j].strip(".,;:!?()[]'\"").lower()
+                      for j in (i - 1, i + 1) if 0 <= j < len(tokens)]
+        near = [w for w in neighbours if w in CODE_WORDS]
+        if not near:
+            return None
+        via = f"token adjacent to {near[0]!r} in a long query"
+    else:
+        via = "short query"
+    token = _garbage_token(tokens[i])
+    return {"token": token, "letter": token[0].upper(), "via": via,
+            "too_long": len(token) > MAX_CODE_LEN,
+            "bad_characters": sorted({c for c in token[1:].upper() if c not in CODE_CHARS})}
+
+
+def invalid_message(token):
+    shown = token if len(token) <= TRUNCATE_AT else token[:TRUNCATE_AT] + "\u2026"
+    return (f"'{shown}' is not a valid fault code. "
+            f"Codes in this manual look like P0192-00.")
+
+
+def resolve_invalid(query, by_dtc_code):
+    """
+    Everything the router needs for an invalid code token, or None.
+
+    If the first five characters happen to be a base code the manual holds
+    ("P0192abcdef" -> P0192), its variants are offered; otherwise the format hint
+    stands alone. The reported string's prefix, P1023, is NOT in this manual, so
+    that case gets the hint only.
+    """
+    found = detect_invalid(query)
+    if found is None:
+        return None
+    token = found["token"]
+    base = token[:5].upper()
+    rows, note = [], None
+    if len(token) >= 5 and base in by_dtc_code:
+        for ref in by_dtc_code[base]:
+            rows.append({"code": ref["code_full"], "description": ref["description"],
+                         "page": ref["page"]})
+        rows = sorted({r["code"]: r for r in rows}.values(), key=lambda r: r["code"])
+        note = f"Codes starting with {base}:"
+    kept = rows[:MAX_CANDIDATES]
+    return {"invalid": found, "message": invalid_message(token),
+            "candidates": kept, "candidates_more": max(0, len(rows) - len(kept)),
+            "candidates_note": note,
+            "more_note": more_note(max(0, len(rows) - len(kept))),
+            "candidate_rules": ("the first five characters, when they are a base code this "
+                                "manual holds; dictionary only, never auto-selected"),
+            "no_candidates_reason": (None if kept else
+                                     f"the first five characters ({base}) are not a code base "
+                                     f"in this manual, so only the format hint is given")}
 
 
 def candidates(letter, digits, by_dtc_code, limit=MAX_CANDIDATES):
