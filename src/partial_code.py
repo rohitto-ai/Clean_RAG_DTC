@@ -20,8 +20,13 @@ only**. Nothing is auto-selected, no retrieval runs, and no model is consulted.
 SAFETY. This sits in front of retrieval, so a false positive silently refuses a
 real symptom query. Three rules keep it closed:
 
-  * LENGTH. Only a standalone token, or a query of at most 3 whitespace tokens, is
-    considered at all. "after 10 km it stalls" is never examined.
+  * LENGTH. A standalone token, or a query of at most 3 whitespace tokens, is
+    considered on its own. A LONGER query is considered only when the partial-code
+    token sits directly beside the word "code", "DTC" or "fault" - the user has
+    then said what the token is meant to be ("P10 code came up on the dash", "got
+    code P019 today"). Without that neighbour a long sentence is never examined,
+    so "after 10 km it stalls" and "after 10 km the code light comes on" are left
+    alone - the latter has no code-shaped token at all.
   * A REAL DIGIT IS REQUIRED. The body must contain at least one 0-9. Every letter
     in "CAB" is a valid hex digit and C is a code letter, so without this rule the
     word "cab" would be read as an attempted code.
@@ -47,6 +52,11 @@ _TOKEN_RE = re.compile(
 _FULL_RE = re.compile(r"\b[PUBC][0-9A-F]{4}\b", re.I)
 
 MAX_TOKENS = 3
+# Phase 13.3b: beyond MAX_TOKENS a partial-code token counts only when the user
+# said what it is. "P10 code came up on the dash" is an attempted code; "after 10
+# km the code light comes on" has no code token at all, and a sentence that merely
+# contains a short alphanumeric is not an attempt.
+CODE_WORDS = {"code", "codes", "dtc", "dtcs", "fault", "faults"}
 MAX_CANDIDATES = 5
 MIN_DIGITS_FOR_CANDIDATES = 2
 
@@ -71,17 +81,24 @@ def detect_partial(query):
         return None                      # a complete code is somebody else's job
 
     tokens = q.split()
-    if len(tokens) > MAX_TOKENS:
-        return None
-
-    m = _WHOLE_RE.match(q)
+    m = _WHOLE_RE.match(q) if len(tokens) <= MAX_TOKENS else None
     via = "whole query"
     if not m:
-        hits = [t for t in tokens if _TOKEN_RE.match(t)]
+        hits = [i for i, t in enumerate(tokens) if _TOKEN_RE.match(t)]
         if len(hits) != 1:
             return None                  # nothing, or more than one - stand down
-        m = _TOKEN_RE.match(hits[0])
-        via = "single token in a short query"
+        i = hits[0]
+        if len(tokens) <= MAX_TOKENS:
+            via = "single token in a short query"
+        else:
+            # a long query needs the user to have named the token
+            neighbours = [tokens[j].strip(".,;:!?()[]'\"").lower()
+                          for j in (i - 1, i + 1) if 0 <= j < len(tokens)]
+            near = [w for w in neighbours if w in CODE_WORDS]
+            if not near:
+                return None
+            via = f"token adjacent to {near[0]!r} in a long query"
+        m = _TOKEN_RE.match(tokens[i])
 
     letter, digits, sub = m.group(1).upper(), m.group(2).upper(), m.group(3)
     if not _has_digit(digits):

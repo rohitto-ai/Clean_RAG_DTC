@@ -27,7 +27,7 @@ because `DTC_CODE_RE` matches `P019` as a base and would otherwise take it.
 
 | rule | why |
 |---|---|
-| at most **3 whitespace tokens**, or the whole query | "after 10 km it stalls" is never examined |
+| at most **3 whitespace tokens**, or the whole query — **or** a longer query in which the token is directly beside the word **code / DTC / fault** (13.3b, below) | "after 10 km it stalls" is never examined |
 | the body must contain at least one **0–9 digit** | every letter of `CAB` is a valid hex digit and `C` is a code letter, so without this the word "cab" reads as a code attempt |
 | **1–3 digits only** | four digits is well-formed and belongs to the existing paths — exact match, the 9.3b unknown-code refusal, the base-without-suffix clarification |
 
@@ -51,6 +51,42 @@ audit log as `incomplete_code` with the candidate codes it offered.
 **Left unchanged**, as required: full codes (exact match), well-formed absent codes (9.3b refusal +
 did-you-mean), a base code without its sub-code (9.3b clarification), and the Phase 13.1
 conversational replies. Each is pinned by a test.
+
+## Narrow extension (13.3b) — naming the token
+
+The 3-token ceiling was listed as a limitation of 13.3: `P10 code came up on the dash` is plainly a
+code attempt, yet length alone rejected it. The extension accepts a longer query **only when the
+user has said what the token is** — when the partial-code token sits directly beside `code`,
+`codes`, `DTC`, `DTCs`, `fault` or `faults` (either side, punctuation stripped). Nothing else about
+the rule changes: the digit requirement, the 1–3 digit bound and the full-code guard all still
+apply, and a long query with no naming word is still never examined.
+
+This is deliberately narrow because the naming word is what separates an attempt from a sentence:
+
+| query | verdict | why |
+|---|---|---|
+| `P10 code came up on the dash` | **incomplete_code** | token named by "code" |
+| `got code P019 today` | **incomplete_code** | token named by "code" |
+| `the DTC P019 keeps coming back` | **incomplete_code** | token named by "DTC" |
+| `customer reports fault P-10 intermittently` | **incomplete_code** | token named by "fault" |
+| `P10 came up on the dash this morning` | none | code-shaped, but never named |
+| `after 10 km the code light comes on` | none | no code-shaped token at all (`10` has no letter) |
+| `cylinder 3 fault code` | none | `3` is not a code token; the naming words alone are not enough |
+| `P0192-00 code` | none — stays an **exact match** | a complete code is present |
+| `fault code P0192-00 and black smoke` | none — exact match | a complete code is present |
+
+One 13.3 test expectation was **superseded rather than preserved**:
+`P10 code came up on the dash this morning` was a must-not-trigger case under the length ceiling and
+is now a should-trigger case, because "code" names the token. It was moved into the adjacency block
+and the length-only case was re-pointed at `P10 came up on the dash this morning`, which still has
+no naming word. Tests are now **96/96 (27 should-trigger, 36 must-not-trigger)**.
+
+**Re-measured after the extension, all unchanged:** the 240-form probe stays
+`incomplete_code` 240/240 with **0/240** ranked lists; the POST-HOC interception count stays **0 of
+150**; the 1,007-query robustness study is **identical in every row and every route** to the 13.3
+re-run (`results_13_3b.json` vs `results_13_3.json`: recovered 738, refused 211, clarified 4,
+HARMFUL 2, hedged 52) — expected, because that corpus contains no long query with a named partial
+code. Suite **44/1/0**, determinism **`ffff9bc707d8754d`**, demo **55/55 DEMO CHECK PASSED**.
 
 ## Results
 
@@ -168,10 +204,11 @@ Suite `src/smoke_index.py` **44 passed / 1 xfail / 0 failed**; determinism
    "12 more" — the first five by code order, not the five most likely. With 2 digits the list is
    essentially arbitrary within the prefix, which is why the message asks for the full code rather
    than inviting a choice.
-3. **The 3-token ceiling is a blunt instrument.** `P10 code came up on the dash this morning` is a
-   genuine code attempt and is *not* intercepted; it falls through to hybrid as before. Widening the
-   window would start catching ordinary sentences containing short alphanumerics, so the safe
-   direction was chosen.
+3. **The naming word is required, so some genuine attempts still fall through.**
+   `P10 came up on the dash this morning` is a real code attempt with no naming word and still
+   reaches hybrid. Accepting it would mean accepting any sentence containing a short alphanumeric,
+   so the safe direction was kept. 13.3b buys back the common phrasings ("P10 code…", "got code
+   P019…", "fault P-10") without widening that door.
 4. **Hex-letter collisions are only mostly handled.** The "must contain a real digit" rule saves
    `cab`, `ace` and `bed`, but a query like `C4b` (2 tokens or fewer) would be read as an attempt.
    No such query appears in any set measured here.

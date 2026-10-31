@@ -34,6 +34,33 @@ SHOULD_TRIGGER = [
     ("P 10", "P", "10"), ("code P10", "P", "10"), ("P11A", "P", "11A"),
 ]
 
+# Phase 13.3b: beyond 3 tokens, only a token the user has NAMED counts - it must
+# sit directly beside "code", "DTC" or "fault".
+SHOULD_TRIGGER_ADJACENT = [
+    ("P10 code came up on the dash", "P", "10"),
+    ("got code P019 today", "P", "019"),
+    ("fault P-10", "P", "10"),
+    ("the DTC P019 keeps coming back", "P", "019"),
+    ("I see fault code P10 on the reader", "P", "10"),
+    ("code P1 showed up today", "P", "1"),
+    ("dtc P019 on the dash this morning", "P", "019"),
+    ("customer reports fault P-10 intermittently", "P", "10"),
+    # was a must-not-trigger case in 13.3 (length alone); 13.3b accepts it because
+    # "code" names the token
+    ("P10 code came up on the dash this morning", "P", "10"),
+]
+
+MUST_NOT_TRIGGER_LONG = [
+    "after 10 km the code light comes on",   # no code-shaped token at all
+    "cylinder 3 fault code",                 # "3" is not a code token
+    "P0192-00 code",                         # complete code - stays an exact match
+    "P10 came up on the dash this morning",  # code-shaped, but never named
+    "the code light comes on after 20 minutes",
+    "fault code P0192-00 and black smoke",   # complete code present
+    "engine misfire on cylinder 3 after a cold start",
+    "no fault codes stored in the ECU",
+]
+
 MUST_NOT_TRIGGER = [
     # complete codes - the existing paths own these
     "P0192-00", "p0192-00", "P0192", "P0199-00", "U011A-00", "P0192_00", "PO192-00",
@@ -45,8 +72,8 @@ MUST_NOT_TRIGGER = [
     "cab", "CAB", "ace", "bed", "decade",
     # a code letter followed by non-hex
     "PM sensor", "PTO switch", "P sensor", "pressure",
-    # too long to be a code attempt
-    "P10 code came up on the dash this morning",
+    # too long to be a code attempt, and not named by code/DTC/fault
+    "P10 came up on the dash this morning",
     # empty-ish
     "", "   ", "P", "10",
 ]
@@ -63,6 +90,19 @@ def main():
         check(f"{q!r} -> {letter}{digits}",
               d is not None and d["letter"] == letter and d["digits"] == digits,
               f"got {d}")
+
+    print("\n-- should trigger: long query, token named by code/DTC/fault (13.3b) --")
+    for q, letter, digits in SHOULD_TRIGGER_ADJACENT:
+        d = PC.detect_partial(q)
+        check(f"{q!r} -> {letter}{digits}",
+              d is not None and d["letter"] == letter and d["digits"] == digits, f"got {d}")
+        if d:
+            check(f"   ... and records why it was accepted",
+                  "adjacent" in d["via"] or "short query" in d["via"], d["via"])
+
+    print("\n-- must NOT trigger: long query without a naming word (13.3b) --")
+    for q in MUST_NOT_TRIGGER_LONG:
+        check(f"{q!r} -> None", PC.detect_partial(q) is None, f"got {PC.detect_partial(q)}")
 
     print("\n-- must NOT trigger (a false positive refuses a real query) --")
     for q in MUST_NOT_TRIGGER:
@@ -146,7 +186,8 @@ def main():
 
     n = sum(RESULTS)
     print(f"\n==== PARTIAL CODES: {n}/{len(RESULTS)} passed "
-          f"({len(SHOULD_TRIGGER)} should-trigger, {len(MUST_NOT_TRIGGER)} must-not-trigger) ====")
+          f"({len(SHOULD_TRIGGER) + len(SHOULD_TRIGGER_ADJACENT)} should-trigger, "
+          f"{len(MUST_NOT_TRIGGER) + len(MUST_NOT_TRIGGER_LONG)} must-not-trigger) ====")
     return 0 if n == len(RESULTS) else 1
 
 

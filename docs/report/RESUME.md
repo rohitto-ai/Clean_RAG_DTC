@@ -91,7 +91,14 @@ is **absent from that corpus**, so a synthetic dictionary-derived probe (240 for
 worktree at `b3eef93` for the before column: ranked lists **240/240 → 0/240**. **POST-HOC
 interception count, counts only:** **0 of 150** rows across DEV 0/34, TEST 0/36, independent 0/60,
 R2 0/20. Demo `--check` **49 → 55**, **DEMO CHECK PASSED**. Suite **44/1/0**, determinism
-**`ffff9bc707d8754d`**. Details: `docs/report/phase13_3_partial_codes.md`.
+**`ffff9bc707d8754d`**. **13.3b narrow extension:** beyond 3 tokens a partial-code token counts **only when the user names
+it** — directly beside `code` / `DTC` / `fault` (`P10 code came up on the dash`, `got code P019
+today`, `fault P-10`). A long query with no naming word is still never examined, so `P10 came up on
+the dash this morning` and `after 10 km the code light comes on` stay untouched, and `P0192-00 code`
+stays an exact match. Tests **96/96** (27 should-trigger, 36 must-not-trigger; one 13.3 expectation
+superseded and moved, not deleted). Re-measured: probe **0/240** ranked lists, interception **0/150**,
+robustness **identical in every row and route**, suite **44/1/0**, determinism
+**`ffff9bc707d8754d`**, demo **55/55**. Details: `docs/report/phase13_3_partial_codes.md`.
 
 ## How to run the demo
 
