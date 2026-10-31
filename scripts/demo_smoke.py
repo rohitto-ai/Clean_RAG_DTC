@@ -41,6 +41,14 @@ CONVERSATIONAL_NEGATIVE = [
     "starts fine but black smoke under load",
 ]
 
+# Phase 13.3 - a half-typed code must be answered with the format hint and
+# dictionary candidates, never with a symptom search.
+INCOMPLETE_PRESETS = [
+    ("P-10", True),      # 2 digits -> candidates expected
+    ("P019", True),      # dropped digit -> candidates expected
+    ("P1", False),       # 1 digit -> format hint only, no candidates
+]
+
 VERIFY_PRESETS = [
     ("transposition_P1000", "P0100-00", "P1000-00"),
     ("transposition_P1675", "P1657-00", "P1675-00"),
@@ -242,6 +250,24 @@ def main():
               and not res.get("citations"),
               f"{sts} mode={res.get('mode')} path={res.get('path')}")
 
+        print("\n== presets: incomplete codes (Phase 13.3) ==")
+        for q, want_cands in INCOMPLETE_PRESETS:
+            sts, res = c.post("/symptom", {"query": q, "summary": False})
+            w = res.get("why") or {}
+            ok = (sts == 200 and res.get("mode") == "incomplete_code"
+                  and "not a complete code" in (res.get("message") or "")
+                  and not res.get("results") and why_ok(res)
+                  and (w.get("retrieval") or {}).get("used") is False
+                  and all(st.get("label") == "RULE" for st in w.get("steps", []))
+                  and bool(res.get("candidates")) == want_cands)
+            check(f"incomplete {q!r} -> hint{' + candidates' if want_cands else ' only'}, "
+                  f"no retrieval", ok,
+                  f"{sts} mode={res.get('mode')} cands={len(res.get('candidates') or [])}")
+        for q in ("P0192-00", "P0192", "cylinder 3 misfire"):
+            sts, res = c.post("/symptom", {"query": q, "summary": False})
+            check(f"NOT incomplete: {q!r}", sts == 200 and res.get("mode") != "incomplete_code",
+                  f"mode={res.get('mode')}")
+
         print("\n== presets: fleet + filters ==")
         stf, f = c.get("/fleet")
         check("GET /fleet is ok", stf == 200 and f["vehicles"] > 0 and why_ok(f),
@@ -276,7 +302,7 @@ def main():
               str(reset["rows_in_scope"]))
 
         print("\n== presets: audit ==")
-        sta, aud = c.get("/audit?limit=80")
+        sta, aud = c.get("/audit?limit=120")
         check("audit returns recent entries", sta == 200 and aud["count"] > 0 and why_ok(aud),
               f"{aud.get('count')} entries")
         seen = {e["endpoint"] for e in aud["entries"]}
@@ -284,8 +310,9 @@ def main():
               {"/health", "/fleet", "/vehicle", "/verify-code", "/symptom", "/query"} <= seen,
               str(sorted(seen)))
         decisions = {d for e in aud["entries"] for d in str(e["decision"]).split(",")}
-        check("audit decisions include a refusal, a mismatch and a conversational reply",
-              {"refuse", "mismatch", "conversational"} <= decisions, str(sorted(decisions)))
+        check("audit decisions include refusal, mismatch, conversational and incomplete_code",
+              {"refuse", "mismatch", "conversational", "incomplete_code"} <= decisions,
+              str(sorted(decisions)))
 
     passed = sum(RESULTS)
     print(f"\n==== DEMO SMOKE: {passed}/{len(RESULTS)} passed ====")

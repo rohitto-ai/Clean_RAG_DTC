@@ -503,6 +503,24 @@ async function runSymptom(q) {
         el('div', { class: 'small muted',
           text: 'Not a fault report, so nothing was retrieved and the manual was not '
                 + 'consulted.' })));
+    } else if (res.mode === 'incomplete_code') {
+      const box = el('div', { class: 'notice warn' },
+        el('span', { class: 'tag RULE', text: 'RULE' }), ' ',
+        el('strong', { text: res.message }));
+      if ((res.candidates || []).length) {
+        box.append(el('div', { class: 'small',
+          text: 'Codes in this manual that start that way — not selected, enter the full code:' }));
+        const ul = el('ul', { class: 'small' });
+        for (const c of res.candidates) {
+          ul.append(el('li', {}, el('code', { text: c.code }),
+            ` (page ${c.page}) — ${c.description}`));
+        }
+        if (res.more_note) ul.append(el('li', { class: 'muted', text: res.more_note }));
+        box.append(ul);
+      } else if (res.no_candidates_reason) {
+        box.append(el('div', { class: 'small muted', text: res.no_candidates_reason }));
+      }
+      host.append(box);
     } else if (res.mode === 'refused') {
       host.append(el('div', { class: 'notice bad' },
         el('strong', { text: 'Not covered in this manual. ' }),
@@ -570,6 +588,9 @@ const SYMPTOM_PRESETS = [
   ['hi', 'conversational — greeting, no retrieval'],
   ['thanks a lot', 'conversational — thanks, no retrieval'],
   ['no issue, the vehicle is running fine', 'conversational — healthy, no fault lookup'],
+  ['P-10', 'incomplete code — candidates, no retrieval'],
+  ['P019', 'incomplete code — dropped digit'],
+  ['P1', 'incomplete code — one digit, format hint only'],
   ['how do I change a tyre', 'out of scope — expect a refusal'],
   ['what is the warranty period on this engine', 'out of scope — expect a refusal'],
 ];

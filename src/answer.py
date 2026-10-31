@@ -251,6 +251,21 @@ def answer(query, retriever, phraser=None, k=5, gate="default"):
     out = retriever.retrieve(query, k=k)
     mode, results = out["mode"], out["results"]
 
+    if mode == "incomplete_code":
+        # Phase 13.3: somebody began typing a code and stopped. Say so, offer the
+        # dictionary's candidates, and assert nothing.
+        t = out["trace"]
+        lines = [t["message"]]
+        if t.get("candidates"):
+            lines += ["", "Codes in this manual that start that way (not selected - "
+                          "enter the full code):"]
+            lines += [f"  - {c['code']} (page {c['page']}): {c['description']}"
+                      for c in t["candidates"]]
+            if t.get("more_note"):
+                lines.append(f"  - {t['more_note']}")
+        return {"mode": mode, "path": "deterministic_incomplete_code",
+                "text": "\n".join(lines), "citations": [], "trace": t}
+
     if mode == "unknown_code":
         # Phase 9.3b: explicit refusal for a P/U fault code this manual does not cover.
         text = out["trace"]["message"]

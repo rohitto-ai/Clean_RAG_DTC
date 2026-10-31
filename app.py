@@ -20,6 +20,10 @@ Endpoints
     POST /query  /diagnose  /advise     the Phase 7 / 9.1 surfaces, unchanged
     GET  /                             static files from web/
 
+Phase 13.3 adds decision "incomplete_code": a half-typed code ("P10", "P-10",
+"p 019") never reaches symptom retrieval and never auto-selects; it returns the
+format hint plus candidates taken from the code dictionary alone.
+
 Phase 13.1 adds a rule-based conversational pre-filter in FRONT of routing on the
 two free-text paths (/symptom and /query): a query that is nothing but a greeting,
 a thanks, or a statement that the vehicle is healthy gets a fixed reply and never
@@ -250,6 +254,39 @@ def why_conversational(label, reasons):
     }
 
 
+def why_incomplete_code(res):
+    """
+    `why` for a Phase 13.3 incomplete-code reply. Every step is RULE: the detection
+    is a regex, the candidates come from the code dictionary, and nothing is
+    retrieved, ranked or auto-selected.
+    """
+    t = (res.get("trace") or {}).get("retrieval_trace") or {}
+    return {
+        "route": "incomplete_code",
+        "ladder": [{"rung": "code-token normalisation (9.3b)", "result": "no complete code"},
+                   {"rung": "incomplete-code detection (13.3)",
+                    "result": f"letter {(t.get('partial') or {}).get('letter')}, "
+                              f"digits {(t.get('partial') or {}).get('digits')}"},
+                   {"rung": "dictionary candidates", "result":
+                    f"{len(res.get('candidates') or [])} shown"
+                    + (f", {res['candidates_more']} more" if res.get("candidates_more") else "")}],
+        "retrieval": {"used": False, "router_mode": "incomplete_code", "ranks": [],
+                      "note": "symptom retrieval is NOT run for a half-typed code"},
+        "gate": {"applied": False, "decision": "not applicable",
+                 "reasons": [res.get("no_candidates_reason")] if res.get("no_candidates_reason")
+                            else [], "signals": {}},
+        "citations": [],
+        "severity_reasons": [],
+        "steps": [rule("normalise the typed code (space / underscore / letter-O forms)"),
+                  rule("detect an incomplete code attempt: code letter + 1-3 hex digits, "
+                       "at most 3 tokens, at least one real digit"),
+                  rule("candidates from the code dictionary only: digit-prefix, "
+                       "zero-padded, one digit-insertion away"),
+                  rule("nothing is auto-selected and no repair procedure is asserted")],
+        "codes": [c["code"] for c in (res.get("candidates") or [])],
+    }
+
+
 def cost_for_system(system, code_full=None):
     """Illustrative cost/TAT, always returned under its own labelled key."""
     rule_ = _pipeline().cost_for(system, code_full) if system else None
@@ -475,11 +512,18 @@ def symptom(s: SymptomIn):
         r["illustrative_cost_tat"] = cost_for_system(fb["system"], fb["code_full"])
     res["config"] = {"index": "index (production C4b)", "gate": "v2",
                      "lexicon_v2_adopted": False}
-    res["why"] = why_symptom(res, summary_requested=s.summary)
-    decision = {"refused": "refuse", "clarify_code": "clarify"}.get(res["mode"], "answer")
+    if res["mode"] == "incomplete_code":
+        res["why"] = why_incomplete_code(res)
+    else:
+        res["why"] = why_symptom(res, summary_requested=s.summary)
+    decision = {"refused": "refuse", "clarify_code": "clarify",
+                "incomplete_code": "incomplete_code"}.get(res["mode"], "answer")
     audit("/symptom", s.model_dump(), route=res["mode"], codes=res["why"]["codes"],
           decision=decision, latency_ms=(time.perf_counter() - t0) * 1000,
-          extra={"refusal_reasons": res.get("refusal_reasons")})
+          extra={"refusal_reasons": res.get("refusal_reasons"),
+                 "incomplete_code": res.get("candidates") and
+                                    {"candidates": [c["code"] for c in res["candidates"]],
+                                     "more": res.get("candidates_more", 0)} or None})
     return res
 
 

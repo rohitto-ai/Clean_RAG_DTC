@@ -119,6 +119,16 @@ def advise(query, R, phraser=None, summary=False, top_n=TOP_N):
     trace = {"router_mode": out["mode"], "retrieval_trace": out["trace"]}
     results = []
 
+    if out["mode"] == "incomplete_code":
+        # Phase 13.3: no fix blocks for a code that was never finished.
+        t = out["trace"]
+        return {"input": query, "mode": "incomplete_code", "results": [],
+                "message": t["message"], "candidates": t.get("candidates", []),
+                "candidates_more": t.get("candidates_more", 0),
+                "more_note": t.get("more_note"),
+                "no_candidates_reason": t.get("no_candidates_reason"),
+                "known_variants": [], "did_you_mean": [], "trace": trace}
+
     if out["mode"] in ("unknown_code", "suffix_not_found"):
         # Phase 9.3b: never return fix blocks for a code the manual does not contain.
         t = out["trace"]

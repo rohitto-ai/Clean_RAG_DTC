@@ -7,7 +7,10 @@ why each result surfaced.
 Router priority (first match wins):
   1. exact_code   — a DTC code appears in the query (after 9.3b code-token
                     normalisation). Unknown P/U code -> mode "unknown_code" (explicit
-                    refusal); known base but unknown suffix -> "suffix_not_found"
+                    refusal); known base but unknown suffix -> "suffix_not_found".
+                    Phase 13.3 adds mode "incomplete_code" for a 1-3 digit code
+                    ATTEMPT ("P10", "P-10", "p 019"): no retrieval, no auto-select,
+                    dictionary candidates only.
                     (variants listed as a clarification, not as the answer)
   2. system_group — explicit grouping intent AND a subsystem keyword
   3. hybrid       — everything else: dense + BM25 fused with RRF
@@ -73,6 +76,12 @@ SYSTEM_KEYWORDS = [
     ("ecu_internal",       r"\becu\b|\bems\b|fccu"),
     ("sensor_generic",     r"\bsensor\b"),
 ]
+
+
+def _partial_code():
+    """Imported lazily so retrieve.py keeps no hard dependency on Phase 13.3."""
+    import partial_code
+    return partial_code
 
 
 def detect_code(query):
@@ -418,6 +427,17 @@ class Retriever:
                       "detected_system": system, "grouping_intent": grouping}
         if changes:
             base_trace["code_normalized"] = normalized
+
+        # ---- Phase 13.3: an ATTEMPTED but incomplete code ----------------
+        # This must precede the code branch: DTC_CODE_RE matches a 3-digit body
+        # ("P019"), which used to fall through to hybrid SYMPTOM retrieval. A
+        # half-typed code is not a symptom, so nothing is retrieved and nothing
+        # is auto-selected - the dictionary just offers candidates.
+        incomplete = _partial_code().resolve(query, self.code_index["by_dtc_code"])
+        if incomplete:
+            return {"mode": "incomplete_code", "results": [],
+                    "trace": {**base_trace, **incomplete,
+                              "retrieval_run": False, "auto_selected": False}}
 
         if code_full or base:
             results, t = self._exact(code_full, base, k)

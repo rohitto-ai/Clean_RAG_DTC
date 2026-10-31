@@ -1,6 +1,6 @@
 # RESUME — Clean RAG for the 3.3L DTC Manual
 
-**State: PHASE 8 COMPLETE; Phase 9.1 (advise mode) + 9.1b (step column-bleed fix) + 9.2 (baseline comparison) + 9.3 (noisy-input robustness) + 9.3b (code-handling hardening, adopted) + 9.4 (synthetic SPN/FMI normalization demo) DONE; Phase 10.1 + 10.1b (lexicon v2, lamp reachability) DONE and FROZEN, NOT adopted; Phase 10.2 (synthetic demo data + telematics pipeline) + 10.3 (FastAPI service + audit log) + 10.4 (demo website) + 10.5 (demo hardening) + 10.5b (one-click launchers) + 10.6 (INDEPENDENT one-shot evaluation) + 13.1 (conversational pre-filter) DONE — on branch `phase10-demo`.** All phases 0–8 are done on branch `phase8-limitations`. The
+**State: PHASE 8 COMPLETE; Phase 9.1 (advise mode) + 9.1b (step column-bleed fix) + 9.2 (baseline comparison) + 9.3 (noisy-input robustness) + 9.3b (code-handling hardening, adopted) + 9.4 (synthetic SPN/FMI normalization demo) DONE; Phase 10.1 + 10.1b (lexicon v2, lamp reachability) DONE and FROZEN, NOT adopted; Phase 10.2 (synthetic demo data + telematics pipeline) + 10.3 (FastAPI service + audit log) + 10.4 (demo website) + 10.5 (demo hardening) + 10.5b (one-click launchers) + 10.6 (INDEPENDENT one-shot evaluation) + 13.1 (conversational pre-filter) + 13.3 (partial / malformed code handling) DONE — on branch `phase10-demo`.** All phases 0–8 are done on branch `phase8-limitations`. The
 Phase 8 configuration is adopted as the production default. The frozen TEST split has been
 evaluated once and is now spent. The previous system is preserved as tag `v1-phase7`.
 
@@ -12,7 +12,7 @@ _Last updated: 2026-10-25_
 (Or Terminal → Run Task… → **"Demo: start"**; or `./run.sh demo`.)
 Port 8000 is forwarded as *Diagnostic Demo* and opens the browser automatically.
 Stop with Run Task → **"Demo: stop"** or `./run.sh demo --stop`.
-Pre-flight with Run Task → **"Demo: check"** — expect `49/49`.
+Pre-flight with Run Task → **"Demo: check"** — expect `55/55`.
 Autostart on attach is **off** by default; set `DEMO_AUTOSTART=1` to enable it.
 
 **Windows laptop (offline):** double-click **`start_demo.bat`** → it starts the server on
@@ -67,6 +67,31 @@ safety measurement, counts only** (`scripts/measure_13_1.py`, `classify()` alone
 **0/23 `no_dtc`** rows and **0/12 out-of-scope** rows, so no rule needed fixing. Demo: 3 presets
 added and `./run.sh demo --check` extended **43 → 49** checks, **DEMO CHECK PASSED**. Suite
 **44/1/0**, determinism **`ffff9bc707d8754d`**. Details: `docs/report/phase13_1_conversational.md`.
+
+**Phase 13.3 (branch `phase10-demo`; retrieval scoring, gate, indexes and records UNCHANGED):**
+partial / malformed code handling. 9.3b closed the 4-digit case, but a **1–3 digit attempt with no
+sub-code** (`P10`, `P-10`, `P019`, `p 019`) matched no complete code and so fell through to hybrid
+**symptom retrieval**: measured at `b3eef93`, **240 of 240** such forms came back with a ranked list
+of unrelated DTCs. `src/partial_code.py` now detects an attempted incomplete code and the router
+consults it **before** the code branch (necessary, because `DTC_CODE_RE` matches `P019` as a base).
+New decision **`incomplete_code`**: no retrieval, nothing auto-selected, the fixed sentence
+*"'<input>' is not a complete code in this manual. Codes look like P0192-00."* plus candidates from
+the **code dictionary only** — (a) digit-prefix, (b) zero-padded to 4, (c) one digit-insertion away
+— de-duplicated, sorted, capped at 5 with *"N more - please enter the full code"*; **fewer than 2
+digits gives no candidates**, only the hint. Safety rules: at most 3 tokens, **at least one real
+0–9 digit** (every letter of `CAB` is hex, so "cab" would otherwise read as a code), and 1–3 digits
+only. All RULE in the why panel, audited as `incomplete_code`. Unchanged and test-pinned: full codes,
+well-formed absent codes (9.3b refusal + did-you-mean), base-without-suffix clarification, and the
+13.1 conversational replies. Tests `src/test_partial_codes.py` **70/70** (18 should-trigger, **28
+must-not-trigger**). **Robustness re-run** (1,007 queries, post-change): every aggregate count
+**identical** — recovered 738, refused 211, clarified 4, **HARMFUL 2**, hedged 52 — because 9.3b
+already refused all 80 dropped-digit inputs; what changed is the route, `unknown_code` 80 →
+**`incomplete_code` 80**, and the user now gets dictionary candidates. The regression actually fixed
+is **absent from that corpus**, so a synthetic dictionary-derived probe (240 forms) was run in a
+worktree at `b3eef93` for the before column: ranked lists **240/240 → 0/240**. **POST-HOC
+interception count, counts only:** **0 of 150** rows across DEV 0/34, TEST 0/36, independent 0/60,
+R2 0/20. Demo `--check` **49 → 55**, **DEMO CHECK PASSED**. Suite **44/1/0**, determinism
+**`ffff9bc707d8754d`**. Details: `docs/report/phase13_3_partial_codes.md`.
 
 ## How to run the demo
 
@@ -349,3 +374,4 @@ exact dense, cylinder token) + gate v2 by default (`data/production_config.json`
 - [phase8_5_final_eval.md](phase8_5_final_eval.md) — **the Phase 8 results chapter**: one-shot TEST, ablations, adoption
 - [phase9_1_advise_mode.md](phase9_1_advise_mode.md) — top-3 DTCs with fix steps; the step/spec column parse defect
 - [phase13_1_conversational.md](phase13_1_conversational.md) — conversational pre-filter: greetings, thanks and "no issues" never reach retrieval
+- [phase13_3_partial_codes.md](phase13_3_partial_codes.md) — half-typed codes answered with dictionary candidates, never a symptom search

@@ -1,0 +1,2046 @@
+{
+ "label": "Phase 13.3. (A) synthetic partial-code probe. (B) POST-HOC interception count, counts only - detect_partial() alone, no retrieval.",
+ "probe": {
+  "n_forms": 240,
+  "by_kind": {
+   "3 digits, no suffix": {
+    "incomplete_code": 80
+   },
+   "2 digits, no suffix": {
+    "incomplete_code": 80
+   },
+   "2 digits, separator": {
+    "incomplete_code": 80
+   }
+  },
+  "by_mode": {
+   "incomplete_code": 240
+  },
+  "forms_answered_with_a_ranked_list": 0,
+  "rows": [
+   {
+    "code": "P0048-00",
+    "form": "P004",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P0048-00",
+    "form": "P00",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P0048-00",
+    "form": "P-00",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P0071-00",
+    "form": "P007",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P0071-00",
+    "form": "P00",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P0071-00",
+    "form": "P-00",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P0072-00",
+    "form": "P007",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P0072-00",
+    "form": "P00",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P0072-00",
+    "form": "P-00",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P0100-00",
+    "form": "P010",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P0100-00",
+    "form": "P01",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P0100-00",
+    "form": "P-01",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P0102-00",
+    "form": "P010",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P0102-00",
+    "form": "P01",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P0102-00",
+    "form": "P-01",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P0109-00",
+    "form": "P010",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P0109-00",
+    "form": "P01",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P0109-00",
+    "form": "P-01",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P0110-11",
+    "form": "P011",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P0110-11",
+    "form": "P01",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P0110-11",
+    "form": "P-01",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P0119-00",
+    "form": "P011",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P0119-00",
+    "form": "P01",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P0119-00",
+    "form": "P-01",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P0180-1F",
+    "form": "P018",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P0180-1F",
+    "form": "P01",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P0180-1F",
+    "form": "P-01",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P0184-00",
+    "form": "P018",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P0184-00",
+    "form": "P01",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P0184-00",
+    "form": "P-01",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P0192-00",
+    "form": "P019",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P0192-00",
+    "form": "P01",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P0192-00",
+    "form": "P-01",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P0201-00",
+    "form": "P020",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P0201-00",
+    "form": "P02",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P0201-00",
+    "form": "P-02",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P0219-00",
+    "form": "P021",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 4
+   },
+   {
+    "code": "P0219-00",
+    "form": "P02",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P0219-00",
+    "form": "P-02",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P0220-12",
+    "form": "P022",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 3
+   },
+   {
+    "code": "P0220-12",
+    "form": "P02",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P0220-12",
+    "form": "P-02",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P040C-00",
+    "form": "P040",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P040C-00",
+    "form": "P04",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P040C-00",
+    "form": "P-04",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P0421-00",
+    "form": "P042",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P0421-00",
+    "form": "P04",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P0421-00",
+    "form": "P-04",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P042D-00",
+    "form": "P042",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P042D-00",
+    "form": "P04",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P042D-00",
+    "form": "P-04",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P04A0-00",
+    "form": "P04A",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P04A0-00",
+    "form": "P04",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P04A0-00",
+    "form": "P-04",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P0500-1F",
+    "form": "P050",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 3
+   },
+   {
+    "code": "P0500-1F",
+    "form": "P05",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P0500-1F",
+    "form": "P-05",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P0562-00",
+    "form": "P056",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 2
+   },
+   {
+    "code": "P0562-00",
+    "form": "P05",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P0562-00",
+    "form": "P-05",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P060C-00",
+    "form": "P060",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 3
+   },
+   {
+    "code": "P060C-00",
+    "form": "P06",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P060C-00",
+    "form": "P-06",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P0611-F5",
+    "form": "P061",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P0611-F5",
+    "form": "P06",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P0611-F5",
+    "form": "P-06",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P061E-00",
+    "form": "P061",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P061E-00",
+    "form": "P06",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P061E-00",
+    "form": "P-06",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P0627-12",
+    "form": "P062",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P0627-12",
+    "form": "P06",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P0627-12",
+    "form": "P-06",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P062B-00",
+    "form": "P062",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P062B-00",
+    "form": "P06",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P062B-00",
+    "form": "P-06",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P0704-29",
+    "form": "P070",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 1
+   },
+   {
+    "code": "P0704-29",
+    "form": "P07",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 1
+   },
+   {
+    "code": "P0704-29",
+    "form": "P-07",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 1
+   },
+   {
+    "code": "P1000-00",
+    "form": "P100",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P1000-00",
+    "form": "P10",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P1000-00",
+    "form": "P-10",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P1014-00",
+    "form": "P101",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P1014-00",
+    "form": "P10",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P1014-00",
+    "form": "P-10",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P1015-00",
+    "form": "P101",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P1015-00",
+    "form": "P10",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P1015-00",
+    "form": "P-10",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P1018-00",
+    "form": "P101",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P1018-00",
+    "form": "P10",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P1018-00",
+    "form": "P-10",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P101B-00",
+    "form": "P101",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P101B-00",
+    "form": "P10",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P101B-00",
+    "form": "P-10",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P1085-00",
+    "form": "P108",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P1085-00",
+    "form": "P10",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P1085-00",
+    "form": "P-10",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P1113-00",
+    "form": "P111",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 4
+   },
+   {
+    "code": "P1113-00",
+    "form": "P11",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 4
+   },
+   {
+    "code": "P1113-00",
+    "form": "P-11",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 4
+   },
+   {
+    "code": "P1641-00",
+    "form": "P164",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P1641-00",
+    "form": "P16",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P1641-00",
+    "form": "P-16",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P1643-00",
+    "form": "P164",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P1643-00",
+    "form": "P16",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P1643-00",
+    "form": "P-16",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P1644-00",
+    "form": "P164",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P1644-00",
+    "form": "P16",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P1644-00",
+    "form": "P-16",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P1647-00",
+    "form": "P164",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P1647-00",
+    "form": "P16",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P1647-00",
+    "form": "P-16",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P164D-00",
+    "form": "P164",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P164D-00",
+    "form": "P16",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P164D-00",
+    "form": "P-16",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P164F-00",
+    "form": "P164",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P164F-00",
+    "form": "P16",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P164F-00",
+    "form": "P-16",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P1654-00",
+    "form": "P165",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P1654-00",
+    "form": "P16",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P1654-00",
+    "form": "P-16",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P1659-00",
+    "form": "P165",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P1659-00",
+    "form": "P16",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P1659-00",
+    "form": "P-16",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P165B-00",
+    "form": "P165",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P165B-00",
+    "form": "P16",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P165B-00",
+    "form": "P-16",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P165F-00",
+    "form": "P165",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P165F-00",
+    "form": "P16",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P165F-00",
+    "form": "P-16",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P1661-00",
+    "form": "P166",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P1661-00",
+    "form": "P16",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P1661-00",
+    "form": "P-16",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P1663-00",
+    "form": "P166",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P1663-00",
+    "form": "P16",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P1663-00",
+    "form": "P-16",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P1664-00",
+    "form": "P166",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P1664-00",
+    "form": "P16",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P1664-00",
+    "form": "P-16",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P1665-00",
+    "form": "P166",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P1665-00",
+    "form": "P16",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P1665-00",
+    "form": "P-16",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P1669-00",
+    "form": "P166",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P1669-00",
+    "form": "P16",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P1669-00",
+    "form": "P-16",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P1671-00",
+    "form": "P167",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P1671-00",
+    "form": "P16",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P1671-00",
+    "form": "P-16",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P202E-84",
+    "form": "P202",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P202E-84",
+    "form": "P20",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P202E-84",
+    "form": "P-20",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P203A-23",
+    "form": "P203",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P203A-23",
+    "form": "P20",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P203A-23",
+    "form": "P-20",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P203A-24",
+    "form": "P203",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P203A-24",
+    "form": "P20",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P203A-24",
+    "form": "P-20",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P203F-00",
+    "form": "P203",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P203F-00",
+    "form": "P20",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P203F-00",
+    "form": "P-20",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P2047-00",
+    "form": "P204",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P2047-00",
+    "form": "P20",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P2047-00",
+    "form": "P-20",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P2047-4B",
+    "form": "P204",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P2047-4B",
+    "form": "P20",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P2047-4B",
+    "form": "P-20",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P2047-7F",
+    "form": "P204",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P2047-7F",
+    "form": "P20",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P2047-7F",
+    "form": "P-20",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P2048-00",
+    "form": "P204",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P2048-00",
+    "form": "P20",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P2048-00",
+    "form": "P-20",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P2049-00",
+    "form": "P204",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P2049-00",
+    "form": "P20",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P2049-00",
+    "form": "P-20",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P204F-7C",
+    "form": "P204",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P204F-7C",
+    "form": "P20",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P204F-7C",
+    "form": "P-20",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P206A-13",
+    "form": "P206",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P206A-13",
+    "form": "P20",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P206A-13",
+    "form": "P-20",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P20A0-00",
+    "form": "P20A",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P20A0-00",
+    "form": "P20",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P20A0-00",
+    "form": "P-20",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P20A0-13",
+    "form": "P20A",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P20A0-13",
+    "form": "P20",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P20A0-13",
+    "form": "P-20",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P20A0-4B",
+    "form": "P20A",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P20A0-4B",
+    "form": "P20",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P20A0-4B",
+    "form": "P-20",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P20A2-00",
+    "form": "P20A",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P20A2-00",
+    "form": "P20",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P20A2-00",
+    "form": "P-20",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P20F4-9B",
+    "form": "P20F",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P20F4-9B",
+    "form": "P20",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P20F4-9B",
+    "form": "P-20",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P20F5-7A",
+    "form": "P20F",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P20F5-7A",
+    "form": "P20",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P20F5-7A",
+    "form": "P-20",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P2135-00",
+    "form": "P213",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 2
+   },
+   {
+    "code": "P2135-00",
+    "form": "P21",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P2135-00",
+    "form": "P-21",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P2200-01",
+    "form": "P220",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P2200-01",
+    "form": "P22",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P2200-01",
+    "form": "P-22",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P2200-0A",
+    "form": "P220",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P2200-0A",
+    "form": "P22",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P2200-0A",
+    "form": "P-22",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P2200-22",
+    "form": "P220",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P2200-22",
+    "form": "P22",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P2200-22",
+    "form": "P-22",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P2201-76",
+    "form": "P220",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P2201-76",
+    "form": "P22",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P2201-76",
+    "form": "P-22",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P2264-00",
+    "form": "P226",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 4
+   },
+   {
+    "code": "P2264-00",
+    "form": "P22",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P2264-00",
+    "form": "P-22",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P229E-84",
+    "form": "P229",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P229E-84",
+    "form": "P22",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P229E-84",
+    "form": "P-22",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P229E-F0",
+    "form": "P229",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P229E-F0",
+    "form": "P22",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P229E-F0",
+    "form": "P-22",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P22CF-73",
+    "form": "P22C",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 3
+   },
+   {
+    "code": "P22CF-73",
+    "form": "P22",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P22CF-73",
+    "form": "P-22",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P242A-84",
+    "form": "P242",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P242A-84",
+    "form": "P24",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P242A-84",
+    "form": "P-24",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P2463-85",
+    "form": "P246",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 1
+   },
+   {
+    "code": "P2463-85",
+    "form": "P24",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P2463-85",
+    "form": "P-24",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 5
+   },
+   {
+    "code": "P259E-00",
+    "form": "P259",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 2
+   },
+   {
+    "code": "P259E-00",
+    "form": "P25",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 2
+   },
+   {
+    "code": "P259E-00",
+    "form": "P-25",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 2
+   },
+   {
+    "code": "P2BA9-00",
+    "form": "P2BA",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 1
+   },
+   {
+    "code": "P2BA9-00",
+    "form": "P2B",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 1
+   },
+   {
+    "code": "P2BA9-00",
+    "form": "P-2B",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 1
+   },
+   {
+    "code": "U0102-00",
+    "form": "U010",
+    "kind": "3 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 1
+   },
+   {
+    "code": "U0102-00",
+    "form": "U01",
+    "kind": "2 digits, no suffix",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 3
+   },
+   {
+    "code": "U0102-00",
+    "form": "U-01",
+    "kind": "2 digits, separator",
+    "mode": "incomplete_code",
+    "returned": [],
+    "n_candidates": 3
+   }
+  ]
+ },
+ "interception": {
+  "DEV (gold_v2)": {
+   "rows": 34,
+   "intercepted": 0,
+   "by_mode": {
+    "exact_code": {
+     "rows": 6,
+     "intercepted": 0,
+     "intercepted_ids": []
+    },
+    "near_duplicate": {
+     "rows": 7,
+     "intercepted": 0,
+     "intercepted_ids": []
+    },
+    "out_of_scope": {
+     "rows": 6,
+     "intercepted": 0,
+     "intercepted_ids": []
+    },
+    "symptom": {
+     "rows": 12,
+     "intercepted": 0,
+     "intercepted_ids": []
+    },
+    "system_group": {
+     "rows": 3,
+     "intercepted": 0,
+     "intercepted_ids": []
+    }
+   }
+  },
+  "TEST (gold_v2, spent)": {
+   "rows": 36,
+   "intercepted": 0,
+   "by_mode": {
+    "exact_code": {
+     "rows": 6,
+     "intercepted": 0,
+     "intercepted_ids": []
+    },
+    "near_duplicate": {
+     "rows": 7,
+     "intercepted": 0,
+     "intercepted_ids": []
+    },
+    "out_of_scope": {
+     "rows": 6,
+     "intercepted": 0,
+     "intercepted_ids": []
+    },
+    "symptom": {
+     "rows": 13,
+     "intercepted": 0,
+     "intercepted_ids": []
+    },
+    "system_group": {
+     "rows": 4,
+     "intercepted": 0,
+     "intercepted_ids": []
+    }
+   }
+  },
+  "independent (spent)": {
+   "rows": 60,
+   "intercepted": 0,
+   "by_mode": {
+    "no_dtc": {
+     "rows": 19,
+     "intercepted": 0,
+     "intercepted_ids": []
+    },
+    "symptom": {
+     "rows": 41,
+     "intercepted": 0,
+     "intercepted_ids": []
+    }
+   }
+  },
+  "R2 colleague (spent)": {
+   "rows": 20,
+   "intercepted": 0,
+   "by_mode": {
+    "inconclusive": {
+     "rows": 1,
+     "intercepted": 0,
+     "intercepted_ids": []
+    },
+    "no_dtc": {
+     "rows": 4,
+     "intercepted": 0,
+     "intercepted_ids": []
+    },
+    "symptom": {
+     "rows": 15,
+     "intercepted": 0,
+     "intercepted_ids": []
+    }
+   }
+  }
+ },
+ "bugs": [],
+ "verdict": "PASS - no symptom or coded row is intercepted"
+}
