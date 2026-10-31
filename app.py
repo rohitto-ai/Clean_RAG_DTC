@@ -18,6 +18,7 @@ Endpoints
     POST /replay/start|stop|reset      replay the demo log into a live store
     GET  /replay/status                replay progress
     POST /query  /diagnose  /advise     the Phase 7 / 9.1 surfaces, unchanged
+    GET  /v2                           static files from web_v2/ (optional new UI)
     GET  /                             static files from web/
 
 Phase 13.3 adds decision "incomplete_code": a half-typed code ("P10", "P-10",
@@ -748,6 +749,12 @@ def diagnose(d: DiagnoseIn):
 
 # ------------------------------------------------------- static demo UI (last)
 # Mounted at "/" AFTER every route above, so the API paths keep priority.
+# Phase 13.2 serves the optional redesigned UI at /v2, mounted BEFORE "/" because
+# "/" is a catch-all. Both read the same endpoints; neither has an API of its own.
+if os.path.isdir("web_v2"):
+    from fastapi.staticfiles import StaticFiles as _StaticV2
+    app.mount("/v2", _StaticV2(directory="web_v2", html=True), name="web_v2")
+
 if os.path.isdir("web"):
     from fastapi.staticfiles import StaticFiles
     app.mount("/", StaticFiles(directory="web", html=True), name="web")

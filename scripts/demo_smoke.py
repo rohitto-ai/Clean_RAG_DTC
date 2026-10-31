@@ -120,6 +120,21 @@ class Client:
             return r.status_code, self._body(r.headers.get("content-type"), r.content)
         return self._http("GET", path, None)
 
+    def text(self, path):
+        """(status, decoded text) - for static assets, which _body() does not decode."""
+        if self._ctx:
+            r = self._ctx.get(path)
+            return r.status_code, r.content.decode(errors="replace")
+        import urllib.error
+        req = self._urllib.Request(self.base.rstrip("/") + path, method="GET")
+        try:
+            with self._urllib.urlopen(req, timeout=60) as r:
+                return r.status, r.read().decode(errors="replace")
+        except urllib.error.HTTPError as e:
+            return e.code, e.read().decode(errors="replace")
+        except Exception as e:
+            return 0, f"cannot reach {self.base}: {e}"
+
     def post(self, path, body=None):
         if self._ctx:
             r = self._ctx.post(path, json=body or {})
@@ -300,6 +315,58 @@ def main():
         strs, reset = c.post("/replay/reset")
         check("reset restores the full log", reset["rows_in_scope"] == 1000,
               str(reset["rows_in_scope"]))
+
+        print("\n== UI v2: served offline and wired to the same presets ==")
+        # /v2 is static; it calls the same endpoints, so "exercised against /v2"
+        # means: the bundle is served, it is offline-clean, every preset the
+        # classic UI drives is reachable from it, and the API answers identically
+        # when the request comes from the v2 page.
+        v2 = {}
+        for path in ("/v2/", "/v2/index.html", "/v2/style.css", "/v2/app.js"):
+            sts, body = c.text(path)
+            v2[path] = body
+            check(f"GET {path} is served", sts == 200 and len(body) > 100, f"{sts}, {len(body)}B")
+        page = v2["/v2/index.html"] + v2["/v2/app.js"] + v2["/v2/style.css"]
+        # The XML namespace in createElementNS is an identifier, never a request,
+        # so it is excluded; everything else that looks like a URL is a finding.
+        scanned = page.replace("http://www.w3.org/2000/svg", "")
+        offline = [u for u in ("http://", "https://", "//cdn", "fonts.googleapis",
+                               "unpkg", "jsdelivr", "cdnjs", "@import url(")
+                   if u in scanned]
+        check("the v2 bundle fetches nothing external (XML namespace excluded)",
+              not offline, str(offline))
+        check("the classic UI links to /v2 and /v2 links back",
+              '/v2' in c.text("/")[1] and 'href="/"' in v2["/v2/index.html"])
+        check("v2 reads only existing endpoints",
+              all(e in v2["/v2/app.js"] for e in ("/fleet", "/vehicle/", "/symptom",
+                                                  "/verify-code", "/audit", "/replay/",
+                                                  "/scenarios", "/health")))
+        # every preset of the classic UI must be present in the v2 bundle ...
+        for q, _want in SYMPTOM_PRESETS + [(q, l) for q, l in CONVERSATIONAL_PRESETS]:
+            check(f"v2 offers the preset {q!r}", q in v2["/v2/app.js"])
+        for q, _c in INCOMPLETE_PRESETS:
+            check(f"v2 offers the preset {q!r}", q in v2["/v2/app.js"])
+        for key, typed, _n in VERIFY_PRESETS:
+            check(f"v2 offers the transposition preset {typed}",
+                  key in v2["/v2/app.js"] and typed in v2["/v2/app.js"])
+        # ... and the API must answer each one the same way for the v2 page
+        for q, want in SYMPTOM_PRESETS:
+            sts, res = c.post("/symptom", {"query": q, "summary": False})
+            decision = "refuse" if res.get("mode") == "refused" else "answer"
+            check(f"v2 preset {q!r} -> {want} (same API response)",
+                  sts == 200 and decision == want and why_ok(res), f"{sts} {res.get('mode')}")
+        for q, label in CONVERSATIONAL_PRESETS:
+            sts, res = c.post("/symptom", {"query": q, "summary": False})
+            check(f"v2 preset {q!r} -> conversational {label}",
+                  sts == 200 and res.get("conversational") == label, str(res.get("mode")))
+        for q, want_cands in INCOMPLETE_PRESETS:
+            sts, res = c.post("/symptom", {"query": q, "summary": False})
+            check(f"v2 preset {q!r} -> incomplete_code",
+                  sts == 200 and res.get("mode") == "incomplete_code"
+                  and bool(res.get("candidates")) == want_cands, str(res.get("mode")))
+        check("v2 renders a distinct style for each message class",
+              all(k in v2["/v2/app.js"] for k in ("msg friendly", "msg clarify", "msg refusal"))
+              and "incomplete_code" in v2["/v2/app.js"] and "conversational" in v2["/v2/app.js"])
 
         print("\n== presets: audit ==")
         sta, aud = c.get("/audit?limit=120")

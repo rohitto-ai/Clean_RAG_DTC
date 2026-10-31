@@ -100,6 +100,27 @@ superseded and moved, not deleted). Re-measured: probe **0/240** ranked lists, i
 robustness **identical in every row and route**, suite **44/1/0**, determinism
 **`ffff9bc707d8754d`**, demo **55/55**. Details: `docs/report/phase13_3_partial_codes.md`.
 
+**Phase 13.2 (branch `ui-v2`, NOT merged; additive — classic UI, API, retrieval, gate, indexes and
+records UNCHANGED):** an optional redesigned front end served **side by side** at **`/v2`**, with a
+one-line "New UI" / "Classic UI" link on each. `web_v2/` is three files plus an inline SVG sprite —
+no build step, no CDN, no web fonts, **nothing fetched at all** (the only `http://` in the bundle is
+the SVG XML namespace, and the smoke test excludes it explicitly rather than passing quietly).
+Sidebar nav (Fleet / Vehicle / Service query / Audit), one search box that routes by rule to a
+vehicle, a registration, a code or a symptom, light/dark with `color-scheme`, KPI tiles, a sortable
+and filterable fleet table, replay with a progress bar, a horizontal SPN/FMI → P-code → outcome →
+advisory stepper, an expandable repair **timeline** showing pass/fail branches, pins and the manual
+page, a one-page **print job card**, and a slide-in **"Why this answer?"** panel with Rule/Model
+labels on every step. **13.1 conversational** and **13.3 incomplete_code** each get their own
+friendly style, distinct from refusals and clarifications; only a transport failure is styled as an
+error. **Uses only existing endpoints**; what the API cannot support is listed in the report rather
+than added — true replay pause/resume (`/replay/start` restarts from row 0), `region` in
+`/fleet.per_vehicle` (the column was removed rather than left blank), server-side sort/pagination.
+19 Playwright screenshots (desktop + tablet, both UIs, plus dark) in `docs/report/img/ui_v2/`;
+three real bugs were caught by *looking* at them — a wrapping stepper, an `ADVISORY` styled "needs
+confirmation", and a grid `min-width: auto` overflow. `./run.sh demo --check` **55 → 83**, **DEMO
+CHECK PASSED**. Suite **44/1/0**, determinism **`ffff9bc707d8754d`**. Details:
+`docs/report/phase13_2_ui_v2.md`.
+
 ## How to run the demo
 
 ```bash
@@ -382,3 +403,4 @@ exact dense, cylinder token) + gate v2 by default (`data/production_config.json`
 - [phase9_1_advise_mode.md](phase9_1_advise_mode.md) — top-3 DTCs with fix steps; the step/spec column parse defect
 - [phase13_1_conversational.md](phase13_1_conversational.md) — conversational pre-filter: greetings, thanks and "no issues" never reach retrieval
 - [phase13_3_partial_codes.md](phase13_3_partial_codes.md) — half-typed codes answered with dictionary candidates, never a symptom search
+- [phase13_2_ui_v2.md](phase13_2_ui_v2.md) — the optional `/v2` workshop dashboard, served beside the classic UI
