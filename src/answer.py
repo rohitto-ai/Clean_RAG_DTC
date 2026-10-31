@@ -251,6 +251,19 @@ def answer(query, retriever, phraser=None, k=5, gate="default"):
     out = retriever.retrieve(query, k=k)
     mode, results = out["mode"], out["results"]
 
+    if mode == "invalid_code":
+        # Phase 13.4: code-shaped garbage. Say what a code looks like; assert nothing.
+        t = out["trace"]
+        lines = [t["message"]]
+        if t.get("candidates"):
+            lines += ["", t.get("candidates_note") or "Codes in this manual:"]
+            lines += [f"  - {c['code']} (page {c['page']}): {c['description']}"
+                      for c in t["candidates"]]
+            if t.get("more_note"):
+                lines.append(f"  - {t['more_note']}")
+        return {"mode": mode, "path": "deterministic_invalid_code",
+                "text": "\n".join(lines), "citations": [], "trace": t}
+
     if mode == "incomplete_code":
         # Phase 13.3: somebody began typing a code and stopped. Say so, offer the
         # dictionary's candidates, and assert nothing.

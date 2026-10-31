@@ -119,6 +119,17 @@ def advise(query, R, phraser=None, summary=False, top_n=TOP_N):
     trace = {"router_mode": out["mode"], "retrieval_trace": out["trace"]}
     results = []
 
+    if out["mode"] == "invalid_code":
+        # Phase 13.4: no fix blocks for a token that cannot be a code.
+        t = out["trace"]
+        return {"input": query, "mode": "invalid_code", "results": [],
+                "message": t["message"], "candidates": t.get("candidates", []),
+                "candidates_more": t.get("candidates_more", 0),
+                "candidates_note": t.get("candidates_note"),
+                "more_note": t.get("more_note"),
+                "no_candidates_reason": t.get("no_candidates_reason"),
+                "known_variants": [], "did_you_mean": [], "trace": trace}
+
     if out["mode"] == "incomplete_code":
         # Phase 13.3: no fix blocks for a code that was never finished.
         t = out["trace"]

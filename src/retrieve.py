@@ -8,6 +8,8 @@ Router priority (first match wins):
   1. exact_code   — a DTC code appears in the query (after 9.3b code-token
                     normalisation). Unknown P/U code -> mode "unknown_code" (explicit
                     refusal); known base but unknown suffix -> "suffix_not_found".
+                    Phase 13.4 adds mode "invalid_code" for an over-long or
+                    malformed code token ("P1023473efa...", "P99999999").
                     Phase 13.3 adds mode "incomplete_code" for a 1-3 digit code
                     ATTEMPT ("P10", "P-10", "p 019"): no retrieval, no auto-select,
                     dictionary candidates only.
@@ -438,6 +440,17 @@ class Retriever:
             return {"mode": "incomplete_code", "results": [],
                     "trace": {**base_trace, **incomplete,
                               "retrieval_run": False, "auto_selected": False}}
+
+        # ---- Phase 13.4: a code-SHAPED token that cannot be a code --------
+        # Evaluated only when the 9.3 logic extracted NOTHING, so an embedded
+        # valid code ("DTC=P0192-00;ts=1230") and a trailing-junk code from which
+        # a base IS extracted ("P0192-00xyz123abc") both keep their existing path.
+        if not (code_full or base):
+            bad = _partial_code().resolve_invalid(query, self.code_index["by_dtc_code"])
+            if bad:
+                return {"mode": "invalid_code", "results": [],
+                        "trace": {**base_trace, **bad,
+                                  "retrieval_run": False, "auto_selected": False}}
 
         if code_full or base:
             results, t = self._exact(code_full, base, k)

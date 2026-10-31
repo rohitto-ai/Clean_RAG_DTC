@@ -49,6 +49,13 @@ INCOMPLETE_PRESETS = [
     ("P1", False),       # 1 digit -> format hint only, no candidates
 ]
 
+# Phase 13.4 - a code-shaped token that cannot be a code must get the format hint,
+# never a symptom search.
+INVALID_PRESETS = [
+    ("P1023473efa234rgddhdhdfgddhy", False),   # P1023 is not a base here -> hint only
+    ("U0100zzzz", False),                      # illegal characters, U0100 not a base
+]
+
 VERIFY_PRESETS = [
     ("transposition_P1000", "P0100-00", "P1000-00"),
     ("transposition_P1675", "P1657-00", "P1675-00"),
@@ -268,6 +275,30 @@ def main():
             check(f"NOT incomplete: {q!r}", sts == 200 and res.get("mode") != "incomplete_code",
                   f"mode={res.get('mode')}")
 
+        print("\n== presets: invalid code tokens (Phase 13.4) ==")
+        for q, want_cands in INVALID_PRESETS:
+            sts, res = c.post("/symptom", {"query": q, "summary": False})
+            w = res.get("why") or {}
+            ok = (sts == 200 and res.get("mode") == "invalid_code"
+                  and "is not a valid fault code" in (res.get("message") or "")
+                  and "P0192-00" in (res.get("message") or "")
+                  and not res.get("results") and why_ok(res)
+                  and (w.get("retrieval") or {}).get("used") is False
+                  and all(st.get("label") == "RULE" for st in w.get("steps", []))
+                  and bool(res.get("candidates")) == want_cands)
+            check(f"invalid {q[:28]!r} -> format hint, no retrieval", ok,
+                  f"{sts} mode={res.get('mode')} cands={len(res.get('candidates') or [])}")
+        sts, res = c.post("/symptom", {"query": "P0192abcdefgh", "summary": False})
+        check("invalid token whose first five ARE a base lists that base's variants",
+              sts == 200 and res.get("mode") == "invalid_code"
+              and [x["code"] for x in res.get("candidates") or []] == ["P0192-00"],
+              str(res.get("candidates")))
+        for q, want in (("DTC=P0192-00;ts=1230", "dtc_code"), ("P0192-00xyz123abc", "dtc_code"),
+                        ("P0192-00@08:15", "dtc_code")):
+            sts, res = c.post("/symptom", {"query": q, "summary": False})
+            check(f"embedded code still extracted: {q!r}",
+                  sts == 200 and res.get("mode") == want, str(res.get("mode")))
+
         print("\n== presets: fleet + filters ==")
         stf, f = c.get("/fleet")
         check("GET /fleet is ok", stf == 200 and f["vehicles"] > 0 and why_ok(f),
@@ -302,7 +333,7 @@ def main():
               str(reset["rows_in_scope"]))
 
         print("\n== presets: audit ==")
-        sta, aud = c.get("/audit?limit=120")
+        sta, aud = c.get("/audit?limit=160")
         check("audit returns recent entries", sta == 200 and aud["count"] > 0 and why_ok(aud),
               f"{aud.get('count')} entries")
         seen = {e["endpoint"] for e in aud["entries"]}
@@ -310,9 +341,9 @@ def main():
               {"/health", "/fleet", "/vehicle", "/verify-code", "/symptom", "/query"} <= seen,
               str(sorted(seen)))
         decisions = {d for e in aud["entries"] for d in str(e["decision"]).split(",")}
-        check("audit decisions include refusal, mismatch, conversational and incomplete_code",
-              {"refuse", "mismatch", "conversational", "incomplete_code"} <= decisions,
-              str(sorted(decisions)))
+        check("audit decisions include refusal, mismatch, conversational, incomplete and invalid",
+              {"refuse", "mismatch", "conversational", "incomplete_code",
+               "invalid_code"} <= decisions, str(sorted(decisions)))
 
     passed = sum(RESULTS)
     print(f"\n==== DEMO SMOKE: {passed}/{len(RESULTS)} passed ====")

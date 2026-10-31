@@ -503,13 +503,14 @@ async function runSymptom(q) {
         el('div', { class: 'small muted',
           text: 'Not a fault report, so nothing was retrieved and the manual was not '
                 + 'consulted.' })));
-    } else if (res.mode === 'incomplete_code') {
+    } else if (res.mode === 'incomplete_code' || res.mode === 'invalid_code') {
       const box = el('div', { class: 'notice warn' },
         el('span', { class: 'tag RULE', text: 'RULE' }), ' ',
         el('strong', { text: res.message }));
       if ((res.candidates || []).length) {
         box.append(el('div', { class: 'small',
-          text: 'Codes in this manual that start that way — not selected, enter the full code:' }));
+          text: res.candidates_note
+            || 'Codes in this manual that start that way — not selected, enter the full code:' }));
         const ul = el('ul', { class: 'small' });
         for (const c of res.candidates) {
           ul.append(el('li', {}, el('code', { text: c.code }),
@@ -591,6 +592,8 @@ const SYMPTOM_PRESETS = [
   ['P-10', 'incomplete code — candidates, no retrieval'],
   ['P019', 'incomplete code — dropped digit'],
   ['P1', 'incomplete code — one digit, format hint only'],
+  ['P1023473efa234rgddhdhdfgddhy', 'invalid code — over-long token, no retrieval'],
+  ['U0100zzzz', 'invalid code — illegal characters'],
   ['how do I change a tyre', 'out of scope — expect a refusal'],
   ['what is the warranty period on this engine', 'out of scope — expect a refusal'],
 ];

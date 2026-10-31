@@ -1,6 +1,6 @@
 # RESUME — Clean RAG for the 3.3L DTC Manual
 
-**State: PHASE 8 COMPLETE; Phase 9.1 (advise mode) + 9.1b (step column-bleed fix) + 9.2 (baseline comparison) + 9.3 (noisy-input robustness) + 9.3b (code-handling hardening, adopted) + 9.4 (synthetic SPN/FMI normalization demo) DONE; Phase 10.1 + 10.1b (lexicon v2, lamp reachability) DONE and FROZEN, NOT adopted; Phase 10.2 (synthetic demo data + telematics pipeline) + 10.3 (FastAPI service + audit log) + 10.4 (demo website) + 10.5 (demo hardening) + 10.5b (one-click launchers) + 10.6 (INDEPENDENT one-shot evaluation) + 13.1 (conversational pre-filter) + 13.3 (partial / malformed code handling) DONE — on branch `phase10-demo`.** All phases 0–8 are done on branch `phase8-limitations`. The
+**State: PHASE 8 COMPLETE; Phase 9.1 (advise mode) + 9.1b (step column-bleed fix) + 9.2 (baseline comparison) + 9.3 (noisy-input robustness) + 9.3b (code-handling hardening, adopted) + 9.4 (synthetic SPN/FMI normalization demo) DONE; Phase 10.1 + 10.1b (lexicon v2, lamp reachability) DONE and FROZEN, NOT adopted; Phase 10.2 (synthetic demo data + telematics pipeline) + 10.3 (FastAPI service + audit log) + 10.4 (demo website) + 10.5 (demo hardening) + 10.5b (one-click launchers) + 10.6 (INDEPENDENT one-shot evaluation) + 13.1 (conversational pre-filter) + 13.3 (partial code handling) + 13.4 (invalid / over-long code tokens) DONE — on branch `phase10-demo`.** All phases 0–8 are done on branch `phase8-limitations`. The
 Phase 8 configuration is adopted as the production default. The frozen TEST split has been
 evaluated once and is now spent. The previous system is preserved as tag `v1-phase7`.
 
@@ -12,7 +12,7 @@ _Last updated: 2026-10-25_
 (Or Terminal → Run Task… → **"Demo: start"**; or `./run.sh demo`.)
 Port 8000 is forwarded as *Diagnostic Demo* and opens the browser automatically.
 Stop with Run Task → **"Demo: stop"** or `./run.sh demo --stop`.
-Pre-flight with Run Task → **"Demo: check"** — expect `55/55`.
+Pre-flight with Run Task → **"Demo: check"** — expect `61/61`.
 Autostart on attach is **off** by default; set `DEMO_AUTOSTART=1` to enable it.
 
 **Windows laptop (offline):** double-click **`start_demo.bat`** → it starts the server on
@@ -99,6 +99,27 @@ stays an exact match. Tests **96/96** (27 should-trigger, 36 must-not-trigger; o
 superseded and moved, not deleted). Re-measured: probe **0/240** ranked lists, interception **0/150**,
 robustness **identical in every row and route**, suite **44/1/0**, determinism
 **`ffff9bc707d8754d`**, demo **55/55**. Details: `docs/report/phase13_3_partial_codes.md`.
+
+**Phase 13.4 (branch `phase10-demo`; retrieval scoring, gate, indexes and records UNCHANGED):**
+over-long / garbage code tokens. Reported bug: `P1023473efa234rgddhdhdfgddhy` returned
+P0001-00, P0219-00, P0089-92 from **symptom search**. New decision **`invalid_code`**, evaluated
+**after** the 9.3 extraction of any embedded valid code and alongside the 13.3 check: it fires when
+a token opens with a code letter + digit, is longer than `P0192-00` (8 chars) **or** holds a
+character a code cannot, **no valid code is extractable**, and the 13.3 scope rule holds (≤3 tokens
+or named by code/DTC/fault). Reply: no retrieval, nothing auto-selected, *"'<token, 20 chars>…' is
+not a valid fault code. Codes in this manual look like P0192-00."*, plus that base's variants when
+the first five characters are a base the manual holds (`P0192abcdefgh` → `P0192-00`). **Checked and
+documented:** `P0192-00xyz123abc` and `P0192-00-00-00` do **not** trigger — 9.3 extracts a real base
+from both, so they stay `exact_code`; one test expectation was corrected rather than the rule.
+Tests `src/test_invalid_codes.py` **72/72** (13 should-trigger, 27 must-not-trigger); 13.3 **96/96**
+and 13.1 **67/67** unchanged. **200-token garbage probe** (before column from a worktree at
+`2696994`): **unrelated ranked lists 159/200 → 0/200**; 41/200 still answer with a ranked list and
+all 41 return the **source code's own family**, because a real base was extractable. **1,007-query
+robustness re-run: every row and every route identical** (recovered 738, refused 211, clarified 4,
+HARMFUL 2, hedged 52) — that corpus holds no malformed token, which is why the bug survived it. The
+13.3 240-form probe is unchanged at **0/240** ranked lists. **POST-HOC interception: 0 of 150.**
+Demo `--check` **55 → 61**, **DEMO CHECK PASSED**. Suite **44/1/0**, determinism
+**`ffff9bc707d8754d`**. Details: `docs/report/phase13_4_invalid_codes.md`.
 
 ## How to run the demo
 
@@ -382,3 +403,4 @@ exact dense, cylinder token) + gate v2 by default (`data/production_config.json`
 - [phase9_1_advise_mode.md](phase9_1_advise_mode.md) — top-3 DTCs with fix steps; the step/spec column parse defect
 - [phase13_1_conversational.md](phase13_1_conversational.md) — conversational pre-filter: greetings, thanks and "no issues" never reach retrieval
 - [phase13_3_partial_codes.md](phase13_3_partial_codes.md) — half-typed codes answered with dictionary candidates, never a symptom search
+- [phase13_4_invalid_codes.md](phase13_4_invalid_codes.md) — code-shaped garbage answered with the format hint, never a symptom search
