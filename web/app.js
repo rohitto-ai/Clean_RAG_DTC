@@ -496,7 +496,14 @@ async function runSymptom(q) {
       el('span', { class: 'small muted',
         text: `config: ${res.config.index}, gate ${res.config.gate}` })));
 
-    if (res.mode === 'refused') {
+    if (res.mode === 'conversational') {
+      host.append(el('div', { class: 'notice info' },
+        el('span', { class: 'tag RULE', text: 'RULE' }), ' ',
+        el('strong', { text: res.message }),
+        el('div', { class: 'small muted',
+          text: 'Not a fault report, so nothing was retrieved and the manual was not '
+                + 'consulted.' })));
+    } else if (res.mode === 'refused') {
       host.append(el('div', { class: 'notice bad' },
         el('strong', { text: 'Not covered in this manual. ' }),
         el('div', { class: 'small', text: res.message || '' }),
@@ -560,6 +567,9 @@ async function loadAudit() {
 /* ============================================================== presets */
 const SYMPTOM_PRESETS = [
   ['coolant gauge stuck at the bottom', 'in scope — symptom search'],
+  ['hi', 'conversational — greeting, no retrieval'],
+  ['thanks a lot', 'conversational — thanks, no retrieval'],
+  ['no issue, the vehicle is running fine', 'conversational — healthy, no fault lookup'],
   ['how do I change a tyre', 'out of scope — expect a refusal'],
   ['what is the warranty period on this engine', 'out of scope — expect a refusal'],
 ];

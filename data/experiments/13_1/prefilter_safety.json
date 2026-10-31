@@ -1,0 +1,122 @@
+{
+ "label": "POST-HOC, counts only. classify() alone - no retrieval, no index, no answer, no metric. Expected 0 on every coded or symptom row.",
+ "filter": "src/conversational.py",
+ "sets": {
+  "DEV (gold_v2)": {
+   "rows": 34,
+   "intercepted": 0,
+   "by_mode": {
+    "exact_code": {
+     "rows": 6,
+     "intercepted": 0,
+     "labels": {},
+     "intercepted_ids": []
+    },
+    "near_duplicate": {
+     "rows": 7,
+     "intercepted": 0,
+     "labels": {},
+     "intercepted_ids": []
+    },
+    "out_of_scope": {
+     "rows": 6,
+     "intercepted": 0,
+     "labels": {},
+     "intercepted_ids": []
+    },
+    "symptom": {
+     "rows": 12,
+     "intercepted": 0,
+     "labels": {},
+     "intercepted_ids": []
+    },
+    "system_group": {
+     "rows": 3,
+     "intercepted": 0,
+     "labels": {},
+     "intercepted_ids": []
+    }
+   }
+  },
+  "TEST (gold_v2, spent)": {
+   "rows": 36,
+   "intercepted": 0,
+   "by_mode": {
+    "exact_code": {
+     "rows": 6,
+     "intercepted": 0,
+     "labels": {},
+     "intercepted_ids": []
+    },
+    "near_duplicate": {
+     "rows": 7,
+     "intercepted": 0,
+     "labels": {},
+     "intercepted_ids": []
+    },
+    "out_of_scope": {
+     "rows": 6,
+     "intercepted": 0,
+     "labels": {},
+     "intercepted_ids": []
+    },
+    "symptom": {
+     "rows": 13,
+     "intercepted": 0,
+     "labels": {},
+     "intercepted_ids": []
+    },
+    "system_group": {
+     "rows": 4,
+     "intercepted": 0,
+     "labels": {},
+     "intercepted_ids": []
+    }
+   }
+  },
+  "independent (spent)": {
+   "rows": 60,
+   "intercepted": 0,
+   "by_mode": {
+    "no_dtc": {
+     "rows": 19,
+     "intercepted": 0,
+     "labels": {},
+     "intercepted_ids": []
+    },
+    "symptom": {
+     "rows": 41,
+     "intercepted": 0,
+     "labels": {},
+     "intercepted_ids": []
+    }
+   }
+  },
+  "R2 colleague (spent)": {
+   "rows": 20,
+   "intercepted": 0,
+   "by_mode": {
+    "inconclusive": {
+     "rows": 1,
+     "intercepted": 0,
+     "labels": {},
+     "intercepted_ids": []
+    },
+    "no_dtc": {
+     "rows": 4,
+     "intercepted": 0,
+     "labels": {},
+     "intercepted_ids": []
+    },
+    "symptom": {
+     "rows": 15,
+     "intercepted": 0,
+     "labels": {},
+     "intercepted_ids": []
+    }
+   }
+  }
+ },
+ "bugs": [],
+ "verdict": "PASS - no coded or symptom row is intercepted on any set"
+}

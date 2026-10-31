@@ -1,6 +1,6 @@
 # RESUME — Clean RAG for the 3.3L DTC Manual
 
-**State: PHASE 8 COMPLETE; Phase 9.1 (advise mode) + 9.1b (step column-bleed fix) + 9.2 (baseline comparison) + 9.3 (noisy-input robustness) + 9.3b (code-handling hardening, adopted) + 9.4 (synthetic SPN/FMI normalization demo) DONE; Phase 10.1 + 10.1b (lexicon v2, lamp reachability) DONE and FROZEN, NOT adopted; Phase 10.2 (synthetic demo data + telematics pipeline) + 10.3 (FastAPI service + audit log) + 10.4 (demo website) + 10.5 (demo hardening) + 10.5b (one-click launchers) + 10.6 (INDEPENDENT one-shot evaluation) DONE — on branch `phase10-demo`.** All phases 0–8 are done on branch `phase8-limitations`. The
+**State: PHASE 8 COMPLETE; Phase 9.1 (advise mode) + 9.1b (step column-bleed fix) + 9.2 (baseline comparison) + 9.3 (noisy-input robustness) + 9.3b (code-handling hardening, adopted) + 9.4 (synthetic SPN/FMI normalization demo) DONE; Phase 10.1 + 10.1b (lexicon v2, lamp reachability) DONE and FROZEN, NOT adopted; Phase 10.2 (synthetic demo data + telematics pipeline) + 10.3 (FastAPI service + audit log) + 10.4 (demo website) + 10.5 (demo hardening) + 10.5b (one-click launchers) + 10.6 (INDEPENDENT one-shot evaluation) + 13.1 (conversational pre-filter) DONE — on branch `phase10-demo`.** All phases 0–8 are done on branch `phase8-limitations`. The
 Phase 8 configuration is adopted as the production default. The frozen TEST split has been
 evaluated once and is now spent. The previous system is preserved as tag `v1-phase7`.
 
@@ -12,7 +12,7 @@ _Last updated: 2026-10-25_
 (Or Terminal → Run Task… → **"Demo: start"**; or `./run.sh demo`.)
 Port 8000 is forwarded as *Diagnostic Demo* and opens the browser automatically.
 Stop with Run Task → **"Demo: stop"** or `./run.sh demo --stop`.
-Pre-flight with Run Task → **"Demo: check"** — expect `43/43`.
+Pre-flight with Run Task → **"Demo: check"** — expect `49/49`.
 Autostart on attach is **off** by default; set `DEMO_AUTOSTART=1` to enable it.
 
 **Windows laptop (offline):** double-click **`start_demo.bat`** → it starts the server on
@@ -44,6 +44,29 @@ Details, including the offline install: `docs/report/phase10_5_demo_runbook.md`.
 **Phase 10.4 (demo website):** `web/` — plain HTML + CSS + vanilla JS, **no build step, no CDN, no web fonts, works offline**, served by `app.py` at `/` and consuming only the 10.3 endpoints. Four tabs: **Fleet** (counters, severity badges CRITICAL/HIGH/MEDIUM/LOW, severity+region+outcome filters, replay Start/Stop/Reset with `/fleet` polled every 3 s *only* while replaying, click-through to a vehicle), **Vehicle** (per-episode chain SPN/FMI → P-code → outcome badge, severity + reasons, fix blocks with manual pages, candidates marked "Not auto-advised — confirm with technician", refusals with no steps, a separate grey dashed **illustrative cost/TAT** panel, and the technician-reported-code cross-check showing MISMATCH + possible transposition, never auto-replaced), **Service query** (top-3 + cost, refusals rendered as refusals with the reason), **Audit** (latest 50 entries). Every result has a collapsible **"Why this answer?"** panel: route, ladder rungs, retrieval ranks, gate decision + signals, citations, severity reasons, and steps badged **RULE (green) / AI (purple)**. A **Demo presets** menu is built from `/scenarios` (all 14 scenarios + 3 symptom presets + both transposition cases). `scripts/demo_smoke.py` drives every preset: **43/43**. 11 screenshots captured from the real UI at 1280×720 by `scripts/capture_screens.py` (Playwright, dev-only, not in requirements) into `docs/report/img/`. `src/test_api.py` **56/56**, suite **44/1/0**, determinism **`ffff9bc707d8754d`**. Includes a 10-minute demo script. Details: `docs/report/phase10_4_website.md`.
 
 **Phase 10.5 (demo hardening; retrieval, gate, index and records UNCHANGED):** `run.sh` gained a `demo` target — rebuilds `index/` and `data/demo/` if missing, starts uvicorn on `0.0.0.0:8000`, polls `GET /health` until ok (tailing the log and failing clearly if start-up dies), **warms the models** with one `/symptom` + one `/vehicle` call, then prints the local and Codespace URLs, the log path and the pre-flight command. `./run.sh demo --check` runs `scripts/demo_smoke.py` against the live server, stops the server it started, and **exits non-zero on any FAIL**; an unreachable server now reads as a clean FAIL instead of a traceback. `--port N` supported; a healthy server already on the port is reused. Verified **twice from a clean shell** (`env -i`): 43/43, exit 0 both times; failure path exits 1. The demo runs **without the LLM** (every demo path is rule-based; `llama_cpp` is imported lazily), and `run.sh demo` says so rather than blocking. New runbook `docs/report/phase10_5_demo_runbook.md`: offline Windows fallback (Python 3.12, venv, wheel cache, CPU-only torch, optional llama-cpp build, what to copy incl. the Hugging Face cache for the embedder), Codespace checklist (port visibility public→private, idle timeout, keep-alive, dropped-URL recovery), and a 2-minute panic section (<60 s restart, the 9 screenshots to fall back on, and the behaviours that look like failures but are not). `src/test_api.py` **61/61**, suite **44/1/0**, determinism **`ffff9bc707d8754d`**.
+
+**Phase 13.1 (branch `phase10-demo`; additive — retrieval, gate, indexes and records UNCHANGED):**
+a rule-based **conversational pre-filter** in front of routing on the two free-text paths,
+`/symptom` and `/query`. `src/conversational.py` → `classify(query)` returns **GREETING | THANKS |
+NO_PROBLEM | None**; `None` runs the normal pipeline. GREETING/THANKS fire only when the **whole**
+query is pleasantry plus filler, so `hi, engine knocking at full load` is a normal symptom query.
+NO_PROBLEM needs an explicit healthy phrase (`no issue(s)`, `all good`, `running fine`, `healthy`,
+`starts fine`, `no warning`, …) **and** no problem signal at all — no `P/U/B/C`+4-hex code or
+SPN/FMI, no contrast word (but/except/however/though/sometimes/only when/apart from), no negated
+action (not/won't/doesn't/can't/fails/unable/refuses), no symptom term from a fixed list. The
+healthy phrases are **masked out before** the problem scan, which is what lets `no warning` pass
+while `no warning light but loses power` is rejected. Three fixed replies, decision label
+`conversational`, audited like any other decision, and every `why` step labelled **RULE** — no model
+is consulted (a test asserts neither `llama_cpp` nor `sentence_transformers` is imported). **Why
+this is not the gate's job:** gate v2 refuses on lexical/dense distance, and "no issues, the truck
+is running fine" is ordinary in-domain vehicle language — the same structural limit as the 0/19
+`no_dtc` declines. Tests `src/test_conversational.py` **67/67** (26 should-fire, **31
+must-not-fire**, the dangerous class being a healthy phrase with a fault attached). **POST-HOC
+safety measurement, counts only** (`scripts/measure_13_1.py`, `classify()` alone — no retrieval):
+**0 of 150 rows intercepted** across DEV 0/34, TEST 0/36, independent 0/60 and R2 0/20, including
+**0/23 `no_dtc`** rows and **0/12 out-of-scope** rows, so no rule needed fixing. Demo: 3 presets
+added and `./run.sh demo --check` extended **43 → 49** checks, **DEMO CHECK PASSED**. Suite
+**44/1/0**, determinism **`ffff9bc707d8754d`**. Details: `docs/report/phase13_1_conversational.md`.
 
 ## How to run the demo
 
@@ -325,3 +348,4 @@ exact dense, cylinder token) + gate v2 by default (`data/production_config.json`
 - [phase8_4_image_pins.md](phase8_4_image_pins.md) — composition OCR: recall, audited precision, verdict
 - [phase8_5_final_eval.md](phase8_5_final_eval.md) — **the Phase 8 results chapter**: one-shot TEST, ablations, adoption
 - [phase9_1_advise_mode.md](phase9_1_advise_mode.md) — top-3 DTCs with fix steps; the step/spec column parse defect
+- [phase13_1_conversational.md](phase13_1_conversational.md) — conversational pre-filter: greetings, thanks and "no issues" never reach retrieval

@@ -27,6 +27,20 @@ SYMPTOM_PRESETS = [
     ("how do I change a tyre", "refuse"),
     ("what is the warranty period on this engine", "refuse"),
 ]
+# Phase 13.1 - the conversational presets. Each must come back with mode
+# "conversational", no results, no citations, and a why block whose steps are all
+# RULE: the point of the filter is that nothing was retrieved.
+CONVERSATIONAL_PRESETS = [
+    ("hi", "GREETING"),
+    ("thanks a lot", "THANKS"),
+    ("no issue, the vehicle is running fine", "NO_PROBLEM"),
+]
+# A pleasantry with a fault attached must NOT be intercepted.
+CONVERSATIONAL_NEGATIVE = [
+    "hi, engine knocking at full load",
+    "starts fine but black smoke under load",
+]
+
 VERIFY_PRESETS = [
     ("transposition_P1000", "P0100-00", "P1000-00"),
     ("transposition_P1675", "P1657-00", "P1675-00"),
@@ -205,6 +219,29 @@ def main():
             check(f"symptom {q!r} -> {want}", ok,
                   f"{sts} mode={res.get('mode')} reasons={res.get('refusal_reasons')}")
 
+        print("\n== presets: conversational pre-filter (Phase 13.1) ==")
+        for q, label in CONVERSATIONAL_PRESETS:
+            sts, res = c.post("/symptom", {"query": q, "summary": False})
+            w = res.get("why") or {}
+            ok = (sts == 200 and res.get("mode") == "conversational"
+                  and res.get("conversational") == label
+                  and res.get("message") and not res.get("results")
+                  and why_ok(res) and not w.get("citations")
+                  and (w.get("retrieval") or {}).get("used") is False
+                  and all(st.get("label") == "RULE" for st in w.get("steps", [])))
+            check(f"conversational {q!r} -> {label}, nothing retrieved", ok,
+                  f"{sts} mode={res.get('mode')} label={res.get('conversational')}")
+        for q in CONVERSATIONAL_NEGATIVE:
+            sts, res = c.post("/symptom", {"query": q, "summary": False})
+            check(f"NOT intercepted: {q!r}", sts == 200 and res.get("mode") != "conversational",
+                  f"mode={res.get('mode')}")
+        sts, res = c.post("/query", {"query": "hi", "k": 3})
+        check("/query also pre-filters a greeting",
+              sts == 200 and res.get("mode") == "conversational"
+              and res.get("path") == "deterministic_conversational"
+              and not res.get("citations"),
+              f"{sts} mode={res.get('mode')} path={res.get('path')}")
+
         print("\n== presets: fleet + filters ==")
         stf, f = c.get("/fleet")
         check("GET /fleet is ok", stf == 200 and f["vehicles"] > 0 and why_ok(f),
@@ -239,16 +276,16 @@ def main():
               str(reset["rows_in_scope"]))
 
         print("\n== presets: audit ==")
-        sta, aud = c.get("/audit?limit=50")
+        sta, aud = c.get("/audit?limit=80")
         check("audit returns recent entries", sta == 200 and aud["count"] > 0 and why_ok(aud),
               f"{aud.get('count')} entries")
         seen = {e["endpoint"] for e in aud["entries"]}
         check("the audit covers the endpoints the demo uses",
-              {"/health", "/fleet", "/vehicle", "/verify-code", "/symptom"} <= seen,
+              {"/health", "/fleet", "/vehicle", "/verify-code", "/symptom", "/query"} <= seen,
               str(sorted(seen)))
         decisions = {d for e in aud["entries"] for d in str(e["decision"]).split(",")}
-        check("audit decisions include a refusal and a mismatch",
-              "refuse" in decisions and "mismatch" in decisions, str(sorted(decisions)))
+        check("audit decisions include a refusal, a mismatch and a conversational reply",
+              {"refuse", "mismatch", "conversational"} <= decisions, str(sorted(decisions)))
 
     passed = sum(RESULTS)
     print(f"\n==== DEMO SMOKE: {passed}/{len(RESULTS)} passed ====")

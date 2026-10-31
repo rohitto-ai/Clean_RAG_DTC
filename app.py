@@ -20,6 +20,12 @@ Endpoints
     POST /query  /diagnose  /advise     the Phase 7 / 9.1 surfaces, unchanged
     GET  /                             static files from web/
 
+Phase 13.1 adds a rule-based conversational pre-filter in FRONT of routing on the
+two free-text paths (/symptom and /query): a query that is nothing but a greeting,
+a thanks, or a statement that the vehicle is healthy gets a fixed reply and never
+reaches the router, the retriever or the gate. Retrieval, the gate, the indexes and
+the records are unchanged - the filter only decides whether to call them.
+
 PRODUCTION CONFIG ONLY. The symptom path uses the adopted default configuration
 (C4b index + gate v2). Lexicon v2 (Phase 10.1/10.1b) is NOT adopted and is not
 reachable from this service.
@@ -45,6 +51,7 @@ from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 
 import answer as A
+import conversational as CONV
 from diagnose import Diagnoser
 from retrieve import Retriever
 
@@ -218,6 +225,28 @@ def why_symptom(res, *, summary_requested):
         "severity_reasons": [],
         "steps": steps,
         "codes": codes,
+    }
+
+
+def why_conversational(label, reasons):
+    """
+    `why` for a conversational reply. Every step is RULE: the filter is regex and
+    set membership, and the reply is a fixed string, so no model is consulted and
+    nothing is retrieved or cited.
+    """
+    return {
+        "route": "conversational",
+        "ladder": [],
+        "retrieval": {"used": False, "router_mode": None, "ranks": []},
+        "gate": {"applied": False, "decision": "not applicable", "reasons": reasons,
+                 "signals": {}},
+        "citations": [],
+        "severity_reasons": [],
+        "steps": [rule(f"conversational pre-filter: {label} - whole-query rule, applied "
+                       f"BEFORE routing"),
+                  rule("fixed reply returned; router, retriever, gate and manual are "
+                       "never consulted")],
+        "codes": [],
     }
 
 
@@ -425,6 +454,20 @@ def symptom(s: SymptomIn):
     t0 = time.perf_counter()
     if not s.query.strip():
         raise HTTPException(400, "empty query")
+
+    # Phase 13.1: non-diagnostic input never reaches the router or the retriever.
+    conv = CONV.respond(s.query)
+    if conv:
+        body = {"mode": conv["mode"], "conversational": conv["conversational"],
+                "message": conv["message"], "results": [],
+                "config": {"index": "index (production C4b)", "gate": "v2",
+                           "lexicon_v2_adopted": False},
+                "why": why_conversational(conv["conversational"], conv["reasons"])}
+        audit("/symptom", s.model_dump(), route="conversational", codes=[],
+              decision=CONV.DECISION, latency_ms=(time.perf_counter() - t0) * 1000,
+              extra={"conversational": conv["conversational"], "reasons": conv["reasons"]})
+        return body
+
     from advise import advise
     res = advise(s.query, STATE["retriever"], phraser=STATE["phraser"], summary=s.summary)
     for r in res.get("results") or []:
@@ -577,6 +620,23 @@ def query(q: QueryIn):
     if not q.query.strip():
         raise HTTPException(400, "empty query")
     t0 = time.perf_counter()
+
+    # Phase 13.1: the same pre-filter, in front of the Phase 7 surface too.
+    conv = CONV.respond(q.query)
+    if conv:
+        body = {"answer": conv["message"], "citations": [], "mode": conv["mode"],
+                "path": "deterministic_conversational",
+                "conversational": conv["conversational"],
+                "trace": {"conversational": conv["conversational"],
+                          "reasons": conv["reasons"],
+                          "retrieval_run": False, "gate_applied": False},
+                "llm_stats": None, "relevance": None,
+                "why": why_conversational(conv["conversational"], conv["reasons"])}
+        audit("/query", q.model_dump(), route="conversational", codes=[],
+              decision=CONV.DECISION, latency_ms=(time.perf_counter() - t0) * 1000,
+              extra={"conversational": conv["conversational"], "reasons": conv["reasons"]})
+        return body
+
     out = A.answer(q.query, STATE["retriever"], STATE["phraser"], k=q.k)
     body = {
         "answer": out["text"],
