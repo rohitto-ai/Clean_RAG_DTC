@@ -1,0 +1,59 @@
+{
+  "built_utc": "2026-09-17T17:27:25+00:00",
+  "records": 314,
+  "dense": {
+    "model": "sentence-transformers/all-MiniLM-L6-v2",
+    "passage_prefix": "",
+    "embedding_dim": 384,
+    "normalization": "L2 (unit norm); Chroma space=cosine",
+    "batch_size": 32,
+    "device": "cpu",
+    "embedding_text_fields": [
+      "code_full",
+      "description",
+      "system",
+      "cause[]",
+      "effect",
+      "checkpoints[]",
+      "circuit_description",
+      "pin_map.pin",
+      "pin_map.net"
+    ],
+    "embedding_text_excludes": [
+      "steps[].text"
+    ],
+    "excludes_rationale": "step text is near-identical across DTCs and dilutes discrimination between near-duplicate families"
+  },
+  "aliases": {
+    "mode": "bm25",
+    "lexicon": "data/domain_lexicon.json",
+    "lexicon_version": 2
+  },
+  "chroma": {
+    "version": "0.5.23",
+    "path": "index/chroma",
+    "collection": "dtc_records",
+    "space": "cosine"
+  },
+  "sentence_transformers_version": "3.3.1",
+  "bm25": {
+    "library": "rank-bm25 (BM25Okapi)",
+    "persisted": "tokenised corpus; scorer rebuilt at load",
+    "token_pattern": "[A-Za-z0-9][A-Za-z0-9_\\-\\.]*",
+    "cylinder_compound": true,
+    "preserves": [
+      "DTC codes e.g. p0192-00",
+      "pin labels e.g. a71"
+    ]
+  },
+  "exact": {
+    "by_code_full_keys": 311,
+    "by_dtc_code_keys": 235,
+    "duplicate_code_full": {
+      "P0180-11": 2,
+      "P0180-12": 2,
+      "P061C-00": 2
+    }
+  },
+  "peak_rss_mb": 679
+}

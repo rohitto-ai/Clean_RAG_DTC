@@ -1,0 +1,6122 @@
+{
+ "by_code_full": {
+  "P0192-00": [
+   {
+    "id": "P0192-00@p8#1",
+    "code_full": "P0192-00",
+    "page": 8,
+    "occurrence": 1,
+    "description": "Rail pressure Sensor Short circuit to ground",
+    "system": "rail_pressure"
+   }
+  ],
+  "P0193-00": [
+   {
+    "id": "P0193-00@p10#1",
+    "code_full": "P0193-00",
+    "page": 10,
+    "occurrence": 1,
+    "description": "Rail pressure sensor Short circuit to battery or Open circuit",
+    "system": "rail_pressure"
+   }
+  ],
+  "P0194-00": [
+   {
+    "id": "P0194-00@p12#1",
+    "code_full": "P0194-00",
+    "page": 12,
+    "occurrence": 1,
+    "description": "Fuel Rail Pressure Sensor Circuit Drift",
+    "system": "rail_pressure"
+   }
+  ],
+  "P0117-00": [
+   {
+    "id": "P0117-00@p13#1",
+    "code_full": "P0117-00",
+    "page": 13,
+    "occurrence": 1,
+    "description": "Coolant temperature sensor signal Short circuit to ground",
+    "system": "coolant"
+   }
+  ],
+  "P0118-00": [
+   {
+    "id": "P0118-00@p16#1",
+    "code_full": "P0118-00",
+    "page": 16,
+    "occurrence": 1,
+    "description": "Coolant temperature sensor signal Short circuit to battery or Open Circuit",
+    "system": "coolant"
+   }
+  ],
+  "P0119-00": [
+   {
+    "id": "P0119-00@p18#1",
+    "code_full": "P0119-00",
+    "page": 18,
+    "occurrence": 1,
+    "description": "Coolant temperature sensor signal gradient not plausible or intermittent",
+    "system": "coolant"
+   }
+  ],
+  "P0116-00": [
+   {
+    "id": "P0116-00@p20#1",
+    "code_full": "P0116-00",
+    "page": 20,
+    "occurrence": 1,
+    "description": "Coolant temperature sensor physical value plausibility check",
+    "system": "coolant"
+   }
+  ],
+  "P0100-00": [
+   {
+    "id": "P0100-00@p22#1",
+    "code_full": "P0100-00",
+    "page": 22,
+    "occurrence": 1,
+    "description": "DFC to Display Communication errors of the SENT line of the Air Mass Sensor",
+    "system": "intake_air"
+   }
+  ],
+  "P0102-00": [
+   {
+    "id": "P0102-00@p25#1",
+    "code_full": "P0102-00",
+    "page": 25,
+    "occurrence": 1,
+    "description": "DFC for Mass or Volume Air Flow Sensor \"A\" Circuit Low",
+    "system": "sensor_generic"
+   }
+  ],
+  "P0103-00": [
+   {
+    "id": "P0103-00@p28#1",
+    "code_full": "P0103-00",
+    "page": 28,
+    "occurrence": 1,
+    "description": "DFC for Mass or Volume Air Flow Sensor \"A\" Circuit high",
+    "system": "sensor_generic"
+   }
+  ],
+  "P010C-00": [
+   {
+    "id": "P010C-00@p31#1",
+    "code_full": "P010C-00",
+    "page": 31,
+    "occurrence": 1,
+    "description": "DFC for Mass or Volume Air Flow Sensor \"B\" Circuit Low",
+    "system": "sensor_generic"
+   }
+  ],
+  "P010D-00": [
+   {
+    "id": "P010D-00@p34#1",
+    "code_full": "P010D-00",
+    "page": 34,
+    "occurrence": 1,
+    "description": "DFC for Mass or Volume Air Flow Sensor \"B\" Circuit high",
+    "system": "sensor_generic"
+   }
+  ],
+  "P0100-9B": [
+   {
+    "id": "P0100-9B@p37#1",
+    "code_full": "P0100-9B",
+    "page": 37,
+    "occurrence": 1,
+    "description": "DFC for Mass air flow sensor physical range check high error",
+    "system": "intake_air"
+   }
+  ],
+  "P0100-9C": [
+   {
+    "id": "P0100-9C@p40#1",
+    "code_full": "P0100-9C",
+    "page": 40,
+    "occurrence": 1,
+    "description": "DFC for Mass air flow sensor physical range check low error",
+    "system": "intake_air"
+   }
+  ],
+  "P0101-00": [
+   {
+    "id": "P0101-00@p43#1",
+    "code_full": "P0101-00",
+    "page": 43,
+    "occurrence": 1,
+    "description": "DFC for Mass Airflow Pressure Charging System Plausibility",
+    "system": "intake_air"
+   }
+  ],
+  "P0401-00": [
+   {
+    "id": "P0401-00@p46#1",
+    "code_full": "P0401-00",
+    "page": 46,
+    "occurrence": 1,
+    "description": "Positive governor deviation above limit (air mass)",
+    "system": "intake_air"
+   }
+  ],
+  "P0402-00": [
+   {
+    "id": "P0402-00@p47#1",
+    "code_full": "P0402-00",
+    "page": 47,
+    "occurrence": 1,
+    "description": "Negative governor deviation above limit (air mass)",
+    "system": "intake_air"
+   }
+  ],
+  "P0107-00": [
+   {
+    "id": "P0107-00@p48#1",
+    "code_full": "P0107-00",
+    "page": 48,
+    "occurrence": 1,
+    "description": "Manifold Pressure sensor signal Short circuit to ground",
+    "system": "electrical"
+   }
+  ],
+  "P0108-00": [
+   {
+    "id": "P0108-00@p51#1",
+    "code_full": "P0108-00",
+    "page": 51,
+    "occurrence": 1,
+    "description": "Manifold Pressure sensor signal Open circuit or Short circuit to battery",
+    "system": "electrical"
+   }
+  ],
+  "P0109-00": [
+   {
+    "id": "P0109-00@p54#1",
+    "code_full": "P0109-00",
+    "page": 54,
+    "occurrence": 1,
+    "description": "Manifold pressure sensor signal gradient implausible or intermittent",
+    "system": "sensor_generic"
+   }
+  ],
+  "P0110-11": [
+   {
+    "id": "P0110-11@p57#1",
+    "code_full": "P0110-11",
+    "page": 57,
+    "occurrence": 1,
+    "description": "Intake air temperature Sensor Signal Short circuit to ground",
+    "system": "intake_air"
+   }
+  ],
+  "P0110-12": [
+   {
+    "id": "P0110-12@p60#1",
+    "code_full": "P0110-12",
+    "page": 60,
+    "occurrence": 1,
+    "description": "Intake air temperature Sensor Signal Open circuit or Short circuit to battery",
+    "system": "intake_air"
+   }
+  ],
+  "P006E-00": [
+   {
+    "id": "P006E-00@p63#1",
+    "code_full": "P006E-00",
+    "page": 63,
+    "occurrence": 1,
+    "description": "Turbocharger Boost Control Supply Voltage Circuit Low",
+    "system": "turbo_boost"
+   }
+  ],
+  "P006F-00": [
+   {
+    "id": "P006F-00@p66#1",
+    "code_full": "P006F-00",
+    "page": 66,
+    "occurrence": 1,
+    "description": "Turbocharger Boost Control Supply Voltage Circuit High",
+    "system": "turbo_boost"
+   }
+  ],
+  "P0048-00": [
+   {
+    "id": "P0048-00@p69#1",
+    "code_full": "P0048-00",
+    "page": 69,
+    "occurrence": 1,
+    "description": "Turbocharger Boost Control \u201cA\u201d Circuit High",
+    "system": "turbo_boost"
+   }
+  ],
+  "P004D-00": [
+   {
+    "id": "P004D-00@p72#1",
+    "code_full": "P004D-00",
+    "page": 72,
+    "occurrence": 1,
+    "description": "Turbocharger Boost Control \u201cB\u201d Circuit High",
+    "system": "turbo_boost"
+   }
+  ],
+  "P0047-00": [
+   {
+    "id": "P0047-00@p75#1",
+    "code_full": "P0047-00",
+    "page": 75,
+    "occurrence": 1,
+    "description": "Turbocharger Boost Control \u201cA\u201d Circuit Low",
+    "system": "turbo_boost"
+   }
+  ],
+  "P004C-00": [
+   {
+    "id": "P004C-00@p78#1",
+    "code_full": "P004C-00",
+    "page": 78,
+    "occurrence": 1,
+    "description": "Turbocharger Boost Control \u201cB\u201d Circuit Low",
+    "system": "turbo_boost"
+   }
+  ],
+  "P0087-00": [
+   {
+    "id": "P0087-00@p81#1",
+    "code_full": "P0087-00",
+    "page": 81,
+    "occurrence": 1,
+    "description": "Maximum positive deviation of rail pressure exceeded",
+    "system": "rail_pressure"
+   }
+  ],
+  "P0088-00": [
+   {
+    "id": "P0088-00@p83#1",
+    "code_full": "P0088-00",
+    "page": 83,
+    "occurrence": 1,
+    "description": "Maximum negative rail pressure deviation with metering unit on lower limit is",
+    "system": "rail_pressure"
+   }
+  ],
+  "P0089-92": [
+   {
+    "id": "P0089-92@p85#1",
+    "code_full": "P0089-92",
+    "page": 85,
+    "occurrence": 1,
+    "description": "DFC for Fuel Pressure Regulator 1 Performance",
+    "system": "fuel_supply"
+   }
+  ],
+  "P00C6-00": [
+   {
+    "id": "P00C6-00@p86#1",
+    "code_full": "P00C6-00",
+    "page": 86,
+    "occurrence": 1,
+    "description": "DFC for no rail pressure build-up during cranking",
+    "system": "rail_pressure"
+   }
+  ],
+  "P0089-00": [
+   {
+    "id": "P0089-00@p88#1",
+    "code_full": "P0089-00",
+    "page": 88,
+    "occurrence": 1,
+    "description": "DFC for Pressure Relief Valve Open",
+    "system": "fuel_supply"
+   }
+  ],
+  "P018F-00": [
+   {
+    "id": "P018F-00@p89#1",
+    "code_full": "P018F-00",
+    "page": 89,
+    "occurrence": 1,
+    "description": "DFC for Fuel System Over Pressure Relief Valve Frequent Activation",
+    "system": "fuel_supply"
+   }
+  ],
+  "P0120-11": [
+   {
+    "id": "P0120-11@p90#1",
+    "code_full": "P0120-11",
+    "page": 90,
+    "occurrence": 1,
+    "description": "DFC for Pedal Sensor Track 1 Signal Short circuit to ground",
+    "system": "pedal_clutch_brake"
+   }
+  ],
+  "P0120-12": [
+   {
+    "id": "P0120-12@p92#1",
+    "code_full": "P0120-12",
+    "page": 92,
+    "occurrence": 1,
+    "description": "DFC for Pedal Sensor Track 1 Signal Short circuit to battery",
+    "system": "pedal_clutch_brake"
+   }
+  ],
+  "P0220-11": [
+   {
+    "id": "P0220-11@p94#1",
+    "code_full": "P0220-11",
+    "page": 94,
+    "occurrence": 1,
+    "description": "DFC for Pedal Sensor Track 2 Signal Short circuit to ground or Open circuit",
+    "system": "pedal_clutch_brake"
+   }
+  ],
+  "P0220-12": [
+   {
+    "id": "P0220-12@p96#1",
+    "code_full": "P0220-12",
+    "page": 96,
+    "occurrence": 1,
+    "description": "DFC for Pedal Sensor Track 2 Signal Short circuit to battery",
+    "system": "pedal_clutch_brake"
+   }
+  ],
+  "P2135-00": [
+   {
+    "id": "P2135-00@p98#1",
+    "code_full": "P2135-00",
+    "page": 98,
+    "occurrence": 1,
+    "description": "DFC for Monitoring of Pedal Position Incompatible",
+    "system": "pedal_clutch_brake"
+   }
+  ],
+  "P0180-11": [
+   {
+    "id": "P0180-11@p100#1",
+    "code_full": "P0180-11",
+    "page": 100,
+    "occurrence": 1,
+    "description": "Fuel temperature sensor Short circuit to ground",
+    "system": "fuel_supply"
+   },
+   {
+    "id": "P0180-11@p195#2",
+    "code_full": "P0180-11",
+    "page": 195,
+    "occurrence": 2,
+    "description": "DFC for Fuel temperature sensor signal Short circuit to ground",
+    "system": "fuel_supply"
+   }
+  ],
+  "P0180-12": [
+   {
+    "id": "P0180-12@p102#1",
+    "code_full": "P0180-12",
+    "page": 102,
+    "occurrence": 1,
+    "description": "Fuel temperature sensor Short circuit to battery or Open circuit",
+    "system": "fuel_supply"
+   },
+   {
+    "id": "P0180-12@p197#2",
+    "code_full": "P0180-12",
+    "page": 197,
+    "occurrence": 2,
+    "description": "DFC for Fuel temperature sensor signal Open circuit or Short circuit to battery",
+    "system": "fuel_supply"
+   }
+  ],
+  "P0201-00": [
+   {
+    "id": "P0201-00@p104#1",
+    "code_full": "P0201-00",
+    "page": 104,
+    "occurrence": 1,
+    "description": "Injector open circuit for cylinder 1",
+    "system": "injector"
+   }
+  ],
+  "P0202-00": [
+   {
+    "id": "P0202-00@p107#1",
+    "code_full": "P0202-00",
+    "page": 107,
+    "occurrence": 1,
+    "description": "Injector open circuit for cylinder 2",
+    "system": "injector"
+   }
+  ],
+  "P0203-00": [
+   {
+    "id": "P0203-00@p110#1",
+    "code_full": "P0203-00",
+    "page": 110,
+    "occurrence": 1,
+    "description": "Injector open circuit for cylinder 3",
+    "system": "injector"
+   }
+  ],
+  "P0204-00": [
+   {
+    "id": "P0204-00@p113#1",
+    "code_full": "P0204-00",
+    "page": 113,
+    "occurrence": 1,
+    "description": "Injector open circuit for cylinder 4",
+    "system": "injector"
+   }
+  ],
+  "P1201-00": [
+   {
+    "id": "P1201-00@p116#1",
+    "code_full": "P1201-00",
+    "page": 116,
+    "occurrence": 1,
+    "description": "DFC for Injector short circuit high and low side for cylinder 1",
+    "system": "injector"
+   }
+  ],
+  "P1202-00": [
+   {
+    "id": "P1202-00@p119#1",
+    "code_full": "P1202-00",
+    "page": 119,
+    "occurrence": 1,
+    "description": "DFC for Injector short circuit high and low side for cylinder 2",
+    "system": "injector"
+   }
+  ],
+  "P1203-00": [
+   {
+    "id": "P1203-00@p122#1",
+    "code_full": "P1203-00",
+    "page": 122,
+    "occurrence": 1,
+    "description": "DFC for Injector short circuit high and low side for cylinder 3",
+    "system": "injector"
+   }
+  ],
+  "P1204-00": [
+   {
+    "id": "P1204-00@p125#1",
+    "code_full": "P1204-00",
+    "page": 125,
+    "occurrence": 1,
+    "description": "DFC for Injector short circuit high and low side for cylinder 4",
+    "system": "injector"
+   }
+  ],
+  "P0001-00": [
+   {
+    "id": "P0001-00@p128#1",
+    "code_full": "P0001-00",
+    "page": 128,
+    "occurrence": 1,
+    "description": "Open load of metering unit output",
+    "system": "fuel_supply"
+   }
+  ],
+  "P0003-00": [
+   {
+    "id": "P0003-00@p131#1",
+    "code_full": "P0003-00",
+    "page": 131,
+    "occurrence": 1,
+    "description": "Short circuit to ground of metering unit output",
+    "system": "fuel_supply"
+   }
+  ],
+  "P0004-00": [
+   {
+    "id": "P0004-00@p134#1",
+    "code_full": "P0004-00",
+    "page": 134,
+    "occurrence": 1,
+    "description": "Short circuit to battery of metering unit output (Low side)",
+    "system": "fuel_supply"
+   }
+  ],
+  "P0335-00": [
+   {
+    "id": "P0335-00@p137#1",
+    "code_full": "P0335-00",
+    "page": 137,
+    "occurrence": 1,
+    "description": "DFC for Crankshaft sensor Open circuit",
+    "system": "engine_position"
+   }
+  ],
+  "P0336-00": [
+   {
+    "id": "P0336-00@p140#1",
+    "code_full": "P0336-00",
+    "page": 140,
+    "occurrence": 1,
+    "description": "DFC for crankshaft signal diagnose - disturbed signal",
+    "system": "engine_position"
+   }
+  ],
+  "P0340-00": [
+   {
+    "id": "P0340-00@p143#1",
+    "code_full": "P0340-00",
+    "page": 143,
+    "occurrence": 1,
+    "description": "DFC for camshaft signal diagnose - no signal",
+    "system": "engine_position"
+   }
+  ],
+  "P0341-00": [
+   {
+    "id": "P0341-00@p146#1",
+    "code_full": "P0341-00",
+    "page": 146,
+    "occurrence": 1,
+    "description": "DFC for camshaft signal diagnose - disturbed signal",
+    "system": "engine_position"
+   }
+  ],
+  "P0405-00": [
+   {
+    "id": "P0405-00@p149#1",
+    "code_full": "P0405-00",
+    "page": 149,
+    "occurrence": 1,
+    "description": "DFC for EGR valve position sensor voltage SRC low or Open Circuit",
+    "system": "egr"
+   }
+  ],
+  "P0406-00": [
+   {
+    "id": "P0406-00@p152#1",
+    "code_full": "P0406-00",
+    "page": 152,
+    "occurrence": 1,
+    "description": "DFC for EGR valve position sensor voltage SRC high",
+    "system": "egr"
+   }
+  ],
+  "P042F-00": [
+   {
+    "id": "P042F-00@p155#1",
+    "code_full": "P042F-00",
+    "page": 155,
+    "occurrence": 1,
+    "description": "EGR valve jammed at closed position",
+    "system": "egr"
+   }
+  ],
+  "P042E-00": [
+   {
+    "id": "P042E-00@p158#1",
+    "code_full": "P042E-00",
+    "page": 158,
+    "occurrence": 1,
+    "description": "EGR valve jammed at open position",
+    "system": "egr"
+   }
+  ],
+  "P0489-00": [
+   {
+    "id": "P0489-00@p161#1",
+    "code_full": "P0489-00",
+    "page": 161,
+    "occurrence": 1,
+    "description": "Short circuit to ground on Out1 error for EGR Valve H-bridge",
+    "system": "egr"
+   }
+  ],
+  "P048A-00": [
+   {
+    "id": "P048A-00@p164#1",
+    "code_full": "P048A-00",
+    "page": 164,
+    "occurrence": 1,
+    "description": "Short circuit to Battery on Out1 error for EGR Valve H-bridge",
+    "system": "egr"
+   }
+  ],
+  "P045C-00": [
+   {
+    "id": "P045C-00@p167#1",
+    "code_full": "P045C-00",
+    "page": 167,
+    "occurrence": 1,
+    "description": "Short circuit to ground on Out2 error for EGR Valve H-bridge",
+    "system": "egr"
+   }
+  ],
+  "P045D-00": [
+   {
+    "id": "P045D-00@p170#1",
+    "code_full": "P045D-00",
+    "page": 170,
+    "occurrence": 1,
+    "description": "Short circuit to battery on Out2 error for EGR Valve H-bridge",
+    "system": "egr"
+   }
+  ],
+  "P0403-00": [
+   {
+    "id": "P0403-00@p173#1",
+    "code_full": "P0403-00",
+    "page": 173,
+    "occurrence": 1,
+    "description": "DFC for EGR valve control Signal Open Circuit",
+    "system": "egr"
+   }
+  ],
+  "P0500-1F": [
+   {
+    "id": "P0500-1F@p176#1",
+    "code_full": "P0500-1F",
+    "page": 176,
+    "occurrence": 1,
+    "description": "Vehicle speed sensor plausibility error",
+    "system": "vehicle_speed"
+   }
+  ],
+  "P0500-1C": [
+   {
+    "id": "P0500-1C@p179#1",
+    "code_full": "P0500-1C",
+    "page": 179,
+    "occurrence": 1,
+    "description": "Maximum threshold error for vehicle speed",
+    "system": "vehicle_speed"
+   }
+  ],
+  "P259F-00": [
+   {
+    "id": "P259F-00@p182#1",
+    "code_full": "P259F-00",
+    "page": 182,
+    "occurrence": 1,
+    "description": "Boost pressure controller at max limit",
+    "system": "turbo_boost"
+   }
+  ],
+  "P259E-00": [
+   {
+    "id": "P259E-00@p183#1",
+    "code_full": "P259E-00",
+    "page": 183,
+    "occurrence": 1,
+    "description": "Boost pressure controller at min limit",
+    "system": "turbo_boost"
+   }
+  ],
+  "P0627-11": [
+   {
+    "id": "P0627-11@p184#1",
+    "code_full": "P0627-11",
+    "page": 184,
+    "occurrence": 1,
+    "description": "DFC for Fuel pump relay Short circuit to ground",
+    "system": "fuel_supply"
+   }
+  ],
+  "P0627-13": [
+   {
+    "id": "P0627-13@p186#1",
+    "code_full": "P0627-13",
+    "page": 186,
+    "occurrence": 1,
+    "description": "DFC for Fuel pump relay Open Circuit",
+    "system": "fuel_supply"
+   }
+  ],
+  "P0627-12": [
+   {
+    "id": "P0627-12@p188#1",
+    "code_full": "P0627-12",
+    "page": 188,
+    "occurrence": 1,
+    "description": "DFC for Fuel pump relay Short Circuit to Battery",
+    "system": "fuel_supply"
+   }
+  ],
+  "P2264-12": [
+   {
+    "id": "P2264-12@p190#1",
+    "code_full": "P2264-12",
+    "page": 190,
+    "occurrence": 1,
+    "description": "DFC for Water in fuel sensor input line Open circuit or water in fuel detected or",
+    "system": "fuel_supply"
+   }
+  ],
+  "P2264-11": [
+   {
+    "id": "P2264-11@p192#1",
+    "code_full": "P2264-11",
+    "page": 192,
+    "occurrence": 1,
+    "description": "DFC for Water in fuel sensor input line Short circuit to ground",
+    "system": "fuel_supply"
+   }
+  ],
+  "P0180-1C": [
+   {
+    "id": "P0180-1C@p199#1",
+    "code_full": "P0180-1C",
+    "page": 199,
+    "occurrence": 1,
+    "description": "DFC for Fuel temperature Sensor signal gradient implausible or intermittent",
+    "system": "fuel_supply"
+   }
+  ],
+  "P0180-1F": [
+   {
+    "id": "P0180-1F@p201#1",
+    "code_full": "P0180-1F",
+    "page": 201,
+    "occurrence": 1,
+    "description": "DFC for Fuel temperature sensor signal not plausible",
+    "system": "fuel_supply"
+   }
+  ],
+  "P0504-00": [
+   {
+    "id": "P0504-00@p203#1",
+    "code_full": "P0504-00",
+    "page": 203,
+    "occurrence": 1,
+    "description": "DFC for Pedal/brake plausibility check",
+    "system": "pedal_clutch_brake"
+   }
+  ],
+  "P0704-29": [
+   {
+    "id": "P0704-29@p205#1",
+    "code_full": "P0704-29",
+    "page": 205,
+    "occurrence": 1,
+    "description": "DFC for Clutch switch plausibility check",
+    "system": "pedal_clutch_brake"
+   }
+  ],
+  "P0A1B-13": [
+   {
+    "id": "P0A1B-13@p208#1",
+    "code_full": "P0A1B-13",
+    "page": 208,
+    "occurrence": 1,
+    "description": "DFC for Starter Motor Control Signal Open Circuit.",
+    "system": "electrical"
+   }
+  ],
+  "P0A1B-12": [
+   {
+    "id": "P0A1B-12@p211#1",
+    "code_full": "P0A1B-12",
+    "page": 211,
+    "occurrence": 1,
+    "description": "DFC for Starter Motor Control Signal Short circuit to battery.",
+    "system": "electrical"
+   }
+  ],
+  "P2229-00": [
+   {
+    "id": "P2229-00@p214#1",
+    "code_full": "P2229-00",
+    "page": 214,
+    "occurrence": 1,
+    "description": "DFC for Ambient Pressure Signal Over voltage",
+    "system": "electrical"
+   }
+  ],
+  "P2228-00": [
+   {
+    "id": "P2228-00@p215#1",
+    "code_full": "P2228-00",
+    "page": 215,
+    "occurrence": 1,
+    "description": "DFC for Ambient Pressure Signal under voltage",
+    "system": "electrical"
+   }
+  ],
+  "P0219-00": [
+   {
+    "id": "P0219-00@p216#1",
+    "code_full": "P0219-00",
+    "page": 216,
+    "occurrence": 1,
+    "description": "DFC for Engine speed above max limit",
+    "system": "level2_monitoring"
+   }
+  ],
+  "P061C-00": [
+   {
+    "id": "P061C-00@p217#1",
+    "code_full": "P061C-00",
+    "page": 217,
+    "occurrence": 1,
+    "description": "DFC for Engine Speed Monitoring",
+    "system": "level2_monitoring"
+   },
+   {
+    "id": "P061C-00@p472#2",
+    "code_full": "P061C-00",
+    "page": 472,
+    "occurrence": 2,
+    "description": "DFC for Internal Control Module Engine RPM Performance",
+    "system": "ecu_internal"
+   }
+  ],
+  "P062B-00": [
+   {
+    "id": "P062B-00@p218#1",
+    "code_full": "P062B-00",
+    "page": 218,
+    "occurrence": 1,
+    "description": "DFC for Fuel cut off monitoring",
+    "system": "fuel_supply"
+   }
+  ],
+  "P061A-00": [
+   {
+    "id": "P061A-00@p219#1",
+    "code_full": "P061A-00",
+    "page": 219,
+    "occurrence": 1,
+    "description": "DFC for torque monitoring",
+    "system": "level2_monitoring"
+   }
+  ],
+  "P060A-49": [
+   {
+    "id": "P060A-49@p220#1",
+    "code_full": "P060A-49",
+    "page": 220,
+    "occurrence": 1,
+    "description": "DFC for energizing time monitoring",
+    "system": "level2_monitoring"
+   }
+  ],
+  "U0102-00": [
+   {
+    "id": "U0102-00@p221#1",
+    "code_full": "U0102-00",
+    "page": 221,
+    "occurrence": 1,
+    "description": "DFC for Overall disconnection to CAN bus",
+    "system": "can_network"
+   }
+  ],
+  "U011A-00": [
+   {
+    "id": "U011A-00@p222#1",
+    "code_full": "U011A-00",
+    "page": 222,
+    "occurrence": 1,
+    "description": "DFC for CAN internal Hardware failed",
+    "system": "can_network"
+   }
+  ],
+  "U011A-89": [
+   {
+    "id": "U011A-89@p223#1",
+    "code_full": "U011A-89",
+    "page": 223,
+    "occurrence": 1,
+    "description": "DFC for CAN internal Hardware connection failed",
+    "system": "can_network"
+   }
+  ],
+  "P0425-85": [
+   {
+    "id": "P0425-85@p224#1",
+    "code_full": "P0425-85",
+    "page": 224,
+    "occurrence": 1,
+    "description": "DFC for Temperature upstream of DOC too high",
+    "system": "dpf_regen"
+   }
+  ],
+  "P0425-84": [
+   {
+    "id": "P0425-84@p226#1",
+    "code_full": "P0425-84",
+    "page": 226,
+    "occurrence": 1,
+    "description": "DFC for Temperature upstream of DOC too low",
+    "system": "dpf_regen"
+   }
+  ],
+  "P0428-00": [
+   {
+    "id": "P0428-00@p228#1",
+    "code_full": "P0428-00",
+    "page": 228,
+    "occurrence": 1,
+    "description": "DFC for Temperature sensor upstream of DOC Circuit open or shorted to Battery",
+    "system": "dpf_regen"
+   }
+  ],
+  "P0427-00": [
+   {
+    "id": "P0427-00@p230#1",
+    "code_full": "P0427-00",
+    "page": 230,
+    "occurrence": 1,
+    "description": "DFC for Temperature sensor upstream of DOC Circuit shorted to ground",
+    "system": "dpf_regen"
+   }
+  ],
+  "P042A-85": [
+   {
+    "id": "P042A-85@p232#1",
+    "code_full": "P042A-85",
+    "page": 232,
+    "occurrence": 1,
+    "description": "DFC for Temperature upstream of DPF too high",
+    "system": "dpf_regen"
+   }
+  ],
+  "P042A-84": [
+   {
+    "id": "P042A-84@p234#1",
+    "code_full": "P042A-84",
+    "page": 234,
+    "occurrence": 1,
+    "description": "DFC for Temperature upstream of DPF too low",
+    "system": "dpf_regen"
+   }
+  ],
+  "P042D-00": [
+   {
+    "id": "P042D-00@p236#1",
+    "code_full": "P042D-00",
+    "page": 236,
+    "occurrence": 1,
+    "description": "DFC for Temperature sensor upstream of DPF Circuit open or shorted to Battery",
+    "system": "dpf_regen"
+   }
+  ],
+  "P042C-00": [
+   {
+    "id": "P042C-00@p238#1",
+    "code_full": "P042C-00",
+    "page": 238,
+    "occurrence": 1,
+    "description": "DFC for Temperature sensor upstream of DPF Circuit shorted to ground",
+    "system": "dpf_regen"
+   }
+  ],
+  "P242A-85": [
+   {
+    "id": "P242A-85@p240#1",
+    "code_full": "P242A-85",
+    "page": 240,
+    "occurrence": 1,
+    "description": "DFC for Temperature upstream of SCR too high",
+    "system": "scr_def"
+   }
+  ],
+  "P242A-84": [
+   {
+    "id": "P242A-84@p242#1",
+    "code_full": "P242A-84",
+    "page": 242,
+    "occurrence": 1,
+    "description": "DFC for Temperature upstream of SCR too low",
+    "system": "scr_def"
+   }
+  ],
+  "P242D-00": [
+   {
+    "id": "P242D-00@p244#1",
+    "code_full": "P242D-00",
+    "page": 244,
+    "occurrence": 1,
+    "description": "DFC for Temperature sensor upstream of SCR Circuit open or shorted to Battery",
+    "system": "scr_def"
+   }
+  ],
+  "P242C-00": [
+   {
+    "id": "P242C-00@p246#1",
+    "code_full": "P242C-00",
+    "page": 246,
+    "occurrence": 1,
+    "description": "DFC for Temperature sensor upstream of SCR Circuit shorted to ground",
+    "system": "scr_def"
+   }
+  ],
+  "P2452-85": [
+   {
+    "id": "P2452-85@p248#1",
+    "code_full": "P2452-85",
+    "page": 248,
+    "occurrence": 1,
+    "description": "DFC for Delta Pressure Sensor physical range high",
+    "system": "sensor_generic"
+   }
+  ],
+  "P2452-84": [
+   {
+    "id": "P2452-84@p251#1",
+    "code_full": "P2452-84",
+    "page": 251,
+    "occurrence": 1,
+    "description": "DFC for Delta Pressure Sensor physical range low",
+    "system": "sensor_generic"
+   }
+  ],
+  "P2455-00": [
+   {
+    "id": "P2455-00@p254#1",
+    "code_full": "P2455-00",
+    "page": 254,
+    "occurrence": 1,
+    "description": "DFC for Delta Pressure Sensor Circuit open or shorted to Battery",
+    "system": "electrical"
+   }
+  ],
+  "P2454-00": [
+   {
+    "id": "P2454-00@p257#1",
+    "code_full": "P2454-00",
+    "page": 257,
+    "occurrence": 1,
+    "description": "DFC for Differential Pressure Sensor Circuit shorted to ground",
+    "system": "electrical"
+   }
+  ],
+  "P2200-86": [
+   {
+    "id": "P2200-86@p260#1",
+    "code_full": "P2200-86",
+    "page": 260,
+    "occurrence": 1,
+    "description": "DFC for NOx Sensor Circuit Upstream Sensor Signal Incorrect",
+    "system": "o2_exhaust"
+   }
+  ],
+  "P2200-13": [
+   {
+    "id": "P2200-13@p261#1",
+    "code_full": "P2200-13",
+    "page": 261,
+    "occurrence": 1,
+    "description": "DFC for NOx Sensor Circuit Upstream Sensor Signal not received",
+    "system": "o2_exhaust"
+   }
+  ],
+  "P2201-76": [
+   {
+    "id": "P2201-76@p262#1",
+    "code_full": "P2201-76",
+    "page": 262,
+    "occurrence": 1,
+    "description": "DFC for NOx Sensor Circuit Upstream Sensor Signal not plausible",
+    "system": "o2_exhaust"
+   }
+  ],
+  "P229E-86": [
+   {
+    "id": "P229E-86@p263#1",
+    "code_full": "P229E-86",
+    "page": 263,
+    "occurrence": 1,
+    "description": "DFC for NOx Sensor Circuit Downstream Sensor Signal Incorrect",
+    "system": "o2_exhaust"
+   }
+  ],
+  "P229E-13": [
+   {
+    "id": "P229E-13@p264#1",
+    "code_full": "P229E-13",
+    "page": 264,
+    "occurrence": 1,
+    "description": "DFC for NOx Sensor Circuit Downstream Sensor Signal not received",
+    "system": "o2_exhaust"
+   }
+  ],
+  "P229F-76": [
+   {
+    "id": "P229F-76@p265#1",
+    "code_full": "P229F-76",
+    "page": 265,
+    "occurrence": 1,
+    "description": "DFC for NOx Sensor Circuit Downstream Sensor Signal not plausible",
+    "system": "o2_exhaust"
+   }
+  ],
+  "P203B-85": [
+   {
+    "id": "P203B-85@p266#1",
+    "code_full": "P203B-85",
+    "page": 266,
+    "occurrence": 1,
+    "description": "DFC for Urea Level signal incorrect: too high",
+    "system": "scr_def"
+   }
+  ],
+  "P203B-84": [
+   {
+    "id": "P203B-84@p268#1",
+    "code_full": "P203B-84",
+    "page": 268,
+    "occurrence": 1,
+    "description": "DFC for Urea Level signal incorrect: too low",
+    "system": "scr_def"
+   }
+  ],
+  "P203F-00": [
+   {
+    "id": "P203F-00@p270#1",
+    "code_full": "P203F-00",
+    "page": 270,
+    "occurrence": 1,
+    "description": "DFC for Urea Level signal- Ad blue level too low",
+    "system": "scr_def"
+   }
+  ],
+  "P2043-85": [
+   {
+    "id": "P2043-85@p272#1",
+    "code_full": "P2043-85",
+    "page": 272,
+    "occurrence": 1,
+    "description": "DFC for Urea tank temperature sensor circuit high",
+    "system": "scr_def"
+   }
+  ],
+  "P2043-84": [
+   {
+    "id": "P2043-84@p274#1",
+    "code_full": "P2043-84",
+    "page": 274,
+    "occurrence": 1,
+    "description": "DFC for Urea tank temperature sensor circuit low",
+    "system": "scr_def"
+   }
+  ],
+  "P203A-24": [
+   {
+    "id": "P203A-24@p276#1",
+    "code_full": "P203A-24",
+    "page": 276,
+    "occurrence": 1,
+    "description": "DFC for Electrical failure of Urea tank Combined sensor high level line error",
+    "system": "scr_def"
+   }
+  ],
+  "P203A-23": [
+   {
+    "id": "P203A-23@p278#1",
+    "code_full": "P203A-23",
+    "page": 278,
+    "occurrence": 1,
+    "description": "DFC for Electrical failure of Urea tank Combined sensor low level line error",
+    "system": "scr_def"
+   }
+  ],
+  "P206A-86": [
+   {
+    "id": "P206A-86@p280#1",
+    "code_full": "P206A-86",
+    "page": 280,
+    "occurrence": 1,
+    "description": "DFC for Diesel Exhaust Fluid DEF (Urea) Quality Sensor Signal Incorrect",
+    "system": "scr_def"
+   }
+  ],
+  "P206A-13": [
+   {
+    "id": "P206A-13@p281#1",
+    "code_full": "P206A-13",
+    "page": 281,
+    "occurrence": 1,
+    "description": "DFC for Diesel Exhaust Fluid DEF (Urea) Quality Sensor Signal not received",
+    "system": "scr_def"
+   }
+  ],
+  "P2BA9-00": [
+   {
+    "id": "P2BA9-00@p282#1",
+    "code_full": "P2BA9-00",
+    "page": 282,
+    "occurrence": 1,
+    "description": "DFC for Diesel Exhaust Fluid DEF (Urea) concentration too low",
+    "system": "scr_def"
+   }
+  ],
+  "P244B-00": [
+   {
+    "id": "P244B-00@p283#1",
+    "code_full": "P244B-00",
+    "page": 283,
+    "occurrence": 1,
+    "description": "DFC for Diesel Particulate Filter clogged",
+    "system": "dpf_regen"
+   }
+  ],
+  "P244A-00": [
+   {
+    "id": "P244A-00@p286#1",
+    "code_full": "P244A-00",
+    "page": 286,
+    "occurrence": 1,
+    "description": "DFC for Diesel Particulate Filter deteriorated",
+    "system": "dpf_regen"
+   }
+  ],
+  "P226D-00": [
+   {
+    "id": "P226D-00@p289#1",
+    "code_full": "P226D-00",
+    "page": 289,
+    "occurrence": 1,
+    "description": "DFC for Diesel Particulate Filter destroyed or removed",
+    "system": "dpf_regen"
+   }
+  ],
+  "P0421-00": [
+   {
+    "id": "P0421-00@p292#1",
+    "code_full": "P0421-00",
+    "page": 292,
+    "occurrence": 1,
+    "description": "DFC for Diesel Oxidation Catalyst (DOC) Passive Monitoring",
+    "system": "dpf_regen"
+   }
+  ],
+  "P20EE-00": [
+   {
+    "id": "P20EE-00@p294#1",
+    "code_full": "P20EE-00",
+    "page": 294,
+    "occurrence": 1,
+    "description": "DFC for Deteriorated SCR catalyst",
+    "system": "scr_def"
+   }
+  ],
+  "P2047-00": [
+   {
+    "id": "P2047-00@p295#1",
+    "code_full": "P2047-00",
+    "page": 295,
+    "occurrence": 1,
+    "description": "DFC for Urea Dosing Valve Disconnected",
+    "system": "scr_def"
+   }
+  ],
+  "P2047-4B": [
+   {
+    "id": "P2047-4B@p297#1",
+    "code_full": "P2047-4B",
+    "page": 297,
+    "occurrence": 1,
+    "description": "DFC for Urea Dosing Valve control overheated",
+    "system": "scr_def"
+   }
+  ],
+  "P2049-00": [
+   {
+    "id": "P2049-00@p299#1",
+    "code_full": "P2049-00",
+    "page": 299,
+    "occurrence": 1,
+    "description": "DFC for Urea Dosing valve short to battery",
+    "system": "scr_def"
+   }
+  ],
+  "P2048-00": [
+   {
+    "id": "P2048-00@p301#1",
+    "code_full": "P2048-00",
+    "page": 301,
+    "occurrence": 1,
+    "description": "DFC for Urea Dosing valve shorted to ground",
+    "system": "scr_def"
+   }
+  ],
+  "P2047-7F": [
+   {
+    "id": "P2047-7F@p303#1",
+    "code_full": "P2047-7F",
+    "page": 303,
+    "occurrence": 1,
+    "description": "DFC for Urea Dosing valve Defective",
+    "system": "scr_def"
+   }
+  ],
+  "P20A0-00": [
+   {
+    "id": "P20A0-00@p305#1",
+    "code_full": "P20A0-00",
+    "page": 305,
+    "occurrence": 1,
+    "description": "DFC for Urea Backflow Pump Disconnected",
+    "system": "scr_def"
+   }
+  ],
+  "P20A0-4B": [
+   {
+    "id": "P20A0-4B@p306#1",
+    "code_full": "P20A0-4B",
+    "page": 306,
+    "occurrence": 1,
+    "description": "DFC for Urea Backflow Pump control overheated",
+    "system": "scr_def"
+   }
+  ],
+  "P20A3-00": [
+   {
+    "id": "P20A3-00@p307#1",
+    "code_full": "P20A3-00",
+    "page": 307,
+    "occurrence": 1,
+    "description": "DFC for Urea Backflow pump shorted to battery",
+    "system": "scr_def"
+   }
+  ],
+  "P20A2-00": [
+   {
+    "id": "P20A2-00@p308#1",
+    "code_full": "P20A2-00",
+    "page": 308,
+    "occurrence": 1,
+    "description": "DFC for Urea Backflow pump shorted to ground",
+    "system": "scr_def"
+   }
+  ],
+  "P208A-00": [
+   {
+    "id": "P208A-00@p309#1",
+    "code_full": "P208A-00",
+    "page": 309,
+    "occurrence": 1,
+    "description": "DFC for Urea Main Pump Disconnected",
+    "system": "scr_def"
+   }
+  ],
+  "P208A-4B": [
+   {
+    "id": "P208A-4B@p310#1",
+    "code_full": "P208A-4B",
+    "page": 310,
+    "occurrence": 1,
+    "description": "DFC for Urea Main Pump control overheated",
+    "system": "scr_def"
+   }
+  ],
+  "P208D-00": [
+   {
+    "id": "P208D-00@p311#1",
+    "code_full": "P208D-00",
+    "page": 311,
+    "occurrence": 1,
+    "description": "DFC for Urea Main pump shorted to battery",
+    "system": "scr_def"
+   }
+  ],
+  "P208C-00": [
+   {
+    "id": "P208C-00@p312#1",
+    "code_full": "P208C-00",
+    "page": 312,
+    "occurrence": 1,
+    "description": "DFC for Urea Main pump shorted to ground",
+    "system": "scr_def"
+   }
+  ],
+  "P20F5-7A": [
+   {
+    "id": "P20F5-7A@p313#1",
+    "code_full": "P20F5-7A",
+    "page": 313,
+    "occurrence": 1,
+    "description": "DFC for Reductant Consumption Too High Level 2",
+    "system": "scr_def"
+   }
+  ],
+  "P20F5-00": [
+   {
+    "id": "P20F5-00@p314#1",
+    "code_full": "P20F5-00",
+    "page": 314,
+    "occurrence": 1,
+    "description": "DFC for Reductant Consumption Too High Level 1",
+    "system": "scr_def"
+   }
+  ],
+  "P20F4-9B": [
+   {
+    "id": "P20F4-9B@p315#1",
+    "code_full": "P20F4-9B",
+    "page": 315,
+    "occurrence": 1,
+    "description": "DFC for Reductant Consumption Too Low Level 2",
+    "system": "scr_def"
+   }
+  ],
+  "P20F4-00": [
+   {
+    "id": "P20F4-00@p316#1",
+    "code_full": "P20F4-00",
+    "page": 316,
+    "occurrence": 1,
+    "description": "DFC for Reductant Consumption Too Low Level 1",
+    "system": "scr_def"
+   }
+  ],
+  "P204F-7C": [
+   {
+    "id": "P204F-7C@p317#1",
+    "code_full": "P204F-7C",
+    "page": 317,
+    "occurrence": 1,
+    "description": "DFC for SCR Monitoring Pressure BuildUp Error",
+    "system": "scr_def"
+   }
+  ],
+  "P05EE-00": [
+   {
+    "id": "P05EE-00@p318#1",
+    "code_full": "P05EE-00",
+    "page": 318,
+    "occurrence": 1,
+    "description": "DFC for SCR supply pump not plausible",
+    "system": "scr_def"
+   }
+  ],
+  "P048B-11": [
+   {
+    "id": "P048B-11@p319#1",
+    "code_full": "P048B-11",
+    "page": 319,
+    "occurrence": 1,
+    "description": "DFC for Exhaust throttle valve position sensor voltage SRC low",
+    "system": "exhaust_throttle"
+   }
+  ],
+  "P048B-12": [
+   {
+    "id": "P048B-12@p322#1",
+    "code_full": "P048B-12",
+    "page": 322,
+    "occurrence": 1,
+    "description": "DFC for Exhaust throttle valve position sensor voltage SRC high",
+    "system": "exhaust_throttle"
+   }
+  ],
+  "P04A5-00": [
+   {
+    "id": "P04A5-00@p325#1",
+    "code_full": "P04A5-00",
+    "page": 325,
+    "occurrence": 1,
+    "description": "Exhaust throttle Valve jammed at closed position",
+    "system": "exhaust_throttle"
+   }
+  ],
+  "P04A4-00": [
+   {
+    "id": "P04A4-00@p328#1",
+    "code_full": "P04A4-00",
+    "page": 328,
+    "occurrence": 1,
+    "description": "Exhaust throttle Valve jammed at Open position",
+    "system": "exhaust_throttle"
+   }
+  ],
+  "P048D-00": [
+   {
+    "id": "P048D-00@p331#1",
+    "code_full": "P048D-00",
+    "page": 331,
+    "occurrence": 1,
+    "description": "Short circuit to ground on Out1 error for ETV Valve H-bridge",
+    "system": "exhaust_throttle"
+   }
+  ],
+  "P048E-00": [
+   {
+    "id": "P048E-00@p334#1",
+    "code_full": "P048E-00",
+    "page": 334,
+    "occurrence": 1,
+    "description": "Short circuit to Battery on Out1 error for ETV Valve H-bridge",
+    "system": "exhaust_throttle"
+   }
+  ],
+  "P04A8-00": [
+   {
+    "id": "P04A8-00@p337#1",
+    "code_full": "P04A8-00",
+    "page": 337,
+    "occurrence": 1,
+    "description": "Short circuit to ground on Out2 error for ETV Valve H-bridge",
+    "system": "exhaust_throttle"
+   }
+  ],
+  "P04A9-00": [
+   {
+    "id": "P04A9-00@p340#1",
+    "code_full": "P04A9-00",
+    "page": 340,
+    "occurrence": 1,
+    "description": "Short circuit to battery on Out2 error for ETV valve H-bridge",
+    "system": "exhaust_throttle"
+   }
+  ],
+  "P04A0-00": [
+   {
+    "id": "P04A0-00@p343#1",
+    "code_full": "P04A0-00",
+    "page": 343,
+    "occurrence": 1,
+    "description": "DFC for ETV governing Deviation",
+    "system": "exhaust_throttle"
+   }
+  ],
+  "P040C-00": [
+   {
+    "id": "P040C-00@p346#1",
+    "code_full": "P040C-00",
+    "page": 346,
+    "occurrence": 1,
+    "description": "DFC for EGR cooler downstream temperature Sensor Short circuit to ground",
+    "system": "egr"
+   }
+  ],
+  "P040D-00": [
+   {
+    "id": "P040D-00@p349#1",
+    "code_full": "P040D-00",
+    "page": 349,
+    "occurrence": 1,
+    "description": "DFC for EGR cooler downstream temperature Sensor signal Open circuit or Short",
+    "system": "egr"
+   }
+  ],
+  "P040B-00": [
+   {
+    "id": "P040B-00@p352#1",
+    "code_full": "P040B-00",
+    "page": 352,
+    "occurrence": 1,
+    "description": "DFC for EGR cooler downstream Temperature Sensor Circuit Range High",
+    "system": "egr"
+   }
+  ],
+  "P2457-00": [
+   {
+    "id": "P2457-00@p355#1",
+    "code_full": "P2457-00",
+    "page": 355,
+    "occurrence": 1,
+    "description": "DFC for EGR Cooler Efficiency Below Threshold",
+    "system": "egr"
+   }
+  ],
+  "P026A-00": [
+   {
+    "id": "P026A-00@p358#1",
+    "code_full": "P026A-00",
+    "page": 358,
+    "occurrence": 1,
+    "description": "DFC for Charge Air Cooler Efficiency Below Threshold",
+    "system": "turbo_boost"
+   }
+  ],
+  "P0562-00": [
+   {
+    "id": "P0562-00@p359#1",
+    "code_full": "P0562-00",
+    "page": 359,
+    "occurrence": 1,
+    "description": "DFC for Signal Range Max Check of Battery Voltage",
+    "system": "electrical"
+   }
+  ],
+  "P0563-00": [
+   {
+    "id": "P0563-00@p360#1",
+    "code_full": "P0563-00",
+    "page": 360,
+    "occurrence": 1,
+    "description": "DFC for Signal Range Min Check of Battery Voltage",
+    "system": "electrical"
+   }
+  ],
+  "P2264-00": [
+   {
+    "id": "P2264-00@p361#1",
+    "code_full": "P2264-00",
+    "page": 361,
+    "occurrence": 1,
+    "description": "DFC for Detection of water in fuel filter",
+    "system": "fuel_supply"
+   }
+  ],
+  "P0072-00": [
+   {
+    "id": "P0072-00@p363#1",
+    "code_full": "P0072-00",
+    "page": 363,
+    "occurrence": 1,
+    "description": "DFC for Ambient temperature Sensor Short circuit to ground",
+    "system": "intake_air"
+   }
+  ],
+  "P0073-00": [
+   {
+    "id": "P0073-00@p366#1",
+    "code_full": "P0073-00",
+    "page": 366,
+    "occurrence": 1,
+    "description": "DFC for Ambient temperature Sensor Open Circuit or Short circuit to battery",
+    "system": "intake_air"
+   }
+  ],
+  "P0071-00": [
+   {
+    "id": "P0071-00@p369#1",
+    "code_full": "P0071-00",
+    "page": 369,
+    "occurrence": 1,
+    "description": "DFC for Ambient temperature Sensor Physical Range High",
+    "system": "intake_air"
+   }
+  ],
+  "P1000-00": [
+   {
+    "id": "P1000-00@p370#1",
+    "code_full": "P1000-00",
+    "page": 370,
+    "occurrence": 1,
+    "description": "DFC for Air temperature monitoring plausibility check for ambient temperature",
+    "system": "intake_air"
+   }
+  ],
+  "P1001-00": [
+   {
+    "id": "P1001-00@p371#1",
+    "code_full": "P1001-00",
+    "page": 371,
+    "occurrence": 1,
+    "description": "DFC for Air temperature monitoring plausibility check for PFM temperature",
+    "system": "intake_air"
+   }
+  ],
+  "P1002-00": [
+   {
+    "id": "P1002-00@p372#1",
+    "code_full": "P1002-00",
+    "page": 372,
+    "occurrence": 1,
+    "description": "DFC for Air temperature monitoring plausibility check for Boost temperature",
+    "system": "turbo_boost"
+   }
+  ],
+  "P1003-00": [
+   {
+    "id": "P1003-00@p373#1",
+    "code_full": "P1003-00",
+    "page": 373,
+    "occurrence": 1,
+    "description": "DFC for Air temperature monitoring plausibility check for EGR cooler downstream",
+    "system": "egr"
+   }
+  ],
+  "P1004-00": [
+   {
+    "id": "P1004-00@p374#1",
+    "code_full": "P1004-00",
+    "page": 374,
+    "occurrence": 1,
+    "description": "DFC for Air temperature monitoring plausibility total sensor",
+    "system": "intake_air"
+   }
+  ],
+  "P2147-00": [
+   {
+    "id": "P2147-00@p375#1",
+    "code_full": "P2147-00",
+    "page": 375,
+    "occurrence": 1,
+    "description": "DFC for Injector short circuit high side and main supply for cylinder 1",
+    "system": "injector"
+   }
+  ],
+  "P2150-00": [
+   {
+    "id": "P2150-00@p378#1",
+    "code_full": "P2150-00",
+    "page": 378,
+    "occurrence": 1,
+    "description": "DFC for Injector short circuit high side and main supply for cylinder 2",
+    "system": "injector"
+   }
+  ],
+  "P2153-00": [
+   {
+    "id": "P2153-00@p381#1",
+    "code_full": "P2153-00",
+    "page": 381,
+    "occurrence": 1,
+    "description": "DFC for Injector short circuit high side and main supply for cylinder 3",
+    "system": "injector"
+   }
+  ],
+  "P2156-00": [
+   {
+    "id": "P2156-00@p384#1",
+    "code_full": "P2156-00",
+    "page": 384,
+    "occurrence": 1,
+    "description": "DFC for Injector short circuit high side and main supply for cylinder 4",
+    "system": "injector"
+   }
+  ],
+  "P0045-13": [
+   {
+    "id": "P0045-13@p387#1",
+    "code_full": "P0045-13",
+    "page": 387,
+    "occurrence": 1,
+    "description": "Turbocharger Boost Control Circuit Open Load",
+    "system": "turbo_boost"
+   }
+  ],
+  "P22CF-73": [
+   {
+    "id": "P22CF-73@p390#1",
+    "code_full": "P22CF-73",
+    "page": 390,
+    "occurrence": 1,
+    "description": "Turbocharger Boost Control actuator valve jammed at closed position",
+    "system": "turbo_boost"
+   }
+  ],
+  "P22CF-72": [
+   {
+    "id": "P22CF-72@p393#1",
+    "code_full": "P22CF-72",
+    "page": 393,
+    "occurrence": 1,
+    "description": "Turbocharger Boost Control actuator valve jammed at open position",
+    "system": "turbo_boost"
+   }
+  ],
+  "P003A-00": [
+   {
+    "id": "P003A-00@p396#1",
+    "code_full": "P003A-00",
+    "page": 396,
+    "occurrence": 1,
+    "description": "Turbocharger Boost Control \"A\" Position Exceeded Learning Limit",
+    "system": "turbo_boost"
+   }
+  ],
+  "P003B-00": [
+   {
+    "id": "P003B-00@p399#1",
+    "code_full": "P003B-00",
+    "page": 399,
+    "occurrence": 1,
+    "description": "Turbocharger Boost Control \"B\" Position Exceeded Learning Limit",
+    "system": "turbo_boost"
+   }
+  ],
+  "P204F-73": [
+   {
+    "id": "P204F-73@p402#1",
+    "code_full": "P204F-73",
+    "page": 402,
+    "occurrence": 1,
+    "description": "DFC for Defective pressure reduction in SCR",
+    "system": "scr_def"
+   }
+  ],
+  "P2452-95": [
+   {
+    "id": "P2452-95@p403#1",
+    "code_full": "P2452-95",
+    "page": 403,
+    "occurrence": 1,
+    "description": "DFC for Hose line connection",
+    "system": "fuel_supply"
+   }
+  ],
+  "P2453-64": [
+   {
+    "id": "P2453-64@p404#1",
+    "code_full": "P2453-64",
+    "page": 404,
+    "occurrence": 1,
+    "description": "DFC for the Delta pressure sensor plausibility",
+    "system": "level2_monitoring"
+   }
+  ],
+  "P2205-00": [
+   {
+    "id": "P2205-00@p405#1",
+    "code_full": "P2205-00",
+    "page": 405,
+    "occurrence": 1,
+    "description": "DFC for heater unavailability for upstream NOx sensor",
+    "system": "o2_exhaust"
+   }
+  ],
+  "P2205-29": [
+   {
+    "id": "P2205-29@p406#1",
+    "code_full": "P2205-29",
+    "page": 406,
+    "occurrence": 1,
+    "description": "DFC for heater readiness diagnosis of upstream NOx sensor",
+    "system": "o2_exhaust"
+   }
+  ],
+  "P2200-F0": [
+   {
+    "id": "P2200-F0@p407#1",
+    "code_full": "P2200-F0",
+    "page": 407,
+    "occurrence": 1,
+    "description": "DFC for NOx availability diagnosis of NOx sensor upstream",
+    "system": "o2_exhaust"
+   }
+  ],
+  "P2200-85": [
+   {
+    "id": "P2200-85@p408#1",
+    "code_full": "P2200-85",
+    "page": 408,
+    "occurrence": 1,
+    "description": "DFC for NOx signal range check of NOx sensor upstream(maximum)",
+    "system": "o2_exhaust"
+   }
+  ],
+  "P2200-84": [
+   {
+    "id": "P2200-84@p409#1",
+    "code_full": "P2200-84",
+    "page": 409,
+    "occurrence": 1,
+    "description": "DFC for NOx signal range check of Nox sensor upstream(minimum)",
+    "system": "o2_exhaust"
+   }
+  ],
+  "P2200-0D": [
+   {
+    "id": "P2200-0D@p410#1",
+    "code_full": "P2200-0D",
+    "page": 410,
+    "occurrence": 1,
+    "description": "DFC for all open circuit errors of NOx sensor in NOx sensor 1 Bank 1",
+    "system": "o2_exhaust"
+   }
+  ],
+  "P2200-01": [
+   {
+    "id": "P2200-01@p411#1",
+    "code_full": "P2200-01",
+    "page": 411,
+    "occurrence": 1,
+    "description": "DFC for all short circuit errors of Nox sensor in NOx sensor 1 Bank 1",
+    "system": "o2_exhaust"
+   }
+  ],
+  "P2200-29": [
+   {
+    "id": "P2200-29@p412#1",
+    "code_full": "P2200-29",
+    "page": 412,
+    "occurrence": 1,
+    "description": "DFC for Sensor signal readiness diagnosis of upstream NOx sensor",
+    "system": "o2_exhaust"
+   }
+  ],
+  "P2200-22": [
+   {
+    "id": "P2200-22@p413#1",
+    "code_full": "P2200-22",
+    "page": 413,
+    "occurrence": 1,
+    "description": "DFC for linear lambda signal range check of upstream NOx sensor (maximum)",
+    "system": "o2_exhaust"
+   }
+  ],
+  "P2200-21": [
+   {
+    "id": "P2200-21@p414#1",
+    "code_full": "P2200-21",
+    "page": 414,
+    "occurrence": 1,
+    "description": "DFC for linear lambda signal range check of upstream NOx sensor (minimum)",
+    "system": "o2_exhaust"
+   }
+  ],
+  "P2200-0A": [
+   {
+    "id": "P2200-0A@p415#1",
+    "code_full": "P2200-0A",
+    "page": 415,
+    "occurrence": 1,
+    "description": "DFC for Wire diagnosis of upstream NOx sensor",
+    "system": "o2_exhaust"
+   }
+  ],
+  "P2200-27": [
+   {
+    "id": "P2200-27@p416#1",
+    "code_full": "P2200-27",
+    "page": 416,
+    "occurrence": 1,
+    "description": "DFC for NOx offset max error detection upstream",
+    "system": "o2_exhaust"
+   }
+  ],
+  "P2200-26": [
+   {
+    "id": "P2200-26@p417#1",
+    "code_full": "P2200-26",
+    "page": 417,
+    "occurrence": 1,
+    "description": "DFC for NOx offset min error detection upstream",
+    "system": "o2_exhaust"
+   }
+  ],
+  "P22A3-00": [
+   {
+    "id": "P22A3-00@p418#1",
+    "code_full": "P22A3-00",
+    "page": 418,
+    "occurrence": 1,
+    "description": "DFC for heater unavailability for downstream NOx sensor",
+    "system": "o2_exhaust"
+   }
+  ],
+  "P22A3-29": [
+   {
+    "id": "P22A3-29@p419#1",
+    "code_full": "P22A3-29",
+    "page": 419,
+    "occurrence": 1,
+    "description": "DFC for heater readiness diagnosis of downstream NOx sensor",
+    "system": "o2_exhaust"
+   }
+  ],
+  "P229E-F0": [
+   {
+    "id": "P229E-F0@p420#1",
+    "code_full": "P229E-F0",
+    "page": 420,
+    "occurrence": 1,
+    "description": "DFC for NOx availability diagnosis of NOx sensor upstream",
+    "system": "o2_exhaust"
+   }
+  ],
+  "P229E-85": [
+   {
+    "id": "P229E-85@p421#1",
+    "code_full": "P229E-85",
+    "page": 421,
+    "occurrence": 1,
+    "description": "DFC for NOx signal range check of NOx sensor downstream(maximum)",
+    "system": "o2_exhaust"
+   }
+  ],
+  "P229E-84": [
+   {
+    "id": "P229E-84@p422#1",
+    "code_full": "P229E-84",
+    "page": 422,
+    "occurrence": 1,
+    "description": "DFC for NOx signal range check of Nox sensor upstream(minimum)",
+    "system": "o2_exhaust"
+   }
+  ],
+  "P229E-0D": [
+   {
+    "id": "P229E-0D@p423#1",
+    "code_full": "P229E-0D",
+    "page": 423,
+    "occurrence": 1,
+    "description": "DFC for all open circuit errors of NOx sensor in NOx sensor 4 Bank 1",
+    "system": "o2_exhaust"
+   }
+  ],
+  "P229E-01": [
+   {
+    "id": "P229E-01@p424#1",
+    "code_full": "P229E-01",
+    "page": 424,
+    "occurrence": 1,
+    "description": "DFC for all short circuit errors of NOx sensor in NOx sensor 4 Bank 1",
+    "system": "o2_exhaust"
+   }
+  ],
+  "P229E-29": [
+   {
+    "id": "P229E-29@p425#1",
+    "code_full": "P229E-29",
+    "page": 425,
+    "occurrence": 1,
+    "description": "DFC for Sensor signal readiness diagnosis of downstream NOx sensor",
+    "system": "o2_exhaust"
+   }
+  ],
+  "P229E-22": [
+   {
+    "id": "P229E-22@p426#1",
+    "code_full": "P229E-22",
+    "page": 426,
+    "occurrence": 1,
+    "description": "DFC for linear lambda signal range check of downstream NOx sensor (maximum)",
+    "system": "o2_exhaust"
+   }
+  ],
+  "P229E-21": [
+   {
+    "id": "P229E-21@p427#1",
+    "code_full": "P229E-21",
+    "page": 427,
+    "occurrence": 1,
+    "description": "DFC for linear lambda signal range check of downstream NOx sensor (minimum)",
+    "system": "o2_exhaust"
+   }
+  ],
+  "P229E-0A": [
+   {
+    "id": "P229E-0A@p428#1",
+    "code_full": "P229E-0A",
+    "page": 428,
+    "occurrence": 1,
+    "description": "DFC for Wire diagnosis of downstream NOx sensor",
+    "system": "o2_exhaust"
+   }
+  ],
+  "P229E-27": [
+   {
+    "id": "P229E-27@p429#1",
+    "code_full": "P229E-27",
+    "page": 429,
+    "occurrence": 1,
+    "description": "DFC for NOx offset max error detection downstream",
+    "system": "o2_exhaust"
+   }
+  ],
+  "P229E-26": [
+   {
+    "id": "P229E-26@p430#1",
+    "code_full": "P229E-26",
+    "page": 430,
+    "occurrence": 1,
+    "description": "DFC for NOx offset min error detection downstream",
+    "system": "o2_exhaust"
+   }
+  ],
+  "P203A-29": [
+   {
+    "id": "P203A-29@p431#1",
+    "code_full": "P203A-29",
+    "page": 431,
+    "occurrence": 1,
+    "description": "DFC for No echo error in the Continuous Urea Level Sensor",
+    "system": "scr_def"
+   }
+  ],
+  "P203F-84": [
+   {
+    "id": "P203F-84@p432#1",
+    "code_full": "P203F-84",
+    "page": 432,
+    "occurrence": 1,
+    "description": "DFC for Status of tank level for the detection of tank capacity on spare fluid level",
+    "system": "scr_def"
+   }
+  ],
+  "P203F-7B": [
+   {
+    "id": "P203F-7B@p433#1",
+    "code_full": "P203F-7B",
+    "page": 433,
+    "occurrence": 1,
+    "description": "DFC for Status of minimum tank level for function guaranty",
+    "system": "scr_def"
+   }
+  ],
+  "P206A-F1": [
+   {
+    "id": "P206A-F1@p434#1",
+    "code_full": "P206A-F1",
+    "page": 434,
+    "occurrence": 1,
+    "description": "Diagnostic Fault Check for fluid property type is diesel error",
+    "system": "scr_def"
+   }
+  ],
+  "P206A-F2": [
+   {
+    "id": "P206A-F2@p435#1",
+    "code_full": "P206A-F2",
+    "page": 435,
+    "occurrence": 1,
+    "description": "Diagnostic Fault Check for DEF property detection error",
+    "system": "scr_def"
+   }
+  ],
+  "P206A-F3": [
+   {
+    "id": "P206A-F3@p436#1",
+    "code_full": "P206A-F3",
+    "page": 436,
+    "occurrence": 1,
+    "description": "Diagnostic fault check for concentration stuck\u2212in\u2212range error",
+    "system": "scr_def"
+   }
+  ],
+  "P2463-85": [
+   {
+    "id": "P2463-85@p437#1",
+    "code_full": "P2463-85",
+    "page": 437,
+    "occurrence": 1,
+    "description": "Diagnostic fault check for Maximum soot mass",
+    "system": "dpf_regen"
+   }
+  ],
+  "P243F-F0": [
+   {
+    "id": "P243F-F0@p440#1",
+    "code_full": "P243F-F0",
+    "page": 440,
+    "occurrence": 1,
+    "description": "Diagnostic fault check for Maximum soot mass during torque limitation",
+    "system": "dpf_regen"
+   }
+  ],
+  "P242F-00": [
+   {
+    "id": "P242F-00@p443#1",
+    "code_full": "P242F-00",
+    "page": 443,
+    "occurrence": 1,
+    "description": "Diagnostic fault check To check if volume of Ash load has exceeded the limit",
+    "system": "dpf_regen"
+   }
+  ],
+  "P2458-00": [
+   {
+    "id": "P2458-00@p446#1",
+    "code_full": "P2458-00",
+    "page": 446,
+    "occurrence": 1,
+    "description": "Diagnostic fault check for a locked regeneration",
+    "system": "dpf_regen"
+   }
+  ],
+  "P243C-00": [
+   {
+    "id": "P243C-00@p449#1",
+    "code_full": "P243C-00",
+    "page": 449,
+    "occurrence": 1,
+    "description": "Diagnostic fault check for too frequent regeneration of the particulate filter",
+    "system": "dpf_regen"
+   }
+  ],
+  "P2458-09": [
+   {
+    "id": "P2458-09@p452#1",
+    "code_full": "P2458-09",
+    "page": 452,
+    "occurrence": 1,
+    "description": "Diagnostic fault check for driver demand regeneration button stuck",
+    "system": "dpf_regen"
+   }
+  ],
+  "P24FE-85": [
+   {
+    "id": "P24FE-85@p455#1",
+    "code_full": "P24FE-85",
+    "page": 455,
+    "occurrence": 1,
+    "description": "DFC for SCR Monitoring of the upper limit of the adaption factor",
+    "system": "scr_def"
+   }
+  ],
+  "P24FE-84": [
+   {
+    "id": "P24FE-84@p456#1",
+    "code_full": "P24FE-84",
+    "page": 456,
+    "occurrence": 1,
+    "description": "DFC for SCR Monitoring of the lower limit of the adaption factor",
+    "system": "scr_def"
+   }
+  ],
+  "P0425-64": [
+   {
+    "id": "P0425-64@p457#1",
+    "code_full": "P0425-64",
+    "page": 457,
+    "occurrence": 1,
+    "description": "DFC for Model based plausibility check of exhaust-gas temperature sensor T4",
+    "system": "o2_exhaust"
+   }
+  ],
+  "P042A-64": [
+   {
+    "id": "P042A-64@p458#1",
+    "code_full": "P042A-64",
+    "page": 458,
+    "occurrence": 1,
+    "description": "DFC for Model based plausibility check of exhaust-gas temperature sensor T5",
+    "system": "o2_exhaust"
+   }
+  ],
+  "P242A-64": [
+   {
+    "id": "P242A-64@p459#1",
+    "code_full": "P242A-64",
+    "page": 459,
+    "occurrence": 1,
+    "description": "DFC for Model based plausibility check of exhaust-gas temperature sensor T6",
+    "system": "o2_exhaust"
+   }
+  ],
+  "P202E-85": [
+   {
+    "id": "P202E-85@p460#1",
+    "code_full": "P202E-85",
+    "page": 460,
+    "occurrence": 1,
+    "description": "DFC for SCR System Model Pressure Error due to positive pressure offset",
+    "system": "scr_def"
+   }
+  ],
+  "P202E-84": [
+   {
+    "id": "P202E-84@p461#1",
+    "code_full": "P202E-84",
+    "page": 461,
+    "occurrence": 1,
+    "description": "DFC for SCR System Model Pressure Error due to negative pressure offset",
+    "system": "scr_def"
+   }
+  ],
+  "P20A0-13": [
+   {
+    "id": "P20A0-13@p462#1",
+    "code_full": "P20A0-13",
+    "page": 462,
+    "occurrence": 1,
+    "description": "DFC for SCR Open load error of the external relay",
+    "system": "scr_def"
+   }
+  ],
+  "P20A1-4B": [
+   {
+    "id": "P20A1-4B@p463#1",
+    "code_full": "P20A1-4B",
+    "page": 463,
+    "occurrence": 1,
+    "description": "DFC for SCR Over temperature error of the external relay",
+    "system": "scr_def"
+   }
+  ],
+  "P20A3-12": [
+   {
+    "id": "P20A3-12@p464#1",
+    "code_full": "P20A3-12",
+    "page": 464,
+    "occurrence": 1,
+    "description": "DFC for SCR Short circuit to battery of the external relay",
+    "system": "scr_def"
+   }
+  ],
+  "P20A2-11": [
+   {
+    "id": "P20A2-11@p465#1",
+    "code_full": "P20A2-11",
+    "page": 465,
+    "occurrence": 1,
+    "description": "DFC for SCR Short circuit to ground of the external relay",
+    "system": "scr_def"
+   }
+  ],
+  "P10FF-00": [
+   {
+    "id": "P10FF-00@p466#1",
+    "code_full": "P10FF-00",
+    "page": 466,
+    "occurrence": 1,
+    "description": "DFC for frozen DEF",
+    "system": "scr_def"
+   }
+  ],
+  "P0215-00": [
+   {
+    "id": "P0215-00@p467#1",
+    "code_full": "P0215-00",
+    "page": 467,
+    "occurrence": 1,
+    "description": "DFC for Injection cut off request",
+    "system": "level2_monitoring"
+   }
+  ],
+  "P0611-F5": [
+   {
+    "id": "P0611-F5@p468#1",
+    "code_full": "P0611-F5",
+    "page": 468,
+    "occurrence": 1,
+    "description": "DFC for Fuel Injector Control Module Performance -1",
+    "system": "injector"
+   }
+  ],
+  "P0611-F8": [
+   {
+    "id": "P0611-F8@p469#1",
+    "code_full": "P0611-F8",
+    "page": 469,
+    "occurrence": 1,
+    "description": "DFC for Fuel Injector Control Module Performance -2",
+    "system": "injector"
+   }
+  ],
+  "P060B-00": [
+   {
+    "id": "P060B-00@p470#1",
+    "code_full": "P060B-00",
+    "page": 470,
+    "occurrence": 1,
+    "description": "DFC for Internal Control Module A/D Processing Performance",
+    "system": "ecu_internal"
+   }
+  ],
+  "P061E-00": [
+   {
+    "id": "P061E-00@p471#1",
+    "code_full": "P061E-00",
+    "page": 471,
+    "occurrence": 1,
+    "description": "DFC for Internal Control Module Brake Signal Performance",
+    "system": "pedal_clutch_brake"
+   }
+  ],
+  "P1014-00": [
+   {
+    "id": "P1014-00@p473#1",
+    "code_full": "P1014-00",
+    "page": 473,
+    "occurrence": 1,
+    "description": "DFC to report the plausibility error between level 1 & level 2 energizing time",
+    "system": "level2_monitoring"
+   }
+  ],
+  "P1015-00": [
+   {
+    "id": "P1015-00@p474#1",
+    "code_full": "P1015-00",
+    "page": 474,
+    "occurrence": 1,
+    "description": "DFC to report the error due to plausibility between the injection begin v/s",
+    "system": "level2_monitoring"
+   }
+  ],
+  "P1111-00": [
+   {
+    "id": "P1111-00@p475#1",
+    "code_full": "P1111-00",
+    "page": 475,
+    "occurrence": 1,
+    "description": "DFC to report the error in the plausibility of ITC\u2212energizing time",
+    "system": "level2_monitoring"
+   }
+  ],
+  "P1112-00": [
+   {
+    "id": "P1112-00@p476#1",
+    "code_full": "P1112-00",
+    "page": 476,
+    "occurrence": 1,
+    "description": "DFC to report the error in the plausibility of VCC\u2212energizing time",
+    "system": "level2_monitoring"
+   }
+  ],
+  "P1113-00": [
+   {
+    "id": "P1113-00@p477#1",
+    "code_full": "P1113-00",
+    "page": 477,
+    "occurrence": 1,
+    "description": "DFC to report the error in the plausibility of ZFC\u2212energizing time",
+    "system": "level2_monitoring"
+   }
+  ],
+  "P1018-00": [
+   {
+    "id": "P1018-00@p478#1",
+    "code_full": "P1018-00",
+    "page": 478,
+    "occurrence": 1,
+    "description": "DFC to report the Error in the PoI2 efficiency received from level 1",
+    "system": "level2_monitoring"
+   }
+  ],
+  "P1019-00": [
+   {
+    "id": "P1019-00@p479#1",
+    "code_full": "P1019-00",
+    "page": 479,
+    "occurrence": 1,
+    "description": "DFC to report the Error in the PoI3 efficiency received from level 1",
+    "system": "level2_monitoring"
+   }
+  ],
+  "P1080-00": [
+   {
+    "id": "P1080-00@p480#1",
+    "code_full": "P1080-00",
+    "page": 480,
+    "occurrence": 1,
+    "description": "DFC to report the Error in the operating mode received from level 1",
+    "system": "level2_monitoring"
+   }
+  ],
+  "P1081-00": [
+   {
+    "id": "P1081-00@p481#1",
+    "code_full": "P1081-00",
+    "page": 481,
+    "occurrence": 1,
+    "description": "DFC to report the error in plausibility check of the quantity correction in level 1",
+    "system": "level2_monitoring"
+   }
+  ],
+  "P101B-00": [
+   {
+    "id": "P101B-00@p482#1",
+    "code_full": "P101B-00",
+    "page": 482,
+    "occurrence": 1,
+    "description": "DFC to report the error if QWC quantity calculated in level 1 is not plausible",
+    "system": "level2_monitoring"
+   }
+  ],
+  "P101C-00": [
+   {
+    "id": "P101C-00@p483#1",
+    "code_full": "P101C-00",
+    "page": 483,
+    "occurrence": 1,
+    "description": "DFC to report the plausibility error in rail pressure monitoring",
+    "system": "rail_pressure"
+   }
+  ],
+  "P1082-00": [
+   {
+    "id": "P1082-00@p484#1",
+    "code_full": "P1082-00",
+    "page": 484,
+    "occurrence": 1,
+    "description": "DFC to report the fault in Remote APP plausibility check",
+    "system": "level2_monitoring"
+   }
+  ],
+  "P1083-00": [
+   {
+    "id": "P1083-00@p485#1",
+    "code_full": "P1083-00",
+    "page": 485,
+    "occurrence": 1,
+    "description": "DFC to report error if start requested in level 1, but not released in level 2",
+    "system": "level2_monitoring"
+   }
+  ],
+  "P0184-00": [
+   {
+    "id": "P0184-00@p486#1",
+    "code_full": "P0184-00",
+    "page": 486,
+    "occurrence": 1,
+    "description": "DFC to report error for Internal Control Module Torque Calculation Performance",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1114-00": [
+   {
+    "id": "P1114-00@p487#1",
+    "code_full": "P1114-00",
+    "page": 487,
+    "occurrence": 1,
+    "description": "DFC to report the fault in energizing time comparison during overheat protection",
+    "system": "level2_monitoring"
+   }
+  ],
+  "P1085-00": [
+   {
+    "id": "P1085-00@p488#1",
+    "code_full": "P1085-00",
+    "page": 488,
+    "occurrence": 1,
+    "description": "DFC to report error in the post\u2212build selectable monitoring",
+    "system": "level2_monitoring"
+   }
+  ],
+  "P060C-00": [
+   {
+    "id": "P060C-00@p489#1",
+    "code_full": "P060C-00",
+    "page": 489,
+    "occurrence": 1,
+    "description": "DFC for error due to Internal Control Module Main Processor Performance",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1668-00": [
+   {
+    "id": "P1668-00@p490#1",
+    "code_full": "P1668-00",
+    "page": 490,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU0 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P165D-00": [
+   {
+    "id": "P165D-00@p491#1",
+    "code_full": "P165D-00",
+    "page": 491,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU103 which is read out of the FCCU",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1656-00": [
+   {
+    "id": "P1656-00@p492#1",
+    "code_full": "P1656-00",
+    "page": 492,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU10 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P164E-00": [
+   {
+    "id": "P164E-00@p493#1",
+    "code_full": "P164E-00",
+    "page": 493,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU111 which is read out of the FCCU",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1646-00": [
+   {
+    "id": "P1646-00@p494#1",
+    "code_full": "P1646-00",
+    "page": 494,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU115 which is read out of the FCCU",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1652-00": [
+   {
+    "id": "P1652-00@p495#1",
+    "code_full": "P1652-00",
+    "page": 495,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU12 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1647-00": [
+   {
+    "id": "P1647-00@p496#1",
+    "code_full": "P1647-00",
+    "page": 496,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU18 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P164D-00": [
+   {
+    "id": "P164D-00@p497#1",
+    "code_full": "P164D-00",
+    "page": 497,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU19 which is read out of the FCCU",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1666-00": [
+   {
+    "id": "P1666-00@p498#1",
+    "code_full": "P1666-00",
+    "page": 498,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU1 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P164B-00": [
+   {
+    "id": "P164B-00@p499#1",
+    "code_full": "P164B-00",
+    "page": 499,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU20 which is read out of the FCCU",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1675-00": [
+   {
+    "id": "P1675-00@p500#1",
+    "code_full": "P1675-00",
+    "page": 500,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU22 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P166F-00": [
+   {
+    "id": "P166F-00@p501#1",
+    "code_full": "P166F-00",
+    "page": 501,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU25 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1673-00": [
+   {
+    "id": "P1673-00@p502#1",
+    "code_full": "P1673-00",
+    "page": 502,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU28 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1641-00": [
+   {
+    "id": "P1641-00@p503#1",
+    "code_full": "P1641-00",
+    "page": 503,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU2 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1650-00": [
+   {
+    "id": "P1650-00@p504#1",
+    "code_full": "P1650-00",
+    "page": 504,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU31 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P165C-00": [
+   {
+    "id": "P165C-00@p505#1",
+    "code_full": "P165C-00",
+    "page": 505,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU32 which is read out of the FCCU",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1667-00": [
+   {
+    "id": "P1667-00@p506#1",
+    "code_full": "P1667-00",
+    "page": 506,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU33 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1664-00": [
+   {
+    "id": "P1664-00@p507#1",
+    "code_full": "P1664-00",
+    "page": 507,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU34 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1665-00": [
+   {
+    "id": "P1665-00@p508#1",
+    "code_full": "P1665-00",
+    "page": 508,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU35 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1669-00": [
+   {
+    "id": "P1669-00@p509#1",
+    "code_full": "P1669-00",
+    "page": 509,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU36 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1642-00": [
+   {
+    "id": "P1642-00@p510#1",
+    "code_full": "P1642-00",
+    "page": 510,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU37 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P164C-00": [
+   {
+    "id": "P164C-00@p511#1",
+    "code_full": "P164C-00",
+    "page": 511,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU38 which is read out of the FCCU",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1648-00": [
+   {
+    "id": "P1648-00@p512#1",
+    "code_full": "P1648-00",
+    "page": 512,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU39 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P164A-00": [
+   {
+    "id": "P164A-00@p513#1",
+    "code_full": "P164A-00",
+    "page": 513,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU3 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P165A-00": [
+   {
+    "id": "P165A-00@p514#1",
+    "code_full": "P165A-00",
+    "page": 514,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU40 which is read out of the FCCU",
+    "system": "ecu_internal"
+   }
+  ],
+  "P166C-00": [
+   {
+    "id": "P166C-00@p515#1",
+    "code_full": "P166C-00",
+    "page": 515,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU41 which is read out of the FCCU",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1655-00": [
+   {
+    "id": "P1655-00@p516#1",
+    "code_full": "P1655-00",
+    "page": 516,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU42 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1670-00": [
+   {
+    "id": "P1670-00@p517#1",
+    "code_full": "P1670-00",
+    "page": 517,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU43 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1649-00": [
+   {
+    "id": "P1649-00@p518#1",
+    "code_full": "P1649-00",
+    "page": 518,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU44 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1658-00": [
+   {
+    "id": "P1658-00@p519#1",
+    "code_full": "P1658-00",
+    "page": 519,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU45 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P165F-00": [
+   {
+    "id": "P165F-00@p520#1",
+    "code_full": "P165F-00",
+    "page": 520,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU46 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1654-00": [
+   {
+    "id": "P1654-00@p521#1",
+    "code_full": "P1654-00",
+    "page": 521,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU49 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1643-00": [
+   {
+    "id": "P1643-00@p522#1",
+    "code_full": "P1643-00",
+    "page": 522,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU50 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1653-00": [
+   {
+    "id": "P1653-00@p523#1",
+    "code_full": "P1653-00",
+    "page": 523,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU51 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1672-00": [
+   {
+    "id": "P1672-00@p524#1",
+    "code_full": "P1672-00",
+    "page": 524,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU52 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P164F-00": [
+   {
+    "id": "P164F-00@p525#1",
+    "code_full": "P164F-00",
+    "page": 525,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU53 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1674-00": [
+   {
+    "id": "P1674-00@p526#1",
+    "code_full": "P1674-00",
+    "page": 526,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU54 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1657-00": [
+   {
+    "id": "P1657-00@p527#1",
+    "code_full": "P1657-00",
+    "page": 527,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU55 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1644-00": [
+   {
+    "id": "P1644-00@p528#1",
+    "code_full": "P1644-00",
+    "page": 528,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU56 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P166D-00": [
+   {
+    "id": "P166D-00@p529#1",
+    "code_full": "P166D-00",
+    "page": 529,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU57 which is read out of the FCCU",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1671-00": [
+   {
+    "id": "P1671-00@p530#1",
+    "code_full": "P1671-00",
+    "page": 530,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU58 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1660-00": [
+   {
+    "id": "P1660-00@p531#1",
+    "code_full": "P1660-00",
+    "page": 531,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU59 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1677-00": [
+   {
+    "id": "P1677-00@p532#1",
+    "code_full": "P1677-00",
+    "page": 532,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU5 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1640-00": [
+   {
+    "id": "P1640-00@p533#1",
+    "code_full": "P1640-00",
+    "page": 533,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU63 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P166B-00": [
+   {
+    "id": "P166B-00@p534#1",
+    "code_full": "P166B-00",
+    "page": 534,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU64 which is read out of the FCCU",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1676-00": [
+   {
+    "id": "P1676-00@p535#1",
+    "code_full": "P1676-00",
+    "page": 535,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU65 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P165E-00": [
+   {
+    "id": "P165E-00@p536#1",
+    "code_full": "P165E-00",
+    "page": 536,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU6 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1661-00": [
+   {
+    "id": "P1661-00@p537#1",
+    "code_full": "P1661-00",
+    "page": 537,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU70 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P165B-00": [
+   {
+    "id": "P165B-00@p538#1",
+    "code_full": "P165B-00",
+    "page": 538,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU71 which is read out of the FCCU",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1651-00": [
+   {
+    "id": "P1651-00@p539#1",
+    "code_full": "P1651-00",
+    "page": 539,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU74 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1663-00": [
+   {
+    "id": "P1663-00@p540#1",
+    "code_full": "P1663-00",
+    "page": 540,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU75 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P166E-00": [
+   {
+    "id": "P166E-00@p541#1",
+    "code_full": "P166E-00",
+    "page": 541,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU78 which is read out of the FCCU",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1645-00": [
+   {
+    "id": "P1645-00@p542#1",
+    "code_full": "P1645-00",
+    "page": 542,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU79 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1662-00": [
+   {
+    "id": "P1662-00@p543#1",
+    "code_full": "P1662-00",
+    "page": 543,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU80 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1659-00": [
+   {
+    "id": "P1659-00@p544#1",
+    "code_full": "P1659-00",
+    "page": 544,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU81 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P166A-00": [
+   {
+    "id": "P166A-00@p545#1",
+    "code_full": "P166A-00",
+    "page": 545,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU85 which is read out of the FCCU",
+    "system": "ecu_internal"
+   }
+  ]
+ },
+ "by_dtc_code": {
+  "P0192": [
+   {
+    "id": "P0192-00@p8#1",
+    "code_full": "P0192-00",
+    "page": 8,
+    "occurrence": 1,
+    "description": "Rail pressure Sensor Short circuit to ground",
+    "system": "rail_pressure"
+   }
+  ],
+  "P0193": [
+   {
+    "id": "P0193-00@p10#1",
+    "code_full": "P0193-00",
+    "page": 10,
+    "occurrence": 1,
+    "description": "Rail pressure sensor Short circuit to battery or Open circuit",
+    "system": "rail_pressure"
+   }
+  ],
+  "P0194": [
+   {
+    "id": "P0194-00@p12#1",
+    "code_full": "P0194-00",
+    "page": 12,
+    "occurrence": 1,
+    "description": "Fuel Rail Pressure Sensor Circuit Drift",
+    "system": "rail_pressure"
+   }
+  ],
+  "P0117": [
+   {
+    "id": "P0117-00@p13#1",
+    "code_full": "P0117-00",
+    "page": 13,
+    "occurrence": 1,
+    "description": "Coolant temperature sensor signal Short circuit to ground",
+    "system": "coolant"
+   }
+  ],
+  "P0118": [
+   {
+    "id": "P0118-00@p16#1",
+    "code_full": "P0118-00",
+    "page": 16,
+    "occurrence": 1,
+    "description": "Coolant temperature sensor signal Short circuit to battery or Open Circuit",
+    "system": "coolant"
+   }
+  ],
+  "P0119": [
+   {
+    "id": "P0119-00@p18#1",
+    "code_full": "P0119-00",
+    "page": 18,
+    "occurrence": 1,
+    "description": "Coolant temperature sensor signal gradient not plausible or intermittent",
+    "system": "coolant"
+   }
+  ],
+  "P0116": [
+   {
+    "id": "P0116-00@p20#1",
+    "code_full": "P0116-00",
+    "page": 20,
+    "occurrence": 1,
+    "description": "Coolant temperature sensor physical value plausibility check",
+    "system": "coolant"
+   }
+  ],
+  "P0100": [
+   {
+    "id": "P0100-00@p22#1",
+    "code_full": "P0100-00",
+    "page": 22,
+    "occurrence": 1,
+    "description": "DFC to Display Communication errors of the SENT line of the Air Mass Sensor",
+    "system": "intake_air"
+   },
+   {
+    "id": "P0100-9B@p37#1",
+    "code_full": "P0100-9B",
+    "page": 37,
+    "occurrence": 1,
+    "description": "DFC for Mass air flow sensor physical range check high error",
+    "system": "intake_air"
+   },
+   {
+    "id": "P0100-9C@p40#1",
+    "code_full": "P0100-9C",
+    "page": 40,
+    "occurrence": 1,
+    "description": "DFC for Mass air flow sensor physical range check low error",
+    "system": "intake_air"
+   }
+  ],
+  "P0102": [
+   {
+    "id": "P0102-00@p25#1",
+    "code_full": "P0102-00",
+    "page": 25,
+    "occurrence": 1,
+    "description": "DFC for Mass or Volume Air Flow Sensor \"A\" Circuit Low",
+    "system": "sensor_generic"
+   }
+  ],
+  "P0103": [
+   {
+    "id": "P0103-00@p28#1",
+    "code_full": "P0103-00",
+    "page": 28,
+    "occurrence": 1,
+    "description": "DFC for Mass or Volume Air Flow Sensor \"A\" Circuit high",
+    "system": "sensor_generic"
+   }
+  ],
+  "P010C": [
+   {
+    "id": "P010C-00@p31#1",
+    "code_full": "P010C-00",
+    "page": 31,
+    "occurrence": 1,
+    "description": "DFC for Mass or Volume Air Flow Sensor \"B\" Circuit Low",
+    "system": "sensor_generic"
+   }
+  ],
+  "P010D": [
+   {
+    "id": "P010D-00@p34#1",
+    "code_full": "P010D-00",
+    "page": 34,
+    "occurrence": 1,
+    "description": "DFC for Mass or Volume Air Flow Sensor \"B\" Circuit high",
+    "system": "sensor_generic"
+   }
+  ],
+  "P0101": [
+   {
+    "id": "P0101-00@p43#1",
+    "code_full": "P0101-00",
+    "page": 43,
+    "occurrence": 1,
+    "description": "DFC for Mass Airflow Pressure Charging System Plausibility",
+    "system": "intake_air"
+   }
+  ],
+  "P0401": [
+   {
+    "id": "P0401-00@p46#1",
+    "code_full": "P0401-00",
+    "page": 46,
+    "occurrence": 1,
+    "description": "Positive governor deviation above limit (air mass)",
+    "system": "intake_air"
+   }
+  ],
+  "P0402": [
+   {
+    "id": "P0402-00@p47#1",
+    "code_full": "P0402-00",
+    "page": 47,
+    "occurrence": 1,
+    "description": "Negative governor deviation above limit (air mass)",
+    "system": "intake_air"
+   }
+  ],
+  "P0107": [
+   {
+    "id": "P0107-00@p48#1",
+    "code_full": "P0107-00",
+    "page": 48,
+    "occurrence": 1,
+    "description": "Manifold Pressure sensor signal Short circuit to ground",
+    "system": "electrical"
+   }
+  ],
+  "P0108": [
+   {
+    "id": "P0108-00@p51#1",
+    "code_full": "P0108-00",
+    "page": 51,
+    "occurrence": 1,
+    "description": "Manifold Pressure sensor signal Open circuit or Short circuit to battery",
+    "system": "electrical"
+   }
+  ],
+  "P0109": [
+   {
+    "id": "P0109-00@p54#1",
+    "code_full": "P0109-00",
+    "page": 54,
+    "occurrence": 1,
+    "description": "Manifold pressure sensor signal gradient implausible or intermittent",
+    "system": "sensor_generic"
+   }
+  ],
+  "P0110": [
+   {
+    "id": "P0110-11@p57#1",
+    "code_full": "P0110-11",
+    "page": 57,
+    "occurrence": 1,
+    "description": "Intake air temperature Sensor Signal Short circuit to ground",
+    "system": "intake_air"
+   },
+   {
+    "id": "P0110-12@p60#1",
+    "code_full": "P0110-12",
+    "page": 60,
+    "occurrence": 1,
+    "description": "Intake air temperature Sensor Signal Open circuit or Short circuit to battery",
+    "system": "intake_air"
+   }
+  ],
+  "P006E": [
+   {
+    "id": "P006E-00@p63#1",
+    "code_full": "P006E-00",
+    "page": 63,
+    "occurrence": 1,
+    "description": "Turbocharger Boost Control Supply Voltage Circuit Low",
+    "system": "turbo_boost"
+   }
+  ],
+  "P006F": [
+   {
+    "id": "P006F-00@p66#1",
+    "code_full": "P006F-00",
+    "page": 66,
+    "occurrence": 1,
+    "description": "Turbocharger Boost Control Supply Voltage Circuit High",
+    "system": "turbo_boost"
+   }
+  ],
+  "P0048": [
+   {
+    "id": "P0048-00@p69#1",
+    "code_full": "P0048-00",
+    "page": 69,
+    "occurrence": 1,
+    "description": "Turbocharger Boost Control \u201cA\u201d Circuit High",
+    "system": "turbo_boost"
+   }
+  ],
+  "P004D": [
+   {
+    "id": "P004D-00@p72#1",
+    "code_full": "P004D-00",
+    "page": 72,
+    "occurrence": 1,
+    "description": "Turbocharger Boost Control \u201cB\u201d Circuit High",
+    "system": "turbo_boost"
+   }
+  ],
+  "P0047": [
+   {
+    "id": "P0047-00@p75#1",
+    "code_full": "P0047-00",
+    "page": 75,
+    "occurrence": 1,
+    "description": "Turbocharger Boost Control \u201cA\u201d Circuit Low",
+    "system": "turbo_boost"
+   }
+  ],
+  "P004C": [
+   {
+    "id": "P004C-00@p78#1",
+    "code_full": "P004C-00",
+    "page": 78,
+    "occurrence": 1,
+    "description": "Turbocharger Boost Control \u201cB\u201d Circuit Low",
+    "system": "turbo_boost"
+   }
+  ],
+  "P0087": [
+   {
+    "id": "P0087-00@p81#1",
+    "code_full": "P0087-00",
+    "page": 81,
+    "occurrence": 1,
+    "description": "Maximum positive deviation of rail pressure exceeded",
+    "system": "rail_pressure"
+   }
+  ],
+  "P0088": [
+   {
+    "id": "P0088-00@p83#1",
+    "code_full": "P0088-00",
+    "page": 83,
+    "occurrence": 1,
+    "description": "Maximum negative rail pressure deviation with metering unit on lower limit is",
+    "system": "rail_pressure"
+   }
+  ],
+  "P0089": [
+   {
+    "id": "P0089-92@p85#1",
+    "code_full": "P0089-92",
+    "page": 85,
+    "occurrence": 1,
+    "description": "DFC for Fuel Pressure Regulator 1 Performance",
+    "system": "fuel_supply"
+   },
+   {
+    "id": "P0089-00@p88#1",
+    "code_full": "P0089-00",
+    "page": 88,
+    "occurrence": 1,
+    "description": "DFC for Pressure Relief Valve Open",
+    "system": "fuel_supply"
+   }
+  ],
+  "P00C6": [
+   {
+    "id": "P00C6-00@p86#1",
+    "code_full": "P00C6-00",
+    "page": 86,
+    "occurrence": 1,
+    "description": "DFC for no rail pressure build-up during cranking",
+    "system": "rail_pressure"
+   }
+  ],
+  "P018F": [
+   {
+    "id": "P018F-00@p89#1",
+    "code_full": "P018F-00",
+    "page": 89,
+    "occurrence": 1,
+    "description": "DFC for Fuel System Over Pressure Relief Valve Frequent Activation",
+    "system": "fuel_supply"
+   }
+  ],
+  "P0120": [
+   {
+    "id": "P0120-11@p90#1",
+    "code_full": "P0120-11",
+    "page": 90,
+    "occurrence": 1,
+    "description": "DFC for Pedal Sensor Track 1 Signal Short circuit to ground",
+    "system": "pedal_clutch_brake"
+   },
+   {
+    "id": "P0120-12@p92#1",
+    "code_full": "P0120-12",
+    "page": 92,
+    "occurrence": 1,
+    "description": "DFC for Pedal Sensor Track 1 Signal Short circuit to battery",
+    "system": "pedal_clutch_brake"
+   }
+  ],
+  "P0220": [
+   {
+    "id": "P0220-11@p94#1",
+    "code_full": "P0220-11",
+    "page": 94,
+    "occurrence": 1,
+    "description": "DFC for Pedal Sensor Track 2 Signal Short circuit to ground or Open circuit",
+    "system": "pedal_clutch_brake"
+   },
+   {
+    "id": "P0220-12@p96#1",
+    "code_full": "P0220-12",
+    "page": 96,
+    "occurrence": 1,
+    "description": "DFC for Pedal Sensor Track 2 Signal Short circuit to battery",
+    "system": "pedal_clutch_brake"
+   }
+  ],
+  "P2135": [
+   {
+    "id": "P2135-00@p98#1",
+    "code_full": "P2135-00",
+    "page": 98,
+    "occurrence": 1,
+    "description": "DFC for Monitoring of Pedal Position Incompatible",
+    "system": "pedal_clutch_brake"
+   }
+  ],
+  "P0180": [
+   {
+    "id": "P0180-11@p100#1",
+    "code_full": "P0180-11",
+    "page": 100,
+    "occurrence": 1,
+    "description": "Fuel temperature sensor Short circuit to ground",
+    "system": "fuel_supply"
+   },
+   {
+    "id": "P0180-12@p102#1",
+    "code_full": "P0180-12",
+    "page": 102,
+    "occurrence": 1,
+    "description": "Fuel temperature sensor Short circuit to battery or Open circuit",
+    "system": "fuel_supply"
+   },
+   {
+    "id": "P0180-11@p195#2",
+    "code_full": "P0180-11",
+    "page": 195,
+    "occurrence": 2,
+    "description": "DFC for Fuel temperature sensor signal Short circuit to ground",
+    "system": "fuel_supply"
+   },
+   {
+    "id": "P0180-12@p197#2",
+    "code_full": "P0180-12",
+    "page": 197,
+    "occurrence": 2,
+    "description": "DFC for Fuel temperature sensor signal Open circuit or Short circuit to battery",
+    "system": "fuel_supply"
+   },
+   {
+    "id": "P0180-1C@p199#1",
+    "code_full": "P0180-1C",
+    "page": 199,
+    "occurrence": 1,
+    "description": "DFC for Fuel temperature Sensor signal gradient implausible or intermittent",
+    "system": "fuel_supply"
+   },
+   {
+    "id": "P0180-1F@p201#1",
+    "code_full": "P0180-1F",
+    "page": 201,
+    "occurrence": 1,
+    "description": "DFC for Fuel temperature sensor signal not plausible",
+    "system": "fuel_supply"
+   }
+  ],
+  "P0201": [
+   {
+    "id": "P0201-00@p104#1",
+    "code_full": "P0201-00",
+    "page": 104,
+    "occurrence": 1,
+    "description": "Injector open circuit for cylinder 1",
+    "system": "injector"
+   }
+  ],
+  "P0202": [
+   {
+    "id": "P0202-00@p107#1",
+    "code_full": "P0202-00",
+    "page": 107,
+    "occurrence": 1,
+    "description": "Injector open circuit for cylinder 2",
+    "system": "injector"
+   }
+  ],
+  "P0203": [
+   {
+    "id": "P0203-00@p110#1",
+    "code_full": "P0203-00",
+    "page": 110,
+    "occurrence": 1,
+    "description": "Injector open circuit for cylinder 3",
+    "system": "injector"
+   }
+  ],
+  "P0204": [
+   {
+    "id": "P0204-00@p113#1",
+    "code_full": "P0204-00",
+    "page": 113,
+    "occurrence": 1,
+    "description": "Injector open circuit for cylinder 4",
+    "system": "injector"
+   }
+  ],
+  "P1201": [
+   {
+    "id": "P1201-00@p116#1",
+    "code_full": "P1201-00",
+    "page": 116,
+    "occurrence": 1,
+    "description": "DFC for Injector short circuit high and low side for cylinder 1",
+    "system": "injector"
+   }
+  ],
+  "P1202": [
+   {
+    "id": "P1202-00@p119#1",
+    "code_full": "P1202-00",
+    "page": 119,
+    "occurrence": 1,
+    "description": "DFC for Injector short circuit high and low side for cylinder 2",
+    "system": "injector"
+   }
+  ],
+  "P1203": [
+   {
+    "id": "P1203-00@p122#1",
+    "code_full": "P1203-00",
+    "page": 122,
+    "occurrence": 1,
+    "description": "DFC for Injector short circuit high and low side for cylinder 3",
+    "system": "injector"
+   }
+  ],
+  "P1204": [
+   {
+    "id": "P1204-00@p125#1",
+    "code_full": "P1204-00",
+    "page": 125,
+    "occurrence": 1,
+    "description": "DFC for Injector short circuit high and low side for cylinder 4",
+    "system": "injector"
+   }
+  ],
+  "P0001": [
+   {
+    "id": "P0001-00@p128#1",
+    "code_full": "P0001-00",
+    "page": 128,
+    "occurrence": 1,
+    "description": "Open load of metering unit output",
+    "system": "fuel_supply"
+   }
+  ],
+  "P0003": [
+   {
+    "id": "P0003-00@p131#1",
+    "code_full": "P0003-00",
+    "page": 131,
+    "occurrence": 1,
+    "description": "Short circuit to ground of metering unit output",
+    "system": "fuel_supply"
+   }
+  ],
+  "P0004": [
+   {
+    "id": "P0004-00@p134#1",
+    "code_full": "P0004-00",
+    "page": 134,
+    "occurrence": 1,
+    "description": "Short circuit to battery of metering unit output (Low side)",
+    "system": "fuel_supply"
+   }
+  ],
+  "P0335": [
+   {
+    "id": "P0335-00@p137#1",
+    "code_full": "P0335-00",
+    "page": 137,
+    "occurrence": 1,
+    "description": "DFC for Crankshaft sensor Open circuit",
+    "system": "engine_position"
+   }
+  ],
+  "P0336": [
+   {
+    "id": "P0336-00@p140#1",
+    "code_full": "P0336-00",
+    "page": 140,
+    "occurrence": 1,
+    "description": "DFC for crankshaft signal diagnose - disturbed signal",
+    "system": "engine_position"
+   }
+  ],
+  "P0340": [
+   {
+    "id": "P0340-00@p143#1",
+    "code_full": "P0340-00",
+    "page": 143,
+    "occurrence": 1,
+    "description": "DFC for camshaft signal diagnose - no signal",
+    "system": "engine_position"
+   }
+  ],
+  "P0341": [
+   {
+    "id": "P0341-00@p146#1",
+    "code_full": "P0341-00",
+    "page": 146,
+    "occurrence": 1,
+    "description": "DFC for camshaft signal diagnose - disturbed signal",
+    "system": "engine_position"
+   }
+  ],
+  "P0405": [
+   {
+    "id": "P0405-00@p149#1",
+    "code_full": "P0405-00",
+    "page": 149,
+    "occurrence": 1,
+    "description": "DFC for EGR valve position sensor voltage SRC low or Open Circuit",
+    "system": "egr"
+   }
+  ],
+  "P0406": [
+   {
+    "id": "P0406-00@p152#1",
+    "code_full": "P0406-00",
+    "page": 152,
+    "occurrence": 1,
+    "description": "DFC for EGR valve position sensor voltage SRC high",
+    "system": "egr"
+   }
+  ],
+  "P042F": [
+   {
+    "id": "P042F-00@p155#1",
+    "code_full": "P042F-00",
+    "page": 155,
+    "occurrence": 1,
+    "description": "EGR valve jammed at closed position",
+    "system": "egr"
+   }
+  ],
+  "P042E": [
+   {
+    "id": "P042E-00@p158#1",
+    "code_full": "P042E-00",
+    "page": 158,
+    "occurrence": 1,
+    "description": "EGR valve jammed at open position",
+    "system": "egr"
+   }
+  ],
+  "P0489": [
+   {
+    "id": "P0489-00@p161#1",
+    "code_full": "P0489-00",
+    "page": 161,
+    "occurrence": 1,
+    "description": "Short circuit to ground on Out1 error for EGR Valve H-bridge",
+    "system": "egr"
+   }
+  ],
+  "P048A": [
+   {
+    "id": "P048A-00@p164#1",
+    "code_full": "P048A-00",
+    "page": 164,
+    "occurrence": 1,
+    "description": "Short circuit to Battery on Out1 error for EGR Valve H-bridge",
+    "system": "egr"
+   }
+  ],
+  "P045C": [
+   {
+    "id": "P045C-00@p167#1",
+    "code_full": "P045C-00",
+    "page": 167,
+    "occurrence": 1,
+    "description": "Short circuit to ground on Out2 error for EGR Valve H-bridge",
+    "system": "egr"
+   }
+  ],
+  "P045D": [
+   {
+    "id": "P045D-00@p170#1",
+    "code_full": "P045D-00",
+    "page": 170,
+    "occurrence": 1,
+    "description": "Short circuit to battery on Out2 error for EGR Valve H-bridge",
+    "system": "egr"
+   }
+  ],
+  "P0403": [
+   {
+    "id": "P0403-00@p173#1",
+    "code_full": "P0403-00",
+    "page": 173,
+    "occurrence": 1,
+    "description": "DFC for EGR valve control Signal Open Circuit",
+    "system": "egr"
+   }
+  ],
+  "P0500": [
+   {
+    "id": "P0500-1F@p176#1",
+    "code_full": "P0500-1F",
+    "page": 176,
+    "occurrence": 1,
+    "description": "Vehicle speed sensor plausibility error",
+    "system": "vehicle_speed"
+   },
+   {
+    "id": "P0500-1C@p179#1",
+    "code_full": "P0500-1C",
+    "page": 179,
+    "occurrence": 1,
+    "description": "Maximum threshold error for vehicle speed",
+    "system": "vehicle_speed"
+   }
+  ],
+  "P259F": [
+   {
+    "id": "P259F-00@p182#1",
+    "code_full": "P259F-00",
+    "page": 182,
+    "occurrence": 1,
+    "description": "Boost pressure controller at max limit",
+    "system": "turbo_boost"
+   }
+  ],
+  "P259E": [
+   {
+    "id": "P259E-00@p183#1",
+    "code_full": "P259E-00",
+    "page": 183,
+    "occurrence": 1,
+    "description": "Boost pressure controller at min limit",
+    "system": "turbo_boost"
+   }
+  ],
+  "P0627": [
+   {
+    "id": "P0627-11@p184#1",
+    "code_full": "P0627-11",
+    "page": 184,
+    "occurrence": 1,
+    "description": "DFC for Fuel pump relay Short circuit to ground",
+    "system": "fuel_supply"
+   },
+   {
+    "id": "P0627-13@p186#1",
+    "code_full": "P0627-13",
+    "page": 186,
+    "occurrence": 1,
+    "description": "DFC for Fuel pump relay Open Circuit",
+    "system": "fuel_supply"
+   },
+   {
+    "id": "P0627-12@p188#1",
+    "code_full": "P0627-12",
+    "page": 188,
+    "occurrence": 1,
+    "description": "DFC for Fuel pump relay Short Circuit to Battery",
+    "system": "fuel_supply"
+   }
+  ],
+  "P2264": [
+   {
+    "id": "P2264-12@p190#1",
+    "code_full": "P2264-12",
+    "page": 190,
+    "occurrence": 1,
+    "description": "DFC for Water in fuel sensor input line Open circuit or water in fuel detected or",
+    "system": "fuel_supply"
+   },
+   {
+    "id": "P2264-11@p192#1",
+    "code_full": "P2264-11",
+    "page": 192,
+    "occurrence": 1,
+    "description": "DFC for Water in fuel sensor input line Short circuit to ground",
+    "system": "fuel_supply"
+   },
+   {
+    "id": "P2264-00@p361#1",
+    "code_full": "P2264-00",
+    "page": 361,
+    "occurrence": 1,
+    "description": "DFC for Detection of water in fuel filter",
+    "system": "fuel_supply"
+   }
+  ],
+  "P0504": [
+   {
+    "id": "P0504-00@p203#1",
+    "code_full": "P0504-00",
+    "page": 203,
+    "occurrence": 1,
+    "description": "DFC for Pedal/brake plausibility check",
+    "system": "pedal_clutch_brake"
+   }
+  ],
+  "P0704": [
+   {
+    "id": "P0704-29@p205#1",
+    "code_full": "P0704-29",
+    "page": 205,
+    "occurrence": 1,
+    "description": "DFC for Clutch switch plausibility check",
+    "system": "pedal_clutch_brake"
+   }
+  ],
+  "P0A1B": [
+   {
+    "id": "P0A1B-13@p208#1",
+    "code_full": "P0A1B-13",
+    "page": 208,
+    "occurrence": 1,
+    "description": "DFC for Starter Motor Control Signal Open Circuit.",
+    "system": "electrical"
+   },
+   {
+    "id": "P0A1B-12@p211#1",
+    "code_full": "P0A1B-12",
+    "page": 211,
+    "occurrence": 1,
+    "description": "DFC for Starter Motor Control Signal Short circuit to battery.",
+    "system": "electrical"
+   }
+  ],
+  "P2229": [
+   {
+    "id": "P2229-00@p214#1",
+    "code_full": "P2229-00",
+    "page": 214,
+    "occurrence": 1,
+    "description": "DFC for Ambient Pressure Signal Over voltage",
+    "system": "electrical"
+   }
+  ],
+  "P2228": [
+   {
+    "id": "P2228-00@p215#1",
+    "code_full": "P2228-00",
+    "page": 215,
+    "occurrence": 1,
+    "description": "DFC for Ambient Pressure Signal under voltage",
+    "system": "electrical"
+   }
+  ],
+  "P0219": [
+   {
+    "id": "P0219-00@p216#1",
+    "code_full": "P0219-00",
+    "page": 216,
+    "occurrence": 1,
+    "description": "DFC for Engine speed above max limit",
+    "system": "level2_monitoring"
+   }
+  ],
+  "P061C": [
+   {
+    "id": "P061C-00@p217#1",
+    "code_full": "P061C-00",
+    "page": 217,
+    "occurrence": 1,
+    "description": "DFC for Engine Speed Monitoring",
+    "system": "level2_monitoring"
+   },
+   {
+    "id": "P061C-00@p472#2",
+    "code_full": "P061C-00",
+    "page": 472,
+    "occurrence": 2,
+    "description": "DFC for Internal Control Module Engine RPM Performance",
+    "system": "ecu_internal"
+   }
+  ],
+  "P062B": [
+   {
+    "id": "P062B-00@p218#1",
+    "code_full": "P062B-00",
+    "page": 218,
+    "occurrence": 1,
+    "description": "DFC for Fuel cut off monitoring",
+    "system": "fuel_supply"
+   }
+  ],
+  "P061A": [
+   {
+    "id": "P061A-00@p219#1",
+    "code_full": "P061A-00",
+    "page": 219,
+    "occurrence": 1,
+    "description": "DFC for torque monitoring",
+    "system": "level2_monitoring"
+   }
+  ],
+  "P060A": [
+   {
+    "id": "P060A-49@p220#1",
+    "code_full": "P060A-49",
+    "page": 220,
+    "occurrence": 1,
+    "description": "DFC for energizing time monitoring",
+    "system": "level2_monitoring"
+   }
+  ],
+  "U0102": [
+   {
+    "id": "U0102-00@p221#1",
+    "code_full": "U0102-00",
+    "page": 221,
+    "occurrence": 1,
+    "description": "DFC for Overall disconnection to CAN bus",
+    "system": "can_network"
+   }
+  ],
+  "U011A": [
+   {
+    "id": "U011A-00@p222#1",
+    "code_full": "U011A-00",
+    "page": 222,
+    "occurrence": 1,
+    "description": "DFC for CAN internal Hardware failed",
+    "system": "can_network"
+   },
+   {
+    "id": "U011A-89@p223#1",
+    "code_full": "U011A-89",
+    "page": 223,
+    "occurrence": 1,
+    "description": "DFC for CAN internal Hardware connection failed",
+    "system": "can_network"
+   }
+  ],
+  "P0425": [
+   {
+    "id": "P0425-85@p224#1",
+    "code_full": "P0425-85",
+    "page": 224,
+    "occurrence": 1,
+    "description": "DFC for Temperature upstream of DOC too high",
+    "system": "dpf_regen"
+   },
+   {
+    "id": "P0425-84@p226#1",
+    "code_full": "P0425-84",
+    "page": 226,
+    "occurrence": 1,
+    "description": "DFC for Temperature upstream of DOC too low",
+    "system": "dpf_regen"
+   },
+   {
+    "id": "P0425-64@p457#1",
+    "code_full": "P0425-64",
+    "page": 457,
+    "occurrence": 1,
+    "description": "DFC for Model based plausibility check of exhaust-gas temperature sensor T4",
+    "system": "o2_exhaust"
+   }
+  ],
+  "P0428": [
+   {
+    "id": "P0428-00@p228#1",
+    "code_full": "P0428-00",
+    "page": 228,
+    "occurrence": 1,
+    "description": "DFC for Temperature sensor upstream of DOC Circuit open or shorted to Battery",
+    "system": "dpf_regen"
+   }
+  ],
+  "P0427": [
+   {
+    "id": "P0427-00@p230#1",
+    "code_full": "P0427-00",
+    "page": 230,
+    "occurrence": 1,
+    "description": "DFC for Temperature sensor upstream of DOC Circuit shorted to ground",
+    "system": "dpf_regen"
+   }
+  ],
+  "P042A": [
+   {
+    "id": "P042A-85@p232#1",
+    "code_full": "P042A-85",
+    "page": 232,
+    "occurrence": 1,
+    "description": "DFC for Temperature upstream of DPF too high",
+    "system": "dpf_regen"
+   },
+   {
+    "id": "P042A-84@p234#1",
+    "code_full": "P042A-84",
+    "page": 234,
+    "occurrence": 1,
+    "description": "DFC for Temperature upstream of DPF too low",
+    "system": "dpf_regen"
+   },
+   {
+    "id": "P042A-64@p458#1",
+    "code_full": "P042A-64",
+    "page": 458,
+    "occurrence": 1,
+    "description": "DFC for Model based plausibility check of exhaust-gas temperature sensor T5",
+    "system": "o2_exhaust"
+   }
+  ],
+  "P042D": [
+   {
+    "id": "P042D-00@p236#1",
+    "code_full": "P042D-00",
+    "page": 236,
+    "occurrence": 1,
+    "description": "DFC for Temperature sensor upstream of DPF Circuit open or shorted to Battery",
+    "system": "dpf_regen"
+   }
+  ],
+  "P042C": [
+   {
+    "id": "P042C-00@p238#1",
+    "code_full": "P042C-00",
+    "page": 238,
+    "occurrence": 1,
+    "description": "DFC for Temperature sensor upstream of DPF Circuit shorted to ground",
+    "system": "dpf_regen"
+   }
+  ],
+  "P242A": [
+   {
+    "id": "P242A-85@p240#1",
+    "code_full": "P242A-85",
+    "page": 240,
+    "occurrence": 1,
+    "description": "DFC for Temperature upstream of SCR too high",
+    "system": "scr_def"
+   },
+   {
+    "id": "P242A-84@p242#1",
+    "code_full": "P242A-84",
+    "page": 242,
+    "occurrence": 1,
+    "description": "DFC for Temperature upstream of SCR too low",
+    "system": "scr_def"
+   },
+   {
+    "id": "P242A-64@p459#1",
+    "code_full": "P242A-64",
+    "page": 459,
+    "occurrence": 1,
+    "description": "DFC for Model based plausibility check of exhaust-gas temperature sensor T6",
+    "system": "o2_exhaust"
+   }
+  ],
+  "P242D": [
+   {
+    "id": "P242D-00@p244#1",
+    "code_full": "P242D-00",
+    "page": 244,
+    "occurrence": 1,
+    "description": "DFC for Temperature sensor upstream of SCR Circuit open or shorted to Battery",
+    "system": "scr_def"
+   }
+  ],
+  "P242C": [
+   {
+    "id": "P242C-00@p246#1",
+    "code_full": "P242C-00",
+    "page": 246,
+    "occurrence": 1,
+    "description": "DFC for Temperature sensor upstream of SCR Circuit shorted to ground",
+    "system": "scr_def"
+   }
+  ],
+  "P2452": [
+   {
+    "id": "P2452-85@p248#1",
+    "code_full": "P2452-85",
+    "page": 248,
+    "occurrence": 1,
+    "description": "DFC for Delta Pressure Sensor physical range high",
+    "system": "sensor_generic"
+   },
+   {
+    "id": "P2452-84@p251#1",
+    "code_full": "P2452-84",
+    "page": 251,
+    "occurrence": 1,
+    "description": "DFC for Delta Pressure Sensor physical range low",
+    "system": "sensor_generic"
+   },
+   {
+    "id": "P2452-95@p403#1",
+    "code_full": "P2452-95",
+    "page": 403,
+    "occurrence": 1,
+    "description": "DFC for Hose line connection",
+    "system": "fuel_supply"
+   }
+  ],
+  "P2455": [
+   {
+    "id": "P2455-00@p254#1",
+    "code_full": "P2455-00",
+    "page": 254,
+    "occurrence": 1,
+    "description": "DFC for Delta Pressure Sensor Circuit open or shorted to Battery",
+    "system": "electrical"
+   }
+  ],
+  "P2454": [
+   {
+    "id": "P2454-00@p257#1",
+    "code_full": "P2454-00",
+    "page": 257,
+    "occurrence": 1,
+    "description": "DFC for Differential Pressure Sensor Circuit shorted to ground",
+    "system": "electrical"
+   }
+  ],
+  "P2200": [
+   {
+    "id": "P2200-86@p260#1",
+    "code_full": "P2200-86",
+    "page": 260,
+    "occurrence": 1,
+    "description": "DFC for NOx Sensor Circuit Upstream Sensor Signal Incorrect",
+    "system": "o2_exhaust"
+   },
+   {
+    "id": "P2200-13@p261#1",
+    "code_full": "P2200-13",
+    "page": 261,
+    "occurrence": 1,
+    "description": "DFC for NOx Sensor Circuit Upstream Sensor Signal not received",
+    "system": "o2_exhaust"
+   },
+   {
+    "id": "P2200-F0@p407#1",
+    "code_full": "P2200-F0",
+    "page": 407,
+    "occurrence": 1,
+    "description": "DFC for NOx availability diagnosis of NOx sensor upstream",
+    "system": "o2_exhaust"
+   },
+   {
+    "id": "P2200-85@p408#1",
+    "code_full": "P2200-85",
+    "page": 408,
+    "occurrence": 1,
+    "description": "DFC for NOx signal range check of NOx sensor upstream(maximum)",
+    "system": "o2_exhaust"
+   },
+   {
+    "id": "P2200-84@p409#1",
+    "code_full": "P2200-84",
+    "page": 409,
+    "occurrence": 1,
+    "description": "DFC for NOx signal range check of Nox sensor upstream(minimum)",
+    "system": "o2_exhaust"
+   },
+   {
+    "id": "P2200-0D@p410#1",
+    "code_full": "P2200-0D",
+    "page": 410,
+    "occurrence": 1,
+    "description": "DFC for all open circuit errors of NOx sensor in NOx sensor 1 Bank 1",
+    "system": "o2_exhaust"
+   },
+   {
+    "id": "P2200-01@p411#1",
+    "code_full": "P2200-01",
+    "page": 411,
+    "occurrence": 1,
+    "description": "DFC for all short circuit errors of Nox sensor in NOx sensor 1 Bank 1",
+    "system": "o2_exhaust"
+   },
+   {
+    "id": "P2200-29@p412#1",
+    "code_full": "P2200-29",
+    "page": 412,
+    "occurrence": 1,
+    "description": "DFC for Sensor signal readiness diagnosis of upstream NOx sensor",
+    "system": "o2_exhaust"
+   },
+   {
+    "id": "P2200-22@p413#1",
+    "code_full": "P2200-22",
+    "page": 413,
+    "occurrence": 1,
+    "description": "DFC for linear lambda signal range check of upstream NOx sensor (maximum)",
+    "system": "o2_exhaust"
+   },
+   {
+    "id": "P2200-21@p414#1",
+    "code_full": "P2200-21",
+    "page": 414,
+    "occurrence": 1,
+    "description": "DFC for linear lambda signal range check of upstream NOx sensor (minimum)",
+    "system": "o2_exhaust"
+   },
+   {
+    "id": "P2200-0A@p415#1",
+    "code_full": "P2200-0A",
+    "page": 415,
+    "occurrence": 1,
+    "description": "DFC for Wire diagnosis of upstream NOx sensor",
+    "system": "o2_exhaust"
+   },
+   {
+    "id": "P2200-27@p416#1",
+    "code_full": "P2200-27",
+    "page": 416,
+    "occurrence": 1,
+    "description": "DFC for NOx offset max error detection upstream",
+    "system": "o2_exhaust"
+   },
+   {
+    "id": "P2200-26@p417#1",
+    "code_full": "P2200-26",
+    "page": 417,
+    "occurrence": 1,
+    "description": "DFC for NOx offset min error detection upstream",
+    "system": "o2_exhaust"
+   }
+  ],
+  "P2201": [
+   {
+    "id": "P2201-76@p262#1",
+    "code_full": "P2201-76",
+    "page": 262,
+    "occurrence": 1,
+    "description": "DFC for NOx Sensor Circuit Upstream Sensor Signal not plausible",
+    "system": "o2_exhaust"
+   }
+  ],
+  "P229E": [
+   {
+    "id": "P229E-86@p263#1",
+    "code_full": "P229E-86",
+    "page": 263,
+    "occurrence": 1,
+    "description": "DFC for NOx Sensor Circuit Downstream Sensor Signal Incorrect",
+    "system": "o2_exhaust"
+   },
+   {
+    "id": "P229E-13@p264#1",
+    "code_full": "P229E-13",
+    "page": 264,
+    "occurrence": 1,
+    "description": "DFC for NOx Sensor Circuit Downstream Sensor Signal not received",
+    "system": "o2_exhaust"
+   },
+   {
+    "id": "P229E-F0@p420#1",
+    "code_full": "P229E-F0",
+    "page": 420,
+    "occurrence": 1,
+    "description": "DFC for NOx availability diagnosis of NOx sensor upstream",
+    "system": "o2_exhaust"
+   },
+   {
+    "id": "P229E-85@p421#1",
+    "code_full": "P229E-85",
+    "page": 421,
+    "occurrence": 1,
+    "description": "DFC for NOx signal range check of NOx sensor downstream(maximum)",
+    "system": "o2_exhaust"
+   },
+   {
+    "id": "P229E-84@p422#1",
+    "code_full": "P229E-84",
+    "page": 422,
+    "occurrence": 1,
+    "description": "DFC for NOx signal range check of Nox sensor upstream(minimum)",
+    "system": "o2_exhaust"
+   },
+   {
+    "id": "P229E-0D@p423#1",
+    "code_full": "P229E-0D",
+    "page": 423,
+    "occurrence": 1,
+    "description": "DFC for all open circuit errors of NOx sensor in NOx sensor 4 Bank 1",
+    "system": "o2_exhaust"
+   },
+   {
+    "id": "P229E-01@p424#1",
+    "code_full": "P229E-01",
+    "page": 424,
+    "occurrence": 1,
+    "description": "DFC for all short circuit errors of NOx sensor in NOx sensor 4 Bank 1",
+    "system": "o2_exhaust"
+   },
+   {
+    "id": "P229E-29@p425#1",
+    "code_full": "P229E-29",
+    "page": 425,
+    "occurrence": 1,
+    "description": "DFC for Sensor signal readiness diagnosis of downstream NOx sensor",
+    "system": "o2_exhaust"
+   },
+   {
+    "id": "P229E-22@p426#1",
+    "code_full": "P229E-22",
+    "page": 426,
+    "occurrence": 1,
+    "description": "DFC for linear lambda signal range check of downstream NOx sensor (maximum)",
+    "system": "o2_exhaust"
+   },
+   {
+    "id": "P229E-21@p427#1",
+    "code_full": "P229E-21",
+    "page": 427,
+    "occurrence": 1,
+    "description": "DFC for linear lambda signal range check of downstream NOx sensor (minimum)",
+    "system": "o2_exhaust"
+   },
+   {
+    "id": "P229E-0A@p428#1",
+    "code_full": "P229E-0A",
+    "page": 428,
+    "occurrence": 1,
+    "description": "DFC for Wire diagnosis of downstream NOx sensor",
+    "system": "o2_exhaust"
+   },
+   {
+    "id": "P229E-27@p429#1",
+    "code_full": "P229E-27",
+    "page": 429,
+    "occurrence": 1,
+    "description": "DFC for NOx offset max error detection downstream",
+    "system": "o2_exhaust"
+   },
+   {
+    "id": "P229E-26@p430#1",
+    "code_full": "P229E-26",
+    "page": 430,
+    "occurrence": 1,
+    "description": "DFC for NOx offset min error detection downstream",
+    "system": "o2_exhaust"
+   }
+  ],
+  "P229F": [
+   {
+    "id": "P229F-76@p265#1",
+    "code_full": "P229F-76",
+    "page": 265,
+    "occurrence": 1,
+    "description": "DFC for NOx Sensor Circuit Downstream Sensor Signal not plausible",
+    "system": "o2_exhaust"
+   }
+  ],
+  "P203B": [
+   {
+    "id": "P203B-85@p266#1",
+    "code_full": "P203B-85",
+    "page": 266,
+    "occurrence": 1,
+    "description": "DFC for Urea Level signal incorrect: too high",
+    "system": "scr_def"
+   },
+   {
+    "id": "P203B-84@p268#1",
+    "code_full": "P203B-84",
+    "page": 268,
+    "occurrence": 1,
+    "description": "DFC for Urea Level signal incorrect: too low",
+    "system": "scr_def"
+   }
+  ],
+  "P203F": [
+   {
+    "id": "P203F-00@p270#1",
+    "code_full": "P203F-00",
+    "page": 270,
+    "occurrence": 1,
+    "description": "DFC for Urea Level signal- Ad blue level too low",
+    "system": "scr_def"
+   },
+   {
+    "id": "P203F-84@p432#1",
+    "code_full": "P203F-84",
+    "page": 432,
+    "occurrence": 1,
+    "description": "DFC for Status of tank level for the detection of tank capacity on spare fluid level",
+    "system": "scr_def"
+   },
+   {
+    "id": "P203F-7B@p433#1",
+    "code_full": "P203F-7B",
+    "page": 433,
+    "occurrence": 1,
+    "description": "DFC for Status of minimum tank level for function guaranty",
+    "system": "scr_def"
+   }
+  ],
+  "P2043": [
+   {
+    "id": "P2043-85@p272#1",
+    "code_full": "P2043-85",
+    "page": 272,
+    "occurrence": 1,
+    "description": "DFC for Urea tank temperature sensor circuit high",
+    "system": "scr_def"
+   },
+   {
+    "id": "P2043-84@p274#1",
+    "code_full": "P2043-84",
+    "page": 274,
+    "occurrence": 1,
+    "description": "DFC for Urea tank temperature sensor circuit low",
+    "system": "scr_def"
+   }
+  ],
+  "P203A": [
+   {
+    "id": "P203A-24@p276#1",
+    "code_full": "P203A-24",
+    "page": 276,
+    "occurrence": 1,
+    "description": "DFC for Electrical failure of Urea tank Combined sensor high level line error",
+    "system": "scr_def"
+   },
+   {
+    "id": "P203A-23@p278#1",
+    "code_full": "P203A-23",
+    "page": 278,
+    "occurrence": 1,
+    "description": "DFC for Electrical failure of Urea tank Combined sensor low level line error",
+    "system": "scr_def"
+   },
+   {
+    "id": "P203A-29@p431#1",
+    "code_full": "P203A-29",
+    "page": 431,
+    "occurrence": 1,
+    "description": "DFC for No echo error in the Continuous Urea Level Sensor",
+    "system": "scr_def"
+   }
+  ],
+  "P206A": [
+   {
+    "id": "P206A-86@p280#1",
+    "code_full": "P206A-86",
+    "page": 280,
+    "occurrence": 1,
+    "description": "DFC for Diesel Exhaust Fluid DEF (Urea) Quality Sensor Signal Incorrect",
+    "system": "scr_def"
+   },
+   {
+    "id": "P206A-13@p281#1",
+    "code_full": "P206A-13",
+    "page": 281,
+    "occurrence": 1,
+    "description": "DFC for Diesel Exhaust Fluid DEF (Urea) Quality Sensor Signal not received",
+    "system": "scr_def"
+   },
+   {
+    "id": "P206A-F1@p434#1",
+    "code_full": "P206A-F1",
+    "page": 434,
+    "occurrence": 1,
+    "description": "Diagnostic Fault Check for fluid property type is diesel error",
+    "system": "scr_def"
+   },
+   {
+    "id": "P206A-F2@p435#1",
+    "code_full": "P206A-F2",
+    "page": 435,
+    "occurrence": 1,
+    "description": "Diagnostic Fault Check for DEF property detection error",
+    "system": "scr_def"
+   },
+   {
+    "id": "P206A-F3@p436#1",
+    "code_full": "P206A-F3",
+    "page": 436,
+    "occurrence": 1,
+    "description": "Diagnostic fault check for concentration stuck\u2212in\u2212range error",
+    "system": "scr_def"
+   }
+  ],
+  "P2BA9": [
+   {
+    "id": "P2BA9-00@p282#1",
+    "code_full": "P2BA9-00",
+    "page": 282,
+    "occurrence": 1,
+    "description": "DFC for Diesel Exhaust Fluid DEF (Urea) concentration too low",
+    "system": "scr_def"
+   }
+  ],
+  "P244B": [
+   {
+    "id": "P244B-00@p283#1",
+    "code_full": "P244B-00",
+    "page": 283,
+    "occurrence": 1,
+    "description": "DFC for Diesel Particulate Filter clogged",
+    "system": "dpf_regen"
+   }
+  ],
+  "P244A": [
+   {
+    "id": "P244A-00@p286#1",
+    "code_full": "P244A-00",
+    "page": 286,
+    "occurrence": 1,
+    "description": "DFC for Diesel Particulate Filter deteriorated",
+    "system": "dpf_regen"
+   }
+  ],
+  "P226D": [
+   {
+    "id": "P226D-00@p289#1",
+    "code_full": "P226D-00",
+    "page": 289,
+    "occurrence": 1,
+    "description": "DFC for Diesel Particulate Filter destroyed or removed",
+    "system": "dpf_regen"
+   }
+  ],
+  "P0421": [
+   {
+    "id": "P0421-00@p292#1",
+    "code_full": "P0421-00",
+    "page": 292,
+    "occurrence": 1,
+    "description": "DFC for Diesel Oxidation Catalyst (DOC) Passive Monitoring",
+    "system": "dpf_regen"
+   }
+  ],
+  "P20EE": [
+   {
+    "id": "P20EE-00@p294#1",
+    "code_full": "P20EE-00",
+    "page": 294,
+    "occurrence": 1,
+    "description": "DFC for Deteriorated SCR catalyst",
+    "system": "scr_def"
+   }
+  ],
+  "P2047": [
+   {
+    "id": "P2047-00@p295#1",
+    "code_full": "P2047-00",
+    "page": 295,
+    "occurrence": 1,
+    "description": "DFC for Urea Dosing Valve Disconnected",
+    "system": "scr_def"
+   },
+   {
+    "id": "P2047-4B@p297#1",
+    "code_full": "P2047-4B",
+    "page": 297,
+    "occurrence": 1,
+    "description": "DFC for Urea Dosing Valve control overheated",
+    "system": "scr_def"
+   },
+   {
+    "id": "P2047-7F@p303#1",
+    "code_full": "P2047-7F",
+    "page": 303,
+    "occurrence": 1,
+    "description": "DFC for Urea Dosing valve Defective",
+    "system": "scr_def"
+   }
+  ],
+  "P2049": [
+   {
+    "id": "P2049-00@p299#1",
+    "code_full": "P2049-00",
+    "page": 299,
+    "occurrence": 1,
+    "description": "DFC for Urea Dosing valve short to battery",
+    "system": "scr_def"
+   }
+  ],
+  "P2048": [
+   {
+    "id": "P2048-00@p301#1",
+    "code_full": "P2048-00",
+    "page": 301,
+    "occurrence": 1,
+    "description": "DFC for Urea Dosing valve shorted to ground",
+    "system": "scr_def"
+   }
+  ],
+  "P20A0": [
+   {
+    "id": "P20A0-00@p305#1",
+    "code_full": "P20A0-00",
+    "page": 305,
+    "occurrence": 1,
+    "description": "DFC for Urea Backflow Pump Disconnected",
+    "system": "scr_def"
+   },
+   {
+    "id": "P20A0-4B@p306#1",
+    "code_full": "P20A0-4B",
+    "page": 306,
+    "occurrence": 1,
+    "description": "DFC for Urea Backflow Pump control overheated",
+    "system": "scr_def"
+   },
+   {
+    "id": "P20A0-13@p462#1",
+    "code_full": "P20A0-13",
+    "page": 462,
+    "occurrence": 1,
+    "description": "DFC for SCR Open load error of the external relay",
+    "system": "scr_def"
+   }
+  ],
+  "P20A3": [
+   {
+    "id": "P20A3-00@p307#1",
+    "code_full": "P20A3-00",
+    "page": 307,
+    "occurrence": 1,
+    "description": "DFC for Urea Backflow pump shorted to battery",
+    "system": "scr_def"
+   },
+   {
+    "id": "P20A3-12@p464#1",
+    "code_full": "P20A3-12",
+    "page": 464,
+    "occurrence": 1,
+    "description": "DFC for SCR Short circuit to battery of the external relay",
+    "system": "scr_def"
+   }
+  ],
+  "P20A2": [
+   {
+    "id": "P20A2-00@p308#1",
+    "code_full": "P20A2-00",
+    "page": 308,
+    "occurrence": 1,
+    "description": "DFC for Urea Backflow pump shorted to ground",
+    "system": "scr_def"
+   },
+   {
+    "id": "P20A2-11@p465#1",
+    "code_full": "P20A2-11",
+    "page": 465,
+    "occurrence": 1,
+    "description": "DFC for SCR Short circuit to ground of the external relay",
+    "system": "scr_def"
+   }
+  ],
+  "P208A": [
+   {
+    "id": "P208A-00@p309#1",
+    "code_full": "P208A-00",
+    "page": 309,
+    "occurrence": 1,
+    "description": "DFC for Urea Main Pump Disconnected",
+    "system": "scr_def"
+   },
+   {
+    "id": "P208A-4B@p310#1",
+    "code_full": "P208A-4B",
+    "page": 310,
+    "occurrence": 1,
+    "description": "DFC for Urea Main Pump control overheated",
+    "system": "scr_def"
+   }
+  ],
+  "P208D": [
+   {
+    "id": "P208D-00@p311#1",
+    "code_full": "P208D-00",
+    "page": 311,
+    "occurrence": 1,
+    "description": "DFC for Urea Main pump shorted to battery",
+    "system": "scr_def"
+   }
+  ],
+  "P208C": [
+   {
+    "id": "P208C-00@p312#1",
+    "code_full": "P208C-00",
+    "page": 312,
+    "occurrence": 1,
+    "description": "DFC for Urea Main pump shorted to ground",
+    "system": "scr_def"
+   }
+  ],
+  "P20F5": [
+   {
+    "id": "P20F5-7A@p313#1",
+    "code_full": "P20F5-7A",
+    "page": 313,
+    "occurrence": 1,
+    "description": "DFC for Reductant Consumption Too High Level 2",
+    "system": "scr_def"
+   },
+   {
+    "id": "P20F5-00@p314#1",
+    "code_full": "P20F5-00",
+    "page": 314,
+    "occurrence": 1,
+    "description": "DFC for Reductant Consumption Too High Level 1",
+    "system": "scr_def"
+   }
+  ],
+  "P20F4": [
+   {
+    "id": "P20F4-9B@p315#1",
+    "code_full": "P20F4-9B",
+    "page": 315,
+    "occurrence": 1,
+    "description": "DFC for Reductant Consumption Too Low Level 2",
+    "system": "scr_def"
+   },
+   {
+    "id": "P20F4-00@p316#1",
+    "code_full": "P20F4-00",
+    "page": 316,
+    "occurrence": 1,
+    "description": "DFC for Reductant Consumption Too Low Level 1",
+    "system": "scr_def"
+   }
+  ],
+  "P204F": [
+   {
+    "id": "P204F-7C@p317#1",
+    "code_full": "P204F-7C",
+    "page": 317,
+    "occurrence": 1,
+    "description": "DFC for SCR Monitoring Pressure BuildUp Error",
+    "system": "scr_def"
+   },
+   {
+    "id": "P204F-73@p402#1",
+    "code_full": "P204F-73",
+    "page": 402,
+    "occurrence": 1,
+    "description": "DFC for Defective pressure reduction in SCR",
+    "system": "scr_def"
+   }
+  ],
+  "P05EE": [
+   {
+    "id": "P05EE-00@p318#1",
+    "code_full": "P05EE-00",
+    "page": 318,
+    "occurrence": 1,
+    "description": "DFC for SCR supply pump not plausible",
+    "system": "scr_def"
+   }
+  ],
+  "P048B": [
+   {
+    "id": "P048B-11@p319#1",
+    "code_full": "P048B-11",
+    "page": 319,
+    "occurrence": 1,
+    "description": "DFC for Exhaust throttle valve position sensor voltage SRC low",
+    "system": "exhaust_throttle"
+   },
+   {
+    "id": "P048B-12@p322#1",
+    "code_full": "P048B-12",
+    "page": 322,
+    "occurrence": 1,
+    "description": "DFC for Exhaust throttle valve position sensor voltage SRC high",
+    "system": "exhaust_throttle"
+   }
+  ],
+  "P04A5": [
+   {
+    "id": "P04A5-00@p325#1",
+    "code_full": "P04A5-00",
+    "page": 325,
+    "occurrence": 1,
+    "description": "Exhaust throttle Valve jammed at closed position",
+    "system": "exhaust_throttle"
+   }
+  ],
+  "P04A4": [
+   {
+    "id": "P04A4-00@p328#1",
+    "code_full": "P04A4-00",
+    "page": 328,
+    "occurrence": 1,
+    "description": "Exhaust throttle Valve jammed at Open position",
+    "system": "exhaust_throttle"
+   }
+  ],
+  "P048D": [
+   {
+    "id": "P048D-00@p331#1",
+    "code_full": "P048D-00",
+    "page": 331,
+    "occurrence": 1,
+    "description": "Short circuit to ground on Out1 error for ETV Valve H-bridge",
+    "system": "exhaust_throttle"
+   }
+  ],
+  "P048E": [
+   {
+    "id": "P048E-00@p334#1",
+    "code_full": "P048E-00",
+    "page": 334,
+    "occurrence": 1,
+    "description": "Short circuit to Battery on Out1 error for ETV Valve H-bridge",
+    "system": "exhaust_throttle"
+   }
+  ],
+  "P04A8": [
+   {
+    "id": "P04A8-00@p337#1",
+    "code_full": "P04A8-00",
+    "page": 337,
+    "occurrence": 1,
+    "description": "Short circuit to ground on Out2 error for ETV Valve H-bridge",
+    "system": "exhaust_throttle"
+   }
+  ],
+  "P04A9": [
+   {
+    "id": "P04A9-00@p340#1",
+    "code_full": "P04A9-00",
+    "page": 340,
+    "occurrence": 1,
+    "description": "Short circuit to battery on Out2 error for ETV valve H-bridge",
+    "system": "exhaust_throttle"
+   }
+  ],
+  "P04A0": [
+   {
+    "id": "P04A0-00@p343#1",
+    "code_full": "P04A0-00",
+    "page": 343,
+    "occurrence": 1,
+    "description": "DFC for ETV governing Deviation",
+    "system": "exhaust_throttle"
+   }
+  ],
+  "P040C": [
+   {
+    "id": "P040C-00@p346#1",
+    "code_full": "P040C-00",
+    "page": 346,
+    "occurrence": 1,
+    "description": "DFC for EGR cooler downstream temperature Sensor Short circuit to ground",
+    "system": "egr"
+   }
+  ],
+  "P040D": [
+   {
+    "id": "P040D-00@p349#1",
+    "code_full": "P040D-00",
+    "page": 349,
+    "occurrence": 1,
+    "description": "DFC for EGR cooler downstream temperature Sensor signal Open circuit or Short",
+    "system": "egr"
+   }
+  ],
+  "P040B": [
+   {
+    "id": "P040B-00@p352#1",
+    "code_full": "P040B-00",
+    "page": 352,
+    "occurrence": 1,
+    "description": "DFC for EGR cooler downstream Temperature Sensor Circuit Range High",
+    "system": "egr"
+   }
+  ],
+  "P2457": [
+   {
+    "id": "P2457-00@p355#1",
+    "code_full": "P2457-00",
+    "page": 355,
+    "occurrence": 1,
+    "description": "DFC for EGR Cooler Efficiency Below Threshold",
+    "system": "egr"
+   }
+  ],
+  "P026A": [
+   {
+    "id": "P026A-00@p358#1",
+    "code_full": "P026A-00",
+    "page": 358,
+    "occurrence": 1,
+    "description": "DFC for Charge Air Cooler Efficiency Below Threshold",
+    "system": "turbo_boost"
+   }
+  ],
+  "P0562": [
+   {
+    "id": "P0562-00@p359#1",
+    "code_full": "P0562-00",
+    "page": 359,
+    "occurrence": 1,
+    "description": "DFC for Signal Range Max Check of Battery Voltage",
+    "system": "electrical"
+   }
+  ],
+  "P0563": [
+   {
+    "id": "P0563-00@p360#1",
+    "code_full": "P0563-00",
+    "page": 360,
+    "occurrence": 1,
+    "description": "DFC for Signal Range Min Check of Battery Voltage",
+    "system": "electrical"
+   }
+  ],
+  "P0072": [
+   {
+    "id": "P0072-00@p363#1",
+    "code_full": "P0072-00",
+    "page": 363,
+    "occurrence": 1,
+    "description": "DFC for Ambient temperature Sensor Short circuit to ground",
+    "system": "intake_air"
+   }
+  ],
+  "P0073": [
+   {
+    "id": "P0073-00@p366#1",
+    "code_full": "P0073-00",
+    "page": 366,
+    "occurrence": 1,
+    "description": "DFC for Ambient temperature Sensor Open Circuit or Short circuit to battery",
+    "system": "intake_air"
+   }
+  ],
+  "P0071": [
+   {
+    "id": "P0071-00@p369#1",
+    "code_full": "P0071-00",
+    "page": 369,
+    "occurrence": 1,
+    "description": "DFC for Ambient temperature Sensor Physical Range High",
+    "system": "intake_air"
+   }
+  ],
+  "P1000": [
+   {
+    "id": "P1000-00@p370#1",
+    "code_full": "P1000-00",
+    "page": 370,
+    "occurrence": 1,
+    "description": "DFC for Air temperature monitoring plausibility check for ambient temperature",
+    "system": "intake_air"
+   }
+  ],
+  "P1001": [
+   {
+    "id": "P1001-00@p371#1",
+    "code_full": "P1001-00",
+    "page": 371,
+    "occurrence": 1,
+    "description": "DFC for Air temperature monitoring plausibility check for PFM temperature",
+    "system": "intake_air"
+   }
+  ],
+  "P1002": [
+   {
+    "id": "P1002-00@p372#1",
+    "code_full": "P1002-00",
+    "page": 372,
+    "occurrence": 1,
+    "description": "DFC for Air temperature monitoring plausibility check for Boost temperature",
+    "system": "turbo_boost"
+   }
+  ],
+  "P1003": [
+   {
+    "id": "P1003-00@p373#1",
+    "code_full": "P1003-00",
+    "page": 373,
+    "occurrence": 1,
+    "description": "DFC for Air temperature monitoring plausibility check for EGR cooler downstream",
+    "system": "egr"
+   }
+  ],
+  "P1004": [
+   {
+    "id": "P1004-00@p374#1",
+    "code_full": "P1004-00",
+    "page": 374,
+    "occurrence": 1,
+    "description": "DFC for Air temperature monitoring plausibility total sensor",
+    "system": "intake_air"
+   }
+  ],
+  "P2147": [
+   {
+    "id": "P2147-00@p375#1",
+    "code_full": "P2147-00",
+    "page": 375,
+    "occurrence": 1,
+    "description": "DFC for Injector short circuit high side and main supply for cylinder 1",
+    "system": "injector"
+   }
+  ],
+  "P2150": [
+   {
+    "id": "P2150-00@p378#1",
+    "code_full": "P2150-00",
+    "page": 378,
+    "occurrence": 1,
+    "description": "DFC for Injector short circuit high side and main supply for cylinder 2",
+    "system": "injector"
+   }
+  ],
+  "P2153": [
+   {
+    "id": "P2153-00@p381#1",
+    "code_full": "P2153-00",
+    "page": 381,
+    "occurrence": 1,
+    "description": "DFC for Injector short circuit high side and main supply for cylinder 3",
+    "system": "injector"
+   }
+  ],
+  "P2156": [
+   {
+    "id": "P2156-00@p384#1",
+    "code_full": "P2156-00",
+    "page": 384,
+    "occurrence": 1,
+    "description": "DFC for Injector short circuit high side and main supply for cylinder 4",
+    "system": "injector"
+   }
+  ],
+  "P0045": [
+   {
+    "id": "P0045-13@p387#1",
+    "code_full": "P0045-13",
+    "page": 387,
+    "occurrence": 1,
+    "description": "Turbocharger Boost Control Circuit Open Load",
+    "system": "turbo_boost"
+   }
+  ],
+  "P22CF": [
+   {
+    "id": "P22CF-73@p390#1",
+    "code_full": "P22CF-73",
+    "page": 390,
+    "occurrence": 1,
+    "description": "Turbocharger Boost Control actuator valve jammed at closed position",
+    "system": "turbo_boost"
+   },
+   {
+    "id": "P22CF-72@p393#1",
+    "code_full": "P22CF-72",
+    "page": 393,
+    "occurrence": 1,
+    "description": "Turbocharger Boost Control actuator valve jammed at open position",
+    "system": "turbo_boost"
+   }
+  ],
+  "P003A": [
+   {
+    "id": "P003A-00@p396#1",
+    "code_full": "P003A-00",
+    "page": 396,
+    "occurrence": 1,
+    "description": "Turbocharger Boost Control \"A\" Position Exceeded Learning Limit",
+    "system": "turbo_boost"
+   }
+  ],
+  "P003B": [
+   {
+    "id": "P003B-00@p399#1",
+    "code_full": "P003B-00",
+    "page": 399,
+    "occurrence": 1,
+    "description": "Turbocharger Boost Control \"B\" Position Exceeded Learning Limit",
+    "system": "turbo_boost"
+   }
+  ],
+  "P2453": [
+   {
+    "id": "P2453-64@p404#1",
+    "code_full": "P2453-64",
+    "page": 404,
+    "occurrence": 1,
+    "description": "DFC for the Delta pressure sensor plausibility",
+    "system": "level2_monitoring"
+   }
+  ],
+  "P2205": [
+   {
+    "id": "P2205-00@p405#1",
+    "code_full": "P2205-00",
+    "page": 405,
+    "occurrence": 1,
+    "description": "DFC for heater unavailability for upstream NOx sensor",
+    "system": "o2_exhaust"
+   },
+   {
+    "id": "P2205-29@p406#1",
+    "code_full": "P2205-29",
+    "page": 406,
+    "occurrence": 1,
+    "description": "DFC for heater readiness diagnosis of upstream NOx sensor",
+    "system": "o2_exhaust"
+   }
+  ],
+  "P22A3": [
+   {
+    "id": "P22A3-00@p418#1",
+    "code_full": "P22A3-00",
+    "page": 418,
+    "occurrence": 1,
+    "description": "DFC for heater unavailability for downstream NOx sensor",
+    "system": "o2_exhaust"
+   },
+   {
+    "id": "P22A3-29@p419#1",
+    "code_full": "P22A3-29",
+    "page": 419,
+    "occurrence": 1,
+    "description": "DFC for heater readiness diagnosis of downstream NOx sensor",
+    "system": "o2_exhaust"
+   }
+  ],
+  "P2463": [
+   {
+    "id": "P2463-85@p437#1",
+    "code_full": "P2463-85",
+    "page": 437,
+    "occurrence": 1,
+    "description": "Diagnostic fault check for Maximum soot mass",
+    "system": "dpf_regen"
+   }
+  ],
+  "P243F": [
+   {
+    "id": "P243F-F0@p440#1",
+    "code_full": "P243F-F0",
+    "page": 440,
+    "occurrence": 1,
+    "description": "Diagnostic fault check for Maximum soot mass during torque limitation",
+    "system": "dpf_regen"
+   }
+  ],
+  "P242F": [
+   {
+    "id": "P242F-00@p443#1",
+    "code_full": "P242F-00",
+    "page": 443,
+    "occurrence": 1,
+    "description": "Diagnostic fault check To check if volume of Ash load has exceeded the limit",
+    "system": "dpf_regen"
+   }
+  ],
+  "P2458": [
+   {
+    "id": "P2458-00@p446#1",
+    "code_full": "P2458-00",
+    "page": 446,
+    "occurrence": 1,
+    "description": "Diagnostic fault check for a locked regeneration",
+    "system": "dpf_regen"
+   },
+   {
+    "id": "P2458-09@p452#1",
+    "code_full": "P2458-09",
+    "page": 452,
+    "occurrence": 1,
+    "description": "Diagnostic fault check for driver demand regeneration button stuck",
+    "system": "dpf_regen"
+   }
+  ],
+  "P243C": [
+   {
+    "id": "P243C-00@p449#1",
+    "code_full": "P243C-00",
+    "page": 449,
+    "occurrence": 1,
+    "description": "Diagnostic fault check for too frequent regeneration of the particulate filter",
+    "system": "dpf_regen"
+   }
+  ],
+  "P24FE": [
+   {
+    "id": "P24FE-85@p455#1",
+    "code_full": "P24FE-85",
+    "page": 455,
+    "occurrence": 1,
+    "description": "DFC for SCR Monitoring of the upper limit of the adaption factor",
+    "system": "scr_def"
+   },
+   {
+    "id": "P24FE-84@p456#1",
+    "code_full": "P24FE-84",
+    "page": 456,
+    "occurrence": 1,
+    "description": "DFC for SCR Monitoring of the lower limit of the adaption factor",
+    "system": "scr_def"
+   }
+  ],
+  "P202E": [
+   {
+    "id": "P202E-85@p460#1",
+    "code_full": "P202E-85",
+    "page": 460,
+    "occurrence": 1,
+    "description": "DFC for SCR System Model Pressure Error due to positive pressure offset",
+    "system": "scr_def"
+   },
+   {
+    "id": "P202E-84@p461#1",
+    "code_full": "P202E-84",
+    "page": 461,
+    "occurrence": 1,
+    "description": "DFC for SCR System Model Pressure Error due to negative pressure offset",
+    "system": "scr_def"
+   }
+  ],
+  "P20A1": [
+   {
+    "id": "P20A1-4B@p463#1",
+    "code_full": "P20A1-4B",
+    "page": 463,
+    "occurrence": 1,
+    "description": "DFC for SCR Over temperature error of the external relay",
+    "system": "scr_def"
+   }
+  ],
+  "P10FF": [
+   {
+    "id": "P10FF-00@p466#1",
+    "code_full": "P10FF-00",
+    "page": 466,
+    "occurrence": 1,
+    "description": "DFC for frozen DEF",
+    "system": "scr_def"
+   }
+  ],
+  "P0215": [
+   {
+    "id": "P0215-00@p467#1",
+    "code_full": "P0215-00",
+    "page": 467,
+    "occurrence": 1,
+    "description": "DFC for Injection cut off request",
+    "system": "level2_monitoring"
+   }
+  ],
+  "P0611": [
+   {
+    "id": "P0611-F5@p468#1",
+    "code_full": "P0611-F5",
+    "page": 468,
+    "occurrence": 1,
+    "description": "DFC for Fuel Injector Control Module Performance -1",
+    "system": "injector"
+   },
+   {
+    "id": "P0611-F8@p469#1",
+    "code_full": "P0611-F8",
+    "page": 469,
+    "occurrence": 1,
+    "description": "DFC for Fuel Injector Control Module Performance -2",
+    "system": "injector"
+   }
+  ],
+  "P060B": [
+   {
+    "id": "P060B-00@p470#1",
+    "code_full": "P060B-00",
+    "page": 470,
+    "occurrence": 1,
+    "description": "DFC for Internal Control Module A/D Processing Performance",
+    "system": "ecu_internal"
+   }
+  ],
+  "P061E": [
+   {
+    "id": "P061E-00@p471#1",
+    "code_full": "P061E-00",
+    "page": 471,
+    "occurrence": 1,
+    "description": "DFC for Internal Control Module Brake Signal Performance",
+    "system": "pedal_clutch_brake"
+   }
+  ],
+  "P1014": [
+   {
+    "id": "P1014-00@p473#1",
+    "code_full": "P1014-00",
+    "page": 473,
+    "occurrence": 1,
+    "description": "DFC to report the plausibility error between level 1 & level 2 energizing time",
+    "system": "level2_monitoring"
+   }
+  ],
+  "P1015": [
+   {
+    "id": "P1015-00@p474#1",
+    "code_full": "P1015-00",
+    "page": 474,
+    "occurrence": 1,
+    "description": "DFC to report the error due to plausibility between the injection begin v/s",
+    "system": "level2_monitoring"
+   }
+  ],
+  "P1111": [
+   {
+    "id": "P1111-00@p475#1",
+    "code_full": "P1111-00",
+    "page": 475,
+    "occurrence": 1,
+    "description": "DFC to report the error in the plausibility of ITC\u2212energizing time",
+    "system": "level2_monitoring"
+   }
+  ],
+  "P1112": [
+   {
+    "id": "P1112-00@p476#1",
+    "code_full": "P1112-00",
+    "page": 476,
+    "occurrence": 1,
+    "description": "DFC to report the error in the plausibility of VCC\u2212energizing time",
+    "system": "level2_monitoring"
+   }
+  ],
+  "P1113": [
+   {
+    "id": "P1113-00@p477#1",
+    "code_full": "P1113-00",
+    "page": 477,
+    "occurrence": 1,
+    "description": "DFC to report the error in the plausibility of ZFC\u2212energizing time",
+    "system": "level2_monitoring"
+   }
+  ],
+  "P1018": [
+   {
+    "id": "P1018-00@p478#1",
+    "code_full": "P1018-00",
+    "page": 478,
+    "occurrence": 1,
+    "description": "DFC to report the Error in the PoI2 efficiency received from level 1",
+    "system": "level2_monitoring"
+   }
+  ],
+  "P1019": [
+   {
+    "id": "P1019-00@p479#1",
+    "code_full": "P1019-00",
+    "page": 479,
+    "occurrence": 1,
+    "description": "DFC to report the Error in the PoI3 efficiency received from level 1",
+    "system": "level2_monitoring"
+   }
+  ],
+  "P1080": [
+   {
+    "id": "P1080-00@p480#1",
+    "code_full": "P1080-00",
+    "page": 480,
+    "occurrence": 1,
+    "description": "DFC to report the Error in the operating mode received from level 1",
+    "system": "level2_monitoring"
+   }
+  ],
+  "P1081": [
+   {
+    "id": "P1081-00@p481#1",
+    "code_full": "P1081-00",
+    "page": 481,
+    "occurrence": 1,
+    "description": "DFC to report the error in plausibility check of the quantity correction in level 1",
+    "system": "level2_monitoring"
+   }
+  ],
+  "P101B": [
+   {
+    "id": "P101B-00@p482#1",
+    "code_full": "P101B-00",
+    "page": 482,
+    "occurrence": 1,
+    "description": "DFC to report the error if QWC quantity calculated in level 1 is not plausible",
+    "system": "level2_monitoring"
+   }
+  ],
+  "P101C": [
+   {
+    "id": "P101C-00@p483#1",
+    "code_full": "P101C-00",
+    "page": 483,
+    "occurrence": 1,
+    "description": "DFC to report the plausibility error in rail pressure monitoring",
+    "system": "rail_pressure"
+   }
+  ],
+  "P1082": [
+   {
+    "id": "P1082-00@p484#1",
+    "code_full": "P1082-00",
+    "page": 484,
+    "occurrence": 1,
+    "description": "DFC to report the fault in Remote APP plausibility check",
+    "system": "level2_monitoring"
+   }
+  ],
+  "P1083": [
+   {
+    "id": "P1083-00@p485#1",
+    "code_full": "P1083-00",
+    "page": 485,
+    "occurrence": 1,
+    "description": "DFC to report error if start requested in level 1, but not released in level 2",
+    "system": "level2_monitoring"
+   }
+  ],
+  "P0184": [
+   {
+    "id": "P0184-00@p486#1",
+    "code_full": "P0184-00",
+    "page": 486,
+    "occurrence": 1,
+    "description": "DFC to report error for Internal Control Module Torque Calculation Performance",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1114": [
+   {
+    "id": "P1114-00@p487#1",
+    "code_full": "P1114-00",
+    "page": 487,
+    "occurrence": 1,
+    "description": "DFC to report the fault in energizing time comparison during overheat protection",
+    "system": "level2_monitoring"
+   }
+  ],
+  "P1085": [
+   {
+    "id": "P1085-00@p488#1",
+    "code_full": "P1085-00",
+    "page": 488,
+    "occurrence": 1,
+    "description": "DFC to report error in the post\u2212build selectable monitoring",
+    "system": "level2_monitoring"
+   }
+  ],
+  "P060C": [
+   {
+    "id": "P060C-00@p489#1",
+    "code_full": "P060C-00",
+    "page": 489,
+    "occurrence": 1,
+    "description": "DFC for error due to Internal Control Module Main Processor Performance",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1668": [
+   {
+    "id": "P1668-00@p490#1",
+    "code_full": "P1668-00",
+    "page": 490,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU0 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P165D": [
+   {
+    "id": "P165D-00@p491#1",
+    "code_full": "P165D-00",
+    "page": 491,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU103 which is read out of the FCCU",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1656": [
+   {
+    "id": "P1656-00@p492#1",
+    "code_full": "P1656-00",
+    "page": 492,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU10 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P164E": [
+   {
+    "id": "P164E-00@p493#1",
+    "code_full": "P164E-00",
+    "page": 493,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU111 which is read out of the FCCU",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1646": [
+   {
+    "id": "P1646-00@p494#1",
+    "code_full": "P1646-00",
+    "page": 494,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU115 which is read out of the FCCU",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1652": [
+   {
+    "id": "P1652-00@p495#1",
+    "code_full": "P1652-00",
+    "page": 495,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU12 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1647": [
+   {
+    "id": "P1647-00@p496#1",
+    "code_full": "P1647-00",
+    "page": 496,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU18 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P164D": [
+   {
+    "id": "P164D-00@p497#1",
+    "code_full": "P164D-00",
+    "page": 497,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU19 which is read out of the FCCU",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1666": [
+   {
+    "id": "P1666-00@p498#1",
+    "code_full": "P1666-00",
+    "page": 498,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU1 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P164B": [
+   {
+    "id": "P164B-00@p499#1",
+    "code_full": "P164B-00",
+    "page": 499,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU20 which is read out of the FCCU",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1675": [
+   {
+    "id": "P1675-00@p500#1",
+    "code_full": "P1675-00",
+    "page": 500,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU22 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P166F": [
+   {
+    "id": "P166F-00@p501#1",
+    "code_full": "P166F-00",
+    "page": 501,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU25 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1673": [
+   {
+    "id": "P1673-00@p502#1",
+    "code_full": "P1673-00",
+    "page": 502,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU28 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1641": [
+   {
+    "id": "P1641-00@p503#1",
+    "code_full": "P1641-00",
+    "page": 503,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU2 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1650": [
+   {
+    "id": "P1650-00@p504#1",
+    "code_full": "P1650-00",
+    "page": 504,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU31 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P165C": [
+   {
+    "id": "P165C-00@p505#1",
+    "code_full": "P165C-00",
+    "page": 505,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU32 which is read out of the FCCU",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1667": [
+   {
+    "id": "P1667-00@p506#1",
+    "code_full": "P1667-00",
+    "page": 506,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU33 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1664": [
+   {
+    "id": "P1664-00@p507#1",
+    "code_full": "P1664-00",
+    "page": 507,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU34 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1665": [
+   {
+    "id": "P1665-00@p508#1",
+    "code_full": "P1665-00",
+    "page": 508,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU35 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1669": [
+   {
+    "id": "P1669-00@p509#1",
+    "code_full": "P1669-00",
+    "page": 509,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU36 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1642": [
+   {
+    "id": "P1642-00@p510#1",
+    "code_full": "P1642-00",
+    "page": 510,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU37 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P164C": [
+   {
+    "id": "P164C-00@p511#1",
+    "code_full": "P164C-00",
+    "page": 511,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU38 which is read out of the FCCU",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1648": [
+   {
+    "id": "P1648-00@p512#1",
+    "code_full": "P1648-00",
+    "page": 512,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU39 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P164A": [
+   {
+    "id": "P164A-00@p513#1",
+    "code_full": "P164A-00",
+    "page": 513,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU3 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P165A": [
+   {
+    "id": "P165A-00@p514#1",
+    "code_full": "P165A-00",
+    "page": 514,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU40 which is read out of the FCCU",
+    "system": "ecu_internal"
+   }
+  ],
+  "P166C": [
+   {
+    "id": "P166C-00@p515#1",
+    "code_full": "P166C-00",
+    "page": 515,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU41 which is read out of the FCCU",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1655": [
+   {
+    "id": "P1655-00@p516#1",
+    "code_full": "P1655-00",
+    "page": 516,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU42 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1670": [
+   {
+    "id": "P1670-00@p517#1",
+    "code_full": "P1670-00",
+    "page": 517,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU43 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1649": [
+   {
+    "id": "P1649-00@p518#1",
+    "code_full": "P1649-00",
+    "page": 518,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU44 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1658": [
+   {
+    "id": "P1658-00@p519#1",
+    "code_full": "P1658-00",
+    "page": 519,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU45 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P165F": [
+   {
+    "id": "P165F-00@p520#1",
+    "code_full": "P165F-00",
+    "page": 520,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU46 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1654": [
+   {
+    "id": "P1654-00@p521#1",
+    "code_full": "P1654-00",
+    "page": 521,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU49 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1643": [
+   {
+    "id": "P1643-00@p522#1",
+    "code_full": "P1643-00",
+    "page": 522,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU50 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1653": [
+   {
+    "id": "P1653-00@p523#1",
+    "code_full": "P1653-00",
+    "page": 523,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU51 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1672": [
+   {
+    "id": "P1672-00@p524#1",
+    "code_full": "P1672-00",
+    "page": 524,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU52 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P164F": [
+   {
+    "id": "P164F-00@p525#1",
+    "code_full": "P164F-00",
+    "page": 525,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU53 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1674": [
+   {
+    "id": "P1674-00@p526#1",
+    "code_full": "P1674-00",
+    "page": 526,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU54 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1657": [
+   {
+    "id": "P1657-00@p527#1",
+    "code_full": "P1657-00",
+    "page": 527,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU55 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1644": [
+   {
+    "id": "P1644-00@p528#1",
+    "code_full": "P1644-00",
+    "page": 528,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU56 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P166D": [
+   {
+    "id": "P166D-00@p529#1",
+    "code_full": "P166D-00",
+    "page": 529,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU57 which is read out of the FCCU",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1671": [
+   {
+    "id": "P1671-00@p530#1",
+    "code_full": "P1671-00",
+    "page": 530,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU58 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1660": [
+   {
+    "id": "P1660-00@p531#1",
+    "code_full": "P1660-00",
+    "page": 531,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU59 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1677": [
+   {
+    "id": "P1677-00@p532#1",
+    "code_full": "P1677-00",
+    "page": 532,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU5 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1640": [
+   {
+    "id": "P1640-00@p533#1",
+    "code_full": "P1640-00",
+    "page": 533,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU63 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P166B": [
+   {
+    "id": "P166B-00@p534#1",
+    "code_full": "P166B-00",
+    "page": 534,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU64 which is read out of the FCCU",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1676": [
+   {
+    "id": "P1676-00@p535#1",
+    "code_full": "P1676-00",
+    "page": 535,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU65 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P165E": [
+   {
+    "id": "P165E-00@p536#1",
+    "code_full": "P165E-00",
+    "page": 536,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU6 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1661": [
+   {
+    "id": "P1661-00@p537#1",
+    "code_full": "P1661-00",
+    "page": 537,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU70 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P165B": [
+   {
+    "id": "P165B-00@p538#1",
+    "code_full": "P165B-00",
+    "page": 538,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU71 which is read out of the FCCU",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1651": [
+   {
+    "id": "P1651-00@p539#1",
+    "code_full": "P1651-00",
+    "page": 539,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU74 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1663": [
+   {
+    "id": "P1663-00@p540#1",
+    "code_full": "P1663-00",
+    "page": 540,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU75 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P166E": [
+   {
+    "id": "P166E-00@p541#1",
+    "code_full": "P166E-00",
+    "page": 541,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU78 which is read out of the FCCU",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1645": [
+   {
+    "id": "P1645-00@p542#1",
+    "code_full": "P1645-00",
+    "page": 542,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU79 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1662": [
+   {
+    "id": "P1662-00@p543#1",
+    "code_full": "P1662-00",
+    "page": 543,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU80 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P1659": [
+   {
+    "id": "P1659-00@p544#1",
+    "code_full": "P1659-00",
+    "page": 544,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU81 which is read out of the FCCU hardware",
+    "system": "ecu_internal"
+   }
+  ],
+  "P166A": [
+   {
+    "id": "P166A-00@p545#1",
+    "code_full": "P166A-00",
+    "page": 545,
+    "occurrence": 1,
+    "description": "DFC for Status of the EMM alarm FCCU85 which is read out of the FCCU",
+    "system": "ecu_internal"
+   }
+  ]
+ }
+}

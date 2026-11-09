@@ -1,10 +1,9 @@
 .venv/
 __pycache__/
 *.pyc
-index/
-images/
+# index/, images/, data/dtc_*.jsonl and index_naive/ are committed (rebuildable,
+# ~16 MB) so a fresh clone runs without the rebuild. models/ stays out (>100 MB files).
 models/
-data/*.jsonl
 !data/validation_report.md
 !data/gold_autogen.jsonl
 
@@ -21,7 +20,6 @@ data/*.jsonl
 hf_cache/
 .huggingface/
 index_exp/
-index_naive/
 
 # Phase 10.3 audit log (runtime artifact)
 data/demo/audit.jsonl
